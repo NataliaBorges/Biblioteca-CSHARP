@@ -27,5 +27,15 @@ namespace Biblioteca.View.Relatorio {
             RelatorioEmprestimoView emprestimo = new RelatorioEmprestimoView();
             novaJanela(emprestimo);
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            RelatorioLeitorView leitor = new RelatorioLeitorView();
+            novaJanela(leitor);
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            RelatorioLivroView livro = new RelatorioLivroView();
+            novaJanela(livro);
+        }
     }
 }

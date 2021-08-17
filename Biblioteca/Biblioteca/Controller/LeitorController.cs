@@ -132,5 +132,39 @@ namespace Biblioteca.Controller {
             }
         }
 
+        public List<LeitorModel> Relatorio(DateTime inicio, DateTime fim) {
+            Cmd.Connection = connection.RetornaConexao();
+
+            Cmd.CommandText = @"SELECT COUNT(E.ID_emprestimo) AS Emprestimos, L.* 
+                                FROM Leitor AS L
+                                INNER JOIN Emprestimo AS E ON (E.ID_leitor = L.ID_leitor)
+                                WHERE E.Data_emprestimo BETWEEN @inicio AND @fim
+                                GROUP BY L.ID_leitor, L.Nome_Leitor, L.Data_Nascimento, L.Telefone, L.CPF, L.Endereco";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@inicio", inicio);
+            Cmd.Parameters.AddWithValue("@fim", fim);
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<LeitorModel> lista = new List<LeitorModel>();
+
+            while (reader.Read()) {
+                LeitorModel leitor = new LeitorModel(
+                    (int)reader["ID_leitor"],
+                    (String)reader["Nome_Leitor"],
+                    (DateTime)reader["Data_Nascimento"],
+                    (String)reader["Telefone"],
+                    (String)reader["CPF"],
+                    (String)reader["Endereco"]
+                );
+                leitor.QuantidadeEmprestimo = (int)reader["Emprestimos"];
+                lista.Add(leitor);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
     }
 }

@@ -182,5 +182,46 @@ namespace Biblioteca.Controller {
             }
         }
 
+        public List<LivroModel> Relatorio(DateTime inicio, DateTime fim) {
+            Cmd.Connection = connection.RetornaConexao();
+
+            Cmd.CommandText = @"SELECT L.*, F.Nome_fornecedor AS 'Fornecedor', IE.ID_emprestimo AS 'Emprestimo'
+                                FROM Livro AS L
+                                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                                INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
+                                WHERE EXISTS (
+	                                SELECT * 
+	                                FROM Item_emprestimo AS IE
+	                                INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
+	                                WHERE IE.ID_livro = L.ID_Livro AND E.Data_emprestimo BETWEEN @inicio AND @fim
+                                )";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@inicio", inicio);
+            Cmd.Parameters.AddWithValue("@fim", fim);
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<LivroModel> lista = new List<LivroModel>();
+
+            while (reader.Read()) {
+                LivroModel livro = new LivroModel(
+                    (int)reader["ID_livro"],
+                    (int)reader["ID_fornecedor"],
+                    (String)reader["Nome_Livro"],
+                    (String)reader["Autor_Livro"],
+                    (String)reader["Edicao"],
+                    (String)reader["Ano_publicacao"],
+                    (DateTime)reader["Data_aquisicao"],
+                    (String)reader["Fornecedor"]
+                );
+                livro.Id_emprestimo = (int)reader["Emprestimo"];
+                lista.Add(livro);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
     }
 }

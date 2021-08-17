@@ -11,6 +11,8 @@ namespace Biblioteca.Model {
         public String CPF { get; set; }
         public String Endereco { get; set; }
 
+        public int QuantidadeEmprestimo { get; set; }
+
         public LeitorModel(int ID, String Nome, DateTime DataNascimento, String Telefone, String CPF, String Endereco) {
             this.ID = ID;
             this.Nome = Nome;

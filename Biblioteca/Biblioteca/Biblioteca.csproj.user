@@ -82,7 +82,7 @@
     <Compile Update="View\Relatorio\RelatorioReservaView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Relatorio\RelatórioLivroView.cs">
+    <Compile Update="View\Relatorio\RelatorioLivroView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Relatorio\RelatorioPrincipalView.cs">

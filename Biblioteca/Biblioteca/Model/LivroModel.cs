@@ -13,6 +13,8 @@ namespace Biblioteca.Model {
         public DateTime DataAquisicao { get; set; }
         public String Fornecedor { get; set; }
 
+        public int Id_emprestimo { get; set; }
+
         public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao) {
             this.ID = ID;
             this.IdFornecedor = IdFornecedor;
