@@ -1,0 +1,186 @@
+﻿using Biblioteca.Util;
+using System;
+using System.Data.SqlClient;
+using System.Windows.Forms;
+using Biblioteca.Model;
+using System.Globalization;
+using System.Collections.Generic;
+
+namespace Biblioteca.Controller {
+    class LivroController {
+
+        private Conexao connection { get; set; }
+        private SqlCommand Cmd { get; set;  }
+
+        Singleton singleton = Singleton.GetInstancia();
+
+        public LivroController() {
+            connection = new Conexao();
+            Cmd = new SqlCommand();
+        }
+
+        public bool Insercao(LivroModel livro) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao)";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdFornecedor);
+            Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
+            Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
+            Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
+            Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
+            Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao);
+
+            if (Cmd.ExecuteNonQuery() == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public bool Atualizar(LivroModel livro) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Livro SET ID_fornecedor = @ID_Fornecedor, Nome_Livro = @Nome_Livro, Autor_Livro = @Autor_livro,
+                                Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, Data_aquisicao = @Data_aquisicao
+                                WHERE ID_livro = @ID";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID", livro.getId());
+            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdFornecedor);
+            Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
+            Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
+            Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
+            Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
+            Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao.ToString("yyyy-MM-dd"));
+
+            if (Cmd.ExecuteNonQuery() == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public List<LivroModel> ListarTodos() {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"
+            SELECT L.*, F.Nome_fornecedor as Fornecedor 
+            FROM Livro AS L
+            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+            ";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<LivroModel> lista = new List<LivroModel>();
+
+            while (reader.Read()) {
+                LivroModel livro = new LivroModel(
+                    (int)reader["ID_livro"],
+                    (int)reader["ID_fornecedor"],
+                    (String)reader["Nome_Livro"],
+                    (String)reader["Autor_Livro"],
+                    (String)reader["Edicao"],
+                    (String)reader["Ano_publicacao"],
+                    (DateTime)reader["Data_aquisicao"],
+                    (String)reader["Fornecedor"]
+                );
+                lista.Add(livro);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public List<LivroModel> Buscar(string busca, bool isNome = false, bool isAutor = false, bool isEditora = false) {
+            Cmd.Connection = connection.RetornaConexao();
+
+            if (isNome) {
+                Cmd.CommandText = @"
+                SELECT L.*, F.Nome_fornecedor as Fornecedor 
+                FROM Livro AS L
+                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                WHERE L.Nome_Livro LIKE '"+busca+"%'";
+            }
+
+            if (isAutor) {
+                Cmd.CommandText = @"
+                SELECT L.*, F.Nome_fornecedor as Fornecedor 
+                FROM Livro AS L
+                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                WHERE L.Autor_Livro LIKE '" + busca + "%'";
+            }
+
+            if (isEditora) {
+                Cmd.CommandText = @"
+                SELECT L.*, F.Nome_fornecedor as Fornecedor 
+                FROM Livro AS L
+                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                WHERE F.Nome_fornecedor LIKE '" + busca + "%'";
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<LivroModel> lista = new List<LivroModel>();
+
+            while (reader.Read()) {
+                LivroModel livro = new LivroModel(
+                    (int)reader["ID_livro"],
+                    (int)reader["ID_fornecedor"],
+                    (String)reader["Nome_Livro"],
+                    (String)reader["Autor_Livro"],
+                    (String)reader["Edicao"],
+                    (String)reader["Ano_publicacao"],
+                    (DateTime)reader["Data_aquisicao"],
+                    (String)reader["Fornecedor"]
+                );
+                lista.Add(livro);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public List<FornecedorModel> ListarFornecedores() {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Fornecedor";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<FornecedorModel> lista = new List<FornecedorModel>();
+
+            while (reader.Read()) {
+                FornecedorModel fornecedor = new FornecedorModel(
+                    (int)reader["ID_fornecedor"],
+                    (String)reader["Nome_fornecedor"],
+                    (String)reader["Endereco"],
+                    (String)reader["Telefone"],
+                    (String)reader["CNPJ"]
+                );
+                lista.Add(fornecedor);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public bool Excluir(LivroModel livro) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"DELETE FROM Livro WHERE ID_livro = @ID";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID", livro.getId());
+
+            if (Cmd.ExecuteNonQuery() == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+    }
+}

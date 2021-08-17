@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="View\Emprestimo\EmprestimoExcluirView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoCadastroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Fornecedor\ForcecedorPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Fornecedor\FornecedorCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Fornecedor\FornecedorEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Fornecedor\FornecedorBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Leitor\LeitorBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Leitor\LeitorEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Leitor\LeitorPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Leitor\LeitorCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Livros\LivrosBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Livros\LivrosCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Livros\LivrosEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Livros\LivrosPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\PrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Relatorio\RelatorioEmprestimoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Relatorio\RelatorioLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Relatorio\RelatorioReservaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Relatorio\RelatórioLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Relatorio\RelatorioPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaExcluirView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
