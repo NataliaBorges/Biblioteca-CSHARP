@@ -24,6 +24,7 @@ namespace Biblioteca.View.Fornecedor {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FornecedorCadastrarView));
             this.label8 = new System.Windows.Forms.Label();
             this.tbCidade = new System.Windows.Forms.TextBox();
             this.tbBairro = new System.Windows.Forms.TextBox();
@@ -183,6 +184,7 @@ namespace Biblioteca.View.Fornecedor {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FornecedorCadastrarView";

@@ -24,6 +24,7 @@ namespace Biblioteca.View.Emprestimo {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoBuscarView));
             this.button1 = new System.Windows.Forms.Button();
             this.rbLeitor = new System.Windows.Forms.RadioButton();
             this.rbLivro = new System.Windows.Forms.RadioButton();
@@ -138,6 +139,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Controls.Add(this.rbLeitor);
             this.Controls.Add(this.rbLivro);
             this.Controls.Add(this.tbBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EmprestimoBuscarView";

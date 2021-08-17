@@ -24,6 +24,7 @@ namespace Biblioteca.View.Relatorio {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioLivroView));
             this.LvLivros = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
@@ -32,12 +33,12 @@ namespace Biblioteca.View.Relatorio {
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
+            this.Emprestimo = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
             this.tbFim = new System.Windows.Forms.MaskedTextBox();
             this.tbInicio = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Emprestimo = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // LvLivros
@@ -95,6 +96,11 @@ namespace Biblioteca.View.Relatorio {
             this.Aquisição.Text = "Aquisição";
             this.Aquisição.Width = 100;
             // 
+            // Emprestimo
+            // 
+            this.Emprestimo.Text = "Emprestimo";
+            this.Emprestimo.Width = 100;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(572, 35);
@@ -141,11 +147,6 @@ namespace Biblioteca.View.Relatorio {
             this.label1.TabIndex = 25;
             this.label1.Text = "Do dia: ";
             // 
-            // Emprestimo
-            // 
-            this.Emprestimo.Text = "Emprestimo";
-            this.Emprestimo.Width = 100;
-            // 
             // RelatorioLivroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -157,6 +158,7 @@ namespace Biblioteca.View.Relatorio {
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LvLivros);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RelatorioLivroView";

@@ -24,6 +24,7 @@ namespace Biblioteca.View.Livros {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosBuscarView));
             this.rbEditora = new System.Windows.Forms.RadioButton();
             this.LvLivros = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
@@ -159,6 +160,7 @@ namespace Biblioteca.View.Livros {
             this.Controls.Add(this.rbAutor);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LivrosBuscarView";

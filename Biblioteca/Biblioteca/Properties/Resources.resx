@@ -121,6 +121,9 @@
   <data name="relatórioIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\relatórioIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="IconReserva" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IconReserva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="relatórioIcon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\relatórioIcon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,6 +148,9 @@
   <data name="Iconlivro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Iconlivro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MOnstrosSA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MOnstrosSA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Lupa_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Lupa_icon1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,7 +172,7 @@
   <data name="LivroIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LivroIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IconReserva" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IconReserva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MOnstrosSA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MOnstrosSA1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

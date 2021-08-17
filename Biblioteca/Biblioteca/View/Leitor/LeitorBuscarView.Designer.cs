@@ -24,6 +24,7 @@ namespace Biblioteca.View.Leitor {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeitorBuscarView));
             this.LvLeitor = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
@@ -138,6 +139,7 @@ namespace Biblioteca.View.Leitor {
             this.Controls.Add(this.rbCPF);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LeitorBuscarView";

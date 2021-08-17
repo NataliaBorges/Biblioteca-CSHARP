@@ -203,6 +203,26 @@ namespace Biblioteca.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap MOnstrosSA {
+            get {
+                object obj = ResourceManager.GetObject("MOnstrosSA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MOnstrosSA1 {
+            get {
+                object obj = ResourceManager.GetObject("MOnstrosSA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap relatórioIcon {
             get {
                 object obj = ResourceManager.GetObject("relatórioIcon", resourceCulture);

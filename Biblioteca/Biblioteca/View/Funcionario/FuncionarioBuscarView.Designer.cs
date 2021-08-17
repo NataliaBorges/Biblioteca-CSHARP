@@ -24,6 +24,7 @@ namespace Biblioteca.View.Funcionario {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FuncionarioBuscarView));
             this.button1 = new System.Windows.Forms.Button();
             this.rbEmail = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
@@ -148,6 +149,7 @@ namespace Biblioteca.View.Funcionario {
             this.Controls.Add(this.rbEmail);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FuncionarioBuscarView";

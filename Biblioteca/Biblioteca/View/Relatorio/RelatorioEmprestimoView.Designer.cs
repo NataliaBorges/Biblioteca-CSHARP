@@ -24,6 +24,7 @@ namespace Biblioteca.View.Relatorio {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RelatorioEmprestimoView));
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbInicio = new System.Windows.Forms.MaskedTextBox();
@@ -150,6 +151,7 @@ namespace Biblioteca.View.Relatorio {
             this.Controls.Add(this.tbInicio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RelatorioEmprestimoView";

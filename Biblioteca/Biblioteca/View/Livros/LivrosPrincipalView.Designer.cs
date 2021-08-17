@@ -24,6 +24,7 @@ namespace Biblioteca.View.Livros {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosPrincipalView));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.LvLivros = new System.Windows.Forms.ListView();
@@ -38,7 +39,7 @@ namespace Biblioteca.View.Livros {
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.OldLace;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(36, 150);
             this.button1.Name = "button1";
@@ -50,7 +51,7 @@ namespace Biblioteca.View.Livros {
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.OldLace;
+            this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Location = new System.Drawing.Point(36, 260);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 40);
@@ -119,6 +120,7 @@ namespace Biblioteca.View.Livros {
             this.Controls.Add(this.LvLivros);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LivrosPrincipalView";

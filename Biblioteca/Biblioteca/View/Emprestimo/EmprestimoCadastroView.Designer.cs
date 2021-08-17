@@ -24,6 +24,7 @@ namespace Biblioteca.View.Emprestimo {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoCadastroView));
             this.lvLivros = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Fornecedor = new System.Windows.Forms.ColumnHeader();
@@ -293,6 +294,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lvLeitor);
             this.Controls.Add(this.lvLivros);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EmprestimoCadastroView";
