@@ -418,5 +418,39 @@ namespace Biblioteca.Controller {
             }
         }
 
+        public List<EmprestimoModel> Relatorio(DateTime inicio, DateTime fim) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"
+            SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor'
+            FROM Emprestimo as E
+            INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
+            INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
+            WHERE E.Data_emprestimo BETWEEN @inicio AND @fim
+            ";
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@inicio", inicio);
+            Cmd.Parameters.AddWithValue("@fim", fim);
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EmprestimoModel> lista = new List<EmprestimoModel>();
+
+            while (reader.Read()) {
+                EmprestimoModel leitor = new EmprestimoModel(
+                    (int)reader["ID_emprestimo"],
+                    (int)reader["ID_funcionario"],
+                    (int)reader["ID_leitor"],
+                    (DateTime)reader["Data_devolucao"],
+                    (DateTime)reader["Data_emprestimo"],
+                    (String)reader["Leitor"],
+                    (String)reader["Funcionario"]
+                );
+                lista.Add(leitor);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
     }
 }
