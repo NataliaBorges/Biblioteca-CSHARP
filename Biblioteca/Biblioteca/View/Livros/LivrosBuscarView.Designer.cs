@@ -42,17 +42,21 @@ namespace Biblioteca.View.Livros {
             // 
             // rbEditora
             // 
-            this.rbEditora.Location = new System.Drawing.Point(144, 100);
-            this.rbEditora.MaximumSize = new System.Drawing.Size(180, 180);
+            this.rbEditora.BackColor = System.Drawing.Color.Transparent;
+            this.rbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbEditora.ForeColor = System.Drawing.Color.White;
+            this.rbEditora.Location = new System.Drawing.Point(144, 110);
+            this.rbEditora.MaximumSize = new System.Drawing.Size(180, 192);
             this.rbEditora.Name = "rbEditora";
-            this.rbEditora.Size = new System.Drawing.Size(105, 19);
+            this.rbEditora.Size = new System.Drawing.Size(105, 20);
             this.rbEditora.TabIndex = 18;
             this.rbEditora.TabStop = true;
             this.rbEditora.Text = "Editora";
-            this.rbEditora.UseVisualStyleBackColor = true;
+            this.rbEditora.UseVisualStyleBackColor = false;
             // 
             // LvLivros
             // 
+            this.LvLivros.BackColor = System.Drawing.Color.White;
             this.LvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
@@ -61,12 +65,13 @@ namespace Biblioteca.View.Livros {
             this.Edição,
             this.Ano,
             this.Aquisição});
+            this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.FullRowSelect = true;
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(113, 153);
+            this.LvLivros.Location = new System.Drawing.Point(130, 162);
             this.LvLivros.Name = "LvLivros";
-            this.LvLivros.Size = new System.Drawing.Size(567, 259);
+            this.LvLivros.Size = new System.Drawing.Size(577, 283);
             this.LvLivros.TabIndex = 17;
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
@@ -110,9 +115,10 @@ namespace Biblioteca.View.Livros {
             // 
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(607, 71);
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(609, 76);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 23);
+            this.button1.Size = new System.Drawing.Size(34, 27);
             this.button1.TabIndex = 16;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -120,22 +126,26 @@ namespace Biblioteca.View.Livros {
             // rbAutor
             // 
             this.rbAutor.AutoSize = true;
-            this.rbAutor.Location = new System.Drawing.Point(144, 75);
+            this.rbAutor.BackColor = System.Drawing.Color.Transparent;
+            this.rbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbAutor.ForeColor = System.Drawing.Color.White;
+            this.rbAutor.Location = new System.Drawing.Point(144, 80);
             this.rbAutor.Name = "rbAutor";
-            this.rbAutor.Size = new System.Drawing.Size(55, 19);
+            this.rbAutor.Size = new System.Drawing.Size(69, 24);
             this.rbAutor.TabIndex = 15;
             this.rbAutor.TabStop = true;
             this.rbAutor.Text = "Autor";
-            this.rbAutor.UseVisualStyleBackColor = true;
+            this.rbAutor.UseVisualStyleBackColor = false;
             // 
             // rbNome
             // 
             this.rbNome.AutoSize = true;
-            this.rbNome.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rbNome.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.rbNome.Location = new System.Drawing.Point(144, 50);
+            this.rbNome.BackColor = System.Drawing.Color.Transparent;
+            this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNome.ForeColor = System.Drawing.Color.White;
+            this.rbNome.Location = new System.Drawing.Point(144, 54);
             this.rbNome.Name = "rbNome";
-            this.rbNome.Size = new System.Drawing.Size(58, 19);
+            this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 14;
             this.rbNome.TabStop = true;
             this.rbNome.Text = "Nome";
@@ -143,23 +153,28 @@ namespace Biblioteca.View.Livros {
             // 
             // tbBuscar
             // 
-            this.tbBuscar.Location = new System.Drawing.Point(261, 71);
+            this.tbBuscar.BackColor = System.Drawing.Color.White;
+            this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscar.Location = new System.Drawing.Point(261, 76);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(321, 23);
+            this.tbBuscar.Size = new System.Drawing.Size(321, 27);
             this.tbBuscar.TabIndex = 13;
             // 
             // LivrosBuscarView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(798, 449);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.rbEditora);
             this.Controls.Add(this.LvLivros);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbAutor);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

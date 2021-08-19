@@ -159,5 +159,21 @@ namespace Biblioteca.View.Emprestimo {
             MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
             this.Close();
         }
+
+        private void tbObs_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e) {
+
+        }
+
+        private void tbDevolucao_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void tbEmprestimo_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }

@@ -21,10 +21,6 @@ namespace Biblioteca.View {
         private void PrincipalView_Load(object sender, EventArgs e) {
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-
-        }
-
         private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
             Application.Exit();
         }
@@ -65,5 +61,6 @@ namespace Biblioteca.View {
             RelatorioPrincipalView relatorios = new RelatorioPrincipalView();
             novaJanela(relatorios);
         }
+
     }
 }

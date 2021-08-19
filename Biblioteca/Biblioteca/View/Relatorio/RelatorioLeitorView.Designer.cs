@@ -42,47 +42,54 @@ namespace Biblioteca.View.Relatorio {
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(581, 32);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(570, 20);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 32);
+            this.button1.Size = new System.Drawing.Size(190, 47);
             this.button1.TabIndex = 24;
             this.button1.Text = "Gerar Relatório";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbFim
             // 
-            this.tbFim.Location = new System.Drawing.Point(186, 38);
+            this.tbFim.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbFim.Location = new System.Drawing.Point(187, 32);
             this.tbFim.Mask = "00/00/0000";
             this.tbFim.Name = "tbFim";
-            this.tbFim.Size = new System.Drawing.Size(100, 23);
+            this.tbFim.Size = new System.Drawing.Size(100, 27);
             this.tbFim.TabIndex = 23;
             this.tbFim.ValidatingType = typeof(System.DateTime);
             // 
             // tbInicio
             // 
-            this.tbInicio.Location = new System.Drawing.Point(44, 38);
+            this.tbInicio.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbInicio.Location = new System.Drawing.Point(45, 32);
             this.tbInicio.Mask = "00/00/0000";
             this.tbInicio.Name = "tbInicio";
-            this.tbInicio.Size = new System.Drawing.Size(100, 23);
+            this.tbInicio.Size = new System.Drawing.Size(100, 27);
             this.tbInicio.TabIndex = 22;
             this.tbInicio.ValidatingType = typeof(System.DateTime);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(186, 17);
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(187, 11);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 15);
+            this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 21;
             this.label2.Text = "Até: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 17);
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(45, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 20;
             this.label1.Text = "Do dia: ";
             // 
@@ -96,12 +103,13 @@ namespace Biblioteca.View.Relatorio {
             this.CPF,
             this.Endereco,
             this.Emprestimos});
+            this.LvLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLeitor.FullRowSelect = true;
             this.LvLeitor.HideSelection = false;
             this.LvLeitor.HoverSelection = true;
-            this.LvLeitor.Location = new System.Drawing.Point(44, 92);
+            this.LvLeitor.Location = new System.Drawing.Point(46, 88);
             this.LvLeitor.Name = "LvLeitor";
-            this.LvLeitor.Size = new System.Drawing.Size(711, 328);
+            this.LvLeitor.Size = new System.Drawing.Size(714, 367);
             this.LvLeitor.TabIndex = 25;
             this.LvLeitor.UseCompatibleStateImageBehavior = false;
             this.LvLeitor.View = System.Windows.Forms.View.Details;
@@ -137,13 +145,15 @@ namespace Biblioteca.View.Relatorio {
             // Emprestimos
             // 
             this.Emprestimos.Text = "Emprestimos";
-            this.Emprestimos.Width = 100;
+            this.Emprestimos.Width = 130;
             // 
             // RelatorioLeitorView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.books;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.LvLeitor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbFim);

@@ -37,9 +37,10 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(24, 164);
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(24, 307);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 40);
             this.button2.TabIndex = 7;
@@ -49,8 +50,10 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(24, 269);
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(24, 394);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(180, 40);
             this.button3.TabIndex = 6;
@@ -66,8 +69,9 @@ namespace Biblioteca.View.Fornecedor {
             this.Endereco,
             this.Telefone,
             this.CNPJ});
+            this.LvFornecedor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvFornecedor.HideSelection = false;
-            this.LvFornecedor.Location = new System.Drawing.Point(240, 36);
+            this.LvFornecedor.Location = new System.Drawing.Point(233, 36);
             this.LvFornecedor.Name = "LvFornecedor";
             this.LvFornecedor.Size = new System.Drawing.Size(570, 398);
             this.LvFornecedor.TabIndex = 5;
@@ -102,7 +106,8 @@ namespace Biblioteca.View.Fornecedor {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 509);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.photo_1419640303358_44f0d27f48e7;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.LvFornecedor);

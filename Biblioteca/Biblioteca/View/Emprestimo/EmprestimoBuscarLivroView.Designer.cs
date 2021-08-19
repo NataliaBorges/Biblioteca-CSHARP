@@ -39,18 +39,20 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // tbBuscar
             // 
-            this.tbBuscar.Location = new System.Drawing.Point(152, 65);
+            this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscar.Location = new System.Drawing.Point(107, 65);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(409, 23);
+            this.tbBuscar.Size = new System.Drawing.Size(496, 27);
             this.tbBuscar.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon2;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(581, 65);
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(642, 65);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 24);
+            this.button1.Size = new System.Drawing.Size(40, 27);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -65,6 +67,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Edição,
             this.Ano,
             this.Aquisição});
+            this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.FullRowSelect = true;
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
@@ -114,6 +117,8 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.LvLivros);
             this.Controls.Add(this.button1);

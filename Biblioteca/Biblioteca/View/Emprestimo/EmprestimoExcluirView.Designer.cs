@@ -48,12 +48,16 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(465, 358);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(533, 363);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 70);
             this.button1.TabIndex = 0;
             this.button1.Text = "EXCLUIR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lvEmprestimo
@@ -66,11 +70,12 @@ namespace Biblioteca.View.Emprestimo {
             this.Leitor,
             this.Data_Empréstimo,
             this.Data_Devolução});
+            this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(51, 30);
+            this.lvEmprestimo.Location = new System.Drawing.Point(27, 30);
             this.lvEmprestimo.MultiSelect = false;
             this.lvEmprestimo.Name = "lvEmprestimo";
-            this.lvEmprestimo.Size = new System.Drawing.Size(675, 123);
+            this.lvEmprestimo.Size = new System.Drawing.Size(765, 123);
             this.lvEmprestimo.TabIndex = 3;
             this.lvEmprestimo.UseCompatibleStateImageBehavior = false;
             this.lvEmprestimo.View = System.Windows.Forms.View.Details;
@@ -103,12 +108,12 @@ namespace Biblioteca.View.Emprestimo {
             // Data_Empréstimo
             // 
             this.Data_Empréstimo.Text = "Data_Empréstimo";
-            this.Data_Empréstimo.Width = 110;
+            this.Data_Empréstimo.Width = 150;
             // 
             // Data_Devolução
             // 
             this.Data_Devolução.Text = "Data_Devolução";
-            this.Data_Devolução.Width = 100;
+            this.Data_Devolução.Width = 150;
             // 
             // LvLivros
             // 
@@ -120,10 +125,10 @@ namespace Biblioteca.View.Emprestimo {
             this.Edição,
             this.Ano,
             this.Aquisição});
-            this.LvLivros.FullRowSelect = true;
+            this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(51, 174);
+            this.LvLivros.Location = new System.Drawing.Point(59, 173);
             this.LvLivros.Name = "LvLivros";
             this.LvLivros.Size = new System.Drawing.Size(675, 124);
             this.LvLivros.TabIndex = 18;
@@ -166,7 +171,8 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // ObsText
             // 
-            this.ObsText.Location = new System.Drawing.Point(139, 332);
+            this.ObsText.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ObsText.Location = new System.Drawing.Point(59, 347);
             this.ObsText.Name = "ObsText";
             this.ObsText.Size = new System.Drawing.Size(214, 96);
             this.ObsText.TabIndex = 19;
@@ -175,9 +181,12 @@ namespace Biblioteca.View.Emprestimo {
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(139, 314);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(59, 324);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 20;
             this.label1.Text = "Observação";
             // 
@@ -185,7 +194,9 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ObsText);
             this.Controls.Add(this.LvLivros);

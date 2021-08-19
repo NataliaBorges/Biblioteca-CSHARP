@@ -27,8 +27,8 @@ namespace Biblioteca.View.Funcionario {
                     item.SubItems.Add(funcionario.Data_Nascimento.ToString("dd/MM/yyyy"));
                     item.SubItems.Add(funcionario.Telefone);
                     item.SubItems.Add(funcionario.CPF);
-                    item.SubItems.Add(funcionario.Email);
                     item.SubItems.Add(funcionario.Endereco);
+                    item.SubItems.Add(funcionario.Email);
 
                     Lvfuncionario.Items.Add(item);
                 }

@@ -43,47 +43,54 @@ namespace Biblioteca.View.Relatorio {
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 26);
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(175, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 15);
+            this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "Até: ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 26);
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(33, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "Do dia: ";
             // 
             // tbInicio
             // 
-            this.tbInicio.Location = new System.Drawing.Point(33, 47);
+            this.tbInicio.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbInicio.Location = new System.Drawing.Point(33, 50);
             this.tbInicio.Mask = "00/00/0000";
             this.tbInicio.Name = "tbInicio";
-            this.tbInicio.Size = new System.Drawing.Size(100, 23);
+            this.tbInicio.Size = new System.Drawing.Size(100, 27);
             this.tbInicio.TabIndex = 17;
             this.tbInicio.ValidatingType = typeof(System.DateTime);
             // 
             // tbFim
             // 
-            this.tbFim.Location = new System.Drawing.Point(175, 47);
+            this.tbFim.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbFim.Location = new System.Drawing.Point(175, 50);
             this.tbFim.Mask = "00/00/0000";
             this.tbFim.Name = "tbFim";
-            this.tbFim.Size = new System.Drawing.Size(100, 23);
+            this.tbFim.Size = new System.Drawing.Size(100, 27);
             this.tbFim.TabIndex = 18;
             this.tbFim.ValidatingType = typeof(System.DateTime);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(570, 41);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(568, 36);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 32);
+            this.button1.Size = new System.Drawing.Size(214, 50);
             this.button1.TabIndex = 19;
             this.button1.Text = "Gerar Relatório";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lvEmprestimo
@@ -96,11 +103,12 @@ namespace Biblioteca.View.Relatorio {
             this.Leitor,
             this.Data_Empréstimo,
             this.Data_Devolução});
+            this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(12, 94);
+            this.lvEmprestimo.Location = new System.Drawing.Point(33, 103);
             this.lvEmprestimo.MultiSelect = false;
             this.lvEmprestimo.Name = "lvEmprestimo";
-            this.lvEmprestimo.Size = new System.Drawing.Size(658, 417);
+            this.lvEmprestimo.Size = new System.Drawing.Size(749, 350);
             this.lvEmprestimo.TabIndex = 20;
             this.lvEmprestimo.UseCompatibleStateImageBehavior = false;
             this.lvEmprestimo.View = System.Windows.Forms.View.Details;
@@ -133,24 +141,28 @@ namespace Biblioteca.View.Relatorio {
             // Data_Empréstimo
             // 
             this.Data_Empréstimo.Text = "Data_Empréstimo";
-            this.Data_Empréstimo.Width = 110;
+            this.Data_Empréstimo.Width = 150;
             // 
             // Data_Devolução
             // 
             this.Data_Devolução.Text = "Data_Devolução";
-            this.Data_Devolução.Width = 100;
+            this.Data_Devolução.Width = 150;
             // 
             // RelatorioEmprestimoView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(713, 525);
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.books;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.lvEmprestimo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbFim);
             this.Controls.Add(this.tbInicio);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

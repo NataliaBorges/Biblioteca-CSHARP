@@ -47,10 +47,11 @@ namespace Biblioteca.View.Leitor {
             this.Telefone,
             this.CPF,
             this.Endereco});
+            this.LvLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLeitor.FullRowSelect = true;
             this.LvLeitor.HideSelection = false;
             this.LvLeitor.HoverSelection = true;
-            this.LvLeitor.Location = new System.Drawing.Point(145, 153);
+            this.LvLeitor.Location = new System.Drawing.Point(156, 151);
             this.LvLeitor.Name = "LvLeitor";
             this.LvLeitor.Size = new System.Drawing.Size(511, 247);
             this.LvLeitor.TabIndex = 11;
@@ -90,9 +91,9 @@ namespace Biblioteca.View.Leitor {
             // 
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(598, 72);
+            this.button1.Location = new System.Drawing.Point(618, 71);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(35, 23);
+            this.button1.Size = new System.Drawing.Size(33, 27);
             this.button1.TabIndex = 10;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -100,23 +101,28 @@ namespace Biblioteca.View.Leitor {
             // rbCPF
             // 
             this.rbCPF.AutoSize = true;
-            this.rbCPF.Location = new System.Drawing.Point(145, 86);
+            this.rbCPF.BackColor = System.Drawing.Color.Transparent;
+            this.rbCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCPF.ForeColor = System.Drawing.Color.White;
+            this.rbCPF.Location = new System.Drawing.Point(161, 85);
             this.rbCPF.Name = "rbCPF";
-            this.rbCPF.Size = new System.Drawing.Size(46, 19);
+            this.rbCPF.Size = new System.Drawing.Size(57, 24);
             this.rbCPF.TabIndex = 9;
             this.rbCPF.TabStop = true;
             this.rbCPF.Text = "CPF";
-            this.rbCPF.UseVisualStyleBackColor = true;
+            this.rbCPF.UseVisualStyleBackColor = false;
             this.rbCPF.CheckedChanged += new System.EventHandler(this.rbAutor_CheckedChanged_1);
             // 
             // rbNome
             // 
             this.rbNome.AutoSize = true;
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
-            this.rbNome.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.rbNome.Location = new System.Drawing.Point(145, 61);
+            this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNome.ForeColor = System.Drawing.Color.White;
+            this.rbNome.Location = new System.Drawing.Point(161, 60);
             this.rbNome.Name = "rbNome";
-            this.rbNome.Size = new System.Drawing.Size(58, 19);
+            this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 8;
             this.rbNome.TabStop = true;
             this.rbNome.Text = "Nome";
@@ -124,16 +130,18 @@ namespace Biblioteca.View.Leitor {
             // 
             // tbBuscar
             // 
-            this.tbBuscar.Location = new System.Drawing.Point(262, 72);
+            this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscar.Location = new System.Drawing.Point(278, 71);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(321, 23);
+            this.tbBuscar.Size = new System.Drawing.Size(321, 27);
             this.tbBuscar.TabIndex = 7;
             // 
             // LeitorBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.LvLeitor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbCPF);

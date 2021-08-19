@@ -39,11 +39,12 @@ namespace Biblioteca.View.Funcionario {
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(449, 337);
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(431, 337);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(191, 57);
+            this.button2.Size = new System.Drawing.Size(196, 57);
             this.button2.TabIndex = 7;
             this.button2.Text = "CADASTRAR";
             this.button2.UseVisualStyleBackColor = false;
@@ -51,8 +52,10 @@ namespace Biblioteca.View.Funcionario {
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(199, 337);
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(189, 337);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(204, 57);
             this.button3.TabIndex = 6;
@@ -70,10 +73,11 @@ namespace Biblioteca.View.Funcionario {
             this.CPF,
             this.Endereco,
             this.Email});
+            this.Lvfuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Lvfuncionario.HideSelection = false;
-            this.Lvfuncionario.Location = new System.Drawing.Point(52, 52);
+            this.Lvfuncionario.Location = new System.Drawing.Point(46, 62);
             this.Lvfuncionario.Name = "Lvfuncionario";
-            this.Lvfuncionario.Size = new System.Drawing.Size(756, 215);
+            this.Lvfuncionario.Size = new System.Drawing.Size(728, 215);
             this.Lvfuncionario.TabIndex = 5;
             this.Lvfuncionario.UseCompatibleStateImageBehavior = false;
             this.Lvfuncionario.View = System.Windows.Forms.View.Details;
@@ -115,7 +119,9 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(846, 512);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.Photobook;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.Lvfuncionario);

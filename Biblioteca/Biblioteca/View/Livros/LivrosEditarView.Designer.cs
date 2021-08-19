@@ -44,133 +44,167 @@ namespace Biblioteca.View.Livros {
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(446, 259);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(458, 275);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 43);
+            this.button1.Size = new System.Drawing.Size(169, 46);
             this.button1.TabIndex = 1;
             this.button1.Text = "ATUALIZAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(446, 342);
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(458, 364);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 49);
+            this.button2.Size = new System.Drawing.Size(169, 52);
             this.button2.TabIndex = 2;
             this.button2.Text = "EXCLUIR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // cbFornecedor
             // 
+            this.cbFornecedor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Location = new System.Drawing.Point(151, 156);
+            this.cbFornecedor.Location = new System.Drawing.Point(163, 165);
             this.cbFornecedor.Name = "cbFornecedor";
-            this.cbFornecedor.Size = new System.Drawing.Size(225, 23);
+            this.cbFornecedor.Size = new System.Drawing.Size(225, 28);
             this.cbFornecedor.TabIndex = 26;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(149, 138);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(161, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 15);
+            this.label6.Size = new System.Drawing.Size(90, 20);
             this.label6.TabIndex = 25;
             this.label6.Text = "Fornecedor";
             // 
             // tbAno
             // 
-            this.tbAno.Location = new System.Drawing.Point(414, 203);
+            this.tbAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAno.Location = new System.Drawing.Point(426, 216);
             this.tbAno.Name = "tbAno";
-            this.tbAno.Size = new System.Drawing.Size(239, 23);
+            this.tbAno.Size = new System.Drawing.Size(239, 27);
             this.tbAno.TabIndex = 24;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(414, 185);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(426, 197);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 15);
+            this.label5.Size = new System.Drawing.Size(39, 20);
             this.label5.TabIndex = 23;
             this.label5.Text = "Ano";
             // 
             // calendar
             // 
-            this.calendar.Location = new System.Drawing.Point(149, 259);
+            this.calendar.BackColor = System.Drawing.Color.Black;
+            this.calendar.Location = new System.Drawing.Point(161, 275);
+            this.calendar.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 22;
+            this.calendar.TitleBackColor = System.Drawing.Color.White;
             this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
             // 
             // tbAquisicao
             // 
-            this.tbAquisicao.Location = new System.Drawing.Point(151, 203);
+            this.tbAquisicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAquisicao.Location = new System.Drawing.Point(163, 216);
             this.tbAquisicao.Name = "tbAquisicao";
-            this.tbAquisicao.Size = new System.Drawing.Size(225, 23);
+            this.tbAquisicao.Size = new System.Drawing.Size(225, 27);
             this.tbAquisicao.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(149, 185);
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(161, 197);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 15);
+            this.label4.Size = new System.Drawing.Size(81, 20);
             this.label4.TabIndex = 20;
             this.label4.Text = "Aquisiçao";
             // 
             // tbEdicao
             // 
-            this.tbEdicao.Location = new System.Drawing.Point(414, 156);
+            this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEdicao.Location = new System.Drawing.Point(426, 165);
             this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.Size = new System.Drawing.Size(239, 23);
+            this.tbEdicao.Size = new System.Drawing.Size(239, 27);
             this.tbEdicao.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(414, 138);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(426, 146);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.Size = new System.Drawing.Size(58, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Edição";
             // 
             // tbAutor
             // 
-            this.tbAutor.Location = new System.Drawing.Point(151, 106);
+            this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAutor.Location = new System.Drawing.Point(163, 112);
             this.tbAutor.Name = "tbAutor";
-            this.tbAutor.Size = new System.Drawing.Size(502, 23);
+            this.tbAutor.Size = new System.Drawing.Size(502, 27);
             this.tbAutor.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(151, 88);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(163, 93);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 15);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 16;
             this.label2.Text = "Autor";
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(151, 60);
+            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNome.Location = new System.Drawing.Point(163, 63);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(502, 23);
+            this.tbNome.Size = new System.Drawing.Size(502, 27);
             this.tbNome.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 42);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(163, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 14;
             this.label1.Text = "Nome";
             // 
             // LivrosEditarView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.Photobook;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.cbFornecedor);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tbAno);
@@ -186,6 +220,7 @@ namespace Biblioteca.View.Livros {
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

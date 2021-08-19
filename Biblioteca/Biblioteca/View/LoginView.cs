@@ -26,7 +26,7 @@ namespace Biblioteca {
 
             if(controller.Login(email, senha)) {
                 FuncionarioModel funcionarioModel = singleton.getFuncionario();
-                MessageBox.Show("Seja bem-vindo "+ funcionarioModel.Nome_funcionario, "", MessageBoxButtons.OK);
+                MessageBox.Show("Seja bem-vinda "+ funcionarioModel.Nome_funcionario, "", MessageBoxButtons.OK);
                 PrincipalView principalView = new PrincipalView();
                 this.Hide();
                 Rectangle bounds = this.Bounds;
@@ -37,6 +37,10 @@ namespace Biblioteca {
                 singleton.setFuncionario(null);
                 MessageBox.Show("E-mail ou senha incorretos.", "", MessageBoxButtons.OK);
             }
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
 
         }
     }

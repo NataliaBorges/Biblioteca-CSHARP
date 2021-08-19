@@ -66,8 +66,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_funcionario"],
                     (String)reader["CPF"],
                     (DateTime)reader["Data_Nascimento"],
-                    (String)reader["Endereco"],
                     (String)reader["Email"],
+                    (String)reader["Endereco"], 
                     (String)reader["Telefone"],
                     (String)reader["Senha"]
                 );
@@ -123,8 +123,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_funcionario"],
                     (String)reader["CPF"],
                     (DateTime)reader["Data_Nascimento"],
-                    (String)reader["Endereco"],
                     (String)reader["Email"],
+                    (String)reader["Endereco"],
                     (String)reader["Telefone"],
                     (String)reader["Senha"]
                 );

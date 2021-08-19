@@ -45,10 +45,11 @@ namespace Biblioteca.View.Leitor {
             this.Telefone,
             this.CPF,
             this.Endereco});
+            this.LvLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLeitor.HideSelection = false;
-            this.LvLeitor.Location = new System.Drawing.Point(297, 38);
+            this.LvLeitor.Location = new System.Drawing.Point(262, 20);
             this.LvLeitor.Name = "LvLeitor";
-            this.LvLeitor.Size = new System.Drawing.Size(525, 482);
+            this.LvLeitor.Size = new System.Drawing.Size(541, 455);
             this.LvLeitor.TabIndex = 2;
             this.LvLeitor.UseCompatibleStateImageBehavior = false;
             this.LvLeitor.View = System.Windows.Forms.View.Details;
@@ -79,14 +80,16 @@ namespace Biblioteca.View.Leitor {
             // Endereco
             // 
             this.Endereco.Text = "Endereco";
-            this.Endereco.Width = 200;
+            this.Endereco.Width = 130;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.Transparent;
-            this.button3.Location = new System.Drawing.Point(73, 286);
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("Book Antiqua", 19.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(28, 435);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(180, 40);
+            this.button3.Size = new System.Drawing.Size(218, 40);
             this.button3.TabIndex = 3;
             this.button3.Text = "BUSCAR";
             this.button3.UseVisualStyleBackColor = false;
@@ -94,11 +97,12 @@ namespace Biblioteca.View.Leitor {
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(73, 166);
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 19.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(28, 355);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 40);
+            this.button2.Size = new System.Drawing.Size(218, 40);
             this.button2.TabIndex = 4;
             this.button2.Text = "CADASTRAR";
             this.button2.UseVisualStyleBackColor = false;
@@ -109,7 +113,8 @@ namespace Biblioteca.View.Leitor {
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(834, 551);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.photo_1419640303358_44f0d27f48e7;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.LvLeitor);

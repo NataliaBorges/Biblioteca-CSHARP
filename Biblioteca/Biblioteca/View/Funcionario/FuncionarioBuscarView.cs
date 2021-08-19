@@ -24,8 +24,8 @@ namespace Biblioteca.View.Funcionario {
                 item.SubItems[1].Text,
                 item.SubItems[4].Text,
                 DateTime.Parse(item.SubItems[2].Text),
-                item.SubItems[5].Text,
                 item.SubItems[6].Text,
+                item.SubItems[5].Text,
                 item.SubItems[3].Text
             );
 
@@ -60,8 +60,8 @@ namespace Biblioteca.View.Funcionario {
                     item.SubItems.Add(funcionario.Data_Nascimento.ToString("dd/MM/yyyy"));
                     item.SubItems.Add(funcionario.Telefone);
                     item.SubItems.Add(funcionario.CPF);
-                    item.SubItems.Add(funcionario.Email);
                     item.SubItems.Add(funcionario.Endereco);
+                    item.SubItems.Add(funcionario.Email);
 
                     Lvfuncionario.Items.Add(item);
                 }

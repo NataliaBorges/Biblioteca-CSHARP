@@ -45,122 +45,153 @@ namespace Biblioteca.View.Fornecedor {
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(481, 133);
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(502, 179);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 15);
+            this.label8.Size = new System.Drawing.Size(61, 20);
             this.label8.TabIndex = 53;
             this.label8.Text = "Cidade";
             // 
             // tbCidade
             // 
-            this.tbCidade.Location = new System.Drawing.Point(481, 151);
+            this.tbCidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCidade.Location = new System.Drawing.Point(502, 207);
             this.tbCidade.Name = "tbCidade";
-            this.tbCidade.Size = new System.Drawing.Size(149, 23);
+            this.tbCidade.Size = new System.Drawing.Size(149, 27);
             this.tbCidade.TabIndex = 52;
             // 
             // tbBairro
             // 
-            this.tbBairro.Location = new System.Drawing.Point(128, 151);
+            this.tbBairro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBairro.Location = new System.Drawing.Point(150, 207);
             this.tbBairro.Name = "tbBairro";
-            this.tbBairro.Size = new System.Drawing.Size(323, 23);
+            this.tbBairro.Size = new System.Drawing.Size(323, 27);
             this.tbBairro.TabIndex = 51;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(129, 133);
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(149, 179);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 15);
+            this.label9.Size = new System.Drawing.Size(53, 20);
             this.label9.TabIndex = 50;
             this.label9.Text = "Bairro";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(530, 83);
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(551, 112);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 49;
             this.label7.Text = "Número";
             // 
             // tbNumero
             // 
-            this.tbNumero.Location = new System.Drawing.Point(530, 101);
+            this.tbNumero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNumero.Location = new System.Drawing.Point(551, 140);
             this.tbNumero.Name = "tbNumero";
-            this.tbNumero.Size = new System.Drawing.Size(100, 23);
+            this.tbNumero.Size = new System.Drawing.Size(100, 27);
             this.tbNumero.TabIndex = 48;
             // 
             // tbRua
             // 
-            this.tbRua.Location = new System.Drawing.Point(128, 101);
+            this.tbRua.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbRua.Location = new System.Drawing.Point(149, 140);
             this.tbRua.Name = "tbRua";
-            this.tbRua.Size = new System.Drawing.Size(396, 23);
+            this.tbRua.Size = new System.Drawing.Size(396, 27);
             this.tbRua.TabIndex = 47;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(128, 83);
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(149, 117);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 15);
+            this.label6.Size = new System.Drawing.Size(38, 20);
             this.label6.TabIndex = 46;
             this.label6.Text = "Rua";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(285, 278);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(306, 312);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(239, 45);
             this.button1.TabIndex = 45;
             this.button1.Text = "CADASTRAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbCNPJ
             // 
-            this.tbCNPJ.Location = new System.Drawing.Point(393, 205);
+            this.tbCNPJ.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbCNPJ.Location = new System.Drawing.Point(412, 265);
             this.tbCNPJ.Name = "tbCNPJ";
-            this.tbCNPJ.Size = new System.Drawing.Size(239, 23);
+            this.tbCNPJ.Size = new System.Drawing.Size(239, 27);
             this.tbCNPJ.TabIndex = 44;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 187);
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(412, 237);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 15);
+            this.label5.Size = new System.Drawing.Size(48, 20);
             this.label5.TabIndex = 43;
             this.label5.Text = "CNPJ";
             // 
             // tbTelefone
             // 
-            this.tbTelefone.Location = new System.Drawing.Point(129, 205);
+            this.tbTelefone.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbTelefone.Location = new System.Drawing.Point(150, 265);
             this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(258, 23);
+            this.tbTelefone.Size = new System.Drawing.Size(258, 27);
             this.tbTelefone.TabIndex = 39;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(129, 187);
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(150, 237);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 15);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 38;
             this.label3.Text = "Telefone";
             // 
             // tbNome
             // 
-            this.tbNome.Location = new System.Drawing.Point(128, 50);
+            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNome.Location = new System.Drawing.Point(149, 84);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(502, 23);
+            this.tbNome.Size = new System.Drawing.Size(502, 27);
             this.tbNome.TabIndex = 37;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(128, 32);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(150, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 15);
+            this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 36;
             this.label1.Text = "Nome";
             // 
@@ -168,7 +199,9 @@ namespace Biblioteca.View.Fornecedor {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 386);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbCidade);
             this.Controls.Add(this.tbBairro);
