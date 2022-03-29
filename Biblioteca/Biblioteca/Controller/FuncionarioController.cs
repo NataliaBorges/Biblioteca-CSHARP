@@ -31,7 +31,7 @@ namespace Biblioteca.Controller {
             if (reader.HasRows) {
 
                 while (reader.Read()) {
-                    singleton.setFuncionario(new FuncionarioModel(
+                    FuncionarioModel funcionario = new FuncionarioModel(
                         (int)reader["ID_funcionario"],
                         (String)reader["Nome_funcionario"],
                         (String)reader["CPF"],
@@ -39,7 +39,9 @@ namespace Biblioteca.Controller {
                         (String)reader["Email"],
                         (String)reader["Endereco"],
                         (String)reader["Telefone"]
-                    ));
+                    );
+                    funcionario.Funcao = (String)reader["Funcao"];
+                    singleton.setFuncionario(funcionario);
                 }
 
                 reader.Close();
@@ -81,7 +83,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(FuncionarioModel funcionario) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_funcionario, @Endereco, @Email, @Senha)";
+            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_funcionario, @Endereco, @Email, @Senha, @Funcao)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@CPF", funcionario.CPF);
@@ -91,6 +93,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
             Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@Senha", funcionario.Senha);
+            Cmd.Parameters.AddWithValue("@Funcao", "Bibliotecario");
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;

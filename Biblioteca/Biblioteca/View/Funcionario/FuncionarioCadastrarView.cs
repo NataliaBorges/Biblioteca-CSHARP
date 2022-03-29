@@ -31,9 +31,6 @@ namespace Biblioteca.View.Funcionario {
             this.tbEmail.Clear();
         }
 
-        private void label5_Click(object sender, EventArgs e) {
-
-        }
 
         private void button1_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
@@ -51,6 +48,7 @@ namespace Biblioteca.View.Funcionario {
             else {
                 MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
             }
+            this.Close();
         }
 
         private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
@@ -59,42 +57,6 @@ namespace Biblioteca.View.Funcionario {
             int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
             int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
             data = new DateTime(ano, mes, dia);
-        }
-
-        private void label6_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e) {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e) {
-
         }
     }
 }

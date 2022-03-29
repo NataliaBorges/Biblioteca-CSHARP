@@ -88,24 +88,6 @@
     <Compile Update="View\Relatorio\RelatorioPrincipalView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Reserva\ReservaBuscarLeitorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Reserva\ReservaBuscarLivroView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Reserva\ReservaBuscarView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Reserva\ReservaCadastrarView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Reserva\ReservaExcluirView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Reserva\ReservaPrincipalView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="View\SplashView.cs">
       <SubType>Form</SubType>
     </Compile>

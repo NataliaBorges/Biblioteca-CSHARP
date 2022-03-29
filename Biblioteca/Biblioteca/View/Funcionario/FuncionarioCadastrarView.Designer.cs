@@ -60,7 +60,6 @@ namespace Biblioteca.View.Funcionario {
             this.label8.Size = new System.Drawing.Size(61, 20);
             this.label8.TabIndex = 53;
             this.label8.Text = "Cidade";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // tbCidade
             // 
@@ -89,7 +88,6 @@ namespace Biblioteca.View.Funcionario {
             this.label9.Size = new System.Drawing.Size(53, 20);
             this.label9.TabIndex = 50;
             this.label9.Text = "Bairro";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label7
             // 
@@ -102,7 +100,6 @@ namespace Biblioteca.View.Funcionario {
             this.label7.Size = new System.Drawing.Size(69, 20);
             this.label7.TabIndex = 49;
             this.label7.Text = "Número";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // tbNumero
             // 
@@ -131,7 +128,6 @@ namespace Biblioteca.View.Funcionario {
             this.label6.Size = new System.Drawing.Size(38, 20);
             this.label6.TabIndex = 46;
             this.label6.Text = "Rua";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // button1
             // 
@@ -164,7 +160,6 @@ namespace Biblioteca.View.Funcionario {
             this.label5.Size = new System.Drawing.Size(39, 20);
             this.label5.TabIndex = 43;
             this.label5.Text = "CPF";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // calendar
             // 
@@ -193,7 +188,6 @@ namespace Biblioteca.View.Funcionario {
             this.label4.Size = new System.Drawing.Size(94, 20);
             this.label4.TabIndex = 40;
             this.label4.Text = "Nascimento";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tbTelefone
             // 
@@ -214,7 +208,6 @@ namespace Biblioteca.View.Funcionario {
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 38;
             this.label3.Text = "Telefone";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // tbNome
             // 
@@ -235,7 +228,6 @@ namespace Biblioteca.View.Funcionario {
             this.label1.Size = new System.Drawing.Size(53, 20);
             this.label1.TabIndex = 36;
             this.label1.Text = "Nome";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbEmail
             // 
@@ -264,7 +256,6 @@ namespace Biblioteca.View.Funcionario {
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 56;
             this.label2.Text = "E-mail";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label10
             // 
@@ -277,7 +268,6 @@ namespace Biblioteca.View.Funcionario {
             this.label10.Size = new System.Drawing.Size(51, 20);
             this.label10.TabIndex = 57;
             this.label10.Text = "Senha";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // FuncionarioCadastrarView
             // 

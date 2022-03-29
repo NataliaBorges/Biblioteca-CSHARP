@@ -23,7 +23,7 @@ namespace Biblioteca.Controller {
         public bool Insercao(String dataEmprestimo, String dataDevolucao, String obs) {
             Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo)";
+            Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo, @Status)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID_funcionario", this.singleton.getFuncionario().getId());
@@ -31,6 +31,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Data_emprestimo", dataEmprestimo);
             Cmd.Parameters.AddWithValue("@Data_devolucao", dataDevolucao);
             Cmd.Parameters.AddWithValue("@Obs_emprestimo", obs);
+            Cmd.Parameters.AddWithValue("@Status", "EMPRESTADO");
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -103,7 +104,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
                     (String)reader["Leitor"],
-                    (String)reader["Funcionario"]
+                    (String)reader["Funcionario"],
+                    (String)reader["Status"]
                 );
                 lista.Add(leitor);
             }
@@ -134,7 +136,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
                     (String)reader["Leitor"],
-                    (String)reader["Funcionario"]
+                    (String)reader["Funcionario"],
+                    (String)reader["Status"]
                 );
                 leitor.Obs = (String)reader["Obs_emprestimo"];
                 lista.Add(leitor);
@@ -147,7 +150,7 @@ namespace Biblioteca.Controller {
         public List<EmprestimoPesquisaModel> ListarTodosBusca() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao
+            SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
             FROM Emprestimo as E
             INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
             INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
@@ -167,7 +170,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_Livro"],
                     (String)reader["Nome_funcionario"],
                     (DateTime)reader["Data_devolucao"],
-                    (DateTime)reader["Data_emprestimo"]
+                    (DateTime)reader["Data_emprestimo"],
+                    (String)reader["Status"]
                 );
                 lista.Add(pesquisa);
             }
@@ -277,6 +281,33 @@ namespace Biblioteca.Controller {
             this.singleton.setLivro(livro);
         }
 
+        public Boolean livroEmprestado(LivroModel livro) {
+            Cmd.Connection = connection.RetornaConexao();
+
+            Cmd.CommandText = @"
+                SELECT COUNT(L.ID_livro) AS Total
+                FROM Livro AS L
+                INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
+                INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
+                WHERE E.Status = 'EMPRESTADO' AND L.ID_LIVRO='"+livro.getId()+"'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            int total = 0;
+            while (reader.Read()) {
+                total = (int)reader["Total"];
+            }
+            reader.Close();
+
+            if(total > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         public List<LivroModel> PegarLivrosEmprestimo() {
             return this.singleton.getLivros();
         }
@@ -315,7 +346,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
-                    (String)reader["Endereco"]
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
                 );
                 lista.Add(leitor);
             }
@@ -342,7 +374,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
-                    (String)reader["Endereco"]
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
                 );
                 lista.Add(leitor);
             }
@@ -355,7 +388,7 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isLivro) {
-                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao
+                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
                                     INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
@@ -365,7 +398,7 @@ namespace Biblioteca.Controller {
             }
 
             if (isLeitor) {
-                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao
+                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
                                     INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
@@ -387,7 +420,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_Livro"],
                     (String)reader["Nome_funcionario"],
                     (DateTime)reader["Data_devolucao"],
-                    (DateTime)reader["Data_emprestimo"]
+                    (DateTime)reader["Data_emprestimo"],
+                    (String)reader["Status"]
                 );
                 lista.Add(pesquisa);
             }
@@ -408,6 +442,23 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"DELETE FROM Emprestimo WHERE ID_emprestimo = @ID";
             Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID", emprestimo.ID_emprestimo);
+
+            if (Cmd.ExecuteNonQuery() == 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public bool Devolucao(EmprestimoPesquisaModel emprestimo) {
+            // mudar status emprestimo
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Emprestimo SET Status = @Status
+                                WHERE ID_emprestimo = @ID";
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Status", "DEVOLVIDO");
             Cmd.Parameters.AddWithValue("@ID", emprestimo.ID_emprestimo);
 
             if (Cmd.ExecuteNonQuery() == 1) {
@@ -443,7 +494,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
                     (String)reader["Leitor"],
-                    (String)reader["Funcionario"]
+                    (String)reader["Funcionario"],
+                    (String)reader["Status"]
                 );
                 lista.Add(leitor);
             }

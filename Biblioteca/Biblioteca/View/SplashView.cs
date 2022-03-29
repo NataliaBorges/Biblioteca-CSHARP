@@ -32,9 +32,6 @@ namespace Biblioteca.View {
                 novaJanela(login);
             }
         }
-        private void SplashView_Load(object sender, EventArgs e) {
-            
-        }
     }
 }
 

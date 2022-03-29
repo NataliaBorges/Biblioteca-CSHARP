@@ -34,6 +34,10 @@ namespace Biblioteca.View.Emprestimo {
                     lvEmprestimo.Items.Add(item);
 
                     ObsText.Text = emprestimo.Obs;
+
+                    if(emprestimo.Status == "DEVOLVIDO") {
+                        button2.Visible = false;
+                    }
                 }
             }
         }
@@ -74,6 +78,19 @@ namespace Biblioteca.View.Emprestimo {
                 }
                 else {
                     MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            DialogResult dialogResult = MessageBox.Show("O livro está nas mesmas condições de quando saiu?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes) {
+                if (controller.Devolucao(emprestimo)) {
+                    MessageBox.Show("Devolvido com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("Não foi possível devolver o livro.", "Atenção", MessageBoxButtons.OK);
                 }
             }
         }

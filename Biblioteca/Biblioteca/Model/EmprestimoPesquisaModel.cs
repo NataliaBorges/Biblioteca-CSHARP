@@ -11,14 +11,16 @@ namespace Biblioteca.Model {
         public String Nome_funcionario { get; set; }
         public DateTime Data_emprestimo { get; set; }
         public DateTime Data_devolucao { get; set; }
+        public String Status { get; set; }
 
-        public EmprestimoPesquisaModel(int ID, String Leitor, String Livro, String funcionario, DateTime emprestimo, DateTime devolucao) {
+        public EmprestimoPesquisaModel(int ID, String Leitor, String Livro, String funcionario, DateTime emprestimo, DateTime devolucao, String Status) {
             this.ID_emprestimo = ID;
             this.Nome_Leitor = Leitor;
             this.Nome_Livro = Livro;
             this.Nome_funcionario = funcionario;
             this.Data_emprestimo = emprestimo;
             this.Data_devolucao = devolucao;
+            this.Status = Status;
         }
 
     }

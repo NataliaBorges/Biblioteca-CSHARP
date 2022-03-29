@@ -15,6 +15,8 @@ namespace Biblioteca.Model {
 
         public String Funcionario { get; set;  }
 
+        public String Status { get; set; }
+
         public EmprestimoModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataDevolucao, DateTime DataEmprestimo, String Obs) {
             this.ID = ID;
             this.IdFuncionario = IdFuncionario;
@@ -30,7 +32,7 @@ namespace Biblioteca.Model {
             this.DataDevolucao = DataDevolucao;
             this.DataEmprestimo = DataEmprestimo;
         }
-        public EmprestimoModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataDevolucao, DateTime DataEmprestimo, String Leitor, String Funcionario) {
+        public EmprestimoModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataDevolucao, DateTime DataEmprestimo, String Leitor, String Funcionario, String Status) {
             this.ID = ID;
             this.IdFuncionario = IdFuncionario;
             this.IdLeitor = IdLeitor;
@@ -38,6 +40,7 @@ namespace Biblioteca.Model {
             this.DataEmprestimo = DataEmprestimo;
             this.Leitor = Leitor;
             this.Funcionario = Funcionario;
+            this.Status = Status;
         }
         public int getId() {
             return this.ID;

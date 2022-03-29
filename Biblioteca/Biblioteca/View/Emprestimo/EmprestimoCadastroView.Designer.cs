@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace Biblioteca.View.Emprestimo {
     partial class EmprestimoCadastroView {
         /// <summary>
@@ -339,6 +341,22 @@ namespace Biblioteca.View.Emprestimo {
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void tbObs_TextChanged(object sender, EventArgs e) {
+           
+        }
+
+        private void label5_Click(object sender, EventArgs e) {
+            
+        }
+
+        private void tbDevolucao_TextChanged(object sender, EventArgs e) {
+            
+        }
+
+        private void tbEmprestimo_TextChanged(object sender, EventArgs e) {
+            
         }
 
         #endregion

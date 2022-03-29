@@ -27,6 +27,8 @@ namespace Biblioteca.View.Leitor {
             this.tbTelefone.Clear();
             this.tbCPF.Clear();
             this.tbNascimento.Clear();
+            this.tbEmail.Clear();
+            this.tbSenha.Clear();   
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -35,7 +37,9 @@ namespace Biblioteca.View.Leitor {
             String telefone = tbTelefone.Text;
             String cpf = tbCPF.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco);
+            String email = tbEmail.Text;
+            String senha = tbSenha.Text;
+            LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco, email, senha);
             if (controller.Insercao(leitor)) {
                 MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                 ClearForm();

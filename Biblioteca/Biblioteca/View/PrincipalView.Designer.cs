@@ -29,10 +29,12 @@ namespace Biblioteca.View {
             this.livrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empréstimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ReservatoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasemBreveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -44,24 +46,26 @@ namespace Biblioteca.View {
             this.livrosToolStripMenuItem,
             this.leitorToolStripMenuItem,
             this.empréstimosToolStripMenuItem,
+            this.ReservatoolStripMenuItem1,
             this.funcionáriosToolStripMenuItem,
             this.fornecedoresToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
-            this.sairToolStripMenuItem});
+            this.sairToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1037, 44);
+            this.menuStrip1.Size = new System.Drawing.Size(1270, 44);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // livrosToolStripMenuItem
             // 
             this.livrosToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.livrosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.livrosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.livrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.livrosToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
             this.livrosToolStripMenuItem.Name = "livrosToolStripMenuItem";
-            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(108, 40);
+            this.livrosToolStripMenuItem.Size = new System.Drawing.Size(111, 40);
             this.livrosToolStripMenuItem.Text = "Livros";
             this.livrosToolStripMenuItem.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
             this.livrosToolStripMenuItem.Click += new System.EventHandler(this.livrosToolStripMenuItem_Click);
@@ -69,40 +73,50 @@ namespace Biblioteca.View {
             // leitorToolStripMenuItem
             // 
             this.leitorToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.leitorToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.leitorToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.leitorToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.leitorToolStripMenuItem.Name = "leitorToolStripMenuItem";
-            this.leitorToolStripMenuItem.Size = new System.Drawing.Size(103, 40);
+            this.leitorToolStripMenuItem.Size = new System.Drawing.Size(107, 40);
             this.leitorToolStripMenuItem.Text = "Leitor";
             this.leitorToolStripMenuItem.Click += new System.EventHandler(this.leitorToolStripMenuItem_Click);
             // 
             // empréstimosToolStripMenuItem
             // 
             this.empréstimosToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.empréstimosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.empréstimosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.empréstimosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.empréstimosToolStripMenuItem.Name = "empréstimosToolStripMenuItem";
-            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(196, 40);
+            this.empréstimosToolStripMenuItem.Size = new System.Drawing.Size(203, 40);
             this.empréstimosToolStripMenuItem.Text = "Empréstimos";
             this.empréstimosToolStripMenuItem.Click += new System.EventHandler(this.empréstimosToolStripMenuItem_Click);
+            // 
+            // ReservatoolStripMenuItem1
+            // 
+            this.ReservatoolStripMenuItem1.BackColor = System.Drawing.Color.Black;
+            this.ReservatoolStripMenuItem1.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ReservatoolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.ReservatoolStripMenuItem1.Name = "ReservatoolStripMenuItem1";
+            this.ReservatoolStripMenuItem1.Size = new System.Drawing.Size(133, 40);
+            this.ReservatoolStripMenuItem1.Text = "Reserva";
+            this.ReservatoolStripMenuItem1.Click += new System.EventHandler(this.ReservatoolStripMenuItem1_Click);
             // 
             // funcionáriosToolStripMenuItem
             // 
             this.funcionáriosToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.funcionáriosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.funcionáriosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.funcionáriosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(193, 40);
+            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(201, 40);
             this.funcionáriosToolStripMenuItem.Text = "Funcionários";
             this.funcionáriosToolStripMenuItem.Click += new System.EventHandler(this.funcionáriosToolStripMenuItem_Click);
             // 
             // fornecedoresToolStripMenuItem
             // 
             this.fornecedoresToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.fornecedoresToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.fornecedoresToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.fornecedoresToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(199, 40);
+            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(204, 40);
             this.fornecedoresToolStripMenuItem.Text = "Fornecedores";
             this.fornecedoresToolStripMenuItem.Click += new System.EventHandler(this.fornecedoresToolStripMenuItem_Click);
             // 
@@ -127,6 +141,11 @@ namespace Biblioteca.View {
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 40);
+            // 
             // reservasemBreveToolStripMenuItem
             // 
             this.reservasemBreveToolStripMenuItem.Name = "reservasemBreveToolStripMenuItem";
@@ -140,7 +159,7 @@ namespace Biblioteca.View {
             this.BackColor = System.Drawing.Color.OldLace;
             this.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1037, 563);
+            this.ClientSize = new System.Drawing.Size(1270, 563);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -148,9 +167,8 @@ namespace Biblioteca.View {
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "PrincipalView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sistema de Biblioteca";
+            this.Text = "DARK READ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.PrincipalView_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -168,5 +186,7 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasemBreveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ReservatoolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

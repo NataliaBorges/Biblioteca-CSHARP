@@ -33,8 +33,8 @@ namespace Biblioteca.View.Livros {
             this.Autor = new System.Windows.Forms.ColumnHeader();
             this.Fornecedor = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
-            this.AnoPublicação = new System.Windows.Forms.ColumnHeader();
-            this.DataAquisição = new System.Windows.Forms.ColumnHeader();
+            this.Publicação = new System.Windows.Forms.ColumnHeader();
+            this.Aquisição = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // button1
@@ -42,7 +42,7 @@ namespace Biblioteca.View.Livros {
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 19.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(33, 332);
+            this.button1.Location = new System.Drawing.Point(3, 349);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 40);
             this.button1.TabIndex = 0;
@@ -55,7 +55,7 @@ namespace Biblioteca.View.Livros {
             this.button2.BackColor = System.Drawing.Color.Black;
             this.button2.Font = new System.Drawing.Font("Book Antiqua", 19.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(33, 417);
+            this.button2.Location = new System.Drawing.Point(3, 406);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 40);
             this.button2.TabIndex = 1;
@@ -65,21 +65,19 @@ namespace Biblioteca.View.Livros {
             // 
             // LvLivros
             // 
-            this.LvLivros.BackColor = System.Drawing.Color.White;
             this.LvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
             this.Autor,
             this.Fornecedor,
             this.Edição,
-            this.AnoPublicação,
-            this.DataAquisição});
+            this.Publicação,
+            this.Aquisição});
             this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LvLivros.ForeColor = System.Drawing.Color.Black;
             this.LvLivros.HideSelection = false;
-            this.LvLivros.Location = new System.Drawing.Point(273, 23);
+            this.LvLivros.Location = new System.Drawing.Point(210, 22);
             this.LvLivros.Name = "LvLivros";
-            this.LvLivros.Size = new System.Drawing.Size(530, 434);
+            this.LvLivros.Size = new System.Drawing.Size(605, 453);
             this.LvLivros.TabIndex = 2;
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
@@ -87,7 +85,7 @@ namespace Biblioteca.View.Livros {
             // ID
             // 
             this.ID.Text = "ID";
-            this.ID.Width = 30;
+            this.ID.Width = 50;
             // 
             // Nome
             // 
@@ -102,20 +100,22 @@ namespace Biblioteca.View.Livros {
             // Fornecedor
             // 
             this.Fornecedor.Text = "Fornecedor";
-            this.Fornecedor.Width = 80;
+            this.Fornecedor.Width = 100;
             // 
             // Edição
             // 
             this.Edição.Text = "Edição";
+            this.Edição.Width = 70;
             // 
-            // AnoPublicação
+            // Publicação
             // 
-            this.AnoPublicação.Text = "Ano";
+            this.Publicação.Text = "Publicação";
+            this.Publicação.Width = 100;
             // 
-            // DataAquisição
+            // Aquisição
             // 
-            this.DataAquisição.Text = "Aquisição";
-            this.DataAquisição.Width = 90;
+            this.Aquisição.Text = "Aquisição";
+            this.Aquisição.Width = 100;
             // 
             // LivrosPrincipalView
             // 
@@ -133,7 +133,6 @@ namespace Biblioteca.View.Livros {
             this.Name = "LivrosPrincipalView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Livros";
-            this.Load += new System.EventHandler(this.LivrosPrincipalView_Load);
             this.ResumeLayout(false);
 
         }
@@ -143,12 +142,12 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListView LvLivros;
-        private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Autor;
-        private System.Windows.Forms.ColumnHeader Edição;
-        private System.Windows.Forms.ColumnHeader AnoPublicação;
-        private System.Windows.Forms.ColumnHeader DataAquisição;
         private System.Windows.Forms.ColumnHeader Fornecedor;
+        private System.Windows.Forms.ColumnHeader Edição;
+        private System.Windows.Forms.ColumnHeader Publicação;
+        private System.Windows.Forms.ColumnHeader Aquisição;
+        private System.Windows.Forms.ColumnHeader ID;
     }
 }

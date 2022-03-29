@@ -160,20 +160,5 @@ namespace Biblioteca.View.Emprestimo {
             this.Close();
         }
 
-        private void tbObs_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e) {
-
-        }
-
-        private void tbDevolucao_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void tbEmprestimo_TextChanged(object sender, EventArgs e) {
-
-        }
     }
 }

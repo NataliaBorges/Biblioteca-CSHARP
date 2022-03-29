@@ -36,6 +36,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Funcionário = new System.Windows.Forms.ColumnHeader();
             this.Data_Empréstimo = new System.Windows.Forms.ColumnHeader();
             this.Data_Devolução = new System.Windows.Forms.ColumnHeader();
+            this.Status = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // button1
@@ -94,13 +95,14 @@ namespace Biblioteca.View.Emprestimo {
             this.Livro,
             this.Funcionário,
             this.Data_Empréstimo,
-            this.Data_Devolução});
+            this.Data_Devolução,
+            this.Status});
             this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.FullRowSelect = true;
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(76, 176);
+            this.lvEmprestimo.Location = new System.Drawing.Point(60, 182);
             this.lvEmprestimo.Name = "lvEmprestimo";
-            this.lvEmprestimo.Size = new System.Drawing.Size(663, 242);
+            this.lvEmprestimo.Size = new System.Drawing.Size(794, 242);
             this.lvEmprestimo.TabIndex = 23;
             this.lvEmprestimo.UseCompatibleStateImageBehavior = false;
             this.lvEmprestimo.View = System.Windows.Forms.View.Details;
@@ -136,13 +138,18 @@ namespace Biblioteca.View.Emprestimo {
             this.Data_Devolução.Text = "Data_Devolução";
             this.Data_Devolução.Width = 100;
             // 
+            // Status
+            // 
+            this.Status.Text = "Status";
+            this.Status.Width = 120;
+            // 
             // EmprestimoBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(815, 487);
+            this.ClientSize = new System.Drawing.Size(895, 487);
             this.Controls.Add(this.lvEmprestimo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbLeitor);
@@ -171,5 +178,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.ColumnHeader Data_Empréstimo;
         private System.Windows.Forms.ColumnHeader Data_Devolução;
         private System.Windows.Forms.ColumnHeader Livro;
+        private System.Windows.Forms.ColumnHeader Status;
     }
 }

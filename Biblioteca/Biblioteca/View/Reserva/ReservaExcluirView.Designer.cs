@@ -24,6 +24,8 @@ namespace Biblioteca.View.Reserva {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservaExcluirView));
+            this.button1 = new System.Windows.Forms.Button();
             this.lvReserva = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.ID_Funcionário = new System.Windows.Forms.ColumnHeader();
@@ -31,8 +33,6 @@ namespace Biblioteca.View.Reserva {
             this.ID_Leitor = new System.Windows.Forms.ColumnHeader();
             this.Leitor = new System.Windows.Forms.ColumnHeader();
             this.Data_Reserva = new System.Windows.Forms.ColumnHeader();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ObsText = new System.Windows.Forms.RichTextBox();
             this.LvLivros = new System.Windows.Forms.ListView();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
@@ -41,8 +41,23 @@ namespace Biblioteca.View.Reserva {
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ObsText = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(533, 363);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(201, 70);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "EXCLUIR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lvReserva
             // 
@@ -53,19 +68,20 @@ namespace Biblioteca.View.Reserva {
             this.ID_Leitor,
             this.Leitor,
             this.Data_Reserva});
+            this.lvReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvReserva.HideSelection = false;
-            this.lvReserva.Location = new System.Drawing.Point(112, 31);
+            this.lvReserva.Location = new System.Drawing.Point(92, 31);
             this.lvReserva.MultiSelect = false;
             this.lvReserva.Name = "lvReserva";
-            this.lvReserva.Size = new System.Drawing.Size(565, 101);
-            this.lvReserva.TabIndex = 6;
+            this.lvReserva.Size = new System.Drawing.Size(618, 123);
+            this.lvReserva.TabIndex = 3;
             this.lvReserva.UseCompatibleStateImageBehavior = false;
             this.lvReserva.View = System.Windows.Forms.View.Details;
             // 
             // ID
             // 
             this.ID.Text = "ID";
-            this.ID.Width = 80;
+            this.ID.Width = 30;
             // 
             // ID_Funcionário
             // 
@@ -75,7 +91,7 @@ namespace Biblioteca.View.Reserva {
             // Funcionário
             // 
             this.Funcionário.Text = "Funcionário";
-            this.Funcionário.Width = 100;
+            this.Funcionário.Width = 120;
             // 
             // ID_Leitor
             // 
@@ -85,29 +101,12 @@ namespace Biblioteca.View.Reserva {
             // Leitor
             // 
             this.Leitor.Text = "Leitor";
-            this.Leitor.Width = 100;
+            this.Leitor.Width = 150;
             // 
             // Data_Reserva
             // 
             this.Data_Reserva.Text = "Data_Reserva";
-            this.Data_Reserva.Width = 110;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 312);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 15);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Observação";
-            // 
-            // ObsText
-            // 
-            this.ObsText.Location = new System.Drawing.Point(112, 330);
-            this.ObsText.Name = "ObsText";
-            this.ObsText.Size = new System.Drawing.Size(214, 96);
-            this.ObsText.TabIndex = 23;
-            this.ObsText.Text = "";
+            this.Data_Reserva.Width = 150;
             // 
             // LvLivros
             // 
@@ -119,13 +118,13 @@ namespace Biblioteca.View.Reserva {
             this.Edição,
             this.Ano,
             this.Aquisição});
-            this.LvLivros.FullRowSelect = true;
+            this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(69, 165);
+            this.LvLivros.Location = new System.Drawing.Point(59, 173);
             this.LvLivros.Name = "LvLivros";
             this.LvLivros.Size = new System.Drawing.Size(675, 124);
-            this.LvLivros.TabIndex = 22;
+            this.LvLivros.TabIndex = 18;
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
             // 
@@ -163,27 +162,45 @@ namespace Biblioteca.View.Reserva {
             this.Aquisição.Text = "Aquisição";
             this.Aquisição.Width = 100;
             // 
-            // button1
+            // ObsText
             // 
-            this.button1.Location = new System.Drawing.Point(476, 344);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 70);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "EXCLUIR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ObsText.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ObsText.Location = new System.Drawing.Point(59, 347);
+            this.ObsText.Name = "ObsText";
+            this.ObsText.Size = new System.Drawing.Size(214, 96);
+            this.ObsText.TabIndex = 19;
+            this.ObsText.Text = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(59, 324);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Observação";
             // 
             // ReservaExcluirView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(815, 487);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ObsText);
             this.Controls.Add(this.LvLivros);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.lvReserva);
+            this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ReservaExcluirView";
             this.Text = "Excluir Reserva";
+            this.Load += new System.EventHandler(this.Excluir_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,6 +208,7 @@ namespace Biblioteca.View.Reserva {
 
         #endregion
 
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView lvReserva;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader ID_Funcionário;
@@ -198,8 +216,6 @@ namespace Biblioteca.View.Reserva {
         private System.Windows.Forms.ColumnHeader ID_Leitor;
         private System.Windows.Forms.ColumnHeader Leitor;
         private System.Windows.Forms.ColumnHeader Data_Reserva;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox ObsText;
         private System.Windows.Forms.ListView LvLivros;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader Nome;
@@ -208,6 +224,7 @@ namespace Biblioteca.View.Reserva {
         private System.Windows.Forms.ColumnHeader Edição;
         private System.Windows.Forms.ColumnHeader Ano;
         private System.Windows.Forms.ColumnHeader Aquisição;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.RichTextBox ObsText;
+        private System.Windows.Forms.Label label1;
     }
 }

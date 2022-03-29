@@ -12,6 +12,7 @@ namespace Biblioteca.Model {
         public String Endereco { get; set; }
         public String Telefone { get; set; }
         public String Senha { get; set; }
+        public String Funcao { get; set; }
         public FuncionarioModel(int ID, String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone) {
             this.ID_funcionario = ID;
             this.Nome_funcionario = nome;

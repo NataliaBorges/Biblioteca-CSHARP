@@ -25,8 +25,10 @@ namespace Biblioteca.View.Leitor {
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             String telefone = tbTelefone.Text;
             String cpf = tbCPF.Text;
+            String email = tbEmail.Text;
+            String senha = tbSenha.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco);
+            LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email, senha);
             if (controller.Atualizar(leitor)) {
                 MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
             }
@@ -54,6 +56,7 @@ namespace Biblioteca.View.Leitor {
                 tbTelefone.Text = leitor.Telefone;
                 tbNascimento.Text = leitor.DataNascimento.ToString("dd/MM/yyyy");
                 data = leitor.DataNascimento;
+                tbEmail.Text = leitor.Email;
             }
         }
 

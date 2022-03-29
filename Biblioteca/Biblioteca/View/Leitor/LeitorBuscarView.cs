@@ -48,6 +48,7 @@ namespace Biblioteca.View.Leitor {
                     item.SubItems.Add(leitor.Telefone);
                     item.SubItems.Add(leitor.CPF);
                     item.SubItems.Add(leitor.Endereco);
+                    item.SubItems.Add(leitor.Email);
 
                     LvLeitor.Items.Add(item);
                 }
@@ -72,7 +73,8 @@ namespace Biblioteca.View.Leitor {
                 DateTime.Parse(item.SubItems[2].Text),
                 item.SubItems[3].Text,
                 item.SubItems[4].Text,
-                item.SubItems[5].Text
+                item.SubItems[5].Text,
+                item.SubItems[6].Text
             );
 
             LeitorEditarView editar = new LeitorEditarView(leitor);

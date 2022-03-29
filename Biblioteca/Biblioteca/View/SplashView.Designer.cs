@@ -71,7 +71,6 @@ namespace Biblioteca.View {
             this.Name = "SplashView";
             this.Text = "SplashView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.SplashView_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

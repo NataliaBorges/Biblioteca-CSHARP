@@ -44,6 +44,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
             this.ObsText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -190,6 +191,20 @@ namespace Biblioteca.View.Emprestimo {
             this.label1.TabIndex = 20;
             this.label1.Text = "Observação";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(309, 363);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 70);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "DEVOLVER";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // EmprestimoExcluirView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -197,6 +212,7 @@ namespace Biblioteca.View.Emprestimo {
             this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(815, 487);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ObsText);
             this.Controls.Add(this.LvLivros);
@@ -234,5 +250,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.ColumnHeader Aquisição;
         private System.Windows.Forms.RichTextBox ObsText;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }

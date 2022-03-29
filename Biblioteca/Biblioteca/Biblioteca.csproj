@@ -16,6 +16,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaCadastroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaExcluirView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaPrincipalView.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

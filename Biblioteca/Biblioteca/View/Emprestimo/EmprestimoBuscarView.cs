@@ -38,7 +38,7 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems.Add(emprestimo.Nome_funcionario);
                     item.SubItems.Add(emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"));
                     item.SubItems.Add(emprestimo.Data_devolucao.ToString("dd/MM/yyyy"));
-
+                    item.SubItems.Add(emprestimo.Status);
                     lvEmprestimo.Items.Add(item);
                 }
             }
@@ -66,7 +66,8 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems[2].Text,
                     item.SubItems[3].Text,
                     DateTime.Parse(item.SubItems[4].Text),
-                    DateTime.Parse(item.SubItems[5].Text)
+                    DateTime.Parse(item.SubItems[5].Text),
+                    item.SubItems[6].Text
                 );
 
             EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);

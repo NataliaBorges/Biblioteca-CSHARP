@@ -44,5 +44,10 @@ namespace Biblioteca.Util {
             this.livros = new List<LivroModel>();
             this.leitor = null;
         }
+
+        public void clearReserva() {
+            this.livros = new List<LivroModel>();
+            this.leitor = null;
+        }
     }
 }

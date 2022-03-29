@@ -11,14 +11,24 @@ using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Funcionario;
 using Biblioteca.View.Fornecedor;
 using Biblioteca.View.Relatorio;
+using Biblioteca.View.Reserva;
+using Biblioteca.Util;
 
 namespace Biblioteca.View {
     public partial class PrincipalView : Form {
+
+        Singleton singleton = Singleton.GetInstancia();
+
         public PrincipalView() {
             InitializeComponent();
         }
 
-        private void PrincipalView_Load(object sender, EventArgs e) {
+       private void PrincipalView_Load(object sender, EventArgs e) {
+            if(singleton.getFuncionario().Funcao != "Administrador") {
+                funcionáriosToolStripMenuItem.Visible = false;
+                fornecedoresToolStripMenuItem.Visible = false;
+                relatóriosToolStripMenuItem.Visible = false;
+            }
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -30,11 +40,6 @@ namespace Biblioteca.View {
             form.SetBounds(bounds.X, bounds.Y, form.Bounds.Width, form.Bounds.Height);
             form.StartPosition = FormStartPosition.CenterScreen;
             form.ShowDialog();
-        }
-
-        private void livrosToolStripMenuItem_Click(object sender, EventArgs e) {
-            LivrosPrincipalView livrosPrincipalView = new LivrosPrincipalView();
-            novaJanela(livrosPrincipalView);
         }
 
         private void leitorToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -62,5 +67,14 @@ namespace Biblioteca.View {
             novaJanela(relatorios);
         }
 
+        private void ReservatoolStripMenuItem1_Click(object sender, EventArgs e) {
+            ReservaPrincipalView reservaPrincipalView = new ReservaPrincipalView();
+            novaJanela(reservaPrincipalView);
+        }
+
+        private void livrosToolStripMenuItem_Click(object sender, EventArgs e) {
+            LivrosPrincipalView livrosPrincipalView = new LivrosPrincipalView();
+            novaJanela(livrosPrincipalView);
+        }
     }
 }

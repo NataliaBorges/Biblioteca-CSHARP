@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco)";
+            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email, @Senha)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Leitor", leitor.Nome);
@@ -29,6 +29,8 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Telefone", leitor.Telefone);
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
+            Cmd.Parameters.AddWithValue("@Email", leitor.Email);
+            Cmd.Parameters.AddWithValue("@Senha", leitor.Senha);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -40,7 +42,7 @@ namespace Biblioteca.Controller {
         public bool Atualizar(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Leitor SET Nome_Leitor = @Nome_Leitor, Data_Nascimento = @Data_Nascimento, 
-                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco
+                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco, Email = @Email, Senha = @Senha
                                 WHERE ID_leitor = @ID";
 
             Cmd.Parameters.Clear();
@@ -50,6 +52,8 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Telefone", leitor.Telefone);
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
+            Cmd.Parameters.AddWithValue("@Email", leitor.Email);
+            Cmd.Parameters.AddWithValue("@Senha", leitor.Senha);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -75,7 +79,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
-                    (String)reader["Endereco"]
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
                 );
                 lista.Add(leitor);
             }
@@ -108,7 +113,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
-                    (String)reader["Endereco"]
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
                 );
                 lista.Add(leitor);
             }
@@ -156,7 +162,8 @@ namespace Biblioteca.Controller {
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
-                    (String)reader["Endereco"]
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
                 );
                 leitor.QuantidadeEmprestimo = (int)reader["Emprestimos"];
                 lista.Add(leitor);

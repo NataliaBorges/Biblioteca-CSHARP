@@ -63,8 +63,12 @@ namespace Biblioteca.View.Emprestimo {
                 item.SubItems[3].Text
             );
 
-            controller.InserirLivroEmprestimo(livro);
-            this.Close();
+            if (controller.livroEmprestado(livro)) {
+                MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
+            } else {
+                controller.InserirLivroEmprestimo(livro);
+                this.Close();
+            }
         }
     }
 }
