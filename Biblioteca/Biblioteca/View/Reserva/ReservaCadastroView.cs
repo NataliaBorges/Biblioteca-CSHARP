@@ -14,7 +14,6 @@ namespace Biblioteca.View.Reserva {
     public partial class ReservaCadastroView : Form {
 
         DateTime dataReserva;
-        DateTime dataDevolucao;
         ReservaController controller = new ReservaController();
         Singleton singleton = Singleton.GetInstancia();
 
@@ -149,19 +148,6 @@ namespace Biblioteca.View.Reserva {
 
             MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
             this.Close();
-        }
-
-        private void tbObs_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e) {
-
-        }
-
-
-        private void tbReserva_TextChanged(object sender, EventArgs e) {
-
         }
     }
 }

@@ -223,7 +223,6 @@ namespace Biblioteca.View.Reserva {
             this.tbReserva.Name = "tbReserva";
             this.tbReserva.Size = new System.Drawing.Size(171, 27);
             this.tbReserva.TabIndex = 10;
-            this.tbReserva.TextChanged += new System.EventHandler(this.tbReserva_TextChanged);
             // 
             // label3
             // 
@@ -258,7 +257,6 @@ namespace Biblioteca.View.Reserva {
             this.tbObs.Size = new System.Drawing.Size(192, 120);
             this.tbObs.TabIndex = 15;
             this.tbObs.Text = "";
-            this.tbObs.TextChanged += new System.EventHandler(this.tbObs_TextChanged);
             // 
             // label5
             // 
@@ -271,7 +269,6 @@ namespace Biblioteca.View.Reserva {
             this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Observação";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // ReservaCadastroView
             // 

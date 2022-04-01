@@ -21,10 +21,58 @@ namespace Biblioteca.View {
 
         public PrincipalView() {
             InitializeComponent();
+
+            menuStrip1.Renderer = new MyRenderer();
+        }
+        private class MyRenderer : ToolStripProfessionalRenderer {
+            public MyRenderer() : base(new MyColors()) { }
         }
 
-       private void PrincipalView_Load(object sender, EventArgs e) {
-            if(singleton.getFuncionario().Funcao != "Administrador") {
+        private class MyColors : ProfessionalColorTable {
+            // Ficar com cor sólida
+            public override Color MenuItemSelected {
+                get { return Color.BurlyWood; }
+            }
+
+            // Ficar com cor gradiente/degradê no começo
+            public override Color MenuItemSelectedGradientBegin {
+                get { return Color.Chocolate; }
+            }
+
+            // Ficar com cor gradiente/degradê no final
+            public override Color MenuItemSelectedGradientEnd {
+                get { return Color.BurlyWood; }
+            }
+            public override Color MenuBorder {
+                get {
+                    return Color.Chocolate;
+                }
+            }
+            public override Color MenuItemBorder {
+                get {
+                    return Color.Chocolate;
+                }
+            }
+            public override Color MenuItemPressedGradientBegin {
+                get {
+                    return Color.BurlyWood;
+                }
+            }
+            public override Color MenuItemPressedGradientMiddle {
+                get {
+                    return Color.BurlyWood;
+                }
+            }
+            public override Color MenuItemPressedGradientEnd {
+                get {
+                    return Color.BurlyWood;
+                }
+            }
+
+
+        }
+        private void PrincipalView_Load(object sender, EventArgs e) {
+            if (singleton.getFuncionario().Funcao != "Administrador") {
                 funcionáriosToolStripMenuItem.Visible = false;
                 fornecedoresToolStripMenuItem.Visible = false;
                 relatóriosToolStripMenuItem.Visible = false;
@@ -42,39 +90,86 @@ namespace Biblioteca.View {
             form.ShowDialog();
         }
 
-        private void leitorToolStripMenuItem_Click(object sender, EventArgs e) {
-            LeitorPrincipalView leitorPrincipalView = new LeitorPrincipalView();
-            novaJanela(leitorPrincipalView);
+        private void toolStripMenuItem2_Click(object sender, EventArgs e) {
+            LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView();
+            novaJanela(livrosCadastrarlView);
         }
 
-        private void empréstimosToolStripMenuItem_Click(object sender, EventArgs e) {
-            EmprestimoPrincipalView emprestimoPrincipalView = new EmprestimoPrincipalView();
-            novaJanela(emprestimoPrincipalView);
+        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e) {
+            LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
+            novaJanela(livrosBuscarView);
         }
 
-        private void funcionáriosToolStripMenuItem_Click(object sender, EventArgs e) {
-            FuncionarioPrincipalView funcionarioPrincipalView = new FuncionarioPrincipalView();
-            novaJanela(funcionarioPrincipalView);
+        private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
+            novaJanela(leitorCadastrarView);
         }
 
-        private void fornecedoresToolStripMenuItem_Click(object sender, EventArgs e) {
-            ForcecedorPrincipalView forcecedorPrincipalView = new ForcecedorPrincipalView();
-            novaJanela(forcecedorPrincipalView);
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e) {
+            LeitorBuscarView leitorBuscarView = new LeitorBuscarView();
+            novaJanela(leitorBuscarView);
         }
 
-        private void relatóriosToolStripMenuItem_Click(object sender, EventArgs e) {
-            RelatorioPrincipalView relatorios = new RelatorioPrincipalView();
-            novaJanela(relatorios);
+        private void cadastrarToolStripMenuItem2_Click(object sender, EventArgs e) {
+            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
+            novaJanela(funcionarioCadastrarView);
         }
 
-        private void ReservatoolStripMenuItem1_Click(object sender, EventArgs e) {
-            ReservaPrincipalView reservaPrincipalView = new ReservaPrincipalView();
-            novaJanela(reservaPrincipalView);
+        private void buscarToolStripMenuItem1_Click(object sender, EventArgs e) {
+            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
+            novaJanela(funcionarioBuscarView);
         }
 
-        private void livrosToolStripMenuItem_Click(object sender, EventArgs e) {
-            LivrosPrincipalView livrosPrincipalView = new LivrosPrincipalView();
-            novaJanela(livrosPrincipalView);
+        private void cToolStripMenuItem_Click(object sender, EventArgs e) {
+            FornecedorCadastrarView fornecedorCadastrarView = new FornecedorCadastrarView();
+            novaJanela(fornecedorCadastrarView);
+        }
+
+        private void buscarToolStripMenuItem2_Click(object sender, EventArgs e) {
+            FornecedorBuscarView fornecedorBuscarView = new FornecedorBuscarView();
+            novaJanela(fornecedorBuscarView);
+        }
+
+        private void cadastrarToolStripMenuItem3_Click(object sender, EventArgs e) {
+            EmprestimoCadastroView emprestimoCadastroView = new EmprestimoCadastroView();
+            novaJanela(emprestimoCadastroView);
+        }
+
+        private void buscarToolStripMenuItem3_Click(object sender, EventArgs e) {
+            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView();
+            novaJanela(emprestimoBuscarView);
+
+        }
+
+        private void cadastrarToolStripMenuItem4_Click(object sender, EventArgs e) {
+            ReservaCadastroView reservaCadastroView = new ReservaCadastroView();
+            novaJanela(reservaCadastroView);
+        }
+
+        private void buscarToolStripMenuItem4_Click(object sender, EventArgs e) {
+            ReservaBuscarView reservaBuscarView = new ReservaBuscarView();
+            novaJanela(reservaBuscarView);
+        }
+
+        private void livrotoolStripMenuItem3_Click(object sender, EventArgs e) {
+            RelatorioLivroView relatorioLivroView = new RelatorioLivroView();
+            novaJanela(relatorioLivroView);
+        }
+
+        private void leitorToolStripMenuItem1_Click(object sender, EventArgs e) {
+            RelatorioLeitorView relatorioLeitorView = new RelatorioLeitorView();
+            novaJanela(relatorioLeitorView);
+        }
+
+        private void empréstimoToolStripMenuItem_Click(object sender, EventArgs e) {
+            RelatorioEmprestimoView relatorioEmprestimoView = new RelatorioEmprestimoView();
+            novaJanela(relatorioEmprestimoView);
+        }
+
+        private void reservaToolStripMenuItem_Click(object sender, EventArgs e) {
+            RelatorioReservaView relatorioReservaView = new RelatorioReservaView();
+            novaJanela(relatorioReservaView);
         }
     }
 }
+

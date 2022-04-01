@@ -22,15 +22,12 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.csproj.CopyComplete
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.PrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Properties.Resources.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivrosPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivrosCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivrosBuscarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoCadastroView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Leitor.LeitorBuscarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Leitor.LeitorCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Leitor.LeitorEditarView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Leitor.LeitorPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivrosEditarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarLivroView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarLivroView - Cópia.resources
@@ -42,18 +39,14 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioBuscarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioEditarView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioEmprestimoView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioLeitorView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioReservaView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Fornecedor.ForcecedorPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Fornecedor.FornecedorCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoExcluirView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioLivroView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.SplashView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaPrincipalView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaBuscarLeitorView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaBuscarLivroView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaBuscarView.resources

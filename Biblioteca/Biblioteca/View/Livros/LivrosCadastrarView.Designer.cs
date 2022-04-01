@@ -189,6 +189,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = global::Biblioteca.Properties.Resources.Photobook;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -211,6 +212,7 @@ namespace Biblioteca.View.Livros {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LivrosCadastrarView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastrar Livros";
             this.Load += new System.EventHandler(this.LivrosCadastrarView_Load);
             this.ResumeLayout(false);
