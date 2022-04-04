@@ -35,8 +35,11 @@ namespace Biblioteca.View.Emprestimo {
 
                     ObsText.Text = emprestimo.Obs;
 
-                    if(emprestimo.Status == "DEVOLVIDO") {
+                    button4.Visible = false;
+                    button4.Enabled = false;
+                    if (emprestimo.Status == "DEVOLVIDO") {
                         button2.Visible = false;
+                        button4.Visible = true;
                     }
                 }
             }
