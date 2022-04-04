@@ -85,8 +85,9 @@ namespace Biblioteca.View {
 
         private void novaJanela(Form form) {
             Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, form.Bounds.Width, form.Bounds.Height);
-            form.StartPosition = FormStartPosition.CenterScreen;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
             form.ShowDialog();
         }
 

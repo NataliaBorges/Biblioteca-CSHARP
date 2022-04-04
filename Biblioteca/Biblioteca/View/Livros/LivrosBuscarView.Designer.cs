@@ -38,6 +38,7 @@ namespace Biblioteca.View.Livros {
             this.rbAutor = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // rbEditora
@@ -45,7 +46,7 @@ namespace Biblioteca.View.Livros {
             this.rbEditora.BackColor = System.Drawing.Color.Transparent;
             this.rbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbEditora.ForeColor = System.Drawing.Color.White;
-            this.rbEditora.Location = new System.Drawing.Point(144, 110);
+            this.rbEditora.Location = new System.Drawing.Point(414, 243);
             this.rbEditora.MaximumSize = new System.Drawing.Size(180, 192);
             this.rbEditora.Name = "rbEditora";
             this.rbEditora.Size = new System.Drawing.Size(105, 20);
@@ -69,7 +70,7 @@ namespace Biblioteca.View.Livros {
             this.LvLivros.FullRowSelect = true;
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(130, 162);
+            this.LvLivros.Location = new System.Drawing.Point(400, 295);
             this.LvLivros.Name = "LvLivros";
             this.LvLivros.Size = new System.Drawing.Size(577, 283);
             this.LvLivros.TabIndex = 17;
@@ -116,7 +117,7 @@ namespace Biblioteca.View.Livros {
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(609, 76);
+            this.button1.Location = new System.Drawing.Point(879, 209);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 27);
             this.button1.TabIndex = 16;
@@ -129,7 +130,7 @@ namespace Biblioteca.View.Livros {
             this.rbAutor.BackColor = System.Drawing.Color.Transparent;
             this.rbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbAutor.ForeColor = System.Drawing.Color.White;
-            this.rbAutor.Location = new System.Drawing.Point(144, 80);
+            this.rbAutor.Location = new System.Drawing.Point(414, 213);
             this.rbAutor.Name = "rbAutor";
             this.rbAutor.Size = new System.Drawing.Size(69, 24);
             this.rbAutor.TabIndex = 15;
@@ -143,7 +144,7 @@ namespace Biblioteca.View.Livros {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(144, 54);
+            this.rbNome.Location = new System.Drawing.Point(414, 187);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 14;
@@ -155,19 +156,32 @@ namespace Biblioteca.View.Livros {
             // 
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(261, 76);
+            this.tbBuscar.Location = new System.Drawing.Point(531, 209);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(321, 27);
             this.tbBuscar.TabIndex = 13;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(149, 32);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 36);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Fechar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // LivrosBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(815, 487);
+            this.ClientSize = new System.Drawing.Size(1398, 820);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.rbEditora);
             this.Controls.Add(this.LvLivros);
             this.Controls.Add(this.button1);
@@ -175,6 +189,7 @@ namespace Biblioteca.View.Livros {
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -201,5 +216,6 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.ColumnHeader Fornecedor;
+        private System.Windows.Forms.Button button2;
     }
 }

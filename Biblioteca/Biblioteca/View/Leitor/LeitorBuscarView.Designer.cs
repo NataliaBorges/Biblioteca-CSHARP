@@ -32,11 +32,12 @@ namespace Biblioteca.View.Leitor {
             this.Telefone = new System.Windows.Forms.ColumnHeader();
             this.CPF = new System.Windows.Forms.ColumnHeader();
             this.Endereco = new System.Windows.Forms.ColumnHeader();
+            this.Email = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
             this.rbCPF = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.Email = new System.Windows.Forms.ColumnHeader();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LvLeitor
@@ -53,7 +54,7 @@ namespace Biblioteca.View.Leitor {
             this.LvLeitor.FullRowSelect = true;
             this.LvLeitor.HideSelection = false;
             this.LvLeitor.HoverSelection = true;
-            this.LvLeitor.Location = new System.Drawing.Point(89, 164);
+            this.LvLeitor.Location = new System.Drawing.Point(315, 258);
             this.LvLeitor.Name = "LvLeitor";
             this.LvLeitor.Size = new System.Drawing.Size(636, 247);
             this.LvLeitor.TabIndex = 11;
@@ -89,11 +90,16 @@ namespace Biblioteca.View.Leitor {
             this.Endereco.Text = "Endereco";
             this.Endereco.Width = 100;
             // 
+            // Email
+            // 
+            this.Email.Text = "Email";
+            this.Email.Width = 130;
+            // 
             // button1
             // 
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(692, 81);
+            this.button1.Location = new System.Drawing.Point(918, 175);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 27);
             this.button1.TabIndex = 10;
@@ -107,7 +113,7 @@ namespace Biblioteca.View.Leitor {
             this.rbCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(89, 96);
+            this.rbCPF.Location = new System.Drawing.Point(315, 190);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(57, 24);
             this.rbCPF.TabIndex = 9;
@@ -122,7 +128,7 @@ namespace Biblioteca.View.Leitor {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(89, 71);
+            this.rbNome.Location = new System.Drawing.Point(315, 165);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 8;
@@ -133,27 +139,37 @@ namespace Biblioteca.View.Leitor {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(202, 81);
+            this.tbBuscar.Location = new System.Drawing.Point(428, 175);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(471, 27);
             this.tbBuscar.TabIndex = 7;
             // 
-            // Email
+            // button2
             // 
-            this.Email.Text = "Email";
-            this.Email.Width = 130;
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(86, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 36);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Fechar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // LeitorBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
-            this.ClientSize = new System.Drawing.Size(815, 487);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1239, 676);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.LvLeitor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbCPF);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -178,5 +194,6 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.Button button2;
     }
 }

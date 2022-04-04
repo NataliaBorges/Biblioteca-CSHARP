@@ -68,5 +68,13 @@ namespace Biblioteca.View.Livros {
             int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
             data = new DateTime(ano, mes, dia);
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

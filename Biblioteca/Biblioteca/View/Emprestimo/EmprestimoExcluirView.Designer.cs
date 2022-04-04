@@ -45,6 +45,7 @@ namespace Biblioteca.View.Emprestimo {
             this.ObsText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -53,7 +54,7 @@ namespace Biblioteca.View.Emprestimo {
             this.button1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(533, 363);
+            this.button1.Location = new System.Drawing.Point(656, 486);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 70);
             this.button1.TabIndex = 0;
@@ -73,7 +74,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Data_Devolução});
             this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(27, 30);
+            this.lvEmprestimo.Location = new System.Drawing.Point(150, 153);
             this.lvEmprestimo.MultiSelect = false;
             this.lvEmprestimo.Name = "lvEmprestimo";
             this.lvEmprestimo.Size = new System.Drawing.Size(765, 123);
@@ -129,7 +130,7 @@ namespace Biblioteca.View.Emprestimo {
             this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(59, 173);
+            this.LvLivros.Location = new System.Drawing.Point(182, 296);
             this.LvLivros.Name = "LvLivros";
             this.LvLivros.Size = new System.Drawing.Size(675, 124);
             this.LvLivros.TabIndex = 18;
@@ -173,7 +174,7 @@ namespace Biblioteca.View.Emprestimo {
             // ObsText
             // 
             this.ObsText.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ObsText.Location = new System.Drawing.Point(59, 347);
+            this.ObsText.Location = new System.Drawing.Point(182, 470);
             this.ObsText.Name = "ObsText";
             this.ObsText.Size = new System.Drawing.Size(214, 96);
             this.ObsText.TabIndex = 19;
@@ -185,7 +186,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(59, 324);
+            this.label1.Location = new System.Drawing.Point(182, 447);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 20;
@@ -197,7 +198,7 @@ namespace Biblioteca.View.Emprestimo {
             this.button2.Cursor = System.Windows.Forms.Cursors.Cross;
             this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(309, 363);
+            this.button2.Location = new System.Drawing.Point(432, 486);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 70);
             this.button2.TabIndex = 21;
@@ -205,19 +206,34 @@ namespace Biblioteca.View.Emprestimo {
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(73, 31);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 36);
+            this.button3.TabIndex = 22;
+            this.button3.Text = "Fechar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // EmprestimoExcluirView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(815, 487);
+            this.ClientSize = new System.Drawing.Size(1117, 732);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ObsText);
             this.Controls.Add(this.LvLivros);
             this.Controls.Add(this.lvEmprestimo);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -251,5 +267,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.RichTextBox ObsText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

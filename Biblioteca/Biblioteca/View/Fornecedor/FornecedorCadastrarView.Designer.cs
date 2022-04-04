@@ -40,6 +40,7 @@ namespace Biblioteca.View.Fornecedor {
             this.label3 = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label8
@@ -195,13 +196,27 @@ namespace Biblioteca.View.Fornecedor {
             this.label1.TabIndex = 36;
             this.label1.Text = "Nome";
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(35, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 36);
+            this.button2.TabIndex = 54;
+            this.button2.Text = "Fechar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FornecedorCadastrarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(815, 487);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbCidade);
             this.Controls.Add(this.tbBairro);
@@ -217,6 +232,7 @@ namespace Biblioteca.View.Fornecedor {
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbNome);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -245,5 +261,6 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button2;
     }
 }

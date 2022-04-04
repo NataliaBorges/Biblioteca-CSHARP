@@ -160,5 +160,8 @@ namespace Biblioteca.View.Emprestimo {
             this.Close();
         }
 
+        private void button4_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

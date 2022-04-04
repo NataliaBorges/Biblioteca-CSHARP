@@ -63,5 +63,9 @@ namespace Biblioteca.View.Reserva {
             controller.InserirLeitorReserva(leitor);
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

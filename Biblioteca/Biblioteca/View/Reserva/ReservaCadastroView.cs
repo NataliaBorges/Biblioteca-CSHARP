@@ -149,5 +149,9 @@ namespace Biblioteca.View.Reserva {
             MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
             this.Close();
         }
+
+        private void button4_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

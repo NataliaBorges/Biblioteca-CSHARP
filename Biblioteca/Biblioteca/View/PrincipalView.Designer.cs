@@ -52,12 +52,15 @@ namespace Biblioteca.View {
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasemBreveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Black;
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.livrosToolStripMenuItem,
             this.leitorToolStripMenuItem,
@@ -68,9 +71,9 @@ namespace Biblioteca.View {
             this.relatóriosToolStripMenuItem,
             this.sairToolStripMenuItem,
             this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(63, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1270, 41);
+            this.menuStrip1.Size = new System.Drawing.Size(1144, 41);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -348,6 +351,22 @@ namespace Biblioteca.View {
             this.reservasemBreveToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             this.reservasemBreveToolStripMenuItem.Text = "Reservas (em breve)";
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Black;
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.menuStrip1, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1270, 41);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
             // PrincipalView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -356,7 +375,7 @@ namespace Biblioteca.View {
             this.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1270, 563);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -367,8 +386,9 @@ namespace Biblioteca.View {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -400,5 +420,6 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

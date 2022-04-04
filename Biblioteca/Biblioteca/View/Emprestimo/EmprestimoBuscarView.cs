@@ -77,5 +77,9 @@ namespace Biblioteca.View.Emprestimo {
             editar.StartPosition = FormStartPosition.CenterScreen;
             editar.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

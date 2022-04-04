@@ -41,6 +41,7 @@ namespace Biblioteca.View.Fornecedor {
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label8
@@ -209,13 +210,26 @@ namespace Biblioteca.View.Fornecedor {
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button3.ForeColor = System.Drawing.Color.White;
+            this.button3.Location = new System.Drawing.Point(38, 12);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 36);
+            this.button3.TabIndex = 70;
+            this.button3.Text = "Fechar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // FornecedorEditarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.buscarphoto;
             this.ClientSize = new System.Drawing.Size(815, 487);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tbCidade);
@@ -234,6 +248,7 @@ namespace Biblioteca.View.Fornecedor {
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ForeColor = System.Drawing.Color.Transparent;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -263,5 +278,6 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

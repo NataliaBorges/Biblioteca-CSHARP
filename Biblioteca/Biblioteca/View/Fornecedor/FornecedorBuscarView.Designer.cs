@@ -35,6 +35,7 @@ namespace Biblioteca.View.Fornecedor {
             this.Endereco = new System.Windows.Forms.ColumnHeader();
             this.Telefone = new System.Windows.Forms.ColumnHeader();
             this.CNPJ = new System.Windows.Forms.ColumnHeader();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -128,17 +129,32 @@ namespace Biblioteca.View.Fornecedor {
             this.CNPJ.Text = "CNPJ";
             this.CNPJ.Width = 100;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(25, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 36);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Fechar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FornecedorBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(815, 487);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.LvFornecedor);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbCNPJ);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -161,5 +177,6 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.ColumnHeader Endereco;
         private System.Windows.Forms.ColumnHeader Telefone;
         private System.Windows.Forms.ColumnHeader CNPJ;
+        private System.Windows.Forms.Button button2;
     }
 }

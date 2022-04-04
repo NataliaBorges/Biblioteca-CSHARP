@@ -37,6 +37,7 @@ namespace Biblioteca.View.Funcionario {
             this.CPF = new System.Windows.Forms.ColumnHeader();
             this.Endereco = new System.Windows.Forms.ColumnHeader();
             this.Email = new System.Windows.Forms.ColumnHeader();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -44,7 +45,7 @@ namespace Biblioteca.View.Funcionario {
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(595, 63);
+            this.button1.Location = new System.Drawing.Point(892, 205);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(31, 27);
             this.button1.TabIndex = 15;
@@ -57,7 +58,7 @@ namespace Biblioteca.View.Funcionario {
             this.rbEmail.BackColor = System.Drawing.Color.Transparent;
             this.rbEmail.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbEmail.ForeColor = System.Drawing.Color.White;
-            this.rbEmail.Location = new System.Drawing.Point(139, 77);
+            this.rbEmail.Location = new System.Drawing.Point(436, 219);
             this.rbEmail.Name = "rbEmail";
             this.rbEmail.Size = new System.Drawing.Size(74, 24);
             this.rbEmail.TabIndex = 14;
@@ -71,7 +72,7 @@ namespace Biblioteca.View.Funcionario {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(139, 52);
+            this.rbNome.Location = new System.Drawing.Point(436, 194);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 13;
@@ -82,7 +83,7 @@ namespace Biblioteca.View.Funcionario {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(256, 63);
+            this.tbBuscar.Location = new System.Drawing.Point(553, 205);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(321, 27);
             this.tbBuscar.TabIndex = 12;
@@ -100,7 +101,7 @@ namespace Biblioteca.View.Funcionario {
             this.Lvfuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Lvfuncionario.FullRowSelect = true;
             this.Lvfuncionario.HideSelection = false;
-            this.Lvfuncionario.Location = new System.Drawing.Point(21, 143);
+            this.Lvfuncionario.Location = new System.Drawing.Point(318, 285);
             this.Lvfuncionario.Name = "Lvfuncionario";
             this.Lvfuncionario.Size = new System.Drawing.Size(782, 273);
             this.Lvfuncionario.TabIndex = 16;
@@ -141,18 +142,33 @@ namespace Biblioteca.View.Funcionario {
             this.Email.Text = "Email";
             this.Email.Width = 150;
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(156, 29);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(92, 36);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Fechar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FuncionarioBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Biblioteca.Properties.Resources.fumaça;
+            this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(815, 487);
+            this.ClientSize = new System.Drawing.Size(1372, 779);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.Lvfuncionario);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rbEmail);
             this.Controls.Add(this.rbNome);
             this.Controls.Add(this.tbBuscar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -177,5 +193,6 @@ namespace Biblioteca.View.Funcionario {
         private System.Windows.Forms.ColumnHeader CPF;
         private System.Windows.Forms.ColumnHeader Endereco;
         private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.Button button2;
     }
 }

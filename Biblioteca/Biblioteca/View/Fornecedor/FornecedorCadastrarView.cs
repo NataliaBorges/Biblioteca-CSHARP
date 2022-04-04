@@ -44,5 +44,9 @@ namespace Biblioteca.View.Fornecedor {
                 MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }

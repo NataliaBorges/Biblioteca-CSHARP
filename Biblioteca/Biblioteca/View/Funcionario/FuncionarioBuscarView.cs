@@ -77,5 +77,9 @@ namespace Biblioteca.View.Funcionario {
             List<FuncionarioModel> lista = controller.ListarTodos();
             popular(lista);
         }
+
+        private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
