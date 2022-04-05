@@ -26,7 +26,6 @@ namespace Biblioteca.View.Leitor {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeitorCadastrarView));
             this.button1 = new System.Windows.Forms.Button();
-            this.tbCPF = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.tbNascimento = new System.Windows.Forms.TextBox();
@@ -50,6 +49,7 @@ namespace Biblioteca.View.Leitor {
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.maskedTextCPF = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,23 +68,13 @@ namespace Biblioteca.View.Leitor {
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tbCPF
-            // 
-            this.tbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbCPF.Location = new System.Drawing.Point(532, 418);
-            this.tbCPF.Margin = new System.Windows.Forms.Padding(4);
-            this.tbCPF.Name = "tbCPF";
-            this.tbCPF.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbCPF.Size = new System.Drawing.Size(238, 27);
-            this.tbCPF.TabIndex = 24;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(532, 400);
+            this.label5.Location = new System.Drawing.Point(545, 400);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -332,6 +322,7 @@ namespace Biblioteca.View.Leitor {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.maskedTextCPF);
             this.panel1.Controls.Add(this.tbRua);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
@@ -350,7 +341,6 @@ namespace Biblioteca.View.Leitor {
             this.panel1.Controls.Add(this.tbBairro);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.tbCPF);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.tbNumero);
@@ -375,6 +365,15 @@ namespace Biblioteca.View.Leitor {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1379, 706);
             this.tableLayoutPanel1.TabIndex = 42;
+            // 
+            // maskedTextCPF
+            // 
+            this.maskedTextCPF.Location = new System.Drawing.Point(545, 423);
+            this.maskedTextCPF.Mask = "999.999.999-99";
+            this.maskedTextCPF.Name = "maskedTextCPF";
+            this.maskedTextCPF.Size = new System.Drawing.Size(224, 22);
+            this.maskedTextCPF.TabIndex = 41;
+            this.maskedTextCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // LeitorCadastrarView
             // 
@@ -401,7 +400,6 @@ namespace Biblioteca.View.Leitor {
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbCPF;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.MonthCalendar calendar;
         private System.Windows.Forms.TextBox tbNascimento;
@@ -425,5 +423,6 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.MaskedTextBox maskedTextCPF;
     }
 }

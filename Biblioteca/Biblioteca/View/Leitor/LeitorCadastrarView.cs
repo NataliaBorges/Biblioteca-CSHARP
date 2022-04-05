@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Leitor {
     public partial class LeitorCadastrarView : Form {
@@ -25,17 +26,17 @@ namespace Biblioteca.View.Leitor {
             this.tbBairro.Clear();
             this.tbCidade.Clear();
             this.tbTelefone.Clear();
-            this.tbCPF.Clear();
+            this.maskedTextCPF.Clear();
             this.tbNascimento.Clear();
             this.tbEmail.Clear();
-            this.tbSenha.Clear();   
+            this.tbSenha.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             String telefone = tbTelefone.Text;
-            String cpf = tbCPF.Text;
+            String cpf = maskedTextCPF.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
             String email = tbEmail.Text;
             String senha = tbSenha.Text;
@@ -59,6 +60,13 @@ namespace Biblioteca.View.Leitor {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) {
+
+        }
+        private void maskedTextBox1_TextChanged(object sender, MaskInputRejectedEventArgs e) {
+            //Validar.maskedTextCPF.Text;
         }
     }
 }

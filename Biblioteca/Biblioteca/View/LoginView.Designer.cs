@@ -32,6 +32,7 @@ namespace Biblioteca {
             this.label3 = new System.Windows.Forms.Label();
             this.TextSenha = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,9 +41,9 @@ namespace Biblioteca {
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(326, 290);
+            this.button1.Location = new System.Drawing.Point(315, 200);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 36);
+            this.button1.Size = new System.Drawing.Size(155, 44);
             this.button1.TabIndex = 0;
             this.button1.Text = "ACESSAR";
             this.button1.UseVisualStyleBackColor = false;
@@ -53,7 +54,7 @@ namespace Biblioteca {
             this.TextEmail.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TextEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextEmail.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextEmail.Location = new System.Drawing.Point(275, 133);
+            this.TextEmail.Location = new System.Drawing.Point(195, 74);
             this.TextEmail.Name = "TextEmail";
             this.TextEmail.Size = new System.Drawing.Size(297, 27);
             this.TextEmail.TabIndex = 1;
@@ -65,7 +66,7 @@ namespace Biblioteca {
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(213, 136);
+            this.label1.Location = new System.Drawing.Point(133, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 2;
@@ -77,7 +78,7 @@ namespace Biblioteca {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(311, 345);
+            this.label2.Location = new System.Drawing.Point(223, 265);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(205, 26);
             this.label2.TabIndex = 3;
@@ -90,7 +91,7 @@ namespace Biblioteca {
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(269, 188);
+            this.label3.Location = new System.Drawing.Point(133, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 5;
@@ -100,18 +101,20 @@ namespace Biblioteca {
             // 
             this.TextSenha.BackColor = System.Drawing.Color.WhiteSmoke;
             this.TextSenha.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TextSenha.Location = new System.Drawing.Point(326, 185);
+            this.TextSenha.Location = new System.Drawing.Point(195, 122);
             this.TextSenha.Name = "TextSenha";
             this.TextSenha.PasswordChar = '*';
-            this.TextSenha.Size = new System.Drawing.Size(193, 27);
+            this.TextSenha.Size = new System.Drawing.Size(297, 27);
             this.TextSenha.TabIndex = 4;
             this.TextSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.BackgroundImage = global::Biblioteca.Properties.Resources.livro_418x235;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.TextSenha);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.TextEmail);
@@ -120,8 +123,21 @@ namespace Biblioteca {
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(791, 418);
+            this.panel1.Size = new System.Drawing.Size(649, 366);
             this.panel1.TabIndex = 7;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(144, 200);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 44);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "CANCELAR";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // LoginView
             // 
@@ -133,6 +149,7 @@ namespace Biblioteca {
             this.ClientSize = new System.Drawing.Size(784, 411);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -155,6 +172,7 @@ namespace Biblioteca {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox TextSenha;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -70,7 +70,8 @@ namespace Biblioteca.View.Reserva {
 
             Rectangle bounds = this.Bounds;
             editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.CenterScreen;
+            editar.StartPosition = FormStartPosition.Manual;
+            editar.Location = new Point(-2, 63);
             editar.ShowDialog();
         }
 

@@ -46,7 +46,7 @@ namespace Biblioteca.View.Relatorio {
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(436, 182);
+            this.label2.Location = new System.Drawing.Point(474, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 20);
             this.label2.TabIndex = 14;
@@ -57,7 +57,7 @@ namespace Biblioteca.View.Relatorio {
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(294, 182);
+            this.label1.Location = new System.Drawing.Point(332, 154);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 12;
@@ -66,7 +66,7 @@ namespace Biblioteca.View.Relatorio {
             // tbInicio
             // 
             this.tbInicio.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbInicio.Location = new System.Drawing.Point(294, 204);
+            this.tbInicio.Location = new System.Drawing.Point(332, 176);
             this.tbInicio.Mask = "00/00/0000";
             this.tbInicio.Name = "tbInicio";
             this.tbInicio.Size = new System.Drawing.Size(100, 27);
@@ -76,7 +76,7 @@ namespace Biblioteca.View.Relatorio {
             // tbFim
             // 
             this.tbFim.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbFim.Location = new System.Drawing.Point(436, 204);
+            this.tbFim.Location = new System.Drawing.Point(474, 176);
             this.tbFim.Mask = "00/00/0000";
             this.tbFim.Name = "tbFim";
             this.tbFim.Size = new System.Drawing.Size(100, 27);
@@ -88,7 +88,7 @@ namespace Biblioteca.View.Relatorio {
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(829, 190);
+            this.button1.Location = new System.Drawing.Point(867, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(214, 50);
             this.button1.TabIndex = 19;
@@ -108,7 +108,7 @@ namespace Biblioteca.View.Relatorio {
             this.Data_Devolução});
             this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(294, 257);
+            this.lvEmprestimo.Location = new System.Drawing.Point(332, 229);
             this.lvEmprestimo.MultiSelect = false;
             this.lvEmprestimo.Name = "lvEmprestimo";
             this.lvEmprestimo.Size = new System.Drawing.Size(749, 350);
