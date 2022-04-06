@@ -41,6 +41,7 @@ namespace Biblioteca.View.Livros {
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +72,8 @@ namespace Biblioteca.View.Livros {
             this.Fornecedor,
             this.Edição,
             this.Ano,
-            this.Aquisição});
+            this.Aquisição,
+            this.columnHeader1});
             this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.ForeColor = System.Drawing.Color.White;
             this.LvLivros.FullRowSelect = true;
@@ -218,6 +220,12 @@ namespace Biblioteca.View.Livros {
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1398, 820);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ISBN";
+            this.columnHeader1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader1.Width = 100;
+            // 
             // LivrosBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -259,5 +267,6 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

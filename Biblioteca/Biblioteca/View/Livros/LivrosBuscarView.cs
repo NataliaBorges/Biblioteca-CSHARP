@@ -48,6 +48,7 @@ namespace Biblioteca.View.Livros {
                     item.SubItems.Add(livro.Edicao);
                     item.SubItems.Add(livro.AnoPublicacao);
                     item.SubItems.Add(livro.DataAquisicao.ToString());
+                    item.SubItems.Add(livro.ISBN);
 
                     LvLivros.Items.Add(item);
                 }
@@ -73,7 +74,8 @@ namespace Biblioteca.View.Livros {
                 item.SubItems[4].Text,
                 item.SubItems[5].Text,
                 DateTime.Parse(item.SubItems[6].Text),
-                item.SubItems[3].Text
+                item.SubItems[3].Text,
+                item.SubItems[7].Text
             );
 
             LivrosEditarView editar = new LivrosEditarView(livro);

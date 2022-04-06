@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao, @Quantidade)";
+            Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao, @Quantidade, @ISBN)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdFornecedor);
@@ -31,6 +31,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
             Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao);
             Cmd.Parameters.AddWithValue("@Quantidade", "1");
+            Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -42,7 +43,7 @@ namespace Biblioteca.Controller {
         public bool Atualizar(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Livro SET ID_fornecedor = @ID_Fornecedor, Nome_Livro = @Nome_Livro, Autor_Livro = @Autor_livro,
-                                Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, Data_aquisicao = @Data_aquisicao
+                                Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, Data_aquisicao = @Data_aquisicao, ISBN = @ISBN
                                 WHERE ID_livro = @ID";
 
             Cmd.Parameters.Clear();
@@ -53,6 +54,8 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
             Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
             Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao.ToString("yyyy-MM-dd"));
+            Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
+
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -84,8 +87,9 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
                     (DateTime)reader["Data_aquisicao"],
+                    (String)reader["ISBN"],
                     (String)reader["Fornecedor"]
-                );
+                ); 
                 lista.Add(livro);
             }
             reader.Close();
@@ -135,7 +139,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
                     (DateTime)reader["Data_aquisicao"],
-                    (String)reader["Fornecedor"]
+                    (String)reader["Fornecedor"],
+                    (String)reader["ISBN"]
                 );
                 lista.Add(livro);
             }
@@ -214,7 +219,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
                     (DateTime)reader["Data_aquisicao"],
-                    (String)reader["Fornecedor"]
+                    (String)reader["Fornecedor"],
+                    (string) reader["ISBN"]
                 );
                 livro.Id_emprestimo = (int)reader["Emprestimo"];
                 lista.Add(livro);

@@ -42,7 +42,7 @@ namespace Biblioteca.View.Livros {
             this.tbNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbISBN = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -208,7 +208,7 @@ namespace Biblioteca.View.Livros {
             // panel1
             // 
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbISBN);
             this.panel1.Controls.Add(this.tbNome);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.label1);
@@ -242,13 +242,13 @@ namespace Biblioteca.View.Livros {
             this.label7.TabIndex = 21;
             this.label7.Text = "ISBN";
             // 
-            // textBox1
+            // tbISBN
             // 
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(311, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 27);
-            this.textBox1.TabIndex = 22;
+            this.tbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbISBN.Location = new System.Drawing.Point(311, 285);
+            this.tbISBN.Name = "tbISBN";
+            this.tbISBN.Size = new System.Drawing.Size(239, 27);
+            this.tbISBN.TabIndex = 22;
             // 
             // tableLayoutPanel1
             // 
@@ -309,6 +309,6 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbISBN;
     }
 }

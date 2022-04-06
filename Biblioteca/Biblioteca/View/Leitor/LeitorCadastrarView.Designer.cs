@@ -48,8 +48,8 @@ namespace Biblioteca.View.Leitor {
             this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.maskedTextCPF = new System.Windows.Forms.MaskedTextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,7 +59,7 @@ namespace Biblioteca.View.Leitor {
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(532, 491);
+            this.button1.Location = new System.Drawing.Point(531, 475);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(238, 48);
@@ -74,7 +74,7 @@ namespace Biblioteca.View.Leitor {
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(545, 400);
+            this.label5.Location = new System.Drawing.Point(545, 390);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -351,6 +351,15 @@ namespace Biblioteca.View.Leitor {
             this.panel1.Size = new System.Drawing.Size(1097, 700);
             this.panel1.TabIndex = 41;
             // 
+            // maskedTextCPF
+            // 
+            this.maskedTextCPF.Location = new System.Drawing.Point(545, 413);
+            this.maskedTextCPF.Mask = "999.999.999-99";
+            this.maskedTextCPF.Name = "maskedTextCPF";
+            this.maskedTextCPF.Size = new System.Drawing.Size(224, 22);
+            this.maskedTextCPF.TabIndex = 41;
+            this.maskedTextCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 3;
@@ -365,15 +374,6 @@ namespace Biblioteca.View.Leitor {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1379, 706);
             this.tableLayoutPanel1.TabIndex = 42;
-            // 
-            // maskedTextCPF
-            // 
-            this.maskedTextCPF.Location = new System.Drawing.Point(545, 423);
-            this.maskedTextCPF.Mask = "999.999.999-99";
-            this.maskedTextCPF.Name = "maskedTextCPF";
-            this.maskedTextCPF.Size = new System.Drawing.Size(224, 22);
-            this.maskedTextCPF.TabIndex = 41;
-            this.maskedTextCPF.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // LeitorCadastrarView
             // 

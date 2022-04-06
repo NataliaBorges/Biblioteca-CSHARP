@@ -42,6 +42,7 @@ namespace Biblioteca.View.Livros {
                 tbEdicao.Text = livro.Edicao;
                 tbAquisicao.Text = livro.DataAquisicao.ToString();
                 data = livro.DataAquisicao;
+                tbISBN.Text = livro.ISBN;
             }
         }
 
@@ -64,8 +65,9 @@ namespace Biblioteca.View.Livros {
             String autor = tbAutor.Text;
             String edicao = tbEdicao.Text;
             String ano = tbAno.Text;
+            String ISBN = tbISBN.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            LivroModel livro = new LivroModel(this.livro.getId(), IdFornecedor, nome, autor, edicao, ano, data);
+            LivroModel livro = new LivroModel(this.livro.getId(), IdFornecedor, nome, autor, edicao, ano, data , ISBN);
             if (controller.Atualizar(livro)) {
                 MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
             }

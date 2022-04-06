@@ -26,6 +26,7 @@ namespace Biblioteca.View.Livros {
             this.tbAno.Clear();
             this.tbAquisicao.Clear();
             this.cbFornecedor.SelectedIndex = -1;
+            this.tbISBN.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -36,7 +37,8 @@ namespace Biblioteca.View.Livros {
             String edicao = tbEdicao.Text;
             String ano = tbAno.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data);
+            String ISBN = tbISBN.Text;
+            LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
             if (controller.Insercao(livro)) {
                 MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                 ClearForm();

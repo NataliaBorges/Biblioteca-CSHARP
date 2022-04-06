@@ -11,11 +11,32 @@ namespace Biblioteca.Model {
         public String Edicao { get; set; }
         public String AnoPublicacao { get; set; }
         public DateTime DataAquisicao { get; set; }
+        public String ISBN { get; set; }
         public String Fornecedor { get; set; }
-
         public int Id_emprestimo { get; set; }
 
-        public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao) {
+        public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN) {
+            this.ID = ID;
+            this.IdFornecedor = IdFornecedor;
+            this.Nome = Nome;
+            this.Autor = Autor;
+            this.Edicao = Edicao; 
+            this.AnoPublicacao = AnoPublicacao;
+            this.DataAquisicao = DataAquisicao;
+            this.ISBN = ISBN;
+        }
+
+        public LivroModel(int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN) {
+            this.IdFornecedor = IdFornecedor;
+            this.Nome = Nome;
+            this.Autor = Autor;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.DataAquisicao = DataAquisicao;
+            this.ISBN = ISBN;
+        }
+
+        public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN, String Fornecedor) {
             this.ID = ID;
             this.IdFornecedor = IdFornecedor;
             this.Nome = Nome;
@@ -23,36 +44,19 @@ namespace Biblioteca.Model {
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.DataAquisicao = DataAquisicao;
+            this.ISBN = ISBN;
+            this.Fornecedor = Fornecedor;
         }
 
-        public LivroModel(int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao) {
-            this.IdFornecedor = IdFornecedor;
-            this.Nome = Nome;
-            this.Autor = Autor;
-            this.Edicao = Edicao;
-            this.AnoPublicacao = AnoPublicacao;
-            this.DataAquisicao = DataAquisicao;
-        }
-
-        public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor) {
+        public LivroModel(int ID, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor, String ISBN) {
             this.ID = ID;
-            this.IdFornecedor = IdFornecedor;
             this.Nome = Nome;
             this.Autor = Autor;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.DataAquisicao = DataAquisicao;
             this.Fornecedor = Fornecedor;
-        }
-
-        public LivroModel(int ID, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor) {
-            this.ID = ID;
-            this.Nome = Nome;
-            this.Autor = Autor;
-            this.Edicao = Edicao;
-            this.AnoPublicacao = AnoPublicacao;
-            this.DataAquisicao = DataAquisicao;
-            this.Fornecedor = Fornecedor;
+            this.ISBN = ISBN;
         }
 
         public int getId() {
