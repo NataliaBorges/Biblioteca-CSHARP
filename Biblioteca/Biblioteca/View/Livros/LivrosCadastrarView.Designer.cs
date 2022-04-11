@@ -25,22 +25,24 @@ namespace Biblioteca.View.Livros {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosCadastrarView));
-            this.tbAquisicao = new System.Windows.Forms.TextBox();
             this.calendar = new System.Windows.Forms.MonthCalendar();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbEdicao = new System.Windows.Forms.TextBox();
-            this.tbAno = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tbAutor = new System.Windows.Forms.TextBox();
-            this.cbFornecedor = new System.Windows.Forms.ComboBox();
+            this.cbEditora = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.maskedTextBoxAquisição = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbISBN = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,19 +50,11 @@ namespace Biblioteca.View.Livros {
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbAquisicao
-            // 
-            this.tbAquisicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAquisicao.Location = new System.Drawing.Point(311, 390);
-            this.tbAquisicao.Name = "tbAquisicao";
-            this.tbAquisicao.Size = new System.Drawing.Size(227, 27);
-            this.tbAquisicao.TabIndex = 7;
-            // 
             // calendar
             // 
             this.calendar.BackColor = System.Drawing.Color.Black;
             this.calendar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calendar.Location = new System.Drawing.Point(311, 419);
+            this.calendar.Location = new System.Drawing.Point(347, 295);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 8;
             this.calendar.TitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -72,11 +66,11 @@ namespace Biblioteca.View.Livros {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(311, 367);
+            this.label4.Location = new System.Drawing.Point(343, 256);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 20);
+            this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Aquisiçao";
+            this.label4.Text = "Aquisiçao:";
             // 
             // label5
             // 
@@ -84,27 +78,19 @@ namespace Biblioteca.View.Livros {
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(574, 262);
+            this.label5.Location = new System.Drawing.Point(728, 103);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 20);
+            this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 9;
-            this.label5.Text = "Ano";
+            this.label5.Text = "Ano:";
             // 
             // tbEdicao
             // 
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEdicao.Location = new System.Drawing.Point(574, 222);
+            this.tbEdicao.Location = new System.Drawing.Point(623, 145);
             this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.Size = new System.Drawing.Size(239, 27);
+            this.tbEdicao.Size = new System.Drawing.Size(206, 27);
             this.tbEdicao.TabIndex = 5;
-            // 
-            // tbAno
-            // 
-            this.tbAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAno.Location = new System.Drawing.Point(574, 285);
-            this.tbAno.Name = "tbAno";
-            this.tbAno.Size = new System.Drawing.Size(239, 27);
-            this.tbAno.TabIndex = 10;
             // 
             // label3
             // 
@@ -112,11 +98,11 @@ namespace Biblioteca.View.Livros {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(574, 199);
+            this.label3.Location = new System.Drawing.Point(555, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 20);
+            this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Edição";
+            this.label3.Text = "Edição:";
             // 
             // label6
             // 
@@ -124,28 +110,28 @@ namespace Biblioteca.View.Livros {
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(311, 199);
+            this.label6.Location = new System.Drawing.Point(307, 148);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 20);
+            this.label6.Size = new System.Drawing.Size(66, 20);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Fornecedor";
+            this.label6.Text = "Editora:";
             // 
             // tbAutor
             // 
             this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAutor.Location = new System.Drawing.Point(311, 142);
+            this.tbAutor.Location = new System.Drawing.Point(379, 103);
             this.tbAutor.Name = "tbAutor";
-            this.tbAutor.Size = new System.Drawing.Size(502, 27);
+            this.tbAutor.Size = new System.Drawing.Size(343, 27);
             this.tbAutor.TabIndex = 3;
             // 
-            // cbFornecedor
+            // cbEditora
             // 
-            this.cbFornecedor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbFornecedor.FormattingEnabled = true;
-            this.cbFornecedor.Location = new System.Drawing.Point(311, 222);
-            this.cbFornecedor.Name = "cbFornecedor";
-            this.cbFornecedor.Size = new System.Drawing.Size(239, 28);
-            this.cbFornecedor.TabIndex = 12;
+            this.cbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEditora.FormattingEnabled = true;
+            this.cbEditora.Location = new System.Drawing.Point(379, 140);
+            this.cbEditora.Name = "cbEditora";
+            this.cbEditora.Size = new System.Drawing.Size(170, 28);
+            this.cbEditora.TabIndex = 12;
             // 
             // label2
             // 
@@ -153,20 +139,20 @@ namespace Biblioteca.View.Livros {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(309, 122);
+            this.label2.Location = new System.Drawing.Point(307, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Autor";
+            this.label2.Text = "Autor:";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(574, 536);
+            this.button1.Location = new System.Drawing.Point(610, 345);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 45);
+            this.button1.Size = new System.Drawing.Size(219, 45);
             this.button1.TabIndex = 13;
             this.button1.Text = "CADASTRAR";
             this.button1.UseVisualStyleBackColor = false;
@@ -178,11 +164,11 @@ namespace Biblioteca.View.Livros {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(307, 69);
+            this.label1.Location = new System.Drawing.Point(307, 73);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nome";
+            this.label1.Text = "Nome:";
             // 
             // button2
             // 
@@ -200,13 +186,17 @@ namespace Biblioteca.View.Livros {
             // tbNome
             // 
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(311, 92);
+            this.tbNome.Location = new System.Drawing.Point(379, 66);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(502, 27);
+            this.tbNome.Size = new System.Drawing.Size(450, 27);
             this.tbNome.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.maskedTextBoxAquisição);
+            this.panel1.Controls.Add(this.maskedTextBoxAno);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.tbISBN);
             this.panel1.Controls.Add(this.tbNome);
@@ -214,21 +204,57 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.cbFornecedor);
+            this.panel1.Controls.Add(this.cbEditora);
             this.panel1.Controls.Add(this.tbAutor);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.tbAno);
             this.panel1.Controls.Add(this.tbEdicao);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.calendar);
-            this.panel1.Controls.Add(this.tbAquisicao);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(143, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1117, 744);
             this.panel1.TabIndex = 21;
+            // 
+            // maskedTextBoxAquisição
+            // 
+            this.maskedTextBoxAquisição.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.maskedTextBoxAquisição.Location = new System.Drawing.Point(444, 256);
+            this.maskedTextBoxAquisição.Mask = "99/99/9999";
+            this.maskedTextBoxAquisição.Name = "maskedTextBoxAquisição";
+            this.maskedTextBoxAquisição.Size = new System.Drawing.Size(100, 27);
+            this.maskedTextBoxAquisição.TabIndex = 26;
+            // 
+            // maskedTextBoxAno
+            // 
+            this.maskedTextBoxAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.maskedTextBoxAno.Location = new System.Drawing.Point(788, 103);
+            this.maskedTextBoxAno.Mask = "9999";
+            this.maskedTextBoxAno.Name = "maskedTextBoxAno";
+            this.maskedTextBoxAno.Size = new System.Drawing.Size(41, 27);
+            this.maskedTextBoxAno.TabIndex = 25;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(751, 181);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(78, 27);
+            this.textBox1.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(646, 184);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 20);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Quantidade:";
             // 
             // label7
             // 
@@ -236,18 +262,18 @@ namespace Biblioteca.View.Livros {
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(311, 262);
+            this.label7.Location = new System.Drawing.Point(307, 184);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 20);
+            this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 21;
-            this.label7.Text = "ISBN";
+            this.label7.Text = "ISBN:";
             // 
             // tbISBN
             // 
             this.tbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbISBN.Location = new System.Drawing.Point(311, 285);
+            this.tbISBN.Location = new System.Drawing.Point(379, 179);
             this.tbISBN.Name = "tbISBN";
-            this.tbISBN.Size = new System.Drawing.Size(239, 27);
+            this.tbISBN.Size = new System.Drawing.Size(261, 27);
             this.tbISBN.TabIndex = 22;
             // 
             // tableLayoutPanel1
@@ -290,17 +316,14 @@ namespace Biblioteca.View.Livros {
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbAquisicao;
         private System.Windows.Forms.MonthCalendar calendar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbEdicao;
-        private System.Windows.Forms.TextBox tbAno;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbAutor;
-        private System.Windows.Forms.ComboBox cbFornecedor;
+        private System.Windows.Forms.ComboBox cbEditora;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
@@ -310,5 +333,9 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbISBN;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAquisição;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxAno;
     }
 }

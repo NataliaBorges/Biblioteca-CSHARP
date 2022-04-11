@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Livros {
     public partial class LivrosCadastrarView : Form {
@@ -23,29 +24,67 @@ namespace Biblioteca.View.Livros {
             this.tbNome.Clear();
             this.tbAutor.Clear();
             this.tbEdicao.Clear();
-            this.tbAno.Clear();
-            this.tbAquisicao.Clear();
-            this.cbFornecedor.SelectedIndex = -1;
+            this.maskedTextBoxAno.Clear();
+            this.maskedTextBoxAquisição.Clear();
+            this.cbEditora.SelectedIndex = -1;
             this.tbISBN.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            int posicao = comboBoxItems.FindIndex(item => item.Text == cbFornecedor.SelectedItem.ToString());
-            int IdFornecedor = int.Parse(comboBoxItems[posicao].Value);
-            String nome = tbNome.Text;
-            String autor = tbAutor.Text;
-            String edicao = tbEdicao.Text;
-            String ano = tbAno.Text;
-            DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            String ISBN = tbISBN.Text;
-            LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
-            if (controller.Insercao(livro)) {
-                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                ClearForm();
+            if(cbEditora.SelectedItem == null) {
+                MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                cbEditora.Focus();
             }
             else {
-                MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                int posicao = comboBoxItems.FindIndex(item => item.Text == cbEditora.SelectedItem.ToString());
+                int IdFornecedor = int.Parse(comboBoxItems[posicao].Value);
+                String nome = tbNome.Text;
+                String autor = tbAutor.Text;
+                String edicao = tbEdicao.Text;
+                String ano = maskedTextBoxAno.Text;
+                DateTime data = this.data; //.ToString("yyyy-MM-dd");
+                String ISBN = tbISBN.Text;
+
+                if (nome.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                    tbNome.Focus();
+                }
+                else if (cbEditora == null) {
+                    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                    cbEditora.Focus();
+                }
+                else if (autor.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                    tbAutor.Focus();
+                }
+                else if (edicao.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar uma Edição.", "Atenção", MessageBoxButtons.OK);
+                    tbEdicao.Focus();
+                }
+                else if (ano == "" ) {
+                    MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
+                    maskedTextBoxAno.Focus();
+                }
+                else if (maskedTextBoxAquisição.Text == "  /  /") {
+                    MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
+                    maskedTextBoxAquisição.Focus();
+                }
+                else if (Validar.ValidaIsbn10(ISBN)) {
+                    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
+                    tbISBN.Focus();
+                }
+                else {
+                    LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
+                    if (controller.Insercao(livro)) {
+                        MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                        ClearForm();
+                    }
+                    else {
+                        MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                    }
+                }
             }
+            
         }
 
         private void LivrosCadastrarView_Load(object sender, EventArgs e) {
@@ -53,26 +92,22 @@ namespace Biblioteca.View.Livros {
             if(fornecedores.Count > 0) {
                 foreach (FornecedorModel fornecedor in fornecedores) {
                     ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
-                    cbFornecedor.Items.Add(item);
+                    cbEditora.Items.Add(item);
                     comboBoxItems.Add(item);
                 }
 
-                cbFornecedor.ValueMember = "Value";
-                cbFornecedor.DisplayMember = "Text";
-                cbFornecedor.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbEditora.ValueMember = "Value";
+                cbEditora.DisplayMember = "Text";
+                cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
             }
         }
 
         private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
-            tbAquisicao.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
+            maskedTextBoxAquisição.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
             int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
             int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
             int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
             data = new DateTime(ano, mes, dia);
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
         }
 
         private void button2_Click_1(object sender, EventArgs e) {

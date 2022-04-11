@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Model;
 using Biblioteca.Controller;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Livros {
     public partial class LivrosEditarView : Form {
@@ -25,22 +26,22 @@ namespace Biblioteca.View.Livros {
             if (fornecedores.Count > 0) {
                 foreach (FornecedorModel fornecedor in fornecedores) {
                     ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
-                    cbFornecedor.Items.Add(item);
+                    cbEditora.Items.Add(item);
                     comboBoxItems.Add(item);
                 }
 
-                cbFornecedor.ValueMember = "Value";
-                cbFornecedor.DisplayMember = "Text";
-                cbFornecedor.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbEditora.ValueMember = "Value";
+                cbEditora.DisplayMember = "Text";
+                cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
             }
 
             if (livro != null) {
                 tbNome.Text = livro.Nome;
                 tbAutor.Text = livro.Autor;
-                tbAno.Text = livro.AnoPublicacao;
-                cbFornecedor.SelectedIndex = comboBoxItems.FindIndex(item => item.Text == livro.Fornecedor);
+                maskedTextBoxAno.Text = livro.AnoPublicacao;
+                cbEditora.SelectedIndex = comboBoxItems.FindIndex(item => item.Text == livro.Fornecedor);
                 tbEdicao.Text = livro.Edicao;
-                tbAquisicao.Text = livro.DataAquisicao.ToString();
+                maskedTextBoxAquisição.Text = livro.DataAquisicao.ToString();
                 data = livro.DataAquisicao;
                 tbISBN.Text = livro.ISBN;
             }
@@ -59,33 +60,71 @@ namespace Biblioteca.View.Livros {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            int posicao = comboBoxItems.FindIndex(item => item.Text == cbFornecedor.SelectedItem.ToString());
-            int IdFornecedor = int.Parse(comboBoxItems[posicao].Value);
-            String nome = tbNome.Text;
-            String autor = tbAutor.Text;
-            String edicao = tbEdicao.Text;
-            String ano = tbAno.Text;
-            String ISBN = tbISBN.Text;
-            DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            LivroModel livro = new LivroModel(this.livro.getId(), IdFornecedor, nome, autor, edicao, ano, data , ISBN);
-            if (controller.Atualizar(livro)) {
-                MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+            if (cbEditora.SelectedItem == null) {
+                MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                cbEditora.Focus();
             }
             else {
-                MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
-            }
-        }
+                int posicao = comboBoxItems.FindIndex(item => item.Text == cbEditora.SelectedItem.ToString());
+                int IdFornecedor = int.Parse(comboBoxItems[posicao].Value);
+                String nome = tbNome.Text;
+                String autor = tbAutor.Text;
+                String edicao = tbEdicao.Text;
+                String ano = maskedTextBoxAno.Text;
+                DateTime data = this.data; //.ToString("yyyy-MM-dd");
+                String ISBN = tbISBN.Text;
 
-        private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
-            tbAquisicao.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
-            int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
-            int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
-            int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
-            data = new DateTime(ano, mes, dia);
+                if (nome.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                    tbNome.Focus();
+                }
+                else if (cbEditora == null) {
+                    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                    cbEditora.Focus();
+                }
+                else if (autor.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                    tbAutor.Focus();
+                }
+                else if (edicao.Length <= 0) {
+                    MessageBox.Show("Você precisa digitar uma Edição.", "Atenção", MessageBoxButtons.OK);
+                    tbEdicao.Focus();
+                }
+                else if (ano == "") {
+                    MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
+                    maskedTextBoxAno.Focus();
+                }
+                else if (maskedTextBoxAquisição.Text == "  /  /") {
+                    MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
+                    maskedTextBoxAquisição.Focus();
+                }
+                else if (Validar.ValidaIsbn10(ISBN)) {
+                    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
+                    tbISBN.Focus();
+                }
+                else {
+                    LivroModel livro = new LivroModel(this.livro.getId(),IdFornecedor, nome, autor, edicao, ano, data, ISBN);
+                    if (controller.Atualizar(livro)) {
+                        MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else {
+                        MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
+                    }
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void calendar_DateChanged_1(object sender, DateRangeEventArgs e) {
+            maskedTextBoxAquisição.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
+            int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
+            int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
+            int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
+            data = new DateTime(ano, mes, dia);
         }
     }
 }

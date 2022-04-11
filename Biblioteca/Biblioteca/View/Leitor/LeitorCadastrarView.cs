@@ -25,9 +25,9 @@ namespace Biblioteca.View.Leitor {
             this.tbNumero.Clear();
             this.tbBairro.Clear();
             this.tbCidade.Clear();
-            this.tbTelefone.Clear();
+            this.maskedTextBoxTelefone.Clear();
             this.maskedTextCPF.Clear();
-            this.tbNascimento.Clear();
+            this.maskedTextBoxNascimento.Clear();
             this.tbEmail.Clear();
             this.tbSenha.Clear();
         }
@@ -35,23 +35,65 @@ namespace Biblioteca.View.Leitor {
         private void button1_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
-            String telefone = tbTelefone.Text;
+            String telefone = maskedTextBoxTelefone.Text;
             String cpf = maskedTextCPF.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
             String email = tbEmail.Text;
             String senha = tbSenha.Text;
-            LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco, email, senha);
-            if (controller.Insercao(leitor)) {
-                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                ClearForm();
+
+            if(nome.Length <= 0) {
+                MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                tbNome.Focus();
+            }
+            else if (tbRua.Text.Length <= 0) {
+                MessageBox.Show("Você precisa digitar uma rua.", "Atenção", MessageBoxButtons.OK);
+                tbRua.Focus();
+            }
+            else if (tbNumero.Text.Length <= 0) {
+                MessageBox.Show("Você precisa digitar um numero.", "Atenção", MessageBoxButtons.OK);
+                tbNumero.Focus();
+            }
+            else if (tbBairro.Text.Length <= 0) {
+                MessageBox.Show("Você precisa digitar um bairro.", "Atenção", MessageBoxButtons.OK);
+                tbBairro.Focus();
+            }
+            else if (telefone == "(  )     -") {
+                MessageBox.Show("Você precisa digitar um telefone.", "Atenção", MessageBoxButtons.OK);
+                maskedTextBoxTelefone.Focus();
+            }
+            else if (tbCidade.Text.Length <= 0) {
+                MessageBox.Show("Você precisa digitar uma cidade.", "Atenção", MessageBoxButtons.OK);
+                tbCidade.Focus();
+            }
+            else if (Validar.ValidaCpf(cpf) == false) {
+                MessageBox.Show("Você precisa digitar um CPF válido.", "Atenção", MessageBoxButtons.OK);
+            }
+            else if (maskedTextBoxNascimento.Text == "  /  /") {
+                MessageBox.Show("Você precisa selecionar uma data.", "Atenção", MessageBoxButtons.OK);
+                maskedTextBoxNascimento.Focus();
+            } 
+            else if (Validar.ValidarEmail(email) == false){
+                MessageBox.Show("Você precisa digitar um email válido.", "Atenção", MessageBoxButtons.OK);
+                tbEmail.Focus();
+            } 
+            else if (senha.Length <= 4) {
+                MessageBox.Show("Insira uma senha com mais de 4 caractéres", "Atenção", MessageBoxButtons.OK);
+                tbSenha.Focus();
             }
             else {
-                MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco, email, senha);
+                if (controller.Insercao(leitor)) {
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    ClearForm();
+                }
+                else {
+                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                }
             }
         }
 
         private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
-            tbNascimento.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
+            maskedTextBoxNascimento.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
             int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
             int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
             int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
@@ -60,13 +102,6 @@ namespace Biblioteca.View.Leitor {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e) {
-
-        }
-        private void maskedTextBox1_TextChanged(object sender, MaskInputRejectedEventArgs e) {
-            //Validar.maskedTextCPF.Text;
         }
     }
 }
