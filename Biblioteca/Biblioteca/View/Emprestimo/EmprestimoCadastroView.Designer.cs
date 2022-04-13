@@ -29,7 +29,7 @@ namespace Biblioteca.View.Emprestimo {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoCadastroView));
             this.lvLivros = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
-            this.Fornecedor = new System.Windows.Forms.ColumnHeader();
+            this.Editora = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
@@ -68,7 +68,7 @@ namespace Biblioteca.View.Emprestimo {
             this.lvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Fornecedor,
+            this.Editora,
             this.Nome,
             this.Autor,
             this.Edição,
@@ -90,11 +90,11 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.ID.Text = "ID";
             // 
-            // Fornecedor
+            // Editora
             // 
-            this.Fornecedor.Text = "Fornecedor";
-            this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Fornecedor.Width = 120;
+            this.Editora.Text = "Editora";
+            this.Editora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Editora.Width = 120;
             // 
             // Nome
             // 
@@ -454,5 +454,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ColumnHeader Editora;
     }
 }

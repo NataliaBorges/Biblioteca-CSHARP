@@ -150,22 +150,23 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<FornecedorModel> ListarFornecedores() {
+        public List<EditoraModel> ListarFornecedores() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Fornecedor";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            List<FornecedorModel> lista = new List<FornecedorModel>();
+            List<EditoraModel> lista = new List<EditoraModel>();
 
             while (reader.Read()) {
-                FornecedorModel fornecedor = new FornecedorModel(
+                EditoraModel fornecedor = new EditoraModel(
                     (int)reader["ID_fornecedor"],
                     (String)reader["Nome_fornecedor"],
                     (String)reader["Endereco"],
                     (String)reader["Telefone"],
-                    (String)reader["CNPJ"]
+                    (String)reader["CNPJ"],
+                    (String)reader["EMail"]
                 );
                 lista.Add(fornecedor);
             }

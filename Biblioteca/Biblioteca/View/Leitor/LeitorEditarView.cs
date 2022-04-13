@@ -56,6 +56,7 @@ namespace Biblioteca.View.Leitor {
             }
             else if (Validar.ValidaCpf(cpf) == false) {
                 MessageBox.Show("Você precisa digitar um CPF válido.", "Atenção", MessageBoxButtons.OK);
+                maskedTextCPF.Focus();
             }
             else if (maskedTextBoxNascimento.Text == "  /  /") {
                 MessageBox.Show("Você precisa selecionar uma data.", "Atenção", MessageBoxButtons.OK);

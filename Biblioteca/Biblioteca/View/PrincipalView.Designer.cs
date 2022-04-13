@@ -41,7 +41,7 @@ namespace Biblioteca.View {
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fornecedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,13 +67,13 @@ namespace Biblioteca.View {
             this.empréstimosToolStripMenuItem,
             this.ReservatoolStripMenuItem1,
             this.funcionáriosToolStripMenuItem,
-            this.fornecedoresToolStripMenuItem,
+            this.EditoraToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
             this.sairToolStripMenuItem,
             this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(63, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(28, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1144, 41);
+            this.menuStrip1.Size = new System.Drawing.Size(1213, 41);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -243,17 +243,17 @@ namespace Biblioteca.View {
             this.buscarToolStripMenuItem1.Text = "Buscar";
             this.buscarToolStripMenuItem1.Click += new System.EventHandler(this.buscarToolStripMenuItem1_Click);
             // 
-            // fornecedoresToolStripMenuItem
+            // EditoraToolStripMenuItem
             // 
-            this.fornecedoresToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.fornecedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditoraToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.EditoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cToolStripMenuItem,
             this.buscarToolStripMenuItem2});
-            this.fornecedoresToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.fornecedoresToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.fornecedoresToolStripMenuItem.Name = "fornecedoresToolStripMenuItem";
-            this.fornecedoresToolStripMenuItem.Size = new System.Drawing.Size(176, 37);
-            this.fornecedoresToolStripMenuItem.Text = "Fornecedor";
+            this.EditoraToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.EditoraToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.EditoraToolStripMenuItem.Name = "EditoraToolStripMenuItem";
+            this.EditoraToolStripMenuItem.Size = new System.Drawing.Size(125, 37);
+            this.EditoraToolStripMenuItem.Text = "Editora";
             // 
             // cToolStripMenuItem
             // 
@@ -397,7 +397,7 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empréstimosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fornecedoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EditoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasemBreveToolStripMenuItem;

@@ -16,13 +16,13 @@
     <Compile Update="View\Emprestimo\EmprestimoCadastroView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Fornecedor\FornecedorCadastrarView.cs">
+    <Compile Update="View\Editora\EditoraCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Fornecedor\FornecedorEditarView.cs">
+    <Compile Update="View\Editora\EditoraEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Fornecedor\FornecedorBuscarView.cs">
+    <Compile Update="View\Editora\EditoraBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Funcionario\FuncionarioBuscarView.cs">

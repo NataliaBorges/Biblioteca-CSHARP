@@ -144,21 +144,33 @@ namespace Biblioteca.View.Emprestimo {
             String devolucao = tbDevolucao.Text;
             String obs = tbObs.Text;
 
-            // Cadastra emprestimo
-            controller.Insercao(emprestimo, devolucao, obs);
 
-            // Pega o ID do emprestimo cadastrado
-            int idEmprestimo = controller.BuscarUltimoEmprestimo();
-
-            // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
-            foreach (LivroModel livro in this.singleton.getLivros()) {
-                controller.RelacionarLivrosEmprestimo(idEmprestimo, livro);
+            if (lvLivros.Items.Count > 5) {
+                MessageBox.Show("Você só pode emprestar 5 obras", "Atenção", MessageBoxButtons.OK);
+                lvLivros.Focus();
             }
+            else if (lvLeitor.Items.Count > 1) {
+                MessageBox.Show("Apenas 1 leitor por vez.", "Atenção", MessageBoxButtons.OK);
+                lvLeitor.Focus();
+            }
+            else {
+                // Cadastra emprestimo
+                controller.Insercao(emprestimo, devolucao, obs);
 
-            this.singleton.clearEmprestimo();
+                // Pega o ID do emprestimo cadastrado
+                int idEmprestimo = controller.BuscarUltimoEmprestimo();
 
-            MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-            this.Close();
+                // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
+                foreach (LivroModel livro in this.singleton.getLivros()) {
+                    controller.RelacionarLivrosEmprestimo(idEmprestimo, livro);
+                }
+
+                this.singleton.clearEmprestimo();
+
+                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                this.Close();
+            }
+           
         }
 
         private void button4_Click(object sender, EventArgs e) {

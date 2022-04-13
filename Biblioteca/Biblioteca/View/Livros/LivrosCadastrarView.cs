@@ -69,7 +69,7 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
                     maskedTextBoxAquisição.Focus();
                 }
-                else if (Validar.ValidaIsbn10(ISBN)) {
+                else if (Validar.ValidaISBN13(ISBN)) {
                     MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
                     tbISBN.Focus();
                 }
@@ -88,9 +88,9 @@ namespace Biblioteca.View.Livros {
         }
 
         private void LivrosCadastrarView_Load(object sender, EventArgs e) {
-            List<FornecedorModel> fornecedores = controller.ListarFornecedores();
+            List<EditoraModel> fornecedores = controller.ListarFornecedores();
             if(fornecedores.Count > 0) {
-                foreach (FornecedorModel fornecedor in fornecedores) {
+                foreach (EditoraModel fornecedor in fornecedores) {
                     ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
                     cbEditora.Items.Add(item);
                     comboBoxItems.Add(item);

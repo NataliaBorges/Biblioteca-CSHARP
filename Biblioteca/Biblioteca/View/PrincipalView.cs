@@ -74,7 +74,7 @@ namespace Biblioteca.View {
         private void PrincipalView_Load(object sender, EventArgs e) {
             if (singleton.getFuncionario().Funcao != "Administrador") {
                 funcionáriosToolStripMenuItem.Visible = false;
-                fornecedoresToolStripMenuItem.Visible = false;
+                EditoraToolStripMenuItem.Visible = false;
                 relatóriosToolStripMenuItem.Visible = false;
             }
         }
@@ -122,12 +122,12 @@ namespace Biblioteca.View {
         }
 
         private void cToolStripMenuItem_Click(object sender, EventArgs e) {
-            FornecedorCadastrarView fornecedorCadastrarView = new FornecedorCadastrarView();
+            EditoraCadastrarView fornecedorCadastrarView = new EditoraCadastrarView();
             novaJanela(fornecedorCadastrarView);
         }
 
         private void buscarToolStripMenuItem2_Click(object sender, EventArgs e) {
-            FornecedorBuscarView fornecedorBuscarView = new FornecedorBuscarView();
+            EditoraBuscarView fornecedorBuscarView = new EditoraBuscarView();
             novaJanela(fornecedorBuscarView);
         }
 
