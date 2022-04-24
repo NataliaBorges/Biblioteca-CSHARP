@@ -21,23 +21,29 @@ namespace Biblioteca.Controller {
 
         // CADASTRAR NOVO EMPRESTIMO
         public bool Insercao(String dataEmprestimo, String dataDevolucao, String obs) {
-            Cmd.Connection = connection.RetornaConexao();
+            try {
+                Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo, @Status)";
+                Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo, @Status)";
 
-            Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID_funcionario", this.singleton.getFuncionario().getId());
-            Cmd.Parameters.AddWithValue("@ID_leitor", this.singleton.getLeitor().getId());
-            Cmd.Parameters.AddWithValue("@Data_emprestimo", dataEmprestimo);
-            Cmd.Parameters.AddWithValue("@Data_devolucao", dataDevolucao);
-            Cmd.Parameters.AddWithValue("@Obs_emprestimo", obs);
-            Cmd.Parameters.AddWithValue("@Status", "EMPRESTADO");
+                Cmd.Parameters.Clear();
+                Cmd.Parameters.AddWithValue("@ID_funcionario", 4);//this.singleton.getFuncionario().getId());
+                Cmd.Parameters.AddWithValue("@ID_leitor", this.singleton.getLeitor().getId());
+                Cmd.Parameters.AddWithValue("@Data_emprestimo", dataEmprestimo);
+                Cmd.Parameters.AddWithValue("@Data_devolucao", dataDevolucao);
+                Cmd.Parameters.AddWithValue("@Obs_emprestimo", obs);
+                Cmd.Parameters.AddWithValue("@Status", "EMPRESTADO");
 
-            if (Cmd.ExecuteNonQuery() == 1) {
-                return true;
-            } else {
+                if (Cmd.ExecuteNonQuery() == 1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            } catch (Exception e) {
                 return false;
             }
+            
         }
 
         // BUSCAR ÚLTIMO EMPRESTIMO CADASTRADO PARA PODER PEGAR O ID DO MESMO
@@ -180,6 +186,26 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
+        private int quantidadeDisponiveis(int idLivro, int quantidade) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"
+            SELECT COUNT(E.ID_emprestimo) AS Emprestimos
+            FROM Livro AS L
+            INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
+            INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
+            WHERE E.Status='EMPRESTADO' AND L.ID_livro = '" + idLivro + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            while (reader.Read()) {
+                int emprestimos = (int)reader["Emprestimos"];
+                reader.Close();
+                return quantidade - emprestimos;
+            }
+            return 0;
+        }
+
         public List<LivroModel> ListarTodosLivros() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
@@ -202,11 +228,18 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
                     (DateTime)reader["Data_aquisicao"],
-                    (String)reader["Fornecedor"]
+                    (String)reader["ISBN"],
+                    (String)reader["Fornecedor"],
+                    (int)reader["Quantidade"]
                 );
                 lista.Add(livro);
             }
             reader.Close();
+
+            for (int i = 0; i < lista.Count; i++) {
+                int disponiveis = quantidadeDisponiveis(lista[i].getId(), lista[i].Quantidade);
+                lista[i].Disponiveis = disponiveis;
+            }
 
             return lista;
         }
@@ -281,33 +314,6 @@ namespace Biblioteca.Controller {
             this.singleton.setLivro(livro);
         }
 
-        public Boolean livroEmprestado(LivroModel livro) {
-            Cmd.Connection = connection.RetornaConexao();
-
-            Cmd.CommandText = @"
-                SELECT COUNT(L.ID_livro) AS Total
-                FROM Livro AS L
-                INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
-                INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
-                WHERE E.Status = 'EMPRESTADO' AND L.ID_LIVRO='"+livro.getId()+"'";
-
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            int total = 0;
-            while (reader.Read()) {
-                total = (int)reader["Total"];
-            }
-            reader.Close();
-
-            if(total > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
         public List<LivroModel> PegarLivrosEmprestimo() {
             return this.singleton.getLivros();
         }
@@ -375,7 +381,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
                     (String)reader["Endereco"],
-                    (String)reader["Email"]
+                    (String)reader["Email"],
+                    (String)reader["ISBN"]
                 );
                 lista.Add(leitor);
             }

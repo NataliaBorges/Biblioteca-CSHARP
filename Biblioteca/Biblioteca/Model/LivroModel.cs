@@ -14,6 +14,8 @@ namespace Biblioteca.Model {
         public String ISBN { get; set; }
         public String Fornecedor { get; set; }
         public int Id_emprestimo { get; set; }
+        public int Quantidade { get; set; }
+        public int Disponiveis { get; set; }
 
         public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN) {
             this.ID = ID;
@@ -46,6 +48,19 @@ namespace Biblioteca.Model {
             this.DataAquisicao = DataAquisicao;
             this.ISBN = ISBN;
             this.Fornecedor = Fornecedor;
+        }
+
+        public LivroModel(int ID, int IdFornecedor, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN, String Fornecedor, int Quantidade) {
+            this.ID = ID;
+            this.IdFornecedor = IdFornecedor;
+            this.Nome = Nome;
+            this.Autor = Autor;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.DataAquisicao = DataAquisicao;
+            this.ISBN = ISBN;
+            this.Fornecedor = Fornecedor;
+            this.Quantidade = Quantidade;
         }
 
         public LivroModel(int ID, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor, String ISBN) {

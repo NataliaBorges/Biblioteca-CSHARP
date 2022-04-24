@@ -69,6 +69,7 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems.Add(livro.Nome);
                     item.SubItems.Add(livro.Autor);
                     item.SubItems.Add(livro.Fornecedor);
+                    item.SubItems.Add(livro.ISBN);
                     item.SubItems.Add(livro.Edicao);
                     item.SubItems.Add(livro.AnoPublicacao);
                     item.SubItems.Add(livro.DataAquisicao.ToString());
@@ -102,10 +103,11 @@ namespace Biblioteca.View.Emprestimo {
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
-                item.SubItems[4].Text,
                 item.SubItems[5].Text,
-                DateTime.Parse(item.SubItems[6].Text),
-                item.SubItems[3].Text
+                item.SubItems[6].Text,
+                DateTime.Parse(item.SubItems[7].Text),
+                item.SubItems[3].Text,
+                item.SubItems[4].Text
             );
 
 
@@ -155,20 +157,22 @@ namespace Biblioteca.View.Emprestimo {
             }
             else {
                 // Cadastra emprestimo
-                controller.Insercao(emprestimo, devolucao, obs);
+                if (controller.Insercao(emprestimo, devolucao, obs)) {
+                    // Pega o ID do emprestimo cadastrado
+                    int idEmprestimo = controller.BuscarUltimoEmprestimo();
 
-                // Pega o ID do emprestimo cadastrado
-                int idEmprestimo = controller.BuscarUltimoEmprestimo();
+                    // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
+                    foreach (LivroModel livro in this.singleton.getLivros()) {
+                        controller.RelacionarLivrosEmprestimo(idEmprestimo, livro);
+                    }
 
-                // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
-                foreach (LivroModel livro in this.singleton.getLivros()) {
-                    controller.RelacionarLivrosEmprestimo(idEmprestimo, livro);
+                    this.singleton.clearEmprestimo();
+
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                } else {
+                    MessageBox.Show("Não foi possível realizar o empréstimo.", "Ateção", MessageBoxButtons.OK);
                 }
-
-                this.singleton.clearEmprestimo();
-
-                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                this.Close();
             }
            
         }

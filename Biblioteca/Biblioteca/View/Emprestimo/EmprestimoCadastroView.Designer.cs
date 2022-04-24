@@ -32,6 +32,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Editora = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
+            this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
@@ -68,9 +69,10 @@ namespace Biblioteca.View.Emprestimo {
             this.lvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
-            this.Editora,
             this.Nome,
             this.Autor,
+            this.Editora,
+            this.ISBN,
             this.Edição,
             this.Ano,
             this.Aquisição});
@@ -92,36 +94,48 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // Editora
             // 
+            this.Editora.DisplayIndex = 1;
             this.Editora.Text = "Editora";
             this.Editora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Editora.Width = 120;
             // 
             // Nome
             // 
+            this.Nome.DisplayIndex = 2;
             this.Nome.Text = "Nome";
             this.Nome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Nome.Width = 200;
             // 
             // Autor
             // 
+            this.Autor.DisplayIndex = 3;
             this.Autor.Text = "Autor";
             this.Autor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Autor.Width = 200;
             // 
+            // ISBN
+            // 
+            this.ISBN.DisplayIndex = 7;
+            this.ISBN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ISBN.Width = 100;
+            // 
             // Edição
             // 
+            this.Edição.DisplayIndex = 4;
             this.Edição.Text = "Edição";
             this.Edição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Edição.Width = 100;
             // 
             // Ano
             // 
+            this.Ano.DisplayIndex = 5;
             this.Ano.Text = "Ano";
             this.Ano.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Ano.Width = 100;
             // 
             // Aquisição
             // 
+            this.Aquisição.DisplayIndex = 6;
             this.Aquisição.Text = "Aquisição";
             this.Aquisição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Aquisição.Width = 150;
@@ -455,5 +469,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ColumnHeader Editora;
+        private System.Windows.Forms.ColumnHeader ISBN;
     }
 }
