@@ -16,6 +16,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarExemplarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Reserva\ReservaBuscarLeitorView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -38,8 +41,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Update="View\Emprestimo\EmprestimoBuscarLivroView - Cópia %282%29 - Cópia.resx">
+      <DependentUpon>EmprestimoBuscarLivroView.resx</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Update="View\Emprestimo\EmprestimoBuscarLivroView - Cópia %282%29.resx">
       <DependentUpon>EmprestimoBuscarLivroView.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Emprestimo\EmprestimoBuscarLivroView - Cópia - Cópia %282%29.resx">
+      <DependentUpon>EmprestimoBuscarLivroView.resx</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Update="View\Emprestimo\EmprestimoBuscarLivroView - Cópia - Cópia - Cópia.resx">
+      <DependentUpon>EmprestimoBuscarLivroView - Cópia.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="View\Emprestimo\EmprestimoBuscarLivroView - Cópia - Cópia.resx">
       <DependentUpon>EmprestimoBuscarLivroView - Cópia.resx</DependentUpon>

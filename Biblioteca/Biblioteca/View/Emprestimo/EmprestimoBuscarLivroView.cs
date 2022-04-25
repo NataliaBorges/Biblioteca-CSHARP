@@ -53,12 +53,20 @@ namespace Biblioteca.View.Emprestimo {
             List<LivroModel> lista = controller.BuscarLivros(busca);
             popular(lista);
         }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, form.Bounds.Width, form.Bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
+        }
 
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
             if (int.Parse(item.SubItems[1].Text) == 0) {
                 MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
-            } else {
+            }
+            else {
                 LivroModel livro = new LivroModel(
                     int.Parse(item.SubItems[0].Text),
                     item.SubItems[2].Text,
@@ -70,8 +78,11 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems[5].Text
                 );
 
-                controller.InserirLivroEmprestimo(livro);
-                this.Close();
+                EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView();
+                novaJanela(livros);
+
+                //controller.InserirLivroEmprestimo(livro);
+                //this.Close();
             }
         }
 

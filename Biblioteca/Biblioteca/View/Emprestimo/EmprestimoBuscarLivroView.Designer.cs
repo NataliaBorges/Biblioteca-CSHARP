@@ -29,6 +29,7 @@ namespace Biblioteca.View.Emprestimo {
             this.button1 = new System.Windows.Forms.Button();
             this.LvLivros = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
+            this.Disponíveis = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
             this.Fornecedor = new System.Windows.Forms.ColumnHeader();
@@ -40,7 +41,6 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Disponíveis = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,12 @@ namespace Biblioteca.View.Emprestimo {
             // ID
             // 
             this.ID.Text = "ID";
+            // 
+            // Disponíveis
+            // 
+            this.Disponíveis.Text = "Disponíveis";
+            this.Disponíveis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Disponíveis.Width = 100;
             // 
             // Nome
             // 
@@ -189,12 +195,6 @@ namespace Biblioteca.View.Emprestimo {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1386, 710);
             this.tableLayoutPanel1.TabIndex = 21;
-            // 
-            // Disponíveis
-            // 
-            this.Disponíveis.Text = "Disponíveis";
-            this.Disponíveis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Disponíveis.Width = 100;
             // 
             // EmprestimoBuscarLivroView
             // 
