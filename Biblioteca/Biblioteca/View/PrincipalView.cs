@@ -23,6 +23,7 @@ namespace Biblioteca.View {
             InitializeComponent();
 
             menuStrip1.Renderer = new MyRenderer();
+            menuStrip2.Renderer = new MyRenderer();
         }
         private class MyRenderer : ToolStripProfessionalRenderer {
             public MyRenderer() : base(new MyColors()) { }
@@ -74,7 +75,6 @@ namespace Biblioteca.View {
         private void PrincipalView_Load(object sender, EventArgs e) {
             if (singleton.getFuncionario().Funcao != "Administrador") {
                 funcionáriosToolStripMenuItem.Visible = false;
-                EditoraToolStripMenuItem.Visible = false;
                 relatóriosToolStripMenuItem.Visible = false;
             }
         }
@@ -96,11 +96,6 @@ namespace Biblioteca.View {
             novaJanela(livrosCadastrarlView);
         }
 
-        private void cadastrarToolStripMenuItem_Click(object sender, EventArgs e) {
-            LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
-            novaJanela(livrosBuscarView);
-        }
-
         private void cadastrarToolStripMenuItem1_Click(object sender, EventArgs e) {
             LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
             novaJanela(leitorCadastrarView);
@@ -119,16 +114,6 @@ namespace Biblioteca.View {
         private void buscarToolStripMenuItem1_Click(object sender, EventArgs e) {
             FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
             novaJanela(funcionarioBuscarView);
-        }
-
-        private void cToolStripMenuItem_Click(object sender, EventArgs e) {
-            EditoraCadastrarView fornecedorCadastrarView = new EditoraCadastrarView();
-            novaJanela(fornecedorCadastrarView);
-        }
-
-        private void buscarToolStripMenuItem2_Click(object sender, EventArgs e) {
-            EditoraBuscarView fornecedorBuscarView = new EditoraBuscarView();
-            novaJanela(fornecedorBuscarView);
         }
 
         private void cadastrarToolStripMenuItem3_Click(object sender, EventArgs e) {
@@ -170,6 +155,26 @@ namespace Biblioteca.View {
         private void reservaToolStripMenuItem_Click(object sender, EventArgs e) {
             RelatorioReservaView relatorioReservaView = new RelatorioReservaView();
             novaJanela(relatorioReservaView);
+        }
+
+        private void consultarEmpréstimoToolStripMenuItem_Click(object sender, EventArgs e) {
+            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView();
+            novaJanela(emprestimoBuscarView);
+        }
+
+        private void cadastrarToolStripMenuItem5_Click(object sender, EventArgs e) {
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
+            novaJanela(editoraCadastrarView);
+        }
+
+        private void buscarToolStripMenuItem6_Click(object sender, EventArgs e) {
+            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
+            novaJanela(editoraBuscarView);
+        }
+
+        private void buscarToolStripMenuItem2_Click_1(object sender, EventArgs e) {
+            LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
+            novaJanela(livrosBuscarView);
         }
     }
 }

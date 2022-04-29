@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.View.Leitor;
 
 namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoBuscarLeitorView : Form {
@@ -15,6 +16,13 @@ namespace Biblioteca.View.Emprestimo {
 
         public EmprestimoBuscarLeitorView() {
             InitializeComponent();
+        }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
         }
 
         private void popular(List<LeitorModel> lista) {
@@ -45,8 +53,16 @@ namespace Biblioteca.View.Emprestimo {
 
         private void button1_Click(object sender, EventArgs e) {
             String busca = tbBuscar.Text;
-            List<LeitorModel> lista = controller.BuscarLeitor(busca);
-            popular(lista);
+
+                if (rbNome.Checked) {
+                    List<LeitorModel> lista = controller.BuscarLeitor(busca, isNome: true);
+                    popular(lista);
+                }
+
+                if (rbCPF.Checked) {
+                    List<LeitorModel> lista = controller.BuscarLeitor(busca, isCPF: true);
+                    popular(lista);
+                }
         }
 
         private void LvLeitor_MouseClick(object sender, MouseEventArgs e) {
@@ -66,6 +82,11 @@ namespace Biblioteca.View.Emprestimo {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
+            novaJanela(leitorCadastrarView);
         }
     }
 }

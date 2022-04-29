@@ -390,8 +390,41 @@ namespace Biblioteca.Controller {
 
             return lista;
         }
+        public List<LeitorModel> BuscarLeitor(string busca, bool isNome = false, bool isCPF = false) {
+            Cmd.Connection = connection.RetornaConexao();
 
-        public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false) {
+            if (isNome) {
+                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE Nome_Leitor LIKE '" + busca + "%'";
+            }
+
+            if (isCPF) {
+                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE CPF LIKE '" + busca + "%'";
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<LeitorModel> lista = new List<LeitorModel>();
+
+            while (reader.Read()) {
+                LeitorModel leitor = new LeitorModel(
+                    (int)reader["ID_leitor"],
+                    (String)reader["Nome_Leitor"],
+                    (DateTime)reader["Data_Nascimento"],
+                    (String)reader["Telefone"],
+                    (String)reader["CPF"],
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
+                );
+                lista.Add(leitor);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false, bool isCodigo = false) {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isLivro) {
@@ -412,6 +445,15 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
                                     INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
                                     WHERE L.Nome_Leitor LIKE '" + busca + "%'";
+            }
+            if (isCodigo) {
+                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
+                                    INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
+                                    WHERE E.ID_emprestimo LIKE '" + busca + "%'";
             }
 
             Cmd.Parameters.Clear();

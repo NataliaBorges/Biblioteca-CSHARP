@@ -16,6 +16,13 @@ namespace Biblioteca.View.Fornecedor {
         public EditoraBuscarView() {
             InitializeComponent();
         }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
+        }
 
         private void LvFornecedor_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvFornecedor.Items[LvFornecedor.FocusedItem.Index];
@@ -79,6 +86,12 @@ namespace Biblioteca.View.Fornecedor {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
+            novaJanela(editoraCadastrarView);
+            
         }
     }
 }

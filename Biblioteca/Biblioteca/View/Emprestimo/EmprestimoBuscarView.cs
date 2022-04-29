@@ -56,6 +56,10 @@ namespace Biblioteca.View.Emprestimo {
                 List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLeitor: true);
                 popular(lista);
             }
+            if (rbCodigo.Checked) {
+                List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isCodigo: true);
+                popular(lista);
+            }
         }
 
         private void lvEmprestimo_MouseClick(object sender, MouseEventArgs e) {

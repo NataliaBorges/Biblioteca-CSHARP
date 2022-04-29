@@ -98,10 +98,13 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
                     maskedTextBoxAquisição.Focus();
                 }
-                else if (Validar.ValidaISBN13(ISBN)) {
+                else if (tbISBN.Text.Length < 13) {
                     MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
-                    tbISBN.Focus();
                 }
+                //else if (Validar.ValidaISBN13(ISBN)) {
+                //    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
+                //    tbISBN.Focus();
+                //}
                 else {
                     LivroModel livro = new LivroModel(this.livro.getId(),IdFornecedor, nome, autor, edicao, ano, data, ISBN);
                     if (controller.Atualizar(livro)) {

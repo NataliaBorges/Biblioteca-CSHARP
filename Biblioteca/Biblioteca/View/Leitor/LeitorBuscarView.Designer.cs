@@ -39,8 +39,12 @@ namespace Biblioteca.View.Leitor {
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,7 +120,7 @@ namespace Biblioteca.View.Leitor {
             // 
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(913, 97);
+            this.button1.Location = new System.Drawing.Point(870, 146);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(33, 27);
             this.button1.TabIndex = 10;
@@ -130,7 +134,7 @@ namespace Biblioteca.View.Leitor {
             this.rbCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(202, 100);
+            this.rbCPF.Location = new System.Drawing.Point(13, 35);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(57, 24);
             this.rbCPF.TabIndex = 9;
@@ -145,7 +149,7 @@ namespace Biblioteca.View.Leitor {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(202, 75);
+            this.rbNome.Location = new System.Drawing.Point(13, 5);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 8;
@@ -156,7 +160,7 @@ namespace Biblioteca.View.Leitor {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(314, 97);
+            this.tbBuscar.Location = new System.Drawing.Point(293, 146);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(571, 27);
             this.tbBuscar.TabIndex = 7;
@@ -176,17 +180,53 @@ namespace Biblioteca.View.Leitor {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.LvLeitor);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.tbBuscar);
-            this.panel1.Controls.Add(this.rbNome);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.rbCPF);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(142, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1110, 696);
             this.panel1.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Controls.Add(this.rbNome);
+            this.panel2.Controls.Add(this.rbCPF);
+            this.panel2.Location = new System.Drawing.Point(118, 101);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(115, 68);
+            this.panel2.TabIndex = 31;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(983, 151);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(114, 18);
+            this.linkLabel1.TabIndex = 30;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cadastrar Leitor";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(85, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Selecione o tipo da busca:";
             // 
             // tableLayoutPanel1
             // 
@@ -219,6 +259,8 @@ namespace Biblioteca.View.Leitor {
             this.Load += new System.EventHandler(this.LeitorBuscarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -240,5 +282,8 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ColumnHeader Endereço;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

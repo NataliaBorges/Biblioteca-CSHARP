@@ -16,7 +16,13 @@ namespace Biblioteca.View.Funcionario {
         public FuncionarioBuscarView() {
             InitializeComponent();
         }
-
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
+        }
         private void Lvfuncionario_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = Lvfuncionario.Items[Lvfuncionario.FocusedItem.Index];
             FuncionarioModel funcionario = new FuncionarioModel(
@@ -81,6 +87,11 @@ namespace Biblioteca.View.Funcionario {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void LinkCadastrarFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
+            novaJanela(funcionarioCadastrarView);
         }
     }
 }

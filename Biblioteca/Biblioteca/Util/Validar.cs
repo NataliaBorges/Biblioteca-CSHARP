@@ -85,62 +85,62 @@ namespace Biblioteca.Util {
             }
             return validEmail;
         }
-        public static bool ValidaISBN13(string isbn) {
-            bool result = false;
-            if (!string.IsNullOrEmpty(isbn)) {
-                long j;
-                if (isbn.Contains('-')) isbn = isbn.Replace("-", "");
+        //public static bool ValidaISBN13(string isbn) {
+        //    bool result = false;
+        //    if (!string.IsNullOrEmpty(isbn)) {
+        //        long j;
+        //        if (isbn.Contains('-')) isbn = isbn.Replace("-", "");
 
                 
-                if (!Int64.TryParse(isbn, out j))
-                    result = false;
+        //        if (!Int64.TryParse(isbn, out j))
+        //            result = false;
 
-                int sum = 0;
-                for (int i = 0; i < 12; i++) {
-                    sum += Int32.Parse(isbn[i].ToString()) * (i % 2 == 1 ? 3 : 1);
-                }
+        //        int sum = 0;
+        //        for (int i = 0; i < 12; i++) {
+        //            sum += Int32.Parse(isbn[i].ToString()) * (i % 2 == 1 ? 3 : 1);
+        //        }
 
-                int remainder = sum % 10;
-                int checkDigit = 10 - remainder;
-                if (checkDigit == 10) checkDigit = 0;
+        //        int remainder = sum % 10;
+        //        int checkDigit = 10 - remainder;
+        //        if (checkDigit == 10) checkDigit = 0;
 
-                result = (checkDigit == int.Parse(isbn[12].ToString()));
-            }
+        //        result = (checkDigit == int.Parse(isbn[12].ToString()));
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
         public static bool ValidaCNPJ(string cnpj) {
-            int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
-            int soma;
-            int resto;
-            string digito;
-            string tempCnpj;
-            cnpj = cnpj.Trim();
-            cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
-            if (cnpj.Length != 14)
-                return false;
-            tempCnpj = cnpj.Substring(0, 12);
-            soma = 0;
-            for (int i = 0; i < 12; i++)
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
-            resto = (soma % 11);
-            if (resto < 2)
-                resto = 0;
-            else
-                resto = 11 - resto;
-            digito = resto.ToString();
-            tempCnpj = tempCnpj + digito;
-            soma = 0;
-            for (int i = 0; i < 13; i++)
-                soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
-            resto = (soma % 11);
-            if (resto < 2)
-                resto = 0;
-            else
-                resto = 11 - resto;
-            digito = digito + resto.ToString();
-            return cnpj.EndsWith(digito);
-        }
+                int[] multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int[] multiplicador2 = new int[13] { 6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };
+                int soma;
+                int resto;
+                string digito;
+                string tempCnpj;
+                cnpj = cnpj.Trim();
+                cnpj = cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+                if (cnpj.Length != 14)
+                    return false;
+                tempCnpj = cnpj.Substring(0, 12);
+                soma = 0;
+                for (int i = 0; i < 12; i++)
+                    soma += int.Parse(tempCnpj[i].ToString()) * multiplicador1[i];
+                resto = (soma % 11);
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+                digito = resto.ToString();
+                tempCnpj = tempCnpj + digito;
+                soma = 0;
+                for (int i = 0; i < 13; i++)
+                    soma += int.Parse(tempCnpj[i].ToString()) * multiplicador2[i];
+                resto = (soma % 11);
+                if (resto < 2)
+                    resto = 0;
+                else
+                    resto = 11 - resto;
+                digito = digito + resto.ToString();
+                return cnpj.EndsWith(digito);
+            }
     }
 }

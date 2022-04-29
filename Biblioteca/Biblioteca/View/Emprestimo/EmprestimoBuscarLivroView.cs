@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.View.Livros;
 
 namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoBuscarLivroView : Form {
@@ -88,6 +89,11 @@ namespace Biblioteca.View.Emprestimo {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+            novaJanela(livrosCadastrarView);
         }
     }
 }

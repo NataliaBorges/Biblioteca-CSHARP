@@ -32,14 +32,18 @@ namespace Biblioteca.View.Fornecedor {
             this.LvFornecedor = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
-            this.Endereco = new System.Windows.Forms.ColumnHeader();
+            this.Endereço = new System.Windows.Forms.ColumnHeader();
             this.Telefone = new System.Windows.Forms.ColumnHeader();
             this.CNPJ = new System.Windows.Forms.ColumnHeader();
+            this.Email = new System.Windows.Forms.ColumnHeader();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Email = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +52,7 @@ namespace Biblioteca.View.Fornecedor {
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(865, 110);
+            this.button1.Location = new System.Drawing.Point(778, 149);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 27);
             this.button1.TabIndex = 15;
@@ -61,7 +65,7 @@ namespace Biblioteca.View.Fornecedor {
             this.rbCNPJ.BackColor = System.Drawing.Color.Transparent;
             this.rbCNPJ.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCNPJ.ForeColor = System.Drawing.Color.White;
-            this.rbCNPJ.Location = new System.Drawing.Point(177, 124);
+            this.rbCNPJ.Location = new System.Drawing.Point(15, 40);
             this.rbCNPJ.Name = "rbCNPJ";
             this.rbCNPJ.Size = new System.Drawing.Size(66, 24);
             this.rbCNPJ.TabIndex = 14;
@@ -75,7 +79,7 @@ namespace Biblioteca.View.Fornecedor {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(177, 99);
+            this.rbNome.Location = new System.Drawing.Point(15, 15);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 13;
@@ -86,7 +90,7 @@ namespace Biblioteca.View.Fornecedor {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(294, 110);
+            this.tbBuscar.Location = new System.Drawing.Point(249, 149);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(508, 27);
             this.tbBuscar.TabIndex = 12;
@@ -98,7 +102,7 @@ namespace Biblioteca.View.Fornecedor {
             this.LvFornecedor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
-            this.Endereco,
+            this.Endereço,
             this.Telefone,
             this.CNPJ,
             this.Email});
@@ -123,13 +127,13 @@ namespace Biblioteca.View.Fornecedor {
             // 
             this.Nome.Text = "Nome";
             this.Nome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Nome.Width = 200;
+            this.Nome.Width = 150;
             // 
-            // Endereco
+            // Endereço
             // 
-            this.Endereco.Text = "Endereco";
-            this.Endereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Endereco.Width = 300;
+            this.Endereço.Text = "Endereço";
+            this.Endereço.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Endereço.Width = 300;
             // 
             // Telefone
             // 
@@ -142,6 +146,12 @@ namespace Biblioteca.View.Fornecedor {
             this.CNPJ.Text = "CNPJ";
             this.CNPJ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CNPJ.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.Text = "Email";
+            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Email.Width = 150;
             // 
             // button2
             // 
@@ -158,17 +168,53 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.LvFornecedor);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.tbBuscar);
-            this.panel1.Controls.Add(this.rbNome);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.rbCNPJ);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(139, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1082, 656);
             this.panel1.TabIndex = 18;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Controls.Add(this.rbNome);
+            this.panel2.Controls.Add(this.rbCNPJ);
+            this.panel2.Location = new System.Drawing.Point(481, 63);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(105, 80);
+            this.panel2.TabIndex = 29;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(439, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Selecione o tipo da busca:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(870, 155);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(123, 18);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cadastrar Editora";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // tableLayoutPanel1
             // 
@@ -184,12 +230,6 @@ namespace Biblioteca.View.Fornecedor {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1361, 662);
             this.tableLayoutPanel1.TabIndex = 19;
-            // 
-            // Email
-            // 
-            this.Email.Text = "Email";
-            this.Email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Email.Width = 150;
             // 
             // EditoraBuscarView
             // 
@@ -207,6 +247,8 @@ namespace Biblioteca.View.Fornecedor {
             this.Load += new System.EventHandler(this.FornecedorBuscarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -227,5 +269,9 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.ColumnHeader Email;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ColumnHeader Endereço;
     }
 }

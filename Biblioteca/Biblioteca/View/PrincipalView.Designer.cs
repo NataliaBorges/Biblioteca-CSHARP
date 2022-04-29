@@ -28,7 +28,10 @@ namespace Biblioteca.View {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.livrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.cadastrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editoraToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.leitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,9 +44,6 @@ namespace Biblioteca.View {
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.EditoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buscarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.livrotoolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.leitorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,8 +53,14 @@ namespace Biblioteca.View {
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasemBreveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.consultarEmpréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarDevoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.menuStrip2.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,13 +73,12 @@ namespace Biblioteca.View {
             this.empréstimosToolStripMenuItem,
             this.ReservatoolStripMenuItem1,
             this.funcionáriosToolStripMenuItem,
-            this.EditoraToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
             this.sairToolStripMenuItem,
             this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(28, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(91, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1213, 41);
+            this.menuStrip1.Size = new System.Drawing.Size(1088, 41);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,7 +90,8 @@ namespace Biblioteca.View {
             this.livrosToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.livrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
-            this.cadastrarToolStripMenuItem});
+            this.buscarToolStripMenuItem2,
+            this.editoraToolStripMenuItem1});
             this.livrosToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.livrosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.livrosToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
@@ -105,15 +111,46 @@ namespace Biblioteca.View {
             this.toolStripMenuItem2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
-            // cadastrarToolStripMenuItem
+            // buscarToolStripMenuItem2
             // 
-            this.cadastrarToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.cadastrarToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cadastrarToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.cadastrarToolStripMenuItem.Name = "cadastrarToolStripMenuItem";
-            this.cadastrarToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
-            this.cadastrarToolStripMenuItem.Text = "Buscar";
-            this.cadastrarToolStripMenuItem.Click += new System.EventHandler(this.cadastrarToolStripMenuItem_Click);
+            this.buscarToolStripMenuItem2.BackColor = System.Drawing.Color.Black;
+            this.buscarToolStripMenuItem2.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buscarToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
+            this.buscarToolStripMenuItem2.Name = "buscarToolStripMenuItem2";
+            this.buscarToolStripMenuItem2.Size = new System.Drawing.Size(191, 32);
+            this.buscarToolStripMenuItem2.Text = "Buscar";
+            this.buscarToolStripMenuItem2.Click += new System.EventHandler(this.buscarToolStripMenuItem2_Click_1);
+            // 
+            // editoraToolStripMenuItem1
+            // 
+            this.editoraToolStripMenuItem1.BackColor = System.Drawing.Color.Black;
+            this.editoraToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarToolStripMenuItem5,
+            this.buscarToolStripMenuItem6});
+            this.editoraToolStripMenuItem1.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.editoraToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
+            this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
+            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(191, 32);
+            this.editoraToolStripMenuItem1.Text = "Editora";
+            // 
+            // cadastrarToolStripMenuItem5
+            // 
+            this.cadastrarToolStripMenuItem5.BackColor = System.Drawing.Color.Black;
+            this.cadastrarToolStripMenuItem5.Font = new System.Drawing.Font("Book Antiqua", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cadastrarToolStripMenuItem5.ForeColor = System.Drawing.Color.White;
+            this.cadastrarToolStripMenuItem5.Name = "cadastrarToolStripMenuItem5";
+            this.cadastrarToolStripMenuItem5.Size = new System.Drawing.Size(180, 32);
+            this.cadastrarToolStripMenuItem5.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem5.Click += new System.EventHandler(this.cadastrarToolStripMenuItem5_Click);
+            // 
+            // buscarToolStripMenuItem6
+            // 
+            this.buscarToolStripMenuItem6.BackColor = System.Drawing.Color.Black;
+            this.buscarToolStripMenuItem6.ForeColor = System.Drawing.Color.White;
+            this.buscarToolStripMenuItem6.Name = "buscarToolStripMenuItem6";
+            this.buscarToolStripMenuItem6.Size = new System.Drawing.Size(180, 32);
+            this.buscarToolStripMenuItem6.Text = "Buscar";
+            this.buscarToolStripMenuItem6.Click += new System.EventHandler(this.buscarToolStripMenuItem6_Click);
             // 
             // leitorToolStripMenuItem
             // 
@@ -243,38 +280,6 @@ namespace Biblioteca.View {
             this.buscarToolStripMenuItem1.Text = "Buscar";
             this.buscarToolStripMenuItem1.Click += new System.EventHandler(this.buscarToolStripMenuItem1_Click);
             // 
-            // EditoraToolStripMenuItem
-            // 
-            this.EditoraToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.EditoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cToolStripMenuItem,
-            this.buscarToolStripMenuItem2});
-            this.EditoraToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.EditoraToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.EditoraToolStripMenuItem.Name = "EditoraToolStripMenuItem";
-            this.EditoraToolStripMenuItem.Size = new System.Drawing.Size(125, 37);
-            this.EditoraToolStripMenuItem.Text = "Editora";
-            // 
-            // cToolStripMenuItem
-            // 
-            this.cToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.cToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.cToolStripMenuItem.Name = "cToolStripMenuItem";
-            this.cToolStripMenuItem.Size = new System.Drawing.Size(191, 32);
-            this.cToolStripMenuItem.Text = "Cadastrar";
-            this.cToolStripMenuItem.Click += new System.EventHandler(this.cToolStripMenuItem_Click);
-            // 
-            // buscarToolStripMenuItem2
-            // 
-            this.buscarToolStripMenuItem2.BackColor = System.Drawing.Color.Black;
-            this.buscarToolStripMenuItem2.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buscarToolStripMenuItem2.ForeColor = System.Drawing.Color.White;
-            this.buscarToolStripMenuItem2.Name = "buscarToolStripMenuItem2";
-            this.buscarToolStripMenuItem2.Size = new System.Drawing.Size(191, 32);
-            this.buscarToolStripMenuItem2.Text = "Buscar";
-            this.buscarToolStripMenuItem2.Click += new System.EventHandler(this.buscarToolStripMenuItem2_Click);
-            // 
             // relatóriosToolStripMenuItem
             // 
             this.relatóriosToolStripMenuItem.BackColor = System.Drawing.Color.Black;
@@ -367,6 +372,57 @@ namespace Biblioteca.View {
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1270, 41);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.BackColor = System.Drawing.Color.Black;
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStrip2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.menuStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultarEmpréstimoToolStripMenuItem,
+            this.consultarDevoluçõesToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(381, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.menuStrip2.Size = new System.Drawing.Size(508, 44);
+            this.menuStrip2.TabIndex = 6;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // consultarEmpréstimoToolStripMenuItem
+            // 
+            this.consultarEmpréstimoToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.consultarEmpréstimoToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.consultarEmpréstimoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.consultarEmpréstimoToolStripMenuItem.Name = "consultarEmpréstimoToolStripMenuItem";
+            this.consultarEmpréstimoToolStripMenuItem.Size = new System.Drawing.Size(242, 40);
+            this.consultarEmpréstimoToolStripMenuItem.Text = "Consultar Empréstimo";
+            this.consultarEmpréstimoToolStripMenuItem.Click += new System.EventHandler(this.consultarEmpréstimoToolStripMenuItem_Click);
+            // 
+            // consultarDevoluçõesToolStripMenuItem
+            // 
+            this.consultarDevoluçõesToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.consultarDevoluçõesToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.consultarDevoluçõesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.consultarDevoluçõesToolStripMenuItem.Name = "consultarDevoluçõesToolStripMenuItem";
+            this.consultarDevoluçõesToolStripMenuItem.Size = new System.Drawing.Size(238, 40);
+            this.consultarDevoluçõesToolStripMenuItem.Text = "Consultar Devoluções";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Black;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.Controls.Add(this.menuStrip2, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 519);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1270, 44);
+            this.tableLayoutPanel2.TabIndex = 7;
+            // 
             // PrincipalView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -375,6 +431,7 @@ namespace Biblioteca.View {
             this.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1270, 563);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -388,6 +445,10 @@ namespace Biblioteca.View {
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -397,7 +458,6 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empréstimosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EditoraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasemBreveToolStripMenuItem;
@@ -405,13 +465,10 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem cToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem4;
@@ -421,5 +478,13 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem consultarEmpréstimoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarDevoluçõesToolStripMenuItem;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem5;
+        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem2;
     }
 }

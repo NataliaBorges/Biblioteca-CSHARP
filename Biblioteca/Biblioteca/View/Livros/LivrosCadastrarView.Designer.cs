@@ -39,6 +39,7 @@ namespace Biblioteca.View.Livros {
             this.button2 = new System.Windows.Forms.Button();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.maskedTextBoxAquisição = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,7 +55,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.calendar.BackColor = System.Drawing.Color.Black;
             this.calendar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calendar.Location = new System.Drawing.Point(347, 295);
+            this.calendar.Location = new System.Drawing.Point(466, 264);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 8;
             this.calendar.TitleBackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -66,7 +67,7 @@ namespace Biblioteca.View.Livros {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(343, 256);
+            this.label4.Location = new System.Drawing.Point(462, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 6;
@@ -150,7 +151,7 @@ namespace Biblioteca.View.Livros {
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(610, 345);
+            this.button1.Location = new System.Drawing.Point(466, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(219, 45);
             this.button1.TabIndex = 13;
@@ -193,6 +194,7 @@ namespace Biblioteca.View.Livros {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.maskedTextBoxAquisição);
             this.panel1.Controls.Add(this.maskedTextBoxAno);
             this.panel1.Controls.Add(this.textBox1);
@@ -218,10 +220,23 @@ namespace Biblioteca.View.Livros {
             this.panel1.Size = new System.Drawing.Size(1117, 744);
             this.panel1.TabIndex = 21;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(517, 514);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(123, 18);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cadastrar Editora";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // maskedTextBoxAquisição
             // 
             this.maskedTextBoxAquisição.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxAquisição.Location = new System.Drawing.Point(444, 256);
+            this.maskedTextBoxAquisição.Location = new System.Drawing.Point(563, 225);
             this.maskedTextBoxAquisição.Mask = "99/99/9999";
             this.maskedTextBoxAquisição.Name = "maskedTextBoxAquisição";
             this.maskedTextBoxAquisição.Size = new System.Drawing.Size(100, 27);
@@ -337,5 +352,6 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAquisição;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAno;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

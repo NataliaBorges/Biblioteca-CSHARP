@@ -44,11 +44,12 @@ namespace Biblioteca.View.Livros {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
                     item.SubItems.Add(livro.Nome);
                     item.SubItems.Add(livro.Autor);
+                    item.SubItems.Add(livro.ISBN);
                     item.SubItems.Add(livro.Fornecedor);
                     item.SubItems.Add(livro.Edicao);
                     item.SubItems.Add(livro.AnoPublicacao);
                     item.SubItems.Add(livro.DataAquisicao.ToString());
-                    item.SubItems.Add(livro.ISBN);
+                    
 
                     LvLivros.Items.Add(item);
                 }
@@ -67,15 +68,16 @@ namespace Biblioteca.View.Livros {
 
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
+            //int ID, String Nome, String Autor, String Edicao (3), String AnoPublicacao(4), DateTime DataAquisicao(5), String Fornecedor(6), String ISBN(7)
             LivroModel livro = new LivroModel(
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
+                item.SubItems[7].Text,
+                item.SubItems[6].Text,
+                DateTime.Parse(item.SubItems[5].Text),
                 item.SubItems[4].Text,
-                item.SubItems[5].Text,
-                DateTime.Parse(item.SubItems[6].Text),
-                item.SubItems[3].Text,
-                item.SubItems[7].Text
+                item.SubItems[3].Text
             );
 
             LivrosEditarView editar = new LivrosEditarView(livro);
@@ -89,6 +91,18 @@ namespace Biblioteca.View.Livros {
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
+        }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+            novaJanela(livrosCadastrarView);
         }
     }
 }

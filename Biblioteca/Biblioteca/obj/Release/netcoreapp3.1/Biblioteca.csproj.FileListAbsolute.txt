@@ -52,3 +52,5 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Release\netcoreapp3.1\Biblioteca.dll
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Release\netcoreapp3.1\Biblioteca.pdb
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Release\netcoreapp3.1\Biblioteca.genruntimeconfig.cache
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Release\netcoreapp3.1\Biblioteca.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Release\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarExemplarView.resources

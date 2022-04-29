@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
+using Biblioteca.View.Fornecedor;
 
 namespace Biblioteca.View.Livros {
     public partial class LivrosCadastrarView : Form {
@@ -18,6 +19,13 @@ namespace Biblioteca.View.Livros {
 
         public LivrosCadastrarView() {
             InitializeComponent();
+        }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
         }
 
         private void ClearForm() {
@@ -69,15 +77,18 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
                     maskedTextBoxAquisição.Focus();
                 }
-                else if (Validar.ValidaISBN13(ISBN)) {
+                else if(tbISBN.Text.Length < 13) {
                     MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
-                    tbISBN.Focus();
                 }
+                //else if (Validar.ValidaISBN13(ISBN)) {
+                //    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
+                //    tbISBN.Focus();
+                //}
                 else {
                     LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
                     if (controller.Insercao(livro)) {
                         MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                        ClearForm();
+                        this.Close();
                     }
                     else {
                         MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
@@ -112,6 +123,11 @@ namespace Biblioteca.View.Livros {
 
         private void button2_Click_1(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
+            novaJanela(editoraCadastrarView);
         }
     }
 }

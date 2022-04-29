@@ -33,12 +33,17 @@ namespace Biblioteca.View.Emprestimo {
             this.Nascimento = new System.Windows.Forms.ColumnHeader();
             this.Telefone = new System.Windows.Forms.ColumnHeader();
             this.CPF = new System.Windows.Forms.ColumnHeader();
-            this.Endereco = new System.Windows.Forms.ColumnHeader();
+            this.Endereço = new System.Windows.Forms.ColumnHeader();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbNome = new System.Windows.Forms.RadioButton();
+            this.rbCPF = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +52,7 @@ namespace Biblioteca.View.Emprestimo {
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon2;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(816, 97);
+            this.button1.Location = new System.Drawing.Point(882, 181);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 27);
             this.button1.TabIndex = 3;
@@ -57,9 +62,9 @@ namespace Biblioteca.View.Emprestimo {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(280, 97);
+            this.tbBuscar.Location = new System.Drawing.Point(284, 181);
             this.tbBuscar.Name = "tbBuscar";
-            this.tbBuscar.Size = new System.Drawing.Size(506, 27);
+            this.tbBuscar.Size = new System.Drawing.Size(568, 27);
             this.tbBuscar.TabIndex = 2;
             // 
             // LvLeitor
@@ -72,13 +77,13 @@ namespace Biblioteca.View.Emprestimo {
             this.Nascimento,
             this.Telefone,
             this.CPF,
-            this.Endereco});
+            this.Endereço});
             this.LvLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLeitor.ForeColor = System.Drawing.Color.White;
             this.LvLeitor.FullRowSelect = true;
             this.LvLeitor.HideSelection = false;
             this.LvLeitor.HoverSelection = true;
-            this.LvLeitor.Location = new System.Drawing.Point(36, 162);
+            this.LvLeitor.Location = new System.Drawing.Point(36, 237);
             this.LvLeitor.Name = "LvLeitor";
             this.LvLeitor.Size = new System.Drawing.Size(1062, 279);
             this.LvLeitor.TabIndex = 12;
@@ -114,11 +119,11 @@ namespace Biblioteca.View.Emprestimo {
             this.CPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CPF.Width = 150;
             // 
-            // Endereco
+            // Endereço
             // 
-            this.Endereco.Text = "Endereco";
-            this.Endereco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Endereco.Width = 400;
+            this.Endereço.Text = "Endereço";
+            this.Endereço.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Endereço.Width = 400;
             // 
             // button2
             // 
@@ -135,7 +140,9 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.LvLeitor);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.tbBuscar);
@@ -145,6 +152,67 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1119, 707);
             this.panel1.TabIndex = 16;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.panel2.Controls.Add(this.rbNome);
+            this.panel2.Controls.Add(this.rbCPF);
+            this.panel2.Location = new System.Drawing.Point(514, 86);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(87, 84);
+            this.panel2.TabIndex = 31;
+            // 
+            // rbNome
+            // 
+            this.rbNome.AutoSize = true;
+            this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNome.ForeColor = System.Drawing.Color.White;
+            this.rbNome.Location = new System.Drawing.Point(3, 16);
+            this.rbNome.Name = "rbNome";
+            this.rbNome.Size = new System.Drawing.Size(71, 24);
+            this.rbNome.TabIndex = 22;
+            this.rbNome.TabStop = true;
+            this.rbNome.Text = "Nome";
+            this.rbNome.UseVisualStyleBackColor = true;
+            // 
+            // rbCPF
+            // 
+            this.rbCPF.AutoSize = true;
+            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCPF.ForeColor = System.Drawing.Color.White;
+            this.rbCPF.Location = new System.Drawing.Point(3, 46);
+            this.rbCPF.Name = "rbCPF";
+            this.rbCPF.Size = new System.Drawing.Size(57, 24);
+            this.rbCPF.TabIndex = 21;
+            this.rbCPF.TabStop = true;
+            this.rbCPF.Text = "CPF";
+            this.rbCPF.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(473, 63);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Selecione o tipo da busca:";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(982, 187);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(114, 18);
+            this.linkLabel1.TabIndex = 23;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Cadastrar Leitor";
+            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // tableLayoutPanel1
             // 
@@ -160,17 +228,6 @@ namespace Biblioteca.View.Emprestimo {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1407, 713);
             this.tableLayoutPanel1.TabIndex = 17;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(118, 100);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 20);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Pesquisar por nome:";
             // 
             // EmprestimoBuscarLeitorView
             // 
@@ -189,6 +246,8 @@ namespace Biblioteca.View.Emprestimo {
             this.Load += new System.EventHandler(this.EmprestimoBuscarLeitorView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -204,10 +263,14 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.ColumnHeader Nascimento;
         private System.Windows.Forms.ColumnHeader Telefone;
         private System.Windows.Forms.ColumnHeader CPF;
-        private System.Windows.Forms.ColumnHeader Endereco;
+        private System.Windows.Forms.ColumnHeader Endereço;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbNome;
+        private System.Windows.Forms.RadioButton rbCPF;
     }
 }
