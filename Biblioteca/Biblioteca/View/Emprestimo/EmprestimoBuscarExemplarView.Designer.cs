@@ -27,7 +27,7 @@ namespace Biblioteca.View.Emprestimo {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoBuscarExemplarView));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LvLivros = new System.Windows.Forms.ListView();
+            this.LvExemplar = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
@@ -57,7 +57,7 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.LvLivros);
+            this.panel1.Controls.Add(this.LvExemplar);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(139, 3);
@@ -65,11 +65,11 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Size = new System.Drawing.Size(1088, 757);
             this.panel1.TabIndex = 0;
             // 
-            // LvLivros
+            // LvExemplar
             // 
-            this.LvLivros.BackColor = System.Drawing.Color.DimGray;
-            this.LvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LvExemplar.BackColor = System.Drawing.Color.DimGray;
+            this.LvExemplar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LvExemplar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome,
             this.Autor,
@@ -77,17 +77,17 @@ namespace Biblioteca.View.Emprestimo {
             this.ISBN,
             this.Edição,
             this.Ano});
-            this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LvLivros.ForeColor = System.Drawing.Color.White;
-            this.LvLivros.FullRowSelect = true;
-            this.LvLivros.HideSelection = false;
-            this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(69, 104);
-            this.LvLivros.Name = "LvLivros";
-            this.LvLivros.Size = new System.Drawing.Size(964, 463);
-            this.LvLivros.TabIndex = 23;
-            this.LvLivros.UseCompatibleStateImageBehavior = false;
-            this.LvLivros.View = System.Windows.Forms.View.Details;
+            this.LvExemplar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LvExemplar.ForeColor = System.Drawing.Color.White;
+            this.LvExemplar.FullRowSelect = true;
+            this.LvExemplar.HideSelection = false;
+            this.LvExemplar.HoverSelection = true;
+            this.LvExemplar.Location = new System.Drawing.Point(69, 104);
+            this.LvExemplar.Name = "LvExemplar";
+            this.LvExemplar.Size = new System.Drawing.Size(964, 463);
+            this.LvExemplar.TabIndex = 23;
+            this.LvExemplar.UseCompatibleStateImageBehavior = false;
+            this.LvExemplar.View = System.Windows.Forms.View.Details;
             // 
             // ID
             // 
@@ -164,7 +164,7 @@ namespace Biblioteca.View.Emprestimo {
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ListView LvLivros;
+        private System.Windows.Forms.ListView LvExemplar;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Autor;

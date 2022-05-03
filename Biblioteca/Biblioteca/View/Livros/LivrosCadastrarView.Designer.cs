@@ -42,7 +42,7 @@ namespace Biblioteca.View.Livros {
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.maskedTextBoxAquisição = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbQuantidade = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbISBN = new System.Windows.Forms.TextBox();
@@ -197,7 +197,7 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.maskedTextBoxAquisição);
             this.panel1.Controls.Add(this.maskedTextBoxAno);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbQuantidade);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.tbISBN);
@@ -215,9 +215,9 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.calendar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(143, 3);
+            this.panel1.Location = new System.Drawing.Point(141, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1117, 744);
+            this.panel1.Size = new System.Drawing.Size(1102, 744);
             this.panel1.TabIndex = 21;
             // 
             // linkLabel1
@@ -251,13 +251,13 @@ namespace Biblioteca.View.Livros {
             this.maskedTextBoxAno.Size = new System.Drawing.Size(41, 27);
             this.maskedTextBoxAno.TabIndex = 25;
             // 
-            // textBox1
+            // tbQuantidade
             // 
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(751, 181);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(78, 27);
-            this.textBox1.TabIndex = 24;
+            this.tbQuantidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbQuantidade.Location = new System.Drawing.Point(751, 181);
+            this.tbQuantidade.Name = "tbQuantidade";
+            this.tbQuantidade.Size = new System.Drawing.Size(78, 27);
+            this.tbQuantidade.TabIndex = 24;
             // 
             // label8
             // 
@@ -303,7 +303,7 @@ namespace Biblioteca.View.Livros {
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1404, 750);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1386, 750);
             this.tableLayoutPanel1.TabIndex = 22;
             // 
             // LivrosCadastrarView
@@ -313,7 +313,7 @@ namespace Biblioteca.View.Livros {
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1404, 750);
+            this.ClientSize = new System.Drawing.Size(1386, 750);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -348,7 +348,7 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbISBN;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbQuantidade;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAquisição;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAno;

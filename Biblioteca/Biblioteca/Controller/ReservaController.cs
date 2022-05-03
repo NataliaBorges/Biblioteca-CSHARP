@@ -57,16 +57,16 @@ namespace Biblioteca.Controller {
         }
 
         // RELACIONAR LIVROS SELECIONADO NO EMPRESTIMO
-        public bool RelacionarLivrosReserva(int idReserva, LivroModel livro) {
+        public bool RelacionarExemplarReserva(int idReserva, ExemplarModel exemplar) {
             Cmd.Connection = connection.RetornaConexao();
 
             if(Cmd.Connection.State != System.Data.ConnectionState.Open)
                 Cmd.Connection.Open();
 
-            Cmd.CommandText = @"INSERT INTO Item_reserva Values (@ID_livro, @ID_reserva, @Obs_item)";
+            Cmd.CommandText = @"INSERT INTO Item_reserva Values (@ID_IL, @ID_reserva, @Obs_item)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID_livro", livro.getId());
+            Cmd.Parameters.AddWithValue("@ID_IL", exemplar.getId());
             Cmd.Parameters.AddWithValue("@ID_reserva", idReserva);
             Cmd.Parameters.AddWithValue("@Obs_item", "");
 
@@ -270,16 +270,16 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public void InserirLivroReserva(LivroModel livro) {
-            this.singleton.setLivro(livro);
+        public void InserirExemplarReserva(ExemplarModel exemplar) {
+            this.singleton.setExemplar(exemplar);
         }
 
-        public List<LivroModel> PegarLivrosReserva() {
-            return this.singleton.getLivros();
+        public List<ExemplarModel> PegarExemplarReserva() {
+            return this.singleton.getExemplar();
         }
 
-        public void RemoverLivroReserva(LivroModel livro) {
-            this.singleton.removerLivroLista(livro);
+        public void RemoverExemplarReserva(ExemplarModel exemplar) {
+            this.singleton.removerExemplarLista(exemplar);
         }
 
         public void InserirLeitorReserva(LeitorModel leitor) {

@@ -22,7 +22,7 @@ namespace Biblioteca.Model {
             this.Endereco = endereco;
             this.Telefone = telefone;
         }
-        public FuncionarioModel(int ID, String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String Senha) {
+        public FuncionarioModel(int ID, String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String funcao) {
             this.ID_funcionario = ID;
             this.Nome_funcionario = nome;
             this.CPF = cpf;
@@ -30,9 +30,9 @@ namespace Biblioteca.Model {
             this.Email = email;
             this.Endereco = endereco;
             this.Telefone = telefone;
-            this.Senha = Senha;
+            this.Funcao = funcao;
         }
-        public FuncionarioModel(String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String Senha) {
+        public FuncionarioModel(String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String Senha, string funcao) {
             this.Nome_funcionario = nome;
             this.CPF = cpf;
             this.Data_Nascimento = nascimento;
@@ -40,6 +40,7 @@ namespace Biblioteca.Model {
             this.Endereco = endereco;
             this.Telefone = telefone;
             this.Senha = Senha;
+            this.Funcao = funcao;
         }
         public int getId() {
             return this.ID_funcionario;

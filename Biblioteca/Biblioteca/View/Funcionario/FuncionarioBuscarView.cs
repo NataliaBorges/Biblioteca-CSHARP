@@ -93,5 +93,33 @@ namespace Biblioteca.View.Funcionario {
             FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
             novaJanela(funcionarioCadastrarView);
         }
+
+        private void rbEmail_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void rbNome_CheckedChanged(object sender, EventArgs e) {
+
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e) {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e) {
+
+        }
     }
 }

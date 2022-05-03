@@ -5,20 +5,14 @@ using System.Text;
 namespace Biblioteca.Model {
     class ItemEmprestimoModel {
         int ID { get; set; }
-        public int IdLivro { get; set; }
-        public int IdEmprestimo { get; set; }
-        public String Obs { get; set; }
 
-        public ItemEmprestimoModel(int ID, int IdLivro, int IdEmprestimo, String Obs) {
+        public int IdEmprestimo { get; set; }
+        public int IdExemplar { get; set; }
+
+        public ItemEmprestimoModel(int ID, int IdEmprestimo, int IdExemplar) {
             this.ID = ID;
-            this.IdLivro = IdLivro;
             this.IdEmprestimo = IdEmprestimo;
-            this.Obs = Obs;
-        }
-        public ItemEmprestimoModel(int ID, int IdLivro, int IdEmprestimo) {
-            this.ID = ID;
-            this.IdLivro = IdLivro;
-            this.IdEmprestimo = IdEmprestimo;
+            this.IdExemplar = IdExemplar;
         }
         public int getId() {
             return this.ID;

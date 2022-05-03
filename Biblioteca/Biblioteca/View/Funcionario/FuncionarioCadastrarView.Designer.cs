@@ -50,6 +50,8 @@ namespace Biblioteca.View.Funcionario {
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -265,6 +267,8 @@ namespace Biblioteca.View.Funcionario {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.maskedTextBoxNascimento);
             this.panel1.Controls.Add(this.maskedTextBoxCPF);
             this.panel1.Controls.Add(this.maskedTextBoxTelefone);
@@ -336,6 +340,28 @@ namespace Biblioteca.View.Funcionario {
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1417, 839);
             this.tableLayoutPanel1.TabIndex = 60;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Administrador",
+            "Bibliotecário"});
+            this.comboBox1.Location = new System.Drawing.Point(596, 296);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(197, 28);
+            this.comboBox1.TabIndex = 62;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.Location = new System.Drawing.Point(525, 302);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 20);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Função:";
+            // 
             // FuncionarioCadastrarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -384,5 +410,7 @@ namespace Biblioteca.View.Funcionario {
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCPF;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxTelefone;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNascimento;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

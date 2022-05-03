@@ -9,7 +9,7 @@ namespace Biblioteca.Util {
         private static Singleton instancia;
         private FuncionarioModel funcionarioModel { get; set; }
 
-        private List<LivroModel> livros = new List<LivroModel>();
+        private List<ExemplarModel> exemplar = new List<ExemplarModel>();
         private LeitorModel leitor;
 
         public static Singleton GetInstancia() {
@@ -24,11 +24,11 @@ namespace Biblioteca.Util {
         public void setFuncionario(FuncionarioModel funcionarioModel) {
             this.funcionarioModel = funcionarioModel;
         }
-        public List<LivroModel> getLivros() {
-            return this.livros;
+        public List<ExemplarModel> getExemplar() {
+            return this.exemplar;
         }
-        public void setLivro(LivroModel livro) {
-            this.livros.Add(livro);
+        public void setExemplar(ExemplarModel exemplar) {
+            this.exemplar.Add(exemplar);
         }
         public LeitorModel getLeitor() {
             return this.leitor;
@@ -36,17 +36,17 @@ namespace Biblioteca.Util {
         public void setLeitor(LeitorModel leitor) {
             this.leitor = leitor;
         }
-        public void removerLivroLista(LivroModel livro) {
-            int posicao = this.livros.FindIndex(item => item.getId() == livro.getId());
-            this.livros.RemoveAt(posicao);
+        public void removerExemplarLista(ExemplarModel exemplar) {
+            int posicao = this.exemplar.FindIndex(item => item.getId() == exemplar.getId());
+            this.exemplar.RemoveAt(posicao);
         }
         public void clearEmprestimo() {
-            this.livros = new List<LivroModel>();
+            this.exemplar = new List<ExemplarModel>();
             this.leitor = null;
         }
 
         public void clearReserva() {
-            this.livros = new List<LivroModel>();
+            this.exemplar = new List<ExemplarModel>();
             this.leitor = null;
         }
     }

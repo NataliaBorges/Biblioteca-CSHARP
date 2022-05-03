@@ -52,27 +52,26 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmprestimoCadastroView_Load(object sender, EventArgs e) {
-            popularLivros(controller.PegarLivrosEmprestimo());
+            popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
         }
 
         protected override void OnActivated(EventArgs e) {
-            popularLivros(controller.PegarLivrosEmprestimo());
+            popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
         }
 
-        private void popularLivros(List<LivroModel> lista) {
+        private void popularExemplar(List<ExemplarModel> lista) {
             lvLivros.Items.Clear();
             if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Fornecedor);
-                    item.SubItems.Add(livro.ISBN);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                foreach (ExemplarModel exemplar in lista) {
+                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
+                    item.SubItems.Add(exemplar.Nome);
+                    item.SubItems.Add(exemplar.Autor);
+                    item.SubItems.Add(exemplar.Fornecedor);
+                    item.SubItems.Add(exemplar.ISBN);
+                    item.SubItems.Add(exemplar.Edicao);
+                    item.SubItems.Add(exemplar.AnoPublicacao);
 
                     lvLivros.Items.Add(item);
                 }
@@ -99,13 +98,12 @@ namespace Biblioteca.View.Emprestimo {
 
         private void lvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = lvLivros.Items[lvLivros.FocusedItem.Index];
-            LivroModel livro = new LivroModel(
+            ExemplarModel exempar = new ExemplarModel(
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
                 item.SubItems[5].Text,
                 item.SubItems[6].Text,
-                DateTime.Parse(item.SubItems[7].Text),
                 item.SubItems[3].Text,
                 item.SubItems[4].Text
             );
@@ -113,8 +111,8 @@ namespace Biblioteca.View.Emprestimo {
 
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) {
-                controller.RemoverLivroEmprestimo(livro);
-                popularLivros(controller.PegarLivrosEmprestimo());
+                controller.RemoverExemplarEmprestimo(exempar);
+                popularExemplar(controller.PegarExemplarEmprestimo());
             }
         }
 
@@ -162,8 +160,8 @@ namespace Biblioteca.View.Emprestimo {
                     int idEmprestimo = controller.BuscarUltimoEmprestimo();
 
                     // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
-                    foreach (LivroModel livro in this.singleton.getLivros()) {
-                        controller.RelacionarLivrosEmprestimo(idEmprestimo, livro);
+                    foreach (ExemplarModel exemplar in this.singleton.getExemplar()) {
+                        controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
                     }
 
                     this.singleton.clearEmprestimo();

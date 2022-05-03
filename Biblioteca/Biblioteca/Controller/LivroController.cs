@@ -18,7 +18,22 @@ namespace Biblioteca.Controller {
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
+        public int BuscarUltimoLivro() {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Livro ORDER BY ID_livro DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
+            Cmd.Parameters.Clear();
 
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            while (reader.Read()) {
+                int idLivro = (int)reader["ID_livro"];
+                reader.Close();
+                return idLivro;
+            }
+
+
+            return 0;
+        }
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao, @Quantidade, @ISBN)";
@@ -30,10 +45,20 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
             Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
             Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao);
-            Cmd.Parameters.AddWithValue("@Quantidade", "1");
+            Cmd.Parameters.AddWithValue("@Quantidade", livro.Quantidade);
             Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
 
             if (Cmd.ExecuteNonQuery() == 1) {
+                int ultimoLivroId = BuscarUltimoLivro();
+                for(int i=0; i< livro.Quantidade; i++) {
+                    Cmd.Connection = connection.RetornaConexao();
+                    Cmd.CommandText = @"INSERT INTO Item_livro Values (@Id_Livro)";
+
+                    Cmd.Parameters.Clear();
+                    Cmd.Parameters.AddWithValue("@Id_Livro", ultimoLivroId);
+                    Cmd.ExecuteNonQuery();
+                }
+                
                 return true;
             } else {
                 return false;

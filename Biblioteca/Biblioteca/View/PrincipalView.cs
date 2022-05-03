@@ -13,6 +13,8 @@ using Biblioteca.View.Fornecedor;
 using Biblioteca.View.Relatorio;
 using Biblioteca.View.Reserva;
 using Biblioteca.Util;
+using Biblioteca.Model;
+using Biblioteca.Controller;
 
 namespace Biblioteca.View {
     public partial class PrincipalView : Form {
@@ -23,7 +25,6 @@ namespace Biblioteca.View {
             InitializeComponent();
 
             menuStrip1.Renderer = new MyRenderer();
-            menuStrip2.Renderer = new MyRenderer();
         }
         private class MyRenderer : ToolStripProfessionalRenderer {
             public MyRenderer() : base(new MyColors()) { }
@@ -77,10 +78,10 @@ namespace Biblioteca.View {
                 funcionáriosToolStripMenuItem.Visible = false;
                 relatóriosToolStripMenuItem.Visible = false;
             }
+            lbFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
         }
-
-        private void sairToolStripMenuItem_Click(object sender, EventArgs e) {
-            Application.Exit();
+        protected override void OnActivated(EventArgs e) {
+            lbFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
         }
 
         private void novaJanela(Form form) {
@@ -175,6 +176,15 @@ namespace Biblioteca.View {
         private void buscarToolStripMenuItem2_Click_1(object sender, EventArgs e) {
             LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
             novaJanela(livrosBuscarView);
+        }
+
+        private void sairToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e) {
+            //List<EmprestimoPesquisaModel> lista = controller.emBuscarCodigo(busca, isCodigo: true);
+            //popular(lista);
         }
     }
 }

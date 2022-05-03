@@ -49,18 +49,23 @@ namespace Biblioteca.View {
             this.leitorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasemBreveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.consultarEmpréstimoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarDevoluçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbFuncionario = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.menuStrip2.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,11 +79,10 @@ namespace Biblioteca.View {
             this.ReservatoolStripMenuItem1,
             this.funcionáriosToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
-            this.sairToolStripMenuItem,
-            this.toolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(91, 0);
+            this.opçõesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(134, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1088, 41);
+            this.menuStrip1.Size = new System.Drawing.Size(1001, 41);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -234,8 +238,8 @@ namespace Biblioteca.View {
             this.cadastrarToolStripMenuItem4.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cadastrarToolStripMenuItem4.ForeColor = System.Drawing.Color.White;
             this.cadastrarToolStripMenuItem4.Name = "cadastrarToolStripMenuItem4";
-            this.cadastrarToolStripMenuItem4.Size = new System.Drawing.Size(191, 32);
-            this.cadastrarToolStripMenuItem4.Text = "Cadastrar";
+            this.cadastrarToolStripMenuItem4.Size = new System.Drawing.Size(181, 32);
+            this.cadastrarToolStripMenuItem4.Text = "Agendar";
             this.cadastrarToolStripMenuItem4.Click += new System.EventHandler(this.cadastrarToolStripMenuItem4_Click);
             // 
             // buscarToolStripMenuItem4
@@ -244,7 +248,7 @@ namespace Biblioteca.View {
             this.buscarToolStripMenuItem4.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buscarToolStripMenuItem4.ForeColor = System.Drawing.Color.White;
             this.buscarToolStripMenuItem4.Name = "buscarToolStripMenuItem4";
-            this.buscarToolStripMenuItem4.Size = new System.Drawing.Size(191, 32);
+            this.buscarToolStripMenuItem4.Size = new System.Drawing.Size(181, 32);
             this.buscarToolStripMenuItem4.Text = "Buscar";
             this.buscarToolStripMenuItem4.Click += new System.EventHandler(this.buscarToolStripMenuItem4_Click);
             // 
@@ -334,21 +338,25 @@ namespace Biblioteca.View {
             this.reservaToolStripMenuItem.Text = "Reserva";
             this.reservaToolStripMenuItem.Click += new System.EventHandler(this.reservaToolStripMenuItem_Click);
             // 
+            // opçõesToolStripMenuItem
+            // 
+            this.opçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sairToolStripMenuItem});
+            this.opçõesToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.opçõesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.opçõesToolStripMenuItem.Name = "opçõesToolStripMenuItem";
+            this.opçõesToolStripMenuItem.Size = new System.Drawing.Size(126, 37);
+            this.opçõesToolStripMenuItem.Text = "Opções";
+            // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.sairToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.sairToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.sairToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.sairToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(81, 37);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(128, 32);
             this.sairToolStripMenuItem.Text = "Sair";
-            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(12, 37);
+            this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click_1);
             // 
             // reservasemBreveToolStripMenuItem
             // 
@@ -372,41 +380,6 @@ namespace Biblioteca.View {
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1270, 41);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // menuStrip2
-            // 
-            this.menuStrip2.BackColor = System.Drawing.Color.Black;
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuStrip2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.menuStrip2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.consultarEmpréstimoToolStripMenuItem,
-            this.consultarDevoluçõesToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(381, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip2.Size = new System.Drawing.Size(508, 44);
-            this.menuStrip2.TabIndex = 6;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
-            // consultarEmpréstimoToolStripMenuItem
-            // 
-            this.consultarEmpréstimoToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.consultarEmpréstimoToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.consultarEmpréstimoToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.consultarEmpréstimoToolStripMenuItem.Name = "consultarEmpréstimoToolStripMenuItem";
-            this.consultarEmpréstimoToolStripMenuItem.Size = new System.Drawing.Size(242, 40);
-            this.consultarEmpréstimoToolStripMenuItem.Text = "Consultar Empréstimo";
-            this.consultarEmpréstimoToolStripMenuItem.Click += new System.EventHandler(this.consultarEmpréstimoToolStripMenuItem_Click);
-            // 
-            // consultarDevoluçõesToolStripMenuItem
-            // 
-            this.consultarDevoluçõesToolStripMenuItem.BackColor = System.Drawing.Color.Black;
-            this.consultarDevoluçõesToolStripMenuItem.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.consultarDevoluçõesToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.consultarDevoluçõesToolStripMenuItem.Name = "consultarDevoluçõesToolStripMenuItem";
-            this.consultarDevoluçõesToolStripMenuItem.Size = new System.Drawing.Size(238, 40);
-            this.consultarDevoluçõesToolStripMenuItem.Text = "Consultar Devoluções";
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Black;
@@ -414,7 +387,7 @@ namespace Biblioteca.View {
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.Controls.Add(this.menuStrip2, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 519);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -422,6 +395,88 @@ namespace Biblioteca.View {
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1270, 44);
             this.tableLayoutPanel2.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.lbFuncionario);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(375, 38);
+            this.panel1.TabIndex = 8;
+            // 
+            // lbFuncionario
+            // 
+            this.lbFuncionario.AutoSize = true;
+            this.lbFuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbFuncionario.ForeColor = System.Drawing.Color.White;
+            this.lbFuncionario.Location = new System.Drawing.Point(68, 10);
+            this.lbFuncionario.Name = "lbFuncionario";
+            this.lbFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbFuncionario.Size = new System.Drawing.Size(52, 25);
+            this.lbFuncionario.TabIndex = 1;
+            this.lbFuncionario.Text = "label2";
+            this.lbFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbFuncionario.UseCompatibleTextRendering = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(9, 5);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(49, 31);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Olá:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseCompatibleTextRendering = true;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.tbBuscar);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Location = new System.Drawing.Point(128, 111);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(232, 301);
+            this.panel2.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(24, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(182, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "(Insira o codigo do empréstimo)";
+            // 
+            // tbBuscar
+            // 
+            this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscar.Location = new System.Drawing.Point(24, 58);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.Size = new System.Drawing.Size(175, 27);
+            this.tbBuscar.TabIndex = 1;
+            this.tbBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Book Antiqua", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(14, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(207, 23);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Consultar Empréstimo:";
             // 
             // PrincipalView
             // 
@@ -431,6 +486,7 @@ namespace Biblioteca.View {
             this.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1270, 563);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -445,10 +501,11 @@ namespace Biblioteca.View {
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.menuStrip2.ResumeLayout(false);
-            this.menuStrip2.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -459,10 +516,8 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem empréstimosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservasemBreveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ReservatoolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem livrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem1;
@@ -478,13 +533,19 @@ namespace Biblioteca.View {
         private System.Windows.Forms.ToolStripMenuItem empréstimoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.MenuStrip menuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem consultarEmpréstimoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarDevoluçõesToolStripMenuItem;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cadastrarToolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem opçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lbFuncionario;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbBuscar;
+        private System.Windows.Forms.Label label3;
     }
 }

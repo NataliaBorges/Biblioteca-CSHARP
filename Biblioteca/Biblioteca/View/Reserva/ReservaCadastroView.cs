@@ -43,26 +43,25 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void ReservaCadastroView_Load(object sender, EventArgs e) {
-            popularLivros(controller.PegarLivrosReserva());
+            popularExemplar(controller.PegarExemplarReserva());
             popularLeitor(controller.PegarLeitorReserva());
         }
 
         protected override void OnActivated(EventArgs e) {
-            popularLivros(controller.PegarLivrosReserva());
+            popularExemplar(controller.PegarExemplarReserva());
             popularLeitor(controller.PegarLeitorReserva());
         }
 
-        private void popularLivros(List<LivroModel> lista) {
+        private void popularExemplar(List<ExemplarModel> lista) {
             lvLivros.Items.Clear();
             if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Fornecedor);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                foreach (ExemplarModel exemplar in lista) {
+                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
+                    item.SubItems.Add(exemplar.Nome);
+                    item.SubItems.Add(exemplar.Autor);
+                    item.SubItems.Add(exemplar.Fornecedor);
+                    item.SubItems.Add(exemplar.Edicao);
+                    item.SubItems.Add(exemplar.AnoPublicacao);
 
                     lvLivros.Items.Add(item);
                 }
@@ -102,8 +101,8 @@ namespace Biblioteca.View.Reserva {
 
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) {
-                controller.RemoverLivroReserva(livro);
-                popularLivros(controller.PegarLivrosReserva());
+                //controller.RemoverExemplarReserva(exemplar);
+                popularExemplar(controller.PegarExemplarReserva());
             }
         }
 
@@ -141,8 +140,8 @@ namespace Biblioteca.View.Reserva {
             int idReserva = controller.BuscarUltimoReserva();
 
             // Cadastra no Item_Reserva cada livro relacionando com o Reserva
-            foreach (LivroModel livro in this.singleton.getLivros()) {
-                controller.RelacionarLivrosReserva(idReserva, livro);
+            foreach (ExemplarModel exemplar in this.singleton.getExemplar()) {
+                controller.RelacionarExemplarReserva(idReserva, exemplar);
             }
 
             this.singleton.clearReserva();

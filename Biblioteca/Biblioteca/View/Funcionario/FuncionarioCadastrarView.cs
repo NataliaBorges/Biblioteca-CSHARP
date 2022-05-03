@@ -30,6 +30,7 @@ namespace Biblioteca.View.Funcionario {
             this.maskedTextBoxNascimento.Clear();
             this.tbSenha.Clear();
             this.tbEmail.Clear();
+            this.comboBox1.SelectedIndex = -1;
         }
 
 
@@ -41,6 +42,7 @@ namespace Biblioteca.View.Funcionario {
             String senha = tbSenha.Text;
             String email = tbEmail.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
+            String funcao = this.comboBox1.Text;
 
 
             if (nome.Length <= 0) {
@@ -83,8 +85,12 @@ namespace Biblioteca.View.Funcionario {
                 MessageBox.Show("Você precisa digitar uma data de Nascimento.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxNascimento.Focus();
             }
+            else if (comboBox1 == null) {
+                MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                comboBox1.Focus();
+            }
             else {
-                FuncionarioModel funcionario = new FuncionarioModel(nome, cpf, data, email, endereco, telefone, senha);
+                FuncionarioModel funcionario = new FuncionarioModel(nome, cpf, data, email, endereco, telefone, senha, funcao);
                 if (controller.Insercao(funcionario)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();

@@ -29,7 +29,9 @@ namespace Biblioteca.View.Funcionario {
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.maskedTextBoxNascimento = new System.Windows.Forms.MaskedTextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.maskedTextBoxCPF = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tbNome = new System.Windows.Forms.TextBox();
@@ -96,7 +98,9 @@ namespace Biblioteca.View.Funcionario {
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.maskedTextBoxNascimento);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.maskedTextBoxCPF);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.maskedTextBoxTelefone);
@@ -126,6 +130,17 @@ namespace Biblioteca.View.Funcionario {
             this.panel1.Size = new System.Drawing.Size(1026, 792);
             this.panel1.TabIndex = 86;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(526, 308);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 20);
+            this.label4.TabIndex = 89;
+            this.label4.Text = "Função:";
+            // 
             // maskedTextBoxNascimento
             // 
             this.maskedTextBoxNascimento.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -134,6 +149,18 @@ namespace Biblioteca.View.Funcionario {
             this.maskedTextBoxNascimento.Name = "maskedTextBoxNascimento";
             this.maskedTextBoxNascimento.Size = new System.Drawing.Size(98, 27);
             this.maskedTextBoxNascimento.TabIndex = 109;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Administrador",
+            "Bibliotecário"});
+            this.comboBox1.Location = new System.Drawing.Point(597, 302);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(197, 28);
+            this.comboBox1.TabIndex = 88;
             // 
             // maskedTextBoxCPF
             // 
@@ -400,5 +427,7 @@ namespace Biblioteca.View.Funcionario {
         private System.Windows.Forms.TextBox tbCidade;
         private System.Windows.Forms.TextBox tbBairro;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

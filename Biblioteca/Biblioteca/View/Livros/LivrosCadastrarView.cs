@@ -52,6 +52,7 @@ namespace Biblioteca.View.Livros {
                 String ano = maskedTextBoxAno.Text;
                 DateTime data = this.data; //.ToString("yyyy-MM-dd");
                 String ISBN = tbISBN.Text;
+                int Quantidade = int.Parse(tbQuantidade.Text);
 
                 if (nome.Length <= 0) {
                     MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -86,6 +87,7 @@ namespace Biblioteca.View.Livros {
                 //}
                 else {
                     LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
+                    livro.Quantidade = Quantidade;
                     if (controller.Insercao(livro)) {
                         MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                         this.Close();

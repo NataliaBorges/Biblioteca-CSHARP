@@ -79,7 +79,7 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems[5].Text
                 );
 
-                EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView();
+                EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
                 novaJanela(livros);
 
                 //controller.InserirLivroEmprestimo(livro);

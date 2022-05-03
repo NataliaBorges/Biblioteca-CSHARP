@@ -93,7 +93,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
             Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@Senha", funcionario.Senha);
-            Cmd.Parameters.AddWithValue("@Funcao", "Bibliotecario");
+            Cmd.Parameters.AddWithValue("@Funcao", funcionario.Funcao);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -142,7 +142,7 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Funcionario SET CPF = @CPF, Data_Nascimento = @Data_Nascimento, 
                                 Telefone = @Telefone, Nome_funcionario = @Nome_funcionario, Endereco = @Endereco,
-                                Email = @Email, Senha = @Senha
+                                Email = @Email, Senha = @Senha, Funcao = @funcao
                                 WHERE ID_funcionario = @ID";
 
             Cmd.Parameters.Clear();
@@ -154,6 +154,8 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
             Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@Senha", funcionario.Senha);
+            Cmd.Parameters.AddWithValue("@Senha", funcionario.Funcao); 
+
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;

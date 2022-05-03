@@ -53,17 +53,17 @@ namespace Biblioteca.View.Reserva {
 
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-            LivroModel livro = new LivroModel(
+            ExemplarModel exemplar = new ExemplarModel(
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
                 item.SubItems[4].Text,
                 item.SubItems[5].Text,
-                DateTime.Parse(item.SubItems[6].Text),
-                item.SubItems[3].Text
+                item.SubItems[3].Text, 
+                item.SubItems[6].Text
             );
 
-            controller.InserirLivroReserva(livro);
+            controller.InserirExemplarReserva(exemplar);
             this.Close();
         }
 

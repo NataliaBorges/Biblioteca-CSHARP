@@ -28,6 +28,7 @@ namespace Biblioteca.View.Funcionario {
             String senha = tbSenha.Text;
             String email = tbEmail.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
+            String funcao = this.comboBox1.Text;
 
             if (nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -70,7 +71,7 @@ namespace Biblioteca.View.Funcionario {
                 maskedTextBoxNascimento.Focus();
             }
             else {
-                FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, cpf, data, email, endereco, telefone, senha);
+                FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, cpf, data, email, endereco, telefone, funcao);
                 if (controller.Atualizar(funcionario)) {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
