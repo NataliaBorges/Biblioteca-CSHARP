@@ -31,7 +31,7 @@ namespace Biblioteca.View.Emprestimo {
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
-            this.Fornecedor = new System.Windows.Forms.ColumnHeader();
+            this.Editora = new System.Windows.Forms.ColumnHeader();
             this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
@@ -52,7 +52,7 @@ namespace Biblioteca.View.Emprestimo {
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1368, 763);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1368, 788);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -62,7 +62,7 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(139, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1088, 757);
+            this.panel1.Size = new System.Drawing.Size(1088, 782);
             this.panel1.TabIndex = 0;
             // 
             // LvExemplar
@@ -73,7 +73,7 @@ namespace Biblioteca.View.Emprestimo {
             this.ID,
             this.Nome,
             this.Autor,
-            this.Fornecedor,
+            this.Editora,
             this.ISBN,
             this.Edição,
             this.Ano});
@@ -88,6 +88,7 @@ namespace Biblioteca.View.Emprestimo {
             this.LvExemplar.TabIndex = 23;
             this.LvExemplar.UseCompatibleStateImageBehavior = false;
             this.LvExemplar.View = System.Windows.Forms.View.Details;
+            this.LvExemplar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvExemplar_MouseClick);
             // 
             // ID
             // 
@@ -105,11 +106,11 @@ namespace Biblioteca.View.Emprestimo {
             this.Autor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Autor.Width = 200;
             // 
-            // Fornecedor
+            // Editora
             // 
-            this.Fornecedor.Text = "Fornecedor";
-            this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Fornecedor.Width = 150;
+            this.Editora.Text = "Editora";
+            this.Editora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Editora.Width = 150;
             // 
             // ISBN
             // 
@@ -148,7 +149,7 @@ namespace Biblioteca.View.Emprestimo {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(1368, 763);
+            this.ClientSize = new System.Drawing.Size(1368, 788);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -168,7 +169,7 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Autor;
-        private System.Windows.Forms.ColumnHeader Fornecedor;
+        private System.Windows.Forms.ColumnHeader Editora;
         private System.Windows.Forms.ColumnHeader ISBN;
         private System.Windows.Forms.ColumnHeader Edição;
         private System.Windows.Forms.ColumnHeader Ano;

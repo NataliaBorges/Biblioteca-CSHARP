@@ -387,7 +387,7 @@ namespace Biblioteca.View {
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 519);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -399,10 +399,10 @@ namespace Biblioteca.View {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.lbFuncionario);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lbFuncionario);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(892, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(375, 38);
             this.panel1.TabIndex = 8;
@@ -412,7 +412,7 @@ namespace Biblioteca.View {
             this.lbFuncionario.AutoSize = true;
             this.lbFuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbFuncionario.ForeColor = System.Drawing.Color.White;
-            this.lbFuncionario.Location = new System.Drawing.Point(68, 10);
+            this.lbFuncionario.Location = new System.Drawing.Point(46, 5);
             this.lbFuncionario.Name = "lbFuncionario";
             this.lbFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lbFuncionario.Size = new System.Drawing.Size(52, 25);
@@ -426,7 +426,7 @@ namespace Biblioteca.View {
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(9, 5);
+            this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label1.Size = new System.Drawing.Size(49, 31);

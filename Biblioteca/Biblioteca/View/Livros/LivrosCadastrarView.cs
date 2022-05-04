@@ -20,6 +20,21 @@ namespace Biblioteca.View.Livros {
         public LivrosCadastrarView() {
             InitializeComponent();
         }
+        protected override void OnActivated(EventArgs e) {
+            this.cbEditora.Items.Clear();
+            List<EditoraModel> fornecedores = controller.ListarFornecedores();
+            if (fornecedores.Count > 0) {
+                foreach (EditoraModel fornecedor in fornecedores) {
+                    ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
+                    cbEditora.Items.Add(item);
+                    comboBoxItems.Add(item);
+                }
+
+                cbEditora.ValueMember = "Value";
+                cbEditora.DisplayMember = "Text";
+                cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+        }
         private void novaJanela(Form form) {
             Rectangle bounds = this.Bounds;
             form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
@@ -34,6 +49,7 @@ namespace Biblioteca.View.Livros {
             this.tbEdicao.Clear();
             this.maskedTextBoxAno.Clear();
             this.maskedTextBoxAquisição.Clear();
+            //this.cbEditora.ResetText();
             this.cbEditora.SelectedIndex = -1;
             this.tbISBN.Clear();
         }
@@ -81,10 +97,6 @@ namespace Biblioteca.View.Livros {
                 else if(tbISBN.Text.Length < 13) {
                     MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
                 }
-                //else if (Validar.ValidaISBN13(ISBN)) {
-                //    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
-                //    tbISBN.Focus();
-                //}
                 else {
                     LivroModel livro = new LivroModel(IdFornecedor, nome, autor, edicao, ano, data, ISBN);
                     livro.Quantidade = Quantidade;
@@ -100,20 +112,7 @@ namespace Biblioteca.View.Livros {
             
         }
 
-        private void LivrosCadastrarView_Load(object sender, EventArgs e) {
-            List<EditoraModel> fornecedores = controller.ListarFornecedores();
-            if(fornecedores.Count > 0) {
-                foreach (EditoraModel fornecedor in fornecedores) {
-                    ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
-                    cbEditora.Items.Add(item);
-                    comboBoxItems.Add(item);
-                }
-
-                cbEditora.ValueMember = "Value";
-                cbEditora.DisplayMember = "Text";
-                cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-        }
+        
 
         private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
             maskedTextBoxAquisição.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");

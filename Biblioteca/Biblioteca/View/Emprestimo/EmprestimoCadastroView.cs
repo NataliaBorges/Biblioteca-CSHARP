@@ -59,6 +59,9 @@ namespace Biblioteca.View.Emprestimo {
         protected override void OnActivated(EventArgs e) {
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
+            if (singleton.getAddExemplar() == true) {
+                singleton.setAddExemplar(false);
+            }
         }
 
         private void popularExemplar(List<ExemplarModel> lista) {

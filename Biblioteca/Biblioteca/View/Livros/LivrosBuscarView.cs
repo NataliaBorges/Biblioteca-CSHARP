@@ -68,14 +68,14 @@ namespace Biblioteca.View.Livros {
 
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-            //int ID, String Nome, String Autor, String Edicao (3), String AnoPublicacao(4), DateTime DataAquisicao(5), String Fornecedor(6), String ISBN(7)
+            //int ID, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor, String ISBN)
             LivroModel livro = new LivroModel(
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
-                item.SubItems[7].Text,
+                item.SubItems[5].Text,
                 item.SubItems[6].Text,
-                DateTime.Parse(item.SubItems[5].Text),
+                DateTime.Parse(item.SubItems[7].Text),
                 item.SubItems[4].Text,
                 item.SubItems[3].Text
             );

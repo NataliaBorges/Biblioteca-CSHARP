@@ -50,29 +50,25 @@ namespace Biblioteca.View.Emprestimo {
                 }
             }
         }
-        private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-            if (int.Parse(item.SubItems[1].Text) == 0) {
-                MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
-            }
-            else {
-                ExemplarModel exemplar = new ExemplarModel(
-                    //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Fornecedor)
-                    int.Parse(item.SubItems[0].Text),
-                    item.SubItems[1].Text,
-                    item.SubItems[2].Text,
-                    item.SubItems[6].Text,
-                    item.SubItems[5].Text,
-                    item.SubItems[3].Text,
-                    item.SubItems[4].Text
-                );
-
-                controller.InserirExemplarEmprestimo(exemplar);
-                this.Close();
-            }
-        }
 
         private void button2_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void LvExemplar_MouseClick(object sender, MouseEventArgs e) {
+            ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
+            ExemplarModel exemplar = new ExemplarModel(
+                //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Fornecedor)
+                int.Parse(item.SubItems[0].Text),
+                item.SubItems[1].Text,
+                item.SubItems[2].Text,
+                item.SubItems[6].Text,
+                item.SubItems[5].Text,
+                item.SubItems[3].Text,
+                item.SubItems[4].Text
+            );
+
+            controller.InserirExemplarEmprestimo(exemplar);
             this.Close();
         }
     }

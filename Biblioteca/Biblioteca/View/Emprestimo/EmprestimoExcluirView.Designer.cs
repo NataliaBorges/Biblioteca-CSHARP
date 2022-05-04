@@ -35,13 +35,12 @@ namespace Biblioteca.View.Emprestimo {
             this.Data_Empréstimo = new System.Windows.Forms.ColumnHeader();
             this.Data_Devolução = new System.Windows.Forms.ColumnHeader();
             this.LvLivros = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.id2 = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
             this.Fornecedor = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
-            this.Aquisição = new System.Windows.Forms.ColumnHeader();
             this.ObsText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,6 +48,7 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -135,13 +135,13 @@ namespace Biblioteca.View.Emprestimo {
             this.LvLivros.BackColor = System.Drawing.Color.DimGray;
             this.LvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
+            this.id2,
             this.Nome,
             this.Autor,
             this.Fornecedor,
+            this.ISBN,
             this.Edição,
-            this.Ano,
-            this.Aquisição});
+            this.Ano});
             this.LvLivros.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvLivros.ForeColor = System.Drawing.Color.White;
             this.LvLivros.HideSelection = false;
@@ -153,9 +153,9 @@ namespace Biblioteca.View.Emprestimo {
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // id2
             // 
-            this.columnHeader1.Text = "ID";
+            this.id2.Text = "ID";
             // 
             // Nome
             // 
@@ -177,21 +177,17 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // Edição
             // 
+            this.Edição.DisplayIndex = 4;
             this.Edição.Text = "Edição";
             this.Edição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Edição.Width = 150;
             // 
             // Ano
             // 
+            this.Ano.DisplayIndex = 5;
             this.Ano.Text = "Ano";
             this.Ano.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Ano.Width = 140;
-            // 
-            // Aquisição
-            // 
-            this.Aquisição.Text = "Aquisição";
-            this.Aquisição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Aquisição.Width = 100;
             // 
             // ObsText
             // 
@@ -284,6 +280,12 @@ namespace Biblioteca.View.Emprestimo {
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1382, 732);
             this.tableLayoutPanel1.TabIndex = 24;
             // 
+            // ISBN
+            // 
+            this.ISBN.DisplayIndex = 6;
+            this.ISBN.Text = "ISBN";
+            this.ISBN.Width = 150;
+            // 
             // EmprestimoExcluirView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -318,13 +320,12 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.ColumnHeader Data_Empréstimo;
         private System.Windows.Forms.ColumnHeader Data_Devolução;
         private System.Windows.Forms.ListView LvLivros;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader id2;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Autor;
         private System.Windows.Forms.ColumnHeader Fornecedor;
         private System.Windows.Forms.ColumnHeader Edição;
         private System.Windows.Forms.ColumnHeader Ano;
-        private System.Windows.Forms.ColumnHeader Aquisição;
         private System.Windows.Forms.RichTextBox ObsText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
@@ -332,5 +333,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ColumnHeader ISBN;
     }
 }

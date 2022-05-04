@@ -11,12 +11,20 @@ namespace Biblioteca.Util {
 
         private List<ExemplarModel> exemplar = new List<ExemplarModel>();
         private LeitorModel leitor;
+        private bool addExemplar = false;
 
+        
         public static Singleton GetInstancia() {
             if (instancia == null) {
                 instancia = new Singleton();
             }
             return instancia;
+        }
+        public bool getAddExemplar() {
+            return this.addExemplar;
+        }
+        public void setAddExemplar(bool addExemplar) {
+            this.addExemplar = addExemplar;
         }
         public FuncionarioModel getFuncionario() {
             return this.funcionarioModel;

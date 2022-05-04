@@ -322,7 +322,7 @@ namespace Biblioteca.View.Livros {
             this.Name = "LivrosCadastrarView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastrar Livros";
-            this.Load += new System.EventHandler(this.LivrosCadastrarView_Load);
+            //this.Load += new System.EventHandler(this.LivrosCadastrarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);

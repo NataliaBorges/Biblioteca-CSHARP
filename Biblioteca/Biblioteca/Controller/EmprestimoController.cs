@@ -72,7 +72,7 @@ namespace Biblioteca.Controller {
             if (Cmd.Connection.State != System.Data.ConnectionState.Open)
                 Cmd.Connection.Open();
 
-            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@ID_IL, @ID_emprestimo)";
+            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@ID_emprestimo, @ID_IL)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID_IL", exemplar.getId());
@@ -156,14 +156,19 @@ namespace Biblioteca.Controller {
 
         public List<EmprestimoPesquisaModel> ListarTodosBusca() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"
-            SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
-            FROM Emprestimo as E
-            INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-            INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-            INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-            INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-            ";
+            Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
+			                        INNER JOIN Item_livro AS IL ON (IL.ID_IL = IE.ID_IL)
+			                        INNER JOIN Livro AS Li ON (Li.ID_livro = IL.ID_livro)";
+                                    //SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
+                                    //FROM Emprestimo as E
+                                    //INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
+                                    //INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
+                                    //INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
+                                    //INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -196,11 +201,6 @@ namespace Biblioteca.Controller {
 			inner join Livro as L ON (IL.ID_livro = L.ID_livro)
             WHERE E.Status='EMPRESTADO' AND L.ID_livro = '" + idLivro + "'";
 
-            //SELECT COUNT(E.ID_emprestimo) AS Emprestimos
-            //FROM Livro AS L
-            //INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
-            //INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
-            //WHERE E.Status='EMPRESTADO' AND L.ID_livro = '" + idLivro + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -287,33 +287,38 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<LivroModel> ListarTodosLivrosEmprestimo(int id) {
+        public List<ExemplarModel> ListarTodosLivrosEmprestimo(int id) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"
-            SELECT L.*, F.Nome_fornecedor as Fornecedor 
-            FROM Livro AS L
-            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-            INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
-            INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
-            WHERE E.ID_emprestimo = '" + id + "'";
+            Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
+                                L.Nome_Livro AS Nome,
+	                            L.Autor_Livro AS Autor,
+	                            L.Edicao,
+	                            L.Ano_publicacao AS AnoPublicacao,
+	                            L.ISBN,
+	                            F.Nome_fornecedor AS Fornecedor
+                            From Item_livro AS IL
+                            INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
+                            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                            INNER JOIN Item_emprestimo AS IE ON (IE.ID_IL = IL.ID_IL)
+                            INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
+                            WHERE E.ID_emprestimo = '" + id + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            List<LivroModel> lista = new List<LivroModel>();
+            List<ExemplarModel> lista = new List<ExemplarModel>();
 
             while (reader.Read()) {
-                LivroModel livro = new LivroModel(
-                    (int)reader["ID_livro"],
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Autor_Livro"],
+                ExemplarModel exemplar = new ExemplarModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome"],
+                    (String)reader["Autor"],
                     (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (DateTime)reader["Data_aquisicao"],
+                    (String)reader["Anopublicacao"],
+                    (String)reader["ISBN"],
                     (String)reader["Fornecedor"]
                 );
-                lista.Add(livro);
+                lista.Add(exemplar);
             }
             reader.Close();
 
@@ -355,6 +360,7 @@ namespace Biblioteca.Controller {
 
         public void InserirExemplarEmprestimo(ExemplarModel exemplar) {
             this.singleton.setExemplar(exemplar);
+            this.singleton.setAddExemplar(true);
         }
 
         public List<ExemplarModel> PegarExemplarEmprestimo() {

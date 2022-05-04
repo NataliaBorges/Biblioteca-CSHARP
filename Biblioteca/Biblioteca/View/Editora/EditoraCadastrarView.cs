@@ -75,7 +75,7 @@ namespace Biblioteca.View.Fornecedor {
             else {
                 if (controller.Insercao(fornecedor)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    ClearForm();
+                    this.Close();
                 }
                 else {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);

@@ -80,9 +80,9 @@ namespace Biblioteca.View {
             }
             lbFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
         }
-        protected override void OnActivated(EventArgs e) {
-            lbFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
-        }
+        //protected override void OnActivated(EventArgs e) {
+        //    lbFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
+        //}
 
         private void novaJanela(Form form) {
             Rectangle bounds = this.Bounds;
@@ -186,6 +186,7 @@ namespace Biblioteca.View {
             //List<EmprestimoPesquisaModel> lista = controller.emBuscarCodigo(busca, isCodigo: true);
             //popular(lista);
         }
+
     }
 }
 

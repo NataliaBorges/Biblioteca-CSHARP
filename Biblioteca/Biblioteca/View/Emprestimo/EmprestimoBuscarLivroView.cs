@@ -8,11 +8,13 @@ using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.View.Livros;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoBuscarLivroView : Form {
 
         EmprestimoController controller = new EmprestimoController();
+        Singleton singleton = Singleton.GetInstancia();
 
         public EmprestimoBuscarLivroView() {
             InitializeComponent();
@@ -24,6 +26,9 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         protected override void OnActivated(EventArgs e) {
+            if (singleton.getAddExemplar() == true) {
+                this.Close();
+            }
             List<LivroModel> lista = controller.ListarTodosLivros();
             popular(lista);
         }

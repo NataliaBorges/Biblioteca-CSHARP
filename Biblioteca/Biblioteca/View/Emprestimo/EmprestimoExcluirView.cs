@@ -45,17 +45,17 @@ namespace Biblioteca.View.Emprestimo {
             }
         }
 
-        private void popular(List<LivroModel> lista) {
+        private void popular(List<ExemplarModel> lista) {
             LvLivros.Items.Clear();
             if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Fornecedor);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                foreach (ExemplarModel exemplar in lista) {
+                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
+                    item.SubItems.Add(exemplar.Nome);
+                    item.SubItems.Add(exemplar.Autor);
+                    item.SubItems.Add(exemplar.Fornecedor);
+                    item.SubItems.Add(exemplar.ISBN);
+                    item.SubItems.Add(exemplar.Edicao);
+                    item.SubItems.Add(exemplar.AnoPublicacao);
 
                     LvLivros.Items.Add(item);
                 }
@@ -67,8 +67,8 @@ namespace Biblioteca.View.Emprestimo {
                 List<EmprestimoModel> dados = controller.ListarEmprestimo(emprestimo.ID_emprestimo);
                 popular(dados);
 
-                List<LivroModel> livros = controller.ListarTodosLivrosEmprestimo(emprestimo.ID_emprestimo);
-                popular(livros);
+                List<ExemplarModel> exemplares = controller.ListarTodosLivrosEmprestimo(emprestimo.ID_emprestimo);
+                popular(exemplares);
             }
         }
 
