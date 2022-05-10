@@ -18,6 +18,9 @@ namespace Biblioteca.Controller {
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
+        public List<ExemplarModel> PegarExemplar() {
+            return this.singleton.getExemplar();
+        }
         public int BuscarUltimoLivro() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Livro ORDER BY ID_livro DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
@@ -61,6 +64,68 @@ namespace Biblioteca.Controller {
                 
                 return true;
             } else {
+                return false;
+            }
+        }
+        public bool InativarExemplar(int id) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Item_livro SET Estado = 'Inativado'
+                                WHERE ID_IL = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            Cmd.ExecuteNonQuery();
+            return true;
+        }
+
+        public int BuscarLivroPegarQuantidade(int id) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Livro WHERE ID_livro = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            int quantidadeAntiga = 0;
+
+            while (reader.Read()) {
+                quantidadeAntiga = (int)reader["Quantidade"];
+            }
+
+            reader.Close();
+
+            return quantidadeAntiga;
+        }
+
+        public bool AtualizarQuantidade(int id, int quantidadeAntiga, int quantidade) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Livro SET Quantidade = @Quantidade
+                            WHERE ID_livro = @ID";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID", id);
+            Cmd.Parameters.AddWithValue("@Quantidade", quantidadeAntiga + quantidade);
+
+            Cmd.ExecuteNonQuery();
+            return true;
+        }
+        public bool InserirMaisExmplares(int quantidade, int id) {
+            try {
+                DateTime today = DateTime.Today;
+                for (int i = 0; i < quantidade; i++) {
+                    Cmd.Connection = connection.RetornaConexao();
+                    Cmd.CommandText = @"INSERT INTO Item_livro Values (@Id_Livro, @Estado, @DataAquisicao)";
+
+                    Cmd.Parameters.Clear();
+                    Cmd.Parameters.AddWithValue("@Id_Livro", id);
+                    Cmd.Parameters.AddWithValue("@Estado", "Ativado");
+                    Cmd.Parameters.AddWithValue("@DataAquisicao", today.ToString("yyyy-MM-dd"));
+                    Cmd.ExecuteNonQuery();
+                }
+
+                int quantidadeAntiga = BuscarLivroPegarQuantidade(id);
+                AtualizarQuantidade(id, quantidadeAntiga, quantidade);
+
+                return true;
+            } catch(Exception e) {
                 return false;
             }
         }
@@ -251,6 +316,45 @@ namespace Biblioteca.Controller {
                 );
                 livro.Id_emprestimo = (int)reader["Emprestimo"];
                 lista.Add(livro);
+            }
+            reader.Close();
+
+            return lista;
+        }
+        public List<ExemplarModel> ListarTodosExemplares(int idLivro) {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
+                                        L.Nome_Livro AS Nome,
+		                                L.Autor_Livro AS Autor,
+		                                L.Edicao,
+		                                L.Ano_publicacao AS AnoPublicacao,
+		                                L.ISBN,
+		                                F.Nome_fornecedor AS Fornecedor,
+                                        IL.dataAquisicao AS Aquisicao,
+                                        IL.Estado
+                                    FROM Item_livro AS IL
+                                    INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
+                                    INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                                    WHERE IL.ID_livro = '" + idLivro + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ExemplarModel> lista = new List<ExemplarModel>();
+
+            while (reader.Read()) {
+                ExemplarModel exemplar = new ExemplarModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome"],
+                    (String)reader["Autor"],
+                    (String)reader["Edicao"],
+                    (String)reader["AnoPublicacao"],
+                    (String)reader["ISBN"],
+                    (String)reader["Fornecedor"],
+                    (DateTime)reader["Aquisicao"],
+                    (String) reader["Estado"]
+                );
+                lista.Add(exemplar);
             }
             reader.Close();
 

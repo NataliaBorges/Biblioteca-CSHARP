@@ -16,6 +16,13 @@ namespace Biblioteca.View.Livros {
         public LivrosBuscarView() {
             InitializeComponent();
         }
+        private void novaJanela(Form form) {
+            Rectangle bounds = this.Bounds;
+            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.StartPosition = FormStartPosition.Manual;
+            form.Location = new Point(-2, 63);
+            form.ShowDialog();
+        }
 
         private void button1_Click(object sender, EventArgs e) {
             String busca = tbBuscar.Text;
@@ -68,7 +75,6 @@ namespace Biblioteca.View.Livros {
 
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-            //int ID, String Nome, String Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Fornecedor, String ISBN)
             LivroModel livro = new LivroModel(
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
@@ -80,24 +86,12 @@ namespace Biblioteca.View.Livros {
                 item.SubItems[3].Text
             );
 
-            LivrosEditarView editar = new LivrosEditarView(livro);
-
-            Rectangle bounds = this.Bounds;
-            editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.Manual;
-            editar.Location = new Point(-2, 63);
-            editar.ShowDialog();
+            LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
+            novaJanela(livroBuscarExemplarView);
         }
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
-        }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {

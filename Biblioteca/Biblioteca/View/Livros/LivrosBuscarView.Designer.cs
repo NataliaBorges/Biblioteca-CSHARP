@@ -30,11 +30,11 @@ namespace Biblioteca.View.Livros {
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
+            this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.Editora = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
-            this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
             this.rbAutor = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
@@ -108,6 +108,12 @@ namespace Biblioteca.View.Livros {
             this.Autor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Autor.Width = 200;
             // 
+            // ISBN
+            // 
+            this.ISBN.Text = "ISBN";
+            this.ISBN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ISBN.Width = 100;
+            // 
             // Editora
             // 
             this.Editora.Text = "Editora";
@@ -131,12 +137,6 @@ namespace Biblioteca.View.Livros {
             this.Aquisição.Text = "Aquisição";
             this.Aquisição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Aquisição.Width = 200;
-            // 
-            // ISBN
-            // 
-            this.ISBN.Text = "ISBN";
-            this.ISBN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ISBN.Width = 100;
             // 
             // button1
             // 
@@ -202,6 +202,7 @@ namespace Biblioteca.View.Livros {
             // 
             // panel1
             // 
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.linkLabel1);
@@ -269,6 +270,7 @@ namespace Biblioteca.View.Livros {
             // 
             // LivrosBuscarView
             // 
+            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
