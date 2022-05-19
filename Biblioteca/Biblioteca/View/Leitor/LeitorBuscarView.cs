@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Leitor {
     public partial class LeitorBuscarView : Form {
@@ -14,17 +15,6 @@ namespace Biblioteca.View.Leitor {
         LeitorController controller = new LeitorController();
         public LeitorBuscarView() {
             InitializeComponent();
-        }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
-
-        private void rbAutor_CheckedChanged_1(object sender, EventArgs e) {
-
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -81,12 +71,7 @@ namespace Biblioteca.View.Leitor {
             );
 
             LeitorEditarView editar = new LeitorEditarView(leitor);
-
-            Rectangle bounds = this.Bounds;
-            editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.Manual;
-            editar.Location = new Point(-2, 63);
-            editar.ShowDialog();
+            NovaJanela.novaJanela(editar, this.Bounds);
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -95,7 +80,7 @@ namespace Biblioteca.View.Leitor {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
-            novaJanela(leitorCadastrarView);
+            NovaJanela.novaJanela(leitorCadastrarView, this.Bounds);
 
         }
     }

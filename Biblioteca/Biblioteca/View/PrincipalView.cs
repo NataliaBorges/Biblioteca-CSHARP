@@ -186,7 +186,6 @@ namespace Biblioteca.View {
             //List<EmprestimoPesquisaModel> lista = controller.emBuscarCodigo(busca, isCodigo: true);
             //popular(lista);
         }
-
     }
 }
 

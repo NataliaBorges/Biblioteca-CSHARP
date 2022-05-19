@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Compile Update="Model\DropDownMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="View\Autor\AutorCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Emprestimo\EmprestimoBuscarExemplarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\PrincipalTelaView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\PrincipalView.cs">

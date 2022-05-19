@@ -37,18 +37,9 @@ namespace Biblioteca.View.Emprestimo {
             int dia = int.Parse(calendarDevolucao.SelectionRange.Start.ToString("dd"));
             dataDevolucao = new DateTime(ano, mes, dia);
         }
-
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, form.Bounds.Width, form.Bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
-
         private void button2_Click(object sender, EventArgs e) {
             EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
-            novaJanela(livros);
+            NovaJanela.novaJanela(livros, this.Bounds);
         }
 
         private void EmprestimoCadastroView_Load(object sender, EventArgs e) {
@@ -121,7 +112,7 @@ namespace Biblioteca.View.Emprestimo {
 
         private void button1_Click(object sender, EventArgs e) {
             EmprestimoBuscarLeitorView leitor = new EmprestimoBuscarLeitorView();
-            novaJanela(leitor);
+            NovaJanela.novaJanela(leitor, this.Bounds);
         }
 
         private void lvLeitor_MouseClick(object sender, MouseEventArgs e) {

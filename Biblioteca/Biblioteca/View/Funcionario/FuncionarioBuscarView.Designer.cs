@@ -73,7 +73,6 @@ namespace Biblioteca.View.Funcionario {
             this.rbEmail.TabStop = true;
             this.rbEmail.Text = "E-mail";
             this.rbEmail.UseVisualStyleBackColor = false;
-            this.rbEmail.CheckedChanged += new System.EventHandler(this.rbEmail_CheckedChanged);
             // 
             // rbNome
             // 
@@ -88,7 +87,6 @@ namespace Biblioteca.View.Funcionario {
             this.rbNome.TabStop = true;
             this.rbNome.Text = "Nome";
             this.rbNome.UseVisualStyleBackColor = false;
-            this.rbNome.CheckedChanged += new System.EventHandler(this.rbNome_CheckedChanged);
             // 
             // tbBuscar
             // 
@@ -97,7 +95,6 @@ namespace Biblioteca.View.Funcionario {
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(534, 27);
             this.tbBuscar.TabIndex = 12;
-            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // Lvfuncionario
             // 
@@ -190,7 +187,6 @@ namespace Biblioteca.View.Funcionario {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1091, 773);
             this.panel1.TabIndex = 18;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -202,7 +198,6 @@ namespace Biblioteca.View.Funcionario {
             this.label1.Size = new System.Drawing.Size(193, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Selecione o tipo da busca:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // panel2
             // 
@@ -213,7 +208,6 @@ namespace Biblioteca.View.Funcionario {
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(88, 69);
             this.panel2.TabIndex = 23;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // LinkCadastrarFuncionario
             // 
@@ -243,7 +237,6 @@ namespace Biblioteca.View.Funcionario {
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1372, 779);
             this.tableLayoutPanel1.TabIndex = 19;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // FuncionarioBuscarView
             // 

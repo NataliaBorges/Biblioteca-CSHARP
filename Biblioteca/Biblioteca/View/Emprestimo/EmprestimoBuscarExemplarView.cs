@@ -26,14 +26,6 @@ namespace Biblioteca.View.Emprestimo {
             List<ExemplarModel> lista = controller.ListarTodosExemplares(idLivro);
             popular(lista);
         }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
-
         private void popular(List<ExemplarModel> lista) {
             LvExemplar.Items.Clear();
             if (lista.Count > 0) {
@@ -58,7 +50,6 @@ namespace Biblioteca.View.Emprestimo {
         private void LvExemplar_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
             ExemplarModel exemplar = new ExemplarModel(
-                //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Fornecedor)
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,

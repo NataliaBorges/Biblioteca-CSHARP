@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Biblioteca.Util;
 using Biblioteca.View;
+using Biblioteca.View.Editora;
 
 namespace Biblioteca {
     static class Program {
@@ -17,7 +18,7 @@ namespace Biblioteca {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Singleton singleton = Singleton.GetInstancia();
-            Application.Run(new PrincipalView());
+            Application.Run(new PrincipalTelaView());
         }
     }
 }

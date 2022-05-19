@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 using Biblioteca.View.Leitor;
 
 namespace Biblioteca.View.Emprestimo {
@@ -17,14 +18,6 @@ namespace Biblioteca.View.Emprestimo {
         public EmprestimoBuscarLeitorView() {
             InitializeComponent();
         }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
-
         private void popular(List<LeitorModel> lista) {
             LvLeitor.Items.Clear();
             if (lista.Count > 0) {
@@ -86,7 +79,7 @@ namespace Biblioteca.View.Emprestimo {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
-            novaJanela(leitorCadastrarView);
+            NovaJanela.novaJanela(leitorCadastrarView, this.Bounds);
         }
     }
 }

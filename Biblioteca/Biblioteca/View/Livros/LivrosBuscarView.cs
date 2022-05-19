@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Livros {
     public partial class LivrosBuscarView : Form {
@@ -15,13 +16,6 @@ namespace Biblioteca.View.Livros {
 
         public LivrosBuscarView() {
             InitializeComponent();
-        }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -87,7 +81,7 @@ namespace Biblioteca.View.Livros {
             );
 
             LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
-            novaJanela(livroBuscarExemplarView);
+            NovaJanela.novaJanela(livroBuscarExemplarView, this.Bounds);
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -96,7 +90,7 @@ namespace Biblioteca.View.Livros {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            novaJanela(livrosCadastrarView);
+            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
         }
     }
 }

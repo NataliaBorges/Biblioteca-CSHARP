@@ -35,13 +35,6 @@ namespace Biblioteca.View.Livros {
                 cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
             }
         }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
 
         private void ClearForm() {
             this.tbNome.Clear();
@@ -49,7 +42,6 @@ namespace Biblioteca.View.Livros {
             this.tbEdicao.Clear();
             this.maskedTextBoxAno.Clear();
             this.maskedTextBoxAquisição.Clear();
-            //this.cbEditora.ResetText();
             this.cbEditora.SelectedIndex = -1;
             this.tbISBN.Clear();
         }
@@ -128,7 +120,7 @@ namespace Biblioteca.View.Livros {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
-            novaJanela(editoraCadastrarView);
+            NovaJanela.novaJanela(editoraCadastrarView, this.Bounds);
         }
     }
 }

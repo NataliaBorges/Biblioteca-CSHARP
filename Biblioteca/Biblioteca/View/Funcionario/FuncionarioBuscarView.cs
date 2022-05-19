@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Funcionario {
     public partial class FuncionarioBuscarView : Form {
@@ -15,13 +16,6 @@ namespace Biblioteca.View.Funcionario {
 
         public FuncionarioBuscarView() {
             InitializeComponent();
-        }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
         }
         private void Lvfuncionario_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = Lvfuncionario.Items[Lvfuncionario.FocusedItem.Index];
@@ -36,12 +30,7 @@ namespace Biblioteca.View.Funcionario {
             );
 
             FuncionarioEditarView editar = new FuncionarioEditarView(funcionario);
-
-            Rectangle bounds = this.Bounds;
-            editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.Manual;
-            editar.Location = new Point(-2, 63);
-            editar.ShowDialog();
+            NovaJanela.novaJanela(editar, this.Bounds);
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -91,35 +80,7 @@ namespace Biblioteca.View.Funcionario {
 
         private void LinkCadastrarFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
-            novaJanela(funcionarioCadastrarView);
-        }
-
-        private void rbEmail_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void rbNome_CheckedChanged(object sender, EventArgs e) {
-
-        }
-
-        private void tbBuscar_TextChanged(object sender, EventArgs e) {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e) {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e) {
-
+            NovaJanela.novaJanela(funcionarioCadastrarView, this.Bounds);
         }
     }
 }

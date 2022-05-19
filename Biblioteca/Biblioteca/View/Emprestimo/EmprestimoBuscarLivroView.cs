@@ -59,14 +59,6 @@ namespace Biblioteca.View.Emprestimo {
             List<LivroModel> lista = controller.BuscarLivros(busca);
             popular(lista);
         }
-        private void novaJanela(Form form) {
-            Rectangle bounds = this.Bounds;
-            form.SetBounds(bounds.X, bounds.Y, form.Bounds.Width, form.Bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
-            form.ShowDialog();
-        }
-
         private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
             if (int.Parse(item.SubItems[1].Text) == 0) {
@@ -85,10 +77,7 @@ namespace Biblioteca.View.Emprestimo {
                 );
 
                 EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
-                novaJanela(livros);
-
-                //controller.InserirLivroEmprestimo(livro);
-                //this.Close();
+                NovaJanela.novaJanela(livros, this.Bounds);
             }
         }
 
@@ -98,7 +87,7 @@ namespace Biblioteca.View.Emprestimo {
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            novaJanela(livrosCadastrarView);
+            NovaJanela.novaJanela(livrosCadastrarView, Bounds);
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 using Biblioteca.View.Emprestimo;
 
 namespace Biblioteca.View.Emprestimo {
@@ -75,12 +76,7 @@ namespace Biblioteca.View.Emprestimo {
                 );
 
             EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
-
-            Rectangle bounds = this.Bounds;
-            editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.Manual;
-            editar.Location = new Point(-2, 63);
-            editar.ShowDialog();
+            NovaJanela.novaJanela(editar, this.Bounds);
         }
 
         private void button2_Click(object sender, EventArgs e) {

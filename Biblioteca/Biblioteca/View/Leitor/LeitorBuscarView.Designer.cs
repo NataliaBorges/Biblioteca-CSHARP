@@ -141,7 +141,6 @@ namespace Biblioteca.View.Leitor {
             this.rbCPF.TabStop = true;
             this.rbCPF.Text = "CPF";
             this.rbCPF.UseVisualStyleBackColor = false;
-            this.rbCPF.CheckedChanged += new System.EventHandler(this.rbAutor_CheckedChanged_1);
             // 
             // rbNome
             // 
