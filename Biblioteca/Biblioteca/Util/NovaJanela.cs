@@ -11,7 +11,7 @@ namespace Biblioteca.Util {
             Rectangle bounds = boundsForm;
             form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
             form.StartPosition = FormStartPosition.Manual;
-            form.Location = new Point(-2, 63);
+            form.Location = new Point(88, 35);
             form.ShowDialog();
         }
     }

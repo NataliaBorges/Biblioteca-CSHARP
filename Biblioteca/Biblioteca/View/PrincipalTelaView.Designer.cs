@@ -329,7 +329,7 @@ namespace Biblioteca.View {
             this.panelTituloBar.ForeColor = System.Drawing.Color.Black;
             this.panelTituloBar.Location = new System.Drawing.Point(227, 0);
             this.panelTituloBar.Name = "panelTituloBar";
-            this.panelTituloBar.Size = new System.Drawing.Size(1065, 60);
+            this.panelTituloBar.Size = new System.Drawing.Size(1065, 31);
             this.panelTituloBar.TabIndex = 1;
             this.panelTituloBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTituloBar_MouseDown);
             this.panelTituloBar.Resize += new System.EventHandler(this.panelTituloBar_Resize);
@@ -394,9 +394,9 @@ namespace Biblioteca.View {
             this.panelDesktop.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDesktop.Location = new System.Drawing.Point(227, 60);
+            this.panelDesktop.Location = new System.Drawing.Point(227, 31);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1065, 511);
+            this.panelDesktop.Size = new System.Drawing.Size(1065, 540);
             this.panelDesktop.TabIndex = 2;
             // 
             // ddmCadastro
@@ -421,54 +421,63 @@ namespace Biblioteca.View {
             this.livroToolStripMenuItem.Name = "livroToolStripMenuItem";
             this.livroToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.livroToolStripMenuItem.Text = "Livro";
+            this.livroToolStripMenuItem.Click += new System.EventHandler(this.livroToolStripMenuItem_Click);
             // 
             // leitorToolStripMenuItem
             // 
             this.leitorToolStripMenuItem.Name = "leitorToolStripMenuItem";
             this.leitorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.leitorToolStripMenuItem.Text = "Leitor";
+            this.leitorToolStripMenuItem.Click += new System.EventHandler(this.leitorToolStripMenuItem_Click);
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
             this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // editoraToolStripMenuItem
             // 
             this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
             this.editoraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.editoraToolStripMenuItem.Text = "Editora";
+            this.editoraToolStripMenuItem.Click += new System.EventHandler(this.editoraToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 
             this.autorToolStripMenuItem.Name = "autorToolStripMenuItem";
             this.autorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.autorToolStripMenuItem.Text = "Autor";
+            this.autorToolStripMenuItem.Click += new System.EventHandler(this.autorToolStripMenuItem_Click);
             // 
             // gêneroToolStripMenuItem
             // 
             this.gêneroToolStripMenuItem.Name = "gêneroToolStripMenuItem";
             this.gêneroToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.gêneroToolStripMenuItem.Text = "Gênero";
+            this.gêneroToolStripMenuItem.Click += new System.EventHandler(this.gêneroToolStripMenuItem_Click);
             // 
             // livroToolStripMenuItem1
             // 
             this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
             this.livroToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.livroToolStripMenuItem1.Text = "Livro";
+            this.livroToolStripMenuItem1.Click += new System.EventHandler(this.livroToolStripMenuItem1_Click);
             // 
             // leitorToolStripMenuItem1
             // 
             this.leitorToolStripMenuItem1.Name = "leitorToolStripMenuItem1";
             this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.leitorToolStripMenuItem1.Text = "Leitor";
+            this.leitorToolStripMenuItem1.Click += new System.EventHandler(this.leitorToolStripMenuItem1_Click);
             // 
             // funcionárioToolStripMenuItem1
             // 
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
             this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem1.Click += new System.EventHandler(this.funcionárioToolStripMenuItem1_Click);
             // 
             // ddmBuscar
             // 
@@ -494,30 +503,35 @@ namespace Biblioteca.View {
             this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
             this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.editoraToolStripMenuItem1.Text = "Editora";
+            this.editoraToolStripMenuItem1.Click += new System.EventHandler(this.editoraToolStripMenuItem1_Click);
             // 
             // autorToolStripMenuItem1
             // 
             this.autorToolStripMenuItem1.Name = "autorToolStripMenuItem1";
             this.autorToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.autorToolStripMenuItem1.Text = "Autor";
+            this.autorToolStripMenuItem1.Click += new System.EventHandler(this.autorToolStripMenuItem1_Click);
             // 
             // gêneroToolStripMenuItem1
             // 
             this.gêneroToolStripMenuItem1.Name = "gêneroToolStripMenuItem1";
             this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
             this.gêneroToolStripMenuItem1.Text = "Gênero";
+            this.gêneroToolStripMenuItem1.Click += new System.EventHandler(this.gêneroToolStripMenuItem1_Click);
             // 
             // empréstimoToolStripMenuItem
             // 
             this.empréstimoToolStripMenuItem.Name = "empréstimoToolStripMenuItem";
             this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.empréstimoToolStripMenuItem.Text = "Empréstimo";
+            this.empréstimoToolStripMenuItem.Click += new System.EventHandler(this.empréstimoToolStripMenuItem_Click);
             // 
             // reservaToolStripMenuItem
             // 
             this.reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
             this.reservaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.reservaToolStripMenuItem.Text = "Reserva";
+            this.reservaToolStripMenuItem.Click += new System.EventHandler(this.reservaToolStripMenuItem_Click);
             // 
             // PrincipalTelaView
             // 

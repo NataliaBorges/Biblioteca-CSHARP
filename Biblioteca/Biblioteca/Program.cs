@@ -18,7 +18,7 @@ namespace Biblioteca {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Singleton singleton = Singleton.GetInstancia();
-            Application.Run(new PrincipalTelaView());
+            Application.Run(new TelaLoginView());
         }
     }
 }

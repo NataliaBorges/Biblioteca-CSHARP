@@ -1,4 +1,10 @@
 ﻿using Biblioteca.Util;
+using Biblioteca.View;
+using Biblioteca.View.Emprestimo;
+using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Funcionario;
+using Biblioteca.View.Leitor;
+using Biblioteca.View.Livros;
 using RJCodeAdvance.RJControls;
 using System;
 using System.Collections.Generic;
@@ -29,14 +35,6 @@ namespace Biblioteca.View {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-        //protected override void WndProc(ref Message m) {
-        //    const int WM_NCCALCSIZE = 0x0083;
-
-        //    if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1) {
-        //        return;
-        //    }
-        //    base.WndProc(ref m);
-        //}
         private void panelTituloBar_Resize(object sender, EventArgs e) {
             AdjustForm();
         }
@@ -108,17 +106,98 @@ namespace Biblioteca.View {
             ddmBuscar.MenuItemTextColor = Color.Chocolate;
         }
 
-        private void btnSair_Click(object sender, EventArgs e) {
-            LoginView loginView = new LoginView();
-            NovaJanela.novaJanela(loginView, Bounds);
-        }
-
         private void btnCadastrar_Click(object sender, EventArgs e) {
-            ddmCadastro.Show(btnHome1, btnHome1.Width, 0);
+            ddmCadastro.Show(btnCadastrar, btnCadastrar.Width, 0);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e) {
             ddmBuscar.Show(btnBuscar, btnBuscar.Width, 0);
+        }
+
+        private void livroToolStripMenuItem_Click(object sender, EventArgs e) {
+            //LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView();
+            //NovaJanela.novaJanela(livrosCadastrarlView, Bounds);
+            LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(livrosCadastrarlView);
+
+        }
+
+        private void leitorToolStripMenuItem_Click(object sender, EventArgs e) {
+            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
+            NovaJanela.novaJanela(leitorCadastrarView, Bounds);
+        }
+
+        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
+            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
+            NovaJanela.novaJanela(funcionarioCadastrarView, Bounds);
+        }
+
+        private void editoraToolStripMenuItem_Click(object sender, EventArgs e) {
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
+            NovaJanela.novaJanela(editoraCadastrarView, Bounds);
+        }
+
+        private void autorToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void gêneroToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void livroToolStripMenuItem1_Click(object sender, EventArgs e) {
+            //LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
+            //NovaJanela.novaJanela(livrosBuscarView, Bounds);
+
+            LivrosBuscarView livrosBuscarView = new LivrosBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(livrosBuscarView);
+        }
+        private void abrirPanel(Form form) {
+            panelDesktop.Controls.Clear();
+            form.FormBorderStyle = FormBorderStyle.None;
+            panelDesktop.Controls.Add(form);
+            form.Show();
+        }
+
+        private void leitorToolStripMenuItem1_Click(object sender, EventArgs e) {
+            LeitorBuscarView leitorBuscarView = new LeitorBuscarView();
+            NovaJanela.novaJanela(leitorBuscarView, Bounds);
+        }
+
+        private void funcionárioToolStripMenuItem1_Click(object sender, EventArgs e) {
+            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
+            NovaJanela.novaJanela(funcionarioBuscarView, Bounds);
+        }
+
+        private void editoraToolStripMenuItem1_Click(object sender, EventArgs e) {
+            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
+            NovaJanela.novaJanela(editoraBuscarView, Bounds);
+        }
+
+        private void autorToolStripMenuItem1_Click(object sender, EventArgs e) {
+        }
+
+        private void gêneroToolStripMenuItem1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void empréstimoToolStripMenuItem_Click(object sender, EventArgs e) {
+            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView();
+            NovaJanela.novaJanela(emprestimoBuscarView, Bounds);
+        }
+
+        private void reservaToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnSair_Click(object sender, EventArgs e) {
+            TelaLoginView telaLoginView = new TelaLoginView();
+
+            this.Close();
+            Rectangle bounds = this.Bounds;
+            telaLoginView.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            telaLoginView.StartPosition = FormStartPosition.CenterScreen;
+            telaLoginView.ShowDialog();
         }
     }
 }

@@ -83,7 +83,6 @@ namespace Biblioteca.View.Livros {
             LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
             NovaJanela.novaJanela(livroBuscarExemplarView, this.Bounds);
         }
-
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
         }

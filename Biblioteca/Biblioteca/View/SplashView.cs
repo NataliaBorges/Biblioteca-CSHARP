@@ -28,7 +28,7 @@ namespace Biblioteca.View {
             else {
                 timer1.Enabled = false;
                 this.Visible = false;
-                LoginView login = new LoginView();
+                TelaLoginView login = new TelaLoginView();
                 novaJanela(login);
             }
         }

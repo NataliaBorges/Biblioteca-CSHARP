@@ -48,6 +48,10 @@
               "target": "Package",
               "version": "[5.15.4, )"
             },
+            "Guna.UI2.WinForms": {
+              "target": "Package",
+              "version": "[2.0.3.2, )"
+            },
             "RJCodeAdvance.RJControls": {
               "target": "Package",
               "version": "[1.0.0, )"
