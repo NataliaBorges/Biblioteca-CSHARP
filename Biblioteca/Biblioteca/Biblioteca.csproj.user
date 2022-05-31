@@ -85,7 +85,7 @@
     <Compile Update="View\SplashView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\TelaLoginView.cs">
+    <Compile Update="View\Login\TelaLoginView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -60,5 +60,13 @@ namespace Biblioteca.View {
                 this.ibtSenhaAberta.Visible = false;
             }
         }
+
+        private void IbMinimizar_Click(object sender, EventArgs e) {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void IbFechar_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
     }
 }

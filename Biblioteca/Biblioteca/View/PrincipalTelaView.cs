@@ -115,26 +115,24 @@ namespace Biblioteca.View {
         }
 
         private void livroToolStripMenuItem_Click(object sender, EventArgs e) {
-            //LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView();
-            //NovaJanela.novaJanela(livrosCadastrarlView, Bounds);
             LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             abrirPanel(livrosCadastrarlView);
 
         }
 
         private void leitorToolStripMenuItem_Click(object sender, EventArgs e) {
-            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
-            NovaJanela.novaJanela(leitorCadastrarView, Bounds);
+            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(leitorCadastrarView);
         }
 
         private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e) {
-            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
-            NovaJanela.novaJanela(funcionarioCadastrarView, Bounds);
+            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(funcionarioCadastrarView);
         }
 
         private void editoraToolStripMenuItem_Click(object sender, EventArgs e) {
-            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
-            NovaJanela.novaJanela(editoraCadastrarView, Bounds);
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(editoraCadastrarView);
         }
 
         private void autorToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -146,9 +144,6 @@ namespace Biblioteca.View {
         }
 
         private void livroToolStripMenuItem1_Click(object sender, EventArgs e) {
-            //LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
-            //NovaJanela.novaJanela(livrosBuscarView, Bounds);
-
             LivrosBuscarView livrosBuscarView = new LivrosBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             abrirPanel(livrosBuscarView);
         }
@@ -160,18 +155,18 @@ namespace Biblioteca.View {
         }
 
         private void leitorToolStripMenuItem1_Click(object sender, EventArgs e) {
-            LeitorBuscarView leitorBuscarView = new LeitorBuscarView();
-            NovaJanela.novaJanela(leitorBuscarView, Bounds);
+            LeitorBuscarView leitorBuscarView = new LeitorBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(leitorBuscarView);
         }
 
         private void funcionárioToolStripMenuItem1_Click(object sender, EventArgs e) {
-            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
-            NovaJanela.novaJanela(funcionarioBuscarView, Bounds);
+            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(funcionarioBuscarView);
         }
 
         private void editoraToolStripMenuItem1_Click(object sender, EventArgs e) {
-            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
-            NovaJanela.novaJanela(editoraBuscarView, Bounds);
+            EditoraBuscarView editoraBuscarView = new EditoraBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(editoraBuscarView);
         }
 
         private void autorToolStripMenuItem1_Click(object sender, EventArgs e) {
@@ -182,8 +177,8 @@ namespace Biblioteca.View {
         }
 
         private void empréstimoToolStripMenuItem_Click(object sender, EventArgs e) {
-            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView();
-            NovaJanela.novaJanela(emprestimoBuscarView, Bounds);
+            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            abrirPanel(emprestimoBuscarView);
         }
 
         private void reservaToolStripMenuItem_Click(object sender, EventArgs e) {

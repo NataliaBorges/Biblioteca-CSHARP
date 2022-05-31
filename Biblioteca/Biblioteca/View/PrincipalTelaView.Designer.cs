@@ -337,14 +337,14 @@ namespace Biblioteca.View {
             // iconButtonMinimizar
             // 
             this.iconButtonMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButtonMinimizar.BackColor = System.Drawing.Color.Transparent;
+            this.iconButtonMinimizar.BackColor = System.Drawing.Color.Sienna;
             this.iconButtonMinimizar.FlatAppearance.BorderSize = 0;
             this.iconButtonMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButtonMinimizar.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.iconButtonMinimizar.IconColor = System.Drawing.Color.White;
             this.iconButtonMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonMinimizar.IconSize = 20;
-            this.iconButtonMinimizar.Location = new System.Drawing.Point(952, 0);
+            this.iconButtonMinimizar.Location = new System.Drawing.Point(945, 2);
             this.iconButtonMinimizar.Name = "iconButtonMinimizar";
             this.iconButtonMinimizar.Size = new System.Drawing.Size(40, 26);
             this.iconButtonMinimizar.TabIndex = 4;
@@ -355,14 +355,14 @@ namespace Biblioteca.View {
             // iconButton
             // 
             this.iconButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton.BackColor = System.Drawing.Color.Sienna;
             this.iconButton.FlatAppearance.BorderSize = 0;
             this.iconButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton.IconChar = FontAwesome.Sharp.IconChar.ExternalLinkAlt;
             this.iconButton.IconColor = System.Drawing.Color.White;
             this.iconButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton.IconSize = 20;
-            this.iconButton.Location = new System.Drawing.Point(989, 0);
+            this.iconButton.Location = new System.Drawing.Point(985, 2);
             this.iconButton.Name = "iconButton";
             this.iconButton.Size = new System.Drawing.Size(40, 26);
             this.iconButton.TabIndex = 3;
@@ -373,14 +373,14 @@ namespace Biblioteca.View {
             // iconButtonFechar
             // 
             this.iconButtonFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButtonFechar.BackColor = System.Drawing.Color.Transparent;
+            this.iconButtonFechar.BackColor = System.Drawing.Color.Sienna;
             this.iconButtonFechar.FlatAppearance.BorderSize = 0;
             this.iconButtonFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButtonFechar.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.iconButtonFechar.IconColor = System.Drawing.Color.White;
             this.iconButtonFechar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonFechar.IconSize = 20;
-            this.iconButtonFechar.Location = new System.Drawing.Point(1026, 0);
+            this.iconButtonFechar.Location = new System.Drawing.Point(1025, 2);
             this.iconButtonFechar.Name = "iconButtonFechar";
             this.iconButtonFechar.Size = new System.Drawing.Size(40, 26);
             this.iconButtonFechar.TabIndex = 2;
@@ -461,21 +461,21 @@ namespace Biblioteca.View {
             // livroToolStripMenuItem1
             // 
             this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
-            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.livroToolStripMenuItem1.Text = "Livro";
             this.livroToolStripMenuItem1.Click += new System.EventHandler(this.livroToolStripMenuItem1_Click);
             // 
             // leitorToolStripMenuItem1
             // 
             this.leitorToolStripMenuItem1.Name = "leitorToolStripMenuItem1";
-            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.leitorToolStripMenuItem1.Text = "Leitor";
             this.leitorToolStripMenuItem1.Click += new System.EventHandler(this.leitorToolStripMenuItem1_Click);
             // 
             // funcionárioToolStripMenuItem1
             // 
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
-            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
             this.funcionárioToolStripMenuItem1.Click += new System.EventHandler(this.funcionárioToolStripMenuItem1_Click);
             // 
@@ -496,40 +496,40 @@ namespace Biblioteca.View {
             this.ddmBuscar.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmBuscar.Name = "rjDropdownMenu1";
             this.ddmBuscar.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmBuscar.Size = new System.Drawing.Size(154, 180);
+            this.ddmBuscar.Size = new System.Drawing.Size(181, 202);
             // 
             // editoraToolStripMenuItem1
             // 
             this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
-            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editoraToolStripMenuItem1.Text = "Editora";
             this.editoraToolStripMenuItem1.Click += new System.EventHandler(this.editoraToolStripMenuItem1_Click);
             // 
             // autorToolStripMenuItem1
             // 
             this.autorToolStripMenuItem1.Name = "autorToolStripMenuItem1";
-            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.autorToolStripMenuItem1.Text = "Autor";
             this.autorToolStripMenuItem1.Click += new System.EventHandler(this.autorToolStripMenuItem1_Click);
             // 
             // gêneroToolStripMenuItem1
             // 
             this.gêneroToolStripMenuItem1.Name = "gêneroToolStripMenuItem1";
-            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(153, 22);
+            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.gêneroToolStripMenuItem1.Text = "Gênero";
             this.gêneroToolStripMenuItem1.Click += new System.EventHandler(this.gêneroToolStripMenuItem1_Click);
             // 
             // empréstimoToolStripMenuItem
             // 
             this.empréstimoToolStripMenuItem.Name = "empréstimoToolStripMenuItem";
-            this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.empréstimoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.empréstimoToolStripMenuItem.Text = "Empréstimo";
             this.empréstimoToolStripMenuItem.Click += new System.EventHandler(this.empréstimoToolStripMenuItem_Click);
             // 
             // reservaToolStripMenuItem
             // 
             this.reservaToolStripMenuItem.Name = "reservaToolStripMenuItem";
-            this.reservaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.reservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reservaToolStripMenuItem.Text = "Reserva";
             this.reservaToolStripMenuItem.Click += new System.EventHandler(this.reservaToolStripMenuItem_Click);
             // 
