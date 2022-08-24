@@ -34,7 +34,7 @@ namespace Biblioteca.View.Reserva {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
                     item.SubItems.Add(livro.Nome);
                     item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Fornecedor);
+                    item.SubItems.Add(livro.Editora);
                     item.SubItems.Add(livro.Edicao);
                     item.SubItems.Add(livro.AnoPublicacao);
                     item.SubItems.Add(livro.DataAquisicao.ToString());

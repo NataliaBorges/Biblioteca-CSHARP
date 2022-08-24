@@ -21,10 +21,11 @@ namespace Biblioteca.Controller {
 
         public bool Login(String email, String senha) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Funcionario WHERE email=@email AND senha=@senha";
+            Cmd.CommandText = @"SELECT * FROM Funcionario WHERE Email= '"+email+"' AND Senha='"+senha+"'";
+            //Cmd.CommandText = @"SELECT * FROM Funcionario WHERE Email=@Email AND Senha=@Senha";
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@email", email);
-            Cmd.Parameters.AddWithValue("@senha", senha);
+            //Cmd.Parameters.AddWithValue("@Email", email);
+            //Cmd.Parameters.AddWithValue("@Senha", senha);
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
@@ -32,15 +33,15 @@ namespace Biblioteca.Controller {
 
                 while (reader.Read()) {
                     FuncionarioModel funcionario = new FuncionarioModel(
-                        (int)reader["ID_funcionario"],
-                        (String)reader["Nome_funcionario"],
+                        (int)reader["Id"],
+                        (String)reader["Nome_Funcionario"],
                         (String)reader["CPF"],
                         (DateTime)reader["Data_Nascimento"],
                         (String)reader["Email"],
                         (String)reader["Endereco"],
                         (String)reader["Telefone"]
                     );
-                    funcionario.Funcao = (String)reader["Funcao"];
+                    //funcionario.Funcao = (String)reader["Funcao"];
                     singleton.setFuncionario(funcionario);
                 }
 
@@ -64,7 +65,7 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 FuncionarioModel funcionario = new FuncionarioModel(
-                    (int)reader["ID_funcionario"],
+                    (int)reader["Id"],
                     (String)reader["Nome_funcionario"],
                     (String)reader["CPF"],
                     (DateTime)reader["Data_Nascimento"],
@@ -83,7 +84,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(FuncionarioModel funcionario) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_funcionario, @Endereco, @Email, @Senha, @Funcao)";
+            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_Funcionario, @Endereco, @Email, @Senha, @Funcao)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@CPF", funcionario.CPF);

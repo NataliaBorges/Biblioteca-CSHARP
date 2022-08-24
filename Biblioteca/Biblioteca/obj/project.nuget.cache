@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DX2KUdydCkA6ucS4kfJedITSPvRuG7t3OHO6M0ulYDSdLHzB5d30C48YM/v3xST+UhCW4Lq8AxlD7+CKdfurVA==",
+  "dgSpecHash": "XVOIvu2e6mnfy3CPcrgd45pNdw/qJODAO8MCGPur9RLF92MBCGcm4mNrOgYaXAw+N5G0s7JD/zm4O2FBBR8wgA==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Documents\\Estudos\\Faculdade\\4º Semestre\\Linguagem de Programação II\\Projeto final\\Biblioteca\\Biblioteca\\Biblioteca.csproj",
   "expectedPackageFiles": [
@@ -22,7 +22,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'Guna.UI2.WinForms 2.0.3.2' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "Package 'Guna.UI2.WinForms 2.0.3.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "Guna.UI2.WinForms",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -32,7 +32,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "O pacote 'RJCodeAdvance.RJControls 1.0.0' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v3.1'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "message": "Package 'RJCodeAdvance.RJControls 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
       "libraryId": "RJCodeAdvance.RJControls",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"

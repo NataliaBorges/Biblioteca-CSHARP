@@ -308,11 +308,9 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.RadioButton rbAutor;
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.TextBox tbBuscar;
-        private System.Windows.Forms.ColumnHeader Fornecedor;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

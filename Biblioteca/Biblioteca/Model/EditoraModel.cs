@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Biblioteca.Model {
+    
     public class EditoraModel {
 
         public int ID;
@@ -27,6 +28,11 @@ namespace Biblioteca.Model {
             this.Telefone = Telefone;
             this.CNPJ = CNPJ;
             this.Email = Email;
+        }
+        public EditoraModel(int ID, string Nome)
+        {
+            this.Nome = Nome;
+            this.ID = ID;            
         }
 
         public int getId() {

@@ -4,6 +4,12 @@
     <Compile Update="Util\DropDownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Util\Head.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Util\MenuControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\Autor\AutorCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +61,9 @@
     <Compile Update="View\Livros\LivroBuscarExemplarView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Livros\LivroPesquisarAutor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Livros\LivrosBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,9 +74,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\PrincipalTelaView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\PrincipalView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Relatorio\RelatorioEmprestimoView.cs">

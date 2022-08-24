@@ -42,7 +42,7 @@ namespace Biblioteca.Controller {
             Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao, @Quantidade, @ISBN)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdFornecedor);
+            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdEditora);
             Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
             Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
@@ -138,7 +138,7 @@ namespace Biblioteca.Controller {
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", livro.getId());
-            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdFornecedor);
+            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdEditora);
             Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
             Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
@@ -240,9 +240,9 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<EditoraModel> ListarFornecedores() {
+        public List<EditoraModel> ListarEditora() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Fornecedor";
+            Cmd.CommandText = @"SELECT * FROM Editora";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -250,18 +250,18 @@ namespace Biblioteca.Controller {
             List<EditoraModel> lista = new List<EditoraModel>();
 
             while (reader.Read()) {
-                EditoraModel fornecedor = new EditoraModel(
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_fornecedor"],
+                EditoraModel Editora = new EditoraModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome_Editora"],
                     (String)reader["Endereco"],
                     (String)reader["Telefone"],
                     (String)reader["CNPJ"],
-                    (String)reader["EMail"]
+                    (String)reader["Email"]
                 );
-                lista.Add(fornecedor);
+                lista.Add(Editora);
             }
             reader.Close();
-
+            
             return lista;
         }
 

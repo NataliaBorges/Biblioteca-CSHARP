@@ -365,7 +365,6 @@ namespace Biblioteca.View {
         private System.Windows.Forms.PictureBox pictureBox1;
         private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox1;
         private RJCodeAdvance.RJControls.RJTextBox tbEmail;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private RJCodeAdvance.RJControls.RJTextBox tbSenha;
         private RJCodeAdvance.RJControls.RJButton btLogar;
         private System.Windows.Forms.Label lbCancelar;

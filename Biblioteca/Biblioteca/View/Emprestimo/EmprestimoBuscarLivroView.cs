@@ -41,7 +41,7 @@ namespace Biblioteca.View.Emprestimo {
                     item.SubItems.Add(livro.Disponiveis.ToString());
                     item.SubItems.Add(livro.Nome);
                     item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Fornecedor);
+                    item.SubItems.Add(livro.Editora);
                     item.SubItems.Add(livro.ISBN);
                     item.SubItems.Add(livro.Edicao);
                     item.SubItems.Add(livro.AnoPublicacao);

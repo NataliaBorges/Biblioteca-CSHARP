@@ -424,7 +424,6 @@ namespace Biblioteca.View.Emprestimo {
         #endregion
         private System.Windows.Forms.ListView lvLivros;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Fornecedor;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.ColumnHeader Autor;
         private System.Windows.Forms.ColumnHeader Edição;

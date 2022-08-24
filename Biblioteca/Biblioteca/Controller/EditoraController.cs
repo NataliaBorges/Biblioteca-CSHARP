@@ -91,7 +91,6 @@ namespace Biblioteca.Controller {
             if (isNome) {
                 Cmd.CommandText = @"SELECT * FROM Fornecedor WHERE Nome_fornecedor LIKE '"+busca+"%'";
             }
-
             if (isCNPJ) {
                 Cmd.CommandText = @"SELECT * FROM Fornecedor WHERE CNPJ LIKE '" + busca+"%'";
             }

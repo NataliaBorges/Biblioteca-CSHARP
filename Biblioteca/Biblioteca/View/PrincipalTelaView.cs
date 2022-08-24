@@ -18,10 +18,13 @@ using System.Windows.Forms;
 
 namespace Biblioteca.View {
     public partial class PrincipalTelaView : Form {
+
+        Singleton singleton = Singleton.GetInstancia();
         private int borderSize = 2;
+
         public PrincipalTelaView() {
             InitializeComponent();
-            FecharMenu();
+
             this.Padding = new Padding(borderSize);
             this.BackColor = Color.FromArgb(0, 0, 0);
         }
@@ -67,53 +70,32 @@ namespace Biblioteca.View {
         private void iconButtonFechar_Click(object sender, EventArgs e) {
             Application.Exit();
         }
-
-        private void btnMenu_Click(object sender, EventArgs e) {
-            FecharMenu();
-        }
-
-        private void FecharMenu() {
-            if (this.panelMenu.Width > 200) {
-                panelMenu.Width = 80;
-                pictureBox1.Visible = false;
-                lbNome.Visible = false;
-                btnMenu.Dock = DockStyle.Top;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>()) {
-                    menuButton.Text = "";
-                    menuButton.ImageAlign = ContentAlignment.MiddleCenter;
-                    menuButton.Padding = new Padding(0);
-                }
-            }
-            else {
-                panelMenu.Width = 230;
-                pictureBox1.Visible = true;
-                lbNome.Visible = true;
-                btnMenu.Dock = DockStyle.None;
-                foreach (Button menuButton in panelMenu.Controls.OfType<Button>()) {
-                    menuButton.Text = "  "+ menuButton.Tag.ToString();
-                    menuButton.ImageAlign = ContentAlignment.MiddleLeft;
-                    menuButton.Padding = new Padding(10, 0, 0, 0);
-                }
-
-            }
-        }
         private void PrincipalTelaView_Load(object sender, EventArgs e) {
-            ddmCadastro.IsMainMenu = true;
-            ddmCadastro.PrimaryColor = Color.Chocolate;
-            ddmCadastro.MenuItemTextColor = Color.Chocolate;
-            ddmBuscar.IsMainMenu = true;
-            ddmBuscar.PrimaryColor = Color.Chocolate;
-            ddmBuscar.MenuItemTextColor = Color.Chocolate;
+            //ddmCadastro.IsMainMenu = true;
+            //ddmCadastro.PrimaryColor = Color.Chocolate;
+            //ddmCadastro.MenuItemTextColor = Color.Chocolate;
+            
+            //ddmBuscar.IsMainMenu = true;
+            //ddmBuscar.PrimaryColor = Color.Chocolate;
+            //ddmBuscar.MenuItemTextColor = Color.Chocolate;
+            
+            //ddmEmprestimo.IsMainMenu = true;
+            //ddmEmprestimo.PrimaryColor = Color.Chocolate;
+            //ddmEmprestimo.MenuItemTextColor = Color.Chocolate;
+            
+            //ddmReserva.IsMainMenu = true;
+            //ddmReserva.PrimaryColor = Color.Chocolate;
+            //ddmReserva.MenuItemTextColor = Color.Chocolate;
+
+            //if (singleton.getFuncionario().Funcao != "Administrador" && singleton.getFuncionario().Funcao == "Bibliotecario")
+            //{
+            //    funcionárioToolStripMenuItem.Visible = false;
+            //    btnRelatorio.Visible = false;
+            //}
+            //LblFuncionario.Text = singleton.getFuncionario().Nome_funcionario;
         }
 
-        private void btnCadastrar_Click(object sender, EventArgs e) {
-            ddmCadastro.Show(btnCadastrar, btnCadastrar.Width, 0);
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e) {
-            ddmBuscar.Show(btnBuscar, btnBuscar.Width, 0);
-        }
-
+      
         private void livroToolStripMenuItem_Click(object sender, EventArgs e) {
             LivrosCadastrarView livrosCadastrarlView = new LivrosCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             abrirPanel(livrosCadastrarlView);
@@ -133,14 +115,6 @@ namespace Biblioteca.View {
         private void editoraToolStripMenuItem_Click(object sender, EventArgs e) {
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             abrirPanel(editoraCadastrarView);
-        }
-
-        private void autorToolStripMenuItem_Click(object sender, EventArgs e) {
-
-        }
-
-        private void gêneroToolStripMenuItem_Click(object sender, EventArgs e) {
-
         }
 
         private void livroToolStripMenuItem1_Click(object sender, EventArgs e) {
@@ -167,22 +141,6 @@ namespace Biblioteca.View {
         private void editoraToolStripMenuItem1_Click(object sender, EventArgs e) {
             EditoraBuscarView editoraBuscarView = new EditoraBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             abrirPanel(editoraBuscarView);
-        }
-
-        private void autorToolStripMenuItem1_Click(object sender, EventArgs e) {
-        }
-
-        private void gêneroToolStripMenuItem1_Click(object sender, EventArgs e) {
-
-        }
-
-        private void empréstimoToolStripMenuItem_Click(object sender, EventArgs e) {
-            EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
-            abrirPanel(emprestimoBuscarView);
-        }
-
-        private void reservaToolStripMenuItem_Click(object sender, EventArgs e) {
-
         }
 
         private void btnSair_Click(object sender, EventArgs e) {

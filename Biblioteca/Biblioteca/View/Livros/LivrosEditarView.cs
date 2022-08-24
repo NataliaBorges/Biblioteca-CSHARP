@@ -22,10 +22,10 @@ namespace Biblioteca.View.Livros {
 
         private void LivrosItemView_Load(object sender, EventArgs e) {
 
-            List<EditoraModel> fornecedores = controller.ListarFornecedores();
-            if (fornecedores.Count > 0) {
-                foreach (EditoraModel fornecedor in fornecedores) {
-                    ComboBoxItem item = new ComboBoxItem(fornecedor.Nome, fornecedor.ID.ToString());
+            List<EditoraModel> editoras = controller.ListarEditora();
+            if (editoras.Count > 0) {
+                foreach (EditoraModel editora in editoras) {
+                    ComboBoxItem item = new ComboBoxItem(editora.Nome, editora.ID.ToString());
                     cbEditora.Items.Add(item);
                     comboBoxItems.Add(item);
                 }
@@ -39,7 +39,7 @@ namespace Biblioteca.View.Livros {
                 tbNome.Text = livro.Nome;
                 tbAutor.Text = livro.Autor;
                 maskedTextBoxAno.Text = livro.AnoPublicacao;
-                cbEditora.SelectedIndex = comboBoxItems.FindIndex(item => item.Text == livro.Fornecedor);
+                cbEditora.SelectedIndex = comboBoxItems.FindIndex(item => item.Text == livro.Editora);
                 tbEdicao.Text = livro.Edicao;
                 maskedTextBoxAquisição.Text = livro.DataAquisicao.ToString();
                 data = livro.DataAquisicao;
