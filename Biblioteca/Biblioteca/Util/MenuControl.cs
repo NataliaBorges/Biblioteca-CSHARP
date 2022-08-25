@@ -20,13 +20,20 @@ namespace Biblioteca.Util
 {
     public partial class MenuControl : UserControl
     {
+        private object lblNome;
+        TableLayoutPanel panel;
+
+        public void setPanel(TableLayoutPanel panel)
+        {
+            this.panel = panel;
+        }
+
         public MenuControl()
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(0, 0, 0);
         }
-        private void MenuControl_Load(object sender, EventArgs e)
-                {
+        private void MenuControl_Load(object sender, EventArgs e){
                     ddmCadastro.IsMainMenu = true;
                     ddmCadastro.PrimaryColor = Color.Chocolate;
                     ddmCadastro.MenuItemTextColor = Color.Chocolate;
@@ -43,8 +50,45 @@ namespace Biblioteca.Util
                     ddmReserva.PrimaryColor = Color.Chocolate;
                     ddmReserva.MenuItemTextColor = Color.Chocolate;
 
+        }
+        private void FecharMenu()
+        {
+            if (this.Width > 100)
+            {
+                if (this.panel != null)
+                {
+                    this.panel.ColumnStyles.Clear();
+                    this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
+                    this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 95F));
                 }
-        private void btnCadastrar_Click(object sender, EventArgs e)
+                this.Width = (int)100F;
+                lbNome.Visible = false;
+                icnButtonBar.Dock = DockStyle.Fill;
+                foreach (Button menuButton in this.Menu.Controls.OfType<Button>())
+                {
+                    menuButton.Text = "";
+                    menuButton.ImageAlign = ContentAlignment.MiddleCenter;
+                    menuButton.Padding = new Padding(0);
+                }
+            }
+            else
+            { 
+                this.panel.ColumnStyles.Clear();
+                this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+                this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
+                this.Width = (int)200F;
+                lbNome.Visible = true;
+                icnButtonBar.Dock = DockStyle.None;
+                foreach (Button menuButton in this.Menu.Controls.OfType<Button>())
+                {
+                    menuButton.Text = "  " + menuButton.Tag.ToString();
+                    menuButton.ImageAlign = ContentAlignment.MiddleLeft;
+                    menuButton.Padding = new Padding(10, 0, 0, 0);
+                }
+
+            }
+        }
+            private void btnCadastrar_Click(object sender, EventArgs e)
         {
             ddmCadastro.Show(btnHome, btnHome.Width, 0);
         }
@@ -64,6 +108,9 @@ namespace Biblioteca.Util
             ddmReserva.Show(btnReserva, btnReserva.Width, 0);
         }
 
-        
+        private void icnButtonBar_Click(object sender, EventArgs e)
+        {
+            FecharMenu();
+        }
     }
 }

@@ -39,7 +39,8 @@
             this.btnCadastrar = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.icnButtonBar = new FontAwesome.Sharp.IconButton();
+            this.lbNome = new System.Windows.Forms.Label();
             this.ddmCadastro = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.livroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,7 @@
             this.Menu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(238, 798);
+            this.Menu.Size = new System.Drawing.Size(198, 798);
             this.Menu.TabIndex = 6;
             // 
             // btnRelatório
@@ -101,7 +102,7 @@
             this.btnRelatório.Location = new System.Drawing.Point(0, 336);
             this.btnRelatório.Name = "btnRelatório";
             this.btnRelatório.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnRelatório.Size = new System.Drawing.Size(238, 46);
+            this.btnRelatório.Size = new System.Drawing.Size(198, 46);
             this.btnRelatório.TabIndex = 9;
             this.btnRelatório.Tag = "Relatórios";
             this.btnRelatório.Text = " Relatórios";
@@ -123,7 +124,7 @@
             this.btnPrateleira.Location = new System.Drawing.Point(0, 290);
             this.btnPrateleira.Name = "btnPrateleira";
             this.btnPrateleira.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPrateleira.Size = new System.Drawing.Size(238, 46);
+            this.btnPrateleira.Size = new System.Drawing.Size(198, 46);
             this.btnPrateleira.TabIndex = 8;
             this.btnPrateleira.Tag = "Prateleira";
             this.btnPrateleira.Text = "Prateleira";
@@ -145,7 +146,7 @@
             this.btnSair.Location = new System.Drawing.Point(0, 752);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 15);
-            this.btnSair.Size = new System.Drawing.Size(238, 46);
+            this.btnSair.Size = new System.Drawing.Size(198, 46);
             this.btnSair.TabIndex = 7;
             this.btnSair.Tag = "Sair";
             this.btnSair.Text = "    Sair";
@@ -167,7 +168,7 @@
             this.btnReserva.Location = new System.Drawing.Point(0, 244);
             this.btnReserva.Name = "btnReserva";
             this.btnReserva.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnReserva.Size = new System.Drawing.Size(238, 46);
+            this.btnReserva.Size = new System.Drawing.Size(198, 46);
             this.btnReserva.TabIndex = 5;
             this.btnReserva.Tag = "Reserva";
             this.btnReserva.Text = "Reserva";
@@ -190,7 +191,7 @@
             this.btnEmprestimo.Location = new System.Drawing.Point(0, 198);
             this.btnEmprestimo.Name = "btnEmprestimo";
             this.btnEmprestimo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnEmprestimo.Size = new System.Drawing.Size(238, 46);
+            this.btnEmprestimo.Size = new System.Drawing.Size(198, 46);
             this.btnEmprestimo.TabIndex = 4;
             this.btnEmprestimo.Tag = "Empréstimo";
             this.btnEmprestimo.Text = " Empréstimo";
@@ -213,7 +214,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(0, 152);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnBuscar.Size = new System.Drawing.Size(238, 46);
+            this.btnBuscar.Size = new System.Drawing.Size(198, 46);
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Tag = "Buscar";
             this.btnBuscar.Text = " Buscar";
@@ -236,7 +237,7 @@
             this.btnCadastrar.Location = new System.Drawing.Point(0, 106);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCadastrar.Size = new System.Drawing.Size(238, 46);
+            this.btnCadastrar.Size = new System.Drawing.Size(198, 46);
             this.btnCadastrar.TabIndex = 2;
             this.btnCadastrar.Tag = "Cadastrar";
             this.btnCadastrar.Text = "Cadastrar";
@@ -259,7 +260,7 @@
             this.btnHome.Location = new System.Drawing.Point(0, 60);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(238, 46);
+            this.btnHome.Size = new System.Drawing.Size(198, 46);
             this.btnHome.TabIndex = 1;
             this.btnHome.Tag = "Home";
             this.btnHome.Text = "Home";
@@ -269,24 +270,46 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.icnButtonBar);
+            this.panel3.Controls.Add(this.lbNome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(238, 60);
+            this.panel3.Size = new System.Drawing.Size(198, 60);
             this.panel3.TabIndex = 0;
             // 
-            // label1
+            // icnButtonBar
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Chocolate;
-            this.label1.Location = new System.Drawing.Point(16, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 32);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Dark Read";
+            this.icnButtonBar.FlatAppearance.BorderSize = 0;
+            this.icnButtonBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icnButtonBar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icnButtonBar.ForeColor = System.Drawing.Color.White;
+            this.icnButtonBar.IconChar = FontAwesome.Sharp.IconChar.Bars;
+            this.icnButtonBar.IconColor = System.Drawing.Color.Chocolate;
+            this.icnButtonBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnButtonBar.IconSize = 30;
+            this.icnButtonBar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnButtonBar.Location = new System.Drawing.Point(132, 8);
+            this.icnButtonBar.Name = "icnButtonBar";
+            this.icnButtonBar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icnButtonBar.Size = new System.Drawing.Size(57, 46);
+            this.icnButtonBar.TabIndex = 10;
+            this.icnButtonBar.Tag = "";
+            this.icnButtonBar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icnButtonBar.UseVisualStyleBackColor = true;
+            this.icnButtonBar.Click += new System.EventHandler(this.icnButtonBar_Click);
+            // 
+            // lbNome
+            // 
+            this.lbNome.AutoSize = true;
+            this.lbNome.BackColor = System.Drawing.Color.Transparent;
+            this.lbNome.Font = new System.Drawing.Font("Book Antiqua", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.lbNome.ForeColor = System.Drawing.Color.Chocolate;
+            this.lbNome.Location = new System.Drawing.Point(16, 19);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(113, 25);
+            this.lbNome.TabIndex = 2;
+            this.lbNome.Text = "Dark Read";
             // 
             // ddmCadastro
             // 
@@ -450,7 +473,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Menu);
             this.Name = "MenuControl";
-            this.Size = new System.Drawing.Size(238, 798);
+            this.Size = new System.Drawing.Size(198, 798);
             this.Load += new System.EventHandler(this.MenuControl_Load);
             this.Menu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -475,7 +498,7 @@
         private FontAwesome.Sharp.IconButton btnCadastrar;
         private FontAwesome.Sharp.IconButton btnHome;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbNome;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmCadastro;
         private System.Windows.Forms.ToolStripMenuItem livroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenuItem;
@@ -496,5 +519,6 @@
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmReserva;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private FontAwesome.Sharp.IconButton icnButtonBar;
     }
 }

@@ -71,6 +71,10 @@ namespace Biblioteca.View {
             Application.Exit();
         }
         private void PrincipalTelaView_Load(object sender, EventArgs e) {
+
+            //pnltotal
+            this.menuControl1.setPanel(pnltotal);
+
             //ddmCadastro.IsMainMenu = true;
             //ddmCadastro.PrimaryColor = Color.Chocolate;
             //ddmCadastro.MenuItemTextColor = Color.Chocolate;
