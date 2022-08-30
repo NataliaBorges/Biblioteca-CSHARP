@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,25 @@ namespace Biblioteca.View.Livros
         {
             InitializeComponent();
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void popular(List<AutorModel> lista)
         {
-            this.Close();
+            LvAutor.Items.Clear();
+            if (lista.Count > 0)
+            {
+                foreach (AutorModel autor in lista)
+                {
+                    ListViewItem item = new ListViewItem(autor.getId().ToString());
+                    item.SubItems.Add(autor.ToString());
+
+
+                    LvAutor.Items.Add(item);
+                }
+            }
+        }
+
+        private void LivroPesquisarAutor_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setPanel(pnltotal);
         }
     }
 }

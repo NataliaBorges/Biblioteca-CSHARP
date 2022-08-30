@@ -25,12 +25,14 @@ namespace Biblioteca.View.Livros {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroBuscarExemplarView));
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
+            this.LinkLblCadastroEmprestimo = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnMais = new System.Windows.Forms.Button();
+            this.lblQuantidade = new System.Windows.Forms.Label();
             this.tbQuantidade = new System.Windows.Forms.TextBox();
             this.LvExemplar = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
@@ -41,89 +43,110 @@ namespace Biblioteca.View.Livros {
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.Aquisição = new System.Windows.Forms.ColumnHeader();
-            this.button2 = new System.Windows.Forms.Button();
             this.Situação = new System.Windows.Forms.ColumnHeader();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // pnltotal
             // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Black;
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1299, 799);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.pnltotal.BackColor = System.Drawing.Color.Black;
+            this.pnltotal.ColumnCount = 2;
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.pnltotal.Controls.Add(this.panel1, 1, 0);
+            this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
+            this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnltotal.Location = new System.Drawing.Point(0, 0);
+            this.pnltotal.Name = "pnltotal";
+            this.pnltotal.RowCount = 1;
+            this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnltotal.Size = new System.Drawing.Size(1299, 799);
+            this.pnltotal.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Controls.Add(this.lblCadastroLivro);
+            this.panel1.Controls.Add(this.head1);
+            this.panel1.Controls.Add(this.LinkLblCadastroEmprestimo);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.LvExemplar);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(132, 3);
+            this.panel1.Location = new System.Drawing.Point(197, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1033, 793);
+            this.panel1.Size = new System.Drawing.Size(1099, 793);
             this.panel1.TabIndex = 0;
             // 
-            // linkLabel1
+            // lblCadastroLivro
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(852, 551);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(152, 18);
-            this.linkLabel1.TabIndex = 33;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Cadastrar Empréstimo";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(422, 123);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(332, 38);
+            this.lblCadastroLivro.TabIndex = 35;
+            this.lblCadastroLivro.Text = "BUSCAR EXEMPLAR";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(1099, 37);
+            this.head1.TabIndex = 34;
+            // 
+            // LinkLblCadastroEmprestimo
+            // 
+            this.LinkLblCadastroEmprestimo.AutoSize = true;
+            this.LinkLblCadastroEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LinkLblCadastroEmprestimo.LinkColor = System.Drawing.Color.White;
+            this.LinkLblCadastroEmprestimo.Location = new System.Drawing.Point(894, 657);
+            this.LinkLblCadastroEmprestimo.Name = "LinkLblCadastroEmprestimo";
+            this.LinkLblCadastroEmprestimo.Size = new System.Drawing.Size(152, 18);
+            this.LinkLblCadastroEmprestimo.TabIndex = 33;
+            this.LinkLblCadastroEmprestimo.TabStop = true;
+            this.LinkLblCadastroEmprestimo.Text = "Cadastrar Empréstimo";
+            this.LinkLblCadastroEmprestimo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnMais);
+            this.panel2.Controls.Add(this.lblQuantidade);
             this.panel2.Controls.Add(this.tbQuantidade);
-            this.panel2.Location = new System.Drawing.Point(354, 518);
+            this.panel2.Location = new System.Drawing.Point(396, 624);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(383, 70);
             this.panel2.TabIndex = 30;
             // 
-            // button1
+            // btnMais
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(313, 22);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(29, 29);
-            this.button1.TabIndex = 29;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnMais.BackColor = System.Drawing.Color.White;
+            this.btnMais.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMais.BackgroundImage")));
+            this.btnMais.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMais.Location = new System.Drawing.Point(313, 22);
+            this.btnMais.Name = "btnMais";
+            this.btnMais.Size = new System.Drawing.Size(29, 29);
+            this.btnMais.TabIndex = 29;
+            this.btnMais.UseVisualStyleBackColor = false;
+            this.btnMais.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // lblQuantidade
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(33, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 20);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Adicionar mais exemplares: ";
+            this.lblQuantidade.AutoSize = true;
+            this.lblQuantidade.BackColor = System.Drawing.Color.Transparent;
+            this.lblQuantidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblQuantidade.ForeColor = System.Drawing.Color.White;
+            this.lblQuantidade.Location = new System.Drawing.Point(33, 25);
+            this.lblQuantidade.Name = "lblQuantidade";
+            this.lblQuantidade.Size = new System.Drawing.Size(212, 20);
+            this.lblQuantidade.TabIndex = 27;
+            this.lblQuantidade.Text = "Adicionar mais exemplares: ";
             // 
             // tbQuantidade
             // 
@@ -153,7 +176,7 @@ namespace Biblioteca.View.Livros {
             this.LvExemplar.FullRowSelect = true;
             this.LvExemplar.HideSelection = false;
             this.LvExemplar.HoverSelection = true;
-            this.LvExemplar.Location = new System.Drawing.Point(40, 109);
+            this.LvExemplar.Location = new System.Drawing.Point(82, 215);
             this.LvExemplar.Name = "LvExemplar";
             this.LvExemplar.Size = new System.Drawing.Size(964, 403);
             this.LvExemplar.TabIndex = 25;
@@ -208,36 +231,32 @@ namespace Biblioteca.View.Livros {
             this.Aquisição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Aquisição.Width = 150;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(69, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(92, 36);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Fechar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // Situação
             // 
             this.Situação.Text = "Situação";
             this.Situação.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Situação.Width = 150;
             // 
+            // menuControl1
+            // 
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(188, 793);
+            this.menuControl1.TabIndex = 1;
+            // 
             // LivroBuscarExemplarView
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1299, 799);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.pnltotal);
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LivroBuscarExemplarView";
             this.Text = "LivroBuscarExemplar";
             this.Load += new System.EventHandler(this.LivroBuscarExemplarView_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -248,7 +267,7 @@ namespace Biblioteca.View.Livros {
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ListView LvExemplar;
         private System.Windows.Forms.ColumnHeader ID;
@@ -258,13 +277,15 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.ColumnHeader ISBN;
         private System.Windows.Forms.ColumnHeader Edição;
         private System.Windows.Forms.ColumnHeader Ano;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMais;
         private System.Windows.Forms.TextBox tbQuantidade;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblQuantidade;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ColumnHeader Aquisição;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel LinkLblCadastroEmprestimo;
         private System.Windows.Forms.ColumnHeader Situação;
+        private Util.Head head1;
+        private Util.MenuControl menuControl1;
+        private System.Windows.Forms.Label lblCadastroLivro;
     }
 }

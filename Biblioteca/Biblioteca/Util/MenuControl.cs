@@ -112,5 +112,10 @@ namespace Biblioteca.Util
         {
             FecharMenu();
         }
+
+        private void livroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+        }
     }
 }

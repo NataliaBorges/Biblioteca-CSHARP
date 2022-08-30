@@ -27,7 +27,6 @@ namespace Biblioteca.View {
             if (controller.Login(email, senha)) {
                 FuncionarioModel funcionarioModel = singleton.getFuncionario();
 
-                MessageBox.Show("Seja bem-vinda " + funcionarioModel.Nome_funcionario, "", MessageBoxButtons.OK);
                 PrincipalTelaView principalTelaView = new PrincipalTelaView();
 
                 this.Hide();

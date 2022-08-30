@@ -10,7 +10,7 @@ namespace Biblioteca.Util {
         public static void novaJanela(Form form, Rectangle boundsForm) {
             Rectangle bounds = boundsForm;
             form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-            form.StartPosition = FormStartPosition.Manual;
+            form.StartPosition = FormStartPosition.CenterScreen;
             form.Location = new Point(88, 35);
             form.ShowDialog();
         }

@@ -21,6 +21,8 @@ namespace Biblioteca.View.Livros {
             InitializeComponent();
         }
         private void LivroBuscarExemplarView_Load(object sender, EventArgs e) {
+
+            this.menuControl1.setPanel(pnltotal);
             List<ExemplarModel> lista = controller.ListarTodosExemplares(idLivro);
             popular(lista);
         }

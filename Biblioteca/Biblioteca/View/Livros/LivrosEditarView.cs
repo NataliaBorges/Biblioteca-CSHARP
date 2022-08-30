@@ -22,6 +22,8 @@ namespace Biblioteca.View.Livros {
 
         private void LivrosItemView_Load(object sender, EventArgs e) {
 
+            this.menuControl1.setPanel(pnltotal);
+
             List<EditoraModel> editoras = controller.ListarEditora();
             if (editoras.Count > 0) {
                 foreach (EditoraModel editora in editoras) {
