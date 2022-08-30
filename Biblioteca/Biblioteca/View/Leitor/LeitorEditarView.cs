@@ -79,6 +79,8 @@ namespace Biblioteca.View.Leitor {
         }
 
         private void LeitorEditarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             if (leitor != null) {
                 tbNome.Text = leitor.Nome;
 

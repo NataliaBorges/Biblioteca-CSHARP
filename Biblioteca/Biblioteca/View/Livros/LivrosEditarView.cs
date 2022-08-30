@@ -38,7 +38,7 @@ namespace Biblioteca.View.Livros {
             }
 
             if (livro != null) {
-                tbNome.Text = livro.Nome;
+                tbNome.Text = livro.Titulo;
                 maskedTextBoxAno.Text = livro.AnoPublicacao;
                 tbEdicao.Text = livro.Edicao;
                 tbISBN.Text = livro.ISBN;

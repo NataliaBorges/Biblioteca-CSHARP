@@ -40,6 +40,7 @@ namespace Biblioteca.View.Livros {
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblBuscaLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.lblSelecionar = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@ namespace Biblioteca.View.Livros {
             this.linklablCadastrarLivro = new System.Windows.Forms.LinkLabel();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlSelect.SuspendLayout();
             this.pnltotal.SuspendLayout();
@@ -92,7 +92,6 @@ namespace Biblioteca.View.Livros {
             this.LvLivros.TabIndex = 17;
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
-            this.LvLivros.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvLivros_MouseClick);
             // 
             // ID
             // 
@@ -192,6 +191,7 @@ namespace Biblioteca.View.Livros {
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(15)))), ((int)(((byte)(0)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lblBuscaLivro);
@@ -202,10 +202,22 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.LvLivros);
             this.panel1.Controls.Add(this.tbBuscar);
             this.panel1.Controls.Add(this.btnBuscar);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(192, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1071, 765);
             this.panel1.TabIndex = 20;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(377, 242);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(97, 20);
+            this.label1.TabIndex = 31;
+            this.label1.Text = "Digite aqui: ";
             // 
             // lblBuscaLivro
             // 
@@ -239,7 +251,7 @@ namespace Biblioteca.View.Livros {
             // 
             // pnlSelect
             // 
-            this.pnlSelect.BackColor = System.Drawing.Color.Black;
+            this.pnlSelect.BackColor = System.Drawing.Color.Transparent;
             this.pnlSelect.Controls.Add(this.rbNome);
             this.pnlSelect.Controls.Add(this.rbAutor);
             this.pnlSelect.Controls.Add(this.rbEditora);
@@ -261,7 +273,6 @@ namespace Biblioteca.View.Livros {
             this.linklablCadastrarLivro.TabStop = true;
             this.linklablCadastrarLivro.Text = "Cadastrar Livro";
             this.linklablCadastrarLivro.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.linklablCadastrarLivro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pnltotal
             // 
@@ -286,17 +297,6 @@ namespace Biblioteca.View.Livros {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(183, 765);
             this.menuControl1.TabIndex = 21;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(377, 242);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 20);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Digite aqui: ";
             // 
             // LivrosBuscarView
             // 

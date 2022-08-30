@@ -43,13 +43,12 @@ namespace Biblioteca.View.Livros {
             if (lista.Count > 0) {
                 foreach (LivroModel livro in lista) {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.ISBN);
-                    item.SubItems.Add(livro.Editora);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                    //item.SubItems.Add(livro.Titulo);
+                    ////item.SubItems.Add(Autor.Autor);
+                    //item.SubItems.Add(livro.ISBN);
+                    //item.SubItems.Add(livro.IdEditora);
+                    //item.SubItems.Add(livro.Edicao);
+                    //item.SubItems.Add(livro.AnoPublicacao);
                     
 
                     LvLivros.Items.Add(item);
@@ -68,29 +67,26 @@ namespace Biblioteca.View.Livros {
             popular(lista);
         }
 
-        private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-            LivroModel livro = new LivroModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[5].Text,
-                item.SubItems[6].Text,
-                DateTime.Parse(item.SubItems[7].Text),
-                item.SubItems[4].Text,
-                item.SubItems[3].Text
-            );
+        //private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
+        //    LivroModel livro = new LivroModel(
+        //        int.Parse(item.SubItems[0].Text),
+        //        item.SubItems[1].Text,
+        //        item.SubItems[2].Text,
+        //        item.SubItems[5].Text,
+        //        item.SubItems[6].Text,
+        //        DateTime.Parse(item.SubItems[7].Text),
+        //        item.SubItems[4].Text,
+        //        item.SubItems[3].Text
+        //    );
 
-            LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
-            NovaJanela.novaJanela(livroBuscarExemplarView, this.Bounds);
-        }
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
+            //LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
+            //NovaJanela.novaJanela(LivroBuscarExemplarView, this.Bounds);
+        //}
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
-        }
+        //private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        //    LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+        //    NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+        //}
     }
 }

@@ -38,14 +38,14 @@ namespace Biblioteca.View.Emprestimo {
             if (lista.Count > 0) {
                 foreach (LivroModel livro in lista) {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Disponiveis.ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Editora);
-                    item.SubItems.Add(livro.ISBN);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                    //item.SubItems.Add(livro.Disponiveis.ToString());
+                    //item.SubItems.Add(livro.Nome);
+                    //item.SubItems.Add(livro.Autor);
+                    //item.SubItems.Add(livro.Editora);
+                    //item.SubItems.Add(livro.ISBN);
+                    //item.SubItems.Add(livro.Edicao);
+                    //item.SubItems.Add(livro.AnoPublicacao);
+                    //item.SubItems.Add(livro.DataAquisicao.ToString());
                     
 
                     LvLivros.Items.Add(item);
@@ -65,16 +65,15 @@ namespace Biblioteca.View.Emprestimo {
                 MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
             }
             else {
-                LivroModel livro = new LivroModel(
-                    int.Parse(item.SubItems[0].Text),
-                    item.SubItems[2].Text,
-                    item.SubItems[3].Text,
-                    item.SubItems[6].Text,
-                    item.SubItems[7].Text,
-                    DateTime.Parse(item.SubItems[8].Text),
-                    item.SubItems[4].Text,
-                    item.SubItems[5].Text
-                );
+                //LivroModel livro = new LivroModel(
+                    //int.Parse(item.SubItems[0].Text),
+                    //item.SubItems[2].Text,
+                    //item.SubItems[3].Text,
+                    //item.SubItems[6].Text,
+                    //item.SubItems[7].Text,
+                    //item.SubItems[4].Text,
+                    //item.SubItems[5].Text
+                //);
 
                 EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
                 NovaJanela.novaJanela(livros, this.Bounds);

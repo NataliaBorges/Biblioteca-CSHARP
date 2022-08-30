@@ -24,6 +24,7 @@ namespace Biblioteca.View.Livros {
         }
         private void LivrosCadastrarView_Load(object sender, EventArgs e)
         {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
             //this.cbEditora.Items.Clear();
             //List<EditoraModel> editoras = controller.ListarEditora();
@@ -98,16 +99,16 @@ namespace Biblioteca.View.Livros {
                 MessageBox.Show("Você precisa digitar uma quantidade válida.", "Atenção", MessageBoxButtons.OK);
                 tbQuantidade.Focus();
             }
-            else {
-                LivroModel livro = new LivroModel(nome, Editora, autor, ano, edicao, ISBN, Genero, Quantidade);
-                if (controller.Insercao(livro)) {
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                else {
-                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
-                }
-            }   
+            //else {
+            //    //LivroModel livro = new LivroModel(nome, Editora, autor, ano, edicao, ISBN, Genero, Quantidade);
+            //    if (controller.Insercao(livro)) {
+            //        MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+            //        this.Close();
+            //    }
+            //    else {
+            //        MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+            //    }
+            //}   
             
         }
         private void btnPesqAutor_Click_1(object sender, EventArgs e)
@@ -125,6 +126,12 @@ namespace Biblioteca.View.Livros {
         private void btnPesqGenero_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LivrosCadastrarView_Load_1(object sender, EventArgs e)
+        {
+            this.menuControl1.setForm(this);
+            this.menuControl1.setPanel(pnltotal);
         }
     }
 }

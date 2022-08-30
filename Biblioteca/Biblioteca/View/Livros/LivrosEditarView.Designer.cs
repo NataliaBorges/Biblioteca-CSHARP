@@ -28,6 +28,8 @@ namespace Biblioteca.View.Livros {
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnPesqGenero = new System.Windows.Forms.Button();
             this.lblEdicaoLivro = new System.Windows.Forms.Label();
             this.btlPesqEditora = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@ namespace Biblioteca.View.Livros {
             this.label6 = new System.Windows.Forms.Label();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,7 @@ namespace Biblioteca.View.Livros {
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(15)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnPesqGenero);
@@ -115,6 +116,26 @@ namespace Biblioteca.View.Livros {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(973, 650);
             this.panel1.TabIndex = 28;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(289, 177);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(450, 27);
+            this.textBox1.TabIndex = 53;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(217, 184);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 52;
+            this.label1.Text = "Nome:";
             // 
             // btnPesqGenero
             // 
@@ -358,26 +379,6 @@ namespace Biblioteca.View.Livros {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(177, 650);
             this.menuControl1.TabIndex = 29;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(289, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(450, 27);
-            this.textBox1.TabIndex = 53;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(217, 184);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
-            this.label1.TabIndex = 52;
-            this.label1.Text = "Nome:";
             // 
             // LivrosEditarView
             // 

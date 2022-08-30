@@ -6,10 +6,18 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Biblioteca.View.Editora {
-    public partial class AutorCadastrarView : Form {
-        public AutorCadastrarView() {
+namespace Biblioteca.View.Autor
+{
+    public partial class AutorCadastrarView : Form
+    {
+        public AutorCadastrarView()
+        {
             InitializeComponent();
+        }
+
+        private void pnltotal_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

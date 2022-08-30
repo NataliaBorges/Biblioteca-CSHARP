@@ -103,5 +103,10 @@ namespace Biblioteca.View.Leitor {
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
         }
+
+        private void LeitorCadastrarView_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setPanel(pnltotal);
+        }
     }
 }

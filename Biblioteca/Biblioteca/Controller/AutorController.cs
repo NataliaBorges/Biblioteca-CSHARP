@@ -27,7 +27,7 @@ namespace Biblioteca.Controller
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            List<AutorModel> lista = new List<AutorModel>();
+            List<AutorModel> list = new List<AutorModel>();
 
             while (reader.Read())
             {
@@ -35,11 +35,11 @@ namespace Biblioteca.Controller
                     (int)reader["ID"],
                     (String)reader["Nome"]
                 );
-                lista.Add(autor);
+                list.Add(autor);
             }
             reader.Close();
 
-            return lista;
+            return list;
         }
     }
 }

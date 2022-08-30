@@ -326,43 +326,43 @@
             this.ddmCadastro.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmCadastro.Name = "rjDropdownMenu1";
             this.ddmCadastro.PrimaryColor = System.Drawing.Color.Black;
-            this.ddmCadastro.Size = new System.Drawing.Size(181, 158);
+            this.ddmCadastro.Size = new System.Drawing.Size(152, 136);
             // 
             // livroToolStripMenuItem
             // 
             this.livroToolStripMenuItem.Name = "livroToolStripMenuItem";
-            this.livroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.livroToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.livroToolStripMenuItem.Text = "Livro";
             this.livroToolStripMenuItem.Click += new System.EventHandler(this.livroToolStripMenuItem_Click);
             // 
             // leitorToolStripMenuItem
             // 
             this.leitorToolStripMenuItem.Name = "leitorToolStripMenuItem";
-            this.leitorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.leitorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.leitorToolStripMenuItem.Text = "Leitor";
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             // 
             // editoraToolStripMenuItem
             // 
             this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
-            this.editoraToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editoraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.editoraToolStripMenuItem.Text = "Editora";
             // 
             // autorToolStripMenuItem
             // 
             this.autorToolStripMenuItem.Name = "autorToolStripMenuItem";
-            this.autorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.autorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.autorToolStripMenuItem.Text = "Autor";
             // 
             // gêneroToolStripMenuItem
             // 
             this.gêneroToolStripMenuItem.Name = "gêneroToolStripMenuItem";
-            this.gêneroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gêneroToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.gêneroToolStripMenuItem.Text = "Gênero";
             // 
             // ddmBuscar
@@ -380,42 +380,43 @@
             this.ddmBuscar.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmBuscar.Name = "rjDropdownMenu1";
             this.ddmBuscar.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmBuscar.Size = new System.Drawing.Size(152, 136);
+            this.ddmBuscar.Size = new System.Drawing.Size(181, 158);
             // 
             // livroToolStripMenuItem1
             // 
             this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
-            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.livroToolStripMenuItem1.Text = "Livro";
+            this.livroToolStripMenuItem1.Click += new System.EventHandler(this.livroToolStripMenuItem1_Click);
             // 
             // leitorToolStripMenuItem1
             // 
             this.leitorToolStripMenuItem1.Name = "leitorToolStripMenuItem1";
-            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.leitorToolStripMenuItem1.Text = "Leitor";
             // 
             // funcionárioToolStripMenuItem1
             // 
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
-            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
             // 
             // editoraToolStripMenuItem1
             // 
             this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
-            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.editoraToolStripMenuItem1.Text = "Editora";
             // 
             // autorToolStripMenuItem1
             // 
             this.autorToolStripMenuItem1.Name = "autorToolStripMenuItem1";
-            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.autorToolStripMenuItem1.Text = "Autor";
             // 
             // gêneroToolStripMenuItem1
             // 
             this.gêneroToolStripMenuItem1.Name = "gêneroToolStripMenuItem1";
-            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
+            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.gêneroToolStripMenuItem1.Text = "Gênero";
             // 
             // ddmEmprestimo

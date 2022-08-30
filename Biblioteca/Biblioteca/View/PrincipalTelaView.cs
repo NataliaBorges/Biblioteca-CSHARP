@@ -68,6 +68,7 @@ namespace Biblioteca.View {
         }
         private void PrincipalTelaView_Load(object sender, EventArgs e) {
             this.menuControl1.setPanel(pnltotal);
+            this.menuControl1.setForm(this);
         }
     }
 }

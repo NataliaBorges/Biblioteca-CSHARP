@@ -84,6 +84,7 @@ namespace Biblioteca.View.Funcionario {
         }
 
         private void FuncionarioEditarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
             if (funcionario != null) {
                 tbNome.Text = funcionario.Nome_funcionario;
 

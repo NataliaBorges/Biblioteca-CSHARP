@@ -8,94 +8,108 @@ namespace Biblioteca.Model {
         public int IdEditora{ get; set; }
         public int IdAutor { get; set; }
         public int IdGenero { get; set; }
-        public String Nome { get; set; }
+        public String Titulo { get; set; }
         public String Edicao { get; set; }
         public String AnoPublicacao { get; set; }
         public String ISBN { get; set; }
         public int Quantidade { get; set; }
-        public String Editora { get; set; }
-        public int Id_emprestimo { get; set; }
+        public String NomeEditora { get; set; }
+        public String NomeAutor { get; set; }
+        public String NomeGenero { get; set; }
+        public int IdEmprestimo { get; set; }
         public int Disponiveis { get; set; }
 
-        public LivroModel(int ID, int IdEditora,  int IdAutor, int IdGenero,  String Nome, String Edicao, String AnoPublicacao, String ISBN, int Quantidade)
+        public LivroModel(int ID, int IdEditora,  int IdAutor, int IdGenero,  String Titulo, String Edicao, String AnoPublicacao, String ISBN, int Quantidade)
         {
             this.ID = ID;
             this.IdEditora = IdEditora;
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
             this.Quantidade = Quantidade;
         }
-        public LivroModel(int IdEditora, int IdAutor, int IdGenero, String Nome, String Edicao, String AnoPublicacao, String ISBN, int Quantidade)
+        public LivroModel(int IdEditora, int IdAutor, int IdGenero, String Titulo, String Edicao, String AnoPublicacao, String ISBN, int Quantidade)
         {
             this.IdEditora = IdEditora;
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
             this.Quantidade = Quantidade;
         }
-        public LivroModel(int ID, int IdEditora, String Nome, int IdAutor, String Edicao, String AnoPublicacao, String ISBN) {
+        public LivroModel(int Id, String Titulo, String Edicao, String AnoPublicacao, String ISBN, int Quantidade, String Nome_Editora, String Nome_Autor, String Nome_Genero)
+        {
+            this.Titulo = Titulo;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.ISBN = ISBN;
+            this.Quantidade = Quantidade;
+            this.NomeEditora = Nome_Editora;
+            this.NomeAutor = Nome_Autor;
+            this.NomeGenero = Nome_Genero;
+
+        }
+        public LivroModel(int ID, int IdEditora, String Titulo, int IdAutor, String Edicao, String AnoPublicacao, String ISBN) {
             this.ID = ID;
             this.IdEditora = IdEditora;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.IdAutor = IdAutor;
             this.Edicao = Edicao; 
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
         }
-        public LivroModel(int ID, String Nome, int IdAutor, String Edicao, String AnoPublicacao, String ISBN, String Editora) {
+        public LivroModel(int ID, String Titulo, int IdAutor, String Edicao, String AnoPublicacao, String ISBN, String Editora) {
             this.ID = ID;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.IdAutor = IdAutor;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
         }
-        public LivroModel(int IdEditora, String Nome, int IdAutor, String Edicao, String AnoPublicacao, String ISBN) {
+        public LivroModel(int IdEditora, String Titulo, int IdAutor, String Edicao, String AnoPublicacao, String ISBN) {
             this.IdEditora = IdEditora;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.IdAutor = IdAutor;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
-        }
-
-        public LivroModel(int ID, int IdEditora, String Nome, int IdAutor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN, String Editora) {
-            this.ID = ID;
-            this.IdEditora = IdEditora;
-            this.Nome = Nome;
-            this.IdAutor = IdAutor;
-            this.Edicao = Edicao;
-            this.AnoPublicacao = AnoPublicacao;
-            this.ISBN = ISBN;
-            this.Editora = Editora;
         }
 
-        public LivroModel(int ID, int IdEditora, String Nome, int Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN, String Fornecedor, int Quantidade) {
+        public LivroModel(int ID, int IdEditora, String Titulo, int IdAutor, String Edicao, String AnoPublicacao,  String ISBN, int Id_Editora) {
             this.ID = ID;
             this.IdEditora = IdEditora;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.IdAutor = IdAutor;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
-            this.Editora = Editora;
+            this.IdEditora = Id_Editora;
+        }
+
+        public LivroModel(int ID, int IdEditora, String Titulo, int Autor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String ISBN, int Id_Editora, int Quantidade) {
+            this.ID = ID;
+            this.IdEditora = IdEditora;
+            this.Titulo = Titulo;
+            this.IdAutor = IdAutor;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.ISBN = ISBN;
+            this.IdEditora = Id_Editora;
             this.Quantidade = Quantidade;
         }
 
-        public LivroModel(int ID, String Nome, int IdAutor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, String Editora, String ISBN) {
+        public LivroModel(int ID, String Titulo, int IdAutor, String Edicao, String AnoPublicacao, DateTime DataAquisicao, int Id_Editora, String ISBN) {
             this.ID = ID;
-            this.Nome = Nome;
+            this.Titulo = Titulo;
             this.IdAutor = IdAutor;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;
-            this.Editora = Editora;
+            this.IdEditora = Id_Editora;
             this.ISBN = ISBN;
         }
 

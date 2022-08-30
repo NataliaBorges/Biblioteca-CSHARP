@@ -32,12 +32,12 @@ namespace Biblioteca.View.Reserva {
             if (lista.Count > 0) {
                 foreach (LivroModel livro in lista) {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Editora);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString());
+                    //item.SubItems.Add(livro.Nome);
+                    //item.SubItems.Add(livro.Autor);
+                    //item.SubItems.Add(livro.Editora);
+                    //item.SubItems.Add(livro.Edicao);
+                    //item.SubItems.Add(livro.AnoPublicacao);
+                    //item.SubItems.Add(livro.DataAquisicao.ToString());
 
                     LvLivros.Items.Add(item);
                 }

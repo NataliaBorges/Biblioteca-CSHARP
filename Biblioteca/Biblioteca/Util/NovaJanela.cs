@@ -9,9 +9,8 @@ namespace Biblioteca.Util {
         private NovaJanela() { }
         public static void novaJanela(Form form, Rectangle boundsForm) {
             Rectangle bounds = boundsForm;
-            form.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
+            form.SetBounds(bounds.X, bounds.Y, Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             form.StartPosition = FormStartPosition.CenterScreen;
-            form.Location = new Point(88, 35);
             form.ShowDialog();
         }
     }

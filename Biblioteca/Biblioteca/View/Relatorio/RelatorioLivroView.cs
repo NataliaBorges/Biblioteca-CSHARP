@@ -25,13 +25,12 @@ namespace Biblioteca.View.Relatorio {
             if (lista.Count > 0) {
                 foreach (LivroModel livro in lista) {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Nome);
-                    item.SubItems.Add(livro.Autor);
-                    item.SubItems.Add(livro.Editora);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.DataAquisicao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(livro.Id_emprestimo.ToString());
+                    //item.SubItems.Add(livro.Nome);
+                    //item.SubItems.Add(livro.Autor);
+                    //item.SubItems.Add(livro.Editora);
+                    //item.SubItems.Add(livro.Edicao);
+                    //item.SubItems.Add(livro.AnoPublicacao);
+                    //item.SubItems.Add(livro.Id_emprestimo.ToString());
 
                     LvLivros.Items.Add(item);
                 }

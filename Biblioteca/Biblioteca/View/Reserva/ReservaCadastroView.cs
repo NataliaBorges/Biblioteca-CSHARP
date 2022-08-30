@@ -88,15 +88,14 @@ namespace Biblioteca.View.Reserva {
 
         private void lvLivros_MouseClick(object sender, MouseEventArgs e) {
             ListViewItem item = lvLivros.Items[lvLivros.FocusedItem.Index];
-            LivroModel livro = new LivroModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[4].Text,
-                item.SubItems[5].Text,
-                DateTime.Parse(item.SubItems[6].Text),
-                item.SubItems[3].Text
-            );
+            //LivroModel livro = new LivroModel(
+                //int.Parse(item.SubItems[0].Text),
+                //item.SubItems[1].Text,
+                //item.SubItems[2].Text,
+                //item.SubItems[4].Text,
+                //item.SubItems[5].Text,
+                //item.SubItems[3].Text
+            //);
 
 
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);

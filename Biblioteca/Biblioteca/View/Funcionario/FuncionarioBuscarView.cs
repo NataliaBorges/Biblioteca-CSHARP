@@ -65,6 +65,7 @@ namespace Biblioteca.View.Funcionario {
         }
 
         private void FuncionarioBuscarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
             List<FuncionarioModel> lista = controller.ListarTodos();
             popular(lista);
         }

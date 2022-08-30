@@ -21,6 +21,7 @@ namespace Biblioteca.View.Fornecedor {
         }
 
         private void FornecedorEditarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
             if (fornecedor != null) {
                 tbNome.Text = fornecedor.Nome;
 

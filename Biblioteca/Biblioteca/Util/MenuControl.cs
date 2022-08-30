@@ -22,7 +22,12 @@ namespace Biblioteca.Util
     {
         private object lblNome;
         TableLayoutPanel panel;
+        Form form;
 
+        public void setForm(Form form)
+        {
+            this.form = form;
+        }
         public void setPanel(TableLayoutPanel panel)
         {
             this.panel = panel;
@@ -116,6 +121,18 @@ namespace Biblioteca.Util
         private void livroToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+            NovaJanela.novaJanela(livrosCadastrarView, Bounds);
+        }
+
+        private void livroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            //if(form as LivrosBuscarView)
+            //{
+            //    form.Close();
+            //    LivrosBuscarView livroBuscarView = new LivrosBuscarView();
+            //    NovaJanela.novaJanela(livroBuscarView, Bounds);
+            //}
+            
         }
     }
 }

@@ -49,6 +49,8 @@ namespace Biblioteca.View.Leitor {
         }
 
         private void LeitorBuscarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             List<LeitorModel> lista = controller.ListarTodos();
             popular(lista);
         }

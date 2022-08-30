@@ -53,7 +53,6 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.csproj.AssemblyReference.cache
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarExemplarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivroBuscarExemplarView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Editora.AutorCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.PrincipalTelaView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\bin\Debug\netcoreapp3.1\FontAwesome.Sharp.dll
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\bin\Debug\netcoreapp3.1\RJCodeAdvance.RJControls.dll
@@ -62,3 +61,4 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivroPesquisarAutor.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Util.Head.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Util.MenuControl.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Autor.AutorCadastrarView.resources

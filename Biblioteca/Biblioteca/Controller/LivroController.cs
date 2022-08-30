@@ -39,17 +39,17 @@ namespace Biblioteca.Controller {
         }
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Livro Values (@ID_Fornecedor, @Nome_Livro, @Autor_Livro, @Edicao, @Ano_publicacao, @Data_aquisicao, @Quantidade, @ISBN)";
+            Cmd.CommandText = @"INSERT INTO Livro Values @Titulo, @Edicao, @Ano_Publicacao, @Quantidade, @ISBN, @Id_genero, @Id_autor, @Id_Editora)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdEditora);
-            Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
-            Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
+            Cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
             Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
-            Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao);
             Cmd.Parameters.AddWithValue("@Quantidade", livro.Quantidade);
             Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
+            Cmd.Parameters.AddWithValue("@Id_genero", livro.IdGenero);
+            Cmd.Parameters.AddWithValue("@Id_autor", livro.IdAutor);
+            Cmd.Parameters.AddWithValue("@Id_editora", livro.IdEditora);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 int ultimoLivroId = BuscarUltimoLivro();
@@ -132,19 +132,19 @@ namespace Biblioteca.Controller {
 
         public bool Atualizar(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Livro SET ID_fornecedor = @ID_Fornecedor, Nome_Livro = @Nome_Livro, Autor_Livro = @Autor_livro,
-                                Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, Data_aquisicao = @Data_aquisicao, ISBN = @ISBN
+            Cmd.CommandText = @"UPDATE Livro SET Titulo = @Titulo, Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, ISBN = @ISBN, IdGenero = @Id_genero, 
+                                IdAutor = @Id_autor, IdEditora = @Id_editora
                                 WHERE ID_livro = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", livro.getId());
-            Cmd.Parameters.AddWithValue("@ID_Fornecedor", livro.IdEditora);
-            Cmd.Parameters.AddWithValue("@Nome_Livro", livro.Nome);
-            Cmd.Parameters.AddWithValue("@Autor_Livro", livro.Autor);
+            Cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
             Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
             Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
-            Cmd.Parameters.AddWithValue("@Data_aquisicao", livro.DataAquisicao.ToString("yyyy-MM-dd"));
             Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
+            Cmd.Parameters.AddWithValue("@Id_Editora", livro.IdEditora);
+            Cmd.Parameters.AddWithValue("@Id_Autor", livro.IdAutor);
+            Cmd.Parameters.AddWithValue("@Id_Genero", livro.IdGenero);
 
 
 
@@ -159,9 +159,19 @@ namespace Biblioteca.Controller {
         public List<LivroModel> ListarTodos() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT L.*, F.Nome_fornecedor as Fornecedor 
-            FROM Livro AS L
-            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+            SELECT	Livro.Id,
+		            Livro.Titulo,
+		            Livro.Edicao,
+		            Livro.Ano_Publicacao,
+		            Livro.ISBN,
+		            Livro.Quantidade,
+		            Editora.Nome_Editora,
+		            Autor.Nome_Autor,
+		            Genero.Nome_Genero
+            FROM Livro
+            INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+            INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+            INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
             ";
             Cmd.Parameters.Clear();
 
@@ -171,15 +181,15 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
-                    (int)reader["ID_livro"],
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Autor_Livro"],
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
-                    (DateTime)reader["Data_aquisicao"],
                     (String)reader["ISBN"],
-                    (String)reader["Fornecedor"]
+                    (int)reader["Quantidade"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_Genero"]
                 ); 
                 lista.Add(livro);
             }
@@ -223,15 +233,15 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
-                    (int)reader["ID_livro"],
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Autor_Livro"],
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
-                    (DateTime)reader["Data_aquisicao"],
-                    (String)reader["Fornecedor"],
-                    (String)reader["ISBN"]
+                    (String)reader["ISBN"],
+                    (int)reader["Quantidade"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_Genero"]
                 );
                 lista.Add(livro);
             }
@@ -304,17 +314,17 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
-                    (int)reader["ID_livro"],
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Autor_Livro"],
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
-                    (DateTime)reader["Data_aquisicao"],
-                    (String)reader["Fornecedor"],
-                    (string) reader["ISBN"]
+                    (String)reader["ISBN"],
+                    (int)reader["Quantidade"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_Genero"]
                 );
-                livro.Id_emprestimo = (int)reader["Emprestimo"];
+                livro.IdEmprestimo = (int)reader["Emprestimo"];
                 lista.Add(livro);
             }
             reader.Close();
