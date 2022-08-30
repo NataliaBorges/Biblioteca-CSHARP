@@ -194,7 +194,6 @@ namespace Biblioteca.View.Livros {
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnCadastrar);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1065, 566);
