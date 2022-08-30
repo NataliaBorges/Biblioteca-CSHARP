@@ -35,11 +35,11 @@ namespace Biblioteca.View.Emprestimo {
 
                     ObsText.Text = emprestimo.Obs;
 
-                    button4.Visible = false;
-                    button4.Enabled = false;
+                    btnDevolver.Visible = false;
+                    btnDevolver.Enabled = false;
                     if (emprestimo.Status == "DEVOLVIDO") {
                         button2.Visible = false;
-                        button4.Visible = true;
+                        btnDevolver.Visible = true;
                     }
                 }
             }
@@ -63,6 +63,8 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void Excluir_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             if (emprestimo != null) {
                 List<EmprestimoModel> dados = controller.ListarEmprestimo(emprestimo.ID_emprestimo);
                 popular(dados);

@@ -43,6 +43,8 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmprestimoCadastroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
         }

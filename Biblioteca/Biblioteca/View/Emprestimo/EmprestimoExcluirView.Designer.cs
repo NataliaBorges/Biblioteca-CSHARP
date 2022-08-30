@@ -25,7 +25,7 @@ namespace Biblioteca.View.Emprestimo {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoExcluirView));
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.lvEmprestimo = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.ID_Funcionário = new System.Windows.Forms.ColumnHeader();
@@ -39,37 +39,39 @@ namespace Biblioteca.View.Emprestimo {
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.Autor = new System.Windows.Forms.ColumnHeader();
             this.Fornecedor = new System.Windows.Forms.ColumnHeader();
+            this.ISBN = new System.Windows.Forms.ColumnHeader();
             this.Edição = new System.Windows.Forms.ColumnHeader();
             this.Ano = new System.Windows.Forms.ColumnHeader();
             this.ObsText = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ISBN = new System.Windows.Forms.ColumnHeader();
+            this.btnDevolver = new System.Windows.Forms.Button();
+            this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
+            this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.head1 = new Biblioteca.Util.Head();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnExcluir
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(592, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(201, 70);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "EXCLUIR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnExcluir.BackColor = System.Drawing.Color.Black;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(543, 170);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(201, 70);
+            this.btnExcluir.TabIndex = 0;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.button1_Click);
             // 
             // lvEmprestimo
             // 
-            this.lvEmprestimo.BackColor = System.Drawing.Color.DimGray;
+            this.lvEmprestimo.BackColor = System.Drawing.Color.Black;
             this.lvEmprestimo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvEmprestimo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
@@ -82,10 +84,10 @@ namespace Biblioteca.View.Emprestimo {
             this.lvEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lvEmprestimo.ForeColor = System.Drawing.Color.White;
             this.lvEmprestimo.HideSelection = false;
-            this.lvEmprestimo.Location = new System.Drawing.Point(14, 191);
+            this.lvEmprestimo.Location = new System.Drawing.Point(54, 268);
             this.lvEmprestimo.MultiSelect = false;
             this.lvEmprestimo.Name = "lvEmprestimo";
-            this.lvEmprestimo.Size = new System.Drawing.Size(1071, 123);
+            this.lvEmprestimo.Size = new System.Drawing.Size(870, 123);
             this.lvEmprestimo.TabIndex = 3;
             this.lvEmprestimo.UseCompatibleStateImageBehavior = false;
             this.lvEmprestimo.View = System.Windows.Forms.View.Details;
@@ -132,7 +134,7 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // LvLivros
             // 
-            this.LvLivros.BackColor = System.Drawing.Color.DimGray;
+            this.LvLivros.BackColor = System.Drawing.Color.Black;
             this.LvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.id2,
@@ -146,9 +148,9 @@ namespace Biblioteca.View.Emprestimo {
             this.LvLivros.ForeColor = System.Drawing.Color.White;
             this.LvLivros.HideSelection = false;
             this.LvLivros.HoverSelection = true;
-            this.LvLivros.Location = new System.Drawing.Point(14, 334);
+            this.LvLivros.Location = new System.Drawing.Point(54, 411);
             this.LvLivros.Name = "LvLivros";
-            this.LvLivros.Size = new System.Drawing.Size(1071, 124);
+            this.LvLivros.Size = new System.Drawing.Size(876, 124);
             this.LvLivros.TabIndex = 18;
             this.LvLivros.UseCompatibleStateImageBehavior = false;
             this.LvLivros.View = System.Windows.Forms.View.Details;
@@ -175,6 +177,12 @@ namespace Biblioteca.View.Emprestimo {
             this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Fornecedor.Width = 150;
             // 
+            // ISBN
+            // 
+            this.ISBN.DisplayIndex = 6;
+            this.ISBN.Text = "ISBN";
+            this.ISBN.Width = 150;
+            // 
             // Edição
             // 
             this.Edição.DisplayIndex = 4;
@@ -192,7 +200,7 @@ namespace Biblioteca.View.Emprestimo {
             // ObsText
             // 
             this.ObsText.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ObsText.Location = new System.Drawing.Point(153, 508);
+            this.ObsText.Location = new System.Drawing.Point(129, 577);
             this.ObsText.Name = "ObsText";
             this.ObsText.Size = new System.Drawing.Size(770, 96);
             this.ObsText.TabIndex = 19;
@@ -204,7 +212,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(153, 485);
+            this.label1.Location = new System.Drawing.Point(129, 554);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 20;
@@ -216,7 +224,7 @@ namespace Biblioteca.View.Emprestimo {
             this.button2.Cursor = System.Windows.Forms.Cursors.Cross;
             this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(327, 81);
+            this.button2.Location = new System.Drawing.Point(278, 170);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(201, 70);
             this.button2.TabIndex = 21;
@@ -224,67 +232,78 @@ namespace Biblioteca.View.Emprestimo {
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(69, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 36);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Fechar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.lblCadastroLivro);
+            this.panel1.Controls.Add(this.head1);
+            this.panel1.Controls.Add(this.btnDevolver);
             this.panel1.Controls.Add(this.lvEmprestimo);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.LvLivros);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ObsText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(141, 3);
+            this.panel1.Location = new System.Drawing.Point(202, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1099, 726);
+            this.panel1.Size = new System.Drawing.Size(1025, 742);
             this.panel1.TabIndex = 23;
             // 
-            // button4
+            // btnDevolver
             // 
-            this.button4.BackColor = System.Drawing.Color.DimGray;
-            this.button4.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(327, 81);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(201, 70);
-            this.button4.TabIndex = 23;
-            this.button4.Text = "DEVOLVIDO";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnDevolver.BackColor = System.Drawing.Color.Black;
+            this.btnDevolver.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnDevolver.ForeColor = System.Drawing.Color.White;
+            this.btnDevolver.Location = new System.Drawing.Point(278, 170);
+            this.btnDevolver.Name = "btnDevolver";
+            this.btnDevolver.Size = new System.Drawing.Size(201, 70);
+            this.btnDevolver.TabIndex = 23;
+            this.btnDevolver.Text = "DEVOLVIDO";
+            this.btnDevolver.UseVisualStyleBackColor = false;
             // 
-            // tableLayoutPanel1
+            // pnltotal
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1382, 732);
-            this.tableLayoutPanel1.TabIndex = 24;
+            this.pnltotal.ColumnCount = 2;
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.17886F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.82114F));
+            this.pnltotal.Controls.Add(this.panel1, 1, 0);
+            this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
+            this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnltotal.Location = new System.Drawing.Point(0, 0);
+            this.pnltotal.Name = "pnltotal";
+            this.pnltotal.RowCount = 1;
+            this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnltotal.Size = new System.Drawing.Size(1230, 748);
+            this.pnltotal.TabIndex = 24;
             // 
-            // ISBN
+            // menuControl1
             // 
-            this.ISBN.DisplayIndex = 6;
-            this.ISBN.Text = "ISBN";
-            this.ISBN.Width = 150;
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(193, 742);
+            this.menuControl1.TabIndex = 24;
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(1025, 37);
+            this.head1.TabIndex = 24;
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(302, 98);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(420, 38);
+            this.lblCadastroLivro.TabIndex = 92;
+            this.lblCadastroLivro.Text = "STATUS DO EMPRÉSTIMO";
             // 
             // EmprestimoExcluirView
             // 
@@ -292,8 +311,8 @@ namespace Biblioteca.View.Emprestimo {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1382, 732);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1230, 748);
+            this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -303,14 +322,14 @@ namespace Biblioteca.View.Emprestimo {
             this.Load += new System.EventHandler(this.Excluir_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.ListView lvEmprestimo;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader ID_Funcionário;
@@ -329,10 +348,12 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.RichTextBox ObsText;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TableLayoutPanel pnltotal;
+        private System.Windows.Forms.Button btnDevolver;
         private System.Windows.Forms.ColumnHeader ISBN;
+        private Util.Head head1;
+        private Util.MenuControl menuControl1;
+        private System.Windows.Forms.Label lblCadastroLivro;
     }
 }

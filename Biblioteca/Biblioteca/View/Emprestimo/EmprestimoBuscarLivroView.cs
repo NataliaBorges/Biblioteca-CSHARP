@@ -21,6 +21,8 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmprestimoBuscarLivroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             List<LivroModel> lista = controller.ListarTodosLivros();
             popular(lista);
         }
