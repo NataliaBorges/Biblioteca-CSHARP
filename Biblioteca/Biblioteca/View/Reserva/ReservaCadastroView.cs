@@ -43,6 +43,8 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void ReservaCadastroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             popularExemplar(controller.PegarExemplarReserva());
             popularLeitor(controller.PegarLeitorReserva());
         }

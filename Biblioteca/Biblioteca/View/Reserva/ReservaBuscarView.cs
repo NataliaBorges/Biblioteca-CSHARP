@@ -19,6 +19,8 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void EmpretimoBuscarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             List<ReservaPesquisaModel> lista = controller.ListarTodosBusca();
             popular(lista);
         }

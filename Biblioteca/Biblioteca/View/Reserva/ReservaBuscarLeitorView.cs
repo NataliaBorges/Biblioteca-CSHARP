@@ -34,6 +34,8 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void ReservaBuscarLeitorView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+            
             List<LeitorModel> lista = controller.ListarTodosLeitores();
             popular(lista);
         }

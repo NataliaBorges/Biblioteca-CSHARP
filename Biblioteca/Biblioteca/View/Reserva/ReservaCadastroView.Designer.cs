@@ -47,19 +47,21 @@ namespace Biblioteca.View.Reserva {
             this.calendarReserva = new System.Windows.Forms.MonthCalendar();
             this.tbReserva = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.tbObs = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
+            this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.head1 = new Biblioteca.Util.Head();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvLivros
             // 
-            this.lvLivros.BackColor = System.Drawing.Color.DimGray;
+            this.lvLivros.BackColor = System.Drawing.Color.Black;
             this.lvLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvLivros.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
@@ -73,9 +75,9 @@ namespace Biblioteca.View.Reserva {
             this.lvLivros.ForeColor = System.Drawing.Color.White;
             this.lvLivros.FullRowSelect = true;
             this.lvLivros.HideSelection = false;
-            this.lvLivros.Location = new System.Drawing.Point(69, 74);
+            this.lvLivros.Location = new System.Drawing.Point(30, 133);
             this.lvLivros.Name = "lvLivros";
-            this.lvLivros.Size = new System.Drawing.Size(796, 129);
+            this.lvLivros.Size = new System.Drawing.Size(608, 129);
             this.lvLivros.TabIndex = 1;
             this.lvLivros.UseCompatibleStateImageBehavior = false;
             this.lvLivros.View = System.Windows.Forms.View.Details;
@@ -126,9 +128,9 @@ namespace Biblioteca.View.Reserva {
             this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.iconpeople;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(888, 270);
+            this.button1.Location = new System.Drawing.Point(729, 339);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 106);
+            this.button1.Size = new System.Drawing.Size(80, 73);
             this.button1.TabIndex = 4;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -140,10 +142,10 @@ namespace Biblioteca.View.Reserva {
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(888, 86);
+            this.button2.Location = new System.Drawing.Point(729, 155);
             this.button2.Name = "button2";
             this.button2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.button2.Size = new System.Drawing.Size(134, 94);
+            this.button2.Size = new System.Drawing.Size(80, 61);
             this.button2.TabIndex = 5;
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
@@ -155,7 +157,7 @@ namespace Biblioteca.View.Reserva {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(899, 183);
+            this.label1.Location = new System.Drawing.Point(720, 231);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 20);
             this.label1.TabIndex = 6;
@@ -167,7 +169,7 @@ namespace Biblioteca.View.Reserva {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(888, 376);
+            this.label2.Location = new System.Drawing.Point(708, 433);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 7;
@@ -175,7 +177,7 @@ namespace Biblioteca.View.Reserva {
             // 
             // lvLeitor
             // 
-            this.lvLeitor.BackColor = System.Drawing.Color.DimGray;
+            this.lvLeitor.BackColor = System.Drawing.Color.Black;
             this.lvLeitor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvLeitor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -188,9 +190,9 @@ namespace Biblioteca.View.Reserva {
             this.lvLeitor.ForeColor = System.Drawing.Color.White;
             this.lvLeitor.FullRowSelect = true;
             this.lvLeitor.HideSelection = false;
-            this.lvLeitor.Location = new System.Drawing.Point(69, 256);
+            this.lvLeitor.Location = new System.Drawing.Point(30, 315);
             this.lvLeitor.Name = "lvLeitor";
-            this.lvLeitor.Size = new System.Drawing.Size(796, 141);
+            this.lvLeitor.Size = new System.Drawing.Size(608, 141);
             this.lvLeitor.TabIndex = 3;
             this.lvLeitor.UseCompatibleStateImageBehavior = false;
             this.lvLeitor.View = System.Windows.Forms.View.Details;
@@ -231,8 +233,9 @@ namespace Biblioteca.View.Reserva {
             // 
             // calendarReserva
             // 
+            this.calendarReserva.BackColor = System.Drawing.Color.Black;
             this.calendarReserva.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calendarReserva.Location = new System.Drawing.Point(192, 485);
+            this.calendarReserva.Location = new System.Drawing.Point(70, 532);
             this.calendarReserva.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.calendarReserva.Name = "calendarReserva";
             this.calendarReserva.TabIndex = 8;
@@ -241,7 +244,7 @@ namespace Biblioteca.View.Reserva {
             // tbReserva
             // 
             this.tbReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbReserva.Location = new System.Drawing.Point(192, 462);
+            this.tbReserva.Location = new System.Drawing.Point(70, 509);
             this.tbReserva.Name = "tbReserva";
             this.tbReserva.Size = new System.Drawing.Size(228, 27);
             this.tbReserva.TabIndex = 10;
@@ -252,31 +255,33 @@ namespace Biblioteca.View.Reserva {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(192, 433);
+            this.label3.Location = new System.Drawing.Point(70, 480);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Reserva";
             // 
-            // button3
+            // btnCadastrar
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(569, 611);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(192, 46);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "CADASTRAR";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnCadastrar.BackColor = System.Drawing.Color.Black;
+            this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrar.Location = new System.Drawing.Point(676, 573);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(192, 46);
+            this.btnCadastrar.TabIndex = 14;
+            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.button3_Click);
             // 
             // tbObs
             // 
+            this.tbObs.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tbObs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbObs.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbObs.Location = new System.Drawing.Point(569, 462);
+            this.tbObs.Location = new System.Drawing.Point(368, 509);
             this.tbObs.Name = "tbObs";
-            this.tbObs.Size = new System.Drawing.Size(192, 120);
+            this.tbObs.Size = new System.Drawing.Size(230, 185);
             this.tbObs.TabIndex = 15;
             this.tbObs.Text = "";
             // 
@@ -286,60 +291,77 @@ namespace Biblioteca.View.Reserva {
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(569, 439);
+            this.label5.Location = new System.Drawing.Point(368, 486);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(93, 20);
             this.label5.TabIndex = 16;
             this.label5.Text = "Observação";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(69, 20);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(92, 36);
-            this.button4.TabIndex = 17;
-            this.button4.Text = "Fechar";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.lblCadastroLivro);
+            this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.lvLivros);
-            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.lvLeitor);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.tbObs);
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button3);
+            this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tbReserva);
             this.panel1.Controls.Add(this.calendarReserva);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(139, 3);
+            this.panel1.Location = new System.Drawing.Point(188, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1084, 724);
+            this.panel1.Size = new System.Drawing.Size(979, 729);
             this.panel1.TabIndex = 18;
             // 
-            // tableLayoutPanel1
+            // pnltotal
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 730);
-            this.tableLayoutPanel1.TabIndex = 19;
+            this.pnltotal.ColumnCount = 2;
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.81197F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84.18803F));
+            this.pnltotal.Controls.Add(this.panel1, 1, 0);
+            this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
+            this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnltotal.Location = new System.Drawing.Point(0, 0);
+            this.pnltotal.Name = "pnltotal";
+            this.pnltotal.RowCount = 1;
+            this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnltotal.Size = new System.Drawing.Size(1170, 735);
+            this.pnltotal.TabIndex = 19;
+            // 
+            // menuControl1
+            // 
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(179, 729);
+            this.menuControl1.TabIndex = 19;
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(979, 37);
+            this.head1.TabIndex = 17;
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(317, 71);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(406, 38);
+            this.lblCadastroLivro.TabIndex = 93;
+            this.lblCadastroLivro.Text = "CADASTRO DE RESERVA";
             // 
             // ReservaCadastroView
             // 
@@ -347,8 +369,8 @@ namespace Biblioteca.View.Reserva {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1363, 730);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1170, 735);
+            this.Controls.Add(this.pnltotal);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -359,7 +381,7 @@ namespace Biblioteca.View.Reserva {
             this.Load += new System.EventHandler(this.ReservaCadastroView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
+            this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -387,11 +409,13 @@ namespace Biblioteca.View.Reserva {
         private System.Windows.Forms.MonthCalendar calendarReserva;
         private System.Windows.Forms.TextBox tbReserva;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.RichTextBox tbObs;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel pnltotal;
+        private Util.Head head1;
+        private Util.MenuControl menuControl1;
+        private System.Windows.Forms.Label lblCadastroLivro;
     }
 }

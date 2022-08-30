@@ -18,6 +18,8 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void ReservaBuscarLivroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             List<LivroModel> lista = controller.ListarTodosLivros();
             popular(lista);
         }

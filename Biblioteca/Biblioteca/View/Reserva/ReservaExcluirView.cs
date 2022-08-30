@@ -54,6 +54,8 @@ namespace Biblioteca.View.Reserva {
         }
 
         private void Excluir_Load(object sender, EventArgs e) {
+            this.menuControl1.setPanel(pnltotal);
+
             if (reserva != null) {
                 List<ReservaModel> dados = controller.ListarReserva(reserva.ID_reserva);
                 popular(dados);
