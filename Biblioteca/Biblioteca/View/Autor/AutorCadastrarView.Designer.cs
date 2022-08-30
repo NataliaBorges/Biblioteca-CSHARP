@@ -68,7 +68,7 @@
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(15)))), ((int)(((byte)(0)))));
+            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.pnlPrincipal.Controls.Add(this.linkLabel1);
             this.pnlPrincipal.Controls.Add(this.linkLabel2);
             this.pnlPrincipal.Controls.Add(this.btnCadastrar);
