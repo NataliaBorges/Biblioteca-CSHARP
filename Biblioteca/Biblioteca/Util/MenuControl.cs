@@ -20,7 +20,6 @@ namespace Biblioteca.Util
 {
     public partial class MenuControl : UserControl
     {
-        private object lblNome;
         TableLayoutPanel panel;
         Form form;
 
@@ -133,6 +132,12 @@ namespace Biblioteca.Util
             //    NovaJanela.novaJanela(livroBuscarView, Bounds);
             //}
             
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            PrincipalTelaView principalTelaView = new PrincipalTelaView();
+            NovaJanela.novaJanela(principalTelaView, Bounds);
         }
     }
 }

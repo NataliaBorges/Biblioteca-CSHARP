@@ -62,3 +62,6 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Util.Head.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Util.MenuControl.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Autor.AutorCadastrarView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Genero.GeneroCadastrarView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivroPesquisarEditora.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Livros.LivroPesquisarGenero.resources

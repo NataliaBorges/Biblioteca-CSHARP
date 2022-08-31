@@ -99,7 +99,7 @@
             this.btnRelatório.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRelatório.IconSize = 30;
             this.btnRelatório.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatório.Location = new System.Drawing.Point(0, 336);
+            this.btnRelatório.Location = new System.Drawing.Point(0, 324);
             this.btnRelatório.Name = "btnRelatório";
             this.btnRelatório.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRelatório.Size = new System.Drawing.Size(198, 46);
@@ -121,7 +121,7 @@
             this.btnPrateleira.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPrateleira.IconSize = 30;
             this.btnPrateleira.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrateleira.Location = new System.Drawing.Point(0, 290);
+            this.btnPrateleira.Location = new System.Drawing.Point(0, 278);
             this.btnPrateleira.Name = "btnPrateleira";
             this.btnPrateleira.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnPrateleira.Size = new System.Drawing.Size(198, 46);
@@ -165,7 +165,7 @@
             this.btnReserva.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReserva.IconSize = 30;
             this.btnReserva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReserva.Location = new System.Drawing.Point(0, 244);
+            this.btnReserva.Location = new System.Drawing.Point(0, 232);
             this.btnReserva.Name = "btnReserva";
             this.btnReserva.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReserva.Size = new System.Drawing.Size(198, 46);
@@ -188,7 +188,7 @@
             this.btnEmprestimo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEmprestimo.IconSize = 30;
             this.btnEmprestimo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmprestimo.Location = new System.Drawing.Point(0, 198);
+            this.btnEmprestimo.Location = new System.Drawing.Point(0, 186);
             this.btnEmprestimo.Name = "btnEmprestimo";
             this.btnEmprestimo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmprestimo.Size = new System.Drawing.Size(198, 46);
@@ -211,7 +211,7 @@
             this.btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscar.IconSize = 30;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(0, 152);
+            this.btnBuscar.Location = new System.Drawing.Point(0, 140);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscar.Size = new System.Drawing.Size(198, 46);
@@ -234,7 +234,7 @@
             this.btnCadastrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCadastrar.IconSize = 30;
             this.btnCadastrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrar.Location = new System.Drawing.Point(0, 106);
+            this.btnCadastrar.Location = new System.Drawing.Point(0, 94);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCadastrar.Size = new System.Drawing.Size(198, 46);
@@ -257,7 +257,7 @@
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 30;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 60);
+            this.btnHome.Location = new System.Drawing.Point(0, 48);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnHome.Size = new System.Drawing.Size(198, 46);
@@ -266,6 +266,7 @@
             this.btnHome.Text = "Home";
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // panel3
             // 
@@ -275,7 +276,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(198, 60);
+            this.panel3.Size = new System.Drawing.Size(198, 48);
             this.panel3.TabIndex = 0;
             // 
             // icnButtonBar
@@ -289,7 +290,7 @@
             this.icnButtonBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icnButtonBar.IconSize = 30;
             this.icnButtonBar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icnButtonBar.Location = new System.Drawing.Point(132, 8);
+            this.icnButtonBar.Location = new System.Drawing.Point(135, 1);
             this.icnButtonBar.Name = "icnButtonBar";
             this.icnButtonBar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icnButtonBar.Size = new System.Drawing.Size(57, 46);
@@ -305,7 +306,7 @@
             this.lbNome.BackColor = System.Drawing.Color.Transparent;
             this.lbNome.Font = new System.Drawing.Font("Book Antiqua", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lbNome.ForeColor = System.Drawing.Color.Chocolate;
-            this.lbNome.Location = new System.Drawing.Point(16, 19);
+            this.lbNome.Location = new System.Drawing.Point(16, 10);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(113, 25);
             this.lbNome.TabIndex = 2;
@@ -380,43 +381,43 @@
             this.ddmBuscar.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmBuscar.Name = "rjDropdownMenu1";
             this.ddmBuscar.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmBuscar.Size = new System.Drawing.Size(181, 158);
+            this.ddmBuscar.Size = new System.Drawing.Size(152, 136);
             // 
             // livroToolStripMenuItem1
             // 
             this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
-            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.livroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.livroToolStripMenuItem1.Text = "Livro";
             this.livroToolStripMenuItem1.Click += new System.EventHandler(this.livroToolStripMenuItem1_Click);
             // 
             // leitorToolStripMenuItem1
             // 
             this.leitorToolStripMenuItem1.Name = "leitorToolStripMenuItem1";
-            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.leitorToolStripMenuItem1.Text = "Leitor";
             // 
             // funcionárioToolStripMenuItem1
             // 
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
-            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
             // 
             // editoraToolStripMenuItem1
             // 
             this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
-            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.editoraToolStripMenuItem1.Text = "Editora";
             // 
             // autorToolStripMenuItem1
             // 
             this.autorToolStripMenuItem1.Name = "autorToolStripMenuItem1";
-            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.autorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.autorToolStripMenuItem1.Text = "Autor";
             // 
             // gêneroToolStripMenuItem1
             // 
             this.gêneroToolStripMenuItem1.Name = "gêneroToolStripMenuItem1";
-            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.gêneroToolStripMenuItem1.Text = "Gênero";
             // 
             // ddmEmprestimo

@@ -14,5 +14,10 @@ namespace Biblioteca.View.Livros
         {
             InitializeComponent();
         }
+
+        private void LivroPesquisarEditora_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setPanel(pnltotal);
+        }
     }
 }

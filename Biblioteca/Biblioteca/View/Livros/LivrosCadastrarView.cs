@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
+using Biblioteca.View.Autor;
+using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Fornecedor;
 using MessageBox = System.Windows.Forms.MessageBox;
 
@@ -132,6 +134,36 @@ namespace Biblioteca.View.Livros {
         {
             this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+        }
+
+        private void btnPesqAutor_Click(object sender, EventArgs e)
+        {
+            LivroPesquisarAutor livroPesquisarAutor = new LivroPesquisarAutor();
+            NovaJanela.novaJanela(livroPesquisarAutor, this.Bounds);
+        }
+
+        private void btlPesqEditora_Click_1(object sender, EventArgs e)
+        {
+            LivroPesquisarEditora livroPesquisarEditora= new LivroPesquisarEditora();
+            NovaJanela.novaJanela(livroPesquisarEditora, this.Bounds);
+        }
+
+        private void btnPesqGenero_Click_1(object sender, EventArgs e)
+        {
+            LivroPesquisarGenero livroPesquisarGenero = new LivroPesquisarGenero();
+            NovaJanela.novaJanela(livroPesquisarGenero, this.Bounds);
+        }
+
+        private void LinkLblCadastroEmprestimo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
+            NovaJanela.novaJanela(editoraCadastrarView, this.Bounds);
+        }
+
+        private void linklblCadastrarAutor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AutorCadastrarView autorCadastrarView = new AutorCadastrarView();
+            NovaJanela.novaJanela(autorCadastrarView, this.Bounds);
         }
     }
 }

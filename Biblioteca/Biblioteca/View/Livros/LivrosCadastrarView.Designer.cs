@@ -26,10 +26,10 @@ namespace Biblioteca.View.Livros {
         private void InitializeComponent() {
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.LinkLblCadastroEmprestimo = new System.Windows.Forms.LinkLabel();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.linklblCadastrarAutor = new System.Windows.Forms.LinkLabel();
+            this.linklblCadastrarGenero = new System.Windows.Forms.LinkLabel();
+            this.LinkLblCadastrarEditora = new System.Windows.Forms.LinkLabel();
             this.head1 = new Biblioteca.Util.Head();
             this.btnPesqGenero = new System.Windows.Forms.Button();
             this.btlPesqEditora = new System.Windows.Forms.Button();
@@ -53,7 +53,7 @@ namespace Biblioteca.View.Livros {
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pnltotal.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -63,7 +63,7 @@ namespace Biblioteca.View.Livros {
             this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
-            this.pnltotal.Controls.Add(this.panel2, 1, 0);
+            this.pnltotal.Controls.Add(this.pnlPrincipal, 1, 0);
             this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnltotal.Location = new System.Drawing.Point(0, 0);
             this.pnltotal.Name = "pnltotal";
@@ -81,75 +81,77 @@ namespace Biblioteca.View.Livros {
             this.menuControl1.Size = new System.Drawing.Size(182, 602);
             this.menuControl1.TabIndex = 22;
             // 
-            // panel2
+            // pnlPrincipal
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(15)))), ((int)(((byte)(0)))));
-            this.panel2.Controls.Add(this.linkLabel2);
-            this.panel2.Controls.Add(this.linkLabel1);
-            this.panel2.Controls.Add(this.LinkLblCadastroEmprestimo);
-            this.panel2.Controls.Add(this.head1);
-            this.panel2.Controls.Add(this.btnPesqGenero);
-            this.panel2.Controls.Add(this.btlPesqEditora);
-            this.panel2.Controls.Add(this.tbEditora);
-            this.panel2.Controls.Add(this.btnPesqAutor);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.tbGenero);
-            this.panel2.Controls.Add(this.tbNome);
-            this.panel2.Controls.Add(this.lblCadastroLivro);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.tbEdicao);
-            this.panel2.Controls.Add(this.maskedTextBoxAno);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.tbQuantidade);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.tbAutor);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.tbISBN);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnCadastrar);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(191, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1065, 602);
-            this.panel2.TabIndex = 28;
+            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.pnlPrincipal.Controls.Add(this.linklblCadastrarAutor);
+            this.pnlPrincipal.Controls.Add(this.linklblCadastrarGenero);
+            this.pnlPrincipal.Controls.Add(this.LinkLblCadastrarEditora);
+            this.pnlPrincipal.Controls.Add(this.head1);
+            this.pnlPrincipal.Controls.Add(this.btnPesqGenero);
+            this.pnlPrincipal.Controls.Add(this.btlPesqEditora);
+            this.pnlPrincipal.Controls.Add(this.tbEditora);
+            this.pnlPrincipal.Controls.Add(this.btnPesqAutor);
+            this.pnlPrincipal.Controls.Add(this.label9);
+            this.pnlPrincipal.Controls.Add(this.tbGenero);
+            this.pnlPrincipal.Controls.Add(this.tbNome);
+            this.pnlPrincipal.Controls.Add(this.lblCadastroLivro);
+            this.pnlPrincipal.Controls.Add(this.label5);
+            this.pnlPrincipal.Controls.Add(this.tbEdicao);
+            this.pnlPrincipal.Controls.Add(this.maskedTextBoxAno);
+            this.pnlPrincipal.Controls.Add(this.label3);
+            this.pnlPrincipal.Controls.Add(this.tbQuantidade);
+            this.pnlPrincipal.Controls.Add(this.label6);
+            this.pnlPrincipal.Controls.Add(this.label8);
+            this.pnlPrincipal.Controls.Add(this.tbAutor);
+            this.pnlPrincipal.Controls.Add(this.label7);
+            this.pnlPrincipal.Controls.Add(this.tbISBN);
+            this.pnlPrincipal.Controls.Add(this.label2);
+            this.pnlPrincipal.Controls.Add(this.btnCadastrar);
+            this.pnlPrincipal.Controls.Add(this.label1);
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(191, 3);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(1065, 602);
+            this.pnlPrincipal.TabIndex = 28;
             // 
-            // linkLabel2
+            // linklblCadastrarAutor
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(682, 461);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(113, 18);
-            this.linkLabel2.TabIndex = 36;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Cadastrar Autor";
+            this.linklblCadastrarAutor.AutoSize = true;
+            this.linklblCadastrarAutor.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linklblCadastrarAutor.LinkColor = System.Drawing.Color.White;
+            this.linklblCadastrarAutor.Location = new System.Drawing.Point(682, 461);
+            this.linklblCadastrarAutor.Name = "linklblCadastrarAutor";
+            this.linklblCadastrarAutor.Size = new System.Drawing.Size(113, 18);
+            this.linklblCadastrarAutor.TabIndex = 36;
+            this.linklblCadastrarAutor.TabStop = true;
+            this.linklblCadastrarAutor.Text = "Cadastrar Autor";
+            this.linklblCadastrarAutor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblCadastrarAutor_LinkClicked);
             // 
-            // linkLabel1
+            // linklblCadastrarGenero
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(674, 479);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(122, 18);
-            this.linkLabel1.TabIndex = 35;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Cadastrar Gênero";
+            this.linklblCadastrarGenero.AutoSize = true;
+            this.linklblCadastrarGenero.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linklblCadastrarGenero.LinkColor = System.Drawing.Color.White;
+            this.linklblCadastrarGenero.Location = new System.Drawing.Point(674, 479);
+            this.linklblCadastrarGenero.Name = "linklblCadastrarGenero";
+            this.linklblCadastrarGenero.Size = new System.Drawing.Size(122, 18);
+            this.linklblCadastrarGenero.TabIndex = 35;
+            this.linklblCadastrarGenero.TabStop = true;
+            this.linklblCadastrarGenero.Text = "Cadastrar Gênero";
             // 
-            // LinkLblCadastroEmprestimo
+            // LinkLblCadastrarEditora
             // 
-            this.LinkLblCadastroEmprestimo.AutoSize = true;
-            this.LinkLblCadastroEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LinkLblCadastroEmprestimo.LinkColor = System.Drawing.Color.White;
-            this.LinkLblCadastroEmprestimo.Location = new System.Drawing.Point(673, 443);
-            this.LinkLblCadastroEmprestimo.Name = "LinkLblCadastroEmprestimo";
-            this.LinkLblCadastroEmprestimo.Size = new System.Drawing.Size(123, 18);
-            this.LinkLblCadastroEmprestimo.TabIndex = 34;
-            this.LinkLblCadastroEmprestimo.TabStop = true;
-            this.LinkLblCadastroEmprestimo.Text = "Cadastrar Editora";
+            this.LinkLblCadastrarEditora.AutoSize = true;
+            this.LinkLblCadastrarEditora.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LinkLblCadastrarEditora.LinkColor = System.Drawing.Color.White;
+            this.LinkLblCadastrarEditora.Location = new System.Drawing.Point(673, 443);
+            this.LinkLblCadastrarEditora.Name = "LinkLblCadastrarEditora";
+            this.LinkLblCadastrarEditora.Size = new System.Drawing.Size(123, 18);
+            this.LinkLblCadastrarEditora.TabIndex = 34;
+            this.LinkLblCadastrarEditora.TabStop = true;
+            this.LinkLblCadastrarEditora.Text = "Cadastrar Editora";
+            this.LinkLblCadastrarEditora.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLblCadastroEmprestimo_LinkClicked);
             // 
             // head1
             // 
@@ -171,6 +173,7 @@ namespace Biblioteca.View.Livros {
             this.btnPesqGenero.TabIndex = 32;
             this.btnPesqGenero.Text = "Pesquisar";
             this.btnPesqGenero.UseVisualStyleBackColor = false;
+            this.btnPesqGenero.Click += new System.EventHandler(this.btnPesqGenero_Click_1);
             // 
             // btlPesqEditora
             // 
@@ -183,6 +186,7 @@ namespace Biblioteca.View.Livros {
             this.btlPesqEditora.TabIndex = 31;
             this.btlPesqEditora.Text = "Pesquisar";
             this.btlPesqEditora.UseVisualStyleBackColor = false;
+            this.btlPesqEditora.Click += new System.EventHandler(this.btlPesqEditora_Click_1);
             // 
             // tbEditora
             // 
@@ -203,6 +207,7 @@ namespace Biblioteca.View.Livros {
             this.btnPesqAutor.TabIndex = 29;
             this.btnPesqAutor.Text = "Pesquisar";
             this.btnPesqAutor.UseVisualStyleBackColor = false;
+            this.btnPesqAutor.Click += new System.EventHandler(this.btnPesqAutor_Click);
             // 
             // label9
             // 
@@ -397,8 +402,8 @@ namespace Biblioteca.View.Livros {
             this.Text = "Cadastrar Livros";
             this.Load += new System.EventHandler(this.LivrosCadastrarView_Load_1);
             this.pnltotal.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlPrincipal.ResumeLayout(false);
+            this.pnlPrincipal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -408,7 +413,7 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAquisição;
         private Util.MenuControl menuControl1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlPrincipal;
         private Util.Head head1;
         private System.Windows.Forms.Button btnPesqGenero;
         private System.Windows.Forms.Button btlPesqEditora;
@@ -431,8 +436,8 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel LinkLblCadastroEmprestimo;
+        private System.Windows.Forms.LinkLabel linklblCadastrarAutor;
+        private System.Windows.Forms.LinkLabel linklblCadastrarGenero;
+        private System.Windows.Forms.LinkLabel LinkLblCadastrarEditora;
     }
 }

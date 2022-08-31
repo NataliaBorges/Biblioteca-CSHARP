@@ -39,7 +39,6 @@
             this.pnlUser = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.pboxUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
-            this.LblFuncionario = new System.Windows.Forms.Label();
             this.pnlWindows = new System.Windows.Forms.Panel();
             this.iconButtonFechar = new FontAwesome.Sharp.IconButton();
             this.iconButtonMinimizar = new FontAwesome.Sharp.IconButton();
@@ -59,7 +58,6 @@
             this.panelTituloBar.Controls.Add(this.panel1);
             this.panelTituloBar.Controls.Add(this.pnlMaxmin);
             this.panelTituloBar.Controls.Add(this.pnlUser);
-            this.panelTituloBar.Controls.Add(this.LblFuncionario);
             this.panelTituloBar.Controls.Add(this.pnlWindows);
             this.panelTituloBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTituloBar.ForeColor = System.Drawing.Color.Black;
@@ -132,7 +130,7 @@
             this.icButtonFechar.TabIndex = 2;
             this.icButtonFechar.Tag = "";
             this.icButtonFechar.UseVisualStyleBackColor = false;
-            this.icButtonFechar.Click += new System.EventHandler(this.iconButton1_Click);
+            this.icButtonFechar.Click += new System.EventHandler(this.icButtonFechar_Click);
             // 
             // icButtonMin
             // 
@@ -166,7 +164,7 @@
             this.icButtonMax.TabIndex = 3;
             this.icButtonMax.Tag = "";
             this.icButtonMax.UseVisualStyleBackColor = false;
-            this.icButtonMax.Click += new System.EventHandler(this.iconButton3_Click);
+            this.icButtonMax.Click += new System.EventHandler(this.icButtonMax_Click);
             // 
             // pnlUser
             // 
@@ -204,20 +202,6 @@
             this.pboxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxUser.TabIndex = 4;
             this.pboxUser.TabStop = false;
-            // 
-            // LblFuncionario
-            // 
-            this.LblFuncionario.AutoSize = true;
-            this.LblFuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.LblFuncionario.ForeColor = System.Drawing.Color.White;
-            this.LblFuncionario.Location = new System.Drawing.Point(862, 6);
-            this.LblFuncionario.Name = "LblFuncionario";
-            this.LblFuncionario.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.LblFuncionario.Size = new System.Drawing.Size(41, 25);
-            this.LblFuncionario.TabIndex = 3;
-            this.LblFuncionario.Text = "User";
-            this.LblFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblFuncionario.UseCompatibleTextRendering = true;
             // 
             // pnlWindows
             // 
@@ -287,7 +271,6 @@
             this.Name = "Head";
             this.Size = new System.Drawing.Size(1063, 37);
             this.panelTituloBar.ResumeLayout(false);
-            this.panelTituloBar.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).EndInit();
@@ -306,7 +289,6 @@
         private System.Windows.Forms.Panel pnlUser;
         private System.Windows.Forms.Label lblUser;
         private RJCodeAdvance.RJControls.RJCircularPictureBox pboxUser;
-        private System.Windows.Forms.Label LblFuncionario;
         private System.Windows.Forms.Panel pnlWindows;
         private FontAwesome.Sharp.IconButton iconButtonFechar;
         private FontAwesome.Sharp.IconButton iconButtonMinimizar;
