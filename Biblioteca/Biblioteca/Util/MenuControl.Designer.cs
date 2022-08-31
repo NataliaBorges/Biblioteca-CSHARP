@@ -59,8 +59,8 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmReserva = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarReserva = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
             this.ddmCadastro.SuspendLayout();
@@ -341,30 +341,35 @@
             this.leitorToolStripMenuItem.Name = "leitorToolStripMenuItem";
             this.leitorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.leitorToolStripMenuItem.Text = "Leitor";
+            this.leitorToolStripMenuItem.Click += new System.EventHandler(this.leitorToolStripMenuItem_Click);
             // 
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
             this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // editoraToolStripMenuItem
             // 
             this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
             this.editoraToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.editoraToolStripMenuItem.Text = "Editora";
+            this.editoraToolStripMenuItem.Click += new System.EventHandler(this.editoraToolStripMenuItem_Click);
             // 
             // autorToolStripMenuItem
             // 
             this.autorToolStripMenuItem.Name = "autorToolStripMenuItem";
             this.autorToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.autorToolStripMenuItem.Text = "Autor";
+            this.autorToolStripMenuItem.Click += new System.EventHandler(this.autorToolStripMenuItem_Click);
             // 
             // gêneroToolStripMenuItem
             // 
             this.gêneroToolStripMenuItem.Name = "gêneroToolStripMenuItem";
             this.gêneroToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.gêneroToolStripMenuItem.Text = "Gênero";
+            this.gêneroToolStripMenuItem.Click += new System.EventHandler(this.gêneroToolStripMenuItem_Click);
             // 
             // ddmBuscar
             // 
@@ -385,6 +390,7 @@
             // 
             // livroToolStripMenuItem1
             // 
+            this.livroToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
             this.livroToolStripMenuItem1.Name = "livroToolStripMenuItem1";
             this.livroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.livroToolStripMenuItem1.Text = "Livro";
@@ -395,30 +401,35 @@
             this.leitorToolStripMenuItem1.Name = "leitorToolStripMenuItem1";
             this.leitorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.leitorToolStripMenuItem1.Text = "Leitor";
+            this.leitorToolStripMenuItem1.Click += new System.EventHandler(this.leitorToolStripMenuItem1_Click);
             // 
             // funcionárioToolStripMenuItem1
             // 
             this.funcionárioToolStripMenuItem1.Name = "funcionárioToolStripMenuItem1";
             this.funcionárioToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.funcionárioToolStripMenuItem1.Text = "Funcionário";
+            this.funcionárioToolStripMenuItem1.Click += new System.EventHandler(this.funcionárioToolStripMenuItem1_Click);
             // 
             // editoraToolStripMenuItem1
             // 
             this.editoraToolStripMenuItem1.Name = "editoraToolStripMenuItem1";
             this.editoraToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.editoraToolStripMenuItem1.Text = "Editora";
+            this.editoraToolStripMenuItem1.Click += new System.EventHandler(this.editoraToolStripMenuItem1_Click);
             // 
             // autorToolStripMenuItem1
             // 
             this.autorToolStripMenuItem1.Name = "autorToolStripMenuItem1";
             this.autorToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.autorToolStripMenuItem1.Text = "Autor";
+            this.autorToolStripMenuItem1.Click += new System.EventHandler(this.autorToolStripMenuItem1_Click);
             // 
             // gêneroToolStripMenuItem1
             // 
             this.gêneroToolStripMenuItem1.Name = "gêneroToolStripMenuItem1";
             this.gêneroToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
             this.gêneroToolStripMenuItem1.Text = "Gênero";
+            this.gêneroToolStripMenuItem1.Click += new System.EventHandler(this.gêneroToolStripMenuItem1_Click);
             // 
             // ddmEmprestimo
             // 
@@ -438,43 +449,48 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.toolStripMenuItem1.Text = "Cadastrar";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(139, 22);
             this.toolStripMenuItem2.Text = "Buscar";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // ddmReserva
             // 
             this.ddmReserva.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ddmReserva.IsMainMenu = false;
             this.ddmReserva.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem13,
-            this.toolStripMenuItem14});
+            this.cadastrarReserva,
+            this.buscarReserva});
             this.ddmReserva.MenuItemHeight = 25;
             this.ddmReserva.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmReserva.Name = "rjDropdownMenu1";
             this.ddmReserva.PrimaryColor = System.Drawing.Color.Empty;
             this.ddmReserva.Size = new System.Drawing.Size(140, 48);
             // 
-            // toolStripMenuItem13
+            // cadastrarReserva
             // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            this.toolStripMenuItem13.Size = new System.Drawing.Size(139, 22);
-            this.toolStripMenuItem13.Text = "Cadastrar";
+            this.cadastrarReserva.Name = "cadastrarReserva";
+            this.cadastrarReserva.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarReserva.Text = "Cadastrar";
+            this.cadastrarReserva.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
             // 
-            // toolStripMenuItem14
+            // buscarReserva
             // 
-            this.toolStripMenuItem14.Name = "toolStripMenuItem14";
-            this.toolStripMenuItem14.Size = new System.Drawing.Size(139, 22);
-            this.toolStripMenuItem14.Text = "Buscar";
+            this.buscarReserva.Name = "buscarReserva";
+            this.buscarReserva.Size = new System.Drawing.Size(139, 22);
+            this.buscarReserva.Text = "Buscar";
+            this.buscarReserva.Click += new System.EventHandler(this.buscarReserva_Click);
             // 
             // MenuControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.Menu);
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MenuControl";
             this.Size = new System.Drawing.Size(198, 798);
             this.Load += new System.EventHandler(this.MenuControl_Load);
@@ -520,8 +536,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmReserva;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarReserva;
+        private System.Windows.Forms.ToolStripMenuItem buscarReserva;
         private FontAwesome.Sharp.IconButton icnButtonBar;
     }
 }

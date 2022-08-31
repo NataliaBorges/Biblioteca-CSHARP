@@ -31,36 +31,36 @@ namespace Biblioteca.Util
         }
         private void panelTituloBar_Resize(object sender, EventArgs e)
         {
-            AdjustForm();
+            //AdjustForm();
         }
         private void AdjustForm()
         {
-            switch (WindowState)
-            {
-                case (WindowState)FormWindowState.Maximized:
-                    this.Padding = new Padding(8, 8, 8, 0);
-                    break;
-                case (WindowState)FormWindowState.Normal:
-                    if (this.Padding.Top != borderSize)
-                        this.Padding = new Padding(borderSize);
-                    break;
-            }
+            //switch (WindowState)
+            //{
+            //    case (WindowState)FormWindowState.Maximized:
+            //        this.Padding = new Padding(8, 8, 8, 0);
+            //        break;
+            //    case (WindowState)FormWindowState.Normal:
+            //        if (this.Padding.Top != borderSize)
+            //            this.Padding = new Padding(borderSize);
+            //        break;
+            //}
 
         }
 
         private void icButtonMin_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            //WindowState = FormWindowState.Minimized;
         }
 
         private void icButtonMax_Click(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Normal)
-                this.WindowState = FormWindowState.Maximized;
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
+            //if (WindowState == FormWindowState.Normal)
+            //    WindowState = FormWindowState.Maximized;
+            //else
+            //{
+            //    WindowState = FormWindowState.Normal;
+            //}
         }
 
         private void icButtonFechar_Click(object sender, EventArgs e)

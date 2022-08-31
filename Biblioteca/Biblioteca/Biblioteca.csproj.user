@@ -10,6 +10,9 @@
     <Compile Update="Util\MenuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\Autor\AutorBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Autor\AutorCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -47,6 +50,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Funcionario\FuncionarioEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Genero\GeneroBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Genero\GeneroCadastrarView.cs">
