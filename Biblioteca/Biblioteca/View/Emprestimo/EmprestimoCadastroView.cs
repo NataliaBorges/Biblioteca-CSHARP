@@ -52,7 +52,7 @@ namespace Biblioteca.View.Emprestimo {
         protected override void OnActivated(EventArgs e) {
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
-            if (singleton.getAddExemplar() == true) {
+            if (singleton.getAddAutor() == true) {
                 singleton.setAddExemplar(false);
             }
         }
@@ -62,12 +62,14 @@ namespace Biblioteca.View.Emprestimo {
             if (lista.Count > 0) {
                 foreach (ExemplarModel exemplar in lista) {
                     ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Nome);
-                    item.SubItems.Add(exemplar.Autor);
-                    item.SubItems.Add(exemplar.Fornecedor);
-                    item.SubItems.Add(exemplar.ISBN);
+                    item.SubItems.Add(exemplar.Titulo);
                     item.SubItems.Add(exemplar.Edicao);
                     item.SubItems.Add(exemplar.AnoPublicacao);
+                    item.SubItems.Add(exemplar.ISBN);
+                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(exemplar.Nome_Autor);
+                    item.SubItems.Add(exemplar.Nome_Editora);
+                    item.SubItems.Add(exemplar.Nome_Genero);
 
                     lvLivros.Items.Add(item);
                 }

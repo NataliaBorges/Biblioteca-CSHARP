@@ -28,7 +28,7 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         protected override void OnActivated(EventArgs e) {
-            if (singleton.getAddExemplar() == true) {
+            if (singleton.getAddAutor() == true) {
                 this.Close();
             }
             List<LivroModel> lista = controller.ListarTodosLivros();

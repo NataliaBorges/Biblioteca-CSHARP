@@ -27,6 +27,8 @@ namespace Biblioteca.View.Fornecedor {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditoraEditarView));
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBoxCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@ namespace Biblioteca.View.Fornecedor {
             this.label9 = new System.Windows.Forms.Label();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.head1 = new Biblioteca.Util.Head();
-            this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(15)))), ((int)(((byte)(0)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.label2);
@@ -93,6 +93,25 @@ namespace Biblioteca.View.Fornecedor {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(928, 759);
             this.panel1.TabIndex = 71;
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(340, 121);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(294, 38);
+            this.lblCadastroLivro.TabIndex = 89;
+            this.lblCadastroLivro.Text = "EDITAR EDITORA";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(928, 37);
+            this.head1.TabIndex = 88;
             // 
             // label2
             // 
@@ -288,29 +307,11 @@ namespace Biblioteca.View.Fornecedor {
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(177, 759);
             this.menuControl1.TabIndex = 72;
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(928, 37);
-            this.head1.TabIndex = 88;
-            // 
-            // lblCadastroLivro
-            // 
-            this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(304, 104);
-            this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(354, 38);
-            this.lblCadastroLivro.TabIndex = 89;
-            this.lblCadastroLivro.Text = "EDIÇÃO DE EDITORA";
             // 
             // EditoraEditarView
             // 

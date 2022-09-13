@@ -27,14 +27,11 @@ namespace Biblioteca.View {
             if (controller.Login(email, senha)) {
                 FuncionarioModel funcionarioModel = singleton.getFuncionario();
 
-                PrincipalTelaView principalTelaView = new PrincipalTelaView();
-
                 this.Hide();
 
-                Rectangle bounds = this.Bounds;
-                principalTelaView.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
-                principalTelaView.StartPosition = FormStartPosition.CenterScreen;
-                principalTelaView.ShowDialog();
+                PrincipalTelaView principalTelaView = new PrincipalTelaView();
+                NovaJanela.novaJanela(principalTelaView, Bounds);
+                
             }
             else {
                 singleton.setFuncionario(null);

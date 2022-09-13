@@ -55,12 +55,12 @@ namespace Biblioteca.View.Fornecedor {
         }
 
         private void FornecedorBuscarView_Load(object sender, EventArgs e) {
-            List<EditoraModel> lista = controller.ListarTodos();
+            List<EditoraModel> lista = controller.ListarPesquisaAutor();
             popular(lista);
         }
 
         protected override void OnActivated(EventArgs e) {
-            List<EditoraModel> lista = controller.ListarTodos();
+            List<EditoraModel> lista = controller.ListarPesquisaAutor();
             popular(lista);
         }
 

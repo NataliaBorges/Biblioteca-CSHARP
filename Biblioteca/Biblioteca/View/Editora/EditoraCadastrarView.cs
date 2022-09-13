@@ -14,6 +14,8 @@ namespace Biblioteca.View.Fornecedor {
 
         EditoraController controller = new EditoraController();
         public EditoraCadastrarView() {
+            //button = false;
+            //this.icBtnVoltar = button;
             InitializeComponent();
         }
 
@@ -26,10 +28,6 @@ namespace Biblioteca.View.Fornecedor {
             this.maskedTextBoxCNPJ.Clear();
             this.maskedTextBoxTelefone.Clear();
             this.tbEmail.Clear();
-        }
-
-        private void FornecedorCadastrarView_Load(object sender, EventArgs e) {
-
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -82,8 +80,14 @@ namespace Biblioteca.View.Fornecedor {
                 }
             } 
         }
+        private void EditoraCadastrarView_Load(object sender, EventArgs e)
+        {
+            //this.icBtnVoltar.Visible = this.btnVoltar;
+            this.menuControl1.setPanel(pnltotal);
+        }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void icBtnVoltar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

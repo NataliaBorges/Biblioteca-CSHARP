@@ -24,6 +24,7 @@ namespace Biblioteca.View {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaLoginView));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rjCircularPictureBox1 = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             this.tbEmail = new RJCodeAdvance.RJControls.RJTextBox();
@@ -41,6 +42,8 @@ namespace Biblioteca.View {
             this.PnlEmail = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.PnlSenha = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -48,16 +51,19 @@ namespace Biblioteca.View {
             this.PnlEmail.SuspendLayout();
             this.PnlSenha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.BackgroundImage = global::Biblioteca.Properties.Resources.BOOF;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -4);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(342, 488);
+            this.pictureBox1.Size = new System.Drawing.Size(568, 558);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -70,7 +76,7 @@ namespace Biblioteca.View {
             this.rjCircularPictureBox1.BorderSize = 2;
             this.rjCircularPictureBox1.GradientAngle = 50F;
             this.rjCircularPictureBox1.Image = global::Biblioteca.Properties.Resources.IconeLendo;
-            this.rjCircularPictureBox1.Location = new System.Drawing.Point(460, 55);
+            this.rjCircularPictureBox1.Location = new System.Drawing.Point(300, 133);
             this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
             this.rjCircularPictureBox1.Size = new System.Drawing.Size(100, 100);
             this.rjCircularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +100,7 @@ namespace Biblioteca.View {
             this.tbEmail.PasswordChar = false;
             this.tbEmail.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbEmail.PlaceholderText = "E-mail";
-            this.tbEmail.Size = new System.Drawing.Size(228, 34);
+            this.tbEmail.Size = new System.Drawing.Size(251, 34);
             this.tbEmail.TabIndex = 3;
             this.tbEmail.Texts = "";
             this.tbEmail.UnderlinedStyle = true;
@@ -108,7 +114,7 @@ namespace Biblioteca.View {
             this.tbSenha.BorderSize = 2;
             this.tbSenha.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbSenha.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.tbSenha.Location = new System.Drawing.Point(48, 1);
+            this.tbSenha.Location = new System.Drawing.Point(49, 4);
             this.tbSenha.Margin = new System.Windows.Forms.Padding(4);
             this.tbSenha.Multiline = false;
             this.tbSenha.Name = "tbSenha";
@@ -116,7 +122,7 @@ namespace Biblioteca.View {
             this.tbSenha.PasswordChar = true;
             this.tbSenha.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.tbSenha.PlaceholderText = "Senha";
-            this.tbSenha.Size = new System.Drawing.Size(207, 33);
+            this.tbSenha.Size = new System.Drawing.Size(247, 33);
             this.tbSenha.TabIndex = 4;
             this.tbSenha.Texts = "";
             this.tbSenha.UnderlinedStyle = true;
@@ -133,7 +139,7 @@ namespace Biblioteca.View {
             this.btLogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btLogar.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btLogar.Location = new System.Drawing.Point(412, 294);
+            this.btLogar.Location = new System.Drawing.Point(250, 418);
             this.btLogar.Name = "btLogar";
             this.btLogar.Size = new System.Drawing.Size(196, 39);
             this.btLogar.TabIndex = 5;
@@ -147,7 +153,7 @@ namespace Biblioteca.View {
             this.lbCancelar.AutoSize = true;
             this.lbCancelar.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbCancelar.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbCancelar.Location = new System.Drawing.Point(490, 351);
+            this.lbCancelar.Location = new System.Drawing.Point(300, 475);
             this.lbCancelar.Name = "lbCancelar";
             this.lbCancelar.Size = new System.Drawing.Size(0, 15);
             this.lbCancelar.TabIndex = 6;
@@ -162,7 +168,7 @@ namespace Biblioteca.View {
             this.ibtSenha.IconColor = System.Drawing.Color.SaddleBrown;
             this.ibtSenha.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ibtSenha.IconSize = 20;
-            this.ibtSenha.Location = new System.Drawing.Point(254, 8);
+            this.ibtSenha.Location = new System.Drawing.Point(302, 8);
             this.ibtSenha.Name = "ibtSenha";
             this.ibtSenha.Size = new System.Drawing.Size(27, 27);
             this.ibtSenha.TabIndex = 9;
@@ -179,7 +185,7 @@ namespace Biblioteca.View {
             this.iconPictureBox1.IconColor = System.Drawing.Color.SaddleBrown;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconPictureBox1.IconSize = 35;
-            this.iconPictureBox1.Location = new System.Drawing.Point(9, 5);
+            this.iconPictureBox1.Location = new System.Drawing.Point(7, 5);
             this.iconPictureBox1.Name = "iconPictureBox1";
             this.iconPictureBox1.Size = new System.Drawing.Size(35, 35);
             this.iconPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -193,7 +199,7 @@ namespace Biblioteca.View {
             this.lbCancel.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbCancel.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lbCancel.LinkColor = System.Drawing.Color.SaddleBrown;
-            this.lbCancel.Location = new System.Drawing.Point(440, 336);
+            this.lbCancel.Location = new System.Drawing.Point(273, 460);
             this.lbCancel.Name = "lbCancel";
             this.lbCancel.Size = new System.Drawing.Size(50, 15);
             this.lbCancel.TabIndex = 11;
@@ -208,7 +214,7 @@ namespace Biblioteca.View {
             this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.ForeColor = System.Drawing.Color.SaddleBrown;
             this.linkLabel1.LinkColor = System.Drawing.Color.SaddleBrown;
-            this.linkLabel1.Location = new System.Drawing.Point(505, 336);
+            this.linkLabel1.Location = new System.Drawing.Point(349, 460);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(85, 15);
             this.linkLabel1.TabIndex = 12;
@@ -225,7 +231,7 @@ namespace Biblioteca.View {
             this.ibtSenhaAberta.IconColor = System.Drawing.Color.SaddleBrown;
             this.ibtSenhaAberta.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.ibtSenhaAberta.IconSize = 20;
-            this.ibtSenhaAberta.Location = new System.Drawing.Point(254, 8);
+            this.ibtSenhaAberta.Location = new System.Drawing.Point(302, 8);
             this.ibtSenhaAberta.Name = "ibtSenhaAberta";
             this.ibtSenhaAberta.Size = new System.Drawing.Size(27, 27);
             this.ibtSenhaAberta.TabIndex = 13;
@@ -243,7 +249,7 @@ namespace Biblioteca.View {
             this.IbMinimizar.IconColor = System.Drawing.Color.White;
             this.IbMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IbMinimizar.IconSize = 20;
-            this.IbMinimizar.Location = new System.Drawing.Point(587, 0);
+            this.IbMinimizar.Location = new System.Drawing.Point(496, -2);
             this.IbMinimizar.Name = "IbMinimizar";
             this.IbMinimizar.Size = new System.Drawing.Size(40, 26);
             this.IbMinimizar.TabIndex = 15;
@@ -261,7 +267,7 @@ namespace Biblioteca.View {
             this.IbFechar.IconColor = System.Drawing.Color.White;
             this.IbFechar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IbFechar.IconSize = 20;
-            this.IbFechar.Location = new System.Drawing.Point(625, 0);
+            this.IbFechar.Location = new System.Drawing.Point(532, -2);
             this.IbFechar.Name = "IbFechar";
             this.IbFechar.Size = new System.Drawing.Size(40, 26);
             this.IbFechar.TabIndex = 14;
@@ -278,7 +284,7 @@ namespace Biblioteca.View {
             this.iconPictureBox2.IconColor = System.Drawing.Color.SaddleBrown;
             this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconPictureBox2.IconSize = 35;
-            this.iconPictureBox2.Location = new System.Drawing.Point(9, 5);
+            this.iconPictureBox2.Location = new System.Drawing.Point(6, 5);
             this.iconPictureBox2.Name = "iconPictureBox2";
             this.iconPictureBox2.Size = new System.Drawing.Size(35, 35);
             this.iconPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -291,9 +297,9 @@ namespace Biblioteca.View {
             this.PnlEmail.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             this.PnlEmail.Controls.Add(this.tbEmail);
             this.PnlEmail.Controls.Add(this.iconPictureBox1);
-            this.PnlEmail.Location = new System.Drawing.Point(363, 161);
+            this.PnlEmail.Location = new System.Drawing.Point(173, 285);
             this.PnlEmail.Name = "PnlEmail";
-            this.PnlEmail.Size = new System.Drawing.Size(290, 39);
+            this.PnlEmail.Size = new System.Drawing.Size(338, 39);
             this.PnlEmail.TabIndex = 17;
             // 
             // PnlSenha
@@ -304,9 +310,9 @@ namespace Biblioteca.View {
             this.PnlSenha.Controls.Add(this.tbSenha);
             this.PnlSenha.Controls.Add(this.ibtSenhaAberta);
             this.PnlSenha.Controls.Add(this.ibtSenha);
-            this.PnlSenha.Location = new System.Drawing.Point(363, 225);
+            this.PnlSenha.Location = new System.Drawing.Point(173, 349);
             this.PnlSenha.Name = "PnlSenha";
-            this.PnlSenha.Size = new System.Drawing.Size(290, 40);
+            this.PnlSenha.Size = new System.Drawing.Size(338, 40);
             this.PnlSenha.TabIndex = 18;
             // 
             // iconPictureBox3
@@ -318,12 +324,46 @@ namespace Biblioteca.View {
             this.iconPictureBox3.IconColor = System.Drawing.Color.SaddleBrown;
             this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.iconPictureBox3.IconSize = 35;
-            this.iconPictureBox3.Location = new System.Drawing.Point(55, -72);
+            this.iconPictureBox3.Location = new System.Drawing.Point(79, -72);
             this.iconPictureBox3.Name = "iconPictureBox3";
             this.iconPictureBox3.Size = new System.Drawing.Size(35, 35);
             this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.iconPictureBox3.TabIndex = 10;
             this.iconPictureBox3.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Black;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1149, 564);
+            this.tableLayoutPanel1.TabIndex = 19;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.panel1.Controls.Add(this.rjCircularPictureBox1);
+            this.panel1.Controls.Add(this.PnlSenha);
+            this.panel1.Controls.Add(this.btLogar);
+            this.panel1.Controls.Add(this.PnlEmail);
+            this.panel1.Controls.Add(this.lbCancelar);
+            this.panel1.Controls.Add(this.IbMinimizar);
+            this.panel1.Controls.Add(this.lbCancel);
+            this.panel1.Controls.Add(this.IbFechar);
+            this.panel1.Controls.Add(this.linkLabel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(577, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(569, 558);
+            this.panel1.TabIndex = 1;
             // 
             // TelaLoginView
             // 
@@ -331,21 +371,15 @@ namespace Biblioteca.View {
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Bisque;
-            this.ClientSize = new System.Drawing.Size(665, 484);
-            this.Controls.Add(this.PnlSenha);
-            this.Controls.Add(this.PnlEmail);
-            this.Controls.Add(this.IbMinimizar);
-            this.Controls.Add(this.IbFechar);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.lbCancel);
-            this.Controls.Add(this.lbCancelar);
-            this.Controls.Add(this.btLogar);
-            this.Controls.Add(this.rjCircularPictureBox1);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(1149, 564);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "TelaLoginView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TelaLoginView";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
@@ -355,8 +389,10 @@ namespace Biblioteca.View {
             this.PnlSenha.ResumeLayout(false);
             this.PnlSenha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -379,5 +415,7 @@ namespace Biblioteca.View {
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PnlEmail;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PnlSenha;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

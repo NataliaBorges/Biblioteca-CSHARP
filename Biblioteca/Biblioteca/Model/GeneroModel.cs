@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Biblioteca.Model {
     class GeneroModel {
-        int Id_genero { get; set; }
-        String genero { get; set; }
+        public int Id_genero { get; set; }
+        public String Nome_genero { get; set; }
 
-        public GeneroModel(int Id_genero, String genero) {
+        public GeneroModel(int Id_genero, String nomeGenero) {
             this.Id_genero = Id_genero;
-            this.genero = genero;
+            this.Nome_genero = nomeGenero;
         }
         public int getId() {
             return this.Id_genero;

@@ -33,12 +33,13 @@ namespace Biblioteca.View.Fornecedor {
             this.tbNumero = new System.Windows.Forms.TextBox();
             this.tbRua = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.icBtnVoltar = new FontAwesome.Sharp.IconButton();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.head1 = new Biblioteca.Util.Head();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
@@ -132,18 +133,19 @@ namespace Biblioteca.View.Fornecedor {
             this.label6.TabIndex = 46;
             this.label6.Text = "Rua:";
             // 
-            // button1
+            // btnCadastrar
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(528, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 45);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "CADASTRAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCadastrar.BackColor = System.Drawing.Color.Black;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrar.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrar.Location = new System.Drawing.Point(528, 399);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(187, 45);
+            this.btnCadastrar.TabIndex = 45;
+            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -192,6 +194,7 @@ namespace Biblioteca.View.Fornecedor {
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.pnlPrincipal.Controls.Add(this.icBtnVoltar);
             this.pnlPrincipal.Controls.Add(this.linkLabel1);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.lblCadastroLivro);
@@ -208,15 +211,34 @@ namespace Biblioteca.View.Fornecedor {
             this.pnlPrincipal.Controls.Add(this.label5);
             this.pnlPrincipal.Controls.Add(this.label9);
             this.pnlPrincipal.Controls.Add(this.label7);
-            this.pnlPrincipal.Controls.Add(this.button1);
+            this.pnlPrincipal.Controls.Add(this.btnCadastrar);
             this.pnlPrincipal.Controls.Add(this.tbNumero);
             this.pnlPrincipal.Controls.Add(this.label6);
             this.pnlPrincipal.Controls.Add(this.tbRua);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.pnlPrincipal.Location = new System.Drawing.Point(201, 3);
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1120, 673);
             this.pnlPrincipal.TabIndex = 55;
+            // 
+            // icBtnVoltar
+            // 
+            this.icBtnVoltar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.icBtnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.icBtnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.icBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.icBtnVoltar.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.icBtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icBtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icBtnVoltar.IconSize = 29;
+            this.icBtnVoltar.Location = new System.Drawing.Point(228, 75);
+            this.icBtnVoltar.Name = "icBtnVoltar";
+            this.icBtnVoltar.Size = new System.Drawing.Size(51, 33);
+            this.icBtnVoltar.TabIndex = 63;
+            this.icBtnVoltar.UseVisualStyleBackColor = false;
+            this.icBtnVoltar.Click += new System.EventHandler(this.icBtnVoltar_Click);
             // 
             // linkLabel1
             // 
@@ -292,7 +314,6 @@ namespace Biblioteca.View.Fornecedor {
             this.pnltotal.ColumnCount = 2;
             this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.pnltotal.Controls.Add(this.pnlPrincipal, 1, 0);
             this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
             this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -306,6 +327,7 @@ namespace Biblioteca.View.Fornecedor {
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(192, 673);
@@ -324,8 +346,8 @@ namespace Biblioteca.View.Fornecedor {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditoraCadastrarView";
-            this.Text = "Cadastrar Fornecedor";
-            this.Load += new System.EventHandler(this.FornecedorCadastrarView_Load);
+            this.Text = "Cadastrar Editora";
+            this.Load += new System.EventHandler(this.EditoraCadastrarView_Load);
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
             this.pnltotal.ResumeLayout(false);
@@ -343,7 +365,7 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.TextBox tbNumero;
         private System.Windows.Forms.TextBox tbRua;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbNome;
@@ -358,5 +380,6 @@ namespace Biblioteca.View.Fornecedor {
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private FontAwesome.Sharp.IconButton icBtnVoltar;
     }
 }

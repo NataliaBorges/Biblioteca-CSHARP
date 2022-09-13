@@ -19,7 +19,7 @@ namespace Biblioteca.Controller
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
-        public List<AutorModel> ListarTodos(List<AutorModel> lista)
+        public List<AutorModel> ListarTodos()
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Autor";
@@ -33,13 +33,19 @@ namespace Biblioteca.Controller
             {
                 AutorModel autor = new AutorModel(
                     (int)reader["ID"],
-                    (String)reader["Nome"]
+                    (String)reader["Nome_Autor"]
                 );
                 list.Add(autor);
             }
             reader.Close();
 
             return list;
+        }
+
+        public void InserirAutorLivro(AutorModel autor)
+        {
+            this.singleton.setAutor(autor);
+            this.singleton.setAddAutor(true);
         }
     }
 }

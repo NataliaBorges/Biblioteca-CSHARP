@@ -53,15 +53,17 @@
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1004, 648);
+            this.pnltotal.Size = new System.Drawing.Size(1293, 644);
             this.pnltotal.TabIndex = 1;
             // 
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(142, 633);
+            this.menuControl1.Size = new System.Drawing.Size(187, 638);
             this.menuControl1.TabIndex = 0;
             // 
             // pnlPrincipal
@@ -74,9 +76,9 @@
             this.pnlPrincipal.Controls.Add(this.label3);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(153, 3);
+            this.pnlPrincipal.Location = new System.Drawing.Point(196, 3);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(848, 642);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1094, 638);
             this.pnlPrincipal.TabIndex = 1;
             // 
             // linkLabel2
@@ -84,7 +86,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(566, 325);
+            this.linkLabel2.Location = new System.Drawing.Point(731, 351);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(98, 18);
             this.linkLabel2.TabIndex = 63;
@@ -97,7 +99,7 @@
             this.btnCadastrar.BackColor = System.Drawing.Color.Black;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(524, 271);
+            this.btnCadastrar.Location = new System.Drawing.Point(689, 297);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(140, 51);
             this.btnCadastrar.TabIndex = 62;
@@ -107,7 +109,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(239, 196);
+            this.textBox1.Location = new System.Drawing.Point(404, 222);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(425, 27);
             this.textBox1.TabIndex = 61;
@@ -118,7 +120,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(176, 199);
+            this.label2.Location = new System.Drawing.Point(341, 225);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 20);
             this.label2.TabIndex = 60;
@@ -130,7 +132,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(328, 81);
+            this.label3.Location = new System.Drawing.Point(493, 107);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(250, 27);
             this.label3.TabIndex = 59;
@@ -141,7 +143,7 @@
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(848, 37);
+            this.head1.Size = new System.Drawing.Size(1094, 37);
             this.head1.TabIndex = 0;
             // 
             // GeneroCadastrarView
@@ -149,11 +151,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1004, 648);
+            this.ClientSize = new System.Drawing.Size(1293, 644);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GeneroCadastrarView";
             this.Text = "GeneroCadastrarView";
+            this.Load += new System.EventHandler(this.GeneroCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();

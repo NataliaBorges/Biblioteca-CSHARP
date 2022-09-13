@@ -4,12 +4,12 @@ using System.Text;
 
 namespace Biblioteca.Model {
     class AutorModel {
-        int Id_autor { get; set; }
-        String Nome { get; set; }
+        public int Id_autor { get; set; }
+        public String Nome_Autor { get; set; }
 
-        public AutorModel(int Id_autor, String nome) {
+        public AutorModel(int Id_autor, String nome_autor) {
             this.Id_autor = Id_autor;
-            this.Nome = nome;
+            this.Nome_Autor = nome_autor;
         }
         public int getId() {
             return this.Id_autor;

@@ -19,16 +19,16 @@ namespace Biblioteca.Controller {
             Cmd = new SqlCommand();
         }
 
-        public bool Insercao(EditoraModel fornecedor) {
+        public bool Insercao(EditoraModel editora) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Fornecedor Values (@Nome_fornecedor, @Endereco, @Telefone, @CNPJ, @Email)";
+            Cmd.CommandText = @"INSERT INTO Editora Values (@Nome_Editora, @Endereco, @Telefone, @CNPJ, @Email)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@Nome_fornecedor", fornecedor.Nome);
-            Cmd.Parameters.AddWithValue("@Endereco", fornecedor.Endereco);
-            Cmd.Parameters.AddWithValue("@Telefone", fornecedor.Telefone);
-            Cmd.Parameters.AddWithValue("@CNPJ", fornecedor.CNPJ);
-            Cmd.Parameters.AddWithValue("@Email", fornecedor.Email);
+            Cmd.Parameters.AddWithValue("@Nome_fornecedor", editora.Nome);
+            Cmd.Parameters.AddWithValue("@Endereco", editora.Endereco);
+            Cmd.Parameters.AddWithValue("@Telefone", editora.Telefone);
+            Cmd.Parameters.AddWithValue("@CNPJ", editora.CNPJ);
+            Cmd.Parameters.AddWithValue("@Email", editora.Email);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -37,19 +37,19 @@ namespace Biblioteca.Controller {
             }
         }
 
-        public bool Atualizar(EditoraModel fornecedor) {
+        public bool Atualizar(EditoraModel editora) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Fornecedor SET Nome_fornecedor = @Nome_fornecedor,  
+            Cmd.CommandText = @"UPDATE Editora SET Nome_Editora = @Nome_Editor,  
                                 Endereco = @Endereco, Telefone = @Telefone, CNPJ = @CNPJ, Email = @Email
-                                WHERE ID_fornecedor = @ID";
+                                WHERE ID = @ID";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID", fornecedor.getId());
-            Cmd.Parameters.AddWithValue("@Nome_fornecedor", fornecedor.Nome);
-            Cmd.Parameters.AddWithValue("@Endereco", fornecedor.Endereco);
-            Cmd.Parameters.AddWithValue("@Telefone", fornecedor.Telefone);
-            Cmd.Parameters.AddWithValue("@CNPJ", fornecedor.CNPJ);
-            Cmd.Parameters.AddWithValue("@Email", fornecedor.Email);
+            Cmd.Parameters.AddWithValue("@ID", editora.getId());
+            Cmd.Parameters.AddWithValue("@Nome_Editora", editora.Nome);
+            Cmd.Parameters.AddWithValue("@Endereco", editora.Endereco);
+            Cmd.Parameters.AddWithValue("@Telefone", editora.Telefone);
+            Cmd.Parameters.AddWithValue("@CNPJ", editora.CNPJ);
+            Cmd.Parameters.AddWithValue("@Email", editora.Email);
 
 
             if (Cmd.ExecuteNonQuery() == 1) {
@@ -60,9 +60,9 @@ namespace Biblioteca.Controller {
             }
         }
 
-        public List<EditoraModel> ListarTodos() {
+        public List<EditoraModel> ListarPesquisaAutor() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Fornecedor";
+            Cmd.CommandText = @"SELECT * FROM Editora";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -70,15 +70,12 @@ namespace Biblioteca.Controller {
             List<EditoraModel> lista = new List<EditoraModel>();
 
             while (reader.Read()) {
-                EditoraModel leitor = new EditoraModel(
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_fornecedor"],
-                    (String)reader["Endereco"],
-                    (String)reader["Telefone"],
-                    (String)reader["CNPJ"],
-                    (String)reader["Email"]
+                EditoraModel editora = new EditoraModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["CNPJ"]
                 );
-                lista.Add(leitor);
+                lista.Add(editora);
             }
             reader.Close();
 
@@ -89,10 +86,10 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isNome) {
-                Cmd.CommandText = @"SELECT * FROM Fornecedor WHERE Nome_fornecedor LIKE '"+busca+"%'";
+                Cmd.CommandText = @"SELECT * FROM Editora WHERE Nome_Editra LIKE '"+busca+"%'";
             }
             if (isCNPJ) {
-                Cmd.CommandText = @"SELECT * FROM Fornecedor WHERE CNPJ LIKE '" + busca+"%'";
+                Cmd.CommandText = @"SELECT * FROM Editora WHERE CNPJ LIKE '" + busca+"%'";
             }
 
             Cmd.Parameters.Clear();
@@ -103,12 +100,9 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 EditoraModel leitor = new EditoraModel(
-                    (int)reader["ID_fornecedor"],
-                    (String)reader["Nome_fornecedor"],
-                    (String)reader["Endereco"],
-                    (String)reader["Telefone"],
-                    (String)reader["CNPJ"],
-                    (String)reader["Email"]
+                    (int)reader["ID"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["CNPJ"]
                 );
                 lista.Add(leitor);
             }
@@ -117,12 +111,12 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public bool Excluir(EditoraModel fornecedor) {
+        public bool Excluir(EditoraModel editora) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"DELETE FROM Fornecedor WHERE ID_fornecedor= @ID";
+            Cmd.CommandText = @"DELETE FROM Editora WHERE ID = @ID";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID", fornecedor.getId());
+            Cmd.Parameters.AddWithValue("@ID", editora.getId());
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;

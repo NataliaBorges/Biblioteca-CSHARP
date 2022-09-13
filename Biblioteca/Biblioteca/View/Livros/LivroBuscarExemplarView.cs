@@ -35,14 +35,14 @@ namespace Biblioteca.View.Livros {
             if (lista.Count > 0) {
                 foreach (ExemplarModel exemplar in lista) {
                     ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Nome);
-                    item.SubItems.Add(exemplar.Autor);
+                    item.SubItems.Add(exemplar.Titulo);
                     item.SubItems.Add(exemplar.Edicao);
                     item.SubItems.Add(exemplar.AnoPublicacao);
                     item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Fornecedor);
                     item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(exemplar.Estado);
+                    item.SubItems.Add(exemplar.Nome_Autor);
+                    item.SubItems.Add(exemplar.Nome_Editora);
+                    item.SubItems.Add(exemplar.Nome_Genero);
 
                     LvExemplar.Items.Add(item);
                 }
@@ -55,22 +55,19 @@ namespace Biblioteca.View.Livros {
                 int.Parse(item.SubItems[0].Text),
                 item.SubItems[1].Text,
                 item.SubItems[2].Text,
-                item.SubItems[6].Text,
-                item.SubItems[5].Text,
                 item.SubItems[3].Text,
                 item.SubItems[4].Text,
-                DateTime.Parse(item.SubItems[7].Text),
+                DateTime.Parse(item.SubItems[5].Text),
+                item.SubItems[7].Text,
+                item.SubItems[6].Text,
                 item.SubItems[8].Text
             );
             //DialogResult dialogResult = MessageBox.Show("Você realmente deseja inativar?", "Atenção", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes) {
+            //if (dialogResult == DialogResult.Yes)
+            //{
             //    controller.RemoverExemplarEmprestimo(exempar);
             //    popularExemplar(controller.PegarExemplarEmprestimo());
             //}
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -91,24 +88,24 @@ namespace Biblioteca.View.Livros {
         }
 
         private void LvExemplar_MouseDoubleClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-            ExemplarModel exemplar = new ExemplarModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[6].Text,
-                item.SubItems[5].Text,
-                item.SubItems[3].Text,
-                item.SubItems[4].Text,
-                DateTime.Parse(item.SubItems[7].Text),
-                item.SubItems[8].Text
+            //ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
+            //ExemplarModel exemplar = new ExemplarModel(
+            //    int.Parse(item.SubItems[0].Text),
+            //    item.SubItems[1].Text,
+            //    item.SubItems[2].Text,
+            //    item.SubItems[6].Text,
+            //    item.SubItems[5].Text,
+            //    item.SubItems[3].Text,
+            //    item.SubItems[4].Text,
+            //    DateTime.Parse(item.SubItems[7].Text),
+            //    item.SubItems[8].Text
 
-            );
-            DialogResult dialogResult = MessageBox.Show("Você realmente deseja inativar?", "Atenção", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes) {
-                controller.InativarExemplar(exemplar.getId());
-                popular(controller.PegarExemplar());
-            }
+            //);
+            //DialogResult dialogResult = MessageBox.Show("Você realmente deseja inativar?", "Atenção", MessageBoxButtons.YesNo);
+            //if (dialogResult == DialogResult.Yes) {
+            //    controller.InativarExemplar(exemplar.getId());
+            //    popular(controller.PegarExemplar());
+            //}
         }
     }
 }

@@ -30,15 +30,19 @@ namespace Biblioteca.View.Emprestimo {
         }
         private void popular(List<ExemplarModel> lista) {
             LvExemplar.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (ExemplarModel exemplar in lista) {
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
                     ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Nome);
-                    item.SubItems.Add(exemplar.Autor);
+                    item.SubItems.Add(exemplar.Titulo);
                     item.SubItems.Add(exemplar.Edicao);
                     item.SubItems.Add(exemplar.AnoPublicacao);
                     item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Fornecedor);
+                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
+                    item.SubItems.Add(exemplar.Nome_Autor);
+                    item.SubItems.Add(exemplar.Nome_Editora);
+                    item.SubItems.Add(exemplar.Nome_Genero);
 
                     LvExemplar.Items.Add(item);
                 }

@@ -333,19 +333,21 @@ namespace Biblioteca.Controller {
         }
         public List<ExemplarModel> ListarTodosExemplares(int idLivro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
-                                        L.Nome_Livro AS Nome,
-		                                L.Autor_Livro AS Autor,
-		                                L.Edicao,
-		                                L.Ano_publicacao AS AnoPublicacao,
-		                                L.ISBN,
-		                                F.Nome_fornecedor AS Fornecedor,
-                                        IL.dataAquisicao AS Aquisicao,
-                                        IL.Estado
-                                    FROM Item_livro AS IL
-                                    INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
-                                    INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                                    WHERE IL.ID_livro = '" + idLivro + "'";
+            Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                Livro.Titulo,
+		                                Livro.Edicao,
+		                                Livro.Ano_Publicacao,
+		                                Livro.ISBN,
+		                                Exemplar.Data_Aquisicao,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero
+                                FROM Exemplar
+                                LEFT JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Editora ON (Livro.Id_editora = Editora.Id)
+                                INNER JOIN Autor ON (Livro.Id_autor = Autor.Id)
+                                INNER JOIN Genero ON (Livro.Id_genero = Genero.Id)
+                                WHERE Exemplar.Id_livro =  '" + idLivro + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -355,14 +357,14 @@ namespace Biblioteca.Controller {
             while (reader.Read()) {
                 ExemplarModel exemplar = new ExemplarModel(
                     (int)reader["ID"],
-                    (String)reader["Nome"],
-                    (String)reader["Autor"],
+                    (String)reader["Titulo"],
                     (String)reader["Edicao"],
-                    (String)reader["AnoPublicacao"],
+                    (String)reader["Ano_Publicacao"],
                     (String)reader["ISBN"],
-                    (String)reader["Fornecedor"],
-                    (DateTime)reader["Aquisicao"],
-                    (String) reader["Estado"]
+                    (DateTime)reader["Data_Aquisicao"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_Editora"],
+                    (String) reader["Nome_Genero"]
                 );
                 lista.Add(exemplar);
             }

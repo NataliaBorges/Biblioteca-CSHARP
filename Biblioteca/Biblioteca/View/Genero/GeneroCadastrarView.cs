@@ -14,5 +14,10 @@ namespace Biblioteca.View.Genero
         {
             InitializeComponent();
         }
+
+        private void GeneroCadastrarView_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setPanel(pnltotal);
+        }
     }
 }

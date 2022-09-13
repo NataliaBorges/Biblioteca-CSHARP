@@ -56,7 +56,7 @@
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1057, 649);
+            this.pnltotal.Size = new System.Drawing.Size(1259, 624);
             this.pnltotal.TabIndex = 2;
             // 
             // panel1
@@ -71,9 +71,9 @@
             this.panel1.Controls.Add(this.tbBuscar);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(188, 3);
+            this.panel1.Location = new System.Drawing.Point(224, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(866, 643);
+            this.panel1.Size = new System.Drawing.Size(1032, 618);
             this.panel1.TabIndex = 21;
             // 
             // head1
@@ -81,7 +81,7 @@
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(866, 37);
+            this.head1.Size = new System.Drawing.Size(1032, 37);
             this.head1.TabIndex = 29;
             // 
             // lblNome
@@ -89,7 +89,7 @@
             this.lblNome.AutoSize = true;
             this.lblNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNome.ForeColor = System.Drawing.Color.White;
-            this.lblNome.Location = new System.Drawing.Point(204, 206);
+            this.lblNome.Location = new System.Drawing.Point(9, 143);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(57, 20);
             this.lblNome.TabIndex = 28;
@@ -100,7 +100,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(363, 117);
+            this.label4.Location = new System.Drawing.Point(168, 54);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(247, 32);
             this.label4.TabIndex = 27;
@@ -111,7 +111,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(588, 512);
+            this.linkLabel2.Location = new System.Drawing.Point(378, 433);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(119, 18);
             this.linkLabel2.TabIndex = 21;
@@ -132,7 +132,7 @@
             this.LvAutor.FullRowSelect = true;
             this.LvAutor.HideSelection = false;
             this.LvAutor.HoverSelection = true;
-            this.LvAutor.Location = new System.Drawing.Point(220, 260);
+            this.LvAutor.Location = new System.Drawing.Point(25, 197);
             this.LvAutor.Name = "LvAutor";
             this.LvAutor.Size = new System.Drawing.Size(487, 233);
             this.LvAutor.TabIndex = 17;
@@ -154,7 +154,7 @@
             // 
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(267, 201);
+            this.tbBuscar.Location = new System.Drawing.Point(72, 138);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(400, 27);
             this.tbBuscar.TabIndex = 13;
@@ -164,7 +164,7 @@
             this.btnBuscar.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(673, 200);
+            this.btnBuscar.Location = new System.Drawing.Point(478, 137);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(34, 28);
             this.btnBuscar.TabIndex = 16;
@@ -173,9 +173,10 @@
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(179, 643);
+            this.menuControl1.Size = new System.Drawing.Size(179, 618);
             this.menuControl1.TabIndex = 22;
             // 
             // GeneroBuscarView
@@ -183,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1057, 649);
+            this.ClientSize = new System.Drawing.Size(1259, 624);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GeneroBuscarView";

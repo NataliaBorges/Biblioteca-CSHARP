@@ -10,21 +10,27 @@ namespace Biblioteca.Util {
         private FuncionarioModel funcionarioModel { get; set; }
 
         private List<ExemplarModel> exemplar = new List<ExemplarModel>();
+        private List<AutorModel> autor = new List<AutorModel>();
         private LeitorModel leitor;
         private bool addExemplar = false;
+        private bool addAutor = false;
 
-        
+
         public static Singleton GetInstancia() {
             if (instancia == null) {
                 instancia = new Singleton();
             }
             return instancia;
         }
-        public bool getAddExemplar() {
+        public bool getAddAutor() {
             return this.addExemplar;
         }
         public void setAddExemplar(bool addExemplar) {
             this.addExemplar = addExemplar;
+        }
+        public void setAddAutor(bool addAutor)
+        {
+            this.addAutor = addAutor;
         }
         public FuncionarioModel getFuncionario() {
             return this.funcionarioModel;
@@ -37,6 +43,10 @@ namespace Biblioteca.Util {
         }
         public void setExemplar(ExemplarModel exemplar) {
             this.exemplar.Add(exemplar);
+        }
+        public void setAutor(AutorModel autor)
+        {
+            this.autor.Add(autor);
         }
         public LeitorModel getLeitor() {
             return this.leitor;

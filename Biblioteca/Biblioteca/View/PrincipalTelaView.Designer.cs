@@ -24,6 +24,7 @@ namespace Biblioteca.View {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalTelaView));
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.head1 = new Biblioteca.Util.Head();
@@ -69,6 +70,7 @@ namespace Biblioteca.View {
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(187, 565);
@@ -98,10 +100,10 @@ namespace Biblioteca.View {
             this.ClientSize = new System.Drawing.Size(1292, 571);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalTelaView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "PrincipalTelaView";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PrincipalTelaView_Load);
             this.panelDesktop.ResumeLayout(false);
             this.pnltotal.ResumeLayout(false);

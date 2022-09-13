@@ -32,9 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.head1 = new Biblioteca.Util.Head();
             this.lblNome = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.LvAutor = new System.Windows.Forms.ListView();
+            this.lblNomeView = new System.Windows.Forms.Label();
+            this.linkLblCadastrarGenero = new System.Windows.Forms.LinkLabel();
+            this.LvGenero = new System.Windows.Forms.ListView();
             this.ID = new System.Windows.Forms.ColumnHeader();
             this.Nome = new System.Windows.Forms.ColumnHeader();
             this.tbBuscar = new System.Windows.Forms.TextBox();
@@ -65,15 +65,15 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.lblNome);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.linkLabel2);
-            this.panel1.Controls.Add(this.LvAutor);
+            this.panel1.Controls.Add(this.lblNomeView);
+            this.panel1.Controls.Add(this.linkLblCadastrarGenero);
+            this.panel1.Controls.Add(this.LvGenero);
             this.panel1.Controls.Add(this.tbBuscar);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(195, 3);
+            this.panel1.Location = new System.Drawing.Point(194, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(895, 665);
+            this.panel1.Size = new System.Drawing.Size(896, 665);
             this.panel1.TabIndex = 21;
             // 
             // head1
@@ -81,7 +81,7 @@
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(895, 37);
+            this.head1.Size = new System.Drawing.Size(896, 37);
             this.head1.TabIndex = 29;
             // 
             // lblNome
@@ -95,49 +95,49 @@
             this.lblNome.TabIndex = 28;
             this.lblNome.Text = "Nome:";
             // 
-            // label4
+            // lblNomeView
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(363, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(247, 32);
-            this.label4.TabIndex = 27;
-            this.label4.Text = "BUSCAR GÊNERO";
+            this.lblNomeView.AutoSize = true;
+            this.lblNomeView.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNomeView.ForeColor = System.Drawing.Color.White;
+            this.lblNomeView.Location = new System.Drawing.Point(363, 117);
+            this.lblNomeView.Name = "lblNomeView";
+            this.lblNomeView.Size = new System.Drawing.Size(247, 32);
+            this.lblNomeView.TabIndex = 27;
+            this.lblNomeView.Text = "BUSCAR GÊNERO";
             // 
-            // linkLabel2
+            // linkLblCadastrarGenero
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(588, 512);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(119, 18);
-            this.linkLabel2.TabIndex = 21;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Cadastrar gênero";
-            this.linkLabel2.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.linkLblCadastrarGenero.AutoSize = true;
+            this.linkLblCadastrarGenero.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLblCadastrarGenero.LinkColor = System.Drawing.Color.White;
+            this.linkLblCadastrarGenero.Location = new System.Drawing.Point(588, 512);
+            this.linkLblCadastrarGenero.Name = "linkLblCadastrarGenero";
+            this.linkLblCadastrarGenero.Size = new System.Drawing.Size(119, 18);
+            this.linkLblCadastrarGenero.TabIndex = 21;
+            this.linkLblCadastrarGenero.TabStop = true;
+            this.linkLblCadastrarGenero.Text = "Cadastrar gênero";
+            this.linkLblCadastrarGenero.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
-            // LvAutor
+            // LvGenero
             // 
-            this.LvAutor.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
-            this.LvAutor.BackColor = System.Drawing.Color.DimGray;
-            this.LvAutor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LvAutor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LvGenero.Alignment = System.Windows.Forms.ListViewAlignment.SnapToGrid;
+            this.LvGenero.BackColor = System.Drawing.Color.Black;
+            this.LvGenero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LvGenero.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ID,
             this.Nome});
-            this.LvAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LvAutor.ForeColor = System.Drawing.Color.White;
-            this.LvAutor.FullRowSelect = true;
-            this.LvAutor.HideSelection = false;
-            this.LvAutor.HoverSelection = true;
-            this.LvAutor.Location = new System.Drawing.Point(220, 260);
-            this.LvAutor.Name = "LvAutor";
-            this.LvAutor.Size = new System.Drawing.Size(487, 233);
-            this.LvAutor.TabIndex = 17;
-            this.LvAutor.UseCompatibleStateImageBehavior = false;
-            this.LvAutor.View = System.Windows.Forms.View.Details;
+            this.LvGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LvGenero.ForeColor = System.Drawing.Color.White;
+            this.LvGenero.FullRowSelect = true;
+            this.LvGenero.HideSelection = false;
+            this.LvGenero.HoverSelection = true;
+            this.LvGenero.Location = new System.Drawing.Point(220, 260);
+            this.LvGenero.Name = "LvGenero";
+            this.LvGenero.Size = new System.Drawing.Size(487, 233);
+            this.LvGenero.TabIndex = 17;
+            this.LvGenero.UseCompatibleStateImageBehavior = false;
+            this.LvGenero.View = System.Windows.Forms.View.Details;
             // 
             // ID
             // 
@@ -173,6 +173,7 @@
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(183, 665);
@@ -188,6 +189,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LivroPesquisarGenero";
             this.Text = "LivroPesquisarGenero";
+            this.Load += new System.EventHandler(this.LivroPesquisarGenero_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -201,9 +203,9 @@
         private System.Windows.Forms.Panel panel1;
         private Util.Head head1;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.ListView LvAutor;
+        private System.Windows.Forms.Label lblNomeView;
+        private System.Windows.Forms.LinkLabel linkLblCadastrarGenero;
+        private System.Windows.Forms.ListView LvGenero;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.ColumnHeader Nome;
         private System.Windows.Forms.TextBox tbBuscar;

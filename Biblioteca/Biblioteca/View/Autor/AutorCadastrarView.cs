@@ -15,9 +15,9 @@ namespace Biblioteca.View.Autor
             InitializeComponent();
         }
 
-        private void pnltotal_Paint(object sender, PaintEventArgs e)
+        private void AutorCadastrarView_Load(object sender, EventArgs e)
         {
-
+            this.menuControl1.setPanel(pnltotal);
         }
     }
 }

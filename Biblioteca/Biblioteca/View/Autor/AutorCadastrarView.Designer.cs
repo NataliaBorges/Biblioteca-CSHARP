@@ -56,11 +56,12 @@
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.pnltotal.Size = new System.Drawing.Size(993, 639);
             this.pnltotal.TabIndex = 0;
-            this.pnltotal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnltotal_Paint);
             // 
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(142, 633);
@@ -170,6 +171,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AutorCadastrarView";
             this.Text = "AutorView";
+            this.Load += new System.EventHandler(this.AutorCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
