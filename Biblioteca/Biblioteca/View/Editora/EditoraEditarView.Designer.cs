@@ -327,7 +327,7 @@ namespace Biblioteca.View.Fornecedor {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditoraEditarView";
-            this.Text = "Editar Fornecedor";
+            this.Text = "Editar Editora";
             this.Load += new System.EventHandler(this.FornecedorEditarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

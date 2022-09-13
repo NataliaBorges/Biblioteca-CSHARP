@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneroCadastrarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -154,8 +155,9 @@
             this.ClientSize = new System.Drawing.Size(1293, 644);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneroCadastrarView";
-            this.Text = "GeneroCadastrarView";
+            this.Text = "Cadastrar Gênero";
             this.Load += new System.EventHandler(this.GeneroCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

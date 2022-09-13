@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroPesquisarEditora));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
@@ -91,9 +92,9 @@
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
             this.lblCadastroLivro.Location = new System.Drawing.Point(312, 63);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(335, 38);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(381, 38);
             this.lblCadastroLivro.TabIndex = 68;
-            this.lblCadastroLivro.Text = "BUSCA DE EDITORA";
+            this.lblCadastroLivro.Text = "SELECIONAR EDITORA";
             // 
             // head1
             // 
@@ -248,8 +249,9 @@
             this.ClientSize = new System.Drawing.Size(1130, 697);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LivroPesquisarEditora";
-            this.Text = "LivroPesquisarEditora";
+            this.Text = "Selecionar Editora";
             this.Load += new System.EventHandler(this.LivroPesquisarEditora_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

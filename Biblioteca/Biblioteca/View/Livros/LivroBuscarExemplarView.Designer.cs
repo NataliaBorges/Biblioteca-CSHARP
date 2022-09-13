@@ -260,7 +260,7 @@ namespace Biblioteca.View.Livros {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LivroBuscarExemplarView";
-            this.Text = "LivroBuscarExemplar";
+            this.Text = "Buscar Exemplar";
             this.Load += new System.EventHandler(this.LivroBuscarExemplarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

@@ -24,6 +24,7 @@ namespace Biblioteca.View.Livros {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosCadastrarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -397,6 +398,7 @@ namespace Biblioteca.View.Livros {
             this.ClientSize = new System.Drawing.Size(1259, 608);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LivrosCadastrarView";

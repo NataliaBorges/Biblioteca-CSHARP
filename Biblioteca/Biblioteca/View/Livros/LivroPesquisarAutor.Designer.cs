@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroPesquisarAutor));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.head1 = new Biblioteca.Util.Head();
@@ -105,9 +106,9 @@
             this.lblNomeView.ForeColor = System.Drawing.Color.White;
             this.lblNomeView.Location = new System.Drawing.Point(431, 117);
             this.lblNomeView.Name = "lblNomeView";
-            this.lblNomeView.Size = new System.Drawing.Size(229, 32);
+            this.lblNomeView.Size = new System.Drawing.Size(294, 32);
             this.lblNomeView.TabIndex = 27;
-            this.lblNomeView.Text = "BUSCAR AUTOR";
+            this.lblNomeView.Text = "SELECIONAR AUTOR";
             // 
             // linkLblCadastrarAutor
             // 
@@ -197,8 +198,9 @@
             this.ClientSize = new System.Drawing.Size(1262, 687);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LivroPesquisarAutor";
-            this.Text = "LivroPesquisarAutor";
+            this.Text = "Selecionar Autor";
             this.Load += new System.EventHandler(this.LivroPesquisarAutor_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

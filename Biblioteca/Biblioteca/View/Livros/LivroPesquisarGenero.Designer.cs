@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivroPesquisarGenero));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.head1 = new Biblioteca.Util.Head();
@@ -100,11 +101,11 @@
             this.lblNomeView.AutoSize = true;
             this.lblNomeView.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNomeView.ForeColor = System.Drawing.Color.White;
-            this.lblNomeView.Location = new System.Drawing.Point(363, 117);
+            this.lblNomeView.Location = new System.Drawing.Point(321, 115);
             this.lblNomeView.Name = "lblNomeView";
-            this.lblNomeView.Size = new System.Drawing.Size(247, 32);
+            this.lblNomeView.Size = new System.Drawing.Size(312, 32);
             this.lblNomeView.TabIndex = 27;
-            this.lblNomeView.Text = "BUSCAR GÊNERO";
+            this.lblNomeView.Text = "SELECIONAR GÊNERO";
             // 
             // linkLblCadastrarGenero
             // 
@@ -187,8 +188,9 @@
             this.ClientSize = new System.Drawing.Size(1093, 671);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LivroPesquisarGenero";
-            this.Text = "LivroPesquisarGenero";
+            this.Text = "Selecionar Gênero";
             this.Load += new System.EventHandler(this.LivroPesquisarGenero_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

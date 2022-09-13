@@ -46,11 +46,11 @@ namespace Biblioteca.View.Emprestimo {
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
             this.btnDevolver = new System.Windows.Forms.Button();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.head1 = new Biblioteca.Util.Head();
-            this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
@@ -245,10 +245,29 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.ObsText);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(202, 3);
+            this.panel1.Location = new System.Drawing.Point(201, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1025, 742);
+            this.panel1.Size = new System.Drawing.Size(1026, 742);
             this.panel1.TabIndex = 23;
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(302, 98);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(420, 38);
+            this.lblCadastroLivro.TabIndex = 92;
+            this.lblCadastroLivro.Text = "STATUS DO EMPRÉSTIMO";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(1026, 37);
+            this.head1.TabIndex = 24;
             // 
             // btnDevolver
             // 
@@ -281,29 +300,11 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(193, 742);
+            this.menuControl1.Size = new System.Drawing.Size(192, 742);
             this.menuControl1.TabIndex = 24;
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1025, 37);
-            this.head1.TabIndex = 24;
-            // 
-            // lblCadastroLivro
-            // 
-            this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(302, 98);
-            this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(420, 38);
-            this.lblCadastroLivro.TabIndex = 92;
-            this.lblCadastroLivro.Text = "STATUS DO EMPRÉSTIMO";
             // 
             // EmprestimoExcluirView
             // 
@@ -318,7 +319,7 @@ namespace Biblioteca.View.Emprestimo {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EmprestimoExcluirView";
-            this.Text = "Excluir Empréstimo";
+            this.Text = "Status de Empréstimo";
             this.Load += new System.EventHandler(this.Excluir_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

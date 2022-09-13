@@ -259,6 +259,7 @@ namespace Biblioteca.View.Fornecedor {
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(169, 727);
@@ -277,7 +278,7 @@ namespace Biblioteca.View.Fornecedor {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditoraBuscarView";
-            this.Text = "Buscar Fornecedor";
+            this.Text = "Buscar Editora";
             this.Load += new System.EventHandler(this.FornecedorBuscarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

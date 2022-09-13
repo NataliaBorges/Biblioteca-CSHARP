@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutorCadastrarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
@@ -169,8 +170,9 @@
             this.ClientSize = new System.Drawing.Size(993, 639);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AutorCadastrarView";
-            this.Text = "AutorView";
+            this.Text = "Cadastrar Autor";
             this.Load += new System.EventHandler(this.AutorCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

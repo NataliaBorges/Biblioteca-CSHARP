@@ -45,6 +45,9 @@ namespace Biblioteca.View.Funcionario {
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LinkCadastrarFuncionario = new System.Windows.Forms.LinkLabel();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
             this.label11 = new System.Windows.Forms.Label();
             this.cbFuncao = new System.Windows.Forms.ComboBox();
             this.maskedTextBoxNascimento = new System.Windows.Forms.MaskedTextBox();
@@ -52,9 +55,6 @@ namespace Biblioteca.View.Funcionario {
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.head1 = new Biblioteca.Util.Head();
-            this.lblCadastroLivro = new System.Windows.Forms.Label();
-            this.LinkCadastrarFuncionario = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
@@ -286,10 +286,42 @@ namespace Biblioteca.View.Funcionario {
             this.panel1.Controls.Add(this.tbNumero);
             this.panel1.Controls.Add(this.tbRua);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(188, 3);
+            this.panel1.Location = new System.Drawing.Point(187, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(862, 784);
+            this.panel1.Size = new System.Drawing.Size(863, 784);
             this.panel1.TabIndex = 59;
+            // 
+            // LinkCadastrarFuncionario
+            // 
+            this.LinkCadastrarFuncionario.AutoSize = true;
+            this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
+            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(549, 537);
+            this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
+            this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(126, 18);
+            this.LinkCadastrarFuncionario.TabIndex = 66;
+            this.LinkCadastrarFuncionario.TabStop = true;
+            this.LinkCadastrarFuncionario.Text = "Buscar funcionário";
+            this.LinkCadastrarFuncionario.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(190, 89);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(497, 38);
+            this.lblCadastroLivro.TabIndex = 65;
+            this.lblCadastroLivro.Text = "CADASTRO DE FUNCIONÁRIO";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(863, 37);
+            this.head1.TabIndex = 64;
             // 
             // label11
             // 
@@ -359,42 +391,11 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(179, 784);
+            this.menuControl1.Size = new System.Drawing.Size(178, 784);
             this.menuControl1.TabIndex = 60;
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(862, 37);
-            this.head1.TabIndex = 64;
-            // 
-            // lblCadastroLivro
-            // 
-            this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(190, 89);
-            this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(497, 38);
-            this.lblCadastroLivro.TabIndex = 65;
-            this.lblCadastroLivro.Text = "CADASTRO DE FUNCIONÁRIO";
-            // 
-            // LinkCadastrarFuncionario
-            // 
-            this.LinkCadastrarFuncionario.AutoSize = true;
-            this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(549, 537);
-            this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
-            this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(126, 18);
-            this.LinkCadastrarFuncionario.TabIndex = 66;
-            this.LinkCadastrarFuncionario.TabStop = true;
-            this.LinkCadastrarFuncionario.Text = "Buscar funcionário";
-            this.LinkCadastrarFuncionario.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
             // FuncionarioCadastrarView
             // 

@@ -103,7 +103,7 @@ namespace Biblioteca.View {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalTelaView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "PrincipalTelaView";
+            this.Text = "Tela Home";
             this.Load += new System.EventHandler(this.PrincipalTelaView_Load);
             this.panelDesktop.ResumeLayout(false);
             this.pnltotal.ResumeLayout(false);
