@@ -44,6 +44,7 @@ namespace Biblioteca.Util
                     ddmCadastro.IsMainMenu = true;
                     ddmCadastro.PrimaryColor = Color.Chocolate;
                     ddmCadastro.MenuItemTextColor = Color.Chocolate;
+                    
 
                     ddmBuscar.IsMainMenu = true;
                     ddmBuscar.PrimaryColor = Color.Chocolate;
@@ -57,6 +58,9 @@ namespace Biblioteca.Util
                     ddmReserva.PrimaryColor = Color.Chocolate;
                     ddmReserva.MenuItemTextColor = Color.Chocolate;
 
+                    ddmRelatorio.IsMainMenu = true;
+                    ddmRelatorio.PrimaryColor = Color.Chocolate;
+                    ddmRelatorio.MenuItemTextColor = Color.Chocolate;
         }
         private void FecharMenu()
         {
@@ -114,6 +118,10 @@ namespace Biblioteca.Util
         private void btnReserva_Click(object sender, EventArgs e)
         {
             ddmReserva.Show(btnReserva, btnReserva.Width, 0);
+        }
+        private void btnRelatório_Click(object sender, EventArgs e)
+        {
+            ddmRelatorio.Show(btnRelatório, btnRelatório.Width, 0);
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -281,5 +289,7 @@ namespace Biblioteca.Util
             TelaLoginView login = new TelaLoginView();
             NovaJanela.novaJanela(login, Bounds);
         }
+
+        
     }
 }

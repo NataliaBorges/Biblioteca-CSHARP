@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Menu = new System.Windows.Forms.Panel();
+            this.btnGrafico = new FontAwesome.Sharp.IconButton();
             this.btnRelatório = new FontAwesome.Sharp.IconButton();
             this.btnPrateleira = new FontAwesome.Sharp.IconButton();
             this.btnSair = new FontAwesome.Sharp.IconButton();
@@ -61,17 +62,28 @@
             this.ddmReserva = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.cadastrarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarReserva = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddmRelatorio = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
+            this.livrotoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.autortoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.editoraToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.generoToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.leitorToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionarioToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.emprestimoToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservaToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
             this.ddmCadastro.SuspendLayout();
             this.ddmBuscar.SuspendLayout();
             this.ddmEmprestimo.SuspendLayout();
             this.ddmReserva.SuspendLayout();
+            this.ddmRelatorio.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
             // 
             this.Menu.BackColor = System.Drawing.Color.Black;
+            this.Menu.Controls.Add(this.btnGrafico);
             this.Menu.Controls.Add(this.btnRelatório);
             this.Menu.Controls.Add(this.btnPrateleira);
             this.Menu.Controls.Add(this.btnSair);
@@ -84,8 +96,30 @@
             this.Menu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Menu.Location = new System.Drawing.Point(0, 0);
             this.Menu.Name = "Menu";
-            this.Menu.Size = new System.Drawing.Size(198, 798);
+            this.Menu.Size = new System.Drawing.Size(198, 703);
             this.Menu.TabIndex = 6;
+            // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnGrafico.FlatAppearance.BorderSize = 0;
+            this.btnGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrafico.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGrafico.ForeColor = System.Drawing.Color.White;
+            this.btnGrafico.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
+            this.btnGrafico.IconColor = System.Drawing.Color.Chocolate;
+            this.btnGrafico.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGrafico.IconSize = 30;
+            this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGrafico.Location = new System.Drawing.Point(0, 370);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGrafico.Size = new System.Drawing.Size(198, 46);
+            this.btnGrafico.TabIndex = 10;
+            this.btnGrafico.Tag = "Gráficos";
+            this.btnGrafico.Text = " Gráficos";
+            this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGrafico.UseVisualStyleBackColor = true;
             // 
             // btnRelatório
             // 
@@ -94,7 +128,7 @@
             this.btnRelatório.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRelatório.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRelatório.ForeColor = System.Drawing.Color.White;
-            this.btnRelatório.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
+            this.btnRelatório.IconChar = FontAwesome.Sharp.IconChar.Table;
             this.btnRelatório.IconColor = System.Drawing.Color.Chocolate;
             this.btnRelatório.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRelatório.IconSize = 30;
@@ -108,6 +142,7 @@
             this.btnRelatório.Text = " Relatórios";
             this.btnRelatório.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRelatório.UseVisualStyleBackColor = true;
+            this.btnRelatório.Click += new System.EventHandler(this.btnRelatório_Click);
             // 
             // btnPrateleira
             // 
@@ -143,7 +178,7 @@
             this.btnSair.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSair.IconSize = 30;
             this.btnSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSair.Location = new System.Drawing.Point(0, 752);
+            this.btnSair.Location = new System.Drawing.Point(0, 657);
             this.btnSair.Name = "btnSair";
             this.btnSair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 15);
             this.btnSair.Size = new System.Drawing.Size(198, 46);
@@ -486,6 +521,73 @@
             this.buscarReserva.Text = "Buscar";
             this.buscarReserva.Click += new System.EventHandler(this.buscarReserva_Click);
             // 
+            // ddmRelatorio
+            // 
+            this.ddmRelatorio.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddmRelatorio.IsMainMenu = false;
+            this.ddmRelatorio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.livrotoolStripMenu,
+            this.autortoolStripMenu,
+            this.editoraToolStripMenu,
+            this.generoToolStripMenu,
+            this.leitorToolStripMenu,
+            this.funcionarioToolStripMenu,
+            this.emprestimoToolStripMenu,
+            this.reservaToolStripMenu});
+            this.ddmRelatorio.MenuItemHeight = 25;
+            this.ddmRelatorio.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.ddmRelatorio.Name = "rjDropdownMenu1";
+            this.ddmRelatorio.PrimaryColor = System.Drawing.Color.Empty;
+            this.ddmRelatorio.Size = new System.Drawing.Size(154, 180);
+            // 
+            // livrotoolStripMenu
+            // 
+            this.livrotoolStripMenu.Name = "livrotoolStripMenu";
+            this.livrotoolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.livrotoolStripMenu.Text = "Livro";
+            // 
+            // autortoolStripMenu
+            // 
+            this.autortoolStripMenu.Name = "autortoolStripMenu";
+            this.autortoolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.autortoolStripMenu.Text = "Autor";
+            // 
+            // editoraToolStripMenu
+            // 
+            this.editoraToolStripMenu.Name = "editoraToolStripMenu";
+            this.editoraToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.editoraToolStripMenu.Text = "Editora";
+            // 
+            // generoToolStripMenu
+            // 
+            this.generoToolStripMenu.Name = "generoToolStripMenu";
+            this.generoToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.generoToolStripMenu.Text = "Gênero";
+            // 
+            // leitorToolStripMenu
+            // 
+            this.leitorToolStripMenu.Name = "leitorToolStripMenu";
+            this.leitorToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.leitorToolStripMenu.Text = "Leitor";
+            // 
+            // funcionarioToolStripMenu
+            // 
+            this.funcionarioToolStripMenu.Name = "funcionarioToolStripMenu";
+            this.funcionarioToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.funcionarioToolStripMenu.Text = "Funcionário";
+            // 
+            // emprestimoToolStripMenu
+            // 
+            this.emprestimoToolStripMenu.Name = "emprestimoToolStripMenu";
+            this.emprestimoToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.emprestimoToolStripMenu.Text = "Empréstimo";
+            // 
+            // reservaToolStripMenu
+            // 
+            this.reservaToolStripMenu.Name = "reservaToolStripMenu";
+            this.reservaToolStripMenu.Size = new System.Drawing.Size(153, 22);
+            this.reservaToolStripMenu.Text = "Reserva";
+            // 
             // MenuControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -493,7 +595,7 @@
             this.Controls.Add(this.Menu);
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "MenuControl";
-            this.Size = new System.Drawing.Size(198, 798);
+            this.Size = new System.Drawing.Size(198, 703);
             this.Load += new System.EventHandler(this.MenuControl_Load);
             this.Menu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -502,6 +604,7 @@
             this.ddmBuscar.ResumeLayout(false);
             this.ddmEmprestimo.ResumeLayout(false);
             this.ddmReserva.ResumeLayout(false);
+            this.ddmRelatorio.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -540,5 +643,15 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarReserva;
         private System.Windows.Forms.ToolStripMenuItem buscarReserva;
         private FontAwesome.Sharp.IconButton icnButtonBar;
+        private FontAwesome.Sharp.IconButton btnGrafico;
+        private RJCodeAdvance.RJControls.RJDropdownMenu ddmRelatorio;
+        private System.Windows.Forms.ToolStripMenuItem livrotoolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem autortoolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem generoToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem emprestimoToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenu;
     }
 }
