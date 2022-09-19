@@ -102,5 +102,10 @@ namespace Biblioteca.View.Leitor {
         {
             this.menuControl1.setPanel(pnltotal);
         }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

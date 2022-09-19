@@ -169,6 +169,8 @@
             // 
             // dtGridViewAutor
             // 
+            this.dtGridViewAutor.AllowUserToAddRows = false;
+            this.dtGridViewAutor.AllowUserToDeleteRows = false;
             this.dtGridViewAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtGridViewAutor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridViewAutor.BackgroundColor = System.Drawing.Color.Black;
@@ -197,6 +199,7 @@
             this.dtGridViewAutor.GridColor = System.Drawing.Color.SaddleBrown;
             this.dtGridViewAutor.Location = new System.Drawing.Point(61, 77);
             this.dtGridViewAutor.Name = "dtGridViewAutor";
+            this.dtGridViewAutor.ReadOnly = true;
             this.dtGridViewAutor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;

@@ -45,6 +45,7 @@ namespace Biblioteca.View.Funcionario {
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.LinkBuscarFuncionario = new System.Windows.Forms.LinkLabel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
@@ -259,6 +260,7 @@ namespace Biblioteca.View.Funcionario {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.icbtnVoltar);
             this.panel1.Controls.Add(this.LinkBuscarFuncionario);
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
@@ -287,10 +289,32 @@ namespace Biblioteca.View.Funcionario {
             this.panel1.Controls.Add(this.tbNumero);
             this.panel1.Controls.Add(this.tbRua);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(240, 3);
+            this.panel1.Location = new System.Drawing.Point(206, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1111, 766);
+            this.panel1.Size = new System.Drawing.Size(1145, 766);
             this.panel1.TabIndex = 59;
+            // 
+            // icbtnVoltar
+            // 
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(187, 86);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 76;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // LinkBuscarFuncionario
             // 
@@ -308,10 +332,11 @@ namespace Biblioteca.View.Funcionario {
             // 
             // lblCadastroLivro
             // 
+            this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(328, 86);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(345, 86);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(517, 39);
             this.lblCadastroLivro.TabIndex = 65;
@@ -322,7 +347,7 @@ namespace Biblioteca.View.Funcionario {
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1111, 37);
+            this.head1.Size = new System.Drawing.Size(1145, 37);
             this.head1.TabIndex = 64;
             // 
             // label11
@@ -374,8 +399,8 @@ namespace Biblioteca.View.Funcionario {
             // pnltotal
             // 
             this.pnltotal.ColumnCount = 2;
-            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.56885F));
-            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.43115F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
             this.pnltotal.Controls.Add(this.panel1, 1, 0);
             this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
             this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -393,7 +418,7 @@ namespace Biblioteca.View.Funcionario {
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(231, 766);
+            this.menuControl1.Size = new System.Drawing.Size(197, 766);
             this.menuControl1.TabIndex = 60;
             // 
             // FuncionarioCadastrarView
@@ -450,5 +475,6 @@ namespace Biblioteca.View.Funcionario {
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
         private System.Windows.Forms.LinkLabel LinkBuscarFuncionario;
+        private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

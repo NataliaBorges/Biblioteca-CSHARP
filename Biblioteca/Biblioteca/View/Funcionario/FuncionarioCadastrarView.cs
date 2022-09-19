@@ -120,6 +120,7 @@ namespace Biblioteca.View.Funcionario {
 
         private void FuncionarioCadastrarView_Load(object sender, EventArgs e)
         {
+            this.menuControl1.setPanel(pnltotal);
             this.cbFuncao.Items.Clear();
             List<FuncaoModel> funcoes = funcaoController.ListarTodos();
             if (funcoes.Count > 0)
@@ -135,6 +136,11 @@ namespace Biblioteca.View.Funcionario {
                 cbFuncao.DisplayMember = "Text";
                 cbFuncao.DropDownStyle = ComboBoxStyle.DropDownList;
             }
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

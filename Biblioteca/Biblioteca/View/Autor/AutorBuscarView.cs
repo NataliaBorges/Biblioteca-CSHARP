@@ -76,5 +76,10 @@ namespace Biblioteca.View.Autor
 
             }
         }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
