@@ -11,8 +11,9 @@ using Biblioteca.Util;
 
 namespace Biblioteca.View.Funcionario {
     public partial class FuncionarioCadastrarView : Form {
-
-        FuncionarioController controller = new FuncionarioController();
+        FuncaoController funcaoController = new FuncaoController();
+        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+        FuncionarioController funcionarioController = new FuncionarioController();
         DateTime data;
 
         public FuncionarioCadastrarView() {
@@ -91,7 +92,7 @@ namespace Biblioteca.View.Funcionario {
             }
             else {
                 FuncionarioModel funcionario = new FuncionarioModel(nome, cpf, data, email, endereco, telefone, senha, funcao);
-                if (controller.Insercao(funcionario)) {
+                if (funcionarioController.Insercao(funcionario)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();
                 }
@@ -111,8 +112,29 @@ namespace Biblioteca.View.Funcionario {
             data = new DateTime(ano, mes, dia);
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
+        private void LinkBuscarFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
+            NovaJanela.novaJanela(funcionarioBuscarView, this.Bounds);
+        }
+
+        private void FuncionarioCadastrarView_Load(object sender, EventArgs e)
+        {
+            this.cbFuncao.Items.Clear();
+            List<FuncaoModel> funcoes = funcaoController.ListarTodos();
+            if (funcoes.Count > 0)
+            {
+                foreach (FuncaoModel funcao in funcoes)
+                {
+                    ComboBoxItem item = new ComboBoxItem(funcao.Nome, funcao.Id.ToString());
+                    cbFuncao.Items.Add(item);
+                    comboBoxItems.Add(item);
+                }
+
+                cbFuncao.ValueMember = "Value";
+                cbFuncao.DisplayMember = "Text";
+                cbFuncao.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
     }
 }

@@ -67,7 +67,7 @@ namespace Biblioteca.View.Leitor {
                 tbEmail.Focus();
             }
             else {
-                LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email, senha);
+                LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email);
                 if (controller.Atualizar(leitor)) {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();

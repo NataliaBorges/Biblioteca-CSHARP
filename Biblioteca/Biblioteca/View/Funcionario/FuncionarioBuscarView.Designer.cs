@@ -115,9 +115,9 @@ namespace Biblioteca.View.Funcionario {
             this.Lvfuncionario.ForeColor = System.Drawing.Color.White;
             this.Lvfuncionario.FullRowSelect = true;
             this.Lvfuncionario.HideSelection = false;
-            this.Lvfuncionario.Location = new System.Drawing.Point(53, 335);
+            this.Lvfuncionario.Location = new System.Drawing.Point(3, 430);
             this.Lvfuncionario.Name = "Lvfuncionario";
-            this.Lvfuncionario.Size = new System.Drawing.Size(929, 400);
+            this.Lvfuncionario.Size = new System.Drawing.Size(1025, 403);
             this.Lvfuncionario.TabIndex = 16;
             this.Lvfuncionario.UseCompatibleStateImageBehavior = false;
             this.Lvfuncionario.View = System.Windows.Forms.View.Details;
@@ -237,7 +237,7 @@ namespace Biblioteca.View.Funcionario {
             this.LinkCadastrarFuncionario.AutoSize = true;
             this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(832, 750);
+            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(862, 103);
             this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
             this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(150, 18);
             this.LinkCadastrarFuncionario.TabIndex = 22;

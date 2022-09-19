@@ -36,7 +36,7 @@ namespace Biblioteca.View.Fornecedor {
             String telefone = maskedTextBoxTelefone.Text;
             String cnpj = maskedTextBoxCNPJ.Text;
             String Email = tbEmail.Text;
-            EditoraModel fornecedor = new EditoraModel(nome, endereco, telefone, cnpj, Email);
+            EditoraModel editora = new EditoraModel(nome, endereco, telefone, cnpj, Email);
 
             if (nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -71,7 +71,7 @@ namespace Biblioteca.View.Fornecedor {
                 tbEmail.Focus();
             }
             else {
-                if (controller.Insercao(fornecedor)) {
+                if (controller.Insercao(editora)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
                 }
@@ -86,9 +86,15 @@ namespace Biblioteca.View.Fornecedor {
             this.menuControl1.setPanel(pnltotal);
         }
 
-        private void icBtnVoltar_Click(object sender, EventArgs e)
+        private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void linkLbBuscarEditora_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
+            NovaJanela.novaJanela(editoraBuscarView, this.Bounds);
         }
     }
 }

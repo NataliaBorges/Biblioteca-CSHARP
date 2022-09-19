@@ -39,8 +39,8 @@ namespace Biblioteca.View.Fornecedor {
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.icBtnVoltar = new FontAwesome.Sharp.IconButton();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
+            this.linkLbBuscarEditora = new System.Windows.Forms.LinkLabel();
             this.head1 = new Biblioteca.Util.Head();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -135,7 +135,7 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.Black;
+            this.btnCadastrar.BackColor = System.Drawing.Color.SaddleBrown;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
@@ -194,8 +194,8 @@ namespace Biblioteca.View.Fornecedor {
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.pnlPrincipal.Controls.Add(this.icBtnVoltar);
-            this.pnlPrincipal.Controls.Add(this.linkLabel1);
+            this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
+            this.pnlPrincipal.Controls.Add(this.linkLbBuscarEditora);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.lblCadastroLivro);
             this.pnlPrincipal.Controls.Add(this.label2);
@@ -222,35 +222,40 @@ namespace Biblioteca.View.Fornecedor {
             this.pnlPrincipal.Size = new System.Drawing.Size(1120, 673);
             this.pnlPrincipal.TabIndex = 55;
             // 
-            // icBtnVoltar
+            // icbtnVoltar
             // 
-            this.icBtnVoltar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.icBtnVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.icBtnVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.icBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.icBtnVoltar.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.icBtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.icBtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.icBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icBtnVoltar.IconSize = 29;
-            this.icBtnVoltar.Location = new System.Drawing.Point(228, 75);
-            this.icBtnVoltar.Name = "icBtnVoltar";
-            this.icBtnVoltar.Size = new System.Drawing.Size(51, 33);
-            this.icBtnVoltar.TabIndex = 63;
-            this.icBtnVoltar.UseVisualStyleBackColor = false;
-            this.icBtnVoltar.Click += new System.EventHandler(this.icBtnVoltar_Click);
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(166, 75);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 71;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
-            // linkLabel1
+            // linkLbBuscarEditora
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(613, 447);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(102, 18);
-            this.linkLabel1.TabIndex = 61;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Buscar Editora";
+            this.linkLbBuscarEditora.AutoSize = true;
+            this.linkLbBuscarEditora.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.linkLbBuscarEditora.LinkColor = System.Drawing.Color.White;
+            this.linkLbBuscarEditora.Location = new System.Drawing.Point(613, 447);
+            this.linkLbBuscarEditora.Name = "linkLbBuscarEditora";
+            this.linkLbBuscarEditora.Size = new System.Drawing.Size(102, 18);
+            this.linkLbBuscarEditora.TabIndex = 61;
+            this.linkLbBuscarEditora.TabStop = true;
+            this.linkLbBuscarEditora.Text = "Buscar Editora";
+            this.linkLbBuscarEditora.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLbBuscarEditora_LinkClicked);
             // 
             // head1
             // 
@@ -262,6 +267,7 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // lblCadastroLivro
             // 
+            this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
@@ -379,7 +385,8 @@ namespace Biblioteca.View.Fornecedor {
         private Util.MenuControl menuControl1;
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLbBuscarEditora;
         private FontAwesome.Sharp.IconButton icBtnVoltar;
+        private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

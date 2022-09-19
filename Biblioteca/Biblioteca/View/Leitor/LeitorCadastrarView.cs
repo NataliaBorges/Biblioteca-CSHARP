@@ -29,7 +29,6 @@ namespace Biblioteca.View.Leitor {
             this.maskedTextCPF.Clear();
             this.maskedTextBoxNascimento.Clear();
             this.tbEmail.Clear();
-            this.tbSenha.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -39,7 +38,6 @@ namespace Biblioteca.View.Leitor {
             String cpf = maskedTextCPF.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
             String email = tbEmail.Text;
-            String senha = tbSenha.Text;
 
             if(nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -75,13 +73,9 @@ namespace Biblioteca.View.Leitor {
             else if (Validar.ValidarEmail(email) == false){
                 MessageBox.Show("Você precisa digitar um email válido.", "Atenção", MessageBoxButtons.OK);
                 tbEmail.Focus();
-            } 
-            else if (senha.Length <= 4) {
-                MessageBox.Show("Insira uma senha com mais de 4 caractéres", "Atenção", MessageBoxButtons.OK);
-                tbSenha.Focus();
             }
             else {
-                LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco, email, senha);
+                LeitorModel leitor = new LeitorModel(nome, data, telefone, cpf, endereco, email);
                 if (controller.Insercao(leitor)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();

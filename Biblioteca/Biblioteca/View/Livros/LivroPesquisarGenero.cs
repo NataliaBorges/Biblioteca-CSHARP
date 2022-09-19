@@ -27,18 +27,24 @@ namespace Biblioteca.View.Livros
         }
         private void popular(List<GeneroModel> lista)
         {
-            LvGenero.Items.Clear();
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
             if (lista.Count > 0)
             {
-                foreach (GeneroModel genero in lista)
+                foreach (GeneroModel autor in lista)
                 {
-                    ListViewItem item = new ListViewItem(genero.getId().ToString());
-                    item.SubItems.Add(genero.Nome_genero);
 
-
-                    LvGenero.Items.Add(item);
+                    table.Rows.Add(autor.getId(),
+                                   autor.Nome_genero);
                 }
+                dtGridViewGenero.DataSource = table;
             }
+        }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -42,8 +42,6 @@ namespace Biblioteca.View.Leitor {
             this.label9 = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbSenha = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.LinkCadastrarFuncionario = new System.Windows.Forms.LinkLabel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
@@ -59,13 +57,14 @@ namespace Biblioteca.View.Leitor {
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.Black;
+            this.btnCadastrar.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(492, 472);
+            this.btnCadastrar.Location = new System.Drawing.Point(465, 565);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(238, 48);
+            this.btnCadastrar.Size = new System.Drawing.Size(228, 48);
             this.btnCadastrar.TabIndex = 27;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -77,7 +76,7 @@ namespace Biblioteca.View.Leitor {
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(550, 298);
+            this.label5.Location = new System.Drawing.Point(639, 279);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -88,7 +87,7 @@ namespace Biblioteca.View.Leitor {
             // calendar
             // 
             this.calendar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calendar.Location = new System.Drawing.Point(222, 358);
+            this.calendar.Location = new System.Drawing.Point(465, 377);
             this.calendar.Name = "calendar";
             this.calendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.calendar.TabIndex = 22;
@@ -100,7 +99,7 @@ namespace Biblioteca.View.Leitor {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(222, 326);
+            this.label4.Location = new System.Drawing.Point(465, 357);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -114,7 +113,7 @@ namespace Biblioteca.View.Leitor {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(519, 258);
+            this.label3.Location = new System.Drawing.Point(598, 240);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -125,7 +124,7 @@ namespace Biblioteca.View.Leitor {
             // tbNome
             // 
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(292, 176);
+            this.tbNome.Location = new System.Drawing.Point(370, 165);
             this.tbNome.Margin = new System.Windows.Forms.Padding(4);
             this.tbNome.Name = "tbNome";
             this.tbNome.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -138,7 +137,7 @@ namespace Biblioteca.View.Leitor {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(222, 176);
+            this.label1.Location = new System.Drawing.Point(300, 165);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -152,7 +151,7 @@ namespace Biblioteca.View.Leitor {
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(222, 216);
+            this.label6.Location = new System.Drawing.Point(300, 205);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -163,21 +162,21 @@ namespace Biblioteca.View.Leitor {
             // tbRua
             // 
             this.tbRua.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbRua.Location = new System.Drawing.Point(292, 213);
+            this.tbRua.Location = new System.Drawing.Point(370, 202);
             this.tbRua.Margin = new System.Windows.Forms.Padding(4);
             this.tbRua.Name = "tbRua";
             this.tbRua.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbRua.Size = new System.Drawing.Size(288, 27);
+            this.tbRua.Size = new System.Drawing.Size(323, 27);
             this.tbRua.TabIndex = 29;
             // 
             // tbNumero
             // 
             this.tbNumero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNumero.Location = new System.Drawing.Point(633, 213);
+            this.tbNumero.Location = new System.Drawing.Point(740, 202);
             this.tbNumero.Margin = new System.Windows.Forms.Padding(4);
             this.tbNumero.Name = "tbNumero";
             this.tbNumero.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbNumero.Size = new System.Drawing.Size(97, 27);
+            this.tbNumero.Size = new System.Drawing.Size(68, 27);
             this.tbNumero.TabIndex = 30;
             // 
             // label7
@@ -186,7 +185,7 @@ namespace Biblioteca.View.Leitor {
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(594, 216);
+            this.label7.Location = new System.Drawing.Point(701, 205);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -200,7 +199,7 @@ namespace Biblioteca.View.Leitor {
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(222, 292);
+            this.label8.Location = new System.Drawing.Point(300, 281);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -211,7 +210,7 @@ namespace Biblioteca.View.Leitor {
             // tbCidade
             // 
             this.tbCidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbCidade.Location = new System.Drawing.Point(292, 283);
+            this.tbCidade.Location = new System.Drawing.Point(370, 272);
             this.tbCidade.Margin = new System.Windows.Forms.Padding(4);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -221,7 +220,7 @@ namespace Biblioteca.View.Leitor {
             // tbBairro
             // 
             this.tbBairro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBairro.Location = new System.Drawing.Point(292, 248);
+            this.tbBairro.Location = new System.Drawing.Point(370, 237);
             this.tbBairro.Margin = new System.Windows.Forms.Padding(4);
             this.tbBairro.Name = "tbBairro";
             this.tbBairro.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -234,7 +233,7 @@ namespace Biblioteca.View.Leitor {
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(222, 255);
+            this.label9.Location = new System.Drawing.Point(300, 244);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -245,11 +244,11 @@ namespace Biblioteca.View.Leitor {
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEmail.Location = new System.Drawing.Point(530, 355);
+            this.tbEmail.Location = new System.Drawing.Point(370, 308);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbEmail.Size = new System.Drawing.Size(200, 27);
+            this.tbEmail.Size = new System.Drawing.Size(438, 27);
             this.tbEmail.TabIndex = 37;
             // 
             // label2
@@ -258,37 +257,13 @@ namespace Biblioteca.View.Leitor {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(462, 358);
+            this.label2.Location = new System.Drawing.Point(300, 315);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 36;
             this.label2.Text = "E-mail:";
-            // 
-            // tbSenha
-            // 
-            this.tbSenha.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbSenha.Location = new System.Drawing.Point(530, 388);
-            this.tbSenha.Margin = new System.Windows.Forms.Padding(4);
-            this.tbSenha.Name = "tbSenha";
-            this.tbSenha.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tbSenha.Size = new System.Drawing.Size(200, 27);
-            this.tbSenha.TabIndex = 39;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(467, 391);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(55, 20);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "Senha:";
             // 
             // pnlPrincipal
             // 
@@ -301,9 +276,7 @@ namespace Biblioteca.View.Leitor {
             this.pnlPrincipal.Controls.Add(this.maskedTextCPF);
             this.pnlPrincipal.Controls.Add(this.tbRua);
             this.pnlPrincipal.Controls.Add(this.label1);
-            this.pnlPrincipal.Controls.Add(this.tbSenha);
             this.pnlPrincipal.Controls.Add(this.tbNome);
-            this.pnlPrincipal.Controls.Add(this.label10);
             this.pnlPrincipal.Controls.Add(this.label3);
             this.pnlPrincipal.Controls.Add(this.tbEmail);
             this.pnlPrincipal.Controls.Add(this.label2);
@@ -319,9 +292,9 @@ namespace Biblioteca.View.Leitor {
             this.pnlPrincipal.Controls.Add(this.tbNumero);
             this.pnlPrincipal.Controls.Add(this.label6);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(198, 3);
+            this.pnlPrincipal.Location = new System.Drawing.Point(232, 3);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(925, 685);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1092, 638);
             this.pnlPrincipal.TabIndex = 41;
             // 
             // LinkCadastrarFuncionario
@@ -329,7 +302,7 @@ namespace Biblioteca.View.Leitor {
             this.LinkCadastrarFuncionario.AutoSize = true;
             this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(580, 524);
+            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(605, 617);
             this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
             this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(88, 18);
             this.LinkCadastrarFuncionario.TabIndex = 62;
@@ -340,11 +313,11 @@ namespace Biblioteca.View.Leitor {
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(292, 81);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(370, 70);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(376, 38);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(394, 39);
             this.lblCadastroLivro.TabIndex = 61;
             this.lblCadastroLivro.Text = "CADASTRO DE LEITOR";
             // 
@@ -353,13 +326,13 @@ namespace Biblioteca.View.Leitor {
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(925, 37);
+            this.head1.Size = new System.Drawing.Size(1092, 37);
             this.head1.TabIndex = 44;
             // 
             // maskedTextBoxNascimento
             // 
             this.maskedTextBoxNascimento.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxNascimento.Location = new System.Drawing.Point(327, 317);
+            this.maskedTextBoxNascimento.Location = new System.Drawing.Point(592, 350);
             this.maskedTextBoxNascimento.Mask = "99/99/9999";
             this.maskedTextBoxNascimento.Name = "maskedTextBoxNascimento";
             this.maskedTextBoxNascimento.Size = new System.Drawing.Size(100, 27);
@@ -368,7 +341,7 @@ namespace Biblioteca.View.Leitor {
             // maskedTextBoxTelefone
             // 
             this.maskedTextBoxTelefone.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(605, 255);
+            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(683, 236);
             this.maskedTextBoxTelefone.Mask = "(99)99999-9999";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(125, 27);
@@ -377,7 +350,7 @@ namespace Biblioteca.View.Leitor {
             // maskedTextCPF
             // 
             this.maskedTextCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextCPF.Location = new System.Drawing.Point(611, 295);
+            this.maskedTextCPF.Location = new System.Drawing.Point(689, 272);
             this.maskedTextCPF.Mask = "999,999,999-99";
             this.maskedTextCPF.Name = "maskedTextCPF";
             this.maskedTextCPF.Size = new System.Drawing.Size(119, 27);
@@ -395,7 +368,7 @@ namespace Biblioteca.View.Leitor {
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1126, 691);
+            this.pnltotal.Size = new System.Drawing.Size(1327, 644);
             this.pnltotal.TabIndex = 42;
             // 
             // menuControl1
@@ -405,7 +378,7 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(189, 685);
+            this.menuControl1.Size = new System.Drawing.Size(223, 638);
             this.menuControl1.TabIndex = 42;
             // 
             // LeitorCadastrarView
@@ -413,7 +386,7 @@ namespace Biblioteca.View.Leitor {
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1126, 691);
+            this.ClientSize = new System.Drawing.Size(1327, 644);
             this.Controls.Add(this.pnltotal);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -450,8 +423,6 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbSenha;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.MaskedTextBox maskedTextCPF;

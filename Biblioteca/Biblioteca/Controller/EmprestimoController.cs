@@ -430,8 +430,7 @@ namespace Biblioteca.Controller {
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
                     (String)reader["Endereco"],
-                    (String)reader["Email"],
-                    (String)reader["ISBN"]
+                    (String)reader["Email"]
                 );
                 lista.Add(leitor);
             }

@@ -29,22 +29,6 @@ namespace Biblioteca.View.Livros {
         {
             this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
-
-            //this.cbEditora.Items.Clear();
-            //List<EditoraModel> editoras = controller.ListarEditora();
-            //if (editoras.Count > 0)
-            //{
-            //    foreach (EditoraModel editora in editoras)
-            //    {
-            //        ComboBoxItem item = new ComboBoxItem(editora.Nome, editora.ID.ToString());
-            //        cbEditora.Items.Add(item);
-            //        comboBoxItems.Add(item);
-            //    }
-
-            //    cbEditora.ValueMember = "Value";
-            //    cbEditora.DisplayMember = "Text";
-            //    cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
-            //}
         }
 
         private void ClearForm() {
@@ -143,7 +127,7 @@ namespace Biblioteca.View.Livros {
             }
             //else
             //{
-            //    LivroModel livro = new LivroModel(IdEditora, IdAutor,IdGenero,Titulo, edicao,  ano, ISBN, Quantidade);
+            //    LivroModel livro = new LivroModel(IdEditora, IdAutor, IdGenero, Titulo, edicao, ano, ISBN, Quantidade);
             //    if (controller.Insercao(livro))
             //    {
             //        MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);

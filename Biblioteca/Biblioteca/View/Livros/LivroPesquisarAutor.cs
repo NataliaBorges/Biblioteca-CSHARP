@@ -32,36 +32,24 @@ namespace Biblioteca.View.Livros
         }
         private void popular(List<AutorModel> lista)
         {
-            LvAutor.Items.Clear();
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
             if (lista.Count > 0)
             {
                 foreach (AutorModel autor in lista)
                 {
-                    ListViewItem item = new ListViewItem(autor.getId().ToString());
-                    item.SubItems.Add(autor.Nome_Autor);
 
-
-                    LvAutor.Items.Add(item);
+                    table.Rows.Add(autor.getId(),
+                                   autor.Nome_Autor);
                 }
+                dtGridViewAutor.DataSource = table;
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnVoltar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void LvAutor_MouseClick(object sender, MouseEventArgs e)
-        {
-            ListViewItem item = LvAutor.Items[LvAutor.FocusedItem.Index];
-            AutorModel autor = new AutorModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text
-            );
-
-            controller.InserirAutorLivro(autor);
             this.Close();
         }
-
     }
 }

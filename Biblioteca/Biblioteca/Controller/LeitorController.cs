@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email, @Senha)";
+            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Leitor", leitor.Nome);
@@ -30,7 +30,6 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
             Cmd.Parameters.AddWithValue("@Email", leitor.Email);
-            Cmd.Parameters.AddWithValue("@Senha", leitor.Senha);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -53,7 +52,6 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
             Cmd.Parameters.AddWithValue("@Email", leitor.Email);
-            Cmd.Parameters.AddWithValue("@Senha", leitor.Senha);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;

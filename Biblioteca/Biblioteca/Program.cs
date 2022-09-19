@@ -20,7 +20,7 @@ namespace Biblioteca {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Singleton singleton = Singleton.GetInstancia();
-            Application.Run(new TelaLoginView());
+            Application.Run(new PrincipalTelaView());
         }
     }
 }
