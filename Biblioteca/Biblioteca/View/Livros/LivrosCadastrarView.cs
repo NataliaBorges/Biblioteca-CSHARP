@@ -140,5 +140,10 @@ namespace Biblioteca.View.Livros {
             //}
 
         }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
