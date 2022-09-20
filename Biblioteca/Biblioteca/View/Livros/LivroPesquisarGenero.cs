@@ -7,12 +7,14 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Biblioteca.Util;
 
 namespace Biblioteca.View.Livros
 {
     public partial class LivroPesquisarGenero : Form
     {
         GeneroController controller = new GeneroController();
+        Singleton singleton = Singleton.GetInstancia();
         public LivroPesquisarGenero()
         {
             InitializeComponent();
@@ -45,6 +47,18 @@ namespace Biblioteca.View.Livros
         private void btnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtGridViewGenero_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewGenero.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                GeneroModel generoSelecionado = new GeneroModel(id, nome);
+                singleton.setGeneroBusca(generoSelecionado);
+                this.Close();
+            }
         }
     }
 }

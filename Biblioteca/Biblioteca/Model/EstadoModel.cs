@@ -6,8 +6,8 @@ namespace Biblioteca.Model
 {
     internal class EstadoModel
     {
-        int Id { get; set; }
-        String Nome { get; set; }
+        public int Id { get; set; }
+        public String Nome { get; set; }
 
         public EstadoModel(int Id, String nome)
         {

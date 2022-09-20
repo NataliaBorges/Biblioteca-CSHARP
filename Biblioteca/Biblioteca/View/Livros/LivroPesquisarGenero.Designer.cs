@@ -207,6 +207,7 @@
             this.dtGridViewGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewGenero.Size = new System.Drawing.Size(398, 341);
             this.dtGridViewGenero.TabIndex = 30;
+            this.dtGridViewGenero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewGenero_CellContentClick);
             // 
             // panel4
             // 

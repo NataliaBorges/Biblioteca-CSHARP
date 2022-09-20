@@ -24,7 +24,7 @@ namespace Biblioteca.Controller {
             Cmd.CommandText = @"INSERT INTO Editora Values (@Nome_Editora, @Endereco, @Telefone, @CNPJ, @Email)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@Nome_fornecedor", editora.Nome);
+            Cmd.Parameters.AddWithValue("@Nome_Editora", editora.Nome);
             Cmd.Parameters.AddWithValue("@Endereco", editora.Endereco);
             Cmd.Parameters.AddWithValue("@Telefone", editora.Telefone);
             Cmd.Parameters.AddWithValue("@CNPJ", editora.CNPJ);
@@ -60,7 +60,7 @@ namespace Biblioteca.Controller {
             }
         }
 
-        public List<EditoraModel> ListarPesquisaAutor() {
+        public List<EditoraModel> ListarTodos() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Editora";
             Cmd.Parameters.Clear();
@@ -70,6 +70,35 @@ namespace Biblioteca.Controller {
             List<EditoraModel> lista = new List<EditoraModel>();
 
             while (reader.Read()) {
+                EditoraModel editora = new EditoraModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Endereco"],
+                    (String)reader["CNPJ"],
+                    (String)reader["Email"],
+                    (String)reader["Telefone"]
+                );
+                lista.Add(editora);
+            }
+            reader.Close();
+
+            return lista;
+        }
+        public List<EditoraModel> PesquisarEditora()
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT	Id,
+		                                Nome_Editora,
+		                                CNPJ
+                                FROM Editora";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EditoraModel> lista = new List<EditoraModel>();
+
+            while (reader.Read())
+            {
                 EditoraModel editora = new EditoraModel(
                     (int)reader["ID"],
                     (String)reader["Nome_Editora"],
@@ -102,7 +131,10 @@ namespace Biblioteca.Controller {
                 EditoraModel leitor = new EditoraModel(
                     (int)reader["ID"],
                     (String)reader["Nome_Editora"],
-                    (String)reader["CNPJ"]
+                    (String)reader["Endereco"],
+                    (String)reader["CNPJ"],
+                    (String)reader["Email"],
+                    (String)reader["Telefone"]
                 );
                 lista.Add(leitor);
             }

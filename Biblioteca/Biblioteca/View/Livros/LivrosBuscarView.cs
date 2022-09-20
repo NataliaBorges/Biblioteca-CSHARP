@@ -19,27 +19,34 @@ namespace Biblioteca.View.Livros {
         }
 
         private void popular(List<LivroModel> lista) {
-            //DataTable table = new DataTable();
-            //table.Columns.Add("ID", typeof(int));
-            //table.Columns.Add("NAME", typeof(string));
-            //drGrViewLivro.DataSource = lista;
-            //LvLivros.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    //table.Rows.Add(livro.getId(), livro.Titulo);
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    item.SubItems.Add(livro.Titulo);
-                    item.SubItems.Add(livro.Edicao);
-                    item.SubItems.Add(livro.AnoPublicacao);
-                    item.SubItems.Add(livro.ISBN);
-                    item.SubItems.Add(livro.Quantidade.ToString());
-                    item.SubItems.Add(livro.NomeAutor);
-                    item.SubItems.Add(livro.NomeEditora);
-                    item.SubItems.Add(livro.NomeGenero);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Quantidade", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Ano de Publicação", typeof(string));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
+            table.Columns.Add("Gênero", typeof(string));
 
-                   // LvLivros.Items.Add(item);
+            dtGridViewLivros.DataSource = lista;
+            if (lista.Count > 0)
+            {
+                foreach (LivroModel livros in lista)
+                {
+
+                    table.Rows.Add(livros.getId(),
+                                   livros.Quantidade,
+                                   livros.Titulo,
+                                   livros.Edicao,
+                                   livros.AnoPublicacao,
+                                   livros.ISBN,
+                                   livros.NomeAutor,
+                                   livros.NomeEditora,
+                                   livros.NomeGenero);
                 }
-                //drGrViewLivro.DataSource = table;
+                dtGridViewLivros.DataSource = table;
             }
         }
 
@@ -48,8 +55,8 @@ namespace Biblioteca.View.Livros {
             List<LivroModel> lista = controller.ListarTodos();
             popular(lista);
         }
-
-        protected override void OnActivated(EventArgs e) {
+        private void LivrosBuscarView_Activated(object sender, EventArgs e)
+        {
             List<LivroModel> lista = controller.ListarTodos();
             popular(lista);
         }
@@ -77,29 +84,31 @@ namespace Biblioteca.View.Livros {
             }
         }
 
-        //private void LvLivros_MouseClick_1(object sender, MouseEventArgs e)
-        //{
-        //    //ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-        //    //LivroModel livro = new LivroModel(
-        //        //int.Parse(item.SubItems[0].Text),
-        //        //item.SubItems[1].Text,
-        //        //item.SubItems[2].Text,
-        //        //item.SubItems[3].Text,
-        //        //item.SubItems[4].Text,
-        //        //int.Parse(item.SubItems[5].Text),
-        //        //item.SubItems[6].Text,
-        //        //item.SubItems[7].Text,
-        //        //item.SubItems[8].Text
-        //    );
-
-        //    LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(livro.getId());
-        //    NovaJanela.novaJanela(livroBuscarExemplarView, this.Bounds);
-        //}
-
         private void linklablCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
             NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dtGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            String Id = dtGridViewLivros.Rows[0].Cells[0].Value.ToString();
+            String Quantidade = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String Titulo = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String Edicao = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String anoPublicacao = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String ISBN = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String Autor = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String Editora = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            String Genero = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+
+            LivrosEditarView livrosEditarView = new LivrosEditarView();
+            NovaJanela.novaJanela(livrosEditarView, this.Bounds);
         }
     }
 }

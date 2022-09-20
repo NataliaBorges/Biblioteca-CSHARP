@@ -94,10 +94,6 @@ namespace Biblioteca.View.Leitor {
             data = new DateTime(ano, mes, dia);
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void LeitorCadastrarView_Load(object sender, EventArgs e)
         {
             this.menuControl1.setPanel(pnltotal);

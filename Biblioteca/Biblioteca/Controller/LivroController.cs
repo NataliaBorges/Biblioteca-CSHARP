@@ -23,13 +23,13 @@ namespace Biblioteca.Controller {
         }
         public int BuscarUltimoLivro() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Livro ORDER BY ID_livro DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
+            Cmd.CommandText = @"SELECT * FROM Livro ORDER BY Id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
             while (reader.Read()) {
-                int idLivro = (int)reader["ID_livro"];
+                int idLivro = (int)reader["Id"];
                 reader.Close();
                 return idLivro;
             }
@@ -39,7 +39,7 @@ namespace Biblioteca.Controller {
         }
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Livro Values @Titulo, @Edicao, @Ano_Publicacao, @Quantidade, @ISBN, @Id_genero, @Id_autor, @Id_Editora)";
+            Cmd.CommandText = @"INSERT INTO Livro Values (@Titulo, @Edicao, @Ano_Publicacao, @Quantidade, @ISBN, @Id_genero, @Id_autor, @Id_Editora)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
@@ -55,10 +55,11 @@ namespace Biblioteca.Controller {
                 int ultimoLivroId = BuscarUltimoLivro();
                 for(int i=0; i< livro.Quantidade; i++) {
                     Cmd.Connection = connection.RetornaConexao();
-                    Cmd.CommandText = @"INSERT INTO Item_livro Values (@Id_Livro)";
+                    Cmd.CommandText = @"INSERT INTO Exemplar Values (@Data_Aquisição, @Id_livro)";
 
                     Cmd.Parameters.Clear();
-                    Cmd.Parameters.AddWithValue("@Id_Livro", ultimoLivroId);
+                    Cmd.Parameters.AddWithValue("@Data_Aquisição", "2022-09-19");
+                    Cmd.Parameters.AddWithValue("@Id_livro", ultimoLivroId);
                     Cmd.ExecuteNonQuery();
                 }
                 
@@ -164,10 +165,10 @@ namespace Biblioteca.Controller {
 		            Livro.Edicao,
 		            Livro.Ano_Publicacao,
 		            Livro.ISBN,
-		            Livro.Quantidade,
 		            Editora.Nome_Editora,
 		            Autor.Nome_Autor,
-		            Genero.Nome_Genero
+		            Genero.Nome_Genero,
+                    Livro.Quantidade
             FROM Livro
             INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
             INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)

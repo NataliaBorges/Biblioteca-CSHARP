@@ -73,7 +73,7 @@ namespace Biblioteca.View.Fornecedor {
             else {
                 if (controller.Insercao(editora)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    this.Close();
+                    ClearForm();
                 }
                 else {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);

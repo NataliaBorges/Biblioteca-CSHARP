@@ -13,10 +13,8 @@ namespace Biblioteca.View.Livros {
     public partial class LivrosEditarView : Form {
         LivroModel livro;
         LivroController controller = new LivroController();
-        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         DateTime data;
-        public LivrosEditarView(LivroModel livro) {
-            this.livro = livro;
+        public LivrosEditarView() {
             InitializeComponent();
         }
 
@@ -24,24 +22,8 @@ namespace Biblioteca.View.Livros {
 
             this.menuControl1.setPanel(pnltotal);
 
-            List<EditoraModel> editoras = controller.ListarEditora();
-            if (editoras.Count > 0) {
-                foreach (EditoraModel editora in editoras) {
-                    ComboBoxItem item = new ComboBoxItem(editora.Nome, editora.ID.ToString());
-                    //cbEditora.Items.Add(item);
-                    comboBoxItems.Add(item);
-                }
-
-                //cbEditora.ValueMember = "Value";
-                //cbEditora.DisplayMember = "Text";
-                //cbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-
             if (livro != null) {
-                tbNome.Text = livro.Titulo;
-                maskedTextBoxAno.Text = livro.AnoPublicacao;
-                tbEdicao.Text = livro.Edicao;
-                tbISBN.Text = livro.ISBN;
+                //tbNome.Text = this.Titulo;
             }
         }
 
@@ -58,15 +40,8 @@ namespace Biblioteca.View.Livros {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            //if (cbEditora.SelectedItem == null) {
-            //    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
-            //    cbEditora.Focus();
-            //}
-            //else {
-                //int posicao = comboBoxItems.FindIndex(item => item.Text == cbEditora.SelectedItem.ToString());
-                //int IdFornecedor = int.Parse(comboBoxItems[posicao].Value);
-                String nome = tbNome.Text;
-                String autor = tbNome.Text;
+                String nome = tbAutor.Text;
+                String autor = tbAutor.Text;
                 String edicao = tbEdicao.Text;
                 String ano = maskedTextBoxAno.Text;
                 DateTime data = this.data; //.ToString("yyyy-MM-dd");
@@ -74,15 +49,16 @@ namespace Biblioteca.View.Livros {
 
                 if (nome.Length <= 0) {
                     MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
-                    tbNome.Focus();
+                    tbAutor.Focus();
                 }
-                //else if (cbEditora == null) {
-                //    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
-                //    cbEditora.Focus();
-                //}
+                else if (tbEditora.Text.Length <= 0)
+                {
+                    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                    tbEditora.Focus();
+                }
                 else if (autor.Length <= 0) {
                     MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
-                    tbNome.Focus();
+                    tbAutor.Focus();
                 }
                 else if (edicao.Length <= 0) {
                     MessageBox.Show("Você precisa digitar uma Edição.", "Atenção", MessageBoxButtons.OK);
@@ -92,27 +68,23 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
                     maskedTextBoxAno.Focus();
                 }
-                //else if (maskedTextBoxAquisição.Text == "  /  /") {
-                //    MessageBox.Show("Você precisa digitar uma data de aquisição.", "Atenção", MessageBoxButtons.OK);
-                //    maskedTextBoxAquisição.Focus();
-                //}
                 else if (tbISBN.Text.Length < 13) {
                     MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
                 }
                 //else if (Validar.ValidaISBN13(ISBN)) {
                 //    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
                 //    tbISBN.Focus();
+                ////}
+                //else {
+                //    LivroModel livro = new LivroModel(this.livro.getId(),nome, autor, edicao, ano, data, ISBN,);
+                //    if (controller.Atualizar(livro)) {
+                //        MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                //        this.Close();
+                //    }
+                //    else {
+                //        MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
+                //    }
                 //}
-                else {
-                    //LivroModel livro = new LivroModel(this.livro.getId(),IdFornecedor, nome, autor, edicao, ano, data, ISBN);
-                    if (controller.Atualizar(livro)) {
-                        MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    else {
-                        MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
-                    }
-                }
             }
     }
 }

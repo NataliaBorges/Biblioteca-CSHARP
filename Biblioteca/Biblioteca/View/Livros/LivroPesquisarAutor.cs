@@ -51,5 +51,17 @@ namespace Biblioteca.View.Livros
         {
             this.Close();
         }
+
+        private void dtGridViewAutor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewAutor.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                AutorModel autorSelecionado = new AutorModel(id, nome);
+                singleton.setAutorBusca(autorSelecionado);
+                this.Close();
+            }
+        }
     }
 }

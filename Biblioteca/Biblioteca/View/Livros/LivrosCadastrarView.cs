@@ -12,6 +12,7 @@ using Biblioteca.Util;
 using Biblioteca.View.Autor;
 using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Genero;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace Biblioteca.View.Livros {
@@ -19,6 +20,7 @@ namespace Biblioteca.View.Livros {
 
         LivroController controller = new LivroController();
         List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+        Singleton singleton = Singleton.GetInstancia();
         DateTime data;
 
         public LivrosCadastrarView() {
@@ -44,18 +46,21 @@ namespace Biblioteca.View.Livros {
 
         private void btnPesqAutor_Click(object sender, EventArgs e)
         {
+            singleton.setBuscarAutor(true);
             LivroPesquisarAutor livroPesquisarAutor = new LivroPesquisarAutor();
             NovaJanela.novaJanela(livroPesquisarAutor, this.Bounds);
         }
 
         private void btlPesqEditora_Click_1(object sender, EventArgs e)
         {
+            singleton.setBuscarEditora(true);
             LivroPesquisarEditora livroPesquisarEditora= new LivroPesquisarEditora();
             NovaJanela.novaJanela(livroPesquisarEditora, this.Bounds);
         }
 
         private void btnPesqGenero_Click_1(object sender, EventArgs e)
         {
+            singleton.setBuscarGenero(true);
             LivroPesquisarGenero livroPesquisarGenero = new LivroPesquisarGenero();
             NovaJanela.novaJanela(livroPesquisarGenero, this.Bounds);
         }
@@ -76,21 +81,21 @@ namespace Biblioteca.View.Livros {
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            String nome = tbNome.Text;
-            String autor = tbAutor.Text;
+            String titulo = tbNome.Text;
             String edicao = tbEdicao.Text;
             String ano = maskedTextBoxAno.Text;
             String ISBN = tbISBN.Text;
-            String Editora = tbEditora.Text;
-            String Genero = tbGenero.Text;
-            String Quantidade = tbQuantidade.Text;
+            int Quantidade = int.Parse(tbQuantidade.Text);
+            int autor = singleton.getAutorBusca().Id_autor;
+            int Genero = singleton.getEditoraBusca().ID;
+            int Editora = singleton.getGeneroBusca().Id_genero;
 
-            if (nome.Length <= 0)
+            if (titulo.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
                 tbNome.Focus();
             }
-            else if (autor.Length <= 0)
+            else if (tbAutor.Text.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
                 tbAutor.Focus();
@@ -125,25 +130,52 @@ namespace Biblioteca.View.Livros {
                 MessageBox.Show("Você precisa digitar uma quantidade válida.", "Atenção", MessageBoxButtons.OK);
                 tbQuantidade.Focus();
             }
-            //else
-            //{
-            //    LivroModel livro = new LivroModel(IdEditora, IdAutor, IdGenero, Titulo, edicao, ano, ISBN, Quantidade);
-            //    if (controller.Insercao(livro))
-            //    {
-            //        MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-            //        this.Close();
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
-            //    }
-            //}
+            else
+            {
+                LivroModel livro = new LivroModel(titulo, edicao, ano, Quantidade, ISBN, autor, Genero, Editora );
+                if (controller.Insercao(livro))
+                {
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
 
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void LivrosCadastrarView_Activated(object sender, EventArgs e)
+        {
+            if (singleton.getBuscarAutor())
+            {
+                singleton.setBuscarAutor(false);
+                tbAutor.Text = singleton.getAutorBusca().Nome_Autor;
+            }
+
+            if (singleton.getBuscarEditora())
+            {
+                singleton.setBuscarEditora(false);
+                tbEditora.Text = singleton.getEditoraBusca().Nome;
+            }
+
+            if (singleton.getBuscarGenero())
+            {
+                singleton.setBuscarGenero(false);
+                tbGenero.Text = singleton.getGeneroBusca().Nome_genero;
+            }
+        }
+
+        private void linklblCadastrarGenero_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
+            NovaJanela.novaJanela(generoCadastrarView, this.Bounds);
         }
     }
 }

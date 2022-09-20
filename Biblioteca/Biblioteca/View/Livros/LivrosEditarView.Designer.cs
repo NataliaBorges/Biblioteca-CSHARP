@@ -28,7 +28,7 @@ namespace Biblioteca.View.Livros {
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnPesqGenero = new System.Windows.Forms.Button();
             this.lblEdicaoLivro = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@ namespace Biblioteca.View.Livros {
             this.label9 = new System.Windows.Forms.Label();
             this.tbGenero = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.tbNome = new System.Windows.Forms.TextBox();
+            this.tbAutor = new System.Windows.Forms.TextBox();
             this.tbEdicao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
@@ -86,7 +86,7 @@ namespace Biblioteca.View.Livros {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbNome);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnPesqGenero);
             this.panel1.Controls.Add(this.lblEdicaoLivro);
@@ -101,7 +101,7 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.tbGenero);
             this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tbNome);
+            this.panel1.Controls.Add(this.tbAutor);
             this.panel1.Controls.Add(this.tbEdicao);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.maskedTextBoxAno);
@@ -117,13 +117,13 @@ namespace Biblioteca.View.Livros {
             this.panel1.Size = new System.Drawing.Size(973, 650);
             this.panel1.TabIndex = 28;
             // 
-            // textBox1
+            // tbNome
             // 
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(289, 177);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(450, 27);
-            this.textBox1.TabIndex = 53;
+            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNome.Location = new System.Drawing.Point(289, 177);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.Size = new System.Drawing.Size(450, 27);
+            this.tbNome.TabIndex = 53;
             // 
             // label1
             // 
@@ -254,13 +254,13 @@ namespace Biblioteca.View.Livros {
             this.label5.TabIndex = 37;
             this.label5.Text = "Ano:";
             // 
-            // tbNome
+            // tbAutor
             // 
-            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(289, 216);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(349, 27);
-            this.tbNome.TabIndex = 34;
+            this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAutor.Location = new System.Drawing.Point(289, 216);
+            this.tbAutor.Name = "tbAutor";
+            this.tbAutor.Size = new System.Drawing.Size(349, 27);
+            this.tbAutor.TabIndex = 34;
             // 
             // tbEdicao
             // 
@@ -420,7 +420,7 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbGenero;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbNome;
+        private System.Windows.Forms.TextBox tbAutor;
         private System.Windows.Forms.TextBox tbEdicao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxAno;
@@ -430,7 +430,7 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.TextBox tbQuantidade;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.Label label1;
     }
 }

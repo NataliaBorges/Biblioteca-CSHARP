@@ -15,6 +15,7 @@ namespace Biblioteca.View.Livros
     public partial class LivroPesquisarEditora : Form
     {
         EditoraController controller = new EditoraController();
+        Singleton singleton = Singleton.GetInstancia();
         public LivroPesquisarEditora()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Biblioteca.View.Livros
         {
             this.menuControl1.setPanel(pnltotal);
 
-            List<EditoraModel> lista = controller.ListarPesquisaAutor();
+            List<EditoraModel> lista = controller.PesquisarEditora();
             popular(lista);
         }
         private void popular(List<EditoraModel> lista)
@@ -56,6 +57,19 @@ namespace Biblioteca.View.Livros
         {
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
             NovaJanela.novaJanela(editoraCadastrarView, Bounds);
+        }
+
+        private void dtGridViewEditora_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewEditora.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                string cnpj = row.Cells[2].Value.ToString();
+                EditoraModel editoraSelecionada = new EditoraModel(id, nome, cnpj);
+                singleton.setEditoraBusca(editoraSelecionada);
+                this.Close();
+            }
         }
     }
 }

@@ -13,7 +13,9 @@ namespace Biblioteca.View.Leitor {
     public partial class LeitorEditarView : Form {
 
         LeitorModel leitor;
-        LeitorController controller = new LeitorController();
+        LeitorController leitorController = new LeitorController();
+        EstadoController estadoController = new EstadoController();
+        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         DateTime data;
 
         public LeitorEditarView(LeitorModel leitor) {
@@ -27,7 +29,6 @@ namespace Biblioteca.View.Leitor {
             String telefone = maskedTextBoxTelefone.Text;
             String cpf = maskedTextCPF.Text;
             String email = tbEmail.Text;
-            String senha = tbSenha.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
 
             if (nome.Length <= 0) {
@@ -68,7 +69,7 @@ namespace Biblioteca.View.Leitor {
             }
             else {
                 LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email);
-                if (controller.Atualizar(leitor)) {
+                if (leitorController.Atualizar(leitor)) {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
                 }
@@ -81,6 +82,21 @@ namespace Biblioteca.View.Leitor {
         private void LeitorEditarView_Load(object sender, EventArgs e) {
             this.menuControl1.setPanel(pnltotal);
 
+            this.cbStatus.Items.Clear();
+            List<EstadoModel> estados = estadoController.ListarTodos();
+            if (estados.Count > 0)
+            {
+                foreach (EstadoModel estado in estados)
+                {
+                    ComboBoxItem item = new ComboBoxItem(estado.Nome, estado.Id.ToString());
+                    cbStatus.Items.Add(item);
+                    comboBoxItems.Add(item);
+                }
+
+                cbStatus.ValueMember = "Value";
+                cbStatus.DisplayMember = "Text";
+                cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
             if (leitor != null) {
                 tbNome.Text = leitor.Nome;
 
@@ -107,7 +123,7 @@ namespace Biblioteca.View.Leitor {
         private void button2_Click(object sender, EventArgs e) {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) {
-                if (controller.Excluir(leitor)) {
+                if (leitorController.Excluir(leitor)) {
                     MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
                 }

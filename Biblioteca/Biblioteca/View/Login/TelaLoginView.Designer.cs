@@ -41,7 +41,6 @@ namespace Biblioteca.View {
             this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.PnlEmail = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.PnlSenha = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
-            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -50,7 +49,6 @@ namespace Biblioteca.View {
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             this.PnlEmail.SuspendLayout();
             this.PnlSenha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -305,7 +303,6 @@ namespace Biblioteca.View {
             // PnlSenha
             // 
             this.PnlSenha.BorderRadius = 20;
-            this.PnlSenha.Controls.Add(this.iconPictureBox3);
             this.PnlSenha.Controls.Add(this.iconPictureBox2);
             this.PnlSenha.Controls.Add(this.tbSenha);
             this.PnlSenha.Controls.Add(this.ibtSenhaAberta);
@@ -314,22 +311,6 @@ namespace Biblioteca.View {
             this.PnlSenha.Name = "PnlSenha";
             this.PnlSenha.Size = new System.Drawing.Size(338, 40);
             this.PnlSenha.TabIndex = 18;
-            // 
-            // iconPictureBox3
-            // 
-            this.iconPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconPictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.iconPictureBox3.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.Envelope;
-            this.iconPictureBox3.IconColor = System.Drawing.Color.SaddleBrown;
-            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconPictureBox3.IconSize = 35;
-            this.iconPictureBox3.Location = new System.Drawing.Point(79, -72);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(35, 35);
-            this.iconPictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.iconPictureBox3.TabIndex = 10;
-            this.iconPictureBox3.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
@@ -388,7 +369,6 @@ namespace Biblioteca.View {
             this.PnlEmail.PerformLayout();
             this.PnlSenha.ResumeLayout(false);
             this.PnlSenha.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -414,7 +394,6 @@ namespace Biblioteca.View {
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PnlEmail;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PnlSenha;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
     }

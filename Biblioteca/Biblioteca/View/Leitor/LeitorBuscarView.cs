@@ -32,19 +32,31 @@ namespace Biblioteca.View.Leitor {
         }
 
         private void popular(List<LeitorModel> lista) {
-            LvLeitor.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (LeitorModel leitor in lista) {
-                    ListViewItem item = new ListViewItem(leitor.getId().ToString());
-                    item.SubItems.Add(leitor.Nome);
-                    item.SubItems.Add(leitor.DataNascimento.ToString());
-                    item.SubItems.Add(leitor.Telefone);
-                    item.SubItems.Add(leitor.CPF);
-                    item.SubItems.Add(leitor.Endereco);
-                    item.SubItems.Add(leitor.Email);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("Telefone", typeof(string));
+            table.Columns.Add("Nascimento", typeof(DateTime));
+            table.Columns.Add("CPF", typeof(string));
+            table.Columns.Add("Endereço", typeof(string));
+            table.Columns.Add("Status", typeof(string));
+            dtGridViewLeitor.DataSource = lista;
+            if (lista.Count > 0)
+            {
+                foreach (LeitorModel leitor in lista)
+                {
 
-                    LvLeitor.Items.Add(item);
+                    table.Rows.Add(leitor.getId(), 
+                                   leitor.Nome,
+                                   leitor.Email,
+                                   leitor.Telefone,
+                                   leitor.DataNascimento,
+                                   leitor.CPF,
+                                   leitor.Endereco,
+                                   leitor.Estado);
                 }
+                dtGridViewLeitor.DataSource = table;
             }
         }
 
@@ -60,30 +72,28 @@ namespace Biblioteca.View.Leitor {
             popular(lista);
         }
 
-        private void LvLeitor_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvLeitor.Items[LvLeitor.FocusedItem.Index];
-            LeitorModel leitor = new LeitorModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                DateTime.Parse(item.SubItems[2].Text),
-                item.SubItems[3].Text,
-                item.SubItems[4].Text,
-                item.SubItems[5].Text,
-                item.SubItems[6].Text
-            );
+        //private void LvLeitor_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = dtGridViewLeitor.Items[dtGridViewLeitor.FocusedItem.Index];
+        //    LeitorModel leitor = new LeitorModel(
+        //        int.Parse(item.SubItems[0].Text),
+        //        item.SubItems[1].Text,
+        //        DateTime.Parse(item.SubItems[2].Text),
+        //        item.SubItems[3].Text,
+        //        item.SubItems[4].Text,
+        //        item.SubItems[5].Text,
+        //        item.SubItems[6].Text
+        //    );
 
-            LeitorEditarView editar = new LeitorEditarView(leitor);
-            NovaJanela.novaJanela(editar, this.Bounds);
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
+        //    LeitorEditarView editar = new LeitorEditarView(leitor);
+        //    NovaJanela.novaJanela(editar, this.Bounds);
+        //}
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
             NovaJanela.novaJanela(leitorCadastrarView, this.Bounds);
-
+        }
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

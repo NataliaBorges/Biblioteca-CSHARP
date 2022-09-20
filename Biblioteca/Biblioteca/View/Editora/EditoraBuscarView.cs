@@ -18,49 +18,53 @@ namespace Biblioteca.View.Fornecedor {
             InitializeComponent();
         }
 
-        private void LvFornecedor_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvFornecedor.Items[LvFornecedor.FocusedItem.Index];
-            EditoraModel fornecedor = new EditoraModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[3].Text,
-                item.SubItems[4].Text,
-                item.SubItems[5].Text
-            );
+        //private void LvFornecedor_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = LvFornecedor.Items[LvFornecedor.FocusedItem.Index];
+        //    EditoraModel fornecedor = new EditoraModel(
+        //        int.Parse(item.SubItems[0].Text),
+        //        item.SubItems[1].Text,
+        //        item.SubItems[2].Text,
+        //        item.SubItems[3].Text,
+        //        item.SubItems[4].Text,
+        //        item.SubItems[5].Text
+        //    );
 
-            EditoraEditarView editar = new EditoraEditarView(fornecedor);
+        //    EditoraEditarView editar = new EditoraEditarView(fornecedor);
 
-            Rectangle bounds = this.Bounds;
-            editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-            editar.StartPosition = FormStartPosition.Manual;
-            editar.Location = new Point(-2, 63);
-            editar.ShowDialog();
-        }
+        //    Rectangle bounds = this.Bounds;
+        //    editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
+        //    editar.StartPosition = FormStartPosition.Manual;
+        //    editar.Location = new Point(-2, 63);
+        //    editar.ShowDialog();
+        //}
 
         private void popular(List<EditoraModel> lista) {
-            LvFornecedor.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (EditoraModel fornecedor in lista) {
-                    ListViewItem item = new ListViewItem(fornecedor.getId().ToString());
-                    item.SubItems.Add(fornecedor.Nome);
-                    item.SubItems.Add(fornecedor.Endereco);
-                    item.SubItems.Add(fornecedor.Telefone);
-                    item.SubItems.Add(fornecedor.CNPJ);
-                    item.SubItems.Add(fornecedor.Email);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Endereço", typeof(string));
+            table.Columns.Add("CNPJ", typeof(string));
+            table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("Telefone", typeof(string));
+            dtGridViewEditora.DataSource = lista;
+            if (lista.Count > 0)
+            {
+                foreach (EditoraModel editoras in lista)
+                {
 
-                    LvFornecedor.Items.Add(item);
+                    table.Rows.Add(editoras.getId(),
+                                   editoras.Nome,
+                                   editoras.Endereco,
+                                   editoras.Email,
+                                   editoras.CNPJ,
+                                   editoras.Telefone);
                 }
+                dtGridViewEditora.DataSource = table;
             }
         }
 
         private void FornecedorBuscarView_Load(object sender, EventArgs e) {
-            List<EditoraModel> lista = controller.ListarPesquisaAutor();
-            popular(lista);
-        }
-
-        protected override void OnActivated(EventArgs e) {
-            List<EditoraModel> lista = controller.ListarPesquisaAutor();
+            List<EditoraModel> lista = controller.ListarTodos();
             popular(lista);
         }
 
@@ -78,13 +82,20 @@ namespace Biblioteca.View.Fornecedor {
             }
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
             NovaJanela.novaJanela(editoraCadastrarView, this.Bounds);
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void EditoraBuscarView_Activated(object sender, EventArgs e)
+        {
+            List<EditoraModel> lista = controller.ListarTodos();
+            popular(lista);
         }
     }
 }

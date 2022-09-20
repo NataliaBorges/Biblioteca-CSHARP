@@ -12,6 +12,8 @@ namespace Biblioteca.Model {
         public String Endereco { get; set; }
         public String Email { get; set; }
         public int QuantidadeEmprestimo { get; set; }
+        public int ID_estado{get; set; }
+        public String Estado { get; set; }
 
         public LeitorModel(int ID, String Nome, DateTime DataNascimento, String Telefone, String CPF, String Endereco) {
             this.ID = ID;
@@ -31,13 +33,16 @@ namespace Biblioteca.Model {
             this.Endereco = Endereco;
             this.Email = Email;
         }
-
-        public LeitorModel(String Nome, DateTime DataNascimento, String Telefone, String CPF, String Endereco) {
+        public LeitorModel(int ID, String Nome, DateTime DataNascimento, String Telefone, String CPF, String Endereco, String Email, String Estado)
+        {
+            this.ID = ID;
             this.Nome = Nome;
             this.DataNascimento = DataNascimento;
             this.Telefone = Telefone;
             this.CPF = CPF;
             this.Endereco = Endereco;
+            this.Email = Email;
+            this.Estado = Estado;
         }
 
         public LeitorModel(String Nome, DateTime DataNascimento, String Telefone, String CPF, String Endereco,  String Email) {

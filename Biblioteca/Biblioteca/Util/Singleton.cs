@@ -15,6 +15,79 @@ namespace Biblioteca.Util {
         private bool addExemplar = false;
         private bool addAutor = false;
 
+        // Buscar genero no cadastro de livro
+        private GeneroModel generoBusca;
+        private bool buscarGenero = false;
+
+        public void setBuscarGenero(bool busca)
+        {
+            this.buscarGenero = busca;
+        }
+
+        public bool getBuscarGenero()
+        {
+            return this.buscarGenero;
+        }
+
+        public void setGeneroBusca(GeneroModel genero)
+        {
+            generoBusca = genero;
+        }
+
+        public GeneroModel getGeneroBusca()
+        {
+            return this.generoBusca;
+        }
+
+        // Buscar editora no cadastro de livro
+        private EditoraModel editoraBusca;
+        private bool buscarEditora = false;
+
+        public void setBuscarEditora(bool busca)
+        {
+            this.buscarEditora = busca;
+        }
+
+        public bool getBuscarEditora()
+        {
+            return this.buscarEditora;
+        }
+
+        public void setEditoraBusca(EditoraModel editora)
+        {
+            editoraBusca = editora;
+        }
+
+        public EditoraModel getEditoraBusca()
+        {
+            return this.editoraBusca;
+        }
+
+
+        // Buscar autor no cadastro de livro
+        private AutorModel autorBusca;
+        private bool buscarAutor = false;
+
+        public void setBuscarAutor(bool busca)
+        {
+            this.buscarAutor = busca;
+        }
+
+        public bool getBuscarAutor()
+        {
+            return this.buscarAutor;
+        }
+
+        public void setAutorBusca(AutorModel autor)
+        {
+            autorBusca = autor;
+        }
+
+        public AutorModel getAutorBusca()
+        {
+            return this.autorBusca;
+        }
+
 
         public static Singleton GetInstancia() {
             if (instancia == null) {

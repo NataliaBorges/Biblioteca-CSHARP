@@ -56,7 +56,18 @@ namespace Biblioteca.Controller {
 
         public List<FuncionarioModel> ListarTodos() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Funcionario";
+            Cmd.CommandText = @"SELECT	Funcionario.Id,
+		                                Funcionario.Nome_Funcionario,
+		                                Funcionario.Data_Nascimento,
+		                                Funcionario.CPF,
+		                                Funcionario.Endereco,
+		                                Funcionario.Telefone,
+		                                Funcionario.Email,
+		                                Funcao.Nome_funcao,
+		                                Estado.Nome_Estado
+                                FROM Funcionario
+                                INNER JOIN Funcao on (Funcao.Id = Funcionario.Id_funcao)
+                                INNER JOIN Estado on (Estado.Id = Funcionario.Id_Estado)";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -69,10 +80,11 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_funcionario"],
                     (String)reader["CPF"],
                     (DateTime)reader["Data_Nascimento"],
-                    (String)reader["Email"],
                     (String)reader["Endereco"], 
                     (String)reader["Telefone"],
-                    (String)reader["Senha"]
+                    (String)reader["Email"],
+                    (String)reader["Nome_Funcao"],
+                    (String)reader["Nome_Estado"]
                 );
                 lista.Add(funcionario);
             }
@@ -84,7 +96,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(FuncionarioModel funcionario) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_Funcionario, @Endereco, @Email, @Senha, @Funcao)";
+            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_Funcionario, @Endereco, @Email, @Senha, @Id_funcao, @Id_estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@CPF", funcionario.CPF);
@@ -94,7 +106,8 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
             Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@Senha", funcionario.Senha);
-            Cmd.Parameters.AddWithValue("@Funcao", funcionario.Funcao);
+            Cmd.Parameters.AddWithValue("@Id_funcao", funcionario.Id_funcao);
+            Cmd.Parameters.AddWithValue("@Id_estado", funcionario.Id_estado);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -123,14 +136,15 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 FuncionarioModel funcionario = new FuncionarioModel(
-                    (int)reader["ID_funcionario"],
+                    (int)reader["Id"],
                     (String)reader["Nome_funcionario"],
                     (String)reader["CPF"],
                     (DateTime)reader["Data_Nascimento"],
-                    (String)reader["Email"],
                     (String)reader["Endereco"],
                     (String)reader["Telefone"],
-                    (String)reader["Senha"]
+                    (String)reader["Email"],
+                    (String)reader["Nome_Funcao"],
+                    (String)reader["Nome_Estado"]
                 );
                 lista.Add(funcionario);
             }

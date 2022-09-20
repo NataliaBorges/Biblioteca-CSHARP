@@ -167,6 +167,7 @@ namespace Biblioteca.View.Livros {
             this.linklblCadastrarGenero.TabIndex = 35;
             this.linklblCadastrarGenero.TabStop = true;
             this.linklblCadastrarGenero.Text = "Cadastrar Gênero";
+            this.linklblCadastrarGenero.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linklblCadastrarGenero_LinkClicked);
             // 
             // LinkLblCadastrarEditora
             // 
@@ -229,7 +230,8 @@ namespace Biblioteca.View.Livros {
             this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEditora.Location = new System.Drawing.Point(345, 248);
             this.tbEditora.Name = "tbEditora";
-            this.tbEditora.Size = new System.Drawing.Size(208, 27);
+            this.tbEditora.PlaceholderText = "Selecione uma Editora: ";
+            this.tbEditora.Size = new System.Drawing.Size(214, 27);
             this.tbEditora.TabIndex = 30;
             // 
             // btnPesqAutor
@@ -267,7 +269,8 @@ namespace Biblioteca.View.Livros {
             this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbGenero.Location = new System.Drawing.Point(345, 330);
             this.tbGenero.Name = "tbGenero";
-            this.tbGenero.Size = new System.Drawing.Size(248, 27);
+            this.tbGenero.PlaceholderText = "Selecione um Gênero: ";
+            this.tbGenero.Size = new System.Drawing.Size(259, 27);
             this.tbGenero.TabIndex = 28;
             // 
             // tbNome
@@ -377,7 +380,8 @@ namespace Biblioteca.View.Livros {
             this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbAutor.Location = new System.Drawing.Point(346, 207);
             this.tbAutor.Name = "tbAutor";
-            this.tbAutor.Size = new System.Drawing.Size(349, 27);
+            this.tbAutor.PlaceholderText = "Selecione um Autor: ";
+            this.tbAutor.Size = new System.Drawing.Size(364, 27);
             this.tbAutor.TabIndex = 3;
             // 
             // label7
@@ -459,6 +463,7 @@ namespace Biblioteca.View.Livros {
             this.Name = "LivrosCadastrarView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastrar Livros";
+            this.Activated += new System.EventHandler(this.LivrosCadastrarView_Activated);
             this.Load += new System.EventHandler(this.LivrosCadastrarView_Load_1);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

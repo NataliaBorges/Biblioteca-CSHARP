@@ -42,6 +42,17 @@ namespace Biblioteca.Model {
             this.ISBN = ISBN;
             this.Quantidade = Quantidade;
         }
+        public LivroModel(String Titulo, String Edicao, String AnoPublicacao, int Quantidade, String ISBN,  int IdEditora, int IdAutor, int IdGenero)
+        {
+            this.Titulo = Titulo;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.Quantidade = Quantidade;
+            this.ISBN = ISBN;
+            this.IdEditora = IdEditora;
+            this.IdAutor = IdAutor;
+            this.IdGenero = IdGenero;
+        }
 
         public int getId() {
             return this.ID;

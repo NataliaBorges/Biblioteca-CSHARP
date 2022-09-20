@@ -37,12 +37,12 @@ namespace Biblioteca.Util
         {
             //switch (WindowState)
             //{
-            //    case (WindowState)FormWindowState.Maximized:
-            //        this.Padding = new Padding(8, 8, 8, 0);
+            //    case (windowstate)formwindowstate.maximized:
+            //        this.padding = new padding(8, 8, 8, 0);
             //        break;
-            //    case (WindowState)FormWindowState.Normal:
-            //        if (this.Padding.Top != borderSize)
-            //            this.Padding = new Padding(borderSize);
+            //    case (windowstate)formwindowstate.normal:
+            //        if (this.padding.top != bordersize)
+            //            this.padding = new padding(bordersize);
             //        break;
             //}
 

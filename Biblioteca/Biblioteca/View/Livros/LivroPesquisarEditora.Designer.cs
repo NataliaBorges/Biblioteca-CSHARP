@@ -194,6 +194,7 @@
             this.dtGridViewEditora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewEditora.Size = new System.Drawing.Size(413, 316);
             this.dtGridViewEditora.TabIndex = 30;
+            this.dtGridViewEditora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewEditora_CellContentClick);
             // 
             // panel4
             // 

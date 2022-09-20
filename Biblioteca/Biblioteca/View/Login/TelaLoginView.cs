@@ -19,21 +19,22 @@ namespace Biblioteca.View {
             this.ibtSenhaAberta.Visible = false;
             this.ibtSenha.Visible = true;
         }
-
         private void btLogar_Click(object sender, EventArgs e) {
             String email = tbEmail.Texts;
             String senha = tbSenha.Texts;
 
-            if (controller.Login(email, senha)) {
+            if (controller.Login(email, senha))
+            {
                 FuncionarioModel funcionarioModel = singleton.getFuncionario();
 
                 this.Hide();
 
                 PrincipalTelaView principalTelaView = new PrincipalTelaView();
                 NovaJanela.novaJanela(principalTelaView, Bounds);
-                
+
             }
-            else {
+            else
+            {
                 singleton.setFuncionario(null);
                 MessageBox.Show("E-mail ou senha incorretos.", "", MessageBoxButtons.OK);
             }

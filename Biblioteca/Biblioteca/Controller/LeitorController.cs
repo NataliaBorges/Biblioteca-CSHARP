@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email)";
+            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email, @Id_estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Leitor", leitor.Nome);
@@ -30,6 +30,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
             Cmd.Parameters.AddWithValue("@Email", leitor.Email);
+            Cmd.Parameters.AddWithValue("@Id_estado", leitor.ID_estado = 1);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -41,7 +42,7 @@ namespace Biblioteca.Controller {
         public bool Atualizar(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Leitor SET Nome_Leitor = @Nome_Leitor, Data_Nascimento = @Data_Nascimento, 
-                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco, Email = @Email, Senha = @Senha
+                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco, Email = @Email
                                 WHERE ID_leitor = @ID";
 
             Cmd.Parameters.Clear();
@@ -63,7 +64,16 @@ namespace Biblioteca.Controller {
 
         public List<LeitorModel> ListarTodos() {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Leitor";
+            Cmd.CommandText = @"SELECT  Leitor.Id,
+                                        Leitor.Nome_Leitor,
+		                                Leitor.Data_Nascimento, 
+		                                Leitor.CPF,
+		                                Leitor.Telefone, 
+		                                Leitor.Endereco, 
+		                                Leitor.Email, 
+		                                Estado.Nome_Estado
+                                FROM Leitor
+                                INNER JOIN Estado ON (Estado.Id = Leitor.Id_estado)";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -72,13 +82,14 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LeitorModel leitor = new LeitorModel(
-                    (int)reader["ID_leitor"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
                     (DateTime)reader["Data_Nascimento"],
-                    (String)reader["Telefone"],
                     (String)reader["CPF"],
+                    (String)reader["Telefone"],
                     (String)reader["Endereco"],
-                    (String)reader["Email"]
+                    (String)reader["Email"],
+                    (String)reader["Nome_Estado"]
                 );
                 lista.Add(leitor);
             }

@@ -17,21 +17,21 @@ namespace Biblioteca.View.Funcionario {
         public FuncionarioBuscarView() {
             InitializeComponent();
         }
-        private void Lvfuncionario_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = Lvfuncionario.Items[Lvfuncionario.FocusedItem.Index];
-            FuncionarioModel funcionario = new FuncionarioModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[4].Text,
-                DateTime.Parse(item.SubItems[2].Text),
-                item.SubItems[6].Text,
-                item.SubItems[5].Text,
-                item.SubItems[3].Text
-            );
+        //private void Lvfuncionario_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = Lvfuncionario.Items[Lvfuncionario.FocusedItem.Index];
+        //    FuncionarioModel funcionario = new FuncionarioModel(
+        //        int.Parse(item.SubItems[0].Text),
+        //        item.SubItems[1].Text,
+        //        item.SubItems[4].Text,
+        //        DateTime.Parse(item.SubItems[2].Text),
+        //        item.SubItems[6].Text,
+        //        item.SubItems[5].Text,
+        //        item.SubItems[3].Text
+        //    );
 
-            FuncionarioEditarView editar = new FuncionarioEditarView(funcionario);
-            NovaJanela.novaJanela(editar, this.Bounds);
-        }
+        //    FuncionarioEditarView editar = new FuncionarioEditarView(funcionario);
+        //    NovaJanela.novaJanela(editar, this.Bounds);
+        //}
 
         private void button1_Click(object sender, EventArgs e) {
             String busca = tbBuscar.Text;
@@ -48,19 +48,33 @@ namespace Biblioteca.View.Funcionario {
         }
 
         private void popular(List<FuncionarioModel> lista) {
-            Lvfuncionario.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (FuncionarioModel funcionario in lista) {
-                    ListViewItem item = new ListViewItem(funcionario.getId().ToString());
-                    item.SubItems.Add(funcionario.Nome_funcionario);
-                    item.SubItems.Add(funcionario.Data_Nascimento.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(funcionario.Telefone);
-                    item.SubItems.Add(funcionario.CPF);
-                    item.SubItems.Add(funcionario.Endereco);
-                    item.SubItems.Add(funcionario.Email);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("CPF", typeof(string));
+            table.Columns.Add("Nascimento", typeof(DateTime));
+            table.Columns.Add("Email", typeof(string));
+            table.Columns.Add("Endereço", typeof(string));
+            table.Columns.Add("Telefone", typeof(string));
+            table.Columns.Add("Função", typeof(string));
+            table.Columns.Add("Status", typeof(string));
+            dtGridViewFuncionario.DataSource = lista;
+            if (lista.Count > 0)
+            {
+                foreach (FuncionarioModel funcionario in lista)
+                {
 
-                    Lvfuncionario.Items.Add(item);
+                    table.Rows.Add(funcionario.getId(),
+                                   funcionario.Nome_funcionario,
+                                   funcionario.CPF,
+                                   funcionario.Data_Nascimento,
+                                   funcionario.Email,
+                                   funcionario.Endereco,
+                                   funcionario.Telefone,
+                                   funcionario.Funcao,
+                                   funcionario.Estado);
                 }
+                dtGridViewFuncionario.DataSource = table;
             }
         }
 
@@ -82,6 +96,11 @@ namespace Biblioteca.View.Funcionario {
         private void LinkCadastrarFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
             NovaJanela.novaJanela(funcionarioCadastrarView, this.Bounds);
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
