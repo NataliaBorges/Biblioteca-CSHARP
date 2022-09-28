@@ -40,15 +40,39 @@ namespace Biblioteca.Util
             InitializeComponent();
             this.BackColor = Color.FromArgb(0, 0, 0);
         }
+        private void fecharTelas()
+        {
+            FormCollection fc = Application.OpenForms;
+
+            if (fc != null && fc.Count > 0)
+
+            {
+
+                for (int i = 1; i < fc.Count; i++)
+
+                {
+
+                    if (fc[i] != null && fc[i].IsDisposed != true)
+
+                    {
+
+                        fc[i].Dispose();
+
+                    }
+
+                }
+
+            }
+        }
         private void MenuControl_Load(object sender, EventArgs e){
-                    ddmCadastro.IsMainMenu = true;
-                    ddmCadastro.PrimaryColor = Color.Chocolate;
-                    ddmCadastro.MenuItemTextColor = Color.Chocolate;
+                    ddmLivro.IsMainMenu = true;
+                    ddmLivro.PrimaryColor = Color.Chocolate;
+                    ddmLivro.MenuItemTextColor = Color.Chocolate;
                     
 
-                    ddmBuscar.IsMainMenu = true;
-                    ddmBuscar.PrimaryColor = Color.Chocolate;
-                    ddmBuscar.MenuItemTextColor = Color.Chocolate;
+                    ddmLeitor.IsMainMenu = true;
+                    ddmLeitor.PrimaryColor = Color.Chocolate;
+                    ddmLeitor.MenuItemTextColor = Color.Chocolate;
 
                     ddmEmprestimo.IsMainMenu = true;
                     ddmEmprestimo.PrimaryColor = Color.Chocolate;
@@ -61,6 +85,10 @@ namespace Biblioteca.Util
                     ddmRelatorio.IsMainMenu = true;
                     ddmRelatorio.PrimaryColor = Color.Chocolate;
                     ddmRelatorio.MenuItemTextColor = Color.Chocolate;
+
+                    ddmFuncionario.IsMainMenu = true;
+                    ddmFuncionario.PrimaryColor = Color.Chocolate;
+                    ddmFuncionario.MenuItemTextColor = Color.Chocolate;
         }
         private void FecharMenu()
         {
@@ -100,31 +128,38 @@ namespace Biblioteca.Util
             }
         }
         //Buttons da tela
-        private void btnCadastrar_Click(object sender, EventArgs e)
+
+        private void BtnLivro_Click(object sender, EventArgs e)
         {
-            ddmCadastro.Show(btnHome, btnHome.Width, 0);
+            ddmLivro.Show(btnLivro, ddmLivro.Width, 0);
+        }
+        private void BtnLeitor_Click(object sender, EventArgs e)
+        {
+            ddmLeitor.Show(btnLeitor, ddmLeitor.Width, 0);
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnEmprestimo_Click(object sender, EventArgs e)
         {
-            ddmBuscar.Show(btnBuscar, btnBuscar.Width, 0);
-        }
-
-        private void btnEmrestimo_Click(object sender, EventArgs e)
-        {
-            ddmEmprestimo.Show(btnEmprestimo, btnEmprestimo.Width, 0);
+            ddmEmprestimo.Show(btnEmprestimo, ddmEmprestimo.Width, 0);
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
-            ddmReserva.Show(btnReserva, btnReserva.Width, 0);
+            ddmReserva.Show(btnReserva, ddmReserva.Width, 0);
         }
+
         private void btnRelatório_Click(object sender, EventArgs e)
         {
-            ddmRelatorio.Show(btnRelatório, btnRelatório.Width, 0);
+            ddmRelatorio.Show(btnRelatório, ddmRelatorio.Width, 0);
+        }
+
+        private void btnFuncionario_Click(object sender, EventArgs e)
+        {
+            ddmFuncionario.Show(btnFuncionario, ddmFuncionario.Width, 0);
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
+            fecharTelas();
             PrincipalTelaView principalTelaView = new PrincipalTelaView();
             NovaJanela.novaJanela(principalTelaView, Bounds);
         }
@@ -134,153 +169,147 @@ namespace Biblioteca.Util
             FecharMenu();
         }
 
-        //private void livroToolStripMenuItem1_Click(object sender, EventArgs e)
-        //{
-        //    //if(form as LivrosBuscarView)
-        //    //{
-        //    //    form.Close();
-        //    //    LivrosBuscarView livroBuscarView = new LivrosBuscarView();
-        //    //    NovaJanela.novaJanela(livroBuscarView, Bounds);
-        //    //}
-            
-        //}
 
-        //Cadastrar
-        private void livroToolStripMenuItem_Click(object sender, EventArgs e)
+        //Livro Cadastrar
+        private void itemCadastrarLivro_Click(object sender, EventArgs e)
         {
             fecharTelas();
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
             NovaJanela.novaJanela(livrosCadastrarView, Bounds);
-            
-        }
-        private void leitorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            fecharTelas();
-            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
-            NovaJanela.novaJanela(leitorCadastrarView, Bounds);
         }
 
-        private void funcionárioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemCadastrarExemplar_Click(object sender, EventArgs e)
         {
-            fecharTelas();
-            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
-            NovaJanela.novaJanela(funcionarioCadastrarView, Bounds);
+
         }
 
-        private void editoraToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemCadastrarEditora_Click(object sender, EventArgs e)
         {
             fecharTelas();
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
             NovaJanela.novaJanela(editoraCadastrarView, Bounds);
         }
 
-        private void autorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemCadastrarAutor_Click(object sender, EventArgs e)
         {
             fecharTelas();
             AutorCadastrarView autorCadastrarView = new AutorCadastrarView();
             NovaJanela.novaJanela(autorCadastrarView, Bounds);
         }
 
-        private void gêneroToolStripMenuItem_Click(object sender, EventArgs e)
+        private void itemCadastrarGenero_Click(object sender, EventArgs e)
         {
             fecharTelas();
             GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
             NovaJanela.novaJanela(generoCadastrarView, Bounds);
         }
 
-        //Buscar
-        private void livroToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void itemCadastrarEdicao_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        //Livro Buscar
+        private void itemBuscarLivro_Click(object sender, EventArgs e)
         {
             fecharTelas();
             LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
             NovaJanela.novaJanela(livrosBuscarView, Bounds);
         }
 
-        private void leitorToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void itemBuscarExemplar_Click(object sender, EventArgs e)
         {
-            fecharTelas();
-            LeitorBuscarView leitorBuscarView = new LeitorBuscarView();
-            NovaJanela.novaJanela(leitorBuscarView, Bounds);
+
         }
 
-        private void funcionárioToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            fecharTelas();
-            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
-            NovaJanela.novaJanela(funcionarioBuscarView, Bounds);
-        }
-
-        private void editoraToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void itemBuscarEditora_Click(object sender, EventArgs e)
         {
             fecharTelas();
             EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
             NovaJanela.novaJanela(editoraBuscarView, Bounds);
         }
 
-        private void autorToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void itemBuscarAutor_Click(object sender, EventArgs e)
         {
             fecharTelas();
             AutorBuscarView autorBuscarView = new AutorBuscarView();
             NovaJanela.novaJanela(autorBuscarView, Bounds);
         }
 
-        private void gêneroToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void itemBuscarGenero_Click(object sender, EventArgs e)
         {
             fecharTelas();
             GeneroBuscarView generoBuscarView = new GeneroBuscarView();
             NovaJanela.novaJanela(generoBuscarView, Bounds);
         }
-        //Empréstimo
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+
+        private void itemBuscarEdicao_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //Leitor Cadastrar
+        private void itemCadastrarLeitor_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
+            NovaJanela.novaJanela(leitorCadastrarView, Bounds);
+        }
+
+        //Leitor BUscar
+        private void itemBuscarLeitor_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            LeitorBuscarView leitorBuscarView = new LeitorBuscarView();
+            NovaJanela.novaJanela(leitorBuscarView, Bounds);
+        }
+
+        //Empréstimo Cadastrar
+        private void itemCadastrarEmprestimo_Click(object sender, EventArgs e)
         {
             fecharTelas();
             EmprestimoCadastroView emprestimoCadastroView = new EmprestimoCadastroView();
             NovaJanela.novaJanela(emprestimoCadastroView, Bounds);
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        //Empréstimo buscar
+        private void itemBuscarEmprestimo_Click(object sender, EventArgs e)
         {
             fecharTelas();
             EmprestimoBuscarView emprestimoBuscarView = new EmprestimoBuscarView();
             NovaJanela.novaJanela(emprestimoBuscarView, Bounds);
         }
-        //Reserva
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+
+        //Reserva Cadastrar
+        private void itemCadastrarReserva_Click(object sender, EventArgs e)
         {
             fecharTelas();
             ReservaCadastroView reservaCadastroView = new ReservaCadastroView();
             NovaJanela.novaJanela(reservaCadastroView, Bounds);
         }
 
-        private void buscarReserva_Click(object sender, EventArgs e)
+        //ReservaBuscar
+        private void itemBuscarReserva_Click(object sender, EventArgs e)
         {
             fecharTelas();
             ReservaBuscarView reservaBuscarView = new ReservaBuscarView();
             NovaJanela.novaJanela(reservaBuscarView, Bounds);
         }
-        private void fecharTelas()
+
+        //Funcionário Cadastrar
+        private void itemCadastrarFuncionario_Click(object sender, EventArgs e)
         {
-            FormCollection fc = Application.OpenForms;
+            fecharTelas();
+            FuncionarioCadastrarView funcionarioCadastrarView = new FuncionarioCadastrarView();
+            NovaJanela.novaJanela(funcionarioCadastrarView, Bounds);
+        }
 
-            if (fc != null && fc.Count > 0)
-
-            {
-
-                for (int i = 1; i < fc.Count; i++)
-
-                {
-
-                    if (fc[i] != null && fc[i].IsDisposed != true)
-
-                    {
-
-                        fc[i].Dispose();
-
-                    }
-
-                }
-
-            }
+        //Funcionário Buscar
+        private void itemBuscarFuncionario_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
+            NovaJanela.novaJanela(funcionarioBuscarView, Bounds);
         }
 
         private void btnSair_Click(object sender, EventArgs e)

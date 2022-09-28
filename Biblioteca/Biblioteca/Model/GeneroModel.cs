@@ -11,6 +11,10 @@ namespace Biblioteca.Model {
             this.Id_genero = Id_genero;
             this.Nome_genero = nomeGenero;
         }
+        public GeneroModel(String nomeGenero)
+        {
+            this.Nome_genero = nomeGenero;
+        }
         public int getId() {
             return this.Id_genero;
         }

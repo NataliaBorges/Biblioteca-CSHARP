@@ -51,6 +51,8 @@ namespace Biblioteca.View.Livros {
         }
 
         private void LivrosBuscarView_Load(object sender, EventArgs e) {
+            this.dtGridViewLivros.DefaultCellStyle.Font = new Font("Book Antiqua", 12);
+            //this.dtGridViewLivros.Hea = new Font("Book Antiqua", 12);
             this.menuControl1.setPanel(pnltotal);
             List<LivroModel> lista = controller.ListarTodos();
             popular(lista);
@@ -82,12 +84,11 @@ namespace Biblioteca.View.Livros {
                 List<LivroModel> lista = controller.Buscar(busca, isEditora: true);
                 popular(lista);
             }
-        }
-
-        private void linklablCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+            if (rbGenero.Checked)
+            {
+                List<LivroModel> lista = controller.Buscar(busca, isGenero: true);
+                popular(lista);
+            }
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
@@ -95,20 +96,32 @@ namespace Biblioteca.View.Livros {
             this.Close();
         }
 
-        private void dtGridViewLivros_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnCadastrarLivro_Click(object sender, EventArgs e)
         {
-            String Id = dtGridViewLivros.Rows[0].Cells[0].Value.ToString();
-            String Quantidade = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String Titulo = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String Edicao = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String anoPublicacao = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String ISBN = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String Autor = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String Editora = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
-            String Genero = dtGridViewLivros.Rows[0].Cells[1].Value.ToString();
+            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
+            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+        }
 
-            LivrosEditarView livrosEditarView = new LivrosEditarView();
-            NovaJanela.novaJanela(livrosEditarView, this.Bounds);
+        private void dtGridViewLivros_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                int quantidade = int.Parse(row.Cells[1].Value.ToString());
+                String Titulo = row.Cells[2].Value.ToString();
+                String Edicao = row.Cells[3].Value.ToString();
+                String Ano = row.Cells[4].Value.ToString();
+                String ISBN = row.Cells[5].Value.ToString();
+                String Autor = row.Cells[6].Value.ToString();
+                String Editora = row.Cells[7].Value.ToString();
+                String Genero = row.Cells[8].Value.ToString();
+
+                LivroModel livroSelecionado = new LivroModel(id, Titulo, Edicao, Ano, ISBN, quantidade, Editora, Autor, Genero);
+
+                LivrosEditarView livrosEditarView = new LivrosEditarView(livroSelecionado);
+                NovaJanela.novaJanela(livrosEditarView, this.Bounds);
+
+            }
         }
     }
 }

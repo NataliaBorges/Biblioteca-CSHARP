@@ -129,9 +129,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(61, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 23);
+            this.label4.Size = new System.Drawing.Size(165, 23);
             this.label4.TabIndex = 36;
-            this.label4.Text = "Listando Autores:";
+            this.label4.Text = "Listando Gêneros:";
             // 
             // dtGridViewGenero
             // 
@@ -163,7 +163,7 @@
             this.dtGridViewGenero.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewGenero.EnableHeadersVisualStyles = false;
             this.dtGridViewGenero.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewGenero.Location = new System.Drawing.Point(108, 94);
+            this.dtGridViewGenero.Location = new System.Drawing.Point(61, 86);
             this.dtGridViewGenero.Name = "dtGridViewGenero";
             this.dtGridViewGenero.ReadOnly = true;
             this.dtGridViewGenero.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -178,7 +178,7 @@
             this.dtGridViewGenero.RowHeadersVisible = false;
             this.dtGridViewGenero.RowTemplate.Height = 25;
             this.dtGridViewGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewGenero.Size = new System.Drawing.Size(326, 293);
+            this.dtGridViewGenero.Size = new System.Drawing.Size(405, 293);
             this.dtGridViewGenero.TabIndex = 30;
             // 
             // panel3
@@ -208,6 +208,7 @@
             this.btnCadastrar.TabIndex = 39;
             this.btnCadastrar.Text = "CADASTRAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // tbNome
             // 
@@ -321,6 +322,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneroCadastrarView";
             this.Text = "Cadastrar Gênero";
+            this.Activated += new System.EventHandler(this.GeneroCadastrarView_Activated);
             this.Load += new System.EventHandler(this.GeneroCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

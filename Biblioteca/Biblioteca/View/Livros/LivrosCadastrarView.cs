@@ -31,6 +31,9 @@ namespace Biblioteca.View.Livros {
         {
             this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
         }
 
         private void ClearForm() {
@@ -132,7 +135,7 @@ namespace Biblioteca.View.Livros {
             }
             else
             {
-                LivroModel livro = new LivroModel(titulo, edicao, ano, Quantidade, ISBN, autor, Genero, Editora );
+                LivroModel livro = new LivroModel(titulo, edicao, ano, Quantidade, ISBN, autor, Genero, Editora);
                 if (controller.Insercao(livro))
                 {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);

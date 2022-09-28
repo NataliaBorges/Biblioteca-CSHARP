@@ -41,11 +41,22 @@ namespace Biblioteca.Controller
 
             return list;
         }
-
-        public void InserirAutorLivro(AutorModel autor)
+        public bool Insercao(AutorModel autor)
         {
-            this.singleton.setAutor(autor);
-            this.singleton.setAddAutor(true);
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"INSERT INTO Autor Values (@Nome_Autor)";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Nome_Autor", autor.Nome_Autor);
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

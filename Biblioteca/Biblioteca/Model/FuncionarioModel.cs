@@ -36,6 +36,17 @@ namespace Biblioteca.Model {
             this.Funcao = funcao;
             this.Estado = Estado;
         }
+        public FuncionarioModel(String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String senha, int Id_funcao)
+        {
+            this.Nome_funcionario = nome;
+            this.CPF = cpf;
+            this.Data_Nascimento = nascimento;
+            this.Email = email;
+            this.Endereco = endereco;
+            this.Telefone = telefone;
+            this.Senha = senha;
+            this.Id_funcao = Id_funcao;
+        }
         public FuncionarioModel(String nome, String cpf, DateTime nascimento, String email, String endereco, String telefone, String Senha, string funcao) {
             this.Nome_funcionario = nome;
             this.CPF = cpf;

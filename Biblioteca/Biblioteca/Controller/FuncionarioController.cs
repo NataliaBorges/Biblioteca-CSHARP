@@ -96,18 +96,18 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(FuncionarioModel funcionario) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Funcionario Values (@CPF, @Data_Nascimento, @Telefone, @Nome_Funcionario, @Endereco, @Email, @Senha, @Id_funcao, @Id_estado)";
+            Cmd.CommandText = @"INSERT INTO Funcionario Values (@Nome_Funcionario, @Data_Nascimento, @CPF, @Endereco, @Telefone,  @Email, @Senha, @Id_funcao, @Id_estado)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@CPF", funcionario.CPF);
-            Cmd.Parameters.AddWithValue("@Data_Nascimento", funcionario.Data_Nascimento);
-            Cmd.Parameters.AddWithValue("@Telefone", funcionario.Telefone);
             Cmd.Parameters.AddWithValue("@Nome_funcionario", funcionario.Nome_funcionario);
+            Cmd.Parameters.AddWithValue("@Data_Nascimento", funcionario.Data_Nascimento);
+            Cmd.Parameters.AddWithValue("@CPF", funcionario.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
+            Cmd.Parameters.AddWithValue("@Telefone", funcionario.Telefone);
             Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@Senha", funcionario.Senha);
             Cmd.Parameters.AddWithValue("@Id_funcao", funcionario.Id_funcao);
-            Cmd.Parameters.AddWithValue("@Id_estado", funcionario.Id_estado);
+            Cmd.Parameters.AddWithValue("@Id_estado", 1);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;

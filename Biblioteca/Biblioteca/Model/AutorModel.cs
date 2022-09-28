@@ -11,6 +11,10 @@ namespace Biblioteca.Model {
             this.Id_autor = Id_autor;
             this.Nome_Autor = nome_autor;
         }
+        public AutorModel(String nome_autor)
+        {
+            this.Nome_Autor = nome_autor;
+        }
         public int getId() {
             return this.Id_autor;
         }

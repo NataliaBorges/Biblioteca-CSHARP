@@ -31,6 +31,17 @@ namespace Biblioteca.Model {
             this.NomeAutor = Autor;
             this.NomeGenero = Genero;
         }
+        public LivroModel(String Titulo, String Edicao, String AnoPublicacao, String ISBN, int Quantidade, string Editora, string Autor, string Genero)
+        {
+            this.Titulo = Titulo;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.ISBN = ISBN;
+            this.Quantidade = Quantidade;
+            this.NomeEditora = Editora;
+            this.NomeAutor = Autor;
+            this.NomeGenero = Genero;
+        }
         public LivroModel(int IdEditora, int IdAutor, int IdGenero, String Titulo, String Edicao, String AnoPublicacao, String ISBN, int Quantidade)
         {
             this.IdEditora = IdEditora;
@@ -44,6 +55,18 @@ namespace Biblioteca.Model {
         }
         public LivroModel(String Titulo, String Edicao, String AnoPublicacao, int Quantidade, String ISBN,  int IdEditora, int IdAutor, int IdGenero)
         {
+            this.Titulo = Titulo;
+            this.Edicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.Quantidade = Quantidade;
+            this.ISBN = ISBN;
+            this.IdEditora = IdEditora;
+            this.IdAutor = IdAutor;
+            this.IdGenero = IdGenero;
+        }
+        public LivroModel(int Id, String Titulo, String Edicao, String AnoPublicacao, int Quantidade, String ISBN, int IdEditora, int IdAutor, int IdGenero)
+        {
+            this.ID = Id;
             this.Titulo = Titulo;
             this.Edicao = Edicao;
             this.AnoPublicacao = AnoPublicacao;

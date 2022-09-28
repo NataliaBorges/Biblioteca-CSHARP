@@ -36,7 +36,7 @@ namespace Biblioteca.View.Fornecedor {
             String telefone = maskedTextBoxTelefone.Text;
             String cnpj = maskedTextBoxCNPJ.Text;
             String Email = tbEmail.Text;
-            EditoraModel editora = new EditoraModel(nome, endereco, telefone, cnpj, Email);
+            
 
             if (nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -71,6 +71,7 @@ namespace Biblioteca.View.Fornecedor {
                 tbEmail.Focus();
             }
             else {
+                EditoraModel editora = new EditoraModel(nome, endereco, telefone, cnpj, Email);
                 if (controller.Insercao(editora)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();

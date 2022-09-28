@@ -41,5 +41,44 @@ namespace Biblioteca.Controller
 
             return list;
         }
+        public List<GeneroModel> ListarPrimeira(String Nome)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Genero where Nome_Genero Like '" + Nome + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<GeneroModel> list = new List<GeneroModel>();
+
+            while (reader.Read())
+            {
+                GeneroModel genero = new GeneroModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome_Genero"]
+                );
+                list.Add(genero);
+            }
+            reader.Close();
+
+            return list;
+        }
+        public bool Insercao(GeneroModel genero)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"INSERT INTO Genero Values (@Nome_Genero)";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Nome_Genero", genero.Nome_genero);
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

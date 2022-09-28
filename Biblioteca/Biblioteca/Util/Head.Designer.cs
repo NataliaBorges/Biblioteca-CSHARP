@@ -65,6 +65,7 @@
             this.panelTituloBar.Name = "panelTituloBar";
             this.panelTituloBar.Size = new System.Drawing.Size(1063, 37);
             this.panelTituloBar.TabIndex = 2;
+            this.panelTituloBar.Resize += new System.EventHandler(this.panelTituloBar_Resize_1);
             // 
             // panel1
             // 

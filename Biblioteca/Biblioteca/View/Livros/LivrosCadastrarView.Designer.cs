@@ -461,7 +461,7 @@ namespace Biblioteca.View.Livros {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LivrosCadastrarView";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastrar Livros";
             this.Activated += new System.EventHandler(this.LivrosCadastrarView_Activated);
             this.Load += new System.EventHandler(this.LivrosCadastrarView_Load_1);

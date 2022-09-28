@@ -19,6 +19,8 @@ namespace Biblioteca.Util {
         private GeneroModel generoBusca;
         private bool buscarGenero = false;
 
+        private FuncaoModel funcaoBusca;
+
         public void setBuscarGenero(bool busca)
         {
             this.buscarGenero = busca;
@@ -37,6 +39,16 @@ namespace Biblioteca.Util {
         public GeneroModel getGeneroBusca()
         {
             return this.generoBusca;
+        }
+
+        public void setFuncaoBusca(FuncaoModel funcao)
+        {
+            funcaoBusca = funcao;
+        }
+
+        public FuncaoModel getFuncaoBusca()
+        {
+            return this.funcaoBusca;
         }
 
         // Buscar editora no cadastro de livro

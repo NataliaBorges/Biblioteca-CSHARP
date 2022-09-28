@@ -29,6 +29,8 @@ namespace Biblioteca.View.Livros
             popular(lista);
 
             this.menuControl1.setPanel(pnltotal);
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
         }
         private void popular(List<AutorModel> lista)
         {

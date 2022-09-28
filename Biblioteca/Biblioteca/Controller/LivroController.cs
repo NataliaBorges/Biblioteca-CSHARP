@@ -199,33 +199,74 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<LivroModel> Buscar(string busca, bool isNome = false, bool isAutor = false, bool isEditora = false) {
+        public List<LivroModel> Buscar(string busca, bool isNome = false, bool isAutor = false, bool isEditora = false, bool isGenero = false) {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isNome) {
-                Cmd.CommandText = @"
-                SELECT L.*, F.Nome_fornecedor as Fornecedor 
-                FROM Livro AS L
-                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                WHERE L.Nome_Livro LIKE '"+busca+"%'";
+                Cmd.CommandText = @"SELECT  Livro.Titulo,
+		                                    Livro.Quantidade,
+		                                    Livro.Edicao,
+		                                    Livro.Ano_Publicacao,
+		                                    Livro.ISBN,
+		                                    Autor.Nome_Autor,
+		                                    Editora.Nome_Editora,
+		                                    Genero.Nome_Genero
+                                    From Livro
+                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    WHERE Livro.Titulo LIKE '" + busca + "%'";
             }
 
             if (isAutor) {
-                Cmd.CommandText = @"
-                SELECT L.*, F.Nome_fornecedor as Fornecedor 
-                FROM Livro AS L
-                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                WHERE L.Autor_Livro LIKE '" + busca + "%'";
+                Cmd.CommandText = @"SELECT  Livro.Titulo,
+		                                    Livro.Quantidade,
+		                                    Livro.Edicao,
+		                                    Livro.Ano_Publicacao,
+		                                    Livro.ISBN,
+		                                    Autor.Nome_Autor,
+		                                    Editora.Nome_Editora,
+		                                    Genero.Nome_Genero
+                                    From Livro
+                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
             }
 
             if (isEditora) {
-                Cmd.CommandText = @"
-                SELECT L.*, F.Nome_fornecedor as Fornecedor 
-                FROM Livro AS L
-                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                WHERE F.Nome_fornecedor LIKE '" + busca + "%'";
+                Cmd.CommandText =
+                Cmd.CommandText = @"SELECT  Livro.Titulo,
+		                                    Livro.Quantidade,
+		                                    Livro.Edicao,
+		                                    Livro.Ano_Publicacao,
+		                                    Livro.ISBN,
+		                                    Autor.Nome_Autor,
+		                                    Editora.Nome_Editora,
+		                                    Genero.Nome_Genero
+                                    From Livro
+                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    WHERE Editora.Nome_Editora LIKE '" + busca + "%'";
             }
-
+            if (isGenero)
+            {
+                Cmd.CommandText =
+                Cmd.CommandText = @"SELECT  Livro.Titulo,
+		                                    Livro.Quantidade,
+		                                    Livro.Edicao,
+		                                    Livro.Ano_Publicacao,
+		                                    Livro.ISBN,
+		                                    Autor.Nome_Autor,
+		                                    Editora.Nome_Editora,
+		                                    Genero.Nome_Genero
+                                    From Livro
+                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    WHERE Genero.Nome_Genero LIKE '" + busca + "%'";
+            }
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -234,7 +275,6 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
-                    (int)reader["Id"],
                     (String)reader["Titulo"],
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
@@ -278,7 +318,7 @@ namespace Biblioteca.Controller {
 
         public bool Excluir(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"DELETE FROM Livro WHERE ID_livro = @ID";
+            Cmd.CommandText = @"DELETE FROM Livro WHERE Id = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", livro.getId());

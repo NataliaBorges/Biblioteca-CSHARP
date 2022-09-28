@@ -11,6 +11,7 @@ using Biblioteca.Util;
 
 namespace Biblioteca.View.Funcionario {
     public partial class FuncionarioCadastrarView : Form {
+        Singleton singleton = Singleton.GetInstancia();
         FuncaoController funcaoController = new FuncaoController();
         List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         FuncionarioController funcionarioController = new FuncionarioController();
@@ -43,7 +44,15 @@ namespace Biblioteca.View.Funcionario {
             String senha = tbSenha.Text;
             String email = tbEmail.Text;
             DateTime data = this.data; //.ToString("yyyy-MM-dd");
-            String funcao = this.cbFuncao.Text;
+            int funcao = 0;
+
+            foreach (ComboBoxItem item in comboBoxItems)
+            {
+                if(cbFuncao.Text == item.Text)
+                {
+                    funcao = int.Parse(item.Value);
+                }
+            }
 
 
             if (nome.Length <= 0) {
@@ -91,7 +100,7 @@ namespace Biblioteca.View.Funcionario {
                 cbFuncao.Focus();
             }
             else {
-                FuncionarioModel funcionario = new FuncionarioModel(nome, cpf, data, email, endereco, telefone, senha, funcao);
+                FuncionarioModel funcionario = new FuncionarioModel(nome, cpf,data, email, endereco, telefone, senha, funcao);
                 if (funcionarioController.Insercao(funcionario)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();
@@ -141,6 +150,11 @@ namespace Biblioteca.View.Funcionario {
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FuncionarioCadastrarView_Activated(object sender, EventArgs e)
+        {
+            //cbFuncao.Text = singleton.getFuncaoBusca().Nome;
         }
     }
 }

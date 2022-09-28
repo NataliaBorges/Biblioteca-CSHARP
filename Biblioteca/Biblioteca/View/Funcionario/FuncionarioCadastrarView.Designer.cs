@@ -435,6 +435,7 @@ namespace Biblioteca.View.Funcionario {
             this.MinimizeBox = false;
             this.Name = "FuncionarioCadastrarView";
             this.Text = "Cadastrar Funcionário";
+            this.Activated += new System.EventHandler(this.FuncionarioCadastrarView_Activated);
             this.Load += new System.EventHandler(this.FuncionarioCadastrarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

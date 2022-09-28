@@ -322,6 +322,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AutorCadastrarView";
             this.Text = "Cadastrar Autor";
+            this.Activated += new System.EventHandler(this.AutorCadastrarView_Activated);
             this.Load += new System.EventHandler(this.AutorCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

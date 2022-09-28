@@ -19,10 +19,19 @@ namespace Biblioteca.View.Autor
         {
             InitializeComponent();
         }
-
+        private void AutorCadastrarView_Activated(object sender, EventArgs e)
+        {
+            List<AutorModel> lista = controller.ListarTodos();
+            popular(lista);
+        }
         private void AutorCadastrarView_Load(object sender, EventArgs e)
         {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+
             List<AutorModel> lista = controller.ListarTodos();
             popular(lista);
         }
@@ -43,10 +52,33 @@ namespace Biblioteca.View.Autor
                 dtGridViewAutor.DataSource = table;
             }
         }
-
+        private void ClearForm()
+        {
+            this.tbNome.Clear();
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
+            String nome = tbNome.Text;
+            
 
+            if (nome.Length <= 0)
+            {
+                MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                tbNome.Focus();
+            }
+            else
+            {
+                AutorModel autor = new AutorModel(nome);
+                if (controller.Insercao(autor))
+                {
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    ClearForm();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
         }
 
         private void linkLbBuscarAutor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -65,5 +97,7 @@ namespace Biblioteca.View.Autor
         {
             this.Close();
         }
+
+        
     }
 }

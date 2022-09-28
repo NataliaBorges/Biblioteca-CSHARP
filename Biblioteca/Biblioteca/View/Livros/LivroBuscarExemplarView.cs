@@ -14,9 +14,11 @@ namespace Biblioteca.View.Livros {
     public partial class LivroBuscarExemplarView : Form {
 
         LivroController controller = new LivroController();
+
         int idLivro;
         
         public LivroBuscarExemplarView(int idLivro) {
+
             this.idLivro = idLivro;
             InitializeComponent();
         }
@@ -31,43 +33,35 @@ namespace Biblioteca.View.Livros {
             popular(lista);
         }
         private void popular(List<ExemplarModel> lista) {
-            LvExemplar.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (ExemplarModel exemplar in lista) {
-                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Titulo);
-                    item.SubItems.Add(exemplar.Edicao);
-                    item.SubItems.Add(exemplar.AnoPublicacao);
-                    item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(exemplar.Nome_Autor);
-                    item.SubItems.Add(exemplar.Nome_Editora);
-                    item.SubItems.Add(exemplar.Nome_Genero);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Aquisição", typeof(string));
+            table.Columns.Add("Ano", typeof(string));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
+            table.Columns.Add("Gênero", typeof(string));
 
-                    LvExemplar.Items.Add(item);
+            dtGridViewExemplar.DataSource = lista;
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
+
+                    table.Rows.Add(exemplar.getId(),
+                                   exemplar.Titulo,
+                                   exemplar.Edicao,
+                                   exemplar.Aquisicao,
+                                   exemplar.AnoPublicacao,
+                                   exemplar.ISBN,
+                                   exemplar.Nome_Autor,
+                                   exemplar.Nome_Editora,
+                                   exemplar.Nome_Genero);
                 }
+                dtGridViewExemplar.DataSource = table;
             }
-        }
-
-        private void LvExemplar_MouseClick_1(object sender, MouseEventArgs e) {
-            ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-            ExemplarModel exemplar = new ExemplarModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[3].Text,
-                item.SubItems[4].Text,
-                DateTime.Parse(item.SubItems[5].Text),
-                item.SubItems[7].Text,
-                item.SubItems[6].Text,
-                item.SubItems[8].Text
-            );
-            //DialogResult dialogResult = MessageBox.Show("Você realmente deseja inativar?", "Atenção", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes)
-            //{
-            //    controller.RemoverExemplarEmprestimo(exempar);
-            //    popularExemplar(controller.PegarExemplarEmprestimo());
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -81,31 +75,25 @@ namespace Biblioteca.View.Livros {
                 MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
             }
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
+        private void btnCadastrarLivro_Click(object sender, EventArgs e)
+        {
             EmprestimoCadastroView emprestimoCadastrarView = new EmprestimoCadastroView();
             NovaJanela.novaJanela(emprestimoCadastrarView, this.Bounds);
         }
 
-        private void LvExemplar_MouseDoubleClick(object sender, MouseEventArgs e) {
-            //ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-            //ExemplarModel exemplar = new ExemplarModel(
-            //    int.Parse(item.SubItems[0].Text),
-            //    item.SubItems[1].Text,
-            //    item.SubItems[2].Text,
-            //    item.SubItems[6].Text,
-            //    item.SubItems[5].Text,
-            //    item.SubItems[3].Text,
-            //    item.SubItems[4].Text,
-            //    DateTime.Parse(item.SubItems[7].Text),
-            //    item.SubItems[8].Text
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-            //);
-            //DialogResult dialogResult = MessageBox.Show("Você realmente deseja inativar?", "Atenção", MessageBoxButtons.YesNo);
-            //if (dialogResult == DialogResult.Yes) {
-            //    controller.InativarExemplar(exemplar.getId());
-            //    popular(controller.PegarExemplar());
-            //}
+        private void dtGridViewExemplar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
