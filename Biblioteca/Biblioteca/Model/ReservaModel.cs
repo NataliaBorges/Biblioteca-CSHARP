@@ -8,13 +8,13 @@ namespace Biblioteca.Model {
         public int IdFuncionario { get; set; }
         public int IdLeitor { get; set; }
         public DateTime DataReserva { get; set; }
-        public String Obs { get; set; }
+        public string Obs { get; set; }
 
-        public String Leitor { get; set; }
+        public string Leitor { get; set; }
 
-        public String Funcionario { get; set;  }
+        public string Funcionario { get; set;  }
 
-        public ReservaModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataReserva, String Obs) {
+        public ReservaModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataReserva, string Obs) {
             this.ID = ID;
             this.IdFuncionario = IdFuncionario;
             this.IdLeitor = IdLeitor;
@@ -27,7 +27,7 @@ namespace Biblioteca.Model {
             this.IdLeitor = IdLeitor;
             this.DataReserva = DataReserva;
         }
-        public ReservaModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataReserva, String Leitor, String Funcionario) {
+        public ReservaModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataReserva, string Leitor, string Funcionario) {
             this.ID = ID;
             this.IdFuncionario = IdFuncionario;
             this.IdLeitor = IdLeitor;

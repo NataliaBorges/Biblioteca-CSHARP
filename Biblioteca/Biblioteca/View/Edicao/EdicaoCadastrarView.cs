@@ -34,7 +34,7 @@ namespace Biblioteca.View.Edicao
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            String nome = tbNome.Text.Substring(0, tbNome.Text.Length);
+            String nome = tbEdicao.Text.Substring(0, tbEdicao.Text.Length);
 
             List<EdicaoModel> lista = controller.ListarTodos();
             popular(lista);
@@ -63,11 +63,6 @@ namespace Biblioteca.View.Edicao
             this.Close();
         }
 
-        private void linkLbBuscarEdicao_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
         private void linkLbCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
@@ -75,17 +70,17 @@ namespace Biblioteca.View.Edicao
         }
         private void ClearForm()
         {
-            this.tbNome.Clear();
+            this.tbEdicao.Clear();
         }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            String nome = tbNome.Text;
+            String nome = tbEdicao.Text;
 
 
             if (nome.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
-                tbNome.Focus();
+                tbEdicao.Focus();
             }
             else
             {

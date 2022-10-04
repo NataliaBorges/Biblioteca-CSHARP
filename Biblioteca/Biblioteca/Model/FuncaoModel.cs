@@ -7,9 +7,9 @@ namespace Biblioteca.Model
     internal class FuncaoModel
     {
         public int Id { get; set; }
-        public String Nome { get; set; }
+        public string Nome { get; set; }
 
-        public FuncaoModel(int Id, String nome)
+        public FuncaoModel(int Id, string nome)
         {
             this.Id = Id;
             this.Nome = nome;

@@ -7,11 +7,11 @@ namespace Biblioteca.Model {
     public class EditoraModel {
 
         public int ID;
-        public String Nome;
-        public String Endereco;
-        public String Telefone;
-        public String CNPJ;
-        public String Email;
+        public string Nome;
+        public string Endereco;
+        public string Telefone;
+        public string CNPJ;
+        public string Email;
 
         public EditoraModel(int ID, string Nome, string Endereco, string Telefone, string CNPJ, string Email) {
             this.ID = ID;

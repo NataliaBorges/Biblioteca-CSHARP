@@ -58,5 +58,49 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
+        public List<EdicaoModel> BuscarEdicao(string busca)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            Cmd.CommandText = @"SELECT  * from Edicao
+                                WHERE Edicao.NOme_Edicao LIKE '" + busca + "%'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EdicaoModel> lista = new List<EdicaoModel>();
+
+            while (reader.Read())
+            {
+                EdicaoModel edicao = new EdicaoModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Edicao"]
+                );
+                lista.Add(edicao);
+            }
+            reader.Close();
+
+            return lista;
+
+        }
+        public bool Excluir(EdicaoModel edicao)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"DELETE FROM Edicao WHERE Id = @Id";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Id", edicao.getId());
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

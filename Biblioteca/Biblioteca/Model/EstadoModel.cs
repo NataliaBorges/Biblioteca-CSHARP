@@ -7,9 +7,9 @@ namespace Biblioteca.Model
     internal class EstadoModel
     {
         public int Id { get; set; }
-        public String Nome { get; set; }
+        public string Nome { get; set; }
 
-        public EstadoModel(int Id, String nome)
+        public EstadoModel(int Id, string nome)
         {
             this.Id = Id;
             this.Nome = nome;

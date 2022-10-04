@@ -7,9 +7,9 @@ namespace Biblioteca.Model {
         int ID { get; set; }
         public int IdExemplar { get; set; }
         public int IdReserva { get; set; }
-        public String Obs { get; set; }
+        public string Obs { get; set; }
 
-        public ItemReservaModel(int ID, int IdLivro, int IdReserva, String Obs) {
+        public ItemReservaModel(int ID, int IdLivro, int IdReserva, string Obs) {
             this.ID = ID;
             this.IdExemplar = IdLivro;
             this.IdReserva = IdReserva;

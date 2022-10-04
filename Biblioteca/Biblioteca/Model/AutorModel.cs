@@ -5,13 +5,13 @@ using System.Text;
 namespace Biblioteca.Model {
     class AutorModel {
         public int Id_autor { get; set; }
-        public String Nome_Autor { get; set; }
+        public string Nome_Autor { get; set; }
 
-        public AutorModel(int Id_autor, String nome_autor) {
+        public AutorModel(int Id_autor, string nome_autor) {
             this.Id_autor = Id_autor;
             this.Nome_Autor = nome_autor;
         }
-        public AutorModel(String nome_autor)
+        public AutorModel(string nome_autor)
         {
             this.Nome_Autor = nome_autor;
         }

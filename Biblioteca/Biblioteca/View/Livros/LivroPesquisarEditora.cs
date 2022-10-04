@@ -49,12 +49,6 @@ namespace Biblioteca.View.Livros
             this.Close();
         }
 
-        private void linkLblCadastrarEditora_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
-            NovaJanela.novaJanela(editoraCadastrarView, Bounds);
-        }
-
         private void dtGridViewEditora_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewRow row in dtGridViewEditora.SelectedRows)
