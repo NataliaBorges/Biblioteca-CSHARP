@@ -58,5 +58,33 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
+
+        public List<AutorModel> SelecionarAutor(string busca)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            Cmd.CommandText = @"SELECT  * from Autor
+                                WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<AutorModel> lista = new List<AutorModel>();
+
+            while (reader.Read())
+            {
+                AutorModel autor = new AutorModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Autor"]
+                );
+                lista.Add(autor);
+            }
+            reader.Close();
+
+            return lista;
+
+        }
     }
 }

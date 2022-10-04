@@ -39,32 +39,32 @@ namespace Biblioteca.Controller {
         }
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Livro Values (@Titulo, @Edicao, @Ano_Publicacao, @Quantidade, @ISBN, @Id_genero, @Id_autor, @Id_Editora)";
+            Cmd.CommandText = @"INSERT INTO Livro Values (@Titulo, @Id_genero, @Id_autor, @Id_Editora)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
-            Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
-            Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
-            Cmd.Parameters.AddWithValue("@Quantidade", livro.Quantidade);
-            Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
             Cmd.Parameters.AddWithValue("@Id_genero", livro.IdGenero);
             Cmd.Parameters.AddWithValue("@Id_autor", livro.IdAutor);
             Cmd.Parameters.AddWithValue("@Id_editora", livro.IdEditora);
 
-            if (Cmd.ExecuteNonQuery() == 1) {
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
                 int ultimoLivroId = BuscarUltimoLivro();
-                for(int i=0; i< livro.Quantidade; i++) {
-                    Cmd.Connection = connection.RetornaConexao();
-                    Cmd.CommandText = @"INSERT INTO Exemplar Values (@Data_Aquisição, @Id_livro)";
+                for (int i = 0; i < livro.Quantidade; i++)
+                {
+                    //Cmd.Connection = connection.RetornaConexao();
+                    //Cmd.CommandText = @"INSERT INTO Exemplar Values (@Data_Aquisição, @Id_livro)";
 
-                    Cmd.Parameters.Clear();
-                    Cmd.Parameters.AddWithValue("@Data_Aquisição", "2022-09-19");
-                    Cmd.Parameters.AddWithValue("@Id_livro", ultimoLivroId);
-                    Cmd.ExecuteNonQuery();
+                    //Cmd.Parameters.Clear();
+                    //Cmd.Parameters.AddWithValue("@Data_Aquisição", "2022-09-19");
+                    //Cmd.Parameters.AddWithValue("@Id_livro", ultimoLivroId);
+                    //Cmd.ExecuteNonQuery();
                 }
-                
+
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
@@ -133,16 +133,13 @@ namespace Biblioteca.Controller {
 
         public bool Atualizar(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Livro SET Titulo = @Titulo, Edicao = @Edicao, Ano_publicacao = @Ano_publicacao, ISBN = @ISBN, IdGenero = @Id_genero, 
+            Cmd.CommandText = @"UPDATE Livro SET Titulo = @Titulo, IdGenero = @Id_genero, 
                                 IdAutor = @Id_autor, IdEditora = @Id_editora
                                 WHERE ID_livro = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", livro.getId());
             Cmd.Parameters.AddWithValue("@Titulo", livro.Titulo);
-            Cmd.Parameters.AddWithValue("@Edicao", livro.Edicao);
-            Cmd.Parameters.AddWithValue("@Ano_publicacao", livro.AnoPublicacao);
-            Cmd.Parameters.AddWithValue("@ISBN", livro.ISBN);
             Cmd.Parameters.AddWithValue("@Id_Editora", livro.IdEditora);
             Cmd.Parameters.AddWithValue("@Id_Autor", livro.IdAutor);
             Cmd.Parameters.AddWithValue("@Id_Genero", livro.IdGenero);
@@ -160,19 +157,18 @@ namespace Biblioteca.Controller {
         public List<LivroModel> ListarTodos() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT	Livro.Id,
-		            Livro.Titulo,
-		            Livro.Edicao,
-		            Livro.Ano_Publicacao,
-		            Livro.ISBN,
-		            Editora.Nome_Editora,
-		            Autor.Nome_Autor,
-		            Genero.Nome_Genero,
-                    Livro.Quantidade
-            FROM Livro
-            INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-            INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
-            INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero,
+					                    COUNT(Exemplar.Id_livro) as Quantidade
+                                FROM Livro
+                                INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
             ";
             Cmd.Parameters.Clear();
 
@@ -184,13 +180,10 @@ namespace Biblioteca.Controller {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
-                    (String)reader["Nome_Genero"]
+                    (String)reader["Nome_Genero"],
+                    (int)reader["Quantidade"]
                 ); 
                 lista.Add(livro);
             }
@@ -203,68 +196,68 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isNome) {
-                Cmd.CommandText = @"SELECT  Livro.Titulo,
-		                                    Livro.Quantidade,
-		                                    Livro.Edicao,
-		                                    Livro.Ano_Publicacao,
-		                                    Livro.ISBN,
-		                                    Autor.Nome_Autor,
-		                                    Editora.Nome_Editora,
-		                                    Genero.Nome_Genero
-                                    From Livro
-                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                Cmd.CommandText = @"SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero,
+					                    COUNT(Exemplar.Id_livro) as Quantidade
+                                    FROM Livro
                                     INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                    LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
                                     WHERE Livro.Titulo LIKE '" + busca + "%'";
             }
 
             if (isAutor) {
-                Cmd.CommandText = @"SELECT  Livro.Titulo,
-		                                    Livro.Quantidade,
-		                                    Livro.Edicao,
-		                                    Livro.Ano_Publicacao,
-		                                    Livro.ISBN,
-		                                    Autor.Nome_Autor,
-		                                    Editora.Nome_Editora,
-		                                    Genero.Nome_Genero
-                                    From Livro
-                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                Cmd.CommandText = @"SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero,
+					                    COUNT(Exemplar.Id_livro) as Quantidade
+                                    FROM Livro
                                     INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                    LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
                                     WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
             }
 
             if (isEditora) {
                 Cmd.CommandText =
-                Cmd.CommandText = @"SELECT  Livro.Titulo,
-		                                    Livro.Quantidade,
-		                                    Livro.Edicao,
-		                                    Livro.Ano_Publicacao,
-		                                    Livro.ISBN,
-		                                    Autor.Nome_Autor,
-		                                    Editora.Nome_Editora,
-		                                    Genero.Nome_Genero
-                                    From Livro
-                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                Cmd.CommandText = @"SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero,
+					                    COUNT(Exemplar.Id_livro) as Quantidade
+                                    FROM Livro
                                     INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                    LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
                                     WHERE Editora.Nome_Editora LIKE '" + busca + "%'";
             }
             if (isGenero)
             {
                 Cmd.CommandText =
-                Cmd.CommandText = @"SELECT  Livro.Titulo,
-		                                    Livro.Quantidade,
-		                                    Livro.Edicao,
-		                                    Livro.Ano_Publicacao,
-		                                    Livro.ISBN,
-		                                    Autor.Nome_Autor,
-		                                    Editora.Nome_Editora,
-		                                    Genero.Nome_Genero
-                                    From Livro
-                                    INNER JOIN Autor ON(Autor.Id = Livro.Id_autor)
+                Cmd.CommandText = @"SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero,
+					                    COUNT(Exemplar.Id_livro) as Quantidade
+                                    FROM Livro
                                     INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                    LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
                                     WHERE Genero.Nome_Genero LIKE '" + busca + "%'";
             }
             Cmd.Parameters.Clear();
@@ -275,44 +268,17 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
+                    (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
-                    (String)reader["Nome_Genero"]
+                    (String)reader["Nome_Genero"],
+                    (int)reader["Quantidade"]
                 );
                 lista.Add(livro);
             }
             reader.Close();
 
-            return lista;
-        }
-
-        public List<EditoraModel> ListarEditora() {
-            Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Editora";
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<EditoraModel> lista = new List<EditoraModel>();
-
-            while (reader.Read()) {
-                EditoraModel Editora = new EditoraModel(
-                    (int)reader["ID"],
-                    (String)reader["Nome_Editora"],
-                    (String)reader["Endereco"],
-                    (String)reader["Telefone"],
-                    (String)reader["CNPJ"],
-                    (String)reader["Email"]
-                );
-                lista.Add(Editora);
-            }
-            reader.Close();
-            
             return lista;
         }
 
@@ -356,11 +322,8 @@ namespace Biblioteca.Controller {
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
-                    (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
+                    (String)reader["Titulo"]
+                    /*(int)reader["Quantidade"]*/,
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]

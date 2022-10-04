@@ -36,7 +36,7 @@ namespace Biblioteca.View.Emprestimo {
                 {
                     ListViewItem item = new ListViewItem(exemplar.getId().ToString());
                     item.SubItems.Add(exemplar.Titulo);
-                    item.SubItems.Add(exemplar.Edicao);
+                    //item.SubItems.Add(exemplar.Edicao);
                     item.SubItems.Add(exemplar.AnoPublicacao);
                     item.SubItems.Add(exemplar.ISBN);
                     item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));

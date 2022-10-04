@@ -25,23 +25,19 @@ namespace Biblioteca.View.Livros
         {
             this.menuControl1.setPanel(pnltotal);
 
-            List<EditoraModel> lista = controller.PesquisarEditora();
-            popular(lista);
         }
         private void popular(List<EditoraModel> lista)
         {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Nome", typeof(string));
-            table.Columns.Add("CNPJ", typeof(string));
             if (lista.Count > 0)
             {
                 foreach (EditoraModel editora in lista)
                 {
 
                     table.Rows.Add(editora.getId(),
-                                   editora.Nome,
-                                   editora.CNPJ);
+                                   editora.Nome);
 
                 }
                 dtGridViewEditora.DataSource = table;
@@ -65,10 +61,32 @@ namespace Biblioteca.View.Livros
             {
                 int id = int.Parse(row.Cells[0].Value.ToString());
                 string nome = row.Cells[1].Value.ToString();
-                string cnpj = row.Cells[2].Value.ToString();
-                EditoraModel editoraSelecionada = new EditoraModel(id, nome, cnpj);
+                EditoraModel editoraSelecionada = new EditoraModel(id, nome);
                 singleton.setEditoraBusca(editoraSelecionada);
                 this.Close();
+            }
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            String busca = tbBuscar.Text;
+
+            List<EditoraModel> lista = controller.SelecionarEditora(busca);
+
+            if (tbBuscar.Text.Length > 0 && lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewEditora.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewEditora.DataSource = null;
             }
         }
     }

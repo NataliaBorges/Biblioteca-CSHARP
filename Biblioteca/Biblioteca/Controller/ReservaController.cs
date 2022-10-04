@@ -190,10 +190,6 @@ namespace Biblioteca.Controller {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]
@@ -224,10 +220,6 @@ namespace Biblioteca.Controller {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]
@@ -258,10 +250,6 @@ namespace Biblioteca.Controller {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]

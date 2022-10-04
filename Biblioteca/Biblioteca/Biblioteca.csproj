@@ -15,6 +15,7 @@
     <PackageReference Include="Guna.UI2.WinForms" Version="2.0.3.2" />
     <PackageReference Include="RJCodeAdvance.RJControls" Version="1.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="Tulpep.NotificationWindow" Version="1.1.38" />
   </ItemGroup>
 
   <ItemGroup>

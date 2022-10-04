@@ -30,10 +30,6 @@ namespace Biblioteca.View.Livros {
                 tbAutor.Text = this.livro.NomeAutor;
                 tbEditora.Text = this.livro.NomeEditora;
                 tbGenero.Text = this.livro.NomeGenero;
-                tbISBN.Text = this.livro.ISBN;
-                tbEdicao.Text = this.livro.Edicao;
-                maskedTextBoxAno.Text = this.livro.AnoPublicacao;
-                tbEdicao.Text = this.livro.Edicao;
                 tbQuantidade.Text = this.livro.Quantidade.ToString();
 
             }
@@ -52,9 +48,6 @@ namespace Biblioteca.View.Livros {
 
         private void button1_Click(object sender, EventArgs e) {
             String titulo = tbNome.Text;
-            String edicao = tbEdicao.Text;
-            String ano = maskedTextBoxAno.Text;
-            String ISBN = tbISBN.Text;
             int Quantidade = int.Parse(tbQuantidade.Text);
             int autor = singleton.getAutorBusca().Id_autor;
             int Genero = singleton.getEditoraBusca().ID;
@@ -84,20 +77,9 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
                     tbGenero.Focus();
                 }
-                else if (edicao.Length <= 0) {
-                    MessageBox.Show("Você precisa digitar uma Edição.", "Atenção", MessageBoxButtons.OK);
-                    tbEdicao.Focus();
-                }
-                else if (ano == "") {
-                    MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
-                    maskedTextBoxAno.Focus();
-                }
-                else if (tbISBN.Text.Length < 13) {
-                    MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
-                }
                 else
                 {
-                    LivroModel livro = new LivroModel(this.livro.getId(), titulo, edicao, ano, Quantidade, ISBN, autor, Genero, Editora);
+                    LivroModel livro = new LivroModel(this.livro.getId(), titulo, autor, Genero, Editora);
                     if (controller.Atualizar(livro))
                     {
                         MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
@@ -108,12 +90,6 @@ namespace Biblioteca.View.Livros {
                         MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
                     }
             }
-        }
-
-        private void btnAddExemplar_Click(object sender, EventArgs e)
-        {
-            LivroBuscarExemplarView livroBuscarExemplarView = new LivroBuscarExemplarView(this.livro.getId());
-            NovaJanela.novaJanela(livroBuscarExemplarView, this.Bounds);
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)

@@ -101,8 +101,7 @@ namespace Biblioteca.Controller {
             {
                 EditoraModel editora = new EditoraModel(
                     (int)reader["ID"],
-                    (String)reader["Nome_Editora"],
-                    (String)reader["CNPJ"]
+                    (String)reader["Nome_Editora"]
                 );
                 lista.Add(editora);
             }
@@ -156,6 +155,34 @@ namespace Biblioteca.Controller {
             else {
                 return false;
             }
+        }
+
+        public List<EditoraModel> SelecionarEditora(string busca)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            Cmd.CommandText = @"SELECT  * from Editora
+                                WHERE Editora.Nome_Editora LIKE '" + busca + "%'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EditoraModel> lista = new List<EditoraModel>();
+
+            while (reader.Read())
+            {
+                EditoraModel editora = new EditoraModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Editora"]
+                );
+                lista.Add(editora);
+            }
+            reader.Close();
+
+            return lista;
+
         }
 
     }

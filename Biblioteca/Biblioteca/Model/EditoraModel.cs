@@ -29,11 +29,10 @@ namespace Biblioteca.Model {
             this.CNPJ = CNPJ;
             this.Email = Email;
         }
-        public EditoraModel(int ID, string Nome, string CNPJ)
+        public EditoraModel(int ID, string Nome)
         {
             this.ID = ID;
             this.Nome = Nome;
-            this.CNPJ = CNPJ;
 
         }
 

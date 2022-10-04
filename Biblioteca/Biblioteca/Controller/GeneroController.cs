@@ -80,5 +80,32 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
+        public List<GeneroModel> SelecionarGenero(string busca)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            Cmd.CommandText = @"SELECT  * from Genero
+                                WHERE Genero.Nome_Genero LIKE '" + busca + "%'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<GeneroModel> lista = new List<GeneroModel>();
+
+            while (reader.Read())
+            {
+                GeneroModel genero = new GeneroModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Genero"]
+                );
+                lista.Add(genero);
+            }
+            reader.Close();
+
+            return lista;
+
+        }
     }
 }

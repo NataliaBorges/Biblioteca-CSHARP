@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Util;
+using Tulpep.NotificationWindow;
 
 namespace Biblioteca.View.Livros
 {
@@ -25,8 +26,8 @@ namespace Biblioteca.View.Livros
             {
                 singleton.setAddAutor(false);
             }
-            List<AutorModel> lista = controller.ListarTodos();
-            popular(lista);
+            //List<AutorModel> lista = controller.ListarTodos();
+            //popular(lista);
 
             this.menuControl1.setPanel(pnltotal);
             this.head1.setForm(this);
@@ -63,6 +64,29 @@ namespace Biblioteca.View.Livros
                 AutorModel autorSelecionado = new AutorModel(id, nome);
                 singleton.setAutorBusca(autorSelecionado);
                 this.Close();
+            }
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            String busca = tbBuscar.Text;
+
+            List<AutorModel> lista = controller.SelecionarAutor(busca);
+
+            if(tbBuscar.Text.Length > 0 && lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            } 
+            else if(tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewAutor.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewAutor.DataSource = null;
             }
         }
     }

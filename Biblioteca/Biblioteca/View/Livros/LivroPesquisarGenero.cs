@@ -22,9 +22,6 @@ namespace Biblioteca.View.Livros
 
         private void LivroPesquisarGenero_Load(object sender, EventArgs e)
         {
-            List<GeneroModel> lista = controller.ListarTodos();
-            popular(lista);
-
             this.menuControl1.setPanel(pnltotal);
         }
         private void popular(List<GeneroModel> lista)
@@ -58,6 +55,34 @@ namespace Biblioteca.View.Livros
                 GeneroModel generoSelecionado = new GeneroModel(id, nome);
                 singleton.setGeneroBusca(generoSelecionado);
                 this.Close();
+            }
+        }
+
+        private void BtnPesquisar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            String busca = tbBuscar.Text;
+
+            List<GeneroModel> lista = controller.SelecionarGenero(busca);
+
+            if (tbBuscar.Text.Length > 0 && lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewGenero.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewGenero.DataSource = null;
             }
         }
     }

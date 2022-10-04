@@ -11,7 +11,8 @@
           "FontAwesome.Sharp": "5.15.4",
           "Guna.UI2.WinForms": "2.0.3.2",
           "RJCodeAdvance.RJControls": "1.0.0",
-          "System.Data.SqlClient": "4.8.2"
+          "System.Data.SqlClient": "4.8.2",
+          "Tulpep.NotificationWindow": "1.1.38"
         },
         "runtime": {
           "Biblioteca.dll": {}
@@ -115,7 +116,15 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {}
+      "System.Security.Principal.Windows/4.7.0": {},
+      "Tulpep.NotificationWindow/1.1.38": {
+        "runtime": {
+          "lib/net40/Tulpep.NotificationWindow.dll": {
+            "assemblyVersion": "1.1.38.0",
+            "fileVersion": "1.1.38.0"
+          }
+        }
+      }
     }
   },
   "libraries": {
@@ -207,6 +216,13 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
+    },
+    "Tulpep.NotificationWindow/1.1.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cotu1DDvSiSqvkGIY0SOh1QN5NgXTiWJEspZCx34My+p0q9ONvtPYUZELyN+Fpo0U/KyAG5B0wEiiFdaMCesag==",
+      "path": "tulpep.notificationwindow/1.1.38",
+      "hashPath": "tulpep.notificationwindow.1.1.38.nupkg.sha512"
     }
   }
 }

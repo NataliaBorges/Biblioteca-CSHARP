@@ -28,6 +28,9 @@ namespace Biblioteca.View.Livros {
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.BtnGenero = new FontAwesome.Sharp.IconButton();
+            this.BtnEditora = new FontAwesome.Sharp.IconButton();
+            this.BtnAutor = new FontAwesome.Sharp.IconButton();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.head1 = new Biblioteca.Util.Head();
             this.tbEditora = new System.Windows.Forms.TextBox();
@@ -40,9 +43,6 @@ namespace Biblioteca.View.Livros {
             this.label2 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.pnltotal.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -76,9 +76,9 @@ namespace Biblioteca.View.Livros {
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.pnlPrincipal.Controls.Add(this.iconButton3);
-            this.pnlPrincipal.Controls.Add(this.iconButton1);
-            this.pnlPrincipal.Controls.Add(this.iconButton2);
+            this.pnlPrincipal.Controls.Add(this.BtnGenero);
+            this.pnlPrincipal.Controls.Add(this.BtnEditora);
+            this.pnlPrincipal.Controls.Add(this.BtnAutor);
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.tbEditora);
@@ -96,6 +96,54 @@ namespace Biblioteca.View.Livros {
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(1035, 584);
             this.pnlPrincipal.TabIndex = 28;
+            // 
+            // BtnGenero
+            // 
+            this.BtnGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnGenero.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGenero.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.BtnGenero.IconColor = System.Drawing.Color.White;
+            this.BtnGenero.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnGenero.IconSize = 23;
+            this.BtnGenero.Location = new System.Drawing.Point(771, 310);
+            this.BtnGenero.Name = "BtnGenero";
+            this.BtnGenero.Size = new System.Drawing.Size(36, 27);
+            this.BtnGenero.TabIndex = 97;
+            this.BtnGenero.UseVisualStyleBackColor = false;
+            this.BtnGenero.Click += new System.EventHandler(this.BtnGenero_Click);
+            // 
+            // BtnEditora
+            // 
+            this.BtnEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnEditora.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEditora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditora.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.BtnEditora.IconColor = System.Drawing.Color.White;
+            this.BtnEditora.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEditora.IconSize = 23;
+            this.BtnEditora.Location = new System.Drawing.Point(770, 266);
+            this.BtnEditora.Name = "BtnEditora";
+            this.BtnEditora.Size = new System.Drawing.Size(36, 27);
+            this.BtnEditora.TabIndex = 96;
+            this.BtnEditora.UseVisualStyleBackColor = false;
+            this.BtnEditora.Click += new System.EventHandler(this.BtnEditora_Click);
+            // 
+            // BtnAutor
+            // 
+            this.BtnAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnAutor.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAutor.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.BtnAutor.IconColor = System.Drawing.Color.White;
+            this.BtnAutor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAutor.IconSize = 23;
+            this.BtnAutor.Location = new System.Drawing.Point(770, 225);
+            this.BtnAutor.Name = "BtnAutor";
+            this.BtnAutor.Size = new System.Drawing.Size(36, 27);
+            this.BtnAutor.TabIndex = 95;
+            this.BtnAutor.UseVisualStyleBackColor = false;
+            this.BtnAutor.Click += new System.EventHandler(this.BtnAutor_Click);
             // 
             // icbtnVoltar
             // 
@@ -246,49 +294,6 @@ namespace Biblioteca.View.Livros {
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(770, 225);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 27);
-            this.iconButton2.TabIndex = 95;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton1.IconColor = System.Drawing.Color.White;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 23;
-            this.iconButton1.Location = new System.Drawing.Point(770, 266);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(36, 27);
-            this.iconButton1.TabIndex = 96;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton3.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton3.IconColor = System.Drawing.Color.White;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 23;
-            this.iconButton3.Location = new System.Drawing.Point(771, 310);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(36, 27);
-            this.iconButton3.TabIndex = 97;
-            this.iconButton3.UseVisualStyleBackColor = false;
-            // 
             // LivrosCadastrarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -332,8 +337,8 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton BtnGenero;
+        private FontAwesome.Sharp.IconButton BtnEditora;
+        private FontAwesome.Sharp.IconButton BtnAutor;
     }
 }

@@ -228,15 +228,15 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
-                    (int)reader["ID_livro"],
-                    (int)reader["ID_fornecedor"],
+                    //(int)reader["ID_livro"],
+                    //(int)reader["ID_fornecedor"],
                     (int)reader["ID_Autor"],
-                    //(String)reader["Autor_Livro"],
+                    (String)reader["Autor_Livro"],
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (String)reader["Fornecedor"],
-                    (int)reader["Quantidade"]
+                    (String)reader["ISBN"]
+                    //(String)reader["Fornecedor"],
+                    //(int)reader["Quantidade"]
                 );
                 lista.Add(livro);
             }
@@ -343,10 +343,10 @@ namespace Biblioteca.Controller {
                 LivroModel livro = new LivroModel(
                     (int)reader["Id"],
                     (String)reader["Titulo"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"],
-                    (int)reader["Quantidade"],
+                    //(String)reader["Edicao"],
+                    //(String)reader["Ano_publicacao"],
+                    //(String)reader["ISBN"],
+                    //(int)reader["Quantidade"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]

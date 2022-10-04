@@ -52,7 +52,7 @@ namespace Biblioteca.View.Livros {
 
                     table.Rows.Add(exemplar.getId(),
                                    exemplar.Titulo,
-                                   exemplar.Edicao,
+                                   //exemplar.Edicao,
                                    exemplar.Aquisicao,
                                    exemplar.AnoPublicacao,
                                    exemplar.ISBN,

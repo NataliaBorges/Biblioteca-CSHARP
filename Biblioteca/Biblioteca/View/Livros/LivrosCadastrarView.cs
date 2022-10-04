@@ -39,56 +39,32 @@ namespace Biblioteca.View.Livros {
         private void ClearForm() {
             this.tbNome.Clear();
             this.tbAutor.Clear();
-            this.tbEdicao.Clear();
-            this.maskedTextBoxAno.Clear();
-            this.tbISBN.Clear();
             this.tbEditora.Clear();
             this.tbGenero.Clear();
-            this.tbQuantidade.Clear();
         }
-
-        private void btnPesqAutor_Click(object sender, EventArgs e)
+        private void BtnAutor_Click(object sender, EventArgs e)
         {
             singleton.setBuscarAutor(true);
             LivroPesquisarAutor livroPesquisarAutor = new LivroPesquisarAutor();
             NovaJanela.novaJanela(livroPesquisarAutor, this.Bounds);
         }
-
-        private void btlPesqEditora_Click_1(object sender, EventArgs e)
+        private void BtnEditora_Click(object sender, EventArgs e)
         {
             singleton.setBuscarEditora(true);
-            LivroPesquisarEditora livroPesquisarEditora= new LivroPesquisarEditora();
+            LivroPesquisarEditora livroPesquisarEditora = new LivroPesquisarEditora();
             NovaJanela.novaJanela(livroPesquisarEditora, this.Bounds);
         }
 
-        private void btnPesqGenero_Click_1(object sender, EventArgs e)
+        private void BtnGenero_Click(object sender, EventArgs e)
         {
             singleton.setBuscarGenero(true);
             LivroPesquisarGenero livroPesquisarGenero = new LivroPesquisarGenero();
             NovaJanela.novaJanela(livroPesquisarGenero, this.Bounds);
         }
 
-        private void LinkLblCadastroEmprestimo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-            EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
-            NovaJanela.novaJanela(editoraCadastrarView, this.Bounds);
-
-        }
-
-        private void linklblCadastrarAutor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            AutorCadastrarView autorCadastrarView = new AutorCadastrarView();
-            NovaJanela.novaJanela(autorCadastrarView, this.Bounds);
-        }
-
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             String titulo = tbNome.Text;
-            String edicao = tbEdicao.Text;
-            String ano = maskedTextBoxAno.Text;
-            String ISBN = tbISBN.Text;
-            int Quantidade = int.Parse(tbQuantidade.Text);
             int autor = singleton.getAutorBusca().Id_autor;
             int Genero = singleton.getEditoraBusca().ID;
             int Editora = singleton.getGeneroBusca().Id_genero;
@@ -103,21 +79,6 @@ namespace Biblioteca.View.Livros {
                 MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
                 tbAutor.Focus();
             }
-            else if (edicao.Length <= 0)
-            {
-                MessageBox.Show("Você precisa digitar uma Edição.", "Atenção", MessageBoxButtons.OK);
-                tbEdicao.Focus();
-            }
-            else if (ano == "")
-            {
-                MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
-                maskedTextBoxAno.Focus();
-            }
-            else if (tbISBN.Text.Length < 13)
-            {
-                MessageBox.Show("Você precisa digitar um ISBN Válido.", "Atenção", MessageBoxButtons.OK);
-                tbISBN.Focus();
-            }
             else if (tbEditora.Text.Length <= 0)
             {
                 MessageBox.Show("Você precisa selecionar uma Editora Válida.", "Atenção", MessageBoxButtons.OK);
@@ -128,14 +89,9 @@ namespace Biblioteca.View.Livros {
                 MessageBox.Show("Você precisa selecionar um Gênero Válido.", "Atenção", MessageBoxButtons.OK);
                 tbGenero.Focus();
             }
-            else if (tbQuantidade.Text.Length <= 0)
-            {
-                MessageBox.Show("Você precisa digitar uma quantidade válida.", "Atenção", MessageBoxButtons.OK);
-                tbQuantidade.Focus();
-            }
             else
             {
-                LivroModel livro = new LivroModel(titulo, edicao, ano, Quantidade, ISBN, autor, Genero, Editora);
+                LivroModel livro = new LivroModel(titulo, autor, Genero, Editora);
                 if (controller.Insercao(livro))
                 {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
@@ -173,12 +129,6 @@ namespace Biblioteca.View.Livros {
                 singleton.setBuscarGenero(false);
                 tbGenero.Text = singleton.getGeneroBusca().Nome_genero;
             }
-        }
-
-        private void linklblCadastrarGenero_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
-            NovaJanela.novaJanela(generoCadastrarView, this.Bounds);
         }
     }
 }
