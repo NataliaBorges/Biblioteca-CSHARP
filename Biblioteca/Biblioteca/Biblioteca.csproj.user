@@ -49,6 +49,12 @@
     <Compile Update="View\Editora\EditoraBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Exemplar\ExemplarBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Exemplar\ExemplarCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Funcionario\FuncionarioBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>

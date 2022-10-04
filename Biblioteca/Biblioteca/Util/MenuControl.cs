@@ -3,6 +3,7 @@ using Biblioteca.View;
 using Biblioteca.View.Autor;
 using Biblioteca.View.Edicao;
 using Biblioteca.View.Emprestimo;
+using Biblioteca.View.Exemplar;
 using Biblioteca.View.Fornecedor;
 using Biblioteca.View.Funcionario;
 using Biblioteca.View.Genero;
@@ -182,7 +183,8 @@ namespace Biblioteca.Util
 
         private void itemCadastrarExemplar_Click(object sender, EventArgs e)
         {
-
+            ExemplarCadastrarView exemplarCadastrarView = new ExemplarCadastrarView();
+            NovaJanela.novaJanela(exemplarCadastrarView, Bounds);
         }
 
         private void itemCadastrarEditora_Click(object sender, EventArgs e)
@@ -222,7 +224,8 @@ namespace Biblioteca.Util
 
         private void itemBuscarExemplar_Click(object sender, EventArgs e)
         {
-
+            ExemplarBuscarView exemplarBuscarView = new ExemplarBuscarView();
+            NovaJanela.novaJanela(exemplarBuscarView, Bounds);
         }
 
         private void itemBuscarEditora_Click(object sender, EventArgs e)
