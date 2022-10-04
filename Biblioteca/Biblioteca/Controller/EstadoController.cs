@@ -31,11 +31,11 @@ namespace Biblioteca.Controller
 
             while (reader.Read())
             {
-                EstadoModel funcao = new EstadoModel(
+                EstadoModel estado = new EstadoModel(
                     (int)reader["ID"],
                     (String)reader["Nome_Estado"]
                 );
-                list.Add(funcao);
+                list.Add(estado);
             }
             reader.Close();
 

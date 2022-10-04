@@ -16,6 +16,12 @@
     <Compile Update="View\Autor\AutorCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Edicao\EdicaoBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Edicao\EdicaoCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Emprestimo\EmprestimoBuscarExemplarView.cs">
       <SubType>Form</SubType>
     </Compile>

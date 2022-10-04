@@ -410,42 +410,42 @@
             // itemCadastrarLivro
             // 
             this.itemCadastrarLivro.Name = "itemCadastrarLivro";
-            this.itemCadastrarLivro.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarLivro.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarLivro.Text = "Livro";
             this.itemCadastrarLivro.Click += new System.EventHandler(this.itemCadastrarLivro_Click);
             // 
             // itemCadastrarExemplar
             // 
             this.itemCadastrarExemplar.Name = "itemCadastrarExemplar";
-            this.itemCadastrarExemplar.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarExemplar.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarExemplar.Text = "Exemplar";
             this.itemCadastrarExemplar.Click += new System.EventHandler(this.itemCadastrarExemplar_Click);
             // 
             // itemCadastrarEditora
             // 
             this.itemCadastrarEditora.Name = "itemCadastrarEditora";
-            this.itemCadastrarEditora.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarEditora.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarEditora.Text = "Editora";
             this.itemCadastrarEditora.Click += new System.EventHandler(this.itemCadastrarEditora_Click);
             // 
             // itemCadastrarAutor
             // 
             this.itemCadastrarAutor.Name = "itemCadastrarAutor";
-            this.itemCadastrarAutor.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarAutor.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarAutor.Text = "Autor";
             this.itemCadastrarAutor.Click += new System.EventHandler(this.itemCadastrarAutor_Click);
             // 
             // itemCadastrarGenero
             // 
             this.itemCadastrarGenero.Name = "itemCadastrarGenero";
-            this.itemCadastrarGenero.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarGenero.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarGenero.Text = "Gênero";
-            this.itemCadastrarGenero.Click += new System.EventHandler(this.itemCadastrarGenero_Click);
+            this.itemCadastrarGenero.Click += new System.EventHandler(this.ItemCadastrarGenero_Click);
             // 
             // itemCadastrarEdicao
             // 
             this.itemCadastrarEdicao.Name = "itemCadastrarEdicao";
-            this.itemCadastrarEdicao.Size = new System.Drawing.Size(136, 22);
+            this.itemCadastrarEdicao.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarEdicao.Text = "Edição";
             this.itemCadastrarEdicao.Click += new System.EventHandler(this.itemCadastrarEdicao_Click);
             // 
@@ -465,42 +465,42 @@
             // itemBuscarLivro
             // 
             this.itemBuscarLivro.Name = "itemBuscarLivro";
-            this.itemBuscarLivro.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarLivro.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarLivro.Text = "Livro";
             this.itemBuscarLivro.Click += new System.EventHandler(this.itemBuscarLivro_Click);
             // 
             // itemBuscarExemplar
             // 
             this.itemBuscarExemplar.Name = "itemBuscarExemplar";
-            this.itemBuscarExemplar.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarExemplar.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarExemplar.Text = "Exemplar";
             this.itemBuscarExemplar.Click += new System.EventHandler(this.itemBuscarExemplar_Click);
             // 
             // itemBuscarEditora
             // 
             this.itemBuscarEditora.Name = "itemBuscarEditora";
-            this.itemBuscarEditora.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarEditora.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarEditora.Text = "Editora";
             this.itemBuscarEditora.Click += new System.EventHandler(this.itemBuscarEditora_Click);
             // 
             // itemBuscarAutor
             // 
             this.itemBuscarAutor.Name = "itemBuscarAutor";
-            this.itemBuscarAutor.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarAutor.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarAutor.Text = "Autor";
             this.itemBuscarAutor.Click += new System.EventHandler(this.itemBuscarAutor_Click);
             // 
             // itemBuscarGenero
             // 
             this.itemBuscarGenero.Name = "itemBuscarGenero";
-            this.itemBuscarGenero.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarGenero.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarGenero.Text = "Gênero";
             this.itemBuscarGenero.Click += new System.EventHandler(this.itemBuscarGenero_Click);
             // 
             // itemBuscarEdicao
             // 
             this.itemBuscarEdicao.Name = "itemBuscarEdicao";
-            this.itemBuscarEdicao.Size = new System.Drawing.Size(136, 22);
+            this.itemBuscarEdicao.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarEdicao.Text = "Edição";
             this.itemBuscarEdicao.Click += new System.EventHandler(this.itemBuscarEdicao_Click);
             // 

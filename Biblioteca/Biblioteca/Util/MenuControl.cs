@@ -1,6 +1,7 @@
 ﻿using Biblioteca.Util;
 using Biblioteca.View;
 using Biblioteca.View.Autor;
+using Biblioteca.View.Edicao;
 using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Fornecedor;
 using Biblioteca.View.Funcionario;
@@ -18,6 +19,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using EdicaoCadastrarView = Biblioteca.View.Edicao.EdicaoCadastrarView;
 
 namespace Biblioteca.Util
 {
@@ -197,7 +199,7 @@ namespace Biblioteca.Util
             NovaJanela.novaJanela(autorCadastrarView, Bounds);
         }
 
-        private void itemCadastrarGenero_Click(object sender, EventArgs e)
+        private void ItemCadastrarGenero_Click(object sender, EventArgs e)
         {
             fecharTelas();
             GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
@@ -206,7 +208,8 @@ namespace Biblioteca.Util
 
         private void itemCadastrarEdicao_Click(object sender, EventArgs e)
         {
-            
+            EdicaoCadastrarView edicaoCadastrarView = new EdicaoCadastrarView();
+            NovaJanela.novaJanela(edicaoCadastrarView, Bounds);
         }
 
         //Livro Buscar
@@ -245,7 +248,8 @@ namespace Biblioteca.Util
 
         private void itemBuscarEdicao_Click(object sender, EventArgs e)
         {
-
+            EdicaoBuscarView edicaoBuscarView = new EdicaoBuscarView();
+            NovaJanela.novaJanela(edicaoBuscarView, Bounds);
         }
 
         //Leitor Cadastrar
