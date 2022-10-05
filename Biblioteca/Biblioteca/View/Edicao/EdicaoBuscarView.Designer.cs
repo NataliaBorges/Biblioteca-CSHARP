@@ -43,12 +43,12 @@
             this.tbEdicao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.TbPesquisar = new System.Windows.Forms.TextBox();
             this.dtGridViewEdicao = new System.Windows.Forms.DataGridView();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
             this.lblNome = new System.Windows.Forms.Label();
             this.tbBuscar = new System.Windows.Forms.TextBox();
@@ -97,7 +97,7 @@
             // 
             // btnCadastrarEdicao
             // 
-            this.btnCadastrarEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCadastrarEdicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCadastrarEdicao.FlatAppearance.BorderSize = 0;
             this.btnCadastrarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarEdicao.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -176,6 +176,7 @@
             this.panel2.Controls.Add(this.tbEdicao);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(467, 3);
             this.panel2.Name = "panel2";
@@ -188,12 +189,13 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(325, 165);
+            this.btnSalvar.Location = new System.Drawing.Point(265, 160);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(118, 32);
             this.btnSalvar.TabIndex = 39;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // tbEdicao
             // 
@@ -201,7 +203,7 @@
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEdicao.Location = new System.Drawing.Point(120, 97);
             this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.Size = new System.Drawing.Size(323, 27);
+            this.tbEdicao.Size = new System.Drawing.Size(286, 27);
             this.tbEdicao.TabIndex = 38;
             // 
             // label5
@@ -226,6 +228,20 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Edição:";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(105, 160);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(118, 32);
+            this.btnExcluir.TabIndex = 33;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
@@ -233,7 +249,6 @@
             this.panel3.Controls.Add(this.TbPesquisar);
             this.panel3.Controls.Add(this.dtGridViewEdicao);
             this.panel3.Controls.Add(this.btnEditar);
-            this.panel3.Controls.Add(this.btnExcluir);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
@@ -313,35 +328,22 @@
             this.dtGridViewEdicao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewEdicao.Size = new System.Drawing.Size(406, 232);
             this.dtGridViewEdicao.TabIndex = 30;
-            this.dtGridViewEdicao.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewEdicao_CellContentClick);
+            this.dtGridViewEdicao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewEdicao_CellClick);
             // 
             // btnEditar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(106, 342);
+            this.btnEditar.Location = new System.Drawing.Point(165, 340);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(105, 32);
             this.btnEditar.TabIndex = 32;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(227, 342);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(118, 32);
-            this.btnExcluir.TabIndex = 33;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // head1
             // 

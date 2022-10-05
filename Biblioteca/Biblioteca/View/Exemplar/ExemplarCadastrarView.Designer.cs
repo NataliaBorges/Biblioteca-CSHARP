@@ -115,6 +115,7 @@
             // 
             // iconButton2
             // 
+            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
@@ -219,7 +220,7 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(419, 460);
+            this.label5.Location = new System.Drawing.Point(288, 453);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 9;
@@ -239,7 +240,7 @@
             // 
             this.maskedTextBoxAno.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskedTextBoxAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxAno.Location = new System.Drawing.Point(468, 453);
+            this.maskedTextBoxAno.Location = new System.Drawing.Point(348, 447);
             this.maskedTextBoxAno.Mask = "9999";
             this.maskedTextBoxAno.Name = "maskedTextBoxAno";
             this.maskedTextBoxAno.Size = new System.Drawing.Size(38, 27);
@@ -262,9 +263,9 @@
             // 
             this.tbQuantidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbQuantidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbQuantidade.Location = new System.Drawing.Point(349, 453);
+            this.tbQuantidade.Location = new System.Drawing.Point(502, 446);
             this.tbQuantidade.Name = "tbQuantidade";
-            this.tbQuantidade.Size = new System.Drawing.Size(61, 27);
+            this.tbQuantidade.Size = new System.Drawing.Size(55, 27);
             this.tbQuantidade.TabIndex = 24;
             // 
             // label6
@@ -287,7 +288,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(232, 460);
+            this.label8.Location = new System.Drawing.Point(397, 453);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(99, 20);
             this.label8.TabIndex = 23;
@@ -310,7 +311,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(533, 456);
+            this.label7.Location = new System.Drawing.Point(563, 453);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 21;
@@ -320,9 +321,9 @@
             // 
             this.tbISBN.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbISBN.Location = new System.Drawing.Point(584, 453);
+            this.tbISBN.Location = new System.Drawing.Point(618, 446);
             this.tbISBN.Name = "tbISBN";
-            this.tbISBN.Size = new System.Drawing.Size(193, 27);
+            this.tbISBN.Size = new System.Drawing.Size(159, 27);
             this.tbISBN.TabIndex = 22;
             // 
             // label2

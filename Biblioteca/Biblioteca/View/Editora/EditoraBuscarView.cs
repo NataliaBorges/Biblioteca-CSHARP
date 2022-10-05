@@ -18,26 +18,6 @@ namespace Biblioteca.View.Fornecedor {
             InitializeComponent();
         }
 
-        //private void LvFornecedor_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = LvFornecedor.Items[LvFornecedor.FocusedItem.Index];
-        //    EditoraModel fornecedor = new EditoraModel(
-        //        int.Parse(item.SubItems[0].Text),
-        //        item.SubItems[1].Text,
-        //        item.SubItems[2].Text,
-        //        item.SubItems[3].Text,
-        //        item.SubItems[4].Text,
-        //        item.SubItems[5].Text
-        //    );
-
-        //    EditoraEditarView editar = new EditoraEditarView(fornecedor);
-
-        //    Rectangle bounds = this.Bounds;
-        //    editar.SetBounds(bounds.X, bounds.Y, editar.Bounds.Width, editar.Bounds.Height);
-        //    editar.StartPosition = FormStartPosition.Manual;
-        //    editar.Location = new Point(-2, 63);
-        //    editar.ShowDialog();
-        //}
-
         private void popular(List<EditoraModel> lista) {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
@@ -94,8 +74,7 @@ namespace Biblioteca.View.Fornecedor {
 
         private void EditoraBuscarView_Activated(object sender, EventArgs e)
         {
-            List<EditoraModel> lista = controller.ListarTodos();
-            popular(lista);
+            
         }
     }
 }

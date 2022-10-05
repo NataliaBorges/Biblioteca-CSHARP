@@ -28,7 +28,6 @@ namespace Biblioteca.View.Funcionario {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FuncionarioBuscarView));
-            this.button1 = new System.Windows.Forms.Button();
             this.rbEmail = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
@@ -37,35 +36,20 @@ namespace Biblioteca.View.Funcionario {
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.LinkCadastrarFuncionario = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
             this.dtGridViewFuncionario = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.btnCadastrarFuncionario = new FontAwesome.Sharp.IconButton();
+            this.lblNotFound = new System.Windows.Forms.Label();
             this.pnlPrincipal.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewFuncionario)).BeginInit();
-            this.panel2.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(932, 84);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 27);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // rbEmail
             // 
@@ -73,7 +57,7 @@ namespace Biblioteca.View.Funcionario {
             this.rbEmail.BackColor = System.Drawing.Color.Transparent;
             this.rbEmail.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbEmail.ForeColor = System.Drawing.Color.White;
-            this.rbEmail.Location = new System.Drawing.Point(0, 35);
+            this.rbEmail.Location = new System.Drawing.Point(495, 39);
             this.rbEmail.Name = "rbEmail";
             this.rbEmail.Size = new System.Drawing.Size(74, 24);
             this.rbEmail.TabIndex = 14;
@@ -87,7 +71,7 @@ namespace Biblioteca.View.Funcionario {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(3, 5);
+            this.rbNome.Location = new System.Drawing.Point(401, 39);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 13;
@@ -98,14 +82,16 @@ namespace Biblioteca.View.Funcionario {
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(366, 84);
+            this.tbBuscar.Location = new System.Drawing.Point(286, 100);
             this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(534, 27);
             this.tbBuscar.TabIndex = 12;
             // 
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.Black;
+            this.pnlPrincipal.Controls.Add(this.btnCadastrarFuncionario);
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
             this.pnlPrincipal.Controls.Add(this.panel3);
             this.pnlPrincipal.Controls.Add(this.lblCadastroLivro);
@@ -140,18 +126,16 @@ namespace Biblioteca.View.Funcionario {
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(21)))), ((int)(((byte)(0)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel3.Controls.Add(this.lblNotFound);
+            this.panel3.Controls.Add(this.rbEmail);
+            this.panel3.Controls.Add(this.rbNome);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.cbStatus);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.LinkCadastrarFuncionario);
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.dtGridViewFuncionario);
             this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.tbBuscar);
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 246);
             this.panel3.Name = "panel3";
@@ -165,7 +149,7 @@ namespace Biblioteca.View.Funcionario {
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(718, 153);
+            this.label11.Location = new System.Drawing.Point(720, 42);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 94;
@@ -176,46 +160,10 @@ namespace Biblioteca.View.Funcionario {
             this.cbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(780, 150);
+            this.cbStatus.Location = new System.Drawing.Point(782, 39);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 28);
             this.cbStatus.TabIndex = 93;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(53, 151);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(205, 23);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Listando Funcionários:";
-            // 
-            // LinkCadastrarFuncionario
-            // 
-            this.LinkCadastrarFuncionario.AutoSize = true;
-            this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(830, 549);
-            this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
-            this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(150, 18);
-            this.LinkCadastrarFuncionario.TabIndex = 22;
-            this.LinkCadastrarFuncionario.TabStop = true;
-            this.LinkCadastrarFuncionario.Text = "Cadastrar Funcionário";
-            this.LinkCadastrarFuncionario.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.LinkCadastrarFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkCadastrarFuncionario_LinkClicked);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(267, 87);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Digite aqui:";
             // 
             // dtGridViewFuncionario
             // 
@@ -249,7 +197,7 @@ namespace Biblioteca.View.Funcionario {
             this.dtGridViewFuncionario.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewFuncionario.EnableHeadersVisualStyles = false;
             this.dtGridViewFuncionario.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewFuncionario.Location = new System.Drawing.Point(53, 184);
+            this.dtGridViewFuncionario.Location = new System.Drawing.Point(52, 144);
             this.dtGridViewFuncionario.Name = "dtGridViewFuncionario";
             this.dtGridViewFuncionario.ReadOnly = true;
             this.dtGridViewFuncionario.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -284,21 +232,11 @@ namespace Biblioteca.View.Funcionario {
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(99, 29);
+            this.label1.Location = new System.Drawing.Point(188, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(193, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Selecione o tipo da busca:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.rbNome);
-            this.panel2.Controls.Add(this.rbEmail);
-            this.panel2.Location = new System.Drawing.Point(144, 52);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(88, 69);
-            this.panel2.TabIndex = 23;
             // 
             // lblCadastroLivro
             // 
@@ -346,9 +284,45 @@ namespace Biblioteca.View.Funcionario {
             this.menuControl1.Size = new System.Drawing.Size(177, 833);
             this.menuControl1.TabIndex = 19;
             // 
+            // btnCadastrarFuncionario
+            // 
+            this.btnCadastrarFuncionario.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCadastrarFuncionario.FlatAppearance.BorderSize = 0;
+            this.btnCadastrarFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCadastrarFuncionario.ForeColor = System.Drawing.Color.White;
+            this.btnCadastrarFuncionario.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnCadastrarFuncionario.IconColor = System.Drawing.Color.Olive;
+            this.btnCadastrarFuncionario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnCadastrarFuncionario.IconSize = 30;
+            this.btnCadastrarFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCadastrarFuncionario.Location = new System.Drawing.Point(818, 210);
+            this.btnCadastrarFuncionario.Name = "btnCadastrarFuncionario";
+            this.btnCadastrarFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnCadastrarFuncionario.Size = new System.Drawing.Size(216, 30);
+            this.btnCadastrarFuncionario.TabIndex = 93;
+            this.btnCadastrarFuncionario.Tag = "";
+            this.btnCadastrarFuncionario.Text = "Cadastrar funcionário";
+            this.btnCadastrarFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCadastrarFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
+            // 
+            // lblNotFound
+            // 
+            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNotFound.AutoSize = true;
+            this.lblNotFound.BackColor = System.Drawing.Color.Black;
+            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFound.ForeColor = System.Drawing.Color.White;
+            this.lblNotFound.Location = new System.Drawing.Point(475, 289);
+            this.lblNotFound.Name = "lblNotFound";
+            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFound.TabIndex = 96;
+            this.lblNotFound.Text = "Não Encontrado";
+            this.lblNotFound.Visible = false;
+            // 
             // FuncionarioBuscarView
             // 
-            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -367,33 +341,28 @@ namespace Biblioteca.View.Funcionario {
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewFuncionario)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rbEmail;
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel LinkCadastrarFuncionario;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCadastroLivro;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dtGridViewFuncionario;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbStatus;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
+        private FontAwesome.Sharp.IconButton btnCadastrarFuncionario;
+        private System.Windows.Forms.Label lblNotFound;
     }
 }

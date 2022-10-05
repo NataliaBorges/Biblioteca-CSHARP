@@ -134,11 +134,11 @@ namespace Biblioteca.View.Funcionario {
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(366, 103);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(423, 104);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(445, 38);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(385, 38);
             this.lblCadastroLivro.TabIndex = 110;
-            this.lblCadastroLivro.Text = "EDIÇÃO DE FUNCIONÁRIO";
+            this.lblCadastroLivro.Text = "EDITAR FUNCIONÁRIO";
             // 
             // label4
             // 

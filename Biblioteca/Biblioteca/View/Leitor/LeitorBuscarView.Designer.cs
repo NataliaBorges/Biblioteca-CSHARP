@@ -28,43 +28,27 @@ namespace Biblioteca.View.Leitor {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeitorBuscarView));
-            this.button1 = new System.Windows.Forms.Button();
             this.rbCPF = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
             this.dtGridViewLeitor = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.linkLbCadastrarLeitor = new System.Windows.Forms.LinkLabel();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.lblNotFound = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).BeginInit();
-            this.panel2.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(895, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(33, 27);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // rbCPF
             // 
@@ -73,7 +57,7 @@ namespace Biblioteca.View.Leitor {
             this.rbCPF.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(13, 35);
+            this.rbCPF.Location = new System.Drawing.Point(346, 26);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(57, 24);
             this.rbCPF.TabIndex = 9;
@@ -87,7 +71,7 @@ namespace Biblioteca.View.Leitor {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(13, 5);
+            this.rbNome.Location = new System.Drawing.Point(253, 26);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 8;
@@ -99,10 +83,12 @@ namespace Biblioteca.View.Leitor {
             // 
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(318, 85);
+            this.tbBuscar.Location = new System.Drawing.Point(238, 110);
             this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(571, 27);
             this.tbBuscar.TabIndex = 7;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // panel1
             // 
@@ -120,16 +106,15 @@ namespace Biblioteca.View.Leitor {
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(21)))), ((int)(((byte)(0)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel3.Controls.Add(this.lblNotFound);
+            this.panel3.Controls.Add(this.rbCPF);
+            this.panel3.Controls.Add(this.rbNome);
             this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.cbStatus);
             this.panel3.Controls.Add(this.dtGridViewLeitor);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.tbBuscar);
-            this.panel3.Controls.Add(this.button1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 213);
             this.panel3.Name = "panel3";
@@ -142,40 +127,17 @@ namespace Biblioteca.View.Leitor {
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(735, 158);
+            this.label11.Location = new System.Drawing.Point(762, 25);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 92;
             this.label11.Text = "Status:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(48, 156);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 23);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Listando Leitores: ";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(219, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Digite aqui:";
-            // 
             // cbStatus
             // 
             this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(797, 155);
+            this.cbStatus.Location = new System.Drawing.Point(824, 22);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 28);
             this.cbStatus.TabIndex = 91;
@@ -212,7 +174,7 @@ namespace Biblioteca.View.Leitor {
             this.dtGridViewLeitor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewLeitor.EnableHeadersVisualStyles = false;
             this.dtGridViewLeitor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLeitor.Location = new System.Drawing.Point(14, 193);
+            this.dtGridViewLeitor.Location = new System.Drawing.Point(14, 143);
             this.dtGridViewLeitor.Name = "dtGridViewLeitor";
             this.dtGridViewLeitor.ReadOnly = true;
             this.dtGridViewLeitor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -227,7 +189,7 @@ namespace Biblioteca.View.Leitor {
             this.dtGridViewLeitor.RowHeadersVisible = false;
             this.dtGridViewLeitor.RowTemplate.Height = 25;
             this.dtGridViewLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLeitor.Size = new System.Drawing.Size(1027, 326);
+            this.dtGridViewLeitor.Size = new System.Drawing.Size(1015, 326);
             this.dtGridViewLeitor.TabIndex = 30;
             // 
             // label1
@@ -240,16 +202,6 @@ namespace Biblioteca.View.Leitor {
             this.label1.Size = new System.Drawing.Size(193, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Selecione o tipo da busca:";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.rbNome);
-            this.panel2.Controls.Add(this.rbCPF);
-            this.panel2.Location = new System.Drawing.Point(48, 63);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(115, 68);
-            this.panel2.TabIndex = 31;
             // 
             // icbtnVoltar
             // 
@@ -333,9 +285,21 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.Size = new System.Drawing.Size(179, 757);
             this.menuControl1.TabIndex = 17;
             // 
+            // lblNotFound
+            // 
+            this.lblNotFound.AutoSize = true;
+            this.lblNotFound.BackColor = System.Drawing.Color.Black;
+            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFound.ForeColor = System.Drawing.Color.White;
+            this.lblNotFound.Location = new System.Drawing.Point(467, 280);
+            this.lblNotFound.Name = "lblNotFound";
+            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFound.TabIndex = 93;
+            this.lblNotFound.Text = "Não Encontrado";
+            this.lblNotFound.Visible = false;
+            // 
             // LeitorBuscarView
             // 
-            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -353,15 +317,12 @@ namespace Biblioteca.View.Leitor {
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RadioButton rbCPF;
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.TextBox tbBuscar;
@@ -369,16 +330,14 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.LinkLabel linkLbCadastrarLeitor;
-        private System.Windows.Forms.Panel panel2;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCadastroLivro;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dtGridViewLeitor;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label lblNotFound;
     }
 }

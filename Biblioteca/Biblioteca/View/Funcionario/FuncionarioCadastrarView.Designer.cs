@@ -46,7 +46,6 @@ namespace Biblioteca.View.Funcionario {
             this.label10 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
-            this.LinkBuscarFuncionario = new System.Windows.Forms.LinkLabel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.label11 = new System.Windows.Forms.Label();
@@ -142,14 +141,14 @@ namespace Biblioteca.View.Funcionario {
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCadastrar.Location = new System.Drawing.Point(588, 481);
+            this.btnCadastrar.Location = new System.Drawing.Point(605, 466);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(225, 50);
             this.btnCadastrar.TabIndex = 45;
-            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -168,7 +167,7 @@ namespace Biblioteca.View.Funcionario {
             // calendar
             // 
             this.calendar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.calendar.Location = new System.Drawing.Point(303, 411);
+            this.calendar.Location = new System.Drawing.Point(303, 406);
             this.calendar.Name = "calendar";
             this.calendar.TabIndex = 42;
             this.calendar.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.calendar_DateChanged);
@@ -261,7 +260,6 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel1.Controls.Add(this.icbtnVoltar);
-            this.panel1.Controls.Add(this.LinkBuscarFuncionario);
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.label11);
@@ -306,7 +304,7 @@ namespace Biblioteca.View.Funcionario {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(187, 86);
+            this.icbtnVoltar.Location = new System.Drawing.Point(208, 83);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -316,31 +314,17 @@ namespace Biblioteca.View.Funcionario {
             this.icbtnVoltar.UseVisualStyleBackColor = true;
             this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
-            // LinkBuscarFuncionario
-            // 
-            this.LinkBuscarFuncionario.AutoSize = true;
-            this.LinkBuscarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LinkBuscarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkBuscarFuncionario.Location = new System.Drawing.Point(687, 534);
-            this.LinkBuscarFuncionario.Name = "LinkBuscarFuncionario";
-            this.LinkBuscarFuncionario.Size = new System.Drawing.Size(126, 18);
-            this.LinkBuscarFuncionario.TabIndex = 66;
-            this.LinkBuscarFuncionario.TabStop = true;
-            this.LinkBuscarFuncionario.Text = "Buscar funcionário";
-            this.LinkBuscarFuncionario.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.LinkBuscarFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkBuscarFuncionario_LinkClicked);
-            // 
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(345, 86);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(347, 83);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(517, 39);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(483, 39);
             this.lblCadastroLivro.TabIndex = 65;
-            this.lblCadastroLivro.Text = "CADASTRO DE FUNCIONÁRIO";
+            this.lblCadastroLivro.Text = "CADASTRAR FUNCIONÁRIO";
             // 
             // head1
             // 
@@ -475,7 +459,6 @@ namespace Biblioteca.View.Funcionario {
         private Util.MenuControl menuControl1;
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
-        private System.Windows.Forms.LinkLabel LinkBuscarFuncionario;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

@@ -25,8 +25,10 @@ namespace Biblioteca.View.Fornecedor {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditoraEditarView));
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
+            this.BtnExcluir = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.label2 = new System.Windows.Forms.Label();
@@ -35,7 +37,6 @@ namespace Biblioteca.View.Fornecedor {
             this.maskedTextBoxTelefone = new System.Windows.Forms.MaskedTextBox();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.tbRua = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,32 +53,20 @@ namespace Biblioteca.View.Fornecedor {
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.ForeColor = System.Drawing.Color.Transparent;
-            this.button2.Location = new System.Drawing.Point(480, 437);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(239, 48);
-            this.button2.TabIndex = 69;
-            this.button2.Text = "EXCLUIR";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.icbtnVoltar);
+            this.panel1.Controls.Add(this.BtnExcluir);
+            this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.maskedTextBoxCNPJ);
             this.panel1.Controls.Add(this.tbEmail);
             this.panel1.Controls.Add(this.maskedTextBoxTelefone);
-            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.tbNome);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.tbRua);
             this.panel1.Controls.Add(this.label3);
@@ -94,12 +83,61 @@ namespace Biblioteca.View.Fornecedor {
             this.panel1.Size = new System.Drawing.Size(928, 759);
             this.panel1.TabIndex = 71;
             // 
+            // icbtnVoltar
+            // 
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(219, 121);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 92;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            // 
+            // BtnExcluir
+            // 
+            this.BtnExcluir.BackColor = System.Drawing.Color.DarkRed;
+            this.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnExcluir.ForeColor = System.Drawing.Color.White;
+            this.BtnExcluir.Location = new System.Drawing.Point(514, 455);
+            this.BtnExcluir.Name = "BtnExcluir";
+            this.BtnExcluir.Size = new System.Drawing.Size(187, 45);
+            this.BtnExcluir.TabIndex = 91;
+            this.BtnExcluir.Text = "EXCLUIR";
+            this.BtnExcluir.UseVisualStyleBackColor = false;
+            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizar.Location = new System.Drawing.Point(282, 455);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(187, 45);
+            this.btnAtualizar.TabIndex = 90;
+            this.btnAtualizar.Text = "ATUALIZAR";
+            this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(340, 121);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(356, 121);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(294, 38);
             this.lblCadastroLivro.TabIndex = 89;
@@ -170,19 +208,6 @@ namespace Biblioteca.View.Fornecedor {
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 73;
             this.label1.Text = "Nome:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.Transparent;
-            this.button1.Location = new System.Drawing.Point(218, 437);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(239, 48);
-            this.button1.TabIndex = 60;
-            this.button1.Text = "ATUALIZAR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label8
             // 
@@ -337,7 +362,6 @@ namespace Biblioteca.View.Fornecedor {
         }
 
         #endregion
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxCNPJ;
@@ -356,9 +380,11 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.Button button1;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Label lblCadastroLivro;
+        private System.Windows.Forms.Button BtnExcluir;
+        private System.Windows.Forms.Button btnAtualizar;
+        private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

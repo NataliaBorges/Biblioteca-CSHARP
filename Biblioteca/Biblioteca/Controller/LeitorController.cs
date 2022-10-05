@@ -117,7 +117,7 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 LeitorModel leitor = new LeitorModel(
-                    (int)reader["ID_leitor"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],

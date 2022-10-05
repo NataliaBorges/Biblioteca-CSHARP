@@ -13,22 +13,10 @@ namespace Biblioteca.View.Leitor {
     public partial class LeitorBuscarView : Form {
 
         LeitorController controller = new LeitorController();
+        EstadoController controllerEstado = new EstadoController();
+        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         public LeitorBuscarView() {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-            String busca = tbBuscar.Text;
-
-            if (rbNome.Checked) {
-                List<LeitorModel> lista = controller.Buscar(busca, isNome: true);
-                popular(lista);
-            }
-
-            if (rbCPF.Checked) {
-                List<LeitorModel> lista = controller.Buscar(busca, isCPF: true);
-                popular(lista);
-            }
         }
 
         private void popular(List<LeitorModel> lista) {
@@ -63,30 +51,32 @@ namespace Biblioteca.View.Leitor {
         private void LeitorBuscarView_Load(object sender, EventArgs e) {
             this.menuControl1.setPanel(pnltotal);
 
-            List<LeitorModel> lista = controller.ListarTodos();
-            popular(lista);
+            this.cbStatus.Items.Clear();
+            List<EstadoModel> status = controllerEstado.ListarTodos();
+            if (status.Count > 0)
+            {
+                foreach (EstadoModel estado in status)
+                {
+                    ComboBoxItem item = new ComboBoxItem(estado.Nome, estado.Id.ToString());
+                    cbStatus.Items.Add(item);
+                    comboBoxItems.Add(item);
+                }
+
+                cbStatus.ValueMember = "Value";
+                cbStatus.DisplayMember = "Text";
+                cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
+
+            int statusLeitor = 0;
+            foreach (ComboBoxItem item in comboBoxItems)
+            {
+                if (cbStatus.Text == item.Text)
+                {
+                    statusLeitor = int.Parse(item.Value);
+                }
+            }
+
         }
-
-        protected override void OnActivated(EventArgs e) {
-            List<LeitorModel> lista = controller.ListarTodos();
-            popular(lista);
-        }
-
-        //private void LvLeitor_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = dtGridViewLeitor.Items[dtGridViewLeitor.FocusedItem.Index];
-        //    LeitorModel leitor = new LeitorModel(
-        //        int.Parse(item.SubItems[0].Text),
-        //        item.SubItems[1].Text,
-        //        DateTime.Parse(item.SubItems[2].Text),
-        //        item.SubItems[3].Text,
-        //        item.SubItems[4].Text,
-        //        item.SubItems[5].Text,
-        //        item.SubItems[6].Text
-        //    );
-
-        //    LeitorEditarView editar = new LeitorEditarView(leitor);
-        //    NovaJanela.novaJanela(editar, this.Bounds);
-        //}
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LeitorCadastrarView leitorCadastrarView = new LeitorCadastrarView();
             NovaJanela.novaJanela(leitorCadastrarView, this.Bounds);
@@ -94,6 +84,39 @@ namespace Biblioteca.View.Leitor {
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            String busca = tbBuscar.Text;
+
+
+            if (tbBuscar.Text.Length > 0 /*&& lista.Count > 0*/)
+            {
+                lblNotFound.Visible = false;
+
+                if (rbNome.Checked)
+                {
+                    List<LeitorModel> autor = controller.Buscar(busca, isNome: true);
+                    popular(autor);
+                }
+
+                if (rbCPF.Checked)
+                {
+                    List<LeitorModel> cpf = controller.Buscar(busca, isCPF: true);
+                    popular(cpf);
+                }
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewLeitor.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLeitor.DataSource = null;
+            }
         }
     }
 }

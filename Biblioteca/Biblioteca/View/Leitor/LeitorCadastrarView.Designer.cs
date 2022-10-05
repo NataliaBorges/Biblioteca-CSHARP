@@ -44,7 +44,6 @@ namespace Biblioteca.View.Leitor {
             this.label2 = new System.Windows.Forms.Label();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
-            this.LinkCadastrarFuncionario = new System.Windows.Forms.LinkLabel();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.maskedTextBoxNascimento = new System.Windows.Forms.MaskedTextBox();
@@ -58,7 +57,7 @@ namespace Biblioteca.View.Leitor {
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
@@ -67,7 +66,7 @@ namespace Biblioteca.View.Leitor {
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(228, 48);
             this.btnCadastrar.TabIndex = 27;
-            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -270,7 +269,6 @@ namespace Biblioteca.View.Leitor {
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
-            this.pnlPrincipal.Controls.Add(this.LinkCadastrarFuncionario);
             this.pnlPrincipal.Controls.Add(this.lblCadastroLivro);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.maskedTextBoxNascimento);
@@ -320,19 +318,6 @@ namespace Biblioteca.View.Leitor {
             this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icbtnVoltar.UseVisualStyleBackColor = true;
             this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
-            // 
-            // LinkCadastrarFuncionario
-            // 
-            this.LinkCadastrarFuncionario.AutoSize = true;
-            this.LinkCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LinkCadastrarFuncionario.LinkColor = System.Drawing.Color.White;
-            this.LinkCadastrarFuncionario.Location = new System.Drawing.Point(605, 617);
-            this.LinkCadastrarFuncionario.Name = "LinkCadastrarFuncionario";
-            this.LinkCadastrarFuncionario.Size = new System.Drawing.Size(88, 18);
-            this.LinkCadastrarFuncionario.TabIndex = 62;
-            this.LinkCadastrarFuncionario.TabStop = true;
-            this.LinkCadastrarFuncionario.Text = "Buscar leitor";
-            this.LinkCadastrarFuncionario.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             // 
             // lblCadastroLivro
             // 
@@ -456,7 +441,6 @@ namespace Biblioteca.View.Leitor {
         private Util.Head head1;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Label lblCadastroLivro;
-        private System.Windows.Forms.LinkLabel LinkCadastrarFuncionario;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

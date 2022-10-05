@@ -28,6 +28,8 @@ namespace Biblioteca.View.Leitor {
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
@@ -52,15 +54,13 @@ namespace Biblioteca.View.Leitor {
             this.tbCidade = new System.Windows.Forms.TextBox();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
@@ -74,7 +74,7 @@ namespace Biblioteca.View.Leitor {
             // 
             // btnExcluir
             // 
-            this.btnExcluir.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
@@ -121,6 +121,27 @@ namespace Biblioteca.View.Leitor {
             this.panel1.Size = new System.Drawing.Size(1088, 802);
             this.panel1.TabIndex = 62;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(312, 432);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 20);
+            this.label11.TabIndex = 90;
+            this.label11.Text = "Status:";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Location = new System.Drawing.Point(374, 429);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(197, 28);
+            this.cbStatus.TabIndex = 89;
+            // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -133,7 +154,7 @@ namespace Biblioteca.View.Leitor {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(249, 79);
+            this.icbtnVoltar.Location = new System.Drawing.Point(316, 76);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -148,11 +169,11 @@ namespace Biblioteca.View.Leitor {
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(435, 79);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(483, 76);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(337, 39);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(276, 39);
             this.lblCadastroLivro.TabIndex = 87;
-            this.lblCadastroLivro.Text = "EDIÇÃO DE LEITOR";
+            this.lblCadastroLivro.Text = "EDITAR LEITOR";
             // 
             // head1
             // 
@@ -409,27 +430,6 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(186, 802);
             this.menuControl1.TabIndex = 63;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(312, 432);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 20);
-            this.label11.TabIndex = 90;
-            this.label11.Text = "Status:";
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(374, 429);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(197, 28);
-            this.cbStatus.TabIndex = 89;
             // 
             // LeitorEditarView
             // 

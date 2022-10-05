@@ -39,14 +39,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbLyPnlDataGrid = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.dtGridViewAutor = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.tbNome = new System.Windows.Forms.TextBox();
-            this.linkLbCadastrarLivro = new System.Windows.Forms.LinkLabel();
             this.label5 = new System.Windows.Forms.Label();
-            this.linkLbBuscarAutor = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.pnltotal.SuspendLayout();
@@ -148,24 +145,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(21)))), ((int)(((byte)(0)))));
-            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.dtGridViewAutor);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(538, 3);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(530, 560);
             this.panel2.TabIndex = 31;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(61, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(162, 23);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Listando Autores:";
             // 
             // dtGridViewAutor
             // 
@@ -197,7 +182,7 @@
             this.dtGridViewAutor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewAutor.EnableHeadersVisualStyles = false;
             this.dtGridViewAutor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewAutor.Location = new System.Drawing.Point(61, 77);
+            this.dtGridViewAutor.Location = new System.Drawing.Point(69, 71);
             this.dtGridViewAutor.Name = "dtGridViewAutor";
             this.dtGridViewAutor.ReadOnly = true;
             this.dtGridViewAutor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -212,7 +197,7 @@
             this.dtGridViewAutor.RowHeadersVisible = false;
             this.dtGridViewAutor.RowTemplate.Height = 25;
             this.dtGridViewAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewAutor.Size = new System.Drawing.Size(410, 454);
+            this.dtGridViewAutor.Size = new System.Drawing.Size(410, 418);
             this.dtGridViewAutor.TabIndex = 30;
             // 
             // panel3
@@ -220,9 +205,7 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel3.Controls.Add(this.btnCadastrar);
             this.panel3.Controls.Add(this.tbNome);
-            this.panel3.Controls.Add(this.linkLbCadastrarLivro);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.linkLbBuscarAutor);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
@@ -232,7 +215,7 @@
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.BackColor = System.Drawing.Color.SaddleBrown;
+            this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
@@ -240,7 +223,7 @@
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(168, 32);
             this.btnCadastrar.TabIndex = 39;
-            this.btnCadastrar.Text = "CADASTRAR";
+            this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -253,44 +236,16 @@
             this.tbNome.Size = new System.Drawing.Size(323, 27);
             this.tbNome.TabIndex = 38;
             // 
-            // linkLbCadastrarLivro
-            // 
-            this.linkLbCadastrarLivro.AutoSize = true;
-            this.linkLbCadastrarLivro.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLbCadastrarLivro.LinkColor = System.Drawing.Color.White;
-            this.linkLbCadastrarLivro.Location = new System.Drawing.Point(263, 298);
-            this.linkLbCadastrarLivro.Name = "linkLbCadastrarLivro";
-            this.linkLbCadastrarLivro.Size = new System.Drawing.Size(110, 18);
-            this.linkLbCadastrarLivro.TabIndex = 64;
-            this.linkLbCadastrarLivro.TabStop = true;
-            this.linkLbCadastrarLivro.Text = "Cadastrar Livro";
-            this.linkLbCadastrarLivro.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.linkLbCadastrarLivro.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLbCadastrarLivro_LinkClicked);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(80, 42);
+            this.label5.Location = new System.Drawing.Point(80, 51);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 23);
+            this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 37;
-            this.label5.Text = "Cadastrar Autor:";
-            // 
-            // linkLbBuscarAutor
-            // 
-            this.linkLbBuscarAutor.AutoSize = true;
-            this.linkLbBuscarAutor.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLbBuscarAutor.LinkColor = System.Drawing.Color.White;
-            this.linkLbBuscarAutor.Location = new System.Drawing.Point(281, 271);
-            this.linkLbBuscarAutor.Name = "linkLbBuscarAutor";
-            this.linkLbBuscarAutor.Size = new System.Drawing.Size(92, 18);
-            this.linkLbBuscarAutor.TabIndex = 63;
-            this.linkLbBuscarAutor.TabStop = true;
-            this.linkLbBuscarAutor.Text = "Buscar Autor";
-            this.linkLbBuscarAutor.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.linkLbBuscarAutor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLbBuscarAutor_LinkClicked);
+            this.label5.Text = "Cadastrar:";
             // 
             // label1
             // 
@@ -329,7 +284,6 @@
             this.pnlPrincipal.PerformLayout();
             this.tbLyPnlDataGrid.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAutor)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -343,8 +297,6 @@
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Panel pnlPrincipal;
         private Util.Head head1;
-        private System.Windows.Forms.LinkLabel linkLbCadastrarLivro;
-        private System.Windows.Forms.LinkLabel linkLbBuscarAutor;
         private System.Windows.Forms.TableLayoutPanel tbLyPnlDataGrid;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCadastrar;
@@ -352,7 +304,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dtGridViewAutor;
         private System.Windows.Forms.Label label3;
         private FontAwesome.Sharp.IconButton icbtnVoltar;

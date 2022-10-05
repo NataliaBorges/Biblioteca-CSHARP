@@ -81,18 +81,6 @@ namespace Biblioteca.View.Autor
             }
         }
 
-        private void linkLbBuscarAutor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            AutorBuscarView autorBuscarView = new AutorBuscarView();
-            NovaJanela.novaJanela(autorBuscarView, this.Bounds);
-        }
-
-        private void linkLbCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
-        }
-
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -70,16 +70,19 @@ namespace Biblioteca.View.Funcionario {
                 MessageBox.Show("Você precisa digitar uma data de Nascimento.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxNascimento.Focus();
             }
-            //else {
-            //    FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, cpf, data, email, endereco, telefone, funcao);
-            //    if (controller.Atualizar(funcionario)) {
-            //        MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
-            //        this.Close();
-            //    }
-            //    else {
-            //        MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
-            //    }
-            //}
+            else
+            {
+                //FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, cpf, data, email, endereco, telefone, funcao);
+                //if (controller.Atualizar(funcionario))
+                //{
+                //    MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                //    this.Close();
+                //}
+                //else
+                //{
+                //    MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
+                //}
+            }
 
         }
 

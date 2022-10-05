@@ -102,5 +102,26 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
+        public bool Atualizar(EdicaoModel edicao)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Edicao SET Nome_Edicao = @Nome_Edicao
+                                WHERE Id = @Id";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Id", edicao.getId());
+            Cmd.Parameters.AddWithValue("@Nome_Edicao", edicao.Nome_Edicao);
+
+
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

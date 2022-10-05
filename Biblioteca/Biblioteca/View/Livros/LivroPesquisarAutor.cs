@@ -26,8 +26,6 @@ namespace Biblioteca.View.Livros
             {
                 singleton.setAddAutor(false);
             }
-            //List<AutorModel> lista = controller.ListarTodos();
-            //popular(lista);
 
             this.menuControl1.setPanel(pnltotal);
             this.head1.setForm(this);
