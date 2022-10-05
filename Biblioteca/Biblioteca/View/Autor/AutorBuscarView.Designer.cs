@@ -44,12 +44,12 @@
             this.TbAutor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.dtGridViewAutor = new System.Windows.Forms.DataGridView();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
             this.tbNome = new System.Windows.Forms.TextBox();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
@@ -184,6 +184,7 @@
             this.panel2.Controls.Add(this.TbAutor);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(535, 3);
             this.panel2.Name = "panel2";
@@ -196,7 +197,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(222, 165);
+            this.btnSalvar.Location = new System.Drawing.Point(291, 149);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(118, 32);
             this.btnSalvar.TabIndex = 39;
@@ -207,6 +208,7 @@
             // TbAutor
             // 
             this.TbAutor.BackColor = System.Drawing.Color.White;
+            this.TbAutor.Enabled = false;
             this.TbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TbAutor.Location = new System.Drawing.Point(120, 97);
             this.TbAutor.Name = "TbAutor";
@@ -235,6 +237,20 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "Nome:";
             // 
+            // btnExcluir
+            // 
+            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnExcluir.ForeColor = System.Drawing.Color.White;
+            this.btnExcluir.Location = new System.Drawing.Point(158, 149);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(118, 32);
+            this.btnExcluir.TabIndex = 33;
+            this.btnExcluir.Text = "EXCLUIR";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
@@ -242,7 +258,6 @@
             this.panel3.Controls.Add(this.dtGridViewAutor);
             this.panel3.Controls.Add(this.btnAtualizar);
             this.panel3.Controls.Add(this.tbBuscar);
-            this.panel3.Controls.Add(this.btnExcluir);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
@@ -293,7 +308,7 @@
             this.dtGridViewAutor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewAutor.EnableHeadersVisualStyles = false;
             this.dtGridViewAutor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewAutor.Location = new System.Drawing.Point(2, 69);
+            this.dtGridViewAutor.Location = new System.Drawing.Point(19, 69);
             this.dtGridViewAutor.Name = "dtGridViewAutor";
             this.dtGridViewAutor.ReadOnly = true;
             this.dtGridViewAutor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -308,9 +323,9 @@
             this.dtGridViewAutor.RowHeadersVisible = false;
             this.dtGridViewAutor.RowTemplate.Height = 25;
             this.dtGridViewAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewAutor.Size = new System.Drawing.Size(520, 256);
+            this.dtGridViewAutor.Size = new System.Drawing.Size(480, 256);
             this.dtGridViewAutor.TabIndex = 30;
-            this.dtGridViewAutor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAutor_CellContentClick);
+            this.dtGridViewAutor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAutor_CellClick);
             // 
             // btnAtualizar
             // 
@@ -318,7 +333,7 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(142, 337);
+            this.btnAtualizar.Location = new System.Drawing.Point(196, 340);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(105, 32);
             this.btnAtualizar.TabIndex = 32;
@@ -337,20 +352,6 @@
             this.tbBuscar.Size = new System.Drawing.Size(300, 27);
             this.tbBuscar.TabIndex = 31;
             this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(253, 337);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(118, 32);
-            this.btnExcluir.TabIndex = 33;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // head1
             // 

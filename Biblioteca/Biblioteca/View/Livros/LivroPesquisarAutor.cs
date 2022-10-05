@@ -46,25 +46,22 @@ namespace Biblioteca.View.Livros
                 }
                 dtGridViewAutor.DataSource = table;
             }
+            int index = dtGridViewAutor.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewAutor.Rows[index].Selected = false;
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void dtGridViewAutor_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow row in dtGridViewAutor.SelectedRows)
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-                string nome = row.Cells[1].Value.ToString();
-                AutorModel autorSelecionado = new AutorModel(id, nome);
-                singleton.setAutorBusca(autorSelecionado);
                 this.Close();
             }
         }
-
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
             String busca = tbBuscar.Text;
@@ -85,6 +82,18 @@ namespace Biblioteca.View.Livros
             {
                 lblNotFound.Visible = true;
                 dtGridViewAutor.DataSource = null;
+            }
+        }
+
+        private void dtGridViewAutor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewAutor.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                AutorModel autorSelecionado = new AutorModel(id, nome);
+                singleton.setAutorBusca(autorSelecionado);
+                this.Close();
             }
         }
     }

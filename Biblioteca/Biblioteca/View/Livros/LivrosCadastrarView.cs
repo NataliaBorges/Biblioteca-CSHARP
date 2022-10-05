@@ -25,6 +25,9 @@ namespace Biblioteca.View.Livros {
 
         public LivrosCadastrarView() {
             InitializeComponent();
+            this.tbAutor.Enabled = false;
+            this.tbEditora.Enabled = false;
+            this.tbGenero.Enabled = false;
         }
 
         private void LivrosCadastrarView_Load_1(object sender, EventArgs e)
@@ -107,24 +110,28 @@ namespace Biblioteca.View.Livros {
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void LivrosCadastrarView_Activated(object sender, EventArgs e)
         {
-            if (singleton.getBuscarAutor())
+            if (singleton.getBuscarAutor() && singleton.getAutorBusca()!= null)
             {
                 singleton.setBuscarAutor(false);
                 tbAutor.Text = singleton.getAutorBusca().Nome_Autor;
             }
 
-            if (singleton.getBuscarEditora())
+            if (singleton.getBuscarEditora() && singleton.getEditoraBusca() != null)
             {
                 singleton.setBuscarEditora(false);
                 tbEditora.Text = singleton.getEditoraBusca().Nome;
             }
 
-            if (singleton.getBuscarGenero())
+            if (singleton.getBuscarGenero() && singleton.getGeneroBusca() != null)
             {
                 singleton.setBuscarGenero(false);
                 tbGenero.Text = singleton.getGeneroBusca().Nome_genero;

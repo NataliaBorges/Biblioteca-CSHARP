@@ -18,6 +18,7 @@ namespace Biblioteca.View.Edicao
         public EdicaoBuscarView()
         {
             InitializeComponent();
+            tbEdicao.Enabled = false;
         }
 
         private void btnCadastrarEdicao_Click(object sender, EventArgs e)
@@ -53,6 +54,9 @@ namespace Biblioteca.View.Edicao
         }
         private void TbPesquisar_TextChanged(object sender, EventArgs e)
         {
+            tbEdicao.Text = "";
+            tbEdicao.Enabled = false;
+            this.edicao = null;
             String busca = TbPesquisar.Text;
 
             List<EdicaoModel> lista = controller.BuscarEdicao(busca);
@@ -76,7 +80,7 @@ namespace Biblioteca.View.Edicao
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair", "Atenção", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
@@ -87,11 +91,15 @@ namespace Biblioteca.View.Edicao
         {
             try
             {
+                if (edicao != null)
+                {
+                    tbEdicao.Enabled = true;
+                }
                 tbEdicao.Text = this.edicao.Nome_Edicao;
             }
             catch (Exception)
             {
-                MessageBox.Show("Você precisa selecionar uma Edição", "Atenção", MessageBoxButtons.OK);
+                MessageBox.Show("Você precisa selecionar uma edição", "Atenção", MessageBoxButtons.OK);
             }
         }
 
@@ -99,7 +107,7 @@ namespace Biblioteca.View.Edicao
         {
             if (tbEdicao.Text.Length <= 0)
             {
-                MessageBox.Show("Você precisa selecionar uma edição.", "Atenção", MessageBoxButtons.OK);
+                MessageBox.Show("Você precisa selecionar uma edição", "Atenção", MessageBoxButtons.OK);
                 tbEdicao.Focus();
             }
             else { 
@@ -124,13 +132,15 @@ namespace Biblioteca.View.Edicao
             string edicaoLivro = tbEdicao.Text;
 
 
-            if (tbEdicao.Text.Length <= 0)
+            if (tbEdicao.Text.Length <= 0 || edicao == null)
             {
-                MessageBox.Show("Você precisa selecionar uma edição.", "Atenção", MessageBoxButtons.OK);
+                tbEdicao.Enabled = false;
+                MessageBox.Show("Você precisa selecionar uma edição", "Atenção", MessageBoxButtons.OK);
                 tbEdicao.Focus();
             }
             else
             {
+                tbEdicao.Enabled = true;
                 EdicaoModel livroEdicao= new EdicaoModel(edicao.Id, edicaoLivro);
                 if (controller.Atualizar(livroEdicao))
                 {
@@ -139,7 +149,7 @@ namespace Biblioteca.View.Edicao
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
+                    MessageBox.Show("Não foi possível atualizar", "Atenção", MessageBoxButtons.OK);
                 }
             }
         }
@@ -152,10 +162,6 @@ namespace Biblioteca.View.Edicao
                 String Edicao = row.Cells[1].Value.ToString();
 
                 this.edicao = new EdicaoModel(id, Edicao);
-                //if (id != null && Edicao != null)
-                //{
-                //    this.edicaoSelecionada = new EdicaoModel(id, Edicao);
-                //}
             }
         }
     }

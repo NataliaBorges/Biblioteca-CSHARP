@@ -14,7 +14,7 @@ namespace Biblioteca.View.Autor
     public partial class AutorBuscarView : Form
     {
         AutorController controller = new AutorController();
-        AutorModel autorSelecionado;
+        AutorModel autor;
         public AutorBuscarView()
         {
             InitializeComponent();
@@ -40,51 +40,87 @@ namespace Biblioteca.View.Autor
                 }
                 dtGridViewAutor.DataSource = table;
             }
+            int index = dtGridViewAutor.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewAutor.Rows[index].Selected = false;
+            }
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            this.TbAutor.Text = this.autorSelecionado.Nome_Autor;
-            DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (TbAutor.Text.Length <= 0)
             {
-                if (controller.Excluir(autorSelecionado))
+                MessageBox.Show("Você precisa selecionar um Autor", "Atenção", MessageBoxButtons.OK);
+                TbAutor.Focus();
+            }
+            else
+            {
+                this.TbAutor.Text = this.autor.Nome_Autor;
+                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
+                    if (controller.Excluir(autor))
+                    {
+                        MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
+                    }
                 }
             }
         }
-
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            TbAutor.Text = this.autorSelecionado.Nome_Autor;
+            try
+            {
+                if(autor != null)
+                {
+                    TbAutor.Enabled = true;
+                }
+                TbAutor.Text = this.autor.Nome_Autor;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Você precisa selecionar um Autor", "Atenção", MessageBoxButtons.OK);
+            }
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            string autorLivro = TbAutor.Text;
 
-        }
-
-        private void dtGridViewAutor_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow row in dtGridViewAutor.SelectedRows)
+            if (TbAutor.Text.Length <= 0 || autor == null)
             {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-                String Nome = row.Cells[1].Value.ToString();
-                if (id != null && Nome != null)
+                TbAutor.Enabled = false;
+                MessageBox.Show("Você precisa selecionar um autor", "Atenção", MessageBoxButtons.OK);
+                TbAutor.Focus();
+            }
+            else
+            {
+                TbAutor.Enabled = true;
+                AutorModel livroAutor = new AutorModel(autor.Id_autor, autorLivro);
+                if (controller.Atualizar(livroAutor))
                 {
-                    this.autorSelecionado = new AutorModel(id, Nome);
+                    MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível atualizar", "Atenção", MessageBoxButtons.OK);
                 }
             }
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnCadastrarAutor_Click(object sender, EventArgs e)
@@ -95,6 +131,9 @@ namespace Biblioteca.View.Autor
 
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
+            TbAutor.Text = "";
+            TbAutor.Enabled = false;
+            this.autor = null;
             String busca = tbBuscar.Text;
 
             List<AutorModel> lista = controller.BuscarAutor(busca);
@@ -113,6 +152,17 @@ namespace Biblioteca.View.Autor
             {
                 lblNotFound.Visible = true;
                 dtGridViewAutor.DataSource = null;
+            }
+        }
+
+        private void dtGridViewAutor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewAutor.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                String Nome = row.Cells[1].Value.ToString();
+
+                this.autor = new AutorModel(id, Nome);
             }
         }
     }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
+using System.Windows;
 
 namespace Biblioteca.Controller
 {
@@ -23,6 +24,31 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Autor";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<AutorModel> list = new List<AutorModel>();
+
+            while (reader.Read())
+            {
+                AutorModel autor = new AutorModel(
+                    (int)reader["ID"],
+                    (String)reader["Nome_Autor"]
+                );
+                list.Add(autor);
+            }
+            reader.Close();
+
+            return list;
+        }
+        public List<AutorModel> ListarUltimosDez()
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Autor
+                                ORDER BY Id desc
+                                OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
+
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -63,9 +89,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
 
-
-            Cmd.CommandText = @"SELECT  * from Autor
-                                WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
+            Cmd.CommandText = @"SELECT  * from Autor WHERE Autor.Nome_Autor LIKE '%"+ busca +"%'";
 
             Cmd.Parameters.Clear();
 
@@ -92,7 +116,7 @@ namespace Biblioteca.Controller
 
 
             Cmd.CommandText = @"SELECT  * from Autor
-                                WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
+                                WHERE Autor.Nome_Autor LIKE '%" + busca + "%'";
 
             Cmd.Parameters.Clear();
 
@@ -120,6 +144,28 @@ namespace Biblioteca.Controller
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Id", autor.getId());
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool Atualizar(AutorModel autor)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Autor SET Nome_Autor = @Nome_Autor
+                                WHERE Id = @Id";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Id", autor.getId());
+            Cmd.Parameters.AddWithValue("@Nome_Autor", autor.Nome_Autor);
+
+
 
             if (Cmd.ExecuteNonQuery() == 1)
             {

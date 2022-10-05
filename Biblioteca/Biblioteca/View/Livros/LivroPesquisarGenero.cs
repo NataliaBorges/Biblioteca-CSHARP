@@ -39,28 +39,21 @@ namespace Biblioteca.View.Livros
                 }
                 dtGridViewGenero.DataSource = table;
             }
+            int index = dtGridViewGenero.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewGenero.Rows[index].Selected = false;
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void dtGridViewGenero_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow row in dtGridViewGenero.SelectedRows)
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-                string nome = row.Cells[1].Value.ToString();
-                GeneroModel generoSelecionado = new GeneroModel(id, nome);
-                singleton.setGeneroBusca(generoSelecionado);
                 this.Close();
             }
-        }
-
-        private void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tbBuscar_TextChanged(object sender, EventArgs e)
@@ -83,6 +76,18 @@ namespace Biblioteca.View.Livros
             {
                 lblNotFound.Visible = true;
                 dtGridViewGenero.DataSource = null;
+            }
+        }
+
+        private void dtGridViewGenero_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewGenero.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                GeneroModel generoSelecionado = new GeneroModel(id, nome);
+                singleton.setGeneroBusca(generoSelecionado);
+                this.Close();
             }
         }
     }

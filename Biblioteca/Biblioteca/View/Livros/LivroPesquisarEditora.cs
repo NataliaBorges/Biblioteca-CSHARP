@@ -42,21 +42,19 @@ namespace Biblioteca.View.Livros
                 }
                 dtGridViewEditora.DataSource = table;
             }
+            int index = dtGridViewEditora.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewEditora.Rows[index].Selected = false;
+            }
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void dtGridViewEditora_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow row in dtGridViewEditora.SelectedRows)
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
             {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-                string nome = row.Cells[1].Value.ToString();
-                EditoraModel editoraSelecionada = new EditoraModel(id, nome);
-                singleton.setEditoraBusca(editoraSelecionada);
                 this.Close();
             }
         }
@@ -81,6 +79,18 @@ namespace Biblioteca.View.Livros
             {
                 lblNotFound.Visible = true;
                 dtGridViewEditora.DataSource = null;
+            }
+        }
+
+        private void dtGridViewEditora_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewEditora.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string nome = row.Cells[1].Value.ToString();
+                EditoraModel editoraSelecionada = new EditoraModel(id, nome);
+                singleton.setEditoraBusca(editoraSelecionada);
+                this.Close();
             }
         }
     }

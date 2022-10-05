@@ -254,9 +254,9 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(80, 171);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 28;
-            this.label1.Text = "Nome:";
+            this.label1.Text = "Autor:";
             // 
             // head1
             // 
@@ -277,7 +277,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AutorCadastrarView";
             this.Text = "Cadastrar Autor";
-            this.Activated += new System.EventHandler(this.AutorCadastrarView_Activated);
             this.Load += new System.EventHandler(this.AutorCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

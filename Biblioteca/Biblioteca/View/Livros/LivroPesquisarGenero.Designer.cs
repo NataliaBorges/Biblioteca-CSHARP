@@ -38,11 +38,11 @@
             this.btnVoltar = new FontAwesome.Sharp.IconButton();
             this.tbLyPnlDataGrid = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.lblNotFound = new System.Windows.Forms.Label();
             this.dtGridViewGenero = new System.Windows.Forms.DataGridView();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.lblNotFound = new System.Windows.Forms.Label();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tbLyPnlDataGrid.SuspendLayout();
@@ -140,6 +140,20 @@
             this.panel3.Size = new System.Drawing.Size(1006, 490);
             this.panel3.TabIndex = 33;
             // 
+            // lblNotFound
+            // 
+            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNotFound.AutoSize = true;
+            this.lblNotFound.BackColor = System.Drawing.Color.Black;
+            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFound.ForeColor = System.Drawing.Color.White;
+            this.lblNotFound.Location = new System.Drawing.Point(439, 235);
+            this.lblNotFound.Name = "lblNotFound";
+            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFound.TabIndex = 67;
+            this.lblNotFound.Text = "Não Encontrado";
+            this.lblNotFound.Visible = false;
+            // 
             // dtGridViewGenero
             // 
             this.dtGridViewGenero.AllowUserToAddRows = false;
@@ -189,7 +203,7 @@
             this.dtGridViewGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewGenero.Size = new System.Drawing.Size(757, 332);
             this.dtGridViewGenero.TabIndex = 30;
-            this.dtGridViewGenero.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewGenero_CellContentClick);
+            this.dtGridViewGenero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewGenero_CellClick);
             // 
             // tbBuscar
             // 
@@ -219,20 +233,6 @@
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(183, 665);
             this.menuControl1.TabIndex = 22;
-            // 
-            // lblNotFound
-            // 
-            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblNotFound.AutoSize = true;
-            this.lblNotFound.BackColor = System.Drawing.Color.Black;
-            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(439, 235);
-            this.lblNotFound.Name = "lblNotFound";
-            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
-            this.lblNotFound.TabIndex = 67;
-            this.lblNotFound.Text = "Não Encontrado";
-            this.lblNotFound.Visible = false;
             // 
             // LivroPesquisarGenero
             // 

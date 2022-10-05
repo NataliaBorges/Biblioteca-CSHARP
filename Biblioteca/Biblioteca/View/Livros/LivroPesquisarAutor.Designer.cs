@@ -217,7 +217,7 @@
             this.dtGridViewAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewAutor.Size = new System.Drawing.Size(778, 284);
             this.dtGridViewAutor.TabIndex = 30;
-            this.dtGridViewAutor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAutor_CellContentClick);
+            this.dtGridViewAutor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAutor_CellClick);
             // 
             // linkLblCadastrarEditora
             // 

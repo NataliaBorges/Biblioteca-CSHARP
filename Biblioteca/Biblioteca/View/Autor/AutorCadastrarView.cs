@@ -19,11 +19,6 @@ namespace Biblioteca.View.Autor
         {
             InitializeComponent();
         }
-        private void AutorCadastrarView_Activated(object sender, EventArgs e)
-        {
-            List<AutorModel> lista = controller.ListarTodos();
-            popular(lista);
-        }
         private void AutorCadastrarView_Load(object sender, EventArgs e)
         {
             this.menuControl1.setForm(this);
@@ -32,7 +27,7 @@ namespace Biblioteca.View.Autor
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            List<AutorModel> lista = controller.ListarTodos();
+            List<AutorModel> lista = controller.ListarUltimosDez();
             popular(lista);
         }
         private void popular(List<AutorModel> lista)
@@ -63,7 +58,7 @@ namespace Biblioteca.View.Autor
 
             if (nome.Length <= 0)
             {
-                MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                MessageBox.Show("Você precisa digitar um autor.", "Atenção", MessageBoxButtons.OK);
                 tbNome.Focus();
             }
             else
@@ -71,19 +66,25 @@ namespace Biblioteca.View.Autor
                 AutorModel autor = new AutorModel(nome);
                 if (controller.Insercao(autor))
                 {
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    List<AutorModel> lista = controller.ListarUltimosDez();
+                    popular(lista);
+
                     ClearForm();
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                    MessageBox.Show("Não foi possível cadastrar", "Atenção", MessageBoxButtons.OK);
                 }
             }
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         
