@@ -46,6 +46,12 @@ namespace Biblioteca.View.Autor
                 }
                 dtGridViewAutor.DataSource = table;
             }
+            int index = dtGridViewAutor.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewAutor.Rows[index].Selected = false;
+            }
         }
         private void ClearForm()
         {

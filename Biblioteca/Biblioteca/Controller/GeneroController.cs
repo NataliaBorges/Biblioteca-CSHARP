@@ -41,10 +41,13 @@ namespace Biblioteca.Controller
 
             return list;
         }
-        public List<GeneroModel> ListarPrimeira(String Nome)
+        public List<GeneroModel> ListarUltimosDez()
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Genero where Nome_Genero Like '" + Nome + "'";
+            Cmd.CommandText = @"SELECT * FROM Genero
+                                ORDER BY Id desc
+                                OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
+
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -54,7 +57,7 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 GeneroModel genero = new GeneroModel(
-                    (int)reader["ID"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Genero"]
                 );
                 list.Add(genero);

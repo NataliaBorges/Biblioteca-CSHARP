@@ -18,6 +18,7 @@ namespace Biblioteca.View.Autor
         public AutorBuscarView()
         {
             InitializeComponent();
+            TbAutor.Enabled = false;
         }
 
         private void AutorBuscarView_Load(object sender, EventArgs e)

@@ -19,11 +19,6 @@ namespace Biblioteca.View.Genero
         {
             InitializeComponent();
         }
-        private void GeneroCadastrarView_Activated(object sender, EventArgs e)
-        {
-            List<GeneroModel> lista = controller.ListarTodos();
-            popular(lista);
-        }
         private void GeneroCadastrarView_Load(object sender, EventArgs e)
         {
             this.menuControl1.setForm(this);
@@ -32,9 +27,7 @@ namespace Biblioteca.View.Genero
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            String nome = tbNome.Text.Substring(0,tbNome.Text.Length);
-
-            List<GeneroModel> lista = controller.ListarPrimeira(nome);
+            List<GeneroModel> lista = controller.ListarUltimosDez();
             popular(lista);
         }
         private void ClearForm()
@@ -43,7 +36,11 @@ namespace Biblioteca.View.Genero
         }
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
         private void popular(List<GeneroModel> lista)
         {
@@ -61,18 +58,12 @@ namespace Biblioteca.View.Genero
                 }
                 dtGridViewGenero.DataSource = table;
             }
-        }
+            int index = dtGridViewGenero.SelectedRows[0].Index;
 
-        private void linkLbBuscarGenero_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            GeneroBuscarView generoBuscarView = new GeneroBuscarView();
-            NovaJanela.novaJanela(generoBuscarView, this.Bounds);
-        }
-
-        private void linkLbCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+            if (index >= 0)
+            {
+                dtGridViewGenero.Rows[index].Selected = false;
+            }
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -90,9 +81,10 @@ namespace Biblioteca.View.Genero
                 GeneroModel genero = new GeneroModel(nome);
                 if (controller.Insercao(genero))
                 {
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    ClearForm();
-                }
+                    List<GeneroModel> lista = controller.ListarUltimosDez();
+                    popular(lista);
+
+                    ClearForm();            }
                 else
                 {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);

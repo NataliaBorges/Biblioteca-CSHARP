@@ -277,7 +277,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EdicaoCadastrarView";
             this.Text = "GeneroCadastrarView";
-            this.Activated += new System.EventHandler(this.EdicaoCadastrarView_Activated);
             this.Load += new System.EventHandler(this.EdicaoCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

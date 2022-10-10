@@ -41,6 +41,31 @@ namespace Biblioteca.Controller
 
             return list;
         }
+        public List<EdicaoModel> ListarUltimosDez()
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Edicao
+                                ORDER BY Id desc
+                                OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EdicaoModel> list = new List<EdicaoModel>();
+
+            while (reader.Read())
+            {
+                EdicaoModel edicao = new EdicaoModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Edicao"]
+                );
+                list.Add(edicao);
+            }
+            reader.Close();
+
+            return list;
+        }
         public bool Insercao(EdicaoModel edicao)
         {
             Cmd.Connection = connection.RetornaConexao();

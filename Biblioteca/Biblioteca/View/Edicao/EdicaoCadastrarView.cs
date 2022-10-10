@@ -20,12 +20,6 @@ namespace Biblioteca.View.Edicao
             InitializeComponent();
         }
 
-        private void EdicaoCadastrarView_Activated(object sender, EventArgs e)
-        {
-            List<EdicaoModel> lista = controller.ListarTodos();
-            popular(lista);
-        }
-
         private void EdicaoCadastrarView_Load(object sender, EventArgs e)
         {
             this.menuControl1.setForm(this);
@@ -36,7 +30,7 @@ namespace Biblioteca.View.Edicao
 
             String nome = tbEdicao.Text.Substring(0, tbEdicao.Text.Length);
 
-            List<EdicaoModel> lista = controller.ListarTodos();
+            List<EdicaoModel> lista = controller.ListarUltimosDez();
             popular(lista);
         }
 
@@ -56,17 +50,21 @@ namespace Biblioteca.View.Edicao
                 }
                 dtGridViewEdicao.DataSource = table;
             }
+            int index = dtGridViewEdicao.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewEdicao.Rows[index].Selected = false;
+            }
         }
 
         private void IcnBtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void linkLbCadastrarLivro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
         private void ClearForm()
         {
@@ -75,7 +73,6 @@ namespace Biblioteca.View.Edicao
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             String nome = tbEdicao.Text;
-
 
             if (nome.Length <= 0)
             {
@@ -87,7 +84,9 @@ namespace Biblioteca.View.Edicao
                 EdicaoModel edicao = new EdicaoModel(nome);
                 if (controller.Insercao(edicao))
                 {
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    List<EdicaoModel> lista = controller.ListarUltimosDez();
+                    popular(lista);
+
                     ClearForm();
                 }
                 else
