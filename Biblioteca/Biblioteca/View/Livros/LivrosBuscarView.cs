@@ -13,6 +13,8 @@ namespace Biblioteca.View.Livros {
     public partial class LivrosBuscarView : Form {
 
         LivroController controller = new LivroController();
+        LivroModel livro;
+        Singleton singleton = Singleton.GetInstancia();
 
         public LivrosBuscarView() {
             InitializeComponent();
@@ -42,46 +44,23 @@ namespace Biblioteca.View.Livros {
                 }
                 dtGridViewLivros.DataSource = table;
             }
+            int index = dtGridViewLivros.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewLivros.Rows[index].Selected = false;
+            }
         }
 
         private void LivrosBuscarView_Load(object sender, EventArgs e) {
             this.dtGridViewLivros.DefaultCellStyle.Font = new Font("Book Antiqua", 12);
+
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
 
-            //List<LivroModel> lista = controller.ListarTodos();
-            //popular(lista);
-        }
-        private void LivrosBuscarView_Activated(object sender, EventArgs e)
-        {
-            //List<LivroModel> lista = controller.ListarTodos();
-            //popular(lista);
-        }
-        private void BtnPesquisar_Click(object sender, EventArgs e)
-        {
-            String busca = tbBuscar.Text;
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
-            if (rbNome.Checked)
-            {
-                List<LivroModel> lista = controller.Buscar(busca, isNome: true);
-                popular(lista);
-            }
-
-            if (rbAutor.Checked)
-            {
-                List<LivroModel> lista = controller.Buscar(busca, isAutor: true);
-                popular(lista);
-            }
-
-            if (rbEditora.Checked)
-            {
-                List<LivroModel> lista = controller.Buscar(busca, isEditora: true);
-                popular(lista);
-            }
-            if (rbGenero.Checked)
-            {
-                List<LivroModel> lista = controller.Buscar(busca, isGenero: true);
-                popular(lista);
-            }
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
@@ -94,69 +73,121 @@ namespace Biblioteca.View.Livros {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
             NovaJanela.novaJanela(livrosCadastrarView, this.Bounds);
         }
-
-        private void dtGridViewLivros_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void buscar(List<LivroModel> lista)
         {
-            foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
+            
+            if (lista.Count > 0)
             {
-                int id = int.Parse(row.Cells[0].Value.ToString());
-                int quantidade = int.Parse(row.Cells[1].Value.ToString());
-                String Titulo = row.Cells[2].Value.ToString();
-                String Autor = row.Cells[6].Value.ToString();
-                String Editora = row.Cells[7].Value.ToString();
-                String Genero = row.Cells[8].Value.ToString();
-
-                LivroModel livroSelecionado = new LivroModel(id, Titulo, Editora, Autor, Genero, quantidade);
-
-                LivrosEditarView livrosEditarView = new LivrosEditarView(livroSelecionado);
-                NovaJanela.novaJanela(livrosEditarView, this.Bounds);
-
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLivros.DataSource = null;
             }
         }
-
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
             String busca = tbBuscar.Text;
 
-            List<LivroModel> lista = controller.Buscar(busca);
-
-            if (tbBuscar.Text.Length > 0 && lista.Count > 0)
+            if (tbBuscar.Text.Length > 0)
             {
                 lblNotFound.Visible = false;
 
                 if (rbNome.Checked)
                 {
                     List<LivroModel> nome = controller.Buscar(busca, isNome: true);
-                    popular(lista);
-                }
-
-                if (rbAutor.Checked)
+                    buscar(nome);
+                }else if (rbAutor.Checked)
                 {
                     List<LivroModel> autor = controller.Buscar(busca, isAutor: true);
-                    popular(lista);
-                }
-
-                if (rbEditora.Checked)
+                    buscar(autor);
+                }else if (rbEditora.Checked)
                 {
                     List<LivroModel> editora = controller.Buscar(busca, isEditora: true);
-                    popular(lista);
-                }
-                if (rbGenero.Checked)
+                    buscar(editora);
+                }else if (rbGenero.Checked)
                 {
                     List<LivroModel> genero = controller.Buscar(busca, isGenero: true);
-                    popular(lista);
+                    buscar(genero);
+                }
+                else
+                {
+                    List<LivroModel> nome = controller.Buscar(busca, isNome: true);
+                    buscar(nome);
                 }
             }
             else if (tbBuscar.Text.Length == 0)
             {
                 lblNotFound.Visible = false;
-                dtGridViewLivro.DataSource = null;
+                dtGridViewLivros.DataSource = null;
             }
             else
             {
                 lblNotFound.Visible = true;
-                dtGridViewLivro.DataSource = null;
+                dtGridViewLivros.DataSource = null;
             }
+        }
+
+        private void rbNome_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
+        }
+
+        private void rbAutor_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
+        }
+
+        private void rbEditora_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
+        }
+
+        private void rbGenero_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
+        }
+
+        private void dtGridViewLivros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                String titulo = row.Cells[1].Value.ToString();
+                String autor = row.Cells[2].Value.ToString();
+                String editora = row.Cells[3].Value.ToString();
+                String genero = row.Cells[4].Value.ToString();
+                int quantidade =int.Parse(row.Cells[5].Value.ToString());
+
+                this.livro = new LivroModel(id, titulo, editora, autor,  genero, quantidade);
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if(livro != null)
+            {
+                singleton.setLivroExemplar(livro);
+                LivrosEditarView livroEditarView = new LivrosEditarView();
+                NovaJanela.novaJanela(livroEditarView, Bounds);
+            }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um livro", "Atenção", MessageBoxButtons.OK);
+            }
+
+        }
+
+        private void LivrosBuscarView_Activated(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
         }
     }
 }

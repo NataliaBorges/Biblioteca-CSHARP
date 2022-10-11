@@ -10,6 +10,7 @@ namespace Biblioteca.Model {
         public int IdEdicao { get; set; }
         public string AnoPublicacao { get; set; }
         public string ISBN { get; set; }
+        public float Valor { get; set; }
         public DateTime Aquisicao { get; set; }
         public string Nome_Editora { get; set; }
         public string Nome_Autor { get; set; }

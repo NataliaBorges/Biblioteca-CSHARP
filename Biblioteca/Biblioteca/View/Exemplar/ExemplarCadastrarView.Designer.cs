@@ -53,6 +53,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnltotal.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -86,6 +88,8 @@
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.pnlPrincipal.Controls.Add(this.textBox1);
+            this.pnlPrincipal.Controls.Add(this.label4);
             this.pnlPrincipal.Controls.Add(this.iconButton2);
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
             this.pnlPrincipal.Controls.Add(this.head1);
@@ -122,7 +126,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.White;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(741, 406);
+            this.iconButton2.Location = new System.Drawing.Point(579, 406);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(36, 27);
             this.iconButton2.TabIndex = 94;
@@ -232,8 +236,8 @@
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEdicao.Location = new System.Drawing.Point(349, 406);
             this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.PlaceholderText = "Selecione uma edição:";
-            this.tbEdicao.Size = new System.Drawing.Size(386, 27);
+            this.tbEdicao.PlaceholderText = "Selecione uma edição";
+            this.tbEdicao.Size = new System.Drawing.Size(224, 27);
             this.tbEdicao.TabIndex = 5;
             // 
             // maskedTextBoxAno
@@ -366,6 +370,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(703, 406);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(74, 27);
+            this.textBox1.TabIndex = 96;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(621, 408);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 20);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Valor: R$";
+            // 
             // ExemplarCadastrarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -410,5 +436,7 @@
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
     }
 }

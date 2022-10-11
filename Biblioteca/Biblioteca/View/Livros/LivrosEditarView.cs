@@ -15,8 +15,10 @@ namespace Biblioteca.View.Livros {
         LivroController controller = new LivroController();
         Singleton singleton = Singleton.GetInstancia();
         DateTime data;
-        public LivrosEditarView(LivroModel livroSelecionado) {
-            this.livro = livroSelecionado;
+        public LivrosEditarView() {
+            LivroModel livroSingleton = singleton.getLivroExemplar();
+            this.livro = controller.BuscarLivroId(livroSingleton.getId());
+            singleton.setLivroExemplar(null);
             InitializeComponent();
 
         }
@@ -46,52 +48,6 @@ namespace Biblioteca.View.Livros {
             }
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            String titulo = tbNome.Text;
-            int Quantidade = int.Parse(tbQuantidade.Text);
-            int autor = singleton.getAutorBusca().Id_autor;
-            int Genero = singleton.getEditoraBusca().ID;
-            int Editora = singleton.getGeneroBusca().Id_genero;
-
-            if (titulo.Length <= 0) {
-                    MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
-                    tbAutor.Focus();
-                }
-                else if (tbEditora.Text.Length <= 0)
-                {
-                    MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
-                    tbEditora.Focus();
-                }
-                else if (tbAutor.Text.Length <= 0)
-                {
-                    MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
-                    tbAutor.Focus();
-                }
-                else if (tbEditora.Text.Length <= 0)
-                {
-                    MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
-                    tbEditora.Focus();
-                }
-                else if (tbGenero.Text.Length <= 0)
-                {
-                    MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
-                    tbGenero.Focus();
-                }
-                else
-                {
-                    LivroModel livro = new LivroModel(this.livro.getId(), titulo, autor, Genero, Editora);
-                    if (controller.Atualizar(livro))
-                    {
-                        MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
-                    }
-            }
-        }
-
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair sem Salvar?", "Atenção", MessageBoxButtons.YesNo);
@@ -106,23 +62,106 @@ namespace Biblioteca.View.Livros {
 
         private void LivrosEditarView_Activated(object sender, EventArgs e)
         {
-            if (singleton.getBuscarAutor())
+            if (singleton.getBuscarAutor() && singleton.getAutorBusca() != null)
             {
                 singleton.setBuscarAutor(false);
                 tbAutor.Text = singleton.getAutorBusca().Nome_Autor;
             }
 
-            if (singleton.getBuscarEditora())
+            if (singleton.getBuscarEditora() && singleton.getEditoraBusca() != null)
             {
                 singleton.setBuscarEditora(false);
                 tbEditora.Text = singleton.getEditoraBusca().Nome;
             }
 
-            if (singleton.getBuscarGenero())
+            if (singleton.getBuscarGenero() && singleton.getGeneroBusca() != null)
             {
                 singleton.setBuscarGenero(false);
                 tbGenero.Text = singleton.getGeneroBusca().Nome_genero;
             }
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            String titulo = tbNome.Text;
+            
+
+            if (titulo.Length <= 0)
+            {
+                MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
+                tbAutor.Focus();
+            }
+            else if (tbEditora.Text.Length <= 0)
+            {
+                MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                tbEditora.Focus();
+            }
+            else if (tbAutor.Text.Length <= 0)
+            {
+                MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                tbAutor.Focus();
+            }
+            else if (tbEditora.Text.Length <= 0)
+            {
+                MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                tbEditora.Focus();
+            }
+            else if (tbGenero.Text.Length <= 0)
+            {
+                MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                tbGenero.Focus();
+            }
+            else
+            {
+                int autor = this.livro.IdAutor;
+                if(singleton.getAutorBusca()!= null)
+                {
+                    autor = singleton.getAutorBusca().Id_autor;
+                }
+                int Genero = this.livro.IdGenero;
+                if (singleton.getGeneroBusca() != null)
+                {
+                    Genero = singleton.getGeneroBusca().Id_genero;
+                }
+
+                int Editora = this.livro.IdEditora;
+                if (singleton.getEditoraBusca() != null)
+                {
+                    Editora = singleton.getEditoraBusca().ID;
+                }
+
+                LivroModel livro = new LivroModel(this.livro.getId(), titulo, Editora, autor, Genero);
+                if (controller.Atualizar(livro))
+                {
+                    MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível atualizar.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void BtnAutor_Click(object sender, EventArgs e)
+        {
+            singleton.setBuscarAutor(true);
+            LivroPesquisarAutor livroPesquisarAutor = new LivroPesquisarAutor();
+            NovaJanela.novaJanela(livroPesquisarAutor, this.Bounds);
+        }
+
+        private void BtnEditora_Click(object sender, EventArgs e)
+        {
+            singleton.setBuscarEditora(true);
+            LivroPesquisarEditora livroPesquisarEditora = new LivroPesquisarEditora();
+            NovaJanela.novaJanela(livroPesquisarEditora, this.Bounds);
+        }
+
+        private void BtnGenero_Click(object sender, EventArgs e)
+        {
+            singleton.setBuscarGenero(true);
+            LivroPesquisarGenero livroPesquisarGenero = new LivroPesquisarGenero();
+            NovaJanela.novaJanela(livroPesquisarGenero, this.Bounds);
         }
     }
 }

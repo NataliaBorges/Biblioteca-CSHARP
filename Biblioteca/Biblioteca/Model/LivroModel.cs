@@ -34,20 +34,17 @@ namespace Biblioteca.Model {
             this.NomeGenero = Genero;
             this.Quantidade = Quantidade;
         }
-        public LivroModel(string Titulo, string Editora, string Autor, string Genero)
+        public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero, int Quantidade, int IdEditora, int IdAutor, int IdGenero)
         {
+            this.ID = ID;
             this.Titulo = Titulo;
             this.NomeEditora = Editora;
             this.NomeAutor = Autor;
             this.NomeGenero = Genero;
-        }
-        public LivroModel(int IdEditora, int IdAutor, int IdGenero, string Titulo, int Quantidade)
-        {
+            this.Quantidade = Quantidade;
             this.IdEditora = IdEditora;
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
-            this.Titulo = Titulo;
-            this.Quantidade = Quantidade;
         }
         public LivroModel(string Titulo, int IdEditora, int IdAutor, int IdGenero)
         {

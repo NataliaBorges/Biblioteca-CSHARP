@@ -37,6 +37,7 @@ namespace Biblioteca.View.Livros {
 
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
+
         }
 
         private void ClearForm() {
@@ -68,39 +69,45 @@ namespace Biblioteca.View.Livros {
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             String titulo = tbNome.Text;
-            int autor = singleton.getAutorBusca().Id_autor;
-            int Genero = singleton.getEditoraBusca().ID;
-            int Editora = singleton.getGeneroBusca().Id_genero;
+            int autor = 0;
+            int Editora = 0;
+            int Genero = 0;
 
             if (titulo.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
                 tbNome.Focus();
             }
-            else if (tbAutor.Text.Length <= 0)
+            else if (singleton.getAutorBusca() == null)
             {
-                MessageBox.Show("Você precisa digitar um Autor.", "Atenção", MessageBoxButtons.OK);
+                MessageBox.Show("Você precisa selecionar um Autor Válido.", "Atenção", MessageBoxButtons.OK);
                 tbAutor.Focus();
             }
-            else if (tbEditora.Text.Length <= 0)
+            else if (singleton.getGeneroBusca() == null)
+            {
+                MessageBox.Show("Você precisa selecionar um Gênero Válido.", "Atenção", MessageBoxButtons.OK);
+                tbGenero.Focus();
+
+            }
+            else if (singleton.getEditoraBusca() == null)
             {
                 MessageBox.Show("Você precisa selecionar uma Editora Válida.", "Atenção", MessageBoxButtons.OK);
                 tbEditora.Focus();
             }
-            else if (tbGenero.Text.Length <= 0)
-            {
-                MessageBox.Show("Você precisa selecionar um Gênero Válido.", "Atenção", MessageBoxButtons.OK);
-                tbGenero.Focus();
-            }
             else
             {
-                LivroModel livro = new LivroModel(titulo, autor, Genero, Editora);
-                if (controller.Insercao(livro))
+                autor = singleton.getAutorBusca().Id_autor;
+                Genero = singleton.getGeneroBusca().Id_genero;
+                Editora = singleton.getEditoraBusca().ID;
+
+                LivroModel livro = new LivroModel(titulo, Editora, autor, Genero);
+                try
                 {
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    this.Close();
+                    controller.Insercao(livro);
+                    MessageBox.Show("Cadastrado com Sucesso!", "Parabéns", MessageBoxButtons.OK);
+                    ClearForm();
                 }
-                else
+                catch (Exception)
                 {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
                 }

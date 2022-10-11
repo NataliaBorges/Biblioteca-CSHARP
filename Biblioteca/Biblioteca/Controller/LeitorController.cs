@@ -98,15 +98,46 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<LeitorModel> Buscar(string busca, bool isNome = false, bool isCPF = false) {
+        public List<LeitorModel> Buscar(string busca, bool isNome = false, bool isCPF = false, int status = 0) {
             Cmd.Connection = connection.RetornaConexao();
 
             if (isNome) {
-                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE Nome_Leitor LIKE '"+busca+"%'";
+                if(status == 0)
+                {
+                    Cmd.CommandText = @"SELECT	Leitor.*,
+		                                    Estado.Nome_Estado
+                                    FROM Leitor
+                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
+                                    WHERE  Leitor.Nome_Leitor LIKE '%" + busca + "%'";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT	Leitor.*,
+		                                    Estado.Nome_Estado
+                                    FROM Leitor
+                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
+                                    WHERE Estado.Id = '" + status + "' AND Leitor.Nome_Leitor LIKE '%" + busca + "%'";
+                }
             }
 
             if (isCPF) {
-                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE CPF LIKE '"+busca+"%'";
+                if(status == 0)
+                {
+                    Cmd.CommandText = @"SELECT	Leitor.*,
+		                                    Estado.Nome_Estado
+                                    FROM Leitor
+                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
+                                    WHERE Leitor.CPF LIKE '%" + busca + "%'";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT	Leitor.*,
+		                                    Estado.Nome_Estado
+                                    FROM Leitor
+                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
+                                    WHERE Estado.Id = '" + status + "' AND Leitor.CPF LIKE '%" + busca + "%'";
+                }
+                
             }
 
             Cmd.Parameters.Clear();
@@ -123,7 +154,8 @@ namespace Biblioteca.Controller {
                     (String)reader["Telefone"],
                     (String)reader["CPF"],
                     (String)reader["Endereco"],
-                    (String)reader["Email"]
+                    (String)reader["Email"],
+                    (string)reader["Nome_Estado"]
                 );
                 lista.Add(leitor);
             }

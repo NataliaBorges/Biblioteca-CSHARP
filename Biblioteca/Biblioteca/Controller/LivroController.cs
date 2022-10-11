@@ -133,9 +133,9 @@ namespace Biblioteca.Controller {
 
         public bool Atualizar(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Livro SET Titulo = @Titulo, IdGenero = @Id_genero, 
-                                IdAutor = @Id_autor, IdEditora = @Id_editora
-                                WHERE ID_livro = @ID";
+            Cmd.CommandText = @"UPDATE Livro SET Titulo = @Titulo, Id_genero = @Id_genero, 
+                                Id_autor = @Id_autor, Id_editora = @Id_editora
+                                WHERE Id = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", livro.getId());
@@ -154,27 +154,23 @@ namespace Biblioteca.Controller {
             }
         }
 
-        public List<LivroModel> ListarTodos() {
+        public LivroModel BuscarLivroId(int id) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"
-                                SELECT	Livro.Id,
-		                                Livro.Titulo,
+            Cmd.CommandText = @"SELECT	Livro. *,
 		                                Editora.Nome_Editora,
 		                                Autor.Nome_Autor,
 		                                Genero.Nome_Genero,
-					                    COUNT(Exemplar.Id_livro) as Quantidade
+		                                COUNT(Exemplar.Id_livro) as Quantidade
                                 FROM Livro
                                 INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
                                 INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
                                 INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
                                 LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
-                                GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
-            ";
+                                WHERE Livro.Id = '"+id+"'"+
+                                "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero, Livro.Id_genero, Livro.Id_autor, Livro.Id_editora";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<LivroModel> lista = new List<LivroModel>();
 
             while (reader.Read()) {
                 LivroModel livro = new LivroModel(
@@ -183,13 +179,16 @@ namespace Biblioteca.Controller {
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"],
-                    (int)reader["Quantidade"]
-                ); 
-                lista.Add(livro);
-            }
-            reader.Close();
+                    (int)reader["Quantidade"], 
+                    (int)reader["Id_editora"], 
+                    (int)reader["Id_autor"], 
+                    (int)reader["Id_genero"]
+                );
+                reader.Close();
 
-            return lista;
+                return livro;
+            }
+            return null;
         }
 
         public List<LivroModel> Buscar(string busca, bool isNome = false, bool isAutor = false, bool isEditora = false, bool isGenero = false) {
@@ -207,8 +206,8 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
                                     INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
                                     LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
-                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
-                                    WHERE Livro.Titulo LIKE '" + busca + "%'";
+                                    WHERE Livro.Titulo LIKE '%" + busca + "%'" +
+                                    "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
             }
 
             if (isAutor) {
@@ -223,8 +222,8 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
                                     INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
                                     LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
-                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
-                                    WHERE Autor.Nome_Autor LIKE '" + busca + "%'";
+                                    WHERE Autor.Nome_Autor LIKE '%" + busca + "%'" +
+                                    "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";                
             }
 
             if (isEditora) {
@@ -240,8 +239,8 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
                                     INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
                                     LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
-                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
-                                    WHERE Editora.Nome_Editora LIKE '" + busca + "%'";
+                                    WHERE Editora.Nome_Editora LIKE '%" + busca + "%'" +
+                                    "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
             }
             if (isGenero)
             {
@@ -257,8 +256,10 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
                                     INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
                                     LEFT JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
-                                    GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero
-                                    WHERE Genero.Nome_Genero LIKE '" + busca + "%'";
+                                    WHERE Genero.Nome_Genero LIKE '%" + busca + "%'" +
+                                    "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
+                
+                                    
             }
             Cmd.Parameters.Clear();
 

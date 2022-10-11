@@ -22,12 +22,10 @@ namespace Biblioteca.View.Livros
         }
         private void LivroPesquisarAutor_Load(object sender, EventArgs e)
         {
-            if (singleton.getAddAutor() == true)
-            {
-                singleton.setAddAutor(false);
-            }
 
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
         }

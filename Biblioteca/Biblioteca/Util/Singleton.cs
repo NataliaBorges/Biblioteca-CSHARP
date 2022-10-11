@@ -15,6 +15,10 @@ namespace Biblioteca.Util {
         private bool addExemplar = false;
         private bool addAutor = false;
 
+        //Tela buscar Livro para Editar
+        private LivroModel livroExemplar;
+        //
+
         // Buscar genero no cadastro de livro
         private GeneroModel generoBusca;
         private bool buscarGenero = false;
@@ -110,13 +114,14 @@ namespace Biblioteca.Util {
         public bool getAddAutor() {
             return this.addExemplar;
         }
-        public void setAddExemplar(bool addExemplar) {
-            this.addExemplar = addExemplar;
-        }
         public void setAddAutor(bool addAutor)
         {
             this.addAutor = addAutor;
         }
+        public void setAddExemplar(bool addExemplar) {
+            this.addExemplar = addExemplar;
+        }
+        
         public FuncionarioModel getFuncionario() {
             return this.funcionarioModel;
         }
@@ -128,10 +133,6 @@ namespace Biblioteca.Util {
         }
         public void setExemplar(ExemplarModel exemplar) {
             this.exemplar.Add(exemplar);
-        }
-        public void setAutor(AutorModel autor)
-        {
-            this.autor.Add(autor);
         }
         public LeitorModel getLeitor() {
             return this.leitor;
@@ -152,5 +153,16 @@ namespace Biblioteca.Util {
             this.exemplar = new List<ExemplarModel>();
             this.leitor = null;
         }
+
+        //Tela buscar Livro para Editar
+        public LivroModel getLivroExemplar()
+        {
+            return this.livroExemplar;
+        }
+        public void setLivroExemplar(LivroModel livro)
+        {
+            this.livroExemplar = livro;
+        }
+        //
     }
 }
