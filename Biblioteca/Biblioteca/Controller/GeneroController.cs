@@ -19,28 +19,6 @@ namespace Biblioteca.Controller
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
-        public List<GeneroModel> ListarTodos()
-        {
-            Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Genero";
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<GeneroModel> list = new List<GeneroModel>();
-
-            while (reader.Read())
-            {
-                GeneroModel genero = new GeneroModel(
-                    (int)reader["ID"],
-                    (String)reader["Nome_Genero"]
-                );
-                list.Add(genero);
-            }
-            reader.Close();
-
-            return list;
-        }
         public List<GeneroModel> ListarUltimosDez()
         {
             Cmd.Connection = connection.RetornaConexao();
@@ -109,6 +87,69 @@ namespace Biblioteca.Controller
 
             return lista;
 
+        }
+        public bool Excluir(GeneroModel genero)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"DELETE FROM Genero WHERE Id = @Id";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Id", genero.getId());
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public List<GeneroModel> BuscarGenero(string busca)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            Cmd.CommandText = @"SELECT  * from Genero
+                                WHERE Genero.Nome_Genero LIKE '%" + busca + "%'";
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<GeneroModel> lista = new List<GeneroModel>();
+
+            while (reader.Read())
+            {
+                GeneroModel genero = new GeneroModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Genero"]
+                );
+                lista.Add(genero);
+            }
+            reader.Close();
+
+            return lista;
+
+        }
+        public bool Atualizar(GeneroModel genero)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Genero SET Nome_Genero = @Nome_Genero
+                                WHERE Id = @Id";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Id", genero.getId());
+            Cmd.Parameters.AddWithValue("@Nome_Genero", genero.Nome_genero);
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -20,28 +20,6 @@ namespace Biblioteca.Controller
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
-        public List<AutorModel> ListarTodos()
-        {
-            Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Autor";
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<AutorModel> list = new List<AutorModel>();
-
-            while (reader.Read())
-            {
-                AutorModel autor = new AutorModel(
-                    (int)reader["ID"],
-                    (String)reader["Nome_Autor"]
-                );
-                list.Add(autor);
-            }
-            reader.Close();
-
-            return list;
-        }
         public List<AutorModel> ListarUltimosDez()
         {
             Cmd.Connection = connection.RetornaConexao();
