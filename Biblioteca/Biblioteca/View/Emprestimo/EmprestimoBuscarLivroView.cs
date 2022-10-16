@@ -36,7 +36,7 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void popular(List<LivroModel> lista) {
-            LvLivros.Items.Clear();
+            //LvLivros.Items.Clear();
             if (lista.Count > 0) {
                 foreach (LivroModel livro in lista) {
                     ListViewItem item = new ListViewItem(livro.getId().ToString());
@@ -50,7 +50,7 @@ namespace Biblioteca.View.Emprestimo {
                     //item.SubItems.Add(livro.DataAquisicao.ToString());
                     
 
-                    LvLivros.Items.Add(item);
+                   // LvLivros.Items.Add(item);
                 }
             }
         }
@@ -61,26 +61,26 @@ namespace Biblioteca.View.Emprestimo {
             List<LivroModel> lista = controller.BuscarLivros(busca);
             popular(lista);
         }
-        private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-            if (int.Parse(item.SubItems[1].Text) == 0) {
-                MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
-            }
-            else {
-                //LivroModel livro = new LivroModel(
-                    //int.Parse(item.SubItems[0].Text),
-                    //item.SubItems[2].Text,
-                    //item.SubItems[3].Text,
-                    //item.SubItems[6].Text,
-                    //item.SubItems[7].Text,
-                    //item.SubItems[4].Text,
-                    //item.SubItems[5].Text
-                //);
+        //private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
+        //    if (int.Parse(item.SubItems[1].Text) == 0) {
+        //        MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
+        //    }
+        //    else {
+        //        //LivroModel livro = new LivroModel(
+        //            //int.Parse(item.SubItems[0].Text),
+        //            //item.SubItems[2].Text,
+        //            //item.SubItems[3].Text,
+        //            //item.SubItems[6].Text,
+        //            //item.SubItems[7].Text,
+        //            //item.SubItems[4].Text,
+        //            //item.SubItems[5].Text
+        //        //);
 
-                EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
-                NovaJanela.novaJanela(livros, this.Bounds);
-            }
-        }
+        //        EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
+        //        NovaJanela.novaJanela(livros, this.Bounds);
+        //    }
+        //}
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();

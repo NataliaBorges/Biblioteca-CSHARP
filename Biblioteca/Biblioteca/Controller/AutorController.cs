@@ -48,10 +48,11 @@ namespace Biblioteca.Controller
         public bool Insercao(AutorModel autor)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Autor Values (@Nome_Autor)";
+            Cmd.CommandText = @"INSERT INTO Autor Values (@Nome_Autor, @Estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Autor", autor.Nome_Autor);
+            Cmd.Parameters.AddWithValue("@Estado", 1);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {
@@ -88,13 +89,32 @@ namespace Biblioteca.Controller
             return lista;
 
         }
-        public List<AutorModel> BuscarAutor(string busca)
+        public List<AutorModel> BuscarAutor(string busca, string status = "Ambos")
         {
             Cmd.Connection = connection.RetornaConexao();
 
+            int statusNumero = 2; // Ambos
 
-            Cmd.CommandText = @"SELECT  * from Autor
-                                WHERE Autor.Nome_Autor LIKE '%" + busca + "%'";
+            if(status == "Ativo")
+            {
+                statusNumero = 1;
+            } 
+            
+            if(status == "Inativo")
+            {
+                statusNumero = 0;
+            }
+
+            if(statusNumero == 2)
+            {
+                Cmd.CommandText = @"SELECT  * from Autor
+                            WHERE Autor.Nome_Autor LIKE '%" + busca + "%'";
+            } 
+            else
+            {
+                Cmd.CommandText = @"SELECT  * from Autor
+                            WHERE Autor.Estado = '"+ statusNumero + "' AND Autor.Nome_Autor LIKE '%" + busca + "%'";
+            }
 
             Cmd.Parameters.Clear();
 
@@ -106,7 +126,8 @@ namespace Biblioteca.Controller
             {
                 AutorModel autor = new AutorModel(
                     (int)reader["Id"],
-                    (String)reader["Nome_Autor"]
+                    (String)reader["Nome_Autor"],
+                    (int)reader["Estado"]
                 );
                 lista.Add(autor);
             }
@@ -136,13 +157,13 @@ namespace Biblioteca.Controller
         public bool Atualizar(AutorModel autor)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Autor SET Nome_Autor = @Nome_Autor
+            Cmd.CommandText = @"UPDATE Autor SET Nome_Autor = @Nome_Autor, Estado = @Estado
                                 WHERE Id = @Id";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Id", autor.getId());
             Cmd.Parameters.AddWithValue("@Nome_Autor", autor.Nome_Autor);
-
+            Cmd.Parameters.AddWithValue("@Estado", autor.Estado);
 
 
             if (Cmd.ExecuteNonQuery() == 1)

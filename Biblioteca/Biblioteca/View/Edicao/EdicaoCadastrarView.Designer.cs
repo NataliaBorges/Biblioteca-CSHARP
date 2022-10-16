@@ -182,7 +182,7 @@
             this.dtGridViewEdicao.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewEdicao.EnableHeadersVisualStyles = false;
             this.dtGridViewEdicao.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewEdicao.Location = new System.Drawing.Point(53, 80);
+            this.dtGridViewEdicao.Location = new System.Drawing.Point(54, 86);
             this.dtGridViewEdicao.Name = "dtGridViewEdicao";
             this.dtGridViewEdicao.ReadOnly = true;
             this.dtGridViewEdicao.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

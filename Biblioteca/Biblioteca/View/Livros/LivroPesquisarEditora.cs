@@ -1,7 +1,7 @@
 ﻿using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
-using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Editora;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -29,19 +29,27 @@ namespace Biblioteca.View.Edicao
 
         private void EdicaoBuscarView_Load(object sender, EventArgs e)
         {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+
+            cbStatus.Text = "Ambos";
         }
         private void popular(List<EdicaoModel> lista)
         {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Status", typeof(string));
             if (lista.Count > 0)
             {
                 foreach (EdicaoModel edicao in lista)
                 {
                     table.Rows.Add(edicao.getId(),
-                                   edicao.Nome_Edicao);
+                                   edicao.Nome_Edicao, 
+                                   edicao.getEstado());
                 }
                 dtGridViewEdicao.DataSource = table;
             }
@@ -57,9 +65,10 @@ namespace Biblioteca.View.Edicao
             tbEdicao.Text = "";
             tbEdicao.Enabled = false;
             this.edicao = null;
+            String status = cbStatus.Text;
             String busca = TbPesquisar.Text;
 
-            List<EdicaoModel> lista = controller.BuscarEdicao(busca);
+            List<EdicaoModel> lista = controller.BuscarEdicao(busca, status);
 
             if (TbPesquisar.Text.Length > 0 && lista.Count > 0)
             {
@@ -96,6 +105,7 @@ namespace Biblioteca.View.Edicao
                     tbEdicao.Enabled = true;
                 }
                 tbEdicao.Text = this.edicao.Nome_Edicao;
+                cbEditarStatus.Text = this.edicao.getEstado();
             }
             catch (Exception)
             {
@@ -141,7 +151,13 @@ namespace Biblioteca.View.Edicao
             else
             {
                 tbEdicao.Enabled = true;
-                EdicaoModel livroEdicao= new EdicaoModel(edicao.Id, edicaoLivro);
+                int estado = 0;
+
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                EdicaoModel livroEdicao= new EdicaoModel(edicao.Id, edicaoLivro, estado);
                 if (controller.Atualizar(livroEdicao))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
@@ -160,9 +176,21 @@ namespace Biblioteca.View.Edicao
             {
                 int id = int.Parse(row.Cells[0].Value.ToString());
                 String Edicao = row.Cells[1].Value.ToString();
+                int estado = 0;
 
-                this.edicao = new EdicaoModel(id, Edicao);
+                if (row.Cells[2].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+
+                this.edicao = new EdicaoModel(id, Edicao, estado);
             }
+        }
+
+        private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            TbPesquisar.Text = null;
+            dtGridViewEdicao.DataSource = null;
         }
     }
 }

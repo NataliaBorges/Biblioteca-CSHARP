@@ -4,7 +4,7 @@ using Biblioteca.View.Autor;
 using Biblioteca.View.Edicao;
 using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Exemplar;
-using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Editora;
 using Biblioteca.View.Funcionario;
 using Biblioteca.View.Genero;
 using Biblioteca.View.Leitor;

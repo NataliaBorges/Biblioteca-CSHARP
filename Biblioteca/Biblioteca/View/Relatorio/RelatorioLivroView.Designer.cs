@@ -79,9 +79,9 @@ namespace Biblioteca.View.Relatorio {
             this.Autor.Text = "Autor";
             this.Autor.Width = 100;
             // 
-            // Fornecedor
+            // Editora
             // 
-            this.Fornecedor.Text = "Fornecedor";
+            this.Fornecedor.Text = "Editora";
             this.Fornecedor.Width = 100;
             // 
             // Edição

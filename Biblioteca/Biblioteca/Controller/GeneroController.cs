@@ -23,6 +23,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Genero
+                                        WHERE Estado = 1
                                 ORDER BY Id desc
                                 OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
 
@@ -47,10 +48,11 @@ namespace Biblioteca.Controller
         public bool Insercao(GeneroModel genero)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Genero Values (@Nome_Genero)";
+            Cmd.CommandText = @"INSERT INTO Genero Values (@Nome_Genero, @Estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Genero", genero.Nome_genero);
+            Cmd.Parameters.AddWithValue("@Estado", 1);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {
@@ -105,13 +107,31 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
-        public List<GeneroModel> BuscarGenero(string busca)
+        public List<GeneroModel> BuscarGenero(string busca, string status = "Ambos")
         {
             Cmd.Connection = connection.RetornaConexao();
+            int statusNumero = 2; // Ambos
 
+            if (status == "Ativo")
+            {
+                statusNumero = 1;
+            }
 
-            Cmd.CommandText = @"SELECT  * from Genero
+            if (status == "Inativo")
+            {
+                statusNumero = 0;
+            }
+
+            if (statusNumero == 2)
+            {
+                Cmd.CommandText = @"SELECT  * from Genero
                                 WHERE Genero.Nome_Genero LIKE '%" + busca + "%'";
+            }
+            else
+            {
+                Cmd.CommandText = @"SELECT  * from Genero
+                                WHERE Estado = '" + statusNumero + "' AND Genero.Nome_Genero LIKE '%" + busca + "%'";
+            }
 
             Cmd.Parameters.Clear();
 
@@ -123,7 +143,8 @@ namespace Biblioteca.Controller
             {
                 GeneroModel genero = new GeneroModel(
                     (int)reader["Id"],
-                    (String)reader["Nome_Genero"]
+                    (String)reader["Nome_Genero"], 
+                    (int)reader["Estado"]
                 );
                 lista.Add(genero);
             }
@@ -135,12 +156,13 @@ namespace Biblioteca.Controller
         public bool Atualizar(GeneroModel genero)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Genero SET Nome_Genero = @Nome_Genero
-                                WHERE Id = @Id";
+            Cmd.CommandText = @"UPDATE Genero SET Nome_Genero = @Nome_Genero, Estado = @Estado
+                                WHERE Id = @Id"; 
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Id", genero.getId());
             Cmd.Parameters.AddWithValue("@Nome_Genero", genero.Nome_genero);
+            Cmd.Parameters.AddWithValue("@Estado", genero.Estado);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {

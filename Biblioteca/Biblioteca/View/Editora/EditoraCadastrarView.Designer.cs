@@ -1,5 +1,5 @@
 ﻿
-namespace Biblioteca.View.Fornecedor {
+namespace Biblioteca.View.Editora {
     partial class EditoraCadastrarView {
         /// <summary>
         /// Required designer variable.

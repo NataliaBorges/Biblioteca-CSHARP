@@ -25,7 +25,11 @@ namespace Biblioteca.View.Livros {
 
         private void LivrosItemView_Load(object sender, EventArgs e) {
 
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
             if (livro != null) {
                 tbNome.Text = this.livro.Titulo;

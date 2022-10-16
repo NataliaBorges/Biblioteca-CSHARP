@@ -1,7 +1,7 @@
 ﻿using Biblioteca.Util;
 using Biblioteca.View;
 using Biblioteca.View.Emprestimo;
-using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Editora;
 using Biblioteca.View.Funcionario;
 using Biblioteca.View.Leitor;
 using Biblioteca.View.Livros;

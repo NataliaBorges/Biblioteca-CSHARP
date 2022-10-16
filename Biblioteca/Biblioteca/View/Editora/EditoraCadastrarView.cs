@@ -9,7 +9,7 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
 
-namespace Biblioteca.View.Fornecedor {
+namespace Biblioteca.View.Editora {
     public partial class EditoraCadastrarView : Form {
 
         EditoraController controller = new EditoraController();
@@ -32,7 +32,7 @@ namespace Biblioteca.View.Fornecedor {
 
         private void button1_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
-            String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
+            String endereco = $"{tbRua.Text},{tbNumero.Text},{tbBairro.Text}-{tbCidade.Text}";
             String telefone = maskedTextBoxTelefone.Text;
             String cnpj = maskedTextBoxCNPJ.Text;
             String Email = tbEmail.Text;

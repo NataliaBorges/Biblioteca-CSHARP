@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Biblioteca.Util;
 using Biblioteca.View;
 using Biblioteca.View.Autor;
+using Biblioteca.View.Emprestimo;
 using Biblioteca.View.Funcionario;
 using Biblioteca.View.Livros;
 
@@ -20,7 +21,7 @@ namespace Biblioteca {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Singleton singleton = Singleton.GetInstancia();
-            Application.Run(new TelaLoginView());
+            Application.Run(new EmprestimoCadastroView());
         }
     }
 }

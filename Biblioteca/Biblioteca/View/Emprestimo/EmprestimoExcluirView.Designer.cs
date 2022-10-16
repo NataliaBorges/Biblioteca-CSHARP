@@ -171,9 +171,9 @@ namespace Biblioteca.View.Emprestimo {
             this.Autor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Autor.Width = 240;
             // 
-            // Fornecedor
+            // Editora
             // 
-            this.Fornecedor.Text = "Fornecedor";
+            this.Fornecedor.Text = "Editora";
             this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Fornecedor.Width = 150;
             // 

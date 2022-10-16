@@ -11,7 +11,7 @@ using Biblioteca.Model;
 using Biblioteca.Util;
 using Biblioteca.View.Autor;
 using Biblioteca.View.Emprestimo;
-using Biblioteca.View.Fornecedor;
+using Biblioteca.View.Editora;
 using Biblioteca.View.Genero;
 using MessageBox = System.Windows.Forms.MessageBox;
 

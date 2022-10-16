@@ -216,9 +216,9 @@ namespace Biblioteca.Controller {
         public List<LivroModel> ListarTodosLivros() {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT L.*, F.Nome_fornecedor as Fornecedor 
+            SELECT L.*, F.Nome_fornecedor as Editora 
             FROM Livro AS L
-            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+            INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
             ";
             Cmd.Parameters.Clear();
 
@@ -235,7 +235,7 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Ano_publicacao"],
                     (String)reader["ISBN"]
-                    //(String)reader["Fornecedor"],
+                    //(String)reader["Editora"],
                     //(int)reader["Quantidade"]
                 );
                 lista.Add(livro);
@@ -257,10 +257,10 @@ namespace Biblioteca.Controller {
 		                            L.Edicao,
 		                            L.Ano_publicacao AS AnoPublicacao,
 		                            L.ISBN,
-		                            F.Nome_fornecedor AS Fornecedor
+		                            F.Nome_fornecedor AS Editora
                                 From Item_livro AS IL
                                 INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
-                                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                                INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
                                 WHERE IL.ID_livro = '" + idLivro + "'";
                                 Cmd.Parameters.Clear();
 
@@ -270,14 +270,14 @@ namespace Biblioteca.Controller {
 
             while (reader.Read()) {
                 ExemplarModel exemplar = new ExemplarModel(
-                    //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Fornecedor
+                    //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Editora
                     (int)reader["ID"],
                     (String)reader["Nome"],
                     (String)reader["Autor"],
                     (String)reader["Edicao"],
                     (String)reader["AnoPublicacao"],
                     (String)reader["ISBN"],
-                    (String)reader["Fornecedor"]
+                    (String)reader["Editora"]
                 );
                 lista.Add(exemplar);
             }
@@ -294,10 +294,10 @@ namespace Biblioteca.Controller {
 	                            L.Edicao,
 	                            L.Ano_publicacao AS AnoPublicacao,
 	                            L.ISBN,
-	                            F.Nome_fornecedor AS Fornecedor
+	                            F.Nome_fornecedor AS Editora
                             From Item_livro AS IL
                             INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
-                            INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                            INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
                             INNER JOIN Item_emprestimo AS IE ON (IE.ID_IL = IL.ID_IL)
                             INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
                             WHERE E.ID_emprestimo = '" + id + "'";
@@ -315,7 +315,7 @@ namespace Biblioteca.Controller {
                     (String)reader["Edicao"],
                     (String)reader["Anopublicacao"],
                     (String)reader["ISBN"],
-                    (String)reader["Fornecedor"]
+                    (String)reader["Editora"]
                 );
                 lista.Add(exemplar);
             }
@@ -328,9 +328,9 @@ namespace Biblioteca.Controller {
             Cmd.Connection = connection.RetornaConexao();
 
             Cmd.CommandText = @"
-                SELECT L.*, F.Nome_fornecedor as Fornecedor 
+                SELECT L.*, F.Nome_fornecedor as Editora 
                 FROM Livro AS L
-                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
                 WHERE L.Nome_Livro LIKE '" + busca + "%'";
 
             Cmd.Parameters.Clear();

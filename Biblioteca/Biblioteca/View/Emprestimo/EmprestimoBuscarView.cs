@@ -32,57 +32,57 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void popular(List<EmprestimoPesquisaModel> lista) {
-            lvEmprestimo.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (EmprestimoPesquisaModel emprestimo in lista) {
-                    ListViewItem item = new ListViewItem(emprestimo.ID_emprestimo.ToString());
-                    item.SubItems.Add(emprestimo.Nome_Leitor);
-                    item.SubItems.Add(emprestimo.Nome_Livro);
-                    item.SubItems.Add(emprestimo.Nome_funcionario);
-                    item.SubItems.Add(emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(emprestimo.Data_devolucao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(emprestimo.Status);
-                    lvEmprestimo.Items.Add(item);
-                }
-            }
+            //lvEmprestimo.Items.Clear();
+            //if (lista.Count > 0) {
+            //    foreach (EmprestimoPesquisaModel emprestimo in lista) {
+            //        ListViewItem item = new ListViewItem(emprestimo.ID_emprestimo.ToString());
+            //        item.SubItems.Add(emprestimo.Nome_Leitor);
+            //        item.SubItems.Add(emprestimo.Nome_Livro);
+            //        item.SubItems.Add(emprestimo.Nome_funcionario);
+            //        item.SubItems.Add(emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"));
+            //        item.SubItems.Add(emprestimo.Data_devolucao.ToString("dd/MM/yyyy"));
+            //        item.SubItems.Add(emprestimo.Status);
+            //        lvEmprestimo.Items.Add(item);
+            //    //}
+            //}
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            String busca = tbBuscar.Text;
+        //private void button1_Click(object sender, EventArgs e) {
+        //    String busca = tbBuscar.Text;
 
-            if (rbLivro.Checked) {
-                List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLivro: true);
-                popular(lista);
-            }
+        //    if (rbLivro.Checked) {
+        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLivro: true);
+        //        popular(lista);
+        //    }
 
-            if (rbLeitor.Checked) {
-                List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLeitor: true);
-                popular(lista);
-            }
-            if (rbCodigo.Checked) {
-                List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isCodigo: true);
-                popular(lista);
-            }
-        }
+        //    if (rbLeitor.Checked) {
+        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLeitor: true);
+        //        popular(lista);
+        //    }
+        //    if (rbCodigo.Checked) {
+        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isCodigo: true);
+        //        popular(lista);
+        //    }
+        //}
 
-        private void lvEmprestimo_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = lvEmprestimo.Items[lvEmprestimo.FocusedItem.Index];
-            EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-                    int.Parse(item.SubItems[0].Text),
-                    item.SubItems[1].Text,
-                    item.SubItems[2].Text,
-                    item.SubItems[3].Text,
-                    DateTime.Parse(item.SubItems[4].Text),
-                    DateTime.Parse(item.SubItems[5].Text),
-                    item.SubItems[6].Text
-                );
+        //private void lvEmprestimo_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = lvEmprestimo.Items[lvEmprestimo.FocusedItem.Index];
+        //    EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
+        //            int.Parse(item.SubItems[0].Text),
+        //            item.SubItems[1].Text,
+        //            item.SubItems[2].Text,
+        //            item.SubItems[3].Text,
+        //            DateTime.Parse(item.SubItems[4].Text),
+        //            DateTime.Parse(item.SubItems[5].Text),
+        //            item.SubItems[6].Text
+        //        );
 
-            EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
-            NovaJanela.novaJanela(editar, this.Bounds);
-        }
+        //    EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
+        //    NovaJanela.novaJanela(editar, this.Bounds);
+        //}
 
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
+        //private void button2_Click(object sender, EventArgs e) {
+        //    this.Close();
+        //}
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-namespace Biblioteca.View.Fornecedor {
+namespace Biblioteca.View.Editora {
     partial class EditoraEditarView {
         /// <summary>
         /// Required designer variable.
@@ -26,6 +26,8 @@ namespace Biblioteca.View.Fornecedor {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditoraEditarView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbEditarStatus = new System.Windows.Forms.ComboBox();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.BtnExcluir = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
@@ -56,6 +58,8 @@ namespace Biblioteca.View.Fornecedor {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.cbEditarStatus);
             this.panel1.Controls.Add(this.icbtnVoltar);
             this.panel1.Controls.Add(this.BtnExcluir);
             this.panel1.Controls.Add(this.btnAtualizar);
@@ -83,6 +87,32 @@ namespace Biblioteca.View.Fornecedor {
             this.panel1.Size = new System.Drawing.Size(928, 759);
             this.panel1.TabIndex = 71;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(514, 390);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 100;
+            this.label4.Text = "Status:";
+            // 
+            // cbEditarStatus
+            // 
+            this.cbEditarStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEditarStatus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbEditarStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEditarStatus.FormattingEnabled = true;
+            this.cbEditarStatus.Items.AddRange(new object[] {
+            "Ativo",
+            "Inativo"});
+            this.cbEditarStatus.Location = new System.Drawing.Point(572, 387);
+            this.cbEditarStatus.Name = "cbEditarStatus";
+            this.cbEditarStatus.Size = new System.Drawing.Size(147, 28);
+            this.cbEditarStatus.TabIndex = 99;
+            // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -103,6 +133,7 @@ namespace Biblioteca.View.Fornecedor {
             this.icbtnVoltar.Tag = "";
             this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // BtnExcluir
             // 
@@ -110,7 +141,7 @@ namespace Biblioteca.View.Fornecedor {
             this.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnExcluir.ForeColor = System.Drawing.Color.White;
-            this.BtnExcluir.Location = new System.Drawing.Point(514, 455);
+            this.BtnExcluir.Location = new System.Drawing.Point(517, 451);
             this.BtnExcluir.Name = "BtnExcluir";
             this.BtnExcluir.Size = new System.Drawing.Size(187, 45);
             this.BtnExcluir.TabIndex = 91;
@@ -124,7 +155,7 @@ namespace Biblioteca.View.Fornecedor {
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(282, 455);
+            this.btnAtualizar.Location = new System.Drawing.Point(285, 451);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(187, 45);
             this.btnAtualizar.TabIndex = 90;
@@ -134,6 +165,7 @@ namespace Biblioteca.View.Fornecedor {
             // 
             // lblCadastroLivro
             // 
+            this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
@@ -166,7 +198,7 @@ namespace Biblioteca.View.Fornecedor {
             // maskedTextBoxCNPJ
             // 
             this.maskedTextBoxCNPJ.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxCNPJ.Location = new System.Drawing.Point(572, 383);
+            this.maskedTextBoxCNPJ.Location = new System.Drawing.Point(572, 344);
             this.maskedTextBoxCNPJ.Mask = "99,999,999/9999-99";
             this.maskedTextBoxCNPJ.Name = "maskedTextBoxCNPJ";
             this.maskedTextBoxCNPJ.Size = new System.Drawing.Size(147, 27);
@@ -258,7 +290,7 @@ namespace Biblioteca.View.Fornecedor {
             this.tbCidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbCidade.Location = new System.Drawing.Point(281, 344);
             this.tbCidade.Name = "tbCidade";
-            this.tbCidade.Size = new System.Drawing.Size(438, 27);
+            this.tbCidade.Size = new System.Drawing.Size(230, 27);
             this.tbCidade.TabIndex = 84;
             // 
             // tbNumero
@@ -283,7 +315,7 @@ namespace Biblioteca.View.Fornecedor {
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(514, 390);
+            this.label5.Location = new System.Drawing.Point(514, 351);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 20);
             this.label5.TabIndex = 76;
@@ -353,7 +385,7 @@ namespace Biblioteca.View.Fornecedor {
             this.MinimizeBox = false;
             this.Name = "EditoraEditarView";
             this.Text = "Editar Editora";
-            this.Load += new System.EventHandler(this.FornecedorEditarView_Load);
+            this.Load += new System.EventHandler(this.EditoraEditarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnltotal.ResumeLayout(false);
@@ -386,5 +418,7 @@ namespace Biblioteca.View.Fornecedor {
         private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button btnAtualizar;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbEditarStatus;
     }
 }

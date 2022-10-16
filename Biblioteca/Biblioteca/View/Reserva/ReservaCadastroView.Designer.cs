@@ -87,9 +87,9 @@ namespace Biblioteca.View.Reserva {
             // 
             this.ID.Text = "ID";
             // 
-            // Fornecedor
+            // Editora
             // 
-            this.Fornecedor.Text = "Fornecedor";
+            this.Fornecedor.Text = "Editora";
             this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Fornecedor.Width = 120;
             // 

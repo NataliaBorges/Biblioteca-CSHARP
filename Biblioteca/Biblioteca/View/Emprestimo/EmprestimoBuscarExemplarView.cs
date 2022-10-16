@@ -29,44 +29,44 @@ namespace Biblioteca.View.Emprestimo {
             popular(lista);
         }
         private void popular(List<ExemplarModel> lista) {
-            LvExemplar.Items.Clear();
-            if (lista.Count > 0)
-            {
-                foreach (ExemplarModel exemplar in lista)
-                {
-                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Titulo);
-                    //item.SubItems.Add(exemplar.Edicao);
-                    item.SubItems.Add(exemplar.AnoPublicacao);
-                    item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(exemplar.Nome_Autor);
-                    item.SubItems.Add(exemplar.Nome_Editora);
-                    item.SubItems.Add(exemplar.Nome_Genero);
+            //LvExemplar.Items.Clear();
+            //if (lista.Count > 0)
+            //{
+            //    foreach (ExemplarModel exemplar in lista)
+            //    {
+            //        ListViewItem item = new ListViewItem(exemplar.getId().ToString());
+            //        item.SubItems.Add(exemplar.Titulo);
+            //        //item.SubItems.Add(exemplar.Edicao);
+            //        item.SubItems.Add(exemplar.AnoPublicacao);
+            //        item.SubItems.Add(exemplar.ISBN);
+            //        item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
+            //        item.SubItems.Add(exemplar.Nome_Autor);
+            //        item.SubItems.Add(exemplar.Nome_Editora);
+            //        item.SubItems.Add(exemplar.Nome_Genero);
 
-                    LvExemplar.Items.Add(item);
-                }
-            }
+            //        LvExemplar.Items.Add(item);
+            //    }
+            //}
         }
 
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
+        //private void button2_Click(object sender, EventArgs e) {
+        //    this.Close();
+        //}
 
-        private void LvExemplar_MouseClick(object sender, MouseEventArgs e) {
-            ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-            ExemplarModel exemplar = new ExemplarModel(
-                int.Parse(item.SubItems[0].Text),
-                item.SubItems[1].Text,
-                item.SubItems[2].Text,
-                item.SubItems[6].Text,
-                item.SubItems[5].Text,
-                item.SubItems[3].Text,
-                item.SubItems[4].Text
-            );
+        //private void LvExemplar_MouseClick(object sender, MouseEventArgs e) {
+        //    ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
+        //    ExemplarModel exemplar = new ExemplarModel(
+        //        int.Parse(item.SubItems[0].Text),
+        //        item.SubItems[1].Text,
+        //        item.SubItems[2].Text,
+        //        item.SubItems[6].Text,
+        //        item.SubItems[5].Text,
+        //        item.SubItems[3].Text,
+        //        item.SubItems[4].Text
+        //    );
 
-            controller.InserirExemplarEmprestimo(exemplar);
-            this.Close();
-        }
+        //    controller.InserirExemplarEmprestimo(exemplar);
+        //    this.Close();
+        //}
     }
 }

@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(EditoraModel editora) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Editora Values (@Nome_Editora, @Endereco, @Telefone, @CNPJ, @Email)";
+            Cmd.CommandText = @"INSERT INTO Editora Values (@Nome_Editora, @Endereco, @CNPJ, @Email, @Telefone, @Estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Editora", editora.Nome);
@@ -29,6 +29,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Telefone", editora.Telefone);
             Cmd.Parameters.AddWithValue("@CNPJ", editora.CNPJ);
             Cmd.Parameters.AddWithValue("@Email", editora.Email);
+            Cmd.Parameters.AddWithValue("@Estado", 1);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -39,8 +40,8 @@ namespace Biblioteca.Controller {
 
         public bool Atualizar(EditoraModel editora) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Editora SET Nome_Editora = @Nome_Editor,  
-                                Endereco = @Endereco, Telefone = @Telefone, CNPJ = @CNPJ, Email = @Email
+            Cmd.CommandText = @"UPDATE Editora SET Nome_Editora = @Nome_Editora,  
+                                Endereco = @Endereco, Telefone = @Telefone, CNPJ = @CNPJ, Email = @Email, Estado = @Estado
                                 WHERE ID = @ID";
 
             Cmd.Parameters.Clear();
@@ -50,6 +51,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Telefone", editora.Telefone);
             Cmd.Parameters.AddWithValue("@CNPJ", editora.CNPJ);
             Cmd.Parameters.AddWithValue("@Email", editora.Email);
+            Cmd.Parameters.AddWithValue("@Estado", editora.Estado);
 
 
             if (Cmd.ExecuteNonQuery() == 1) {
@@ -110,14 +112,42 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<EditoraModel> Buscar(string busca, bool isNome = false, bool isCNPJ = false) {
+        public List<EditoraModel> Buscar(string busca, bool isNome = false, bool isCNPJ = false, string status = "Ambos") {
             Cmd.Connection = connection.RetornaConexao();
 
-            if (isNome) {
-                Cmd.CommandText = @"SELECT * FROM Editora WHERE Nome_Editra LIKE '"+busca+"%'";
+            int statusNumero = 2; // Ambos
+
+            if (status == "Ativo")
+            {
+                statusNumero = 1;
             }
-            if (isCNPJ) {
-                Cmd.CommandText = @"SELECT * FROM Editora WHERE CNPJ LIKE '" + busca+"%'";
+
+            if (status == "Inativo")
+            {
+                statusNumero = 0;
+            }
+
+            if (statusNumero == 2)
+            {
+                if (isNome)
+                {
+                    Cmd.CommandText = @"SELECT * FROM Editora WHERE Nome_Editora LIKE '%" + busca + "%'";
+                }
+                if (isCNPJ)
+                {
+                    Cmd.CommandText = @"SELECT * FROM Editora WHERE CNPJ LIKE '%" + busca + "%'";
+                }
+            }
+            else
+            {
+                if (isNome)
+                {
+                    Cmd.CommandText = @"SELECT * FROM Editora WHERE Estado = '"+ statusNumero + "' AND Nome_Editora LIKE '%" + busca + "%'";
+                }
+                if (isCNPJ)
+                {
+                    Cmd.CommandText = @"SELECT * FROM Editora WHERE Estado = '" + statusNumero + "' AND CNPJ LIKE '%" + busca + "%'";
+                }
             }
 
             Cmd.Parameters.Clear();
@@ -131,9 +161,10 @@ namespace Biblioteca.Controller {
                     (int)reader["ID"],
                     (String)reader["Nome_Editora"],
                     (String)reader["Endereco"],
+                    (String)reader["Telefone"],
                     (String)reader["CNPJ"],
                     (String)reader["Email"],
-                    (String)reader["Telefone"]
+                    (int)reader["Estado"]
                 );
                 lista.Add(leitor);
             }

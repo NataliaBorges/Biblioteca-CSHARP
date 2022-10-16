@@ -39,12 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbLyPnlDataGrid = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbEditarStatus = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.tbEdicao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.TbPesquisar = new System.Windows.Forms.TextBox();
             this.dtGridViewEdicao = new System.Windows.Forms.DataGridView();
@@ -172,6 +176,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.cbEditarStatus);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Controls.Add(this.tbEdicao);
             this.panel2.Controls.Add(this.label5);
@@ -183,13 +189,39 @@
             this.panel2.Size = new System.Drawing.Size(459, 442);
             this.panel2.TabIndex = 31;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(49, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 98;
+            this.label2.Text = "Status:";
+            // 
+            // cbEditarStatus
+            // 
+            this.cbEditarStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEditarStatus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbEditarStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEditarStatus.FormattingEnabled = true;
+            this.cbEditarStatus.Items.AddRange(new object[] {
+            "Ativo",
+            "Inativo"});
+            this.cbEditarStatus.Location = new System.Drawing.Point(120, 140);
+            this.cbEditarStatus.Name = "cbEditarStatus";
+            this.cbEditarStatus.Size = new System.Drawing.Size(177, 28);
+            this.cbEditarStatus.TabIndex = 97;
+            // 
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Olive;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(265, 160);
+            this.btnSalvar.Location = new System.Drawing.Point(259, 268);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(118, 32);
             this.btnSalvar.TabIndex = 39;
@@ -234,7 +266,7 @@
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(105, 160);
+            this.btnExcluir.Location = new System.Drawing.Point(99, 268);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(118, 32);
             this.btnExcluir.TabIndex = 33;
@@ -245,6 +277,8 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.cbStatus);
             this.panel3.Controls.Add(this.lblNotFound);
             this.panel3.Controls.Add(this.TbPesquisar);
             this.panel3.Controls.Add(this.dtGridViewEdicao);
@@ -255,6 +289,33 @@
             this.panel3.Size = new System.Drawing.Size(458, 442);
             this.panel3.TabIndex = 32;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(91, 37);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 20);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "Status:";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "Ambos",
+            "Ativo",
+            "Inativo"});
+            this.cbStatus.Location = new System.Drawing.Point(153, 34);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(177, 28);
+            this.cbStatus.TabIndex = 95;
+            this.cbStatus.SelectedValueChanged += new System.EventHandler(this.cbStatus_SelectedValueChanged);
+            // 
             // lblNotFound
             // 
             this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -262,7 +323,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(165, 171);
+            this.lblNotFound.Location = new System.Drawing.Point(170, 219);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 77;
@@ -274,7 +335,7 @@
             this.TbPesquisar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TbPesquisar.BackColor = System.Drawing.Color.White;
             this.TbPesquisar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TbPesquisar.Location = new System.Drawing.Point(103, 50);
+            this.TbPesquisar.Location = new System.Drawing.Point(108, 98);
             this.TbPesquisar.Name = "TbPesquisar";
             this.TbPesquisar.PlaceholderText = "Digite aqui";
             this.TbPesquisar.Size = new System.Drawing.Size(222, 27);
@@ -311,7 +372,7 @@
             this.dtGridViewEdicao.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewEdicao.EnableHeadersVisualStyles = false;
             this.dtGridViewEdicao.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewEdicao.Location = new System.Drawing.Point(20, 83);
+            this.dtGridViewEdicao.Location = new System.Drawing.Point(25, 131);
             this.dtGridViewEdicao.Name = "dtGridViewEdicao";
             this.dtGridViewEdicao.ReadOnly = true;
             this.dtGridViewEdicao.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -337,7 +398,7 @@
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(165, 340);
+            this.btnEditar.Location = new System.Drawing.Point(170, 388);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(105, 32);
             this.btnEditar.TabIndex = 32;
@@ -446,5 +507,9 @@
         private System.Windows.Forms.TextBox TbPesquisar;
         private FontAwesome.Sharp.IconButton btnCadastrarEdicao;
         private System.Windows.Forms.Label lblNotFound;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbEditarStatus;
     }
 }

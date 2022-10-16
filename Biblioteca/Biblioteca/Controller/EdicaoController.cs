@@ -45,6 +45,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Edicao
+                                WHERE Estado = 1
                                 ORDER BY Id desc
                                 OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
 
@@ -69,10 +70,11 @@ namespace Biblioteca.Controller
         public bool Insercao(EdicaoModel edicao)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO edicao Values (@Nome_Edicao)";
+            Cmd.CommandText = @"INSERT INTO edicao Values (@Nome_Edicao, @Estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Edicao", edicao.Nome_Edicao);
+            Cmd.Parameters.AddWithValue("@Estado", 1);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {
@@ -83,13 +85,32 @@ namespace Biblioteca.Controller
                 return false;
             }
         }
-        public List<EdicaoModel> BuscarEdicao(string busca)
+        public List<EdicaoModel> BuscarEdicao(string busca, string status = "Ambos")
         {
             Cmd.Connection = connection.RetornaConexao();
 
+            int statusNumero = 2; // Ambos
 
-            Cmd.CommandText = @"SELECT  * from Edicao
-                                WHERE Edicao.NOme_Edicao LIKE '" + busca + "%'";
+            if (status == "Ativo")
+            {
+                statusNumero = 1;
+            }
+
+            if (status == "Inativo")
+            {
+                statusNumero = 0;
+            }
+
+            if (statusNumero == 2)
+            {
+                Cmd.CommandText = @"SELECT  * from Edicao
+                                WHERE Edicao.Nome_Edicao LIKE '%" + busca + "%'";
+            }
+            else
+            {
+                Cmd.CommandText = @"SELECT  * from Edicao
+                                WHERE Edicao.Estado = '" + statusNumero + "' AND Edicao.Nome_Edicao LIKE '%" + busca + "%'";
+            }
 
             Cmd.Parameters.Clear();
 
@@ -101,7 +122,8 @@ namespace Biblioteca.Controller
             {
                 EdicaoModel edicao = new EdicaoModel(
                     (int)reader["Id"],
-                    (String)reader["Nome_Edicao"]
+                    (String)reader["Nome_Edicao"],
+                    (int)reader["Estado"]
                 );
                 lista.Add(edicao);
             }
@@ -130,14 +152,13 @@ namespace Biblioteca.Controller
         public bool Atualizar(EdicaoModel edicao)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Edicao SET Nome_Edicao = @Nome_Edicao
+            Cmd.CommandText = @"UPDATE Edicao SET Nome_Edicao = @Nome_Edicao, Estado = @Estado
                                 WHERE Id = @Id";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Id", edicao.getId());
             Cmd.Parameters.AddWithValue("@Nome_Edicao", edicao.Nome_Edicao);
-
-
+            Cmd.Parameters.AddWithValue("@Estado", edicao.Estado);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {

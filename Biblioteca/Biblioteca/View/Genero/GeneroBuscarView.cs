@@ -28,19 +28,22 @@ namespace Biblioteca.View.Genero
 
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
+
+            cbStatus.Text = "Ambos";
         }
         private void popular(List<GeneroModel> lista)
         {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Status", typeof(string));
             dtGridViewGenero.DataSource = lista;
             if (lista.Count > 0)
             {
                 foreach (GeneroModel genero in lista)
                 {
 
-                    table.Rows.Add(genero.getId(), genero.Nome_genero);
+                    table.Rows.Add(genero.getId(), genero.Nome_genero, genero.getEstado());
 
                 }
                 dtGridViewGenero.DataSource = table;
@@ -98,8 +101,9 @@ namespace Biblioteca.View.Genero
             TbGenero.Enabled = false;
             this.genero = null;
             String busca = tbBuscar.Text;
+            String status = cbStatus.Text;
 
-            List<GeneroModel> lista = controller.BuscarGenero(busca);
+            List<GeneroModel> lista = controller.BuscarGenero(busca, status);
 
             if (tbBuscar.Text.Length > 0 && lista.Count > 0)
             {
@@ -124,8 +128,14 @@ namespace Biblioteca.View.Genero
             {
                 int id = int.Parse(row.Cells[0].Value.ToString());
                 String Nome = row.Cells[1].Value.ToString();
+                int estado = 0;
 
-                this.genero = new GeneroModel(id, Nome);
+                if (row.Cells[2].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+
+                this.genero = new GeneroModel(id, Nome, estado);
             }
         }
 
@@ -138,6 +148,7 @@ namespace Biblioteca.View.Genero
                     TbGenero.Enabled = true;
                 }
                 TbGenero.Text = this.genero.Nome_genero;
+                cbEditarStatus.Text = this.genero.getEstado();
             }
             catch (Exception)
             {
@@ -158,7 +169,13 @@ namespace Biblioteca.View.Genero
             else
             {
                 TbGenero.Enabled = true;
-                GeneroModel livroGenero = new GeneroModel(genero.Id_genero, generoLivro);
+                int estado = 0;
+
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                GeneroModel livroGenero = new GeneroModel(genero.Id_genero, generoLivro, estado);
                 if (controller.Atualizar(livroGenero))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
@@ -169,6 +186,12 @@ namespace Biblioteca.View.Genero
                     MessageBox.Show("Não foi possível atualizar", "Atenção", MessageBoxButtons.OK);
                 }
             }
+        }
+
+        private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewGenero.DataSource = null;
         }
     }
 }

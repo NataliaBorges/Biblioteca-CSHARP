@@ -9,25 +9,30 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
 
-namespace Biblioteca.View.Fornecedor {
+namespace Biblioteca.View.Editora {
     public partial class EditoraEditarView : Form {
 
-        EditoraModel fornecedor;
+        EditoraModel editora;
         EditoraController controller = new EditoraController();
 
-        public EditoraEditarView(EditoraModel fornecedor) {
-            this.fornecedor = fornecedor;
+        public EditoraEditarView(EditoraModel editora) {
+            this.editora = editora;
             InitializeComponent();
         }
 
-        private void FornecedorEditarView_Load(object sender, EventArgs e) {
+        private void EditoraEditarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
-            if (fornecedor != null) {
-                tbNome.Text = fornecedor.Nome;
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+
+            if (editora != null) {
+                tbNome.Text = editora.Nome;
 
                 try {
                     //rua, numero, bairro - cidade
-                    string[] cidade = fornecedor.Endereco.Split('-');
+                    string[] cidade = editora.Endereco.Split('-');
                     string[] endereco = cidade[0].Split(',');
 
                     tbRua.Text = $"{endereco[0]}";
@@ -36,15 +41,16 @@ namespace Biblioteca.View.Fornecedor {
                     tbCidade.Text = $"{cidade[1]}";
                 }
                 catch (Exception) { }
-                maskedTextBoxTelefone.Text = fornecedor.Telefone;
-                maskedTextBoxCNPJ.Text = fornecedor.CNPJ;
-                tbEmail.Text = fornecedor.Email;
+                maskedTextBoxTelefone.Text = editora.Telefone;
+                maskedTextBoxCNPJ.Text = editora.CNPJ;
+                tbEmail.Text = editora.Email;
+                cbEditarStatus.Text = this.editora.getEstado();
             }
         }
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             String nome = tbNome.Text;
-            String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
+            String endereco = $"{tbRua.Text},{tbNumero.Text},{tbBairro.Text}-{tbCidade.Text}";
             String telefone = maskedTextBoxTelefone.Text;
             String cnpj = maskedTextBoxCNPJ.Text;
             String email = tbEmail.Text;
@@ -91,8 +97,14 @@ namespace Biblioteca.View.Fornecedor {
             }
             else
             {
-                EditoraModel fornecedor = new EditoraModel(this.fornecedor.getId(), nome, endereco, telefone, cnpj, email);
-                if (controller.Atualizar(fornecedor))
+                int estado = 0;
+
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                EditoraModel editora = new EditoraModel(this.editora.getId(), nome, endereco, telefone, cnpj, email, estado);
+                if (controller.Atualizar(editora))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
@@ -109,7 +121,7 @@ namespace Biblioteca.View.Fornecedor {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                if (controller.Excluir(fornecedor))
+                if (controller.Excluir(editora))
                 {
                     MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
@@ -118,6 +130,15 @@ namespace Biblioteca.View.Fornecedor {
                 {
                     MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
                 }
+            }
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
             }
         }
     }

@@ -14,6 +14,7 @@ namespace Biblioteca.View.Autor
     public partial class AutorBuscarView : Form
     {
         AutorController controller = new AutorController();
+        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         AutorModel autor;
         public AutorBuscarView()
         {
@@ -28,20 +29,21 @@ namespace Biblioteca.View.Autor
 
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
+
+            cbStatus.Text = "Ambos";
         }
         private void popular(List<AutorModel> lista)
         {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Nome", typeof(string));
+            table.Columns.Add("Status", typeof(string));
             dtGridViewAutor.DataSource = lista;
             if (lista.Count > 0)
             {
                 foreach (AutorModel autor in lista)
                 {
-                    
-                    table.Rows.Add(autor.getId(), autor.Nome_Autor);
-                    
+                    table.Rows.Add(autor.getId(), autor.Nome_Autor, autor.getEstado());
                 }
                 dtGridViewAutor.DataSource = table;
             }
@@ -86,6 +88,7 @@ namespace Biblioteca.View.Autor
                     TbAutor.Enabled = true;
                 }
                 TbAutor.Text = this.autor.Nome_Autor;
+                cbEditarStatus.Text = this.autor.getEstado();
             }
             catch (Exception)
             {
@@ -106,7 +109,13 @@ namespace Biblioteca.View.Autor
             else
             {
                 TbAutor.Enabled = true;
-                AutorModel livroAutor = new AutorModel(autor.Id_autor, autorLivro);
+                int estado = 0;
+
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                AutorModel livroAutor = new AutorModel(autor.Id_autor, autorLivro, estado);
                 if (controller.Atualizar(livroAutor))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
@@ -140,8 +149,9 @@ namespace Biblioteca.View.Autor
             TbAutor.Enabled = false;
             this.autor = null;
             String busca = tbBuscar.Text;
+            String status = cbStatus.Text;
 
-            List<AutorModel> lista = controller.BuscarAutor(busca);
+            List<AutorModel> lista = controller.BuscarAutor(busca, status);
 
             if (tbBuscar.Text.Length > 0 && lista.Count > 0)
             {
@@ -166,9 +176,21 @@ namespace Biblioteca.View.Autor
             {
                 int id = int.Parse(row.Cells[0].Value.ToString());
                 String Nome = row.Cells[1].Value.ToString();
+                int estado = 0;
 
-                this.autor = new AutorModel(id, Nome);
+                if (row.Cells[2].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+
+                this.autor = new AutorModel(id, Nome, estado);
             }
+        }
+
+        private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewAutor.DataSource = null;
         }
     }
 }

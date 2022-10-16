@@ -301,9 +301,9 @@ namespace Biblioteca.Controller {
         public List<LivroModel> Relatorio(DateTime inicio, DateTime fim) {
             Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"SELECT L.*, F.Nome_fornecedor AS 'Fornecedor', IE.ID_emprestimo AS 'Emprestimo'
+            Cmd.CommandText = @"SELECT L.*, F.Nome_fornecedor AS 'Editora', IE.ID_emprestimo AS 'Emprestimo'
                                 FROM Livro AS L
-                                INNER JOIN Fornecedor AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+                                INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
                                 INNER JOIN Item_emprestimo AS IE ON (IE.ID_livro = L.ID_livro)
                                 WHERE EXISTS (
 	                                SELECT * 
