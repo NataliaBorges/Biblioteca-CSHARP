@@ -29,22 +29,23 @@ namespace Biblioteca.View.Funcionario {
             this.tbCidade.Clear();
             this.maskedTextBoxTelefone.Clear();
             this.maskedTextBoxCPF.Clear();
-            this.maskedTextBoxNascimento.Clear();
+            this.CalendarFuncionario.Controls.Clear();
             this.tbSenha.Clear();
             this.tbEmail.Clear();
             this.cbFuncao.SelectedIndex = -1;
         }
 
 
-        private void button1_Click(object sender, EventArgs e) {
+        private void btnSalvar_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             String telefone = maskedTextBoxTelefone.Text;
             String cpf = maskedTextBoxCPF.Text;
             String senha = tbSenha.Text;
             String email = tbEmail.Text;
-            DateTime data = this.data; //.ToString("yyyy-MM-dd");
+            DateTime data = this.CalendarFuncionario.Value.Date; //.ToString("yyyy-MM-dd");
             int funcao = 0;
+
 
             foreach (ComboBoxItem item in comboBoxItems)
             {
@@ -53,7 +54,6 @@ namespace Biblioteca.View.Funcionario {
                     funcao = int.Parse(item.Value);
                 }
             }
-
 
             if (nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -91,16 +91,12 @@ namespace Biblioteca.View.Funcionario {
                 MessageBox.Show("Você precisa digitar uma senha.", "Atenção", MessageBoxButtons.OK);
                 tbSenha.Focus();
             }
-            else if (maskedTextBoxNascimento.Text == "  /  /") {
-                MessageBox.Show("Você precisa digitar uma data de Nascimento.", "Atenção", MessageBoxButtons.OK);
-                maskedTextBoxNascimento.Focus();
-            }
             else if (cbFuncao == null) {
                 MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
                 cbFuncao.Focus();
             }
             else {
-                FuncionarioModel funcionario = new FuncionarioModel(nome, cpf,data, email, endereco, telefone, senha, funcao);
+                FuncionarioModel funcionario = new FuncionarioModel(nome, data, cpf, endereco, telefone, email, senha, funcao);
                 if (funcionarioController.Insercao(funcionario)) {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();
@@ -113,23 +109,14 @@ namespace Biblioteca.View.Funcionario {
 
         }
 
-        private void calendar_DateChanged(object sender, DateRangeEventArgs e) {
-            maskedTextBoxNascimento.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
-            int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
-            int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
-            int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
-            data = new DateTime(ano, mes, dia);
-        }
-
-        private void LinkBuscarFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FuncionarioBuscarView funcionarioBuscarView = new FuncionarioBuscarView();
-            NovaJanela.novaJanela(funcionarioBuscarView, this.Bounds);
-        }
-
         private void FuncionarioCadastrarView_Load(object sender, EventArgs e)
         {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+
             this.cbFuncao.Items.Clear();
             List<FuncaoModel> funcoes = funcaoController.ListarTodos();
             if (funcoes.Count > 0)
@@ -149,12 +136,20 @@ namespace Biblioteca.View.Funcionario {
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
-        private void FuncionarioCadastrarView_Activated(object sender, EventArgs e)
+        private void CalendarFuncionario_ValueChanged(object sender, EventArgs e)
         {
-            //cbFuncao.Text = singleton.getFuncaoBusca().Nome;
+            //CalendarFuncionario.Text = CalendarFuncionario.//.Start.ToString("dd/MM/yyyy");
+            //int ano = int.parse(calendar.selectionrange.start.tostring("yyyy"));
+            //int mes = int.parse(calendar.selectionrange.start.tostring("mm"));
+            //int dia = int.parse(calendar.selectionrange.start.tostring("dd"));
+            //data = new datetime(ano, mes, dia);
         }
     }
 }

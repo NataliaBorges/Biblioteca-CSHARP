@@ -114,7 +114,7 @@ namespace Biblioteca.View.Emprestimo {
     //        }
     //    }
 
-    //    private void button1_Click(object sender, EventArgs e) {
+    //    private void btnSalvar_Click(object sender, EventArgs e) {
     //        EmprestimoBuscarLeitorView leitor = new EmprestimoBuscarLeitorView();
     //        NovaJanela.novaJanela(leitor, this.Bounds);
     //    }
