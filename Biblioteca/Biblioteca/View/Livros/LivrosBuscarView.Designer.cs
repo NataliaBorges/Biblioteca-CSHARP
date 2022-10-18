@@ -35,6 +35,8 @@ namespace Biblioteca.View.Livros {
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.rbGenero = new System.Windows.Forms.RadioButton();
@@ -59,7 +61,7 @@ namespace Biblioteca.View.Livros {
             this.rbEditora.BackColor = System.Drawing.Color.Transparent;
             this.rbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbEditora.ForeColor = System.Drawing.Color.White;
-            this.rbEditora.Location = new System.Drawing.Point(714, 64);
+            this.rbEditora.Location = new System.Drawing.Point(722, 89);
             this.rbEditora.MaximumSize = new System.Drawing.Size(180, 192);
             this.rbEditora.Name = "rbEditora";
             this.rbEditora.Size = new System.Drawing.Size(105, 20);
@@ -75,7 +77,7 @@ namespace Biblioteca.View.Livros {
             this.rbAutor.BackColor = System.Drawing.Color.Transparent;
             this.rbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbAutor.ForeColor = System.Drawing.Color.White;
-            this.rbAutor.Location = new System.Drawing.Point(619, 64);
+            this.rbAutor.Location = new System.Drawing.Point(627, 89);
             this.rbAutor.Name = "rbAutor";
             this.rbAutor.Size = new System.Drawing.Size(69, 24);
             this.rbAutor.TabIndex = 15;
@@ -90,7 +92,7 @@ namespace Biblioteca.View.Livros {
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(513, 64);
+            this.rbNome.Location = new System.Drawing.Point(521, 89);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 14;
@@ -129,6 +131,8 @@ namespace Biblioteca.View.Livros {
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.CbEstado);
             this.panel3.Controls.Add(this.btnEditar);
             this.panel3.Controls.Add(this.lblNotFound);
             this.panel3.Controls.Add(this.rbGenero);
@@ -143,6 +147,33 @@ namespace Biblioteca.View.Livros {
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1159, 544);
             this.panel3.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(833, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 108;
+            this.label2.Text = "Status:";
+            // 
+            // CbEstado
+            // 
+            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEstado.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Items.AddRange(new object[] {
+            "Ambos",
+            "Ativo",
+            "Inativo"});
+            this.CbEstado.Location = new System.Drawing.Point(895, 17);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(177, 28);
+            this.CbEstado.TabIndex = 107;
+            this.CbEstado.SelectedValueChanged += new System.EventHandler(this.CbEstado_SelectedValueChanged);
             // 
             // btnEditar
             // 
@@ -164,7 +195,7 @@ namespace Biblioteca.View.Livros {
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(536, 316);
+            this.lblNotFound.Location = new System.Drawing.Point(536, 304);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 98;
@@ -176,7 +207,7 @@ namespace Biblioteca.View.Livros {
             this.rbGenero.BackColor = System.Drawing.Color.Transparent;
             this.rbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbGenero.ForeColor = System.Drawing.Color.White;
-            this.rbGenero.Location = new System.Drawing.Point(825, 64);
+            this.rbGenero.Location = new System.Drawing.Point(833, 89);
             this.rbGenero.MaximumSize = new System.Drawing.Size(180, 192);
             this.rbGenero.Name = "rbGenero";
             this.rbGenero.Size = new System.Drawing.Size(105, 20);
@@ -241,7 +272,7 @@ namespace Biblioteca.View.Livros {
             this.lblSelecionar.AutoSize = true;
             this.lblSelecionar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblSelecionar.ForeColor = System.Drawing.Color.White;
-            this.lblSelecionar.Location = new System.Drawing.Point(290, 64);
+            this.lblSelecionar.Location = new System.Drawing.Point(298, 89);
             this.lblSelecionar.Name = "lblSelecionar";
             this.lblSelecionar.Size = new System.Drawing.Size(193, 20);
             this.lblSelecionar.TabIndex = 28;
@@ -392,5 +423,7 @@ namespace Biblioteca.View.Livros {
         private System.Windows.Forms.DataGridView dtGridViewLivro;
         private System.Windows.Forms.Label lblNotFound;
         private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox CbEstado;
     }
 }

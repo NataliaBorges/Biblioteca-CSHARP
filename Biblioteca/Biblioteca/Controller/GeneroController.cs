@@ -69,7 +69,7 @@ namespace Biblioteca.Controller
 
 
             Cmd.CommandText = @"SELECT  * from Genero
-                                WHERE Genero.Nome_Genero LIKE '%" + busca + "%'";
+                                WHERE estado = 1 AND Genero.Nome_Genero LIKE '%" + busca + "%'";
 
             Cmd.Parameters.Clear();
 

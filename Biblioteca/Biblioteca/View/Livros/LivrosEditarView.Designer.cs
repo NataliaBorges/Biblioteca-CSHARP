@@ -25,8 +25,9 @@ namespace Biblioteca.View.Livros {
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosEditarView));
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cbEditarStatus = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.BtnGenero = new FontAwesome.Sharp.IconButton();
             this.BtnEditora = new FontAwesome.Sharp.IconButton();
@@ -50,24 +51,11 @@ namespace Biblioteca.View.Livros {
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(557, 407);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(192, 46);
-            this.btnExcluir.TabIndex = 2;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.cbEditarStatus);
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.BtnGenero);
             this.panel1.Controls.Add(this.BtnEditora);
@@ -80,7 +68,6 @@ namespace Biblioteca.View.Livros {
             this.panel1.Controls.Add(this.tbEditora);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.tbGenero);
-            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.tbAutor);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.tbQuantidade);
@@ -92,18 +79,46 @@ namespace Biblioteca.View.Livros {
             this.panel1.Size = new System.Drawing.Size(1003, 700);
             this.panel1.TabIndex = 28;
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(565, 310);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 102;
+            this.label4.Text = "Status:";
+            // 
+            // cbEditarStatus
+            // 
+            this.cbEditarStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbEditarStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEditarStatus.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbEditarStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbEditarStatus.FormattingEnabled = true;
+            this.cbEditarStatus.Items.AddRange(new object[] {
+            "Ativo",
+            "Inativo"});
+            this.cbEditarStatus.Location = new System.Drawing.Point(623, 307);
+            this.cbEditarStatus.Name = "cbEditarStatus";
+            this.cbEditarStatus.Size = new System.Drawing.Size(147, 28);
+            this.cbEditarStatus.TabIndex = 101;
+            // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvar.BackColor = System.Drawing.Color.Olive;
+            this.btnSalvar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(334, 408);
+            this.btnSalvar.Location = new System.Drawing.Point(455, 413);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(178, 45);
             this.btnSalvar.TabIndex = 98;
-            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.Text = "ATUALIZAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -132,7 +147,7 @@ namespace Biblioteca.View.Livros {
             this.BtnEditora.IconColor = System.Drawing.Color.White;
             this.BtnEditora.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditora.IconSize = 23;
-            this.BtnEditora.Location = new System.Drawing.Point(734, 303);
+            this.BtnEditora.Location = new System.Drawing.Point(520, 306);
             this.BtnEditora.Name = "BtnEditora";
             this.BtnEditora.Size = new System.Drawing.Size(36, 27);
             this.BtnEditora.TabIndex = 96;
@@ -203,11 +218,11 @@ namespace Biblioteca.View.Livros {
             // 
             this.lblEdicaoLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblEdicaoLivro.AutoSize = true;
-            this.lblEdicaoLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEdicaoLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEdicaoLivro.ForeColor = System.Drawing.Color.White;
             this.lblEdicaoLivro.Location = new System.Drawing.Point(421, 93);
             this.lblEdicaoLivro.Name = "lblEdicaoLivro";
-            this.lblEdicaoLivro.Size = new System.Drawing.Size(247, 38);
+            this.lblEdicaoLivro.Size = new System.Drawing.Size(260, 39);
             this.lblEdicaoLivro.TabIndex = 51;
             this.lblEdicaoLivro.Text = "EDITAR LIVRO";
             // 
@@ -225,7 +240,7 @@ namespace Biblioteca.View.Livros {
             this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEditora.Location = new System.Drawing.Point(319, 305);
             this.tbEditora.Name = "tbEditora";
-            this.tbEditora.Size = new System.Drawing.Size(409, 27);
+            this.tbEditora.Size = new System.Drawing.Size(195, 27);
             this.tbEditora.TabIndex = 47;
             // 
             // label9
@@ -359,7 +374,6 @@ namespace Biblioteca.View.Livros {
         }
 
         #endregion
-        private System.Windows.Forms.Button btnExcluir;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private Util.Head head1;
@@ -380,5 +394,7 @@ namespace Biblioteca.View.Livros {
         private FontAwesome.Sharp.IconButton BtnEditora;
         private FontAwesome.Sharp.IconButton BtnAutor;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbEditarStatus;
     }
 }

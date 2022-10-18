@@ -16,6 +16,7 @@ namespace Biblioteca.Model {
         public string NomeEdicao { get; set; }
         public int IdEmprestimo { get; set; }
         public int Disponiveis { get; set; }
+        public int Estado { get; set; }
 
         public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero)
         {
@@ -24,6 +25,16 @@ namespace Biblioteca.Model {
             this.NomeEditora = Editora;
             this.NomeAutor = Autor;
             this.NomeGenero = Genero;
+        }
+        public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero, int Quantidade, int estado)
+        {
+            this.ID = ID;
+            this.Titulo = Titulo;
+            this.NomeEditora = Editora;
+            this.NomeAutor = Autor;
+            this.NomeGenero = Genero;
+            this.Quantidade = Quantidade;
+            this.Estado = estado;
         }
         public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero, int Quantidade)
         {
@@ -34,7 +45,7 @@ namespace Biblioteca.Model {
             this.NomeGenero = Genero;
             this.Quantidade = Quantidade;
         }
-        public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero, int Quantidade, int IdEditora, int IdAutor, int IdGenero)
+        public LivroModel(int ID, string Titulo, string Editora, string Autor, string Genero, int Quantidade, int IdEditora, int IdAutor, int IdGenero, int estado)
         {
             this.ID = ID;
             this.Titulo = Titulo;
@@ -45,6 +56,7 @@ namespace Biblioteca.Model {
             this.IdEditora = IdEditora;
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
+            this.Estado = estado;
         }
         public LivroModel(string Titulo, int IdEditora, int IdAutor, int IdGenero)
         {
@@ -53,17 +65,29 @@ namespace Biblioteca.Model {
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
         }
-        public LivroModel(int Id, string Titulo, int IdEditora, int IdAutor, int IdGenero)
+        public LivroModel(int Id, string Titulo, int IdEditora, int IdAutor, int IdGenero, int estado)
         {
             this.ID = Id;
             this.Titulo = Titulo;
             this.IdEditora = IdEditora;
             this.IdAutor = IdAutor;
             this.IdGenero = IdGenero;
+            this.Estado = estado;
         }
 
         public int getId() {
             return this.ID;
+        }
+        public string getEstado()
+        {
+            if (this.Estado == 0)
+            {
+                return "Inativo";
+            }
+            else
+            {
+                return "Ativo";
+            }
         }
 
     }

@@ -21,7 +21,7 @@ namespace Biblioteca.Controller {
 
         public bool Insercao(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @Telefone, @CPF, @Endereco, @Email, @Id_estado)";
+            Cmd.CommandText = @"INSERT INTO Leitor Values (@Nome_Leitor, @Data_Nascimento, @CPF, @Telefone, @Endereco, @Email, @Estado)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Nome_Leitor", leitor.Nome);
@@ -30,7 +30,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
             Cmd.Parameters.AddWithValue("@Email", leitor.Email);
-            Cmd.Parameters.AddWithValue("@Id_estado", leitor.ID_estado = 1);
+            Cmd.Parameters.AddWithValue("@Estado",  1);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -42,8 +42,8 @@ namespace Biblioteca.Controller {
         public bool Atualizar(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Leitor SET Nome_Leitor = @Nome_Leitor, Data_Nascimento = @Data_Nascimento, 
-                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco, Email = @Email
-                                WHERE ID_leitor = @ID";
+                                Telefone = @Telefone, CPF = @CPF, Endereco = @Endereco, Email = @Email, Estado = @Estado
+                                WHERE Id = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", leitor.getId());
@@ -53,6 +53,7 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@CPF", leitor.CPF);
             Cmd.Parameters.AddWithValue("@Endereco", leitor.Endereco);
             Cmd.Parameters.AddWithValue("@Email", leitor.Email);
+            Cmd.Parameters.AddWithValue("@Estado", leitor.Estado);
 
             if (Cmd.ExecuteNonQuery() == 1) {
                 return true;
@@ -62,80 +63,43 @@ namespace Biblioteca.Controller {
             }
         }
 
-        public List<LeitorModel> ListarTodos() {
+        public List<LeitorModel> Buscar(string busca, bool isNome = false, bool isCPF = false, string status = "Ambos") {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT  Leitor.Id,
-                                        Leitor.Nome_Leitor,
-		                                Leitor.Data_Nascimento, 
-		                                Leitor.CPF,
-		                                Leitor.Telefone, 
-		                                Leitor.Endereco, 
-		                                Leitor.Email, 
-		                                Estado.Nome_Estado
-                                FROM Leitor
-                                INNER JOIN Estado ON (Estado.Id = Leitor.Id_estado)";
-            Cmd.Parameters.Clear();
+            int statusNumero = 2; // Ambos
 
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<LeitorModel> lista = new List<LeitorModel>();
-
-            while (reader.Read()) {
-                LeitorModel leitor = new LeitorModel(
-                    (int)reader["Id"],
-                    (String)reader["Nome_Leitor"],
-                    (DateTime)reader["Data_Nascimento"],
-                    (String)reader["CPF"],
-                    (String)reader["Telefone"],
-                    (String)reader["Endereco"],
-                    (String)reader["Email"],
-                    (String)reader["Nome_Estado"]
-                );
-                lista.Add(leitor);
+            if (status == "Ativo")
+            {
+                statusNumero = 1;
             }
-            reader.Close();
 
-            return lista;
-        }
+            if (status == "Inativo")
+            {
+                statusNumero = 0;
+            }
 
-        public List<LeitorModel> Buscar(string busca, bool isNome = false, bool isCPF = false, int status = 0) {
-            Cmd.Connection = connection.RetornaConexao();
-
-            if (isNome) {
-                if(status == 0)
+                if (isNome) {
+                if (statusNumero == 2)
                 {
-                    Cmd.CommandText = @"SELECT	Leitor.*,
-		                                    Estado.Nome_Estado
-                                    FROM Leitor
-                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
-                                    WHERE  Leitor.Nome_Leitor LIKE '%" + busca + "%'";
+                    Cmd.CommandText = @"SELECT	*  FROM Leitor
+                                        WHERE Nome_Leitor LIKE '%" + busca + "%'";
                 }
                 else
                 {
-                    Cmd.CommandText = @"SELECT	Leitor.*,
-		                                    Estado.Nome_Estado
-                                    FROM Leitor
-                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
-                                    WHERE Estado.Id = '" + status + "' AND Leitor.Nome_Leitor LIKE '%" + busca + "%'";
+                    Cmd.CommandText = @"SELECT	* FROM Leitor
+                                        WHERE estado = '" + statusNumero + "' AND Nome_Leitor LIKE '%" + busca + "%'";
                 }
             }
 
             if (isCPF) {
-                if(status == 0)
+                if(statusNumero == 2)
                 {
-                    Cmd.CommandText = @"SELECT	Leitor.*,
-		                                    Estado.Nome_Estado
-                                    FROM Leitor
-                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
-                                    WHERE Leitor.CPF LIKE '%" + busca + "%'";
+                    Cmd.CommandText = @"SELECT	* FROM Leitor
+                                    WHERE CPF LIKE '%" + busca + "%'";
                 }
                 else
                 {
-                    Cmd.CommandText = @"SELECT	Leitor.*,
-		                                    Estado.Nome_Estado
-                                    FROM Leitor
-                                    LEFT JOIN Estado ON(Estado.Id = Leitor.Id_estado)
-                                    WHERE Estado.Id = '" + status + "' AND Leitor.CPF LIKE '%" + busca + "%'";
+                    Cmd.CommandText = @"SELECT	*  FROM Leitor
+                                    WHERE estado = '" + statusNumero + "' AND CPF LIKE '%" + busca + "%'";
                 }
                 
             }
@@ -155,7 +119,7 @@ namespace Biblioteca.Controller {
                     (String)reader["CPF"],
                     (String)reader["Endereco"],
                     (String)reader["Email"],
-                    (string)reader["Nome_Estado"]
+                    (int)reader["estado"]
                 );
                 lista.Add(leitor);
             }
@@ -166,7 +130,7 @@ namespace Biblioteca.Controller {
 
         public bool Excluir(LeitorModel leitor) {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"DELETE FROM Leitor WHERE ID_leitor = @ID";
+            Cmd.CommandText = @"DELETE FROM Leitor WHERE Id = @ID";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", leitor.getId());

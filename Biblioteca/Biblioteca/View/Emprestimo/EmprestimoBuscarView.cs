@@ -81,7 +81,7 @@ namespace Biblioteca.View.Emprestimo {
         //    NovaJanela.novaJanela(editar, this.Bounds);
         //}
 
-        //private void button2_Click(object sender, EventArgs e) {
+        //private void btnExcluir_Click(object sender, EventArgs e) {
         //    this.Close();
         //}
     }

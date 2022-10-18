@@ -116,23 +116,6 @@ namespace Biblioteca.View.Editora {
             }
         }
 
-        private void BtnExcluir_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                if (controller.Excluir(editora))
-                {
-                    MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
-                }
-            }
-        }
-
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);

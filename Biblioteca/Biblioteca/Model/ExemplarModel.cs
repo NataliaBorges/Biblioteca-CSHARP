@@ -16,6 +16,7 @@ namespace Biblioteca.Model {
         public string Nome_Autor { get; set; }
         public string Nome_Genero { get; set; }
         public string Nome_Edicao { get; set; }
+        public int Quantidade { get; set; }
 
         public ExemplarModel(int ID, int IdExemplar) {
             this.ID = ID;
@@ -32,6 +33,17 @@ namespace Biblioteca.Model {
             this.Nome_Editora = nomeEditora;
             this.Nome_Autor = nomeAutor;
             this.Nome_Genero = nomeGenero;
+
+        }
+        public ExemplarModel(int Id_Livro, int Edicao, string AnoPublicacao, string ISBN, DateTime aquisicao, float valor, int quantidade)
+        {
+            this.IdLivro= Id_Livro;
+            this.IdEdicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.ISBN = ISBN;
+            this.Aquisicao = aquisicao;
+            this.Valor = valor;
+            this.Quantidade = quantidade;
 
         }
         public ExemplarModel(int ID, string titulo, string autor, string Edicao, string AnoPublicacao, string ISBN, string Editora) {

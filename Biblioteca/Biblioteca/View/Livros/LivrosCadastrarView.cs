@@ -15,15 +15,18 @@ using Biblioteca.View.Editora;
 using Biblioteca.View.Genero;
 using MessageBox = System.Windows.Forms.MessageBox;
 
-namespace Biblioteca.View.Livros {
-    public partial class LivrosCadastrarView : Form {
+namespace Biblioteca.View.Livros
+{
+    public partial class LivrosCadastrarView : Form
+    {
 
         LivroController controller = new LivroController();
         List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         Singleton singleton = Singleton.GetInstancia();
         DateTime data;
 
-        public LivrosCadastrarView() {
+        public LivrosCadastrarView()
+        {
             InitializeComponent();
             this.tbAutor.Enabled = false;
             this.tbEditora.Enabled = false;
@@ -40,7 +43,8 @@ namespace Biblioteca.View.Livros {
 
         }
 
-        private void ClearForm() {
+        private void ClearForm()
+        {
             this.tbNome.Clear();
             this.tbAutor.Clear();
             this.tbEditora.Clear();
@@ -112,7 +116,6 @@ namespace Biblioteca.View.Livros {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
                 }
             }
-
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
@@ -126,7 +129,7 @@ namespace Biblioteca.View.Livros {
 
         private void LivrosCadastrarView_Activated(object sender, EventArgs e)
         {
-            if (singleton.getBuscarAutor() && singleton.getAutorBusca()!= null)
+            if (singleton.getBuscarAutor() && singleton.getAutorBusca() != null)
             {
                 singleton.setBuscarAutor(false);
                 tbAutor.Text = singleton.getAutorBusca().Nome_Autor;

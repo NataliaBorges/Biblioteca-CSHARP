@@ -32,7 +32,10 @@
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.CalendarExemplar = new System.Windows.Forms.DateTimePicker();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnPesquisarEdicao = new FontAwesome.Sharp.IconButton();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.head1 = new Biblioteca.Util.Head();
             this.tbEditora = new System.Windows.Forms.TextBox();
@@ -53,8 +56,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.tbValor = new System.Windows.Forms.TextBox();
+            this.btnVoltar = new FontAwesome.Sharp.IconButton();
             this.pnltotal.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -88,9 +91,12 @@
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.pnlPrincipal.Controls.Add(this.textBox1);
+            this.pnlPrincipal.Controls.Add(this.btnVoltar);
+            this.pnlPrincipal.Controls.Add(this.tbValor);
+            this.pnlPrincipal.Controls.Add(this.CalendarExemplar);
+            this.pnlPrincipal.Controls.Add(this.label10);
             this.pnlPrincipal.Controls.Add(this.label4);
-            this.pnlPrincipal.Controls.Add(this.iconButton2);
+            this.pnlPrincipal.Controls.Add(this.btnPesquisarEdicao);
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.tbEditora);
@@ -117,20 +123,62 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(1046, 711);
             this.pnlPrincipal.TabIndex = 28;
             // 
-            // iconButton2
+            // CalendarExemplar
             // 
-            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(579, 406);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 27);
-            this.iconButton2.TabIndex = 94;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.CalendarExemplar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarExemplar.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarExemplar.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarExemplar.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarExemplar.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarExemplar.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarExemplar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarExemplar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.CalendarExemplar.Location = new System.Drawing.Point(529, 491);
+            this.CalendarExemplar.Name = "CalendarExemplar";
+            this.CalendarExemplar.Size = new System.Drawing.Size(130, 27);
+            this.CalendarExemplar.TabIndex = 102;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(438, 496);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 20);
+            this.label10.TabIndex = 101;
+            this.label10.Text = "Aquisição:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(621, 408);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 20);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "Valor: ";
+            // 
+            // btnPesquisarEdicao
+            // 
+            this.btnPesquisarEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPesquisarEdicao.BackColor = System.Drawing.Color.CadetBlue;
+            this.btnPesquisarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisarEdicao.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.btnPesquisarEdicao.IconColor = System.Drawing.Color.White;
+            this.btnPesquisarEdicao.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPesquisarEdicao.IconSize = 23;
+            this.btnPesquisarEdicao.Location = new System.Drawing.Point(579, 406);
+            this.btnPesquisarEdicao.Name = "btnPesquisarEdicao";
+            this.btnPesquisarEdicao.Size = new System.Drawing.Size(36, 27);
+            this.btnPesquisarEdicao.TabIndex = 94;
+            this.btnPesquisarEdicao.UseVisualStyleBackColor = false;
+            this.btnPesquisarEdicao.Click += new System.EventHandler(this.btnPesquisarEdicao_Click);
             // 
             // icbtnVoltar
             // 
@@ -165,6 +213,7 @@
             // tbEditora
             // 
             this.tbEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbEditora.Enabled = false;
             this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEditora.Location = new System.Drawing.Point(348, 281);
             this.tbEditora.Name = "tbEditora";
@@ -188,6 +237,7 @@
             // tbGenero
             // 
             this.tbGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbGenero.Enabled = false;
             this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbGenero.Location = new System.Drawing.Point(600, 281);
             this.tbGenero.Name = "tbGenero";
@@ -198,6 +248,7 @@
             // tbNome
             // 
             this.tbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNome.Enabled = false;
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNome.Location = new System.Drawing.Point(349, 198);
             this.tbNome.Name = "tbNome";
@@ -233,6 +284,7 @@
             // tbEdicao
             // 
             this.tbEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbEdicao.Enabled = false;
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEdicao.Location = new System.Drawing.Point(349, 406);
             this.tbEdicao.Name = "tbEdicao";
@@ -301,6 +353,7 @@
             // tbAutor
             // 
             this.tbAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbAutor.Enabled = false;
             this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbAutor.Location = new System.Drawing.Point(349, 240);
             this.tbAutor.Name = "tbAutor";
@@ -350,12 +403,13 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(468, 542);
+            this.btnCadastrar.Location = new System.Drawing.Point(468, 569);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(178, 45);
             this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // label1
             // 
@@ -370,27 +424,36 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome:";
             // 
-            // textBox1
+            // tbValor
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(703, 406);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(74, 27);
-            this.textBox1.TabIndex = 96;
+            this.tbValor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbValor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbValor.Location = new System.Drawing.Point(671, 402);
+            this.tbValor.Name = "tbValor";
+            this.tbValor.Size = new System.Drawing.Size(106, 27);
+            this.tbValor.TabIndex = 103;
             // 
-            // label4
+            // btnVoltar
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(621, 408);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 20);
-            this.label4.TabIndex = 95;
-            this.label4.Text = "Valor: R$";
+            this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVoltar.FlatAppearance.BorderSize = 0;
+            this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnVoltar.ForeColor = System.Drawing.Color.White;
+            this.btnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnVoltar.IconSize = 30;
+            this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVoltar.Location = new System.Drawing.Point(222, 91);
+            this.btnVoltar.Name = "btnVoltar";
+            this.btnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.btnVoltar.TabIndex = 104;
+            this.btnVoltar.Tag = "";
+            this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // ExemplarCadastrarView
             // 
@@ -403,6 +466,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExemplarCadastrarView";
             this.Text = "ExemplarCadastrarView";
+            this.Activated += new System.EventHandler(this.ExemplarCadastrarView_Activated);
+            this.Load += new System.EventHandler(this.ExemplarCadastrarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
             this.pnlPrincipal.PerformLayout();
@@ -435,8 +500,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private System.Windows.Forms.TextBox textBox1;
+        private FontAwesome.Sharp.IconButton btnPesquisarEdicao;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker CalendarExemplar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbValor;
+        private FontAwesome.Sharp.IconButton btnVoltar;
     }
 }

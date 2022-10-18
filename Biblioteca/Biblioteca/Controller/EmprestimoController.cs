@@ -226,20 +226,20 @@ namespace Biblioteca.Controller {
 
             List<LivroModel> lista = new List<LivroModel>();
 
-            while (reader.Read()) {
-                LivroModel livro = new LivroModel(
+            //while (reader.Read()) {
+                //LivroModel livro = new LivroModel(
                     //(int)reader["ID_livro"],
                     //(int)reader["ID_fornecedor"],
-                    (int)reader["ID_Autor"],
-                    (String)reader["Autor_Livro"],
-                    (String)reader["Edicao"],
-                    (String)reader["Ano_publicacao"],
-                    (String)reader["ISBN"]
+                    //(int)reader["ID_Autor"],
+                    //(String)reader["Autor_Livro"],
+                    //(String)reader["Edicao"],
+                    //(String)reader["Ano_publicacao"],
+                    //(String)reader["ISBN"]
                     //(String)reader["Editora"],
                     //(int)reader["Quantidade"]
-                );
-                lista.Add(livro);
-            }
+            //    );
+            //    //lista.Add(livro);
+            //}
             reader.Close();
 
             for (int i = 0; i < lista.Count; i++) {
@@ -339,21 +339,21 @@ namespace Biblioteca.Controller {
 
             List<LivroModel> lista = new List<LivroModel>();
 
-            while (reader.Read()) {
-                LivroModel livro = new LivroModel(
-                    (int)reader["Id"],
-                    (String)reader["Titulo"],
-                    //(String)reader["Edicao"],
-                    //(String)reader["Ano_publicacao"],
-                    //(String)reader["ISBN"],
-                    //(int)reader["Quantidade"],
-                    (String)reader["Nome_Editora"],
-                    (String)reader["Nome_Autor"],
-                    (String)reader["Nome_Genero"]
-                );
-                lista.Add(livro);
-            }
-            reader.Close();
+            //while (reader.Read()) {
+            //    LivroModel livro = new LivroModel(
+            //        //(int)reader["Id"],
+            //        //(String)reader["Titulo"],
+            //        ////(String)reader["Edicao"],
+            //        ////(String)reader["Ano_publicacao"],
+            //        ////(String)reader["ISBN"],
+            //        ////(int)reader["Quantidade"],
+            //        //(String)reader["Nome_Editora"],
+            //        //(String)reader["Nome_Autor"],
+            //        //(String)reader["Nome_Genero"]
+            //    );
+            //    lista.Add(livro);
+            //}
+            //reader.Close();
 
             return lista;
         }

@@ -194,7 +194,7 @@ namespace Biblioteca.Controller {
 
 
             Cmd.CommandText = @"SELECT  * from Editora
-                                WHERE Editora.Nome_Editora LIKE '" + busca + "%'";
+                                WHERE estado = 1 AND Editora.Nome_Editora LIKE '%" + busca + "%'";
 
             Cmd.Parameters.Clear();
 

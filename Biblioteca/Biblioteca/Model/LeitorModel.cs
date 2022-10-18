@@ -12,8 +12,7 @@ namespace Biblioteca.Model {
         public string Endereco { get; set; }
         public string Email { get; set; }
         public int QuantidadeEmprestimo { get; set; }
-        public int ID_estado{get; set; }
-        public string Estado { get; set; }
+        public int Estado{get; set; }
 
         public LeitorModel(int ID, string Nome, DateTime DataNascimento, string Telefone, string CPF, string Endereco) {
             this.ID = ID;
@@ -33,7 +32,7 @@ namespace Biblioteca.Model {
             this.Endereco = Endereco;
             this.Email = Email;
         }
-        public LeitorModel(int ID, string Nome, DateTime DataNascimento, string Telefone, string CPF, string Endereco, string Email, string Estado)
+        public LeitorModel(int ID, string Nome, DateTime DataNascimento, string Telefone, string CPF, string Endereco, string Email, int Estado)
         {
             this.ID = ID;
             this.Nome = Nome;
@@ -56,6 +55,17 @@ namespace Biblioteca.Model {
 
         public int getId() {
             return this.ID;
+        }
+        public string getEstado()
+        {
+            if (this.Estado == 0)
+            {
+                return "Inativo";
+            }
+            else
+            {
+                return "Ativo";
+            }
         }
     }
 }

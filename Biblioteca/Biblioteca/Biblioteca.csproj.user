@@ -61,6 +61,9 @@
     <Compile Update="View\Exemplar\ExemplarEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Exemplar\ExemplarPesquisarEdicaoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Funcionario\FuncionarioBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,9 +86,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Leitor\LeitorCadastrarView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Livros\LivroBuscarExemplarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Livros\LivroPesquisarAutor.cs">

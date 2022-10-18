@@ -13,8 +13,7 @@ namespace Biblioteca.View.Leitor {
     public partial class LeitorBuscarView : Form {
 
         LeitorController controller = new LeitorController();
-        EstadoController controllerEstado = new EstadoController();
-        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
+        LeitorModel leitor;
         public LeitorBuscarView() {
             InitializeComponent();
             lblNotFound.Visible = false;    
@@ -30,7 +29,6 @@ namespace Biblioteca.View.Leitor {
             table.Columns.Add("CPF", typeof(string));
             table.Columns.Add("Endereço", typeof(string));
             table.Columns.Add("Status", typeof(string));
-            dtGridViewLeitor.DataSource = lista;
             if (lista.Count > 0)
             {
                 foreach (LeitorModel leitor in lista)
@@ -43,7 +41,7 @@ namespace Biblioteca.View.Leitor {
                                    leitor.DataNascimento,
                                    leitor.CPF,
                                    leitor.Endereco,
-                                   leitor.Estado);
+                                   leitor.getEstado());
                 }
                 dtGridViewLeitor.DataSource = table;
             }
@@ -62,33 +60,7 @@ namespace Biblioteca.View.Leitor {
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            this.cbStatus.Items.Clear();
-
-            List<EstadoModel> status = controllerEstado.ListarTodos();
-            if (status.Count > 0)
-            {
-                status.Add(new EstadoModel(0, "Ambos"));
-                foreach (EstadoModel estado in status)
-                {
-                    ComboBoxItem item = new ComboBoxItem(estado.Nome, estado.Id.ToString());
-                    cbStatus.Items.Add(item);
-                    comboBoxItems.Add(item);
-                }
-
-                cbStatus.ValueMember = "Value";
-                cbStatus.DisplayMember = "Text";
-                cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-                cbStatus.Text = status[status.Count - 1].Nome;
-            }
-
-            int statusLeitor = 0;
-            foreach (ComboBoxItem item in comboBoxItems)
-            {
-                if (cbStatus.Text == item.Text)
-                {
-                    statusLeitor = int.Parse(item.Value);
-                }
-            }
+            cbStatus.Text = "Ambos";
 
         }
         private void icbtnVoltar_Click(object sender, EventArgs e)
@@ -103,19 +75,13 @@ namespace Biblioteca.View.Leitor {
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
             String busca = tbBuscar.Text;
+            String status = cbStatus.Text;
 
 
             if (tbBuscar.Text.Length > 0)
             {
                 lblNotFound.Visible = false;
-                int status = 0;
-                foreach (ComboBoxItem item in comboBoxItems)
-                {
-                    if (cbStatus.Text == item.Text)
-                    {
-                        status = int.Parse(item.Value);
-                    }
-                }
+                
 
                 if (rbNome.Checked)
                 {
@@ -200,9 +166,42 @@ namespace Biblioteca.View.Leitor {
                 DateTime nascimento = DateTime.Parse(row.Cells[4].Value.ToString());
                 string cpf = row.Cells[5].Value.ToString();
                 string endereco = row.Cells[6].Value.ToString();
-                string status = row.Cells[7].Value.ToString();
 
-                //this.leitor = new LeitorModel(id, nome, email, nascimento,telefone, cpf, endereco, status);
+                int estado = 0;
+
+                if (row.Cells[7].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+
+                this.leitor = new LeitorModel(id, nome, nascimento, telefone, cpf, endereco, email, estado);
+            }
+        }
+
+        private void cbStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLeitor.DataSource = null;
+        }
+
+        private void LeitorBuscarView_Activated(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLeitor.DataSource = null;
+            rbNome.Checked = false;
+            rbCPF.Checked = false;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (leitor != null)
+            {
+                LeitorEditarView leitorEditarViewEditarView = new LeitorEditarView(leitor);
+                NovaJanela.novaJanela(leitorEditarViewEditarView, Bounds);
+            }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um leitor", "Atenção", MessageBoxButtons.OK);
             }
         }
     }

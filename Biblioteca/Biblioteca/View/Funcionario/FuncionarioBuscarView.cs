@@ -9,13 +9,16 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
 
-namespace Biblioteca.View.Funcionario {
-    public partial class FuncionarioBuscarView : Form {
+namespace Biblioteca.View.Funcionario
+{
+    public partial class FuncionarioBuscarView : Form
+    {
 
         FuncionarioController controller = new FuncionarioController();
-        FuncionarioModel  funcionario;
+        FuncionarioModel funcionario;
 
-        public FuncionarioBuscarView() {
+        public FuncionarioBuscarView()
+        {
             InitializeComponent();
         }
         private void FuncionarioBuscarView_Load(object sender, EventArgs e)
@@ -62,19 +65,6 @@ namespace Biblioteca.View.Funcionario {
             if (index >= 0)
             {
                 dtGridViewFuncionario.Rows[index].Selected = false;
-            }
-        }
-        private void button1_Click(object sender, EventArgs e) {
-            String busca = tbBuscar.Text;
-
-            if (rbNome.Checked) {
-                List<FuncionarioModel> lista = controller.Buscar(busca, isNome: true);
-                popular(lista);
-            }
-
-            if (rbEmail.Checked) {
-                List<FuncionarioModel> lista = controller.Buscar(busca, isEmail: true);
-                popular(lista);
             }
         }
 

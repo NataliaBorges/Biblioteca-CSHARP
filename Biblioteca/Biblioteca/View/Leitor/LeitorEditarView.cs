@@ -14,22 +14,53 @@ namespace Biblioteca.View.Leitor {
 
         LeitorModel leitor;
         LeitorController leitorController = new LeitorController();
-        EstadoController estadoController = new EstadoController();
-        List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         DateTime data;
 
         public LeitorEditarView(LeitorModel leitor) {
             this.leitor = leitor;
             InitializeComponent();
         }
+        private void LeitorEditarView_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setForm(this);
+            this.menuControl1.setPanel(pnltotal);
 
-        private void button1_Click(object sender, EventArgs e) {
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+
+            if (leitor != null)
+            {
+                tbNome.Text = leitor.Nome;
+
+                try
+                {
+                    //rua, numero, bairro - cidade
+                    string[] cidade = leitor.Endereco.Split('-');
+                    string[] endereco = cidade[0].Split(',');
+
+                    tbRua.Text = $"{endereco[0]}";
+                    tbNumero.Text = $"{endereco[1]}";
+                    tbBairro.Text = $"{endereco[2]}";
+                    tbCidade.Text = $"{cidade[1]}";
+                }
+                catch (Exception) { }
+
+                maskedTextCPF.Text = leitor.CPF;
+                maskedTextBoxTelefone.Text = leitor.Telefone;
+                CalendarLeitor.Text = leitor.DataNascimento.ToString("dd/MM/yyyy");
+                data = leitor.DataNascimento;
+                tbEmail.Text = leitor.Email;
+                cbStatus.Text = leitor.getEstado();
+            }
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e) {
             String nome = tbNome.Text;
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             String telefone = maskedTextBoxTelefone.Text;
             String cpf = maskedTextCPF.Text;
             String email = tbEmail.Text;
-            DateTime data = this.data; //.ToString("yyyy-MM-dd");
+            DateTime data = this.CalendarLeitor.Value.Date;
 
             if (nome.Length <= 0) {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
@@ -59,16 +90,18 @@ namespace Biblioteca.View.Leitor {
                 MessageBox.Show("Você precisa digitar um CPF válido.", "Atenção", MessageBoxButtons.OK);
                 maskedTextCPF.Focus();
             }
-            else if (maskedTextBoxNascimento.Text == "  /  /") {
-                MessageBox.Show("Você precisa selecionar uma data.", "Atenção", MessageBoxButtons.OK);
-                maskedTextBoxNascimento.Focus();
-            }
             else if (Validar.ValidarEmail(email) == false) {
                 MessageBox.Show("Você precisa digitar um email válido.", "Atenção", MessageBoxButtons.OK);
                 tbEmail.Focus();
             }
             else {
-                LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email);
+                int estado = 0;
+
+                if (cbStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                LeitorModel leitor = new LeitorModel(this.leitor.getId(), nome, data, telefone, cpf, endereco, email, estado);
                 if (leitorController.Atualizar(leitor)) {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     this.Close();
@@ -79,48 +112,7 @@ namespace Biblioteca.View.Leitor {
             }
         }
 
-        private void LeitorEditarView_Load(object sender, EventArgs e) {
-            this.menuControl1.setPanel(pnltotal);
-
-            this.cbStatus.Items.Clear();
-            List<EstadoModel> estados = estadoController.ListarTodos();
-            if (estados.Count > 0)
-            {
-                foreach (EstadoModel estado in estados)
-                {
-                    ComboBoxItem item = new ComboBoxItem(estado.Nome, estado.Id.ToString());
-                    cbStatus.Items.Add(item);
-                    comboBoxItems.Add(item);
-                }
-
-                cbStatus.ValueMember = "Value";
-                cbStatus.DisplayMember = "Text";
-                cbStatus.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
-            if (leitor != null) {
-                tbNome.Text = leitor.Nome;
-
-                try {
-                    //rua, numero, bairro - cidade
-                    string[] cidade = leitor.Endereco.Split('-');
-                    string[] endereco = cidade[0].Split(',');
-
-                    tbRua.Text = $"{endereco[0]}";
-                    tbNumero.Text = $"{endereco[1]}";
-                    tbBairro.Text = $"{endereco[2]}";
-                    tbCidade.Text = $"{cidade[1]}";
-                }
-                catch (Exception) { }
-
-                maskedTextCPF.Text = leitor.CPF;
-                maskedTextBoxTelefone.Text = leitor.Telefone;
-                maskedTextBoxNascimento.Text = leitor.DataNascimento.ToString("dd/MM/yyyy");
-                data = leitor.DataNascimento;
-                tbEmail.Text = leitor.Email;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
+        private void btnExcluir_Click(object sender, EventArgs e) {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes) {
                 if (leitorController.Excluir(leitor)) {
@@ -132,15 +124,14 @@ namespace Biblioteca.View.Leitor {
                 }
             }
         }
-        private void calendar_DateChanged_1(object sender, DateRangeEventArgs e) {
-            maskedTextBoxNascimento.Text = calendar.SelectionRange.Start.ToString("dd/MM/yyyy");
-            int ano = int.Parse(calendar.SelectionRange.Start.ToString("yyyy"));
-            int mes = int.Parse(calendar.SelectionRange.Start.ToString("MM"));
-            int dia = int.Parse(calendar.SelectionRange.Start.ToString("dd"));
-            data = new DateTime(ano, mes, dia);
-        }
-        private void button3_Click(object sender, EventArgs e) {
-            this.Close();
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

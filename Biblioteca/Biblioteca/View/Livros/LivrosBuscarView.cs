@@ -9,18 +9,22 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
 
-namespace Biblioteca.View.Livros {
-    public partial class LivrosBuscarView : Form {
+namespace Biblioteca.View.Livros
+{
+    public partial class LivrosBuscarView : Form
+    {
 
         LivroController controller = new LivroController();
         LivroModel livro;
         Singleton singleton = Singleton.GetInstancia();
 
-        public LivrosBuscarView() {
+        public LivrosBuscarView()
+        {
             InitializeComponent();
         }
 
-        private void popular(List<LivroModel> lista) {
+        private void popular(List<LivroModel> lista)
+        {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Título", typeof(string));
@@ -28,8 +32,8 @@ namespace Biblioteca.View.Livros {
             table.Columns.Add("Editora", typeof(string));
             table.Columns.Add("Gênero", typeof(string));
             table.Columns.Add("Quantidade", typeof(int));
+            table.Columns.Add("Status", typeof(string));
 
-            dtGridViewLivros.DataSource = lista;
             if (lista.Count > 0)
             {
                 foreach (LivroModel livros in lista)
@@ -40,7 +44,8 @@ namespace Biblioteca.View.Livros {
                                    livros.NomeAutor,
                                    livros.NomeEditora,
                                    livros.NomeGenero,
-                                   livros.Quantidade);
+                                   livros.Quantidade,
+                                   livros.getEstado());
                 }
                 dtGridViewLivros.DataSource = table;
             }
@@ -52,7 +57,8 @@ namespace Biblioteca.View.Livros {
             }
         }
 
-        private void LivrosBuscarView_Load(object sender, EventArgs e) {
+        private void LivrosBuscarView_Load(object sender, EventArgs e)
+        {
             this.dtGridViewLivros.DefaultCellStyle.Font = new Font("Book Antiqua", 12);
 
             this.menuControl1.setForm(this);
@@ -61,11 +67,16 @@ namespace Biblioteca.View.Livros {
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
+            CbEstado.Text = "Ambos";
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnCadastrarLivro_Click(object sender, EventArgs e)
@@ -75,7 +86,7 @@ namespace Biblioteca.View.Livros {
         }
         private void buscar(List<LivroModel> lista)
         {
-            
+
             if (lista.Count > 0)
             {
                 lblNotFound.Visible = false;
@@ -89,7 +100,9 @@ namespace Biblioteca.View.Livros {
         }
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
+            this.livro = null;
             String busca = tbBuscar.Text;
+            String status = CbEstado.Text;
 
             if (tbBuscar.Text.Length > 0)
             {
@@ -97,24 +110,27 @@ namespace Biblioteca.View.Livros {
 
                 if (rbNome.Checked)
                 {
-                    List<LivroModel> nome = controller.Buscar(busca, isNome: true);
+                    List<LivroModel> nome = controller.Buscar(busca, isNome: true, status: status);
                     buscar(nome);
-                }else if (rbAutor.Checked)
+                }
+                else if (rbAutor.Checked)
                 {
-                    List<LivroModel> autor = controller.Buscar(busca, isAutor: true);
+                    List<LivroModel> autor = controller.Buscar(busca, isAutor: true, status: status);
                     buscar(autor);
-                }else if (rbEditora.Checked)
+                }
+                else if (rbEditora.Checked)
                 {
-                    List<LivroModel> editora = controller.Buscar(busca, isEditora: true);
+                    List<LivroModel> editora = controller.Buscar(busca, isEditora: true, status: status);
                     buscar(editora);
-                }else if (rbGenero.Checked)
+                }
+                else if (rbGenero.Checked)
                 {
-                    List<LivroModel> genero = controller.Buscar(busca, isGenero: true);
+                    List<LivroModel> genero = controller.Buscar(busca, isGenero: true, status: status);
                     buscar(genero);
                 }
                 else
                 {
-                    List<LivroModel> nome = controller.Buscar(busca, isNome: true);
+                    List<LivroModel> nome = controller.Buscar(busca, isNome: true, status: status);
                     buscar(nome);
                 }
             }
@@ -163,15 +179,22 @@ namespace Biblioteca.View.Livros {
                 String autor = row.Cells[2].Value.ToString();
                 String editora = row.Cells[3].Value.ToString();
                 String genero = row.Cells[4].Value.ToString();
-                int quantidade =int.Parse(row.Cells[5].Value.ToString());
+                int quantidade = int.Parse(row.Cells[5].Value.ToString());
 
-                this.livro = new LivroModel(id, titulo, editora, autor,  genero, quantidade);
+                int estado = 0;
+
+                if (row.Cells[6].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+
+                this.livro = new LivroModel(id, titulo, editora, autor, genero, quantidade, estado);
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if(livro != null)
+            if (livro != null)
             {
                 singleton.setLivroExemplar(livro);
                 LivrosEditarView livroEditarView = new LivrosEditarView();
@@ -185,6 +208,12 @@ namespace Biblioteca.View.Livros {
         }
 
         private void LivrosBuscarView_Activated(object sender, EventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewLivros.DataSource = null;
+        }
+
+        private void CbEstado_SelectedValueChanged(object sender, EventArgs e)
         {
             tbBuscar.Text = null;
             dtGridViewLivros.DataSource = null;

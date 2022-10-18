@@ -9,19 +9,23 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
 
-namespace Biblioteca.View.Funcionario {
-    public partial class FuncionarioCadastrarView : Form {
+namespace Biblioteca.View.Funcionario
+{
+    public partial class FuncionarioCadastrarView : Form
+    {
         Singleton singleton = Singleton.GetInstancia();
         FuncaoController funcaoController = new FuncaoController();
         List<ComboBoxItem> comboBoxItems = new List<ComboBoxItem>();
         FuncionarioController funcionarioController = new FuncionarioController();
         DateTime data;
 
-        public FuncionarioCadastrarView() {
+        public FuncionarioCadastrarView()
+        {
             InitializeComponent();
         }
 
-        private void ClearForm() {
+        private void ClearForm()
+        {
             this.tbNome.Clear();
             this.tbRua.Clear();
             this.tbNumero.Clear();
@@ -36,7 +40,8 @@ namespace Biblioteca.View.Funcionario {
         }
 
 
-        private void btnSalvar_Click(object sender, EventArgs e) {
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
             String nome = tbNome.Text;
             String endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             String telefone = maskedTextBoxTelefone.Text;
@@ -49,59 +54,72 @@ namespace Biblioteca.View.Funcionario {
 
             foreach (ComboBoxItem item in comboBoxItems)
             {
-                if(cbFuncao.Text == item.Text)
+                if (cbFuncao.Text == item.Text)
                 {
                     funcao = int.Parse(item.Value);
                 }
             }
 
-            if (nome.Length <= 0) {
+            if (nome.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
                 tbNome.Focus();
             }
-            else if (tbRua.Text.Length <= 0) {
+            else if (tbRua.Text.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar uma Rua.", "Atenção", MessageBoxButtons.OK);
                 tbRua.Focus();
             }
-            else if (tbNumero.Text.Length <= 0) {
+            else if (tbNumero.Text.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar um número.", "Atenção", MessageBoxButtons.OK);
                 tbNumero.Focus();
             }
-            else if (tbBairro.Text.Length <= 0) {
+            else if (tbBairro.Text.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar um bairro.", "Atenção", MessageBoxButtons.OK);
                 tbBairro.Focus();
             }
-            else if (telefone == "(  )     -") {
+            else if (telefone == "(  )     -")
+            {
                 MessageBox.Show("Você precisa digitar um telefone.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxTelefone.Focus();
             }
-            else if (tbCidade.Text.Length <= 0) {
+            else if (tbCidade.Text.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar uma cidade.", "Atenção", MessageBoxButtons.OK);
                 tbCidade.Focus();
             }
-            else if (Validar.ValidaCpf(cpf) == false) {
+            else if (Validar.ValidaCpf(cpf) == false)
+            {
                 MessageBox.Show("Você precisa digitar uma CPF.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxCPF.Focus();
             }
-            else if (Validar.ValidarEmail(email) == false) {
+            else if (Validar.ValidarEmail(email) == false)
+            {
                 MessageBox.Show("Você precisa digitar um email.", "Atenção", MessageBoxButtons.OK);
                 tbEmail.Focus();
             }
-            else if (tbSenha.Text.Length <= 0) {
+            else if (tbSenha.Text.Length <= 0)
+            {
                 MessageBox.Show("Você precisa digitar uma senha.", "Atenção", MessageBoxButtons.OK);
                 tbSenha.Focus();
             }
-            else if (cbFuncao == null) {
+            else if (cbFuncao == null)
+            {
                 MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
                 cbFuncao.Focus();
             }
-            else {
+            else
+            {
                 FuncionarioModel funcionario = new FuncionarioModel(nome, data, cpf, endereco, telefone, email, senha, funcao);
-                if (funcionarioController.Insercao(funcionario)) {
+                if (funcionarioController.Insercao(funcionario))
+                {
                     MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
                     ClearForm();
                 }
-                else {
+                else
+                {
                     MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
                 }
                 this.Close();
@@ -141,15 +159,6 @@ namespace Biblioteca.View.Funcionario {
             {
                 this.Close();
             }
-        }
-
-        private void CalendarFuncionario_ValueChanged(object sender, EventArgs e)
-        {
-            //CalendarFuncionario.Text = CalendarFuncionario.//.Start.ToString("dd/MM/yyyy");
-            //int ano = int.parse(calendar.selectionrange.start.tostring("yyyy"));
-            //int mes = int.parse(calendar.selectionrange.start.tostring("mm"));
-            //int dia = int.parse(calendar.selectionrange.start.tostring("dd"));
-            //data = new datetime(ano, mes, dia);
         }
     }
 }

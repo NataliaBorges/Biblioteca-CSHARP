@@ -183,8 +183,8 @@ namespace Biblioteca.Util
 
         private void itemCadastrarExemplar_Click(object sender, EventArgs e)
         {
-            ExemplarCadastrarView exemplarCadastrarView = new ExemplarCadastrarView();
-            NovaJanela.novaJanela(exemplarCadastrarView, Bounds);
+            ExemplarBuscarLivroView exemplarBuscarLivroView = new ExemplarBuscarLivroView();
+            NovaJanela.novaJanela(exemplarBuscarLivroView, Bounds);
         }
 
         private void itemCadastrarEditora_Click(object sender, EventArgs e)

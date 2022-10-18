@@ -37,18 +37,8 @@ namespace Biblioteca.View.Livros {
                 tbEditora.Text = this.livro.NomeEditora;
                 tbGenero.Text = this.livro.NomeGenero;
                 tbQuantidade.Text = this.livro.Quantidade.ToString();
+                cbEditarStatus.Text = this.livro.getEstado();
 
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes) {
-                if (controller.Excluir(livro)) {
-                    MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                } else {
-                    MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
-                }
             }
         }
 
@@ -134,7 +124,13 @@ namespace Biblioteca.View.Livros {
                     Editora = singleton.getEditoraBusca().ID;
                 }
 
-                LivroModel livro = new LivroModel(this.livro.getId(), titulo, Editora, autor, Genero);
+                int estado = 0;
+
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
+                LivroModel livro = new LivroModel(this.livro.getId(), titulo, Editora, autor, Genero, estado);
                 if (controller.Atualizar(livro))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);

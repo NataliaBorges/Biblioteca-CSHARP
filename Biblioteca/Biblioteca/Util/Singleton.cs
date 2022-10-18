@@ -103,7 +103,29 @@ namespace Biblioteca.Util {
         {
             return this.autorBusca;
         }
+        //Selecionar edição
+        private EdicaoModel edicaoBusca;
 
+        private bool buscarEdicao = false;
+
+        public void setBuscarEdicao(bool busca)
+        {
+            this.buscarEdicao = busca;
+        }
+
+        public bool getBuscarEdicao()
+        {
+            return this.buscarEdicao;
+        }
+        public void setEdicaoBusca(EdicaoModel edicao)
+        {
+            edicaoBusca = edicao;
+        }
+
+        public EdicaoModel getEdicaoBusca()
+        {
+            return this.edicaoBusca;
+        }
 
         public static Singleton GetInstancia() {
             if (instancia == null) {

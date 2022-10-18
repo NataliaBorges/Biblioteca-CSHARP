@@ -186,16 +186,16 @@ namespace Biblioteca.Controller {
 
             List<LivroModel> lista = new List<LivroModel>();
 
-            while (reader.Read()) {
-                LivroModel livro = new LivroModel(
-                    (int)reader["Id"],
-                    (String)reader["Titulo"],
-                    (String)reader["Nome_Editora"],
-                    (String)reader["Nome_Autor"],
-                    (String)reader["Nome_Genero"]
-                );
-                lista.Add(livro);
-            }
+            //while (reader.Read()) {
+            //    LivroModel livro = new LivroModel(
+            //        //(int)reader["Id"],
+            //        //(String)reader["Titulo"],
+            //        //(String)reader["Nome_Editora"],
+            //        //(String)reader["Nome_Autor"],
+            //        //(String)reader["Nome_Genero"]
+            //    );
+            //    lista.Add(livro);
+            //}
             reader.Close();
 
             return lista;

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,14 +44,11 @@
             this.linkLblCadastrarEditora = new System.Windows.Forms.LinkLabel();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.livroModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.IcNotFound = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tbLyPnlDataGrid.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAutor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.livroModelBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -251,15 +247,6 @@
             this.menuControl1.Size = new System.Drawing.Size(183, 681);
             this.menuControl1.TabIndex = 22;
             // 
-            // livroModelBindingSource
-            // 
-            this.livroModelBindingSource.DataSource = typeof(Biblioteca.Model.LivroModel);
-            // 
-            // IcNotFound
-            // 
-            this.IcNotFound.Text = "notifyIcon1";
-            this.IcNotFound.Visible = true;
-            // 
             // LivroPesquisarAutor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -279,7 +266,6 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAutor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.livroModelBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,7 +274,6 @@
 
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.BindingSource livroModelBindingSource;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.TableLayoutPanel tbLyPnlDataGrid;
@@ -298,7 +283,6 @@
         private System.Windows.Forms.LinkLabel linkLblCadastrarEditora;
         private FontAwesome.Sharp.IconButton btnVoltar;
         private System.Windows.Forms.Label lblSelecionarAutor;
-        private System.Windows.Forms.NotifyIcon IcNotFound;
         private System.Windows.Forms.Label lblNotFound;
     }
 }

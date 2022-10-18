@@ -68,7 +68,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"SELECT  * from Autor WHERE Autor.Nome_Autor LIKE '%"+ busca +"%'";
+            Cmd.CommandText = @"SELECT  * from Autor WHERE estado = 1 AND Autor.Nome_Autor LIKE '%"+ busca +"%'";
 
             Cmd.Parameters.Clear();
 

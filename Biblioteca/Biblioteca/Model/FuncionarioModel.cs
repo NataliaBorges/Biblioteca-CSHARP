@@ -18,7 +18,7 @@ namespace Biblioteca.Model
         public string Funcao { get; set; }
         public int Estado { get; set; }
 
-        public FuncionarioModel(string nome, DateTime nascimento, string cpf, string endereco, string telefone,  string email, string senha, int Id_funcao)
+        public FuncionarioModel(string nome, DateTime nascimento, string cpf, string endereco, string telefone, string email, string senha, int Id_funcao)
         {
             this.Nome_funcionario = nome;
             this.Data_Nascimento = nascimento;
