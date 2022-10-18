@@ -67,31 +67,32 @@ namespace Biblioteca.Util
 
             }
         }
-        private void MenuControl_Load(object sender, EventArgs e){
-                    ddmLivro.IsMainMenu = true;
-                    ddmLivro.PrimaryColor = Color.Chocolate;
-                    ddmLivro.MenuItemTextColor = Color.Chocolate;
-                    
+        private void MenuControl_Load(object sender, EventArgs e)
+        {
+            ddmLivro.IsMainMenu = true;
+            ddmLivro.PrimaryColor = Color.Chocolate;
+            ddmLivro.MenuItemTextColor = Color.Chocolate;
 
-                    ddmLeitor.IsMainMenu = true;
-                    ddmLeitor.PrimaryColor = Color.Chocolate;
-                    ddmLeitor.MenuItemTextColor = Color.Chocolate;
 
-                    ddmEmprestimo.IsMainMenu = true;
-                    ddmEmprestimo.PrimaryColor = Color.Chocolate;
-                    ddmEmprestimo.MenuItemTextColor = Color.Chocolate;
+            ddmLeitor.IsMainMenu = true;
+            ddmLeitor.PrimaryColor = Color.Chocolate;
+            ddmLeitor.MenuItemTextColor = Color.Chocolate;
 
-                    ddmReserva.IsMainMenu = true;
-                    ddmReserva.PrimaryColor = Color.Chocolate;
-                    ddmReserva.MenuItemTextColor = Color.Chocolate;
+            ddmEmprestimo.IsMainMenu = true;
+            ddmEmprestimo.PrimaryColor = Color.Chocolate;
+            ddmEmprestimo.MenuItemTextColor = Color.Chocolate;
 
-                    ddmRelatorio.IsMainMenu = true;
-                    ddmRelatorio.PrimaryColor = Color.Chocolate;
-                    ddmRelatorio.MenuItemTextColor = Color.Chocolate;
+            ddmReserva.IsMainMenu = true;
+            ddmReserva.PrimaryColor = Color.Chocolate;
+            ddmReserva.MenuItemTextColor = Color.Chocolate;
 
-                    ddmFuncionario.IsMainMenu = true;
-                    ddmFuncionario.PrimaryColor = Color.Chocolate;
-                    ddmFuncionario.MenuItemTextColor = Color.Chocolate;
+            ddmRelatorio.IsMainMenu = true;
+            ddmRelatorio.PrimaryColor = Color.Chocolate;
+            ddmRelatorio.MenuItemTextColor = Color.Chocolate;
+
+            ddmFuncionario.IsMainMenu = true;
+            ddmFuncionario.PrimaryColor = Color.Chocolate;
+            ddmFuncionario.MenuItemTextColor = Color.Chocolate;
         }
         private void FecharMenu()
         {
@@ -114,7 +115,7 @@ namespace Biblioteca.Util
                 }
             }
             else
-            { 
+            {
                 this.panel.ColumnStyles.Clear();
                 this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
                 this.panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 85F));
@@ -172,85 +173,83 @@ namespace Biblioteca.Util
             FecharMenu();
         }
 
-
-        //Livro Cadastrar
-        private void itemCadastrarLivro_Click(object sender, EventArgs e)
+        //Livro
+        private void cadastrarLivro_Click(object sender, EventArgs e)
         {
             fecharTelas();
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
             NovaJanela.novaJanela(livrosCadastrarView, Bounds);
         }
 
-        private void itemCadastrarExemplar_Click(object sender, EventArgs e)
+        private void buscarLivro_Click(object sender, EventArgs e)
         {
+            fecharTelas();
+            LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
+            NovaJanela.novaJanela(livrosBuscarView, Bounds);
+        }
+        //Exemplar
+        private void cadastrarExemplar_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
             ExemplarBuscarLivroView exemplarBuscarLivroView = new ExemplarBuscarLivroView();
             NovaJanela.novaJanela(exemplarBuscarLivroView, Bounds);
         }
-
-        private void itemCadastrarEditora_Click(object sender, EventArgs e)
+        private void buscarExemplar_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            ExemplarBuscarView exemplarBuscarView = new ExemplarBuscarView();
+            NovaJanela.novaJanela(exemplarBuscarView, Bounds);
+        }
+        //Editora
+        private void cadastrarEditora_Click(object sender, EventArgs e)
         {
             fecharTelas();
             EditoraCadastrarView editoraCadastrarView = new EditoraCadastrarView();
             NovaJanela.novaJanela(editoraCadastrarView, Bounds);
         }
-
-        private void itemCadastrarAutor_Click(object sender, EventArgs e)
+        private void BuscarEditora_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
+            NovaJanela.novaJanela(editoraBuscarView, Bounds);
+        }
+        //autor
+        private void cadastrarAutor_Click(object sender, EventArgs e)
         {
             fecharTelas();
             AutorCadastrarView autorCadastrarView = new AutorCadastrarView();
             NovaJanela.novaJanela(autorCadastrarView, Bounds);
         }
 
-        private void ItemCadastrarGenero_Click(object sender, EventArgs e)
-        {
-            fecharTelas();
-            GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
-            NovaJanela.novaJanela(generoCadastrarView, Bounds);
-        }
-
-        private void itemCadastrarEdicao_Click(object sender, EventArgs e)
-        {
-            EdicaoCadastrarView edicaoCadastrarView = new EdicaoCadastrarView();
-            NovaJanela.novaJanela(edicaoCadastrarView, Bounds);
-        }
-
-        //Livro Buscar
-        private void itemBuscarLivro_Click(object sender, EventArgs e)
-        {
-            fecharTelas();
-            LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
-            NovaJanela.novaJanela(livrosBuscarView, Bounds);
-        }
-
-        private void itemBuscarExemplar_Click(object sender, EventArgs e)
-        {
-            ExemplarBuscarView exemplarBuscarView = new ExemplarBuscarView();
-            NovaJanela.novaJanela(exemplarBuscarView, Bounds);
-        }
-
-        private void itemBuscarEditora_Click(object sender, EventArgs e)
-        {
-            fecharTelas();
-            EditoraBuscarView editoraBuscarView = new EditoraBuscarView();
-            NovaJanela.novaJanela(editoraBuscarView, Bounds);
-        }
-
-        private void itemBuscarAutor_Click(object sender, EventArgs e)
+        private void BuscarAutor_Click(object sender, EventArgs e)
         {
             fecharTelas();
             AutorBuscarView autorBuscarView = new AutorBuscarView();
             NovaJanela.novaJanela(autorBuscarView, Bounds);
         }
-
-        private void itemBuscarGenero_Click(object sender, EventArgs e)
+        //Gênero
+        private void cadastrarGenero_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
+            GeneroCadastrarView generoCadastrarView = new GeneroCadastrarView();
+            NovaJanela.novaJanela(generoCadastrarView, Bounds);
+        }
+        private void buscarGenero_Click(object sender, EventArgs e)
         {
             fecharTelas();
             GeneroBuscarView generoBuscarView = new GeneroBuscarView();
             NovaJanela.novaJanela(generoBuscarView, Bounds);
         }
-
-        private void itemBuscarEdicao_Click(object sender, EventArgs e)
+        //Edição
+        private void cadastrarEdicao_Click(object sender, EventArgs e)
         {
+            fecharTelas();
+            EdicaoCadastrarView edicaoCadastrarView = new EdicaoCadastrarView();
+            NovaJanela.novaJanela(edicaoCadastrarView, Bounds);
+        }
+        private void buscarEdicao_Click(object sender, EventArgs e)
+        {
+            fecharTelas();
             EdicaoBuscarView edicaoBuscarView = new EdicaoBuscarView();
             NovaJanela.novaJanela(edicaoBuscarView, Bounds);
         }
@@ -263,7 +262,7 @@ namespace Biblioteca.Util
             NovaJanela.novaJanela(leitorCadastrarView, Bounds);
         }
 
-        //Leitor BUscar
+        //Leitor Buscar
         private void itemBuscarLeitor_Click(object sender, EventArgs e)
         {
             fecharTelas();
@@ -325,7 +324,5 @@ namespace Biblioteca.Util
             TelaLoginView login = new TelaLoginView();
             NovaJanela.novaJanela(login, Bounds);
         }
-
-        
     }
 }

@@ -34,15 +34,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExemplarBuscarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.lblNotFound = new System.Windows.Forms.Label();
+            this.dtGridViewExemplar = new System.Windows.Forms.DataGridView();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblBuscaLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblNotFound = new System.Windows.Forms.Label();
-            this.dtGridViewExemplar = new System.Windows.Forms.DataGridView();
-            this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,57 +79,6 @@
             this.panel1.Size = new System.Drawing.Size(1103, 757);
             this.panel1.TabIndex = 22;
             // 
-            // icbtnVoltar
-            // 
-            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
-            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
-            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icbtnVoltar.IconSize = 30;
-            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(300, 123);
-            this.icbtnVoltar.Name = "icbtnVoltar";
-            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
-            this.icbtnVoltar.TabIndex = 90;
-            this.icbtnVoltar.Tag = "";
-            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icbtnVoltar.UseVisualStyleBackColor = true;
-            // 
-            // lblBuscaLivro
-            // 
-            this.lblBuscaLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblBuscaLivro.AutoSize = true;
-            this.lblBuscaLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBuscaLivro.ForeColor = System.Drawing.Color.White;
-            this.lblBuscaLivro.Location = new System.Drawing.Point(421, 120);
-            this.lblBuscaLivro.Name = "lblBuscaLivro";
-            this.lblBuscaLivro.Size = new System.Drawing.Size(343, 39);
-            this.lblBuscaLivro.TabIndex = 30;
-            this.lblBuscaLivro.Text = "BUSCAR EXEMPLAR";
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1103, 37);
-            this.head1.TabIndex = 29;
-            // 
-            // menuControl1
-            // 
-            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
-            this.menuControl1.Location = new System.Drawing.Point(3, 3);
-            this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(189, 757);
-            this.menuControl1.TabIndex = 21;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnEditar);
@@ -141,6 +90,20 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1103, 516);
             this.panel2.TabIndex = 91;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Location = new System.Drawing.Point(870, 439);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(173, 42);
+            this.btnEditar.TabIndex = 105;
+            this.btnEditar.Text = "EDITAR";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblNotFound
             // 
@@ -202,6 +165,7 @@
             this.dtGridViewExemplar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewExemplar.Size = new System.Drawing.Size(983, 298);
             this.dtGridViewExemplar.TabIndex = 103;
+            this.dtGridViewExemplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplar_CellClick);
             // 
             // tbBuscar
             // 
@@ -214,18 +178,57 @@
             this.tbBuscar.Size = new System.Drawing.Size(460, 27);
             this.tbBuscar.TabIndex = 102;
             // 
-            // btnEditar
+            // icbtnVoltar
             // 
-            this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(870, 439);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(173, 42);
-            this.btnEditar.TabIndex = 105;
-            this.btnEditar.Text = "EDITAR";
-            this.btnEditar.UseVisualStyleBackColor = false;
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(300, 123);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 90;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
+            // 
+            // lblBuscaLivro
+            // 
+            this.lblBuscaLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBuscaLivro.AutoSize = true;
+            this.lblBuscaLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblBuscaLivro.ForeColor = System.Drawing.Color.White;
+            this.lblBuscaLivro.Location = new System.Drawing.Point(421, 120);
+            this.lblBuscaLivro.Name = "lblBuscaLivro";
+            this.lblBuscaLivro.Size = new System.Drawing.Size(343, 39);
+            this.lblBuscaLivro.TabIndex = 30;
+            this.lblBuscaLivro.Text = "BUSCAR EXEMPLAR";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(1103, 37);
+            this.head1.TabIndex = 29;
+            // 
+            // menuControl1
+            // 
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(189, 757);
+            this.menuControl1.TabIndex = 21;
             // 
             // ExemplarBuscarView
             // 
@@ -238,6 +241,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExemplarBuscarView";
             this.Text = "ExemplarBuscarView";
+            this.Load += new System.EventHandler(this.ExemplarBuscarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

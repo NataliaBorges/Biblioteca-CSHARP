@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,11 @@ namespace Biblioteca.View.Exemplar
 {
     public partial class ExemplarEditarView : Form
     {
-        public ExemplarEditarView()
+        ExemplarModel exemplar;
+        public ExemplarEditarView(ExemplarModel exemplar)
         {
+            this.exemplar = exemplar;
+
             InitializeComponent();
         }
     }

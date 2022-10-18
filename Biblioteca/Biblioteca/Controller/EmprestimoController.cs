@@ -6,22 +6,27 @@ using Biblioteca.Model;
 using System.Globalization;
 using System.Collections.Generic;
 
-namespace Biblioteca.Controller {
-    class EmprestimoController {
+namespace Biblioteca.Controller
+{
+    class EmprestimoController
+    {
 
         private Conexao connection { get; set; }
         private SqlCommand Cmd { get; set; }
 
         Singleton singleton = Singleton.GetInstancia();
 
-        public EmprestimoController() {
+        public EmprestimoController()
+        {
             connection = new Conexao();
             Cmd = new SqlCommand();
         }
 
         // CADASTRAR NOVO EMPRESTIMO
-        public bool Insercao(String dataEmprestimo, String dataDevolucao, String obs) {
-            try {
+        public bool Insercao(String dataEmprestimo, String dataDevolucao, String obs)
+        {
+            try
+            {
                 Cmd.Connection = connection.RetornaConexao();
 
                 Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo, @Status)";
@@ -34,28 +39,33 @@ namespace Biblioteca.Controller {
                 Cmd.Parameters.AddWithValue("@Obs_emprestimo", obs);
                 Cmd.Parameters.AddWithValue("@Status", "EMPRESTADO");
 
-                if (Cmd.ExecuteNonQuery() == 1) {
+                if (Cmd.ExecuteNonQuery() == 1)
+                {
                     return true;
                 }
-                else {
+                else
+                {
                     return false;
                 }
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 return false;
             }
 
         }
 
         // BUSCAR ÚLTIMO EMPRESTIMO CADASTRADO PARA PODER PEGAR O ID DO MESMO
-        public int BuscarUltimoEmprestimo() {
+        public int BuscarUltimoEmprestimo()
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Emprestimo ORDER BY ID_emprestimo DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 int idEmprestimo = (int)reader["ID_emprestimo"];
                 reader.Close();
                 return idEmprestimo;
@@ -66,7 +76,8 @@ namespace Biblioteca.Controller {
         }
 
         // RELACIONAR EXEMPLARES SELECIONADO NO EMPRESTIMO
-        public bool RelacionarLivrosEmprestimo(int idEmprestimo, ExemplarModel exemplar) {
+        public bool RelacionarLivrosEmprestimo(int idEmprestimo, ExemplarModel exemplar)
+        {
             Cmd.Connection = connection.RetornaConexao();
 
             if (Cmd.Connection.State != System.Data.ConnectionState.Open)
@@ -78,18 +89,21 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@ID_IL", exemplar.getId());
             Cmd.Parameters.AddWithValue("@ID_emprestimo", idEmprestimo);
 
-            if (Cmd.ExecuteNonQuery() == 1) {
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
                 Cmd.Connection.Close();
                 return true;
             }
-            else {
+            else
+            {
                 Cmd.Connection.Close();
                 return false;
             }
 
         }
 
-        public List<EmprestimoModel> ListarTodos() {
+        public List<EmprestimoModel> ListarTodos()
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
             SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor'
@@ -103,7 +117,8 @@ namespace Biblioteca.Controller {
 
             List<EmprestimoModel> lista = new List<EmprestimoModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoModel leitor = new EmprestimoModel(
                     (int)reader["ID_emprestimo"],
                     (int)reader["ID_funcionario"],
@@ -121,7 +136,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<EmprestimoModel> ListarEmprestimo(int id) {
+        public List<EmprestimoModel> ListarEmprestimo(int id)
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
             SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor'
@@ -135,7 +151,8 @@ namespace Biblioteca.Controller {
 
             List<EmprestimoModel> lista = new List<EmprestimoModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoModel leitor = new EmprestimoModel(
                     (int)reader["ID_emprestimo"],
                     (int)reader["ID_funcionario"],
@@ -154,7 +171,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<EmprestimoPesquisaModel> ListarTodosBusca() {
+        public List<EmprestimoPesquisaModel> ListarTodosBusca()
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
                                     FROM Emprestimo as E
@@ -163,19 +181,20 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
 			                        INNER JOIN Item_livro AS IL ON (IL.ID_IL = IE.ID_IL)
 			                        INNER JOIN Livro AS Li ON (Li.ID_livro = IL.ID_livro)";
-                                    //SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
-                                    //FROM Emprestimo as E
-                                    //INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    //INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    //INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-                                    //INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
+            //SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
+            //FROM Emprestimo as E
+            //INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
+            //INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
+            //INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
+            //INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
             List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
                     (int)reader["ID_emprestimo"],
                     (String)reader["Nome_Leitor"],
@@ -192,7 +211,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        private int quantidadeDisponiveis(int idLivro, int quantidade) {
+        private int quantidadeDisponiveis(int idLivro, int quantidade)
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT COUNT(E.ID_emprestimo) AS Emprestimos
             FROM Item_livro AS IL
@@ -205,7 +225,8 @@ namespace Biblioteca.Controller {
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 int emprestimos = (int)reader["Emprestimos"];
                 reader.Close();
                 return quantidade - emprestimos;
@@ -213,7 +234,8 @@ namespace Biblioteca.Controller {
             return 0;
         }
 
-        public List<LivroModel> ListarTodosLivros() {
+        public List<LivroModel> ListarTodosLivros()
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
             SELECT L.*, F.Nome_fornecedor as Editora 
@@ -227,29 +249,31 @@ namespace Biblioteca.Controller {
             List<LivroModel> lista = new List<LivroModel>();
 
             //while (reader.Read()) {
-                //LivroModel livro = new LivroModel(
-                    //(int)reader["ID_livro"],
-                    //(int)reader["ID_fornecedor"],
-                    //(int)reader["ID_Autor"],
-                    //(String)reader["Autor_Livro"],
-                    //(String)reader["Edicao"],
-                    //(String)reader["Ano_publicacao"],
-                    //(String)reader["ISBN"]
-                    //(String)reader["Editora"],
-                    //(int)reader["Quantidade"]
+            //LivroModel livro = new LivroModel(
+            //(int)reader["ID_livro"],
+            //(int)reader["ID_fornecedor"],
+            //(int)reader["ID_Autor"],
+            //(String)reader["Autor_Livro"],
+            //(String)reader["Edicao"],
+            //(String)reader["Ano_publicacao"],
+            //(String)reader["ISBN"]
+            //(String)reader["Editora"],
+            //(int)reader["Quantidade"]
             //    );
             //    //lista.Add(livro);
             //}
             reader.Close();
 
-            for (int i = 0; i < lista.Count; i++) {
+            for (int i = 0; i < lista.Count; i++)
+            {
                 int disponiveis = quantidadeDisponiveis(lista[i].getId(), lista[i].Quantidade);
                 lista[i].Disponiveis = disponiveis;
             }
 
             return lista;
         }
-        public List<ExemplarModel> ListarTodosExemplares(int idLivro) {
+        public List<ExemplarModel> ListarTodosExemplares(int idLivro)
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
                                     L.Nome_Livro AS Nome,
@@ -262,13 +286,14 @@ namespace Biblioteca.Controller {
                                 INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
                                 INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
                                 WHERE IL.ID_livro = '" + idLivro + "'";
-                                Cmd.Parameters.Clear();
+            Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
             List<ExemplarModel> lista = new List<ExemplarModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 ExemplarModel exemplar = new ExemplarModel(
                     //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Editora
                     (int)reader["ID"],
@@ -286,7 +311,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<ExemplarModel> ListarTodosLivrosEmprestimo(int id) {
+        public List<ExemplarModel> ListarTodosLivrosEmprestimo(int id)
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
                                 L.Nome_Livro AS Nome,
@@ -307,7 +333,8 @@ namespace Biblioteca.Controller {
 
             List<ExemplarModel> lista = new List<ExemplarModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 ExemplarModel exemplar = new ExemplarModel(
                     (int)reader["ID"],
                     (String)reader["Nome"],
@@ -324,7 +351,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<LivroModel> BuscarLivros(string busca) {
+        public List<LivroModel> BuscarLivros(string busca)
+        {
             Cmd.Connection = connection.RetornaConexao();
 
             Cmd.CommandText = @"
@@ -358,34 +386,41 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public void InserirExemplarEmprestimo(ExemplarModel exemplar) {
+        public void InserirExemplarEmprestimo(ExemplarModel exemplar)
+        {
             this.singleton.setExemplar(exemplar);
             this.singleton.setAddExemplar(true);
         }
 
-        public List<ExemplarModel> PegarExemplarEmprestimo() {
+        public List<ExemplarModel> PegarExemplarEmprestimo()
+        {
             return this.singleton.getExemplar();
         }
 
-        public void RemoverExemplarEmprestimo(ExemplarModel exemplar) {
+        public void RemoverExemplarEmprestimo(ExemplarModel exemplar)
+        {
             this.singleton.removerExemplarLista(exemplar);
         }
 
-        public void InserirLeitorEmprestimo(LeitorModel leitor) {
+        public void InserirLeitorEmprestimo(LeitorModel leitor)
+        {
             this.singleton.setLeitor(leitor);
         }
 
-        public void RemoverLeitorEmprestimo() {
+        public void RemoverLeitorEmprestimo()
+        {
             this.singleton.setLeitor(null);
         }
 
-        public List<LeitorModel> PegarLeitorEmprestimo() {
+        public List<LeitorModel> PegarLeitorEmprestimo()
+        {
             List<LeitorModel> lista = new List<LeitorModel>();
             lista.Add(this.singleton.getLeitor());
             return lista;
         }
 
-        public List<LeitorModel> ListarTodosLeitores() {
+        public List<LeitorModel> ListarTodosLeitores()
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT * FROM Leitor";
             Cmd.Parameters.Clear();
@@ -394,7 +429,8 @@ namespace Biblioteca.Controller {
 
             List<LeitorModel> lista = new List<LeitorModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 LeitorModel leitor = new LeitorModel(
                     (int)reader["ID_leitor"],
                     (String)reader["Nome_Leitor"],
@@ -411,7 +447,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<LeitorModel> BuscarLeitor(string busca) {
+        public List<LeitorModel> BuscarLeitor(string busca)
+        {
             Cmd.Connection = connection.RetornaConexao();
 
             Cmd.CommandText = @"SELECT * FROM LEITOR WHERE Nome_Leitor LIKE '" + busca + "%'";
@@ -422,7 +459,8 @@ namespace Biblioteca.Controller {
 
             List<LeitorModel> lista = new List<LeitorModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 LeitorModel leitor = new LeitorModel(
                     (int)reader["ID_leitor"],
                     (String)reader["Nome_Leitor"],
@@ -438,14 +476,17 @@ namespace Biblioteca.Controller {
 
             return lista;
         }
-        public List<LeitorModel> BuscarLeitor(string busca, bool isNome = false, bool isCPF = false) {
+        public List<LeitorModel> BuscarLeitor(string busca, bool isNome = false, bool isCPF = false)
+        {
             Cmd.Connection = connection.RetornaConexao();
 
-            if (isNome) {
+            if (isNome)
+            {
                 Cmd.CommandText = @"SELECT * FROM LEITOR WHERE Nome_Leitor LIKE '" + busca + "%'";
             }
 
-            if (isCPF) {
+            if (isCPF)
+            {
                 Cmd.CommandText = @"SELECT * FROM LEITOR WHERE CPF LIKE '" + busca + "%'";
             }
 
@@ -455,7 +496,8 @@ namespace Biblioteca.Controller {
 
             List<LeitorModel> lista = new List<LeitorModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 LeitorModel leitor = new LeitorModel(
                     (int)reader["ID_leitor"],
                     (String)reader["Nome_Leitor"],
@@ -471,7 +513,8 @@ namespace Biblioteca.Controller {
 
             return lista;
         }
-        public List<EmprestimoPesquisaModel> BuscarCodigo(string busca, bool isCodigo = false) {
+        public List<EmprestimoPesquisaModel> BuscarCodigo(string busca, bool isCodigo = false)
+        {
             Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
@@ -485,7 +528,8 @@ namespace Biblioteca.Controller {
 
             List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
                     (int)reader["ID_emprestimo"],
                     (String)reader["Nome_Leitor"],
@@ -501,10 +545,12 @@ namespace Biblioteca.Controller {
 
             return lista;
         }
-        public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false, bool isCodigo = false) {
+        public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false, bool isCodigo = false)
+        {
             Cmd.Connection = connection.RetornaConexao();
 
-            if (isLivro) {
+            if (isLivro)
+            {
                 Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
@@ -514,7 +560,8 @@ namespace Biblioteca.Controller {
                                     WHERE Li.Nome_Livro LIKE '" + busca + "%'";
             }
 
-            if (isLeitor) {
+            if (isLeitor)
+            {
                 Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
@@ -523,7 +570,8 @@ namespace Biblioteca.Controller {
                                     INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
                                     WHERE L.Nome_Leitor LIKE '" + busca + "%'";
             }
-            if (isCodigo) {
+            if (isCodigo)
+            {
                 Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
@@ -539,7 +587,8 @@ namespace Biblioteca.Controller {
 
             List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
                     (int)reader["ID_emprestimo"],
                     (String)reader["Nome_Leitor"],
@@ -556,7 +605,8 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public bool Excluir(EmprestimoPesquisaModel emprestimo) {
+        public bool Excluir(EmprestimoPesquisaModel emprestimo)
+        {
             // excluir itens em item_emprestimo
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"DELETE FROM Item_emprestimo WHERE ID_emprestimo = @ID";
@@ -570,15 +620,18 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@ID", emprestimo.ID_emprestimo);
 
-            if (Cmd.ExecuteNonQuery() == 1) {
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }
 
-        public bool Devolucao(EmprestimoPesquisaModel emprestimo) {
+        public bool Devolucao(EmprestimoPesquisaModel emprestimo)
+        {
             // mudar status emprestimo
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Emprestimo SET Status = @Status
@@ -587,15 +640,18 @@ namespace Biblioteca.Controller {
             Cmd.Parameters.AddWithValue("@Status", "DEVOLVIDO");
             Cmd.Parameters.AddWithValue("@ID", emprestimo.ID_emprestimo);
 
-            if (Cmd.ExecuteNonQuery() == 1) {
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
             }
         }
 
-        public List<EmprestimoModel> Relatorio(DateTime inicio, DateTime fim) {
+        public List<EmprestimoModel> Relatorio(DateTime inicio, DateTime fim)
+        {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
             SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor'
@@ -612,7 +668,8 @@ namespace Biblioteca.Controller {
 
             List<EmprestimoModel> lista = new List<EmprestimoModel>();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 EmprestimoModel leitor = new EmprestimoModel(
                     (int)reader["ID_emprestimo"],
                     (int)reader["ID_funcionario"],

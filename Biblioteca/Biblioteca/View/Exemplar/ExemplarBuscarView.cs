@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Biblioteca.Controller;
+using Biblioteca.Model;
+using Biblioteca.Util;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,10 +13,106 @@ namespace Biblioteca.View.Exemplar
 {
     public partial class ExemplarBuscarView : Form
     {
+        ExemplarController controller = new ExemplarController();
+        ExemplarModel exemplar;
         public ExemplarBuscarView()
         {
             InitializeComponent();
         }
+        private void ExemplarBuscarView_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setForm(this);
+            this.menuControl1.setPanel(pnltotal);
 
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
+        }
+        private void popular(List<ExemplarModel> lista)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
+            table.Columns.Add("Gênero", typeof(string));
+            table.Columns.Add("Aquisição", typeof(DateTime));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Ano", typeof(string));
+            table.Columns.Add("Valor", typeof(float));
+            table.Columns.Add("Estado", typeof(string));
+
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
+
+                    table.Rows.Add(exemplar.getId(),
+                                   exemplar.Titulo,
+                                   exemplar.Nome_Autor,
+                                   exemplar.Nome_Edicao,
+                                   exemplar.Nome_Editora,
+                                   exemplar.Nome_Genero,
+                                   exemplar.Aquisicao,
+                                   exemplar.ISBN,
+                                   exemplar.AnoPublicacao,
+                                   exemplar.Valor,
+                                   exemplar.getEstado());
+                }
+                dtGridViewExemplar.DataSource = table;
+            }
+            int index = dtGridViewExemplar.SelectedRows[0].Index;
+
+            if (index >= 0)
+            {
+                dtGridViewExemplar.Rows[index].Selected = false;
+            }
+        }
+        private void dtGridViewExemplar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewExemplar.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                String titulo = row.Cells[1].Value.ToString();
+                String autor = row.Cells[2].Value.ToString();
+                String edicao = row.Cells[3].Value.ToString();
+                String editora = row.Cells[4].Value.ToString();
+                String genero = row.Cells[5].Value.ToString();
+                DateTime aquisicao = DateTime.Parse(row.Cells[6].Value.ToString());
+                string isbn = row.Cells[7].Value.ToString();
+                string ano = row.Cells[8].Value.ToString();
+                float valor = float.Parse(row.Cells[9].Value.ToString());
+
+                int estado = 0;
+
+                if (row.Cells[10].Value.ToString() == "Ativo")
+                {
+                    estado = 1;
+                }
+                this.exemplar = new ExemplarModel(id, titulo, edicao, aquisicao, ano, isbn, editora, autor,   genero, valor,  estado);
+            }
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (exemplar != null)
+            {
+                ExemplarEditarView exemplarEditarView = new ExemplarEditarView(exemplar);
+                NovaJanela.novaJanela(exemplarEditarView, Bounds);
+            }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um livro", "Atenção", MessageBoxButtons.OK);
+            }
+        }
     }
 }

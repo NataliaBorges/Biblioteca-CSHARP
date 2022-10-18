@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Biblioteca.Model {
-    class ExemplarModel{
+    public class ExemplarModel{
         int ID { get; set; }
         public int IdLivro{ get; set; }
         public string Titulo { get; set; }
@@ -17,6 +17,7 @@ namespace Biblioteca.Model {
         public string Nome_Genero { get; set; }
         public string Nome_Edicao { get; set; }
         public int Quantidade { get; set; }
+        public int Estado { get; set; }
 
         public ExemplarModel(int ID, int IdExemplar) {
             this.ID = ID;
@@ -55,20 +56,33 @@ namespace Biblioteca.Model {
             this.ISBN = ISBN;
             this.Nome_Editora = Editora;
         }
-        public ExemplarModel(int Id, string titulo, string Edicao,DateTime Aquisicao,  string AnoPublicacao, string ISBN, string Editora, string autor, string Genero) 
+        public ExemplarModel(int Id, string titulo, string Edicao,DateTime Aquisicao,  string AnoPublicacao, string ISBN, string Editora, string autor, string Genero, float valor, int estado) 
         {
-            this.ID = ID;
+            this.ID = Id;
             this.Titulo = titulo;
+            this.Nome_Autor = autor;
             this.Nome_Edicao = Edicao;
             this.Aquisicao = Aquisicao;
             this.AnoPublicacao = AnoPublicacao;
             this.ISBN = ISBN;
             this.Nome_Editora = Editora;
-            this.Nome_Autor = autor;
             this.Nome_Genero = Genero;
+            this.Valor = valor;
+            this.Estado = estado;
         }
         public int getId() {
             return this.ID;
+        }
+        public string getEstado()
+        {
+            if (this.Estado == 0)
+            {
+                return "Inativo";
+            }
+            else
+            {
+                return "Ativo";
+            }
         }
     }
 }

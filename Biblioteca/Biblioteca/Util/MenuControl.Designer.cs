@@ -45,19 +45,23 @@
             this.lbNome = new System.Windows.Forms.Label();
             this.ddmLivro = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.livroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarLivro = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarExemplar = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarEditora = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarAutor = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarGenero = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemCadastrarEdicao = new System.Windows.Forms.ToolStripMenuItem();
-            this.leitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarLivro = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarExemplar = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarEditora = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarAutor = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarGenero = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBuscarEdicao = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarLivro = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarLivro = new System.Windows.Forms.ToolStripMenuItem();
+            this.exemplarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarExemplar = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarExemplar = new System.Windows.Forms.ToolStripMenuItem();
+            this.editoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarEditora = new System.Windows.Forms.ToolStripMenuItem();
+            this.BuscarEditora = new System.Windows.Forms.ToolStripMenuItem();
+            this.autorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarAutor = new System.Windows.Forms.ToolStripMenuItem();
+            this.BuscarAutor = new System.Windows.Forms.ToolStripMenuItem();
+            this.gêneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarGenero = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarGenero = new System.Windows.Forms.ToolStripMenuItem();
+            this.ediçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastrarEdicao = new System.Windows.Forms.ToolStripMenuItem();
+            this.buscarEdicao = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmLeitor = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarLeitor = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarLeitor = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,7 +118,7 @@
             this.btnFuncionario.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnFuncionario.FlatAppearance.BorderSize = 0;
             this.btnFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnFuncionario.ForeColor = System.Drawing.Color.White;
             this.btnFuncionario.IconChar = FontAwesome.Sharp.IconChar.UsersCog;
             this.btnFuncionario.IconColor = System.Drawing.Color.Chocolate;
@@ -127,7 +131,7 @@
             this.btnFuncionario.Size = new System.Drawing.Size(198, 46);
             this.btnFuncionario.TabIndex = 4;
             this.btnFuncionario.Tag = "Funcionário";
-            this.btnFuncionario.Text = " Funcionário";
+            this.btnFuncionario.Text = "  Funcionário";
             this.btnFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFuncionario.UseVisualStyleBackColor = true;
             this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
@@ -137,7 +141,7 @@
             this.btnGrafico.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnGrafico.FlatAppearance.BorderSize = 0;
             this.btnGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrafico.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGrafico.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnGrafico.ForeColor = System.Drawing.Color.White;
             this.btnGrafico.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
             this.btnGrafico.IconColor = System.Drawing.Color.Chocolate;
@@ -149,8 +153,8 @@
             this.btnGrafico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGrafico.Size = new System.Drawing.Size(198, 46);
             this.btnGrafico.TabIndex = 9;
-            this.btnGrafico.Tag = "Gráficos";
-            this.btnGrafico.Text = " Gráficos";
+            this.btnGrafico.Tag = "Gráfico";
+            this.btnGrafico.Text = "  Gráfico";
             this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGrafico.UseVisualStyleBackColor = true;
             // 
@@ -159,7 +163,7 @@
             this.btnRelatório.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnRelatório.FlatAppearance.BorderSize = 0;
             this.btnRelatório.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatório.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRelatório.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRelatório.ForeColor = System.Drawing.Color.White;
             this.btnRelatório.IconChar = FontAwesome.Sharp.IconChar.Table;
             this.btnRelatório.IconColor = System.Drawing.Color.Chocolate;
@@ -171,8 +175,8 @@
             this.btnRelatório.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRelatório.Size = new System.Drawing.Size(198, 46);
             this.btnRelatório.TabIndex = 8;
-            this.btnRelatório.Tag = "Relatórios";
-            this.btnRelatório.Text = " Relatórios";
+            this.btnRelatório.Tag = "Relatório";
+            this.btnRelatório.Text = "  Relatório";
             this.btnRelatório.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRelatório.UseVisualStyleBackColor = true;
             this.btnRelatório.Click += new System.EventHandler(this.btnRelatório_Click);
@@ -182,7 +186,7 @@
             this.btnPrateleira.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPrateleira.FlatAppearance.BorderSize = 0;
             this.btnPrateleira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrateleira.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPrateleira.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPrateleira.ForeColor = System.Drawing.Color.White;
             this.btnPrateleira.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
             this.btnPrateleira.IconColor = System.Drawing.Color.Chocolate;
@@ -195,7 +199,7 @@
             this.btnPrateleira.Size = new System.Drawing.Size(198, 46);
             this.btnPrateleira.TabIndex = 7;
             this.btnPrateleira.Tag = "Prateleira";
-            this.btnPrateleira.Text = "Prateleira";
+            this.btnPrateleira.Text = "  Prateleira";
             this.btnPrateleira.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPrateleira.UseVisualStyleBackColor = true;
             // 
@@ -227,7 +231,7 @@
             this.btnReserva.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReserva.FlatAppearance.BorderSize = 0;
             this.btnReserva.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReserva.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnReserva.ForeColor = System.Drawing.Color.White;
             this.btnReserva.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
             this.btnReserva.IconColor = System.Drawing.Color.Chocolate;
@@ -240,7 +244,7 @@
             this.btnReserva.Size = new System.Drawing.Size(198, 46);
             this.btnReserva.TabIndex = 6;
             this.btnReserva.Tag = "Reserva";
-            this.btnReserva.Text = "Reserva";
+            this.btnReserva.Text = "  Reserva";
             this.btnReserva.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReserva.UseVisualStyleBackColor = true;
             this.btnReserva.Click += new System.EventHandler(this.btnReserva_Click);
@@ -250,7 +254,7 @@
             this.btnEmprestimo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnEmprestimo.FlatAppearance.BorderSize = 0;
             this.btnEmprestimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEmprestimo.ForeColor = System.Drawing.Color.White;
             this.btnEmprestimo.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
             this.btnEmprestimo.IconColor = System.Drawing.Color.Chocolate;
@@ -263,7 +267,7 @@
             this.btnEmprestimo.Size = new System.Drawing.Size(198, 46);
             this.btnEmprestimo.TabIndex = 5;
             this.btnEmprestimo.Tag = "Empréstimo";
-            this.btnEmprestimo.Text = " Empréstimo";
+            this.btnEmprestimo.Text = "  Empréstimo";
             this.btnEmprestimo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEmprestimo.UseVisualStyleBackColor = true;
             this.btnEmprestimo.Click += new System.EventHandler(this.BtnEmprestimo_Click);
@@ -273,7 +277,7 @@
             this.btnLeitor.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLeitor.FlatAppearance.BorderSize = 0;
             this.btnLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeitor.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLeitor.ForeColor = System.Drawing.Color.White;
             this.btnLeitor.IconChar = FontAwesome.Sharp.IconChar.BookReader;
             this.btnLeitor.IconColor = System.Drawing.Color.Chocolate;
@@ -286,7 +290,7 @@
             this.btnLeitor.Size = new System.Drawing.Size(198, 46);
             this.btnLeitor.TabIndex = 3;
             this.btnLeitor.Tag = "Leitor";
-            this.btnLeitor.Text = " Leitor";
+            this.btnLeitor.Text = "  Leitor";
             this.btnLeitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLeitor.UseVisualStyleBackColor = true;
             this.btnLeitor.Click += new System.EventHandler(this.BtnLeitor_Click);
@@ -296,7 +300,7 @@
             this.btnLivro.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnLivro.FlatAppearance.BorderSize = 0;
             this.btnLivro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLivro.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnLivro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLivro.ForeColor = System.Drawing.Color.White;
             this.btnLivro.IconChar = FontAwesome.Sharp.IconChar.FolderPlus;
             this.btnLivro.IconColor = System.Drawing.Color.Chocolate;
@@ -308,8 +312,8 @@
             this.btnLivro.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLivro.Size = new System.Drawing.Size(198, 46);
             this.btnLivro.TabIndex = 2;
-            this.btnLivro.Tag = "Livro";
-            this.btnLivro.Text = "Livro";
+            this.btnLivro.Tag = "Registro";
+            this.btnLivro.Text = "  Registro";
             this.btnLivro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLivro.UseVisualStyleBackColor = true;
             this.btnLivro.Click += new System.EventHandler(this.BtnLivro_Click);
@@ -319,7 +323,7 @@
             this.btnHome.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnHome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnHome.ForeColor = System.Drawing.Color.White;
             this.btnHome.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.btnHome.IconColor = System.Drawing.Color.Chocolate;
@@ -332,7 +336,7 @@
             this.btnHome.Size = new System.Drawing.Size(198, 46);
             this.btnHome.TabIndex = 1;
             this.btnHome.Tag = "Home";
-            this.btnHome.Text = "Home";
+            this.btnHome.Text = "  Home";
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
@@ -387,122 +391,154 @@
             this.ddmLivro.IsMainMenu = false;
             this.ddmLivro.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.livroToolStripMenuItem,
-            this.leitorToolStripMenuItem});
+            this.exemplarToolStripMenuItem,
+            this.editoraToolStripMenuItem,
+            this.autorToolStripMenuItem,
+            this.gêneroToolStripMenuItem,
+            this.ediçãoToolStripMenuItem});
             this.ddmLivro.MenuItemHeight = 50;
             this.ddmLivro.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmLivro.Name = "rjDropdownMenu1";
             this.ddmLivro.PrimaryColor = System.Drawing.Color.Black;
-            this.ddmLivro.Size = new System.Drawing.Size(140, 48);
+            this.ddmLivro.Size = new System.Drawing.Size(137, 136);
             // 
             // livroToolStripMenuItem
             // 
             this.livroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemCadastrarLivro,
-            this.itemCadastrarExemplar,
-            this.itemCadastrarEditora,
-            this.itemCadastrarAutor,
-            this.itemCadastrarGenero,
-            this.itemCadastrarEdicao});
+            this.cadastrarLivro,
+            this.buscarLivro});
             this.livroToolStripMenuItem.Name = "livroToolStripMenuItem";
-            this.livroToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.livroToolStripMenuItem.Text = "Cadastrar";
+            this.livroToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.livroToolStripMenuItem.Text = "Livro";
             // 
-            // itemCadastrarLivro
+            // cadastrarLivro
             // 
-            this.itemCadastrarLivro.Name = "itemCadastrarLivro";
-            this.itemCadastrarLivro.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarLivro.Text = "Livro";
-            this.itemCadastrarLivro.Click += new System.EventHandler(this.itemCadastrarLivro_Click);
+            this.cadastrarLivro.Name = "cadastrarLivro";
+            this.cadastrarLivro.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarLivro.Text = "Cadastrar";
+            this.cadastrarLivro.Click += new System.EventHandler(this.cadastrarLivro_Click);
             // 
-            // itemCadastrarExemplar
+            // buscarLivro
             // 
-            this.itemCadastrarExemplar.Name = "itemCadastrarExemplar";
-            this.itemCadastrarExemplar.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarExemplar.Text = "Exemplar";
-            this.itemCadastrarExemplar.Click += new System.EventHandler(this.itemCadastrarExemplar_Click);
+            this.buscarLivro.Name = "buscarLivro";
+            this.buscarLivro.Size = new System.Drawing.Size(139, 22);
+            this.buscarLivro.Text = "Buscar";
+            this.buscarLivro.Click += new System.EventHandler(this.buscarLivro_Click);
             // 
-            // itemCadastrarEditora
+            // exemplarToolStripMenuItem
             // 
-            this.itemCadastrarEditora.Name = "itemCadastrarEditora";
-            this.itemCadastrarEditora.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarEditora.Text = "Editora";
-            this.itemCadastrarEditora.Click += new System.EventHandler(this.itemCadastrarEditora_Click);
+            this.exemplarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarExemplar,
+            this.buscarExemplar});
+            this.exemplarToolStripMenuItem.Name = "exemplarToolStripMenuItem";
+            this.exemplarToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.exemplarToolStripMenuItem.Text = "Exemplar";
             // 
-            // itemCadastrarAutor
+            // cadastrarExemplar
             // 
-            this.itemCadastrarAutor.Name = "itemCadastrarAutor";
-            this.itemCadastrarAutor.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarAutor.Text = "Autor";
-            this.itemCadastrarAutor.Click += new System.EventHandler(this.itemCadastrarAutor_Click);
+            this.cadastrarExemplar.Name = "cadastrarExemplar";
+            this.cadastrarExemplar.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarExemplar.Text = "Cadastrar";
+            this.cadastrarExemplar.Click += new System.EventHandler(this.cadastrarExemplar_Click);
             // 
-            // itemCadastrarGenero
+            // buscarExemplar
             // 
-            this.itemCadastrarGenero.Name = "itemCadastrarGenero";
-            this.itemCadastrarGenero.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarGenero.Text = "Gênero";
-            this.itemCadastrarGenero.Click += new System.EventHandler(this.ItemCadastrarGenero_Click);
+            this.buscarExemplar.Name = "buscarExemplar";
+            this.buscarExemplar.Size = new System.Drawing.Size(139, 22);
+            this.buscarExemplar.Text = "Buscar";
+            this.buscarExemplar.Click += new System.EventHandler(this.buscarExemplar_Click);
             // 
-            // itemCadastrarEdicao
+            // editoraToolStripMenuItem
             // 
-            this.itemCadastrarEdicao.Name = "itemCadastrarEdicao";
-            this.itemCadastrarEdicao.Size = new System.Drawing.Size(180, 22);
-            this.itemCadastrarEdicao.Text = "Edição";
-            this.itemCadastrarEdicao.Click += new System.EventHandler(this.itemCadastrarEdicao_Click);
+            this.editoraToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarEditora,
+            this.BuscarEditora});
+            this.editoraToolStripMenuItem.Name = "editoraToolStripMenuItem";
+            this.editoraToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.editoraToolStripMenuItem.Text = "Editora";
             // 
-            // leitorToolStripMenuItem
+            // cadastrarEditora
             // 
-            this.leitorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemBuscarLivro,
-            this.itemBuscarExemplar,
-            this.itemBuscarEditora,
-            this.itemBuscarAutor,
-            this.itemBuscarGenero,
-            this.itemBuscarEdicao});
-            this.leitorToolStripMenuItem.Name = "leitorToolStripMenuItem";
-            this.leitorToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.leitorToolStripMenuItem.Text = "Buscar";
+            this.cadastrarEditora.Name = "cadastrarEditora";
+            this.cadastrarEditora.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarEditora.Text = "Cadastrar";
+            this.cadastrarEditora.Click += new System.EventHandler(this.cadastrarEditora_Click);
             // 
-            // itemBuscarLivro
+            // BuscarEditora
             // 
-            this.itemBuscarLivro.Name = "itemBuscarLivro";
-            this.itemBuscarLivro.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarLivro.Text = "Livro";
-            this.itemBuscarLivro.Click += new System.EventHandler(this.itemBuscarLivro_Click);
+            this.BuscarEditora.Name = "BuscarEditora";
+            this.BuscarEditora.Size = new System.Drawing.Size(139, 22);
+            this.BuscarEditora.Text = "Buscar";
+            this.BuscarEditora.Click += new System.EventHandler(this.BuscarEditora_Click);
             // 
-            // itemBuscarExemplar
+            // autorToolStripMenuItem
             // 
-            this.itemBuscarExemplar.Name = "itemBuscarExemplar";
-            this.itemBuscarExemplar.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarExemplar.Text = "Exemplar";
-            this.itemBuscarExemplar.Click += new System.EventHandler(this.itemBuscarExemplar_Click);
+            this.autorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarAutor,
+            this.BuscarAutor});
+            this.autorToolStripMenuItem.Name = "autorToolStripMenuItem";
+            this.autorToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.autorToolStripMenuItem.Text = "Autor";
             // 
-            // itemBuscarEditora
+            // cadastrarAutor
             // 
-            this.itemBuscarEditora.Name = "itemBuscarEditora";
-            this.itemBuscarEditora.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarEditora.Text = "Editora";
-            this.itemBuscarEditora.Click += new System.EventHandler(this.itemBuscarEditora_Click);
+            this.cadastrarAutor.Name = "cadastrarAutor";
+            this.cadastrarAutor.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarAutor.Text = "Cadastrar";
+            this.cadastrarAutor.Click += new System.EventHandler(this.cadastrarAutor_Click);
             // 
-            // itemBuscarAutor
+            // BuscarAutor
             // 
-            this.itemBuscarAutor.Name = "itemBuscarAutor";
-            this.itemBuscarAutor.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarAutor.Text = "Autor";
-            this.itemBuscarAutor.Click += new System.EventHandler(this.itemBuscarAutor_Click);
+            this.BuscarAutor.Name = "BuscarAutor";
+            this.BuscarAutor.Size = new System.Drawing.Size(139, 22);
+            this.BuscarAutor.Text = "Buscar";
+            this.BuscarAutor.Click += new System.EventHandler(this.BuscarAutor_Click);
             // 
-            // itemBuscarGenero
+            // gêneroToolStripMenuItem
             // 
-            this.itemBuscarGenero.Name = "itemBuscarGenero";
-            this.itemBuscarGenero.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarGenero.Text = "Gênero";
-            this.itemBuscarGenero.Click += new System.EventHandler(this.itemBuscarGenero_Click);
+            this.gêneroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarGenero,
+            this.buscarGenero});
+            this.gêneroToolStripMenuItem.Name = "gêneroToolStripMenuItem";
+            this.gêneroToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.gêneroToolStripMenuItem.Text = "Gênero";
             // 
-            // itemBuscarEdicao
+            // cadastrarGenero
             // 
-            this.itemBuscarEdicao.Name = "itemBuscarEdicao";
-            this.itemBuscarEdicao.Size = new System.Drawing.Size(180, 22);
-            this.itemBuscarEdicao.Text = "Edição";
-            this.itemBuscarEdicao.Click += new System.EventHandler(this.itemBuscarEdicao_Click);
+            this.cadastrarGenero.Name = "cadastrarGenero";
+            this.cadastrarGenero.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarGenero.Text = "Cadastrar";
+            this.cadastrarGenero.Click += new System.EventHandler(this.cadastrarGenero_Click);
+            // 
+            // buscarGenero
+            // 
+            this.buscarGenero.Name = "buscarGenero";
+            this.buscarGenero.Size = new System.Drawing.Size(139, 22);
+            this.buscarGenero.Text = "Buscar";
+            this.buscarGenero.Click += new System.EventHandler(this.buscarGenero_Click);
+            // 
+            // ediçãoToolStripMenuItem
+            // 
+            this.ediçãoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarEdicao,
+            this.buscarEdicao});
+            this.ediçãoToolStripMenuItem.Name = "ediçãoToolStripMenuItem";
+            this.ediçãoToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.ediçãoToolStripMenuItem.Text = "Edição";
+            // 
+            // cadastrarEdicao
+            // 
+            this.cadastrarEdicao.Name = "cadastrarEdicao";
+            this.cadastrarEdicao.Size = new System.Drawing.Size(139, 22);
+            this.cadastrarEdicao.Text = "Cadastrar";
+            this.cadastrarEdicao.Click += new System.EventHandler(this.cadastrarEdicao_Click);
+            // 
+            // buscarEdicao
+            // 
+            this.buscarEdicao.Name = "buscarEdicao";
+            this.buscarEdicao.Size = new System.Drawing.Size(139, 22);
+            this.buscarEdicao.Text = "Buscar";
+            this.buscarEdicao.Click += new System.EventHandler(this.buscarEdicao_Click);
             // 
             // ddmLeitor
             // 
@@ -718,7 +754,6 @@
         private System.Windows.Forms.Label lbNome;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmLivro;
         private System.Windows.Forms.ToolStripMenuItem livroToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenuItem;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmLeitor;
         private System.Windows.Forms.ToolStripMenuItem itemCadastrarLeitor;
         private System.Windows.Forms.ToolStripMenuItem itemBuscarLeitor;
@@ -739,21 +774,26 @@
         private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem emprestimoToolStripMenu;
         private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarLivro;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarExemplar;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarEditora;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarAutor;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarGenero;
-        private System.Windows.Forms.ToolStripMenuItem itemCadastrarEdicao;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarLivro;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarExemplar;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarEditora;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarAutor;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarGenero;
-        private System.Windows.Forms.ToolStripMenuItem itemBuscarEdicao;
         private FontAwesome.Sharp.IconButton btnFuncionario;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmFuncionario;
         private System.Windows.Forms.ToolStripMenuItem itemCadastrarFuncionario;
         private System.Windows.Forms.ToolStripMenuItem itemBuscarFuncionario;
+        private System.Windows.Forms.ToolStripMenuItem exemplarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarExemplar;
+        private System.Windows.Forms.ToolStripMenuItem buscarExemplar;
+        private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarEditora;
+        private System.Windows.Forms.ToolStripMenuItem BuscarEditora;
+        private System.Windows.Forms.ToolStripMenuItem autorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarAutor;
+        private System.Windows.Forms.ToolStripMenuItem BuscarAutor;
+        private System.Windows.Forms.ToolStripMenuItem gêneroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarGenero;
+        private System.Windows.Forms.ToolStripMenuItem buscarGenero;
+        private System.Windows.Forms.ToolStripMenuItem ediçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarEdicao;
+        private System.Windows.Forms.ToolStripMenuItem buscarEdicao;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarLivro;
+        private System.Windows.Forms.ToolStripMenuItem buscarLivro;
     }
 }
