@@ -33,17 +33,21 @@ namespace Biblioteca.View.Emprestimo {
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CalendarDevolucap = new System.Windows.Forms.DateTimePicker();
+            this.CalendarEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnCadastrarEdicao = new FontAwesome.Sharp.IconButton();
+            this.TextObservacao = new System.Windows.Forms.RichTextBox();
+            this.btnBuscarLivros = new FontAwesome.Sharp.IconButton();
+            this.btnBuscarLeitor = new FontAwesome.Sharp.IconButton();
             this.dtGridViewExemplares = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
-            this.rjDatePicker2 = new RJCodeAdvance.RJControls.RJDatePicker();
-            this.rjDatePicker1 = new RJCodeAdvance.RJControls.RJDatePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lbTelefone = new System.Windows.Forms.Label();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.lbCpf = new System.Windows.Forms.Label();
+            this.lbNome = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -66,7 +70,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(631, 456);
+            this.label3.Location = new System.Drawing.Point(614, 462);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 12;
@@ -79,7 +83,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(633, 524);
+            this.label4.Location = new System.Drawing.Point(616, 530);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 13;
@@ -88,16 +92,16 @@ namespace Biblioteca.View.Emprestimo {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.CalendarDevolucap);
+            this.panel1.Controls.Add(this.CalendarEmprestimo);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.richTextBox1);
-            this.panel1.Controls.Add(this.iconButton1);
-            this.panel1.Controls.Add(this.btnCadastrarEdicao);
+            this.panel1.Controls.Add(this.TextObservacao);
+            this.panel1.Controls.Add(this.btnBuscarLivros);
+            this.panel1.Controls.Add(this.btnBuscarLeitor);
             this.panel1.Controls.Add(this.dtGridViewExemplares);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnCadastrar);
-            this.panel1.Controls.Add(this.rjDatePicker2);
-            this.panel1.Controls.Add(this.rjDatePicker1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.IcnBtnVoltar);
             this.panel1.Controls.Add(this.lblCadastroLivro);
@@ -109,6 +113,34 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1093, 714);
             this.panel1.TabIndex = 18;
+            // 
+            // CalendarDevolucap
+            // 
+            this.CalendarDevolucap.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarDevolucap.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarDevolucap.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarDevolucap.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarDevolucap.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarDevolucap.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarDevolucap.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarDevolucap.Location = new System.Drawing.Point(740, 523);
+            this.CalendarDevolucap.Name = "CalendarDevolucap";
+            this.CalendarDevolucap.Size = new System.Drawing.Size(299, 27);
+            this.CalendarDevolucap.TabIndex = 107;
+            // 
+            // CalendarEmprestimo
+            // 
+            this.CalendarEmprestimo.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarEmprestimo.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarEmprestimo.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarEmprestimo.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarEmprestimo.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarEmprestimo.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarEmprestimo.Location = new System.Drawing.Point(740, 457);
+            this.CalendarEmprestimo.Name = "CalendarEmprestimo";
+            this.CalendarEmprestimo.Size = new System.Drawing.Size(299, 27);
+            this.CalendarEmprestimo.TabIndex = 106;
             // 
             // label9
             // 
@@ -122,66 +154,68 @@ namespace Biblioteca.View.Emprestimo {
             this.label9.TabIndex = 105;
             this.label9.Text = "Observações";
             // 
-            // richTextBox1
+            // TextObservacao
             // 
-            this.richTextBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.ForeColor = System.Drawing.Color.White;
-            this.richTextBox1.Location = new System.Drawing.Point(633, 216);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(384, 120);
-            this.richTextBox1.TabIndex = 104;
-            this.richTextBox1.Text = "";
+            this.TextObservacao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TextObservacao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.TextObservacao.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextObservacao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TextObservacao.ForeColor = System.Drawing.Color.White;
+            this.TextObservacao.Location = new System.Drawing.Point(633, 216);
+            this.TextObservacao.Name = "TextObservacao";
+            this.TextObservacao.Size = new System.Drawing.Size(406, 120);
+            this.TextObservacao.TabIndex = 104;
+            this.TextObservacao.Text = "";
             // 
-            // iconButton1
+            // btnBuscarLivros
             // 
-            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton1.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton1.ForeColor = System.Drawing.Color.White;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconButton1.IconColor = System.Drawing.Color.SlateBlue;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 30;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(409, 360);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(174, 37);
-            this.iconButton1.TabIndex = 103;
-            this.iconButton1.Tag = "";
-            this.iconButton1.Text = "  Selecionar Livros";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.btnBuscarLivros.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarLivros.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnBuscarLivros.FlatAppearance.BorderSize = 0;
+            this.btnBuscarLivros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarLivros.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarLivros.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarLivros.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.btnBuscarLivros.IconColor = System.Drawing.Color.SlateBlue;
+            this.btnBuscarLivros.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarLivros.IconSize = 30;
+            this.btnBuscarLivros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarLivros.Location = new System.Drawing.Point(409, 360);
+            this.btnBuscarLivros.Name = "btnBuscarLivros";
+            this.btnBuscarLivros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBuscarLivros.Size = new System.Drawing.Size(174, 37);
+            this.btnBuscarLivros.TabIndex = 103;
+            this.btnBuscarLivros.Tag = "";
+            this.btnBuscarLivros.Text = "  Selecionar Livros";
+            this.btnBuscarLivros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarLivros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarLivros.UseVisualStyleBackColor = false;
+            this.btnBuscarLivros.Click += new System.EventHandler(this.btnBuscarLivros_Click);
             // 
-            // btnCadastrarEdicao
+            // btnBuscarLeitor
             // 
-            this.btnCadastrarEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCadastrarEdicao.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnCadastrarEdicao.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarEdicao.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCadastrarEdicao.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarEdicao.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.btnCadastrarEdicao.IconColor = System.Drawing.Color.LightBlue;
-            this.btnCadastrarEdicao.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCadastrarEdicao.IconSize = 30;
-            this.btnCadastrarEdicao.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarEdicao.Location = new System.Drawing.Point(409, 174);
-            this.btnCadastrarEdicao.Name = "btnCadastrarEdicao";
-            this.btnCadastrarEdicao.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCadastrarEdicao.Size = new System.Drawing.Size(174, 36);
-            this.btnCadastrarEdicao.TabIndex = 102;
-            this.btnCadastrarEdicao.Tag = "";
-            this.btnCadastrarEdicao.Text = "  Selecionar Leitor";
-            this.btnCadastrarEdicao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrarEdicao.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCadastrarEdicao.UseVisualStyleBackColor = false;
+            this.btnBuscarLeitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBuscarLeitor.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBuscarLeitor.FlatAppearance.BorderSize = 0;
+            this.btnBuscarLeitor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarLeitor.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBuscarLeitor.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarLeitor.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            this.btnBuscarLeitor.IconColor = System.Drawing.Color.LightBlue;
+            this.btnBuscarLeitor.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBuscarLeitor.IconSize = 30;
+            this.btnBuscarLeitor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarLeitor.Location = new System.Drawing.Point(409, 174);
+            this.btnBuscarLeitor.Name = "btnBuscarLeitor";
+            this.btnBuscarLeitor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnBuscarLeitor.Size = new System.Drawing.Size(174, 36);
+            this.btnBuscarLeitor.TabIndex = 102;
+            this.btnBuscarLeitor.Tag = "";
+            this.btnBuscarLeitor.Text = "  Selecionar Leitor";
+            this.btnBuscarLeitor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarLeitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarLeitor.UseVisualStyleBackColor = false;
+            this.btnBuscarLeitor.Click += new System.EventHandler(this.btnBuscarLeitor_Click);
             // 
             // dtGridViewExemplares
             // 
@@ -268,41 +302,16 @@ namespace Biblioteca.View.Emprestimo {
             this.btnCadastrar.TabIndex = 99;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
-            // 
-            // rjDatePicker2
-            // 
-            this.rjDatePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjDatePicker2.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker2.BorderSize = 0;
-            this.rjDatePicker2.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker2.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker2.Location = new System.Drawing.Point(757, 515);
-            this.rjDatePicker2.MinimumSize = new System.Drawing.Size(4, 35);
-            this.rjDatePicker2.Name = "rjDatePicker2";
-            this.rjDatePicker2.Size = new System.Drawing.Size(260, 35);
-            this.rjDatePicker2.SkinColor = System.Drawing.Color.DarkSlateGray;
-            this.rjDatePicker2.TabIndex = 98;
-            this.rjDatePicker2.TextColor = System.Drawing.Color.White;
-            // 
-            // rjDatePicker1
-            // 
-            this.rjDatePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjDatePicker1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjDatePicker1.BorderSize = 0;
-            this.rjDatePicker1.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker1.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rjDatePicker1.Location = new System.Drawing.Point(757, 447);
-            this.rjDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
-            this.rjDatePicker1.Name = "rjDatePicker1";
-            this.rjDatePicker1.Size = new System.Drawing.Size(260, 35);
-            this.rjDatePicker1.SkinColor = System.Drawing.Color.DarkSlateGray;
-            this.rjDatePicker1.TabIndex = 96;
-            this.rjDatePicker1.TextColor = System.Drawing.Color.White;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel2.Controls.Add(this.lbTelefone);
+            this.panel2.Controls.Add(this.lbEmail);
+            this.panel2.Controls.Add(this.lbCpf);
+            this.panel2.Controls.Add(this.lbNome);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
@@ -311,6 +320,50 @@ namespace Biblioteca.View.Emprestimo {
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(484, 120);
             this.panel2.TabIndex = 95;
+            // 
+            // lbTelefone
+            // 
+            this.lbTelefone.AutoSize = true;
+            this.lbTelefone.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbTelefone.ForeColor = System.Drawing.Color.White;
+            this.lbTelefone.Location = new System.Drawing.Point(267, 49);
+            this.lbTelefone.Name = "lbTelefone";
+            this.lbTelefone.Size = new System.Drawing.Size(56, 20);
+            this.lbTelefone.TabIndex = 8;
+            this.lbTelefone.Text = "label10";
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbEmail.ForeColor = System.Drawing.Color.White;
+            this.lbEmail.Location = new System.Drawing.Point(75, 82);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(56, 20);
+            this.lbEmail.TabIndex = 7;
+            this.lbEmail.Text = "label10";
+            // 
+            // lbCpf
+            // 
+            this.lbCpf.AutoSize = true;
+            this.lbCpf.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbCpf.ForeColor = System.Drawing.Color.White;
+            this.lbCpf.Location = new System.Drawing.Point(72, 48);
+            this.lbCpf.Name = "lbCpf";
+            this.lbCpf.Size = new System.Drawing.Size(56, 20);
+            this.lbCpf.TabIndex = 6;
+            this.lbCpf.Text = "label10";
+            // 
+            // lbNome
+            // 
+            this.lbNome.AutoSize = true;
+            this.lbNome.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbNome.ForeColor = System.Drawing.Color.White;
+            this.lbNome.Location = new System.Drawing.Point(72, 15);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(56, 20);
+            this.lbNome.TabIndex = 5;
+            this.lbNome.Text = "label10";
             // 
             // label8
             // 
@@ -376,6 +429,7 @@ namespace Biblioteca.View.Emprestimo {
             this.IcnBtnVoltar.Tag = "";
             this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.IcnBtnVoltar.UseVisualStyleBackColor = true;
+            this.IcnBtnVoltar.Click += new System.EventHandler(this.IcnBtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -472,21 +526,25 @@ namespace Biblioteca.View.Emprestimo {
         private Util.MenuControl menuControl1;
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
-        private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker1;
         private System.Windows.Forms.Panel panel2;
         private FontAwesome.Sharp.IconButton IcnBtnVoltar;
-        private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker2;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dtGridViewExemplares;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnCadastrarEdicao;
+        private System.Windows.Forms.RichTextBox TextObservacao;
+        private FontAwesome.Sharp.IconButton btnBuscarLivros;
+        private FontAwesome.Sharp.IconButton btnBuscarLeitor;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker CalendarDevolucap;
+        private System.Windows.Forms.DateTimePicker CalendarEmprestimo;
+        private System.Windows.Forms.Label lbTelefone;
+        private System.Windows.Forms.Label lbEmail;
+        private System.Windows.Forms.Label lbCpf;
+        private System.Windows.Forms.Label lbNome;
     }
 }

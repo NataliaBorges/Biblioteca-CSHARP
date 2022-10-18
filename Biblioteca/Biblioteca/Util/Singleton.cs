@@ -133,7 +133,7 @@ namespace Biblioteca.Util {
             }
             return instancia;
         }
-        public bool getAddAutor() {
+        public bool getAddExemplar() {
             return this.addExemplar;
         }
         public void setAddAutor(bool addAutor)

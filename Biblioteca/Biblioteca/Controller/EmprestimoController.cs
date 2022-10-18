@@ -23,21 +23,22 @@ namespace Biblioteca.Controller
         }
 
         // CADASTRAR NOVO EMPRESTIMO
-        public bool Insercao(String dataEmprestimo, String dataDevolucao, String obs)
+        public bool Insercao(DateTime dataEmprestimo, DateTime dataDevolucao, String obs)
         {
             try
             {
                 Cmd.Connection = connection.RetornaConexao();
 
-                Cmd.CommandText = @"INSERT INTO Emprestimo Values (@ID_funcionario, @ID_leitor, @Data_emprestimo, @Data_devolucao, @Obs_emprestimo, @Status)";
+                Cmd.CommandText = @"INSERT INTO Emprestimo Values (@Emprestimo, @Devolucao, @Obs, @Leitor, @Funcionario, @Status, @Estado)";
 
                 Cmd.Parameters.Clear();
-                Cmd.Parameters.AddWithValue("@ID_funcionario", 4);//this.singleton.getFuncionario().getId());
-                Cmd.Parameters.AddWithValue("@ID_leitor", this.singleton.getLeitor().getId());
-                Cmd.Parameters.AddWithValue("@Data_emprestimo", dataEmprestimo);
-                Cmd.Parameters.AddWithValue("@Data_devolucao", dataDevolucao);
-                Cmd.Parameters.AddWithValue("@Obs_emprestimo", obs);
-                Cmd.Parameters.AddWithValue("@Status", "EMPRESTADO");
+                Cmd.Parameters.AddWithValue("@Emprestimo", dataEmprestimo.ToString("yyyy-MM-dd"));
+                Cmd.Parameters.AddWithValue("@Devolucao", dataDevolucao.ToString("yyyy-MM-dd"));
+                Cmd.Parameters.AddWithValue("@Obs", obs);
+                Cmd.Parameters.AddWithValue("@Leitor", this.singleton.getLeitor().getId());
+                Cmd.Parameters.AddWithValue("@Funcionario", 1);//this.singleton.getFuncionario().getId());
+                Cmd.Parameters.AddWithValue("@Status", 6);
+                Cmd.Parameters.AddWithValue("@Estado", 1);
 
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
@@ -59,18 +60,17 @@ namespace Biblioteca.Controller
         public int BuscarUltimoEmprestimo()
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Emprestimo ORDER BY ID_emprestimo DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
+            Cmd.CommandText = @"SELECT * FROM Emprestimo ORDER BY Id DESC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
             while (reader.Read())
             {
-                int idEmprestimo = (int)reader["ID_emprestimo"];
+                int idEmprestimo = (int)reader["Id"];
                 reader.Close();
                 return idEmprestimo;
             }
-
 
             return 0;
         }
@@ -83,11 +83,11 @@ namespace Biblioteca.Controller
             if (Cmd.Connection.State != System.Data.ConnectionState.Open)
                 Cmd.Connection.Open();
 
-            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@ID_emprestimo, @ID_IL)";
+            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@Exemplar, @Emprestimo)";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID_IL", exemplar.getId());
-            Cmd.Parameters.AddWithValue("@ID_emprestimo", idEmprestimo);
+            Cmd.Parameters.AddWithValue("@Exemplar", exemplar.getId());
+            Cmd.Parameters.AddWithValue("@Emprestimo", idEmprestimo);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {
@@ -140,11 +140,12 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor'
+            SELECT E.*, F.Nome_Funcionario AS 'Funcionario', L.Nome_Leitor AS 'Leitor', SE.Nome_Status AS 'Status'
             FROM Emprestimo as E
-            INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-            INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-            WHERE E.ID_emprestimo = '" + id + "'";
+            INNER JOIN Funcionario AS F ON (F.Id = E.Id_funcionario)
+            INNER JOIN Leitor as L ON (L.Id = E.Id_leitor)
+			INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+            WHERE E.Id = '" + id + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -154,11 +155,11 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 EmprestimoModel leitor = new EmprestimoModel(
-                    (int)reader["ID_emprestimo"],
-                    (int)reader["ID_funcionario"],
-                    (int)reader["ID_leitor"],
-                    (DateTime)reader["Data_devolucao"],
-                    (DateTime)reader["Data_emprestimo"],
+                    (int)reader["Id"],
+                    (int)reader["Id_funcionario"],
+                    (int)reader["Id_leitor"],
+                    (DateTime)reader["Data_Devolucao"],
+                    (DateTime)reader["Data_Emprestimo"],
                     (String)reader["Leitor"],
                     (String)reader["Funcionario"],
                     (String)reader["Status"]
@@ -174,13 +175,14 @@ namespace Biblioteca.Controller
         public List<EmprestimoPesquisaModel> ListarTodosBusca()
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
+            Cmd.CommandText = @"SELECT E.Id, L.Nome_Leitor, Li.Titulo, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, SE.Nome_Status
                                     FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-			                        INNER JOIN Item_livro AS IL ON (IL.ID_IL = IE.ID_IL)
-			                        INNER JOIN Livro AS Li ON (Li.ID_livro = IL.ID_livro)";
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+			                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+			                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+									INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)";
             //SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
             //FROM Emprestimo as E
             //INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
@@ -196,13 +198,13 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-                    (int)reader["ID_emprestimo"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
-                    (String)reader["Nome_Livro"],
+                    (String)reader["Titulo"],
                     (String)reader["Nome_funcionario"],
-                    (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
-                    (String)reader["Status"]
+                    (DateTime)reader["Data_devolucao"],
+                    (String)reader["Nome_Status"]
                 );
                 lista.Add(pesquisa);
             }
@@ -238,9 +240,15 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"
-            SELECT L.*, F.Nome_fornecedor as Editora 
-            FROM Livro AS L
-            INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
+            SELECT	Livro. *,
+		            Editora.Nome_Editora,
+		            Autor.Nome_Autor,
+		            Genero.Nome_Genero
+            FROM Livro
+            INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+            INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+            INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+            WHERE Livro.Estado = 1 AND EXISTS (SELECT * FROM Exemplar WHERE Livro.id = Exemplar.Id_livro)
             ";
             Cmd.Parameters.Clear();
 
@@ -248,44 +256,43 @@ namespace Biblioteca.Controller
 
             List<LivroModel> lista = new List<LivroModel>();
 
-            //while (reader.Read()) {
-            //LivroModel livro = new LivroModel(
-            //(int)reader["ID_livro"],
-            //(int)reader["ID_fornecedor"],
-            //(int)reader["ID_Autor"],
-            //(String)reader["Autor_Livro"],
-            //(String)reader["Edicao"],
-            //(String)reader["Ano_publicacao"],
-            //(String)reader["ISBN"]
-            //(String)reader["Editora"],
-            //(int)reader["Quantidade"]
-            //    );
-            //    //lista.Add(livro);
-            //}
+            while (reader.Read())
+            {
+                LivroModel livro = new LivroModel(
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_genero"]
+                );
+                lista.Add(livro);
+            }
             reader.Close();
 
-            for (int i = 0; i < lista.Count; i++)
+            /*for (int i = 0; i < lista.Count; i++)
             {
                 int disponiveis = quantidadeDisponiveis(lista[i].getId(), lista[i].Quantidade);
                 lista[i].Disponiveis = disponiveis;
-            }
+            }*/
 
             return lista;
         }
         public List<ExemplarModel> ListarTodosExemplares(int idLivro)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
-                                    L.Nome_Livro AS Nome,
-		                            L.Autor_Livro AS Autor,
-		                            L.Edicao,
-		                            L.Ano_publicacao AS AnoPublicacao,
-		                            L.ISBN,
-		                            F.Nome_fornecedor AS Editora
-                                From Item_livro AS IL
-                                INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
-                                INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                                WHERE IL.ID_livro = '" + idLivro + "'";
+            Cmd.CommandText = @"SELECT	Exemplar.Id,
+                                    L.Titulo AS Nome,
+		                            A.Nome_Autor AS Autor,
+		                            E.Nome_Edicao AS Edicao,
+		                            Exemplar.Ano AS AnoPublicacao,
+		                            Exemplar.ISBN,
+		                            F.Nome_Editora AS Editora
+                                From Exemplar
+                                INNER JOIN Livro AS L ON (Exemplar.Id_livro = L.Id) 
+								INNER JOIN Autor AS A ON (A.Id = L.Id_autor) 
+								INNER JOIN Edicao AS E ON (E.Id = Exemplar.Id_Edicao) 
+                                INNER JOIN Editora AS F ON (F.Id = L.Id_editora)
+                                WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -295,7 +302,6 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 ExemplarModel exemplar = new ExemplarModel(
-                    //int ID, String nome, String autor, String Edicao, String AnoPublicacao, String ISBN, String Editora
                     (int)reader["ID"],
                     (String)reader["Nome"],
                     (String)reader["Autor"],
@@ -314,19 +320,21 @@ namespace Biblioteca.Controller
         public List<ExemplarModel> ListarTodosLivrosEmprestimo(int id)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT	IL.ID_IL AS ID,
-                                L.Nome_Livro AS Nome,
-	                            L.Autor_Livro AS Autor,
-	                            L.Edicao,
-	                            L.Ano_publicacao AS AnoPublicacao,
-	                            L.ISBN,
-	                            F.Nome_fornecedor AS Editora
-                            From Item_livro AS IL
-                            INNER JOIN Livro AS L ON (IL.ID_livro = L.ID_livro) 
-                            INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                            INNER JOIN Item_emprestimo AS IE ON (IE.ID_IL = IL.ID_IL)
-                            INNER JOIN Emprestimo AS E ON (E.ID_emprestimo = IE.ID_emprestimo)
-                            WHERE E.ID_emprestimo = '" + id + "'";
+            Cmd.CommandText = @"SELECT	IL.Id AS ID,
+                                L.Titulo AS Nome,
+	                            Autor.Nome_Autor AS Autor,
+	                            Edicao.Nome_Edicao AS Edicao,
+	                            IL.Ano AS AnoPublicacao,
+	                            IL.ISBN,
+	                            F.Nome_Editora AS Editora
+                            From Exemplar AS IL
+                            INNER JOIN Livro AS L ON (IL.Id_livro = L.Id) 
+                            INNER JOIN Editora AS F ON (F.Id = L.Id_editora)
+                            INNER JOIN Item_Emprestimo AS IE ON (IE.Id_exemplar = IL.Id)
+                            INNER JOIN Emprestimo AS E ON (E.Id = IE.Id_emprestimo)
+							INNER JOIN Autor ON (Autor.Id = L.Id_autor)
+							INNER JOIN Edicao ON (Edicao.Id = IL.Id_Edicao)
+                            WHERE E.id = '" + id + "'";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -340,7 +348,7 @@ namespace Biblioteca.Controller
                     (String)reader["Nome"],
                     (String)reader["Autor"],
                     (String)reader["Edicao"],
-                    (String)reader["Anopublicacao"],
+                    (String)reader["AnoPublicacao"],
                     (String)reader["ISBN"],
                     (String)reader["Editora"]
                 );
@@ -422,7 +430,7 @@ namespace Biblioteca.Controller
         public List<LeitorModel> ListarTodosLeitores()
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT * FROM Leitor";
+            Cmd.CommandText = @"SELECT * FROM Leitor Where Estado = 1";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -432,7 +440,7 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 LeitorModel leitor = new LeitorModel(
-                    (int)reader["ID_leitor"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
@@ -482,12 +490,12 @@ namespace Biblioteca.Controller
 
             if (isNome)
             {
-                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE Nome_Leitor LIKE '" + busca + "%'";
+                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE estado = 1 AND Nome_Leitor LIKE '%" + busca + "%'";
             }
 
             if (isCPF)
             {
-                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE CPF LIKE '" + busca + "%'";
+                Cmd.CommandText = @"SELECT * FROM LEITOR WHERE estado = 1 AND CPF LIKE '%" + busca + "%'";
             }
 
             Cmd.Parameters.Clear();
@@ -499,7 +507,7 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 LeitorModel leitor = new LeitorModel(
-                    (int)reader["ID_leitor"],
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
                     (DateTime)reader["Data_Nascimento"],
                     (String)reader["Telefone"],
@@ -634,10 +642,10 @@ namespace Biblioteca.Controller
         {
             // mudar status emprestimo
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"UPDATE Emprestimo SET Status = @Status
-                                WHERE ID_emprestimo = @ID";
+            Cmd.CommandText = @"UPDATE Emprestimo SET Id_emprestimoStatus = @Status
+                                WHERE Id = @ID";
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@Status", "DEVOLVIDO");
+            Cmd.Parameters.AddWithValue("@Status", 7);
             Cmd.Parameters.AddWithValue("@ID", emprestimo.ID_emprestimo);
 
             if (Cmd.ExecuteNonQuery() == 1)

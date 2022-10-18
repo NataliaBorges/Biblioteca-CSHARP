@@ -28,7 +28,7 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         protected override void OnActivated(EventArgs e) {
-            if (singleton.getAddAutor() == true) {
+            if (singleton.getAddExemplar() == true) {
                 this.Close();
             }
             List<LivroModel> lista = controller.ListarTodosLivros();
@@ -36,21 +36,30 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void popular(List<LivroModel> lista) {
-            //LvLivros.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    //item.SubItems.Add(livro.Disponiveis.ToString());
-                    //item.SubItems.Add(livro.Nome);
-                    //item.SubItems.Add(livro.Autor);
-                    //item.SubItems.Add(livro.Editora);
-                    //item.SubItems.Add(livro.ISBN);
-                    //item.SubItems.Add(livro.Edicao);
-                    //item.SubItems.Add(livro.AnoPublicacao);
-                    //item.SubItems.Add(livro.DataAquisicao.ToString());
-                    
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
+            table.Columns.Add("Gênero", typeof(string));
 
-                   // LvLivros.Items.Add(item);
+            if (lista.Count > 0)
+            {
+                foreach (LivroModel livros in lista)
+                {
+
+                    table.Rows.Add(livros.getId(),
+                                   livros.Titulo,
+                                   livros.NomeAutor,
+                                   livros.NomeEditora,
+                                   livros.NomeGenero);
+                }
+                dtGridViewLivros.DataSource = table;
+                int index = dtGridViewLivros.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewLivros.Rows[index].Selected = false;
                 }
             }
         }
@@ -61,26 +70,6 @@ namespace Biblioteca.View.Emprestimo {
             List<LivroModel> lista = controller.BuscarLivros(busca);
             popular(lista);
         }
-        //private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-        //    if (int.Parse(item.SubItems[1].Text) == 0) {
-        //        MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
-        //    }
-        //    else {
-        //        //LivroModel livro = new LivroModel(
-        //            //int.Parse(item.SubItems[0].Text),
-        //            //item.SubItems[2].Text,
-        //            //item.SubItems[3].Text,
-        //            //item.SubItems[6].Text,
-        //            //item.SubItems[7].Text,
-        //            //item.SubItems[4].Text,
-        //            //item.SubItems[5].Text
-        //        //);
-
-        //        EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(int.Parse(item.SubItems[0].Text));
-        //        NovaJanela.novaJanela(livros, this.Bounds);
-        //    }
-        //}
 
         private void button2_Click(object sender, EventArgs e) {
             this.Close();
@@ -89,6 +78,32 @@ namespace Biblioteca.View.Emprestimo {
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
             NovaJanela.novaJanela(livrosCadastrarView, Bounds);
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtGridViewLivros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
+            {
+                //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
+                //    if (int.Parse(item.SubItems[1].Text) == 0) {
+                //        MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
+                //    }
+
+                int id = int.Parse(row.Cells[0].Value.ToString());
+
+                EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(id);
+                NovaJanela.novaJanela(livros, this.Bounds);
+            }
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -171,7 +171,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Autor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Autor.Width = 240;
             // 
-            // Editora
+            // Fornecedor
             // 
             this.Fornecedor.Text = "Editora";
             this.Fornecedor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -179,20 +179,17 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // ISBN
             // 
-            this.ISBN.DisplayIndex = 6;
             this.ISBN.Text = "ISBN";
             this.ISBN.Width = 150;
             // 
             // Edição
             // 
-            this.Edição.DisplayIndex = 4;
             this.Edição.Text = "Edição";
             this.Edição.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Edição.Width = 150;
             // 
             // Ano
             // 
-            this.Ano.DisplayIndex = 5;
             this.Ano.Text = "Ano";
             this.Ano.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Ano.Width = 140;
@@ -280,6 +277,7 @@ namespace Biblioteca.View.Emprestimo {
             this.btnDevolver.TabIndex = 23;
             this.btnDevolver.Text = "DEVOLVIDO";
             this.btnDevolver.UseVisualStyleBackColor = false;
+            this.btnDevolver.Click += new System.EventHandler(this.btnDevolver_Click);
             // 
             // pnltotal
             // 

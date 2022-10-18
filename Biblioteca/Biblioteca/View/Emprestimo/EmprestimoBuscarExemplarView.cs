@@ -29,44 +29,64 @@ namespace Biblioteca.View.Emprestimo {
             popular(lista);
         }
         private void popular(List<ExemplarModel> lista) {
-            //LvExemplar.Items.Clear();
-            //if (lista.Count > 0)
-            //{
-            //    foreach (ExemplarModel exemplar in lista)
-            //    {
-            //        ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-            //        item.SubItems.Add(exemplar.Titulo);
-            //        //item.SubItems.Add(exemplar.Edicao);
-            //        item.SubItems.Add(exemplar.AnoPublicacao);
-            //        item.SubItems.Add(exemplar.ISBN);
-            //        item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-            //        item.SubItems.Add(exemplar.Nome_Autor);
-            //        item.SubItems.Add(exemplar.Nome_Editora);
-            //        item.SubItems.Add(exemplar.Nome_Genero);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Ano", typeof(string));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
 
-            //        LvExemplar.Items.Add(item);
-            //    }
-            //}
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
+
+                    table.Rows.Add(exemplar.getId(),
+                                   exemplar.Titulo,
+                                   exemplar.Nome_Autor,
+                                   exemplar.Nome_Edicao,
+                                   exemplar.AnoPublicacao,
+                                   exemplar.ISBN,
+                                   exemplar.Nome_Editora);
+                }
+                dtGridViewExemplar.DataSource = table;
+                int index = dtGridViewExemplar.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewExemplar.Rows[index].Selected = false;
+                }
+            }
         }
 
-        //private void btnExcluir_Click(object sender, EventArgs e) {
-        //    this.Close();
-        //}
+        private void dtGridViewExemplar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewExemplar.SelectedRows)
+            {
+                //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
+                //    if (int.Parse(item.SubItems[1].Text) == 0) {
+                //        MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
+                //    }
 
-        //private void LvExemplar_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = LvExemplar.Items[LvExemplar.FocusedItem.Index];
-        //    ExemplarModel exemplar = new ExemplarModel(
-        //        int.Parse(item.SubItems[0].Text),
-        //        item.SubItems[1].Text,
-        //        item.SubItems[2].Text,
-        //        item.SubItems[6].Text,
-        //        item.SubItems[5].Text,
-        //        item.SubItems[3].Text,
-        //        item.SubItems[4].Text
-        //    );
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string titulo = row.Cells[1].Value.ToString();
+                string autor = row.Cells[2].Value.ToString();
+                string edicao = row.Cells[3].Value.ToString();
+                string ano = row.Cells[4].Value.ToString();
+                string isbn = row.Cells[5].Value.ToString();
+                string editora = row.Cells[6].Value.ToString();
 
-        //    controller.InserirExemplarEmprestimo(exemplar);
-        //    this.Close();
-        //}
+                ExemplarModel exemplar = new ExemplarModel(id, titulo, autor, edicao, ano, isbn,editora);
+                controller.InserirExemplarEmprestimo(exemplar);
+                this.Close();
+            }
+        }
+
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

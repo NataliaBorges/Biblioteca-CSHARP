@@ -20,26 +20,12 @@ namespace Biblioteca.View.Emprestimo {
 
         public EmprestimoCadastroView() {
             InitializeComponent();
-        }
-
-        //private void calendarEmprestimo_DateChanged(object sender, DateRangeEventArgs e) {
-        //    tbEmprestimo.Text = calendarEmprestimo.SelectionRange.Start.ToString("dd/MM/yyyy");
-        //    int ano = int.Parse(calendarEmprestimo.SelectionRange.Start.ToString("yyyy"));
-        //    int mes = int.Parse(calendarEmprestimo.SelectionRange.Start.ToString("MM"));
-        //    int dia = int.Parse(calendarEmprestimo.SelectionRange.Start.ToString("dd"));
-        //    dataEmprestimo = new DateTime(ano, mes, dia);
-        //}
-
-        //private void calendarDevolucao_DateChanged(object sender, DateRangeEventArgs e) {
-        //    tbDevolucao.Text = calendarDevolucao.SelectionRange.Start.ToString("dd/MM/yyyy");
-        //    int ano = int.Parse(calendarDevolucao.SelectionRange.Start.ToString("yyyy"));
-        //    int mes = int.Parse(calendarDevolucao.SelectionRange.Start.ToString("MM"));
-        //    int dia = int.Parse(calendarDevolucao.SelectionRange.Start.ToString("dd"));
-        //    dataDevolucao = new DateTime(ano, mes, dia);
-        //}
-        private void button2_Click(object sender, EventArgs e) {
-            EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
-            NovaJanela.novaJanela(livros, this.Bounds);
+            lbNome.Text = "";
+            lbTelefone.Text = "";
+            lbCpf.Text = "";
+            lbEmail.Text = "";
+            dtGridViewExemplares.DataSource = null;
+            TextObservacao.Text = "";
         }
 
         private void EmprestimoCadastroView_Load(object sender, EventArgs e) {
@@ -52,47 +38,111 @@ namespace Biblioteca.View.Emprestimo {
         protected override void OnActivated(EventArgs e) {
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
-            if (singleton.getAddAutor() == true) {
+            if (singleton.getAddExemplar() == true) {
                 singleton.setAddExemplar(false);
             }
         }
 
         private void popularExemplar(List<ExemplarModel> lista) {
-            //lvLivros.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (ExemplarModel exemplar in lista) {
-                    ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-                    item.SubItems.Add(exemplar.Titulo);
-                    //item.SubItems.Add(exemplar.Edicao);
-                    item.SubItems.Add(exemplar.AnoPublicacao);
-                    item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-                    item.SubItems.Add(exemplar.Nome_Autor);
-                    item.SubItems.Add(exemplar.Nome_Editora);
-                    item.SubItems.Add(exemplar.Nome_Genero);
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Ano", typeof(string));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
 
-                    //lvLivros.Items.Add(item);
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
+
+                    table.Rows.Add(exemplar.getId(),
+                                   exemplar.Titulo,
+                                   exemplar.Nome_Autor,
+                                   exemplar.Nome_Edicao,
+                                   exemplar.AnoPublicacao,
+                                   exemplar.ISBN,
+                                   exemplar.Nome_Editora);
+                }
+                dtGridViewExemplares.DataSource = table;
+
+                int index = dtGridViewExemplares.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewExemplares.Rows[index].Selected = false;
                 }
             }
         }
 
         private void popularLeitor(List<LeitorModel> lista) {
-            //lvLeitor.Items.Clear();
-            //if (lista.Count > 0) {
-            //    foreach (LeitorModel leitor in lista) {
-            //        if (leitor != null) {
-            //            ListViewItem item = new ListViewItem(leitor.getId().ToString());
-            //            item.SubItems.Add(leitor.Nome);
-            //            item.SubItems.Add(leitor.DataNascimento.ToString());
-            //            item.SubItems.Add(leitor.Telefone);
-            //            item.SubItems.Add(leitor.CPF);
-            //            item.SubItems.Add(leitor.Endereco);
-
-            //            lvLeitor.Items.Add(item);
-            //        }
-            //    }
+            if(lista.Count > 0 && lista[0] != null)
+            {
+                LeitorModel leitor = lista[0];
+                lbNome.Text = leitor.Nome;
+                lbTelefone.Text = leitor.Telefone;
+                lbCpf.Text = leitor.CPF;
+                lbEmail.Text = leitor.Email;
             }
         }
+
+        private void btnBuscarLeitor_Click(object sender, EventArgs e)
+        {
+            EmprestimoBuscarLeitorView leitor = new EmprestimoBuscarLeitorView();
+            NovaJanela.novaJanela(leitor, this.Bounds);
+        }
+
+        private void btnBuscarLivros_Click(object sender, EventArgs e)
+        {
+            EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
+            NovaJanela.novaJanela(livros, this.Bounds);
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            DateTime emprestimo = CalendarEmprestimo.Value.Date;
+            DateTime devolucao = CalendarDevolucap.Value.Date;
+            String obs = TextObservacao.Text;
+
+
+            //if (dtGridViewExemplares.DataSource. > 5)
+            //{
+            //    Messagebox.show("você só pode emprestar 5 obras", "atenção", messageboxbuttons.ok);
+            //    lvlivros.focus();
+            //}
+            //else
+            //{
+            // Cadastra emprestimo
+            if (controller.Insercao(emprestimo, devolucao, obs))
+                {
+                    // Pega o ID do emprestimo cadastrado
+                    int idEmprestimo = controller.BuscarUltimoEmprestimo();
+
+                    // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
+                    foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                    {
+                        controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
+                    }
+
+                    this.singleton.clearEmprestimo();
+
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível realizar o empréstimo.", "Ateção", MessageBoxButtons.OK);
+                }
+            //}
+        }
+
+        private void IcnBtnVoltar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 
     //    private void lvLivros_MouseClick(object sender, MouseEventArgs e) {
     //        ListViewItem item = lvLivros.Items[lvLivros.FocusedItem.Index];
@@ -114,10 +164,6 @@ namespace Biblioteca.View.Emprestimo {
     //        }
     //    }
 
-    //    private void btnSalvar_Click(object sender, EventArgs e) {
-    //        EmprestimoBuscarLeitorView leitor = new EmprestimoBuscarLeitorView();
-    //        NovaJanela.novaJanela(leitor, this.Bounds);
-    //    }
 
     //    private void lvLeitor_MouseClick(object sender, MouseEventArgs e) {
     //        ListViewItem item = lvLeitor.Items[lvLeitor.FocusedItem.Index];
@@ -135,42 +181,6 @@ namespace Biblioteca.View.Emprestimo {
     //            controller.RemoverLeitorEmprestimo();
     //            popularLeitor(controller.PegarLeitorEmprestimo());
     //        }
-    //    }
-
-    //    private void button3_Click(object sender, EventArgs e) {
-    //        String emprestimo = tbEmprestimo.Text;
-    //        String devolucao = tbDevolucao.Text;
-    //        String obs = tbObs.Text;
-
-
-    //        if (lvLivros.Items.Count > 5) {
-    //            MessageBox.Show("Você só pode emprestar 5 obras", "Atenção", MessageBoxButtons.OK);
-    //            lvLivros.Focus();
-    //        }
-    //        else if (lvLeitor.Items.Count > 1) {
-    //            MessageBox.Show("Apenas 1 leitor por vez.", "Atenção", MessageBoxButtons.OK);
-    //            lvLeitor.Focus();
-    //        }
-    //        else {
-    //            // Cadastra emprestimo
-    //            if (controller.Insercao(emprestimo, devolucao, obs)) {
-    //                // Pega o ID do emprestimo cadastrado
-    //                int idEmprestimo = controller.BuscarUltimoEmprestimo();
-
-    //                // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
-    //                foreach (ExemplarModel exemplar in this.singleton.getExemplar()) {
-    //                    controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
-    //                }
-
-    //                this.singleton.clearEmprestimo();
-
-    //                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-    //                this.Close();
-    //            } else {
-    //                MessageBox.Show("Não foi possível realizar o empréstimo.", "Ateção", MessageBoxButtons.OK);
-    //            }
-    //        }
-           
     //    }
 
     //    private void button4_Click(object sender, EventArgs e) {

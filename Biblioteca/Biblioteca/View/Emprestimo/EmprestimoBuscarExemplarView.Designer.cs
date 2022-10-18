@@ -30,24 +30,24 @@ namespace Biblioteca.View.Emprestimo {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoBuscarExemplarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.head1 = new Biblioteca.Util.Head();
-            this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.rbCodigo = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.dtGridViewEditora = new System.Windows.Forms.DataGridView();
+            this.dtGridViewExemplar = new System.Windows.Forms.DataGridView();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
+            this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewEditora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplar)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -78,23 +78,27 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Size = new System.Drawing.Size(903, 742);
             this.panel1.TabIndex = 0;
             // 
-            // head1
+            // icbtnVoltar
             // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(903, 37);
-            this.head1.TabIndex = 24;
-            // 
-            // menuControl1
-            // 
-            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
-            this.menuControl1.Location = new System.Drawing.Point(3, 3);
-            this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(185, 742);
-            this.menuControl1.TabIndex = 1;
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(207, 96);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 100;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // panel3
             // 
@@ -104,7 +108,7 @@ namespace Biblioteca.View.Emprestimo {
             this.panel3.Controls.Add(this.rbNome);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.cbStatus);
-            this.panel3.Controls.Add(this.dtGridViewEditora);
+            this.panel3.Controls.Add(this.dtGridViewExemplar);
             this.panel3.Controls.Add(this.tbBuscar);
             this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Controls.Add(this.label2);
@@ -178,18 +182,18 @@ namespace Biblioteca.View.Emprestimo {
             this.cbStatus.Size = new System.Drawing.Size(197, 28);
             this.cbStatus.TabIndex = 93;
             // 
-            // dtGridViewEditora
+            // dtGridViewExemplar
             // 
-            this.dtGridViewEditora.AllowUserToAddRows = false;
-            this.dtGridViewEditora.AllowUserToDeleteRows = false;
-            this.dtGridViewEditora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtGridViewExemplar.AllowUserToAddRows = false;
+            this.dtGridViewExemplar.AllowUserToDeleteRows = false;
+            this.dtGridViewExemplar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGridViewEditora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridViewEditora.BackgroundColor = System.Drawing.Color.Black;
-            this.dtGridViewEditora.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewEditora.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGridViewEditora.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dtGridViewExemplar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewExemplar.BackgroundColor = System.Drawing.Color.Black;
+            this.dtGridViewExemplar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewExemplar.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewExemplar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -197,9 +201,9 @@ namespace Biblioteca.View.Emprestimo {
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewEditora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewEditora.ColumnHeadersHeight = 30;
-            this.dtGridViewEditora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dtGridViewExemplar.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridViewExemplar.ColumnHeadersHeight = 30;
+            this.dtGridViewExemplar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -207,13 +211,13 @@ namespace Biblioteca.View.Emprestimo {
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewEditora.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewEditora.EnableHeadersVisualStyles = false;
-            this.dtGridViewEditora.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewEditora.Location = new System.Drawing.Point(115, 141);
-            this.dtGridViewEditora.Name = "dtGridViewEditora";
-            this.dtGridViewEditora.ReadOnly = true;
-            this.dtGridViewEditora.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtGridViewExemplar.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridViewExemplar.EnableHeadersVisualStyles = false;
+            this.dtGridViewExemplar.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewExemplar.Location = new System.Drawing.Point(115, 141);
+            this.dtGridViewExemplar.Name = "dtGridViewExemplar";
+            this.dtGridViewExemplar.ReadOnly = true;
+            this.dtGridViewExemplar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -221,12 +225,13 @@ namespace Biblioteca.View.Emprestimo {
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewEditora.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridViewEditora.RowHeadersVisible = false;
-            this.dtGridViewEditora.RowTemplate.Height = 25;
-            this.dtGridViewEditora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewEditora.Size = new System.Drawing.Size(672, 277);
-            this.dtGridViewEditora.TabIndex = 30;
+            this.dtGridViewExemplar.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGridViewExemplar.RowHeadersVisible = false;
+            this.dtGridViewExemplar.RowTemplate.Height = 25;
+            this.dtGridViewExemplar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewExemplar.Size = new System.Drawing.Size(672, 277);
+            this.dtGridViewExemplar.TabIndex = 30;
+            this.dtGridViewExemplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplar_CellClick);
             // 
             // tbBuscar
             // 
@@ -260,27 +265,6 @@ namespace Biblioteca.View.Emprestimo {
             this.label2.TabIndex = 28;
             this.label2.Text = "Selecione o tipo da busca:";
             // 
-            // icbtnVoltar
-            // 
-            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
-            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
-            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icbtnVoltar.IconSize = 30;
-            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(207, 96);
-            this.icbtnVoltar.Name = "icbtnVoltar";
-            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
-            this.icbtnVoltar.TabIndex = 100;
-            this.icbtnVoltar.Tag = "";
-            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icbtnVoltar.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -292,6 +276,24 @@ namespace Biblioteca.View.Emprestimo {
             this.label1.Size = new System.Drawing.Size(343, 39);
             this.label1.TabIndex = 99;
             this.label1.Text = "BUSCAR EXEMPLAR";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(903, 37);
+            this.head1.TabIndex = 24;
+            // 
+            // menuControl1
+            // 
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(185, 742);
+            this.menuControl1.TabIndex = 1;
             // 
             // EmprestimoBuscarExemplarView
             // 
@@ -310,7 +312,7 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewEditora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -327,7 +329,7 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.DataGridView dtGridViewEditora;
+        private System.Windows.Forms.DataGridView dtGridViewExemplar;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;

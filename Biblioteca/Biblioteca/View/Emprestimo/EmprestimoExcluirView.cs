@@ -37,7 +37,7 @@ namespace Biblioteca.View.Emprestimo {
 
                     btnDevolver.Visible = false;
                     btnDevolver.Enabled = false;
-                    if (emprestimo.Status == "DEVOLVIDO") {
+                    if (emprestimo.Status == "Devolvido") {
                         button2.Visible = false;
                         btnDevolver.Visible = true;
                     }
@@ -51,13 +51,13 @@ namespace Biblioteca.View.Emprestimo {
                 foreach (ExemplarModel exemplar in lista) {
                     ListViewItem item = new ListViewItem(exemplar.getId().ToString());
                     item.SubItems.Add(exemplar.Titulo);
-                    //item.SubItems.Add(exemplar.Edicao);
-                    item.SubItems.Add(exemplar.AnoPublicacao);
-                    item.SubItems.Add(exemplar.ISBN);
-                    item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
                     item.SubItems.Add(exemplar.Nome_Autor);
                     item.SubItems.Add(exemplar.Nome_Editora);
-                    item.SubItems.Add(exemplar.Nome_Genero);
+                    item.SubItems.Add(exemplar.ISBN);
+                    item.SubItems.Add(exemplar.Nome_Edicao);
+                    item.SubItems.Add(exemplar.AnoPublicacao);
+                    //item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
+                    //item.SubItems.Add(exemplar.Nome_Genero);
 
                     LvLivros.Items.Add(item);
                 }
@@ -104,6 +104,11 @@ namespace Biblioteca.View.Emprestimo {
 
         private void button3_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void btnDevolver_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

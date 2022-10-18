@@ -26,25 +26,58 @@ namespace Biblioteca.View.Emprestimo {
             popular(lista);
         }
 
-        protected override void OnActivated(EventArgs e) {
-            List<EmprestimoPesquisaModel> lista = controller.ListarTodosBusca();
-            popular(lista);
+        private void popular(List<EmprestimoPesquisaModel> lista) {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Leitor", typeof(string));
+            table.Columns.Add("Livro", typeof(string));
+            table.Columns.Add("Funcionário", typeof(string));
+            table.Columns.Add("Emprestimo", typeof(string));
+            table.Columns.Add("Devolução", typeof(string));
+            table.Columns.Add("Status", typeof(string));
+
+            if (lista.Count > 0)
+            {
+                foreach (EmprestimoPesquisaModel emprestimo in lista)
+                {
+
+                    table.Rows.Add(emprestimo.ID_emprestimo,
+                                    emprestimo.Nome_Leitor,
+                                    emprestimo.Nome_Livro,
+                                    emprestimo.Nome_funcionario,
+                                    emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"),
+                                    emprestimo.Data_devolucao.ToString("dd/MM/yyyy"),
+                                    emprestimo.Status);
+                }
+                dtGridViewEmprestimo.DataSource = table;
+                int index = dtGridViewEmprestimo.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewEmprestimo.Rows[index].Selected = false;
+                }
+            }
         }
 
-        private void popular(List<EmprestimoPesquisaModel> lista) {
-            //lvEmprestimo.Items.Clear();
-            //if (lista.Count > 0) {
-            //    foreach (EmprestimoPesquisaModel emprestimo in lista) {
-            //        ListViewItem item = new ListViewItem(emprestimo.ID_emprestimo.ToString());
-            //        item.SubItems.Add(emprestimo.Nome_Leitor);
-            //        item.SubItems.Add(emprestimo.Nome_Livro);
-            //        item.SubItems.Add(emprestimo.Nome_funcionario);
-            //        item.SubItems.Add(emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"));
-            //        item.SubItems.Add(emprestimo.Data_devolucao.ToString("dd/MM/yyyy"));
-            //        item.SubItems.Add(emprestimo.Status);
-            //        lvEmprestimo.Items.Add(item);
-            //    //}
-            //}
+        private void dtGridViewEmprestimo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            foreach (DataGridViewRow row in dtGridViewEmprestimo.SelectedRows)
+            {
+
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string leitor = row.Cells[1].Value.ToString();
+                string livro = row.Cells[2].Value.ToString();
+                string funcionario = row.Cells[3].Value.ToString();
+                DateTime emprestimo = DateTime.Parse(row.Cells[4].Value.ToString());
+                DateTime devolucao = DateTime.Parse(row.Cells[5].Value.ToString());
+                string status = row.Cells[6].Value.ToString();
+
+                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(id,leitor,livro,funcionario,emprestimo,devolucao,status);
+
+                EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
+                NovaJanela.novaJanela(editar, this.Bounds);
+            }
         }
 
         //private void btnSalvar_Click(object sender, EventArgs e) {
