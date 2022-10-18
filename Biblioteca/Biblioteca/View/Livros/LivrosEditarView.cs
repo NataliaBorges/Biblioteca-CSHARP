@@ -47,9 +47,7 @@ namespace Biblioteca.View.Livros {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair sem Salvar?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Hide();
-                LivrosBuscarView livrosBuscarView = new LivrosBuscarView();
-                NovaJanela.novaJanela(livrosBuscarView, this.Bounds);
+                this.Close();
             }
             
         }

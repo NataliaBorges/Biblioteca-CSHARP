@@ -26,6 +26,8 @@ namespace Biblioteca.View.Exemplar
 
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
+
+            CbEstado.Text = "Ambos";
         }
         private void popular(List<ExemplarModel> lista)
         {
@@ -113,6 +115,129 @@ namespace Biblioteca.View.Exemplar
             {
                 MessageBox.Show("Você precisa selecionar um livro", "Atenção", MessageBoxButtons.OK);
             }
+        }
+        private void buscar(List<ExemplarModel> lista)
+        {
+
+            if (lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewExemplar.DataSource = null;
+            }
+        }
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.exemplar = null;
+            String busca = tbBuscar.Text;
+            String status = CbEstado.Text;
+
+            if (tbBuscar.Text.Length > 0)
+            {
+                lblNotFound.Visible = false;
+
+                if (rbNome.Checked)
+                {
+                    List<ExemplarModel> nome = controller.Buscar(busca, isNome: true, status: status);
+                    buscar(nome);
+                }
+                else if (rbCodigo.Checked)
+                {
+                    List<ExemplarModel> codigo = controller.Buscar(busca, isCodigo: true, status: status);
+                    buscar(codigo);
+                }
+                else if (rbAutor.Checked)
+                {
+                    List<ExemplarModel> autor = controller.Buscar(busca, isAutor: true, status: status);
+                    buscar(autor);
+                }
+                else if (rbEditora.Checked)
+                {
+                    List<ExemplarModel> editora = controller.Buscar(busca, isEditora: true, status: status);
+                    buscar(editora);
+                }
+                else if (rbGenero.Checked)
+                {
+                    List<ExemplarModel> genero = controller.Buscar(busca, isGenero: true, status: status);
+                    buscar(genero);
+                }
+                else
+                {
+                    List<ExemplarModel> nome = controller.Buscar(busca, isNome: true, status: status);
+                    buscar(nome);
+                }
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewExemplar.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewExemplar.DataSource = null;
+            }
+        }
+
+        private void btnCadastrarExemplar_Click(object sender, EventArgs e)
+        {
+            ExemplarBuscarLivroView exemplarBuscarLivroView = new ExemplarBuscarLivroView();
+            NovaJanela.novaJanela(exemplarBuscarLivroView, Bounds);
+        }
+
+        private void clear()
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+            rbNome.Checked = false;
+            rbCodigo.Checked = false;
+            rbAutor.Checked = false;
+            rbEditora.Checked = false;
+            rbGenero.Checked = false;
+        }
+
+        private void CbEstado_SelectedValueChanged(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void rbCodigo_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+        }
+
+        private void rbNome_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+        }
+
+        private void rbAutor_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+        }
+
+        private void rbEditora_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+        }
+
+        private void rbGenero_MouseClick(object sender, MouseEventArgs e)
+        {
+            tbBuscar.Text = null;
+            dtGridViewExemplar.DataSource = null;
+        }
+
+        private void ExemplarBuscarView_Activated(object sender, EventArgs e)
+        {
+            clear();
         }
     }
 }

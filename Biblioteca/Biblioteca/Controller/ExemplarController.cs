@@ -3,6 +3,7 @@ using Biblioteca.Util;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Text;
 
 namespace Biblioteca.Controller
@@ -44,7 +45,285 @@ namespace Biblioteca.Controller
 
                 return false;
             }
-            
+
+        }
+        public List<ExemplarModel> Buscar(string busca, bool isCodigo = false, bool isNome = false, bool isAutor = false, bool isEditora = false, bool isGenero = false, string status = "Ambos")
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            int statusNumero = 2; // Ambos
+
+            if (status == "Ativo")
+            {
+                statusNumero = 1;
+            }
+
+            if (status == "Inativo")
+            {
+                statusNumero = 0;
+            }
+
+            if (statusNumero == 2)
+            {
+
+                if (isNome)
+                {
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Livro.Titulo LIKE '%" + busca + "%'";
+                }
+
+                if (isAutor)
+                {
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Autor.Nome_Autor LIKE '%" + busca + "%'";
+                }
+
+                if (isEditora)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Editora.Nome_Editora LIKE '%" + busca + "%'";
+                }
+                if (isGenero)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Genero.Nome_Genero LIKE '%" + busca + "%'";
+
+
+                }
+                if (isCodigo)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Id LIKE '%" + busca + "%'";
+                }
+            }
+            else
+            {
+                if (isNome)
+                {
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Estado = '" + statusNumero + "' AND Livro.Titulo LIKE '%" + busca + "%'";
+                }
+
+                if (isAutor)
+                {
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Estado = '" + statusNumero + "' AND Autor.Nome_Autor LIKE '%" + busca + "%'";
+                }
+
+                if (isEditora)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Estado = '" + statusNumero + "' AND Editora.Nome_Editora LIKE '%" + busca + "%'";
+                }
+                if (isGenero)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Estado = '" + statusNumero + "' AND Genero.Nome_Genero LIKE '%" + busca + "%'";
+
+
+                }
+                if (isCodigo)
+                {
+                    Cmd.CommandText =
+                    Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Exemplar.Estado = '" + statusNumero + "' AND Exemplar.Id LIKE '%" + busca + "%'";
+                }
+            }
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ExemplarModel> lista = new List<ExemplarModel>();
+
+            while (reader.Read())
+            {
+                string valorString = Convert.ToString(reader["Valor"]);
+                valorString.Replace(",", ".");
+                float valor = float.Parse(valorString);
+                ExemplarModel exemplar = new ExemplarModel(
+                    (int)reader["Id"],
+                    (string)reader["Titulo"],
+                    (string)reader["Nome_Edicao"],
+                    (DateTime)reader["Data_Aquisicao"],
+                    (string)reader["Ano"],
+                    (string)reader["ISBN"],
+                    (string)reader["Nome_Editora"],
+                    (string)reader["Nome_Autor"],
+                    (string)reader["Nome_Genero"],
+                    valor,
+                    (int)reader["Estado"]
+
+                );
+                lista.Add(exemplar);
+            }
+            reader.Close();
+
+            return lista;
         }
     }
 }
