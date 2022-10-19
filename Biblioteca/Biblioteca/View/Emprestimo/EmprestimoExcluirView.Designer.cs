@@ -51,6 +51,7 @@ namespace Biblioteca.View.Emprestimo {
             this.btnDevolver = new System.Windows.Forms.Button();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.IcnBtnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
@@ -232,6 +233,7 @@ namespace Biblioteca.View.Emprestimo {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.IcnBtnVoltar);
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.btnDevolver);
@@ -250,11 +252,11 @@ namespace Biblioteca.View.Emprestimo {
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
             this.lblCadastroLivro.Location = new System.Drawing.Point(302, 98);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(420, 38);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(446, 39);
             this.lblCadastroLivro.TabIndex = 92;
             this.lblCadastroLivro.Text = "STATUS DO EMPRÉSTIMO";
             // 
@@ -303,6 +305,28 @@ namespace Biblioteca.View.Emprestimo {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(192, 742);
             this.menuControl1.TabIndex = 24;
+            // 
+            // IcnBtnVoltar
+            // 
+            this.IcnBtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.IcnBtnVoltar.FlatAppearance.BorderSize = 0;
+            this.IcnBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IcnBtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.IcnBtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.IcnBtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.IcnBtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.IcnBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IcnBtnVoltar.IconSize = 30;
+            this.IcnBtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IcnBtnVoltar.Location = new System.Drawing.Point(198, 98);
+            this.IcnBtnVoltar.Name = "IcnBtnVoltar";
+            this.IcnBtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.IcnBtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.IcnBtnVoltar.TabIndex = 93;
+            this.IcnBtnVoltar.Tag = "";
+            this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.IcnBtnVoltar.UseVisualStyleBackColor = true;
+            this.IcnBtnVoltar.Click += new System.EventHandler(this.IcnBtnVoltar_Click);
             // 
             // EmprestimoExcluirView
             // 
@@ -354,5 +378,6 @@ namespace Biblioteca.View.Emprestimo {
         private Util.Head head1;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Label lblCadastroLivro;
+        private FontAwesome.Sharp.IconButton IcnBtnVoltar;
     }
 }

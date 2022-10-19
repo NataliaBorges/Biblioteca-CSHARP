@@ -195,7 +195,7 @@ namespace Biblioteca.View.Funcionario {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(638, 381);
+            this.label3.Location = new System.Drawing.Point(628, 340);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 20);
             this.label3.TabIndex = 38;
@@ -236,7 +236,7 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.tbSenha.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbSenha.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbSenha.Location = new System.Drawing.Point(670, 334);
+            this.tbSenha.Location = new System.Drawing.Point(670, 374);
             this.tbSenha.Name = "tbSenha";
             this.tbSenha.Size = new System.Drawing.Size(160, 27);
             this.tbSenha.TabIndex = 55;
@@ -261,7 +261,7 @@ namespace Biblioteca.View.Funcionario {
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(612, 341);
+            this.label10.Location = new System.Drawing.Point(612, 381);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(55, 20);
             this.label10.TabIndex = 57;
@@ -311,10 +311,9 @@ namespace Biblioteca.View.Funcionario {
             this.CalendarFuncionario.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CalendarFuncionario.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
             this.CalendarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarFuncionario.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.CalendarFuncionario.Location = new System.Drawing.Point(369, 374);
             this.CalendarFuncionario.Name = "CalendarFuncionario";
-            this.CalendarFuncionario.Size = new System.Drawing.Size(236, 27);
+            this.CalendarFuncionario.Size = new System.Drawing.Size(234, 27);
             this.CalendarFuncionario.TabIndex = 98;
             // 
             // icbtnVoltar
@@ -395,7 +394,7 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.maskedTextBoxTelefone.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.maskedTextBoxTelefone.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(717, 376);
+            this.maskedTextBoxTelefone.Location = new System.Drawing.Point(719, 335);
             this.maskedTextBoxTelefone.Mask = "(99)99999-9999";
             this.maskedTextBoxTelefone.Name = "maskedTextBoxTelefone";
             this.maskedTextBoxTelefone.Size = new System.Drawing.Size(111, 27);
@@ -492,5 +491,6 @@ namespace Biblioteca.View.Funcionario {
         private System.Diagnostics.Process process1;
         private System.Windows.Forms.DateTimePicker CalendarFuncionario;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
+        private RJCodeAdvance.RJControls.RJDatePicker rjDatePicker1;
     }
 }

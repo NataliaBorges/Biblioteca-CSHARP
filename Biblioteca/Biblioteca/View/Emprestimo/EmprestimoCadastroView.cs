@@ -29,20 +29,24 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmprestimoCadastroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
         }
-
-        protected override void OnActivated(EventArgs e) {
+        private void EmprestimoCadastroView_Activated(object sender, EventArgs e)
+        {
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
-            if (singleton.getAddExemplar() == true) {
+            if (singleton.getAddExemplar() == true)
+            {
                 singleton.setAddExemplar(false);
             }
         }
-
         private void popularExemplar(List<ExemplarModel> lista) {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
@@ -140,7 +144,11 @@ namespace Biblioteca.View.Emprestimo {
 
         private void IcnBtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 

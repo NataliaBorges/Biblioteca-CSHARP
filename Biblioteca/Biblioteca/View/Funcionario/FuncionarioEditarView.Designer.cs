@@ -29,7 +29,6 @@ namespace Biblioteca.View.Funcionario {
             this.CalendarFuncionario = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.cbEditarStatus = new System.Windows.Forms.ComboBox();
-            this.BtnExcluir = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
@@ -65,7 +64,6 @@ namespace Biblioteca.View.Funcionario {
             this.panel1.Controls.Add(this.CalendarFuncionario);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.cbEditarStatus);
-            this.panel1.Controls.Add(this.BtnExcluir);
             this.panel1.Controls.Add(this.btnAtualizar);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.icbtnVoltar);
@@ -138,27 +136,13 @@ namespace Biblioteca.View.Funcionario {
             this.cbEditarStatus.Size = new System.Drawing.Size(147, 28);
             this.cbEditarStatus.TabIndex = 117;
             // 
-            // BtnExcluir
-            // 
-            this.BtnExcluir.BackColor = System.Drawing.Color.DarkRed;
-            this.BtnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnExcluir.ForeColor = System.Drawing.Color.White;
-            this.BtnExcluir.Location = new System.Drawing.Point(622, 497);
-            this.BtnExcluir.Name = "BtnExcluir";
-            this.BtnExcluir.Size = new System.Drawing.Size(207, 45);
-            this.BtnExcluir.TabIndex = 116;
-            this.BtnExcluir.Text = "EXCLUIR";
-            this.BtnExcluir.UseVisualStyleBackColor = false;
-            this.BtnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
-            // 
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(368, 497);
+            this.btnAtualizar.Location = new System.Drawing.Point(515, 477);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(217, 45);
             this.btnAtualizar.TabIndex = 115;
@@ -496,7 +480,6 @@ namespace Biblioteca.View.Funcionario {
         private Util.MenuControl menuControl1;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button BtnExcluir;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox cbEditarStatus;

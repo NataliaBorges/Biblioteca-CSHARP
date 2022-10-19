@@ -54,31 +54,6 @@ namespace Biblioteca.View.Autor
                 dtGridViewAutor.Rows[index].Selected = false;
             }
         }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (TbAutor.Text.Length <= 0)
-            {
-                MessageBox.Show("Você precisa selecionar um Autor", "Atenção", MessageBoxButtons.OK);
-                TbAutor.Focus();
-            }
-            else
-            {
-                this.TbAutor.Text = this.autor.Nome_Autor;
-                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (controller.Excluir(autor))
-                    {
-                        MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
-                    }
-                }
-            }
-        }
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             try

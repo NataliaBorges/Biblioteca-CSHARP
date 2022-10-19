@@ -70,31 +70,6 @@ namespace Biblioteca.View.Genero
             NovaJanela.novaJanela(generoCadastrarView, this.Bounds);
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (TbGenero.Text.Length <= 0)
-            {
-                MessageBox.Show("Você precisa selecionar um Autor", "Atenção", MessageBoxButtons.OK);
-                TbGenero.Focus();
-            }
-            else
-            {
-                this.TbGenero.Text = this.genero.Nome_genero;
-                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (controller.Excluir(genero))
-                    {
-                        MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
-                    }
-                }
-            }
-        }
-
         private void tbBuscar_TextChanged(object sender, EventArgs e)
         {
             TbGenero.Text = "";

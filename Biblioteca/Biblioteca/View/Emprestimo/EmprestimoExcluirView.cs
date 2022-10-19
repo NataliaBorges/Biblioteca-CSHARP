@@ -102,13 +102,18 @@ namespace Biblioteca.View.Emprestimo {
             }
         }
 
-        private void button3_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
         private void btnDevolver_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void IcnBtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -237,6 +237,7 @@ namespace Biblioteca.View.Livros {
             // tbEditora
             // 
             this.tbEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbEditora.Enabled = false;
             this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEditora.Location = new System.Drawing.Point(319, 305);
             this.tbEditora.Name = "tbEditora";
@@ -259,6 +260,7 @@ namespace Biblioteca.View.Livros {
             // tbGenero
             // 
             this.tbGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbGenero.Enabled = false;
             this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbGenero.Location = new System.Drawing.Point(319, 348);
             this.tbGenero.Name = "tbGenero";
@@ -268,6 +270,7 @@ namespace Biblioteca.View.Livros {
             // tbAutor
             // 
             this.tbAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbAutor.Enabled = false;
             this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbAutor.Location = new System.Drawing.Point(320, 264);
             this.tbAutor.Name = "tbAutor";

@@ -277,7 +277,7 @@ namespace Biblioteca.Controller
 
             return lista;
         }
-        public List<ExemplarModel> ListarTodosExemplares(int idLivro)
+        public List<ExemplarModel> ListarTodosExemplares(int idLivro) //string busca, 
         {
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"SELECT	Exemplar.Id,
@@ -292,7 +292,7 @@ namespace Biblioteca.Controller
 								INNER JOIN Autor AS A ON (A.Id = L.Id_autor) 
 								INNER JOIN Edicao AS E ON (E.Id = Exemplar.Id_Edicao) 
                                 INNER JOIN Editora AS F ON (F.Id = L.Id_editora)
-                                WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "'";
+                                WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "'"; //Livro.Titulo LIKE '%" + busca + "%' AND
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -363,11 +363,17 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"
-                SELECT L.*, F.Nome_fornecedor as Editora 
-                FROM Livro AS L
-                INNER JOIN Editora AS F ON (F.ID_fornecedor = L.ID_fornecedor)
-                WHERE L.Nome_Livro LIKE '" + busca + "%'";
+            Cmd.CommandText = @"SELECT	Livro.Id,
+		                                Livro.Titulo,
+		                                Editora.Nome_Editora,
+		                                Autor.Nome_Autor,
+		                                Genero.Nome_Genero
+                                    FROM Livro
+                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                    WHERE Livro.Titulo LIKE '%" + busca + "%' AND Livro.Estado = 1 AND EXISTS(SELECT* FROM Exemplar WHERE Livro.id = Exemplar.Id_livro)";
+
 
             Cmd.Parameters.Clear();
 
@@ -375,21 +381,19 @@ namespace Biblioteca.Controller
 
             List<LivroModel> lista = new List<LivroModel>();
 
-            //while (reader.Read()) {
-            //    LivroModel livro = new LivroModel(
-            //        //(int)reader["Id"],
-            //        //(String)reader["Titulo"],
-            //        ////(String)reader["Edicao"],
-            //        ////(String)reader["Ano_publicacao"],
-            //        ////(String)reader["ISBN"],
-            //        ////(int)reader["Quantidade"],
-            //        //(String)reader["Nome_Editora"],
-            //        //(String)reader["Nome_Autor"],
-            //        //(String)reader["Nome_Genero"]
-            //    );
-            //    lista.Add(livro);
-            //}
-            //reader.Close();
+            while (reader.Read())
+            {
+                LivroModel livro = new LivroModel(
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
+                    (String)reader["Nome_Editora"],
+                    (String)reader["Nome_Autor"],
+                    (String)reader["Nome_Genero"]
+
+                );
+                lista.Add(livro);
+            }
+            reader.Close();
 
             return lista;
         }
@@ -488,6 +492,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
 
+
             if (isNome)
             {
                 Cmd.CommandText = @"SELECT * FROM LEITOR WHERE estado = 1 AND Nome_Leitor LIKE '%" + busca + "%'";
@@ -497,6 +502,7 @@ namespace Biblioteca.Controller
             {
                 Cmd.CommandText = @"SELECT * FROM LEITOR WHERE estado = 1 AND CPF LIKE '%" + busca + "%'";
             }
+           
 
             Cmd.Parameters.Clear();
 

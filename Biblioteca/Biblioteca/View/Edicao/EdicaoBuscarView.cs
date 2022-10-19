@@ -113,30 +113,6 @@ namespace Biblioteca.View.Edicao
             }
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            if (tbEdicao.Text.Length <= 0)
-            {
-                MessageBox.Show("Você precisa selecionar uma edição", "Atenção", MessageBoxButtons.OK);
-                tbEdicao.Focus();
-            }
-            else { 
-                this.tbEdicao.Text = this.edicao.Nome_Edicao;
-                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes)
-                {
-                    if (controller.Excluir(edicao))
-                    {
-                        MessageBox.Show("Excluído com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Não foi possível excluir", "Atenção", MessageBoxButtons.OK);
-                    }
-                }
-            }
-        }
-
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             string edicaoLivro = tbEdicao.Text;

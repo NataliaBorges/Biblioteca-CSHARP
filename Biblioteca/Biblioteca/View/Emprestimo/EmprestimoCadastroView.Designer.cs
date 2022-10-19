@@ -491,6 +491,7 @@ namespace Biblioteca.View.Emprestimo {
             this.MinimizeBox = false;
             this.Name = "EmprestimoCadastroView";
             this.Text = "Cadastrar empréstimo";
+            this.Activated += new System.EventHandler(this.EmprestimoCadastroView_Activated);
             this.Load += new System.EventHandler(this.EmprestimoCadastroView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

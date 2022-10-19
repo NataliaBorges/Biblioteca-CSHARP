@@ -43,7 +43,6 @@
             this.cbEditarStatus = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.TbGenero = new System.Windows.Forms.TextBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -174,7 +173,6 @@
             this.panel2.Controls.Add(this.cbEditarStatus);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Controls.Add(this.TbGenero);
-            this.panel2.Controls.Add(this.btnExcluir);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,7 +187,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(54, 145);
+            this.label2.Location = new System.Drawing.Point(101, 162);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 98;
@@ -204,7 +202,7 @@
             this.cbEditarStatus.Items.AddRange(new object[] {
             "Ativo",
             "Inativo"});
-            this.cbEditarStatus.Location = new System.Drawing.Point(116, 142);
+            this.cbEditarStatus.Location = new System.Drawing.Point(163, 159);
             this.cbEditarStatus.Name = "cbEditarStatus";
             this.cbEditarStatus.Size = new System.Drawing.Size(200, 28);
             this.cbEditarStatus.TabIndex = 97;
@@ -215,9 +213,9 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(273, 201);
+            this.btnSalvar.Location = new System.Drawing.Point(198, 214);
             this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(118, 32);
+            this.btnSalvar.Size = new System.Drawing.Size(133, 32);
             this.btnSalvar.TabIndex = 39;
             this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
@@ -231,20 +229,6 @@
             this.TbGenero.Name = "TbGenero";
             this.TbGenero.Size = new System.Drawing.Size(275, 27);
             this.TbGenero.TabIndex = 38;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.BackColor = System.Drawing.Color.DarkRed;
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExcluir.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnExcluir.ForeColor = System.Drawing.Color.White;
-            this.btnExcluir.Location = new System.Drawing.Point(129, 201);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(118, 32);
-            this.btnExcluir.TabIndex = 33;
-            this.btnExcluir.Text = "EXCLUIR";
-            this.btnExcluir.UseVisualStyleBackColor = false;
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // label5
             // 
@@ -289,7 +273,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(122, 25);
+            this.label11.Location = new System.Drawing.Point(126, 37);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 96;
@@ -304,7 +288,7 @@
             "Ambos",
             "Ativo",
             "Inativo"});
-            this.cbStatus.Location = new System.Drawing.Point(184, 22);
+            this.cbStatus.Location = new System.Drawing.Point(188, 34);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(177, 28);
             this.cbStatus.TabIndex = 95;
@@ -384,9 +368,9 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(188, 381);
+            this.btnAtualizar.Location = new System.Drawing.Point(165, 351);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(105, 34);
+            this.btnAtualizar.Size = new System.Drawing.Size(135, 34);
             this.btnAtualizar.TabIndex = 32;
             this.btnAtualizar.Text = "EDITAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
@@ -465,7 +449,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dtGridViewGenero;
         private System.Windows.Forms.Button btnAtualizar;
-        private System.Windows.Forms.Button btnExcluir;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
         private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton btnCadastrarGenero;

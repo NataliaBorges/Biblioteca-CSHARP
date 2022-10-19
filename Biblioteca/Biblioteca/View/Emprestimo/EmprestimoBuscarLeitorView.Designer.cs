@@ -24,138 +24,192 @@ namespace Biblioteca.View.Emprestimo {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoBuscarLeitorView));
-            this.button1 = new System.Windows.Forms.Button();
             this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.LvLeitor = new System.Windows.Forms.ListView();
-            this.ID = new System.Windows.Forms.ColumnHeader();
-            this.Nome = new System.Windows.Forms.ColumnHeader();
-            this.Nascimento = new System.Windows.Forms.ColumnHeader();
-            this.Telefone = new System.Windows.Forms.ColumnHeader();
-            this.CPF = new System.Windows.Forms.ColumnHeader();
-            this.Endereço = new System.Windows.Forms.ColumnHeader();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblNotFound = new System.Windows.Forms.Label();
+            this.rbCPF = new System.Windows.Forms.RadioButton();
+            this.rbNome = new System.Windows.Forms.RadioButton();
+            this.dtGridViewLeitor = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.rbNome = new System.Windows.Forms.RadioButton();
-            this.rbCPF = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).BeginInit();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon2;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(886, 265);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 27);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(439, 265);
+            this.tbBuscar.Location = new System.Drawing.Point(309, 74);
             this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(441, 27);
             this.tbBuscar.TabIndex = 2;
-            // 
-            // LvLeitor
-            // 
-            this.LvLeitor.BackColor = System.Drawing.Color.Black;
-            this.LvLeitor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.LvLeitor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ID,
-            this.Nome,
-            this.Nascimento,
-            this.Telefone,
-            this.CPF,
-            this.Endereço});
-            this.LvLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LvLeitor.ForeColor = System.Drawing.Color.White;
-            this.LvLeitor.FullRowSelect = true;
-            this.LvLeitor.HideSelection = false;
-            this.LvLeitor.HoverSelection = true;
-            this.LvLeitor.Location = new System.Drawing.Point(135, 313);
-            this.LvLeitor.Name = "LvLeitor";
-            this.LvLeitor.Size = new System.Drawing.Size(785, 279);
-            this.LvLeitor.TabIndex = 12;
-            this.LvLeitor.UseCompatibleStateImageBehavior = false;
-            this.LvLeitor.View = System.Windows.Forms.View.Details;
-            this.LvLeitor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LvLeitor_MouseClick);
-            // 
-            // ID
-            // 
-            this.ID.Text = "ID";
-            // 
-            // Nome
-            // 
-            this.Nome.Text = "Nome";
-            this.Nome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Nome.Width = 200;
-            // 
-            // Nascimento
-            // 
-            this.Nascimento.Text = "Nascimento";
-            this.Nascimento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Nascimento.Width = 100;
-            // 
-            // Telefone
-            // 
-            this.Telefone.Text = "Telefone";
-            this.Telefone.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Telefone.Width = 150;
-            // 
-            // CPF
-            // 
-            this.CPF.Text = "CPF";
-            this.CPF.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CPF.Width = 150;
-            // 
-            // Endereço
-            // 
-            this.Endereço.Text = "Endereço";
-            this.Endereço.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Endereço.Width = 400;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.icbtnVoltar);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.lblCadastroLivro);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.linkLabel1);
-            this.panel1.Controls.Add(this.LvLeitor);
-            this.panel1.Controls.Add(this.tbBuscar);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(185, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1028, 794);
             this.panel1.TabIndex = 16;
             // 
-            // label2
+            // icbtnVoltar
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(340, 268);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 20);
-            this.label2.TabIndex = 91;
-            this.label2.Text = "Digite aqui:";
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(258, 97);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 101;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel2.Controls.Add(this.lblNotFound);
+            this.panel2.Controls.Add(this.rbCPF);
+            this.panel2.Controls.Add(this.rbNome);
+            this.panel2.Controls.Add(this.dtGridViewLeitor);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.tbBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 255);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1028, 539);
+            this.panel2.TabIndex = 91;
+            // 
+            // lblNotFound
+            // 
+            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNotFound.AutoSize = true;
+            this.lblNotFound.BackColor = System.Drawing.Color.Black;
+            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFound.ForeColor = System.Drawing.Color.White;
+            this.lblNotFound.Location = new System.Drawing.Point(452, 267);
+            this.lblNotFound.Name = "lblNotFound";
+            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFound.TabIndex = 97;
+            this.lblNotFound.Text = "Não Encontrado";
+            this.lblNotFound.Visible = false;
+            // 
+            // rbCPF
+            // 
+            this.rbCPF.AutoSize = true;
+            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCPF.ForeColor = System.Drawing.Color.White;
+            this.rbCPF.Location = new System.Drawing.Point(652, 27);
+            this.rbCPF.Name = "rbCPF";
+            this.rbCPF.Size = new System.Drawing.Size(57, 24);
+            this.rbCPF.TabIndex = 21;
+            this.rbCPF.TabStop = true;
+            this.rbCPF.Text = "CPF";
+            this.rbCPF.UseVisualStyleBackColor = true;
+            this.rbCPF.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbCPF_MouseClick);
+            // 
+            // rbNome
+            // 
+            this.rbNome.AutoSize = true;
+            this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbNome.ForeColor = System.Drawing.Color.White;
+            this.rbNome.Location = new System.Drawing.Point(568, 25);
+            this.rbNome.Name = "rbNome";
+            this.rbNome.Size = new System.Drawing.Size(71, 24);
+            this.rbNome.TabIndex = 22;
+            this.rbNome.TabStop = true;
+            this.rbNome.Text = "Nome";
+            this.rbNome.UseVisualStyleBackColor = true;
+            this.rbNome.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbNome_MouseClick);
+            // 
+            // dtGridViewLeitor
+            // 
+            this.dtGridViewLeitor.AllowUserToAddRows = false;
+            this.dtGridViewLeitor.AllowUserToDeleteRows = false;
+            this.dtGridViewLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridViewLeitor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewLeitor.BackgroundColor = System.Drawing.Color.Black;
+            this.dtGridViewLeitor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewLeitor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewLeitor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLeitor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridViewLeitor.ColumnHeadersHeight = 30;
+            this.dtGridViewLeitor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewLeitor.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridViewLeitor.EnableHeadersVisualStyles = false;
+            this.dtGridViewLeitor.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewLeitor.Location = new System.Drawing.Point(31, 123);
+            this.dtGridViewLeitor.Name = "dtGridViewLeitor";
+            this.dtGridViewLeitor.ReadOnly = true;
+            this.dtGridViewLeitor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLeitor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGridViewLeitor.RowHeadersVisible = false;
+            this.dtGridViewLeitor.RowTemplate.Height = 25;
+            this.dtGridViewLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewLeitor.Size = new System.Drawing.Size(956, 345);
+            this.dtGridViewLeitor.TabIndex = 96;
+            this.dtGridViewLeitor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLeitor_CellClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(348, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Selecione o tipo da busca:";
             // 
             // head1
             // 
@@ -168,74 +222,13 @@ namespace Biblioteca.View.Emprestimo {
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(369, 104);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(348, 97);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(351, 38);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(365, 39);
             this.lblCadastroLivro.TabIndex = 89;
             this.lblCadastroLivro.Text = "SELECIONAR LEITOR";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.rbNome);
-            this.panel2.Controls.Add(this.rbCPF);
-            this.panel2.Location = new System.Drawing.Point(176, 208);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(87, 84);
-            this.panel2.TabIndex = 31;
-            // 
-            // rbNome
-            // 
-            this.rbNome.AutoSize = true;
-            this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(3, 16);
-            this.rbNome.Name = "rbNome";
-            this.rbNome.Size = new System.Drawing.Size(71, 24);
-            this.rbNome.TabIndex = 22;
-            this.rbNome.TabStop = true;
-            this.rbNome.Text = "Nome";
-            this.rbNome.UseVisualStyleBackColor = true;
-            // 
-            // rbCPF
-            // 
-            this.rbCPF.AutoSize = true;
-            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(3, 46);
-            this.rbCPF.Name = "rbCPF";
-            this.rbCPF.Size = new System.Drawing.Size(57, 24);
-            this.rbCPF.TabIndex = 21;
-            this.rbCPF.TabStop = true;
-            this.rbCPF.Text = "CPF";
-            this.rbCPF.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(135, 185);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 20);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Selecione o tipo da busca:";
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(806, 595);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(114, 18);
-            this.linkLabel1.TabIndex = 23;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Cadastrar Leitor";
-            this.linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // pnltotal
             // 
@@ -264,7 +257,6 @@ namespace Biblioteca.View.Emprestimo {
             // 
             // EmprestimoBuscarLeitorView
             // 
-            this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
@@ -282,32 +274,25 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).EndInit();
             this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tbBuscar;
-        private System.Windows.Forms.ListView LvLeitor;
-        private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader Nascimento;
-        private System.Windows.Forms.ColumnHeader Telefone;
-        private System.Windows.Forms.ColumnHeader CPF;
-        private System.Windows.Forms.ColumnHeader Endereço;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.RadioButton rbCPF;
         private Util.MenuControl menuControl1;
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblNotFound;
+        private System.Windows.Forms.DataGridView dtGridViewLeitor;
+        private FontAwesome.Sharp.IconButton icbtnVoltar;
     }
 }

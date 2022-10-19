@@ -14,19 +14,29 @@ namespace Biblioteca.View.Emprestimo {
 
         EmprestimoController controller = new EmprestimoController();
         int idLivro;
+        ExemplarModel exemplar;
         public EmprestimoBuscarExemplarView(int idLivro) {
             this.idLivro = idLivro;
             InitializeComponent();
         }
-        private void EmprestimoBuscarExemplarView_Load(object sender, EventArgs e) {
+        private void EmprestimoBuscarExemplarView_Load_1(object sender, EventArgs e)
+        {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
             List<ExemplarModel> lista = controller.ListarTodosExemplares(idLivro);
             popular(lista);
         }
-        protected override void OnActivated(EventArgs e) {
-            List<ExemplarModel> lista = controller.ListarTodosExemplares(idLivro);
-            popular(lista);
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
         private void popular(List<ExemplarModel> lista) {
             DataTable table = new DataTable();
@@ -84,9 +94,44 @@ namespace Biblioteca.View.Emprestimo {
             }
         }
 
-        private void icbtnVoltar_Click(object sender, EventArgs e)
+        private void buscar(List<ExemplarModel> lista)
         {
-            this.Close();
+
+            if (lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewExemplar.DataSource = null;
+            }
         }
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.exemplar = null;
+            String busca = tbBuscar.Text;
+
+            if (tbBuscar.Text.Length > 0)
+            {
+                lblNotFound.Visible = false;
+
+                List<ExemplarModel> lista = controller.ListarTodosExemplares(idLivro);
+                popular(lista);
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewExemplar.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewExemplar.DataSource = null;
+            }
+        }
+
+        
     }
 }

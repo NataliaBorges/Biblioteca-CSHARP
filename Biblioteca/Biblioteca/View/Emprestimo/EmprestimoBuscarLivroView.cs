@@ -14,6 +14,7 @@ namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoBuscarLivroView : Form {
 
         EmprestimoController controller = new EmprestimoController();
+        LivroModel livro;
         Singleton singleton = Singleton.GetInstancia();
 
         public EmprestimoBuscarLivroView() {
@@ -21,18 +22,19 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmprestimoBuscarLivroView_Load(object sender, EventArgs e) {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
 
-            List<LivroModel> lista = controller.ListarTodosLivros();
-            popular(lista);
-        }
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
-        protected override void OnActivated(EventArgs e) {
-            if (singleton.getAddExemplar() == true) {
+        }
+        private void EmprestimoBuscarLivroView_Activated(object sender, EventArgs e)
+        {
+            if (singleton.getAddExemplar() == true)
+            {
                 this.Close();
             }
-            List<LivroModel> lista = controller.ListarTodosLivros();
-            popular(lista);
         }
 
         private void popular(List<LivroModel> lista) {
@@ -63,26 +65,42 @@ namespace Biblioteca.View.Emprestimo {
                 }
             }
         }
-
-        private void button1_Click(object sender, EventArgs e) {
-            String busca = tbBuscar.Text;
-
-            List<LivroModel> lista = controller.BuscarLivros(busca);
-            popular(lista);
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            this.Close();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
-            LivrosCadastrarView livrosCadastrarView = new LivrosCadastrarView();
-            NovaJanela.novaJanela(livrosCadastrarView, Bounds);
-        }
-
-        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        private void buscar(List<LivroModel> lista)
         {
 
+            if (lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLivros.DataSource = null;
+            }
+        }
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.livro = null;
+            String busca = tbBuscar.Text;
+
+            if (tbBuscar.Text.Length > 0)
+            {
+                lblNotFound.Visible = false;
+
+                List<LivroModel> lista = controller.BuscarLivros(busca);
+                buscar(lista);
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewLivros.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLivros.DataSource = null;
+            }
         }
 
         private void dtGridViewLivros_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -103,7 +121,12 @@ namespace Biblioteca.View.Emprestimo {
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
+        
     }
 }
