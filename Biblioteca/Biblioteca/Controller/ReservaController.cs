@@ -142,36 +142,36 @@ namespace Biblioteca.Controller {
             return lista;
         }
 
-        public List<ReservaPesquisaModel> ListarTodosBusca() {
-            Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"
-            SELECT R.ID_reserva, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, R.Data_reserva
-            FROM Reserva as R
-            INNER JOIN Funcionario AS F ON (F.ID_funcionario = R.ID_funcionario)
-            INNER JOIN Leitor as L ON (L.ID_leitor = R.ID_leitor)
-            INNER JOIN Item_reserva AS IE ON (IE.ID_reserva = R.ID_reserva)
-            INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-            ";
-            Cmd.Parameters.Clear();
+        //public List<ReservaPesquisaModel> ListarTodosBusca() {
+            //Cmd.Connection = connection.RetornaConexao();
+            //Cmd.CommandText = @"
+            //SELECT R.ID_reserva, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, R.Data_reserva
+            //FROM Reserva as R
+            //INNER JOIN Funcionario AS F ON (F.ID_funcionario = R.ID_funcionario)
+            //INNER JOIN Leitor as L ON (L.ID_leitor = R.ID_leitor)
+            //INNER JOIN Item_reserva AS IE ON (IE.ID_reserva = R.ID_reserva)
+            //INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
+            //";
+            //Cmd.Parameters.Clear();
 
-            SqlDataReader reader = Cmd.ExecuteReader();
+            //SqlDataReader reader = Cmd.ExecuteReader();
 
-            List<ReservaPesquisaModel> lista = new List<ReservaPesquisaModel>();
+            //List<ReservaPesquisaModel> lista = new List<ReservaPesquisaModel>();
 
-            while (reader.Read()) {
-                ReservaPesquisaModel pesquisa = new ReservaPesquisaModel(
-                    (int)reader["ID_reserva"],
-                    (String)reader["Nome_Leitor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Nome_funcionario"],
-                    (DateTime)reader["Data_reserva"]
-                );
-                lista.Add(pesquisa);
-            }
-            reader.Close();
+            //while (reader.Read()) {
+            //    ReservaPesquisaModel pesquisa = new ReservaPesquisaModel(
+            //        (int)reader["ID_reserva"],
+            //        (String)reader["Nome_Leitor"],
+            //        (String)reader["Nome_Livro"],
+            //        (String)reader["Nome_funcionario"],
+            //        (DateTime)reader["Data_reserva"]
+            //    );
+            //    lista.Add(pesquisa);
+            //}
+            //reader.Close();
 
-            return lista;
-        }
+            //return lista;
+       //}
 
         public List<LivroModel> ListarTodosLivros() {
             Cmd.Connection = connection.RetornaConexao();

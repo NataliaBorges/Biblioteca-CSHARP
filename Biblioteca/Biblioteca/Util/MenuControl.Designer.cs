@@ -83,6 +83,7 @@
             this.ddmFuncionario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
+            this.VisualizarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
             this.ddmLivro.SuspendLayout();
@@ -601,24 +602,25 @@
             this.ddmReserva.IsMainMenu = false;
             this.ddmReserva.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemCadastrarReserva,
-            this.itemBuscarReserva});
+            this.itemBuscarReserva,
+            this.VisualizarReserva});
             this.ddmReserva.MenuItemHeight = 25;
             this.ddmReserva.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmReserva.Name = "rjDropdownMenu1";
             this.ddmReserva.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmReserva.Size = new System.Drawing.Size(140, 48);
+            this.ddmReserva.Size = new System.Drawing.Size(181, 92);
             // 
             // itemCadastrarReserva
             // 
             this.itemCadastrarReserva.Name = "itemCadastrarReserva";
-            this.itemCadastrarReserva.Size = new System.Drawing.Size(139, 22);
+            this.itemCadastrarReserva.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarReserva.Text = "Cadastrar";
             this.itemCadastrarReserva.Click += new System.EventHandler(this.itemCadastrarReserva_Click);
             // 
             // itemBuscarReserva
             // 
             this.itemBuscarReserva.Name = "itemBuscarReserva";
-            this.itemBuscarReserva.Size = new System.Drawing.Size(139, 22);
+            this.itemBuscarReserva.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarReserva.Text = "Buscar";
             this.itemBuscarReserva.Click += new System.EventHandler(this.itemBuscarReserva_Click);
             // 
@@ -717,6 +719,13 @@
             this.itemBuscarFuncionario.Text = "Buscar";
             this.itemBuscarFuncionario.Click += new System.EventHandler(this.itemBuscarFuncionario_Click);
             // 
+            // VisualizarReserva
+            // 
+            this.VisualizarReserva.Name = "VisualizarReserva";
+            this.VisualizarReserva.Size = new System.Drawing.Size(180, 22);
+            this.VisualizarReserva.Text = "Visualizar";
+            this.VisualizarReserva.Click += new System.EventHandler(this.VisualizarReserva_Click);
+            // 
             // MenuControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -795,5 +804,6 @@
         private System.Windows.Forms.ToolStripMenuItem buscarEdicao;
         private System.Windows.Forms.ToolStripMenuItem cadastrarLivro;
         private System.Windows.Forms.ToolStripMenuItem buscarLivro;
+        private System.Windows.Forms.ToolStripMenuItem VisualizarReserva;
     }
 }

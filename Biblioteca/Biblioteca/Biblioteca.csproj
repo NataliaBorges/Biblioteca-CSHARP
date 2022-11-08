@@ -3,7 +3,10 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWindowsForms>true</UseWindowsForms>
+    <UseWindowsForms>True</UseWindowsForms>
+    <UseWPF>True</UseWPF>
+    <StartupObject>Biblioteca.Program</StartupObject>
+    <Nullable>annotations</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

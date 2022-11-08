@@ -324,5 +324,11 @@ namespace Biblioteca.Util
             TelaLoginView login = new TelaLoginView();
             NovaJanela.novaJanela(login, Bounds);
         }
+
+        private void VisualizarReserva_Click(object sender, EventArgs e)
+        {
+            ReservaMesView reservaVisualizarView = new ReservaMesView();
+            NovaJanela.novaJanela(reservaVisualizarView, Bounds);
+        }
     }
 }

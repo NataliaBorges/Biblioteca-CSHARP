@@ -22,22 +22,7 @@
     <Compile Update="View\Edicao\EdicaoCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoBuscarExemplarView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoExcluirView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoBuscarView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoBuscarLeitorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoBuscarLivroView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoCadastroView.cs">
+    <Compile Update="View\Editora\EditoraBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Editora\EditoraCadastrarView.cs">
@@ -46,7 +31,22 @@
     <Compile Update="View\Editora\EditoraEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Editora\EditoraBuscarView.cs">
+    <Compile Update="View\Emprestimo\EmprestimoBuscarExemplarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoCadastroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoExcluirView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Exemplar\ExemplarBuscarLivroView.cs">
@@ -82,10 +82,10 @@
     <Compile Update="View\Leitor\LeitorBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Leitor\LeitorEditarView.cs">
+    <Compile Update="View\Leitor\LeitorCadastrarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Leitor\LeitorCadastrarView.cs">
+    <Compile Update="View\Leitor\LeitorEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Livros\LivroPesquisarAutor.cs">
@@ -106,6 +106,9 @@
     <Compile Update="View\Livros\LivrosEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Login\TelaLoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\PrincipalTelaView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,16 +118,43 @@
     <Compile Update="View\Relatorio\RelatorioLeitorView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Relatorio\RelatorioReservaView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="View\Relatorio\RelatorioLivroView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\SplashView.cs">
+    <Compile Update="View\Relatorio\RelatorioReservaView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Login\TelaLoginView.cs">
+    <Compile Update="View\Reserva\ReservaBuscarDiaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarExemplarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\UserControlBlank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLeitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarLivroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaBuscarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaCadastroView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaExcluirView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaVisualizarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\UserControlDays.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\SplashView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
