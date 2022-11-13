@@ -27,7 +27,6 @@ namespace Biblioteca.View {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalTelaView));
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panelDesktop.SuspendLayout();
@@ -39,12 +38,11 @@ namespace Biblioteca.View {
             this.panelDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
             this.panelDesktop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelDesktop.Controls.Add(this.pnlPrincipal);
-            this.panelDesktop.Controls.Add(this.head1);
             this.panelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDesktop.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelDesktop.Location = new System.Drawing.Point(196, 3);
+            this.panelDesktop.Location = new System.Drawing.Point(188, 3);
             this.panelDesktop.Name = "panelDesktop";
-            this.panelDesktop.Size = new System.Drawing.Size(1093, 773);
+            this.panelDesktop.Size = new System.Drawing.Size(1046, 621);
             this.panelDesktop.TabIndex = 2;
             // 
             // pnlPrincipal
@@ -53,18 +51,10 @@ namespace Biblioteca.View {
             this.pnlPrincipal.BackgroundImage = global::Biblioteca.Properties.Resources._2862101;
             this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 46);
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 0);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1093, 727);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1046, 621);
             this.pnlPrincipal.TabIndex = 1;
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1093, 46);
-            this.head1.TabIndex = 0;
             // 
             // menuControl1
             // 
@@ -73,7 +63,7 @@ namespace Biblioteca.View {
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(187, 773);
+            this.menuControl1.Size = new System.Drawing.Size(179, 621);
             this.menuControl1.TabIndex = 3;
             // 
             // pnltotal
@@ -89,7 +79,7 @@ namespace Biblioteca.View {
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1292, 779);
+            this.pnltotal.Size = new System.Drawing.Size(1237, 627);
             this.pnltotal.TabIndex = 5;
             // 
             // PrincipalTelaView
@@ -98,9 +88,9 @@ namespace Biblioteca.View {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1292, 779);
+            this.ClientSize = new System.Drawing.Size(1237, 627);
             this.Controls.Add(this.pnltotal);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalTelaView";
             this.Text = "Tela Home";
@@ -114,7 +104,6 @@ namespace Biblioteca.View {
 
         #endregion
         private System.Windows.Forms.Panel panelDesktop;
-        private Util.Head head1;
         private System.Windows.Forms.TableLayoutPanel pnltotal;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Panel pnlPrincipal;

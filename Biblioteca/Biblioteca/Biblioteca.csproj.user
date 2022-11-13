@@ -49,6 +49,9 @@
     <Compile Update="View\Emprestimo\EmprestimoExcluirView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Emprestimo\EmprestimoVisualizarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Exemplar\ExemplarBuscarLivroView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +74,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Funcionario\FuncionarioEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioSelecionarColaboradorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Funcionario\FuncionarioTrocarSenhaView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Genero\GeneroBuscarView.cs">
@@ -112,10 +121,10 @@
     <Compile Update="View\PrincipalTelaView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Relatorio\RelatorioEmprestimoView.cs">
+    <Compile Update="View\Relatorio\RelatorioEditoraView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Relatorio\RelatorioLeitorView.cs">
+    <Compile Update="View\Relatorio\RelatorioEmprestimoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Relatorio\RelatorioLivroView.cs">
@@ -128,6 +137,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Reserva\ReservaBuscarExemplarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Reserva\ReservaVisualizarView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Reserva\UserControlBlank.cs">
@@ -148,7 +160,7 @@
     <Compile Update="View\Reserva\ReservaExcluirView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Reserva\ReservaVisualizarView.cs">
+    <Compile Update="View\Reserva\ReservaMesView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Reserva\UserControlDays.cs">

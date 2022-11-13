@@ -111,6 +111,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSalvar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
@@ -126,6 +127,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.BtnGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnGenero.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGenero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGenero.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
             this.BtnGenero.IconColor = System.Drawing.Color.White;
@@ -142,6 +144,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.BtnEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnEditora.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEditora.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEditora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditora.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
             this.BtnEditora.IconColor = System.Drawing.Color.White;
@@ -158,6 +161,7 @@ namespace Biblioteca.View.Livros {
             // 
             this.BtnAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnAutor.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnAutor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAutor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAutor.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
             this.BtnAutor.IconColor = System.Drawing.Color.White;
@@ -173,6 +177,7 @@ namespace Biblioteca.View.Livros {
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

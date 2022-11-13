@@ -86,9 +86,9 @@
             this.panel2.Controls.Add(this.tbBuscar);
             this.panel2.Controls.Add(this.dtGridViewLivros);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 212);
+            this.panel2.Location = new System.Drawing.Point(0, 156);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1072, 524);
+            this.panel2.Size = new System.Drawing.Size(1072, 580);
             this.panel2.TabIndex = 91;
             // 
             // lblNotFound
@@ -98,7 +98,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(478, 260);
+            this.lblNotFound.Location = new System.Drawing.Point(478, 288);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 101;
@@ -107,11 +107,13 @@
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(832, 452);
+            this.btnEditar.Location = new System.Drawing.Point(832, 502);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(196, 42);
             this.btnEditar.TabIndex = 106;
@@ -124,7 +126,7 @@
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(306, 96);
+            this.tbBuscar.Location = new System.Drawing.Point(329, 72);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(460, 27);
@@ -176,13 +178,14 @@
             this.dtGridViewLivros.RowHeadersVisible = false;
             this.dtGridViewLivros.RowTemplate.Height = 25;
             this.dtGridViewLivros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivros.Size = new System.Drawing.Size(983, 298);
+            this.dtGridViewLivros.Size = new System.Drawing.Size(983, 354);
             this.dtGridViewLivros.TabIndex = 100;
             this.dtGridViewLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLivros_CellClick);
             // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

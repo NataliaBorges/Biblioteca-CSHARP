@@ -182,12 +182,13 @@
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(206, 239);
+            this.btnCadastrar.Location = new System.Drawing.Point(187, 227);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(168, 32);
+            this.btnCadastrar.Size = new System.Drawing.Size(168, 42);
             this.btnCadastrar.TabIndex = 39;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -197,9 +198,9 @@
             // 
             this.tbNome.BackColor = System.Drawing.Color.White;
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(145, 150);
+            this.tbNome.Location = new System.Drawing.Point(80, 144);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(323, 27);
+            this.tbNome.Size = new System.Drawing.Size(393, 27);
             this.tbNome.TabIndex = 38;
             // 
             // label5
@@ -218,7 +219,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(82, 153);
+            this.label1.Location = new System.Drawing.Point(80, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 28;
@@ -227,6 +228,7 @@
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

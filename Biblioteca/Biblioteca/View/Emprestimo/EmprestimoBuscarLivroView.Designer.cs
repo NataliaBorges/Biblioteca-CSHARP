@@ -114,9 +114,9 @@ namespace Biblioteca.View.Emprestimo {
             this.panel3.Controls.Add(this.tbBuscar);
             this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 238);
+            this.panel3.Location = new System.Drawing.Point(0, 194);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1086, 521);
+            this.panel3.Size = new System.Drawing.Size(1086, 565);
             this.panel3.TabIndex = 91;
             // 
             // lblNotFound
@@ -126,7 +126,7 @@ namespace Biblioteca.View.Emprestimo {
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(472, 261);
+            this.lblNotFound.Location = new System.Drawing.Point(472, 283);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 95;
@@ -140,7 +140,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(2458, 1040);
+            this.label11.Location = new System.Drawing.Point(2458, 1084);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 94;
@@ -151,7 +151,7 @@ namespace Biblioteca.View.Emprestimo {
             this.cbStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStatus.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.Location = new System.Drawing.Point(2520, 1037);
+            this.cbStatus.Location = new System.Drawing.Point(2520, 1081);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(197, 28);
             this.cbStatus.TabIndex = 93;
@@ -203,7 +203,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtGridViewLivros.RowHeadersVisible = false;
             this.dtGridViewLivros.RowTemplate.Height = 25;
             this.dtGridViewLivros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivros.Size = new System.Drawing.Size(990, 305);
+            this.dtGridViewLivros.Size = new System.Drawing.Size(990, 349);
             this.dtGridViewLivros.TabIndex = 30;
             this.dtGridViewLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLivros_CellClick);
             // 
@@ -213,7 +213,7 @@ namespace Biblioteca.View.Emprestimo {
             this.btnBuscar.BackgroundImage = global::Biblioteca.Properties.Resources.Lupa_icon1;
             this.btnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBuscar.Location = new System.Drawing.Point(2132, 786);
+            this.btnBuscar.Location = new System.Drawing.Point(2132, 808);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(34, 27);
             this.btnBuscar.TabIndex = 16;

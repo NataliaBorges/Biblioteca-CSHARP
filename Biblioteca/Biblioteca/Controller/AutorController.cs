@@ -68,7 +68,7 @@ namespace Biblioteca.Controller
         {
             Cmd.Connection = connection.RetornaConexao();
 
-            Cmd.CommandText = @"SELECT  * from Autor WHERE estado = 1 AND Autor.Nome_Autor LIKE '%"+ busca +"%'";
+            Cmd.CommandText = @"SELECT  * from Autor WHERE estado = 1 AND Autor.Nome_Autor LIKE '%" + busca + "%'";
 
             Cmd.Parameters.Clear();
 
@@ -95,25 +95,25 @@ namespace Biblioteca.Controller
 
             int statusNumero = 2; // Ambos
 
-            if(status == "Ativo")
+            if (status == "Ativo")
             {
                 statusNumero = 1;
-            } 
-            
-            if(status == "Inativo")
+            }
+
+            if (status == "Inativo")
             {
                 statusNumero = 0;
             }
 
-            if(statusNumero == 2)
+            if (statusNumero == 2)
             {
                 Cmd.CommandText = @"SELECT  * from Autor
                             WHERE Autor.Nome_Autor LIKE '%" + busca + "%'";
-            } 
+            }
             else
             {
                 Cmd.CommandText = @"SELECT  * from Autor
-                            WHERE Autor.Estado = '"+ statusNumero + "' AND Autor.Nome_Autor LIKE '%" + busca + "%'";
+                            WHERE Autor.Estado = '" + statusNumero + "' AND Autor.Nome_Autor LIKE '%" + busca + "%'";
             }
 
             Cmd.Parameters.Clear();
@@ -177,3 +177,4 @@ namespace Biblioteca.Controller
         }
     }
 }
+

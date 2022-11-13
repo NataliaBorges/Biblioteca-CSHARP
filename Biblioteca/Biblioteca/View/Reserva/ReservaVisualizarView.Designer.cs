@@ -34,38 +34,43 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservaVisualizarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dtGridViewLivrosReserva = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlLeitor = new System.Windows.Forms.Panel();
-            this.lbTelefone = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.lbCpf = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.dtGridViewLivrosReserva = new System.Windows.Forms.DataGridView();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnCadastrarEditora = new FontAwesome.Sharp.IconButton();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnlLeitor.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosReserva)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -86,6 +91,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,18 +100,28 @@
             this.panel1.Size = new System.Drawing.Size(1065, 668);
             this.panel1.TabIndex = 25;
             // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(346, 40);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(389, 39);
+            this.lblCadastroLivro.TabIndex = 97;
+            this.lblCadastroLivro.Text = "VISUALIZAR RESERVA";
+            // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel3.Controls.Add(this.btnCadastrarEditora);
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.pnlLeitor);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.groupBox4);
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Controls.Add(this.groupBox2);
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.btnAtualizar);
             this.panel3.Controls.Add(this.lblNotFound);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.cbStatus);
-            this.panel3.Controls.Add(this.dtGridViewLivrosReserva);
             this.panel3.Controls.Add(this.btnBuscar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 89);
@@ -113,192 +129,302 @@
             this.panel3.Size = new System.Drawing.Size(1065, 579);
             this.panel3.TabIndex = 96;
             // 
-            // panel2
+            // groupBox4
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Location = new System.Drawing.Point(408, 415);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(230, 105);
-            this.panel2.TabIndex = 113;
+            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox4.Controls.Add(this.dtGridViewLivrosReserva);
+            this.groupBox4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox4.ForeColor = System.Drawing.Color.White;
+            this.groupBox4.Location = new System.Drawing.Point(130, 168);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(791, 234);
+            this.groupBox4.TabIndex = 134;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "LIVRO(S)";
             // 
-            // label9
+            // dtGridViewLivrosReserva
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(136, 59);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "label10";
+            this.dtGridViewLivrosReserva.AllowUserToAddRows = false;
+            this.dtGridViewLivrosReserva.AllowUserToDeleteRows = false;
+            this.dtGridViewLivrosReserva.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewLivrosReserva.BackgroundColor = System.Drawing.Color.Black;
+            this.dtGridViewLivrosReserva.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewLivrosReserva.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewLivrosReserva.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosReserva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridViewLivrosReserva.ColumnHeadersHeight = 30;
+            this.dtGridViewLivrosReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewLivrosReserva.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridViewLivrosReserva.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGridViewLivrosReserva.EnableHeadersVisualStyles = false;
+            this.dtGridViewLivrosReserva.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewLivrosReserva.Location = new System.Drawing.Point(3, 23);
+            this.dtGridViewLivrosReserva.Name = "dtGridViewLivrosReserva";
+            this.dtGridViewLivrosReserva.ReadOnly = true;
+            this.dtGridViewLivrosReserva.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosReserva.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGridViewLivrosReserva.RowHeadersVisible = false;
+            this.dtGridViewLivrosReserva.RowTemplate.Height = 25;
+            this.dtGridViewLivrosReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewLivrosReserva.Size = new System.Drawing.Size(785, 208);
+            this.dtGridViewLivrosReserva.TabIndex = 30;
             // 
-            // label10
+            // groupBox3
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(136, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 20);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "label10";
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(130, 29);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(488, 139);
+            this.groupBox3.TabIndex = 133;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "LEITOR";
             // 
-            // label14
+            // label2
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(41, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(76, 21);
-            this.label14.TabIndex = 10;
-            this.label14.Text = "Retirada:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(273, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 20);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "label10";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(81, 99);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 20);
+            this.label4.TabIndex = 23;
+            this.label4.Text = "label10";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(78, 65);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(56, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "label10";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(78, 32);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(56, 20);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "label10";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(7, 24);
+            this.label15.Location = new System.Drawing.Point(14, 99);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(0, 21);
-            this.label15.TabIndex = 9;
+            this.label15.Size = new System.Drawing.Size(61, 21);
+            this.label15.TabIndex = 20;
+            this.label15.Text = "E-mail:";
             // 
-            // label2
+            // label16
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(72, 226);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 21);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Livros";
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(225, 65);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(42, 21);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "Tel.:";
             // 
-            // pnlLeitor
+            // label17
             // 
-            this.pnlLeitor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlLeitor.BackColor = System.Drawing.Color.Black;
-            this.pnlLeitor.Controls.Add(this.lbTelefone);
-            this.pnlLeitor.Controls.Add(this.lbEmail);
-            this.pnlLeitor.Controls.Add(this.lbCpf);
-            this.pnlLeitor.Controls.Add(this.lbNome);
-            this.pnlLeitor.Controls.Add(this.label8);
-            this.pnlLeitor.Controls.Add(this.label7);
-            this.pnlLeitor.Controls.Add(this.label6);
-            this.pnlLeitor.Controls.Add(this.label5);
-            this.pnlLeitor.Location = new System.Drawing.Point(283, 64);
-            this.pnlLeitor.Name = "pnlLeitor";
-            this.pnlLeitor.Size = new System.Drawing.Size(484, 139);
-            this.pnlLeitor.TabIndex = 112;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(14, 65);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(45, 21);
+            this.label17.TabIndex = 18;
+            this.label17.Text = "CPF:";
             // 
-            // lbTelefone
+            // label18
             // 
-            this.lbTelefone.AutoSize = true;
-            this.lbTelefone.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTelefone.ForeColor = System.Drawing.Color.White;
-            this.lbTelefone.Location = new System.Drawing.Point(266, 61);
-            this.lbTelefone.Name = "lbTelefone";
-            this.lbTelefone.Size = new System.Drawing.Size(56, 20);
-            this.lbTelefone.TabIndex = 16;
-            this.lbTelefone.Text = "label10";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(14, 29);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 21);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Nome:";
             // 
-            // lbEmail
+            // groupBox2
             // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbEmail.ForeColor = System.Drawing.Color.White;
-            this.lbEmail.Location = new System.Drawing.Point(74, 94);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(56, 20);
-            this.lbEmail.TabIndex = 15;
-            this.lbEmail.Text = "label10";
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(624, 29);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(297, 139);
+            this.groupBox2.TabIndex = 132;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "DATAS";
             // 
-            // lbCpf
+            // label3
             // 
-            this.lbCpf.AutoSize = true;
-            this.lbCpf.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbCpf.ForeColor = System.Drawing.Color.White;
-            this.lbCpf.Location = new System.Drawing.Point(71, 60);
-            this.lbCpf.Name = "lbCpf";
-            this.lbCpf.Size = new System.Drawing.Size(56, 20);
-            this.lbCpf.TabIndex = 14;
-            this.lbCpf.Text = "label10";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(41, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 21);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Data Reserva:";
             // 
-            // lbNome
+            // label10
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbNome.ForeColor = System.Drawing.Color.White;
-            this.lbNome.Location = new System.Drawing.Point(71, 27);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(56, 20);
-            this.lbNome.TabIndex = 13;
-            this.lbNome.Text = "label10";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(170, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(56, 20);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "label10";
             // 
-            // label8
+            // label9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(7, 94);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 21);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "E-mail:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(170, 77);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(56, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "label10";
             // 
-            // label7
+            // label14
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(218, 60);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 21);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "Tel.:";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(75, 77);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 21);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "Retirada:";
             // 
-            // label6
+            // groupBox1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(7, 60);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 21);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "CPF:";
+            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(133, 408);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(197, 139);
+            this.groupBox1.TabIndex = 131;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "STATUS";
             // 
-            // label5
+            // radioButton2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(7, 24);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Nome:";
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton2.ForeColor = System.Drawing.Color.White;
+            this.radioButton2.Location = new System.Drawing.Point(36, 61);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(89, 24);
+            this.radioButton2.TabIndex = 127;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Cancelar";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // radioButton1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(886, 578);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 21);
-            this.label1.TabIndex = 98;
-            this.label1.Text = "Não Encontrado";
-            this.label1.Visible = false;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(36, 31);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(101, 24);
+            this.radioButton1.TabIndex = 125;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Emprestar";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(36, 91);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(82, 24);
+            this.radioButton3.TabIndex = 128;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Inativar";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.BackColor = System.Drawing.Color.Olive;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnAtualizar.ForeColor = System.Drawing.Color.White;
+            this.btnAtualizar.Location = new System.Drawing.Point(734, 469);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(184, 46);
+            this.btnAtualizar.TabIndex = 124;
+            this.btnAtualizar.Text = "SALVAR";
+            this.btnAtualizar.UseVisualStyleBackColor = false;
             // 
             // lblNotFound
             // 
@@ -337,56 +463,6 @@
             this.cbStatus.Size = new System.Drawing.Size(197, 28);
             this.cbStatus.TabIndex = 93;
             // 
-            // dtGridViewLivrosReserva
-            // 
-            this.dtGridViewLivrosReserva.AllowUserToAddRows = false;
-            this.dtGridViewLivrosReserva.AllowUserToDeleteRows = false;
-            this.dtGridViewLivrosReserva.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGridViewLivrosReserva.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridViewLivrosReserva.BackgroundColor = System.Drawing.Color.Black;
-            this.dtGridViewLivrosReserva.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewLivrosReserva.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGridViewLivrosReserva.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosReserva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewLivrosReserva.ColumnHeadersHeight = 30;
-            this.dtGridViewLivrosReserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewLivrosReserva.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewLivrosReserva.EnableHeadersVisualStyles = false;
-            this.dtGridViewLivrosReserva.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLivrosReserva.Location = new System.Drawing.Point(72, 250);
-            this.dtGridViewLivrosReserva.Name = "dtGridViewLivrosReserva";
-            this.dtGridViewLivrosReserva.ReadOnly = true;
-            this.dtGridViewLivrosReserva.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosReserva.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridViewLivrosReserva.RowHeadersVisible = false;
-            this.dtGridViewLivrosReserva.RowTemplate.Height = 25;
-            this.dtGridViewLivrosReserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivrosReserva.Size = new System.Drawing.Size(889, 141);
-            this.dtGridViewLivrosReserva.TabIndex = 30;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -417,40 +493,6 @@
             this.menuControl1.Size = new System.Drawing.Size(189, 668);
             this.menuControl1.TabIndex = 26;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(7, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 21);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Data Reserva:";
-            // 
-            // btnCadastrarEditora
-            // 
-            this.btnCadastrarEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnCadastrarEditora.FlatAppearance.BorderSize = 0;
-            this.btnCadastrarEditora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCadastrarEditora.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCadastrarEditora.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrarEditora.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnCadastrarEditora.IconColor = System.Drawing.Color.Olive;
-            this.btnCadastrarEditora.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnCadastrarEditora.IconSize = 30;
-            this.btnCadastrarEditora.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarEditora.Location = new System.Drawing.Point(724, 529);
-            this.btnCadastrarEditora.Name = "btnCadastrarEditora";
-            this.btnCadastrarEditora.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCadastrarEditora.Size = new System.Drawing.Size(180, 30);
-            this.btnCadastrarEditora.TabIndex = 114;
-            this.btnCadastrarEditora.Tag = "";
-            this.btnCadastrarEditora.Text = "Emprestar Livros";
-            this.btnCadastrarEditora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCadastrarEditora.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCadastrarEditora.UseVisualStyleBackColor = true;
-            // 
             // ReservaVisualizarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -464,13 +506,17 @@
             this.Text = "ReservaVisualizarView";
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.pnlLeitor.ResumeLayout(false);
-            this.pnlLeitor.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosReserva)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -482,28 +528,31 @@
         private Util.Head head1;
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNotFound;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.DataGridView dtGridViewLivrosReserva;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel pnlLeitor;
-        private System.Windows.Forms.Label lbTelefone;
-        private System.Windows.Forms.Label lbEmail;
-        private System.Windows.Forms.Label lbCpf;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private FontAwesome.Sharp.IconButton btnCadastrarEditora;
+        private System.Windows.Forms.Label lblCadastroLivro;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

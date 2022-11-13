@@ -74,7 +74,7 @@
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1183, 624);
+            this.pnltotal.Size = new System.Drawing.Size(1311, 724);
             this.pnltotal.TabIndex = 2;
             // 
             // panel1
@@ -87,14 +87,15 @@
             this.panel1.Controls.Add(this.tbLyPnlDataGrid);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(210, 3);
+            this.panel1.Location = new System.Drawing.Point(233, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(970, 618);
+            this.panel1.Size = new System.Drawing.Size(1075, 718);
             this.panel1.TabIndex = 21;
             // 
             // btnCadastrarGenero
             // 
             this.btnCadastrarGenero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastrarGenero.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarGenero.FlatAppearance.BorderSize = 0;
             this.btnCadastrarGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarGenero.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -104,7 +105,7 @@
             this.btnCadastrarGenero.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCadastrarGenero.IconSize = 30;
             this.btnCadastrarGenero.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarGenero.Location = new System.Drawing.Point(787, 160);
+            this.btnCadastrarGenero.Location = new System.Drawing.Point(895, 206);
             this.btnCadastrarGenero.Name = "btnCadastrarGenero";
             this.btnCadastrarGenero.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCadastrarGenero.Size = new System.Drawing.Size(180, 30);
@@ -119,6 +120,7 @@
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -128,7 +130,7 @@
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(241, 91);
+            this.icbtnVoltar.Location = new System.Drawing.Point(289, 119);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -144,7 +146,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(403, 94);
+            this.label4.Location = new System.Drawing.Point(451, 122);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(258, 32);
             this.label4.TabIndex = 74;
@@ -158,12 +160,12 @@
             this.tbLyPnlDataGrid.Controls.Add(this.panel2, 1, 0);
             this.tbLyPnlDataGrid.Controls.Add(this.panel3, 0, 0);
             this.tbLyPnlDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbLyPnlDataGrid.Location = new System.Drawing.Point(0, 196);
+            this.tbLyPnlDataGrid.Location = new System.Drawing.Point(0, 242);
             this.tbLyPnlDataGrid.Name = "tbLyPnlDataGrid";
             this.tbLyPnlDataGrid.RowCount = 1;
             this.tbLyPnlDataGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tbLyPnlDataGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 422F));
-            this.tbLyPnlDataGrid.Size = new System.Drawing.Size(970, 422);
+            this.tbLyPnlDataGrid.Size = new System.Drawing.Size(1075, 476);
             this.tbLyPnlDataGrid.TabIndex = 36;
             // 
             // panel2
@@ -176,9 +178,9 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(488, 3);
+            this.panel2.Location = new System.Drawing.Point(540, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(479, 416);
+            this.panel2.Size = new System.Drawing.Size(532, 470);
             this.panel2.TabIndex = 31;
             // 
             // label2
@@ -187,7 +189,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(101, 162);
+            this.label2.Location = new System.Drawing.Point(140, 187);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 20);
             this.label2.TabIndex = 98;
@@ -202,7 +204,7 @@
             this.cbEditarStatus.Items.AddRange(new object[] {
             "Ativo",
             "Inativo"});
-            this.cbEditarStatus.Location = new System.Drawing.Point(163, 159);
+            this.cbEditarStatus.Location = new System.Drawing.Point(202, 184);
             this.cbEditarStatus.Name = "cbEditarStatus";
             this.cbEditarStatus.Size = new System.Drawing.Size(200, 28);
             this.cbEditarStatus.TabIndex = 97;
@@ -210,10 +212,11 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Olive;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(198, 214);
+            this.btnSalvar.Location = new System.Drawing.Point(237, 239);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(133, 32);
             this.btnSalvar.TabIndex = 39;
@@ -225,7 +228,7 @@
             // 
             this.TbGenero.BackColor = System.Drawing.Color.White;
             this.TbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TbGenero.Location = new System.Drawing.Point(116, 109);
+            this.TbGenero.Location = new System.Drawing.Point(155, 134);
             this.TbGenero.Name = "TbGenero";
             this.TbGenero.Size = new System.Drawing.Size(275, 27);
             this.TbGenero.TabIndex = 38;
@@ -235,7 +238,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(45, 39);
+            this.label5.Location = new System.Drawing.Point(84, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 23);
             this.label5.TabIndex = 37;
@@ -246,7 +249,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 112);
+            this.label1.Location = new System.Drawing.Point(84, 137);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 20);
             this.label1.TabIndex = 28;
@@ -261,10 +264,11 @@
             this.panel3.Controls.Add(this.dtGridViewGenero);
             this.panel3.Controls.Add(this.btnAtualizar);
             this.panel3.Controls.Add(this.tbBuscar);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(479, 416);
+            this.panel3.Size = new System.Drawing.Size(531, 470);
             this.panel3.TabIndex = 32;
             // 
             // label11
@@ -273,7 +277,7 @@
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(126, 37);
+            this.label11.Location = new System.Drawing.Point(143, 30);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 96;
@@ -288,7 +292,7 @@
             "Ambos",
             "Ativo",
             "Inativo"});
-            this.cbStatus.Location = new System.Drawing.Point(188, 34);
+            this.cbStatus.Location = new System.Drawing.Point(205, 27);
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(177, 28);
             this.cbStatus.TabIndex = 95;
@@ -301,7 +305,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(165, 201);
+            this.lblNotFound.Location = new System.Drawing.Point(188, 250);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 79;
@@ -340,7 +344,7 @@
             this.dtGridViewGenero.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewGenero.EnableHeadersVisualStyles = false;
             this.dtGridViewGenero.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewGenero.Location = new System.Drawing.Point(28, 109);
+            this.dtGridViewGenero.Location = new System.Drawing.Point(28, 137);
             this.dtGridViewGenero.Name = "dtGridViewGenero";
             this.dtGridViewGenero.ReadOnly = true;
             this.dtGridViewGenero.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -355,7 +359,7 @@
             this.dtGridViewGenero.RowHeadersVisible = false;
             this.dtGridViewGenero.RowTemplate.Height = 25;
             this.dtGridViewGenero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewGenero.Size = new System.Drawing.Size(415, 236);
+            this.dtGridViewGenero.Size = new System.Drawing.Size(467, 262);
             this.dtGridViewGenero.TabIndex = 30;
             this.dtGridViewGenero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewGenero_CellClick);
             // 
@@ -368,9 +372,9 @@
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
-            this.btnAtualizar.Location = new System.Drawing.Point(165, 351);
+            this.btnAtualizar.Location = new System.Drawing.Point(157, 422);
             this.btnAtualizar.Name = "btnAtualizar";
-            this.btnAtualizar.Size = new System.Drawing.Size(135, 34);
+            this.btnAtualizar.Size = new System.Drawing.Size(187, 42);
             this.btnAtualizar.TabIndex = 32;
             this.btnAtualizar.Text = "EDITAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
@@ -383,10 +387,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(115, 76);
+            this.tbBuscar.Location = new System.Drawing.Point(115, 104);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
-            this.tbBuscar.Size = new System.Drawing.Size(246, 27);
+            this.tbBuscar.Size = new System.Drawing.Size(298, 27);
             this.tbBuscar.TabIndex = 13;
             this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
@@ -395,7 +399,7 @@
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(970, 37);
+            this.head1.Size = new System.Drawing.Size(1075, 37);
             this.head1.TabIndex = 29;
             // 
             // menuControl1
@@ -405,7 +409,7 @@
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(201, 618);
+            this.menuControl1.Size = new System.Drawing.Size(224, 718);
             this.menuControl1.TabIndex = 22;
             // 
             // GeneroBuscarView
@@ -413,7 +417,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1183, 624);
+            this.ClientSize = new System.Drawing.Size(1311, 724);
             this.Controls.Add(this.pnltotal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

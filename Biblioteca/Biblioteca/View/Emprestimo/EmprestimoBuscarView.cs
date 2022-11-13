@@ -20,7 +20,11 @@ namespace Biblioteca.View.Emprestimo {
         }
 
         private void EmpretimoBuscarView_Load(object sender, EventArgs e) {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
+
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
 
             List<EmprestimoPesquisaModel> lista = controller.ListarTodosBusca();
             popular(lista);
@@ -75,9 +79,13 @@ namespace Biblioteca.View.Emprestimo {
 
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(id,leitor,livro,funcionario,emprestimo,devolucao,status);
 
-                EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
-                NovaJanela.novaJanela(editar, this.Bounds);
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            EmprestimoVisualizarView emprestimoVisualizarView = new EmprestimoVisualizarView();
+            NovaJanela.novaJanela(emprestimoVisualizarView, Bounds);
         }
 
         //private void btnSalvar_Click(object sender, EventArgs e) {

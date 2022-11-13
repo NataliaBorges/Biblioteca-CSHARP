@@ -95,6 +95,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

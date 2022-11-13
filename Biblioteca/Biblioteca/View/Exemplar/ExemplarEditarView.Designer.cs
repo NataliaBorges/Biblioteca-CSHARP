@@ -31,34 +31,39 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExemplarEditarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbEditarStatus = new System.Windows.Forms.ComboBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tbValor = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.tbEditora = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tbGenero = new System.Windows.Forms.TextBox();
-            this.tbNome = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbEdicao = new System.Windows.Forms.TextBox();
-            this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbAutor = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tbISBN = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.CalendarExemplar = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
+            this.tbEdicao = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbAutor = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbGenero = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbEditora = new System.Windows.Forms.TextBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblBuscaLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.CalendarExemplar = new System.Windows.Forms.DateTimePicker();
-            this.label11 = new System.Windows.Forms.Label();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -81,28 +86,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel1.Controls.Add(this.CalendarExemplar);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.cbEditarStatus);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnSalvar);
-            this.panel1.Controls.Add(this.tbValor);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.iconButton2);
-            this.panel1.Controls.Add(this.tbEditora);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.tbGenero);
-            this.panel1.Controls.Add(this.tbNome);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.tbEdicao);
-            this.panel1.Controls.Add(this.maskedTextBoxAno);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.tbAutor);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.tbISBN);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.icbtnVoltar);
             this.panel1.Controls.Add(this.lblBuscaLivro);
             this.panel1.Controls.Add(this.head1);
@@ -112,18 +99,18 @@
             this.panel1.Size = new System.Drawing.Size(1014, 720);
             this.panel1.TabIndex = 22;
             // 
-            // label10
+            // groupBox3
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(496, 451);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 20);
-            this.label10.TabIndex = 121;
-            this.label10.Text = "Status:";
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.cbEditarStatus);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(434, 528);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(186, 88);
+            this.groupBox3.TabIndex = 126;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "STATUS";
             // 
             // cbEditarStatus
             // 
@@ -135,179 +122,65 @@
             this.cbEditarStatus.Items.AddRange(new object[] {
             "Ativo",
             "Inativo"});
-            this.cbEditarStatus.Location = new System.Drawing.Point(558, 448);
+            this.cbEditarStatus.Location = new System.Drawing.Point(26, 35);
             this.cbEditarStatus.Name = "cbEditarStatus";
-            this.cbEditarStatus.Size = new System.Drawing.Size(91, 28);
+            this.cbEditarStatus.Size = new System.Drawing.Size(131, 28);
             this.cbEditarStatus.TabIndex = 120;
             // 
-            // btnSalvar
+            // groupBox2
             // 
-            this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvar.BackColor = System.Drawing.Color.Olive;
-            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(443, 541);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(178, 45);
-            this.btnSalvar.TabIndex = 119;
-            this.btnSalvar.Text = "SALVAR";
-            this.btnSalvar.UseVisualStyleBackColor = false;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.tbValor);
+            this.groupBox2.Controls.Add(this.tbISBN);
+            this.groupBox2.Controls.Add(this.CalendarExemplar);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.maskedTextBoxAno);
+            this.groupBox2.Controls.Add(this.tbEdicao);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.iconButton2);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(172, 338);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(700, 184);
+            this.groupBox2.TabIndex = 125;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informações do Exemplar";
             // 
             // tbValor
             // 
             this.tbValor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbValor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbValor.Location = new System.Drawing.Point(658, 412);
+            this.tbValor.Location = new System.Drawing.Point(449, 78);
             this.tbValor.Name = "tbValor";
             this.tbValor.Size = new System.Drawing.Size(95, 27);
             this.tbValor.TabIndex = 116;
             // 
-            // label4
+            // tbISBN
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(576, 414);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 20);
-            this.label4.TabIndex = 115;
-            this.label4.Text = "Valor: R$";
+            this.tbISBN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbISBN.Location = new System.Drawing.Point(206, 80);
+            this.tbISBN.Name = "tbISBN";
+            this.tbISBN.Size = new System.Drawing.Size(155, 27);
+            this.tbISBN.TabIndex = 107;
             // 
-            // iconButton2
+            // CalendarExemplar
             // 
-            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(505, 412);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 27);
-            this.iconButton2.TabIndex = 114;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // tbEditora
-            // 
-            this.tbEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbEditora.Enabled = false;
-            this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEditora.Location = new System.Drawing.Point(324, 287);
-            this.tbEditora.Name = "tbEditora";
-            this.tbEditora.ReadOnly = true;
-            this.tbEditora.Size = new System.Drawing.Size(175, 27);
-            this.tbEditora.TabIndex = 113;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(505, 290);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 20);
-            this.label9.TabIndex = 111;
-            this.label9.Text = "Gênero:";
-            // 
-            // tbGenero
-            // 
-            this.tbGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbGenero.Enabled = false;
-            this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbGenero.Location = new System.Drawing.Point(576, 287);
-            this.tbGenero.Name = "tbGenero";
-            this.tbGenero.ReadOnly = true;
-            this.tbGenero.Size = new System.Drawing.Size(177, 27);
-            this.tbGenero.TabIndex = 112;
-            // 
-            // tbNome
-            // 
-            this.tbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNome.Enabled = false;
-            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(325, 204);
-            this.tbNome.Name = "tbNome";
-            this.tbNome.ReadOnly = true;
-            this.tbNome.Size = new System.Drawing.Size(428, 27);
-            this.tbNome.TabIndex = 98;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(658, 454);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 20);
-            this.label5.TabIndex = 103;
-            this.label5.Text = "Ano:";
-            // 
-            // tbEdicao
-            // 
-            this.tbEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbEdicao.Enabled = false;
-            this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEdicao.Location = new System.Drawing.Point(325, 412);
-            this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.PlaceholderText = "Selecione uma edição";
-            this.tbEdicao.Size = new System.Drawing.Size(174, 27);
-            this.tbEdicao.TabIndex = 102;
-            // 
-            // maskedTextBoxAno
-            // 
-            this.maskedTextBoxAno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.maskedTextBoxAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxAno.Location = new System.Drawing.Point(715, 449);
-            this.maskedTextBoxAno.Mask = "9999";
-            this.maskedTextBoxAno.Name = "maskedTextBoxAno";
-            this.maskedTextBoxAno.Size = new System.Drawing.Size(38, 27);
-            this.maskedTextBoxAno.TabIndex = 110;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(245, 415);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 20);
-            this.label3.TabIndex = 101;
-            this.label3.Text = "Edição:";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(242, 290);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 20);
-            this.label6.TabIndex = 104;
-            this.label6.Text = "Editora:";
-            // 
-            // tbAutor
-            // 
-            this.tbAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbAutor.Enabled = false;
-            this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAutor.Location = new System.Drawing.Point(325, 246);
-            this.tbAutor.Name = "tbAutor";
-            this.tbAutor.ReadOnly = true;
-            this.tbAutor.Size = new System.Drawing.Size(428, 27);
-            this.tbAutor.TabIndex = 100;
+            this.CalendarExemplar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarExemplar.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarExemplar.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarExemplar.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarExemplar.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarExemplar.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarExemplar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarExemplar.Location = new System.Drawing.Point(206, 114);
+            this.CalendarExemplar.Name = "CalendarExemplar";
+            this.CalendarExemplar.Size = new System.Drawing.Size(338, 27);
+            this.CalendarExemplar.TabIndex = 123;
             // 
             // label7
             // 
@@ -316,33 +189,132 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(252, 451);
+            this.label7.Location = new System.Drawing.Point(137, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 106;
             this.label7.Text = "ISBN:";
             // 
-            // tbISBN
+            // label11
             // 
-            this.tbISBN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbISBN.Location = new System.Drawing.Point(324, 448);
-            this.tbISBN.Name = "tbISBN";
-            this.tbISBN.Size = new System.Drawing.Size(159, 27);
-            this.tbISBN.TabIndex = 107;
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(101, 119);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 20);
+            this.label11.TabIndex = 122;
+            this.label11.Text = "Aquisição:";
             // 
-            // label2
+            // label3
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(253, 253);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
-            this.label2.TabIndex = 99;
-            this.label2.Text = "Autor:";
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(127, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 20);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "Edição:";
+            // 
+            // maskedTextBoxAno
+            // 
+            this.maskedTextBoxAno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.maskedTextBoxAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.maskedTextBoxAno.Location = new System.Drawing.Point(506, 42);
+            this.maskedTextBoxAno.Mask = "9999";
+            this.maskedTextBoxAno.Name = "maskedTextBoxAno";
+            this.maskedTextBoxAno.Size = new System.Drawing.Size(38, 27);
+            this.maskedTextBoxAno.TabIndex = 110;
+            // 
+            // tbEdicao
+            // 
+            this.tbEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbEdicao.Enabled = false;
+            this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEdicao.Location = new System.Drawing.Point(207, 42);
+            this.tbEdicao.Name = "tbEdicao";
+            this.tbEdicao.PlaceholderText = "Selecione uma edição";
+            this.tbEdicao.Size = new System.Drawing.Size(172, 27);
+            this.tbEdicao.TabIndex = 102;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(443, 45);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 20);
+            this.label5.TabIndex = 103;
+            this.label5.Text = "Ano:";
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.iconButton2.IconColor = System.Drawing.Color.White;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.IconSize = 23;
+            this.iconButton2.Location = new System.Drawing.Point(385, 42);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(36, 27);
+            this.iconButton2.TabIndex = 114;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(367, 80);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 20);
+            this.label4.TabIndex = 115;
+            this.label4.Text = "Valor: R$";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.tbNome);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbAutor);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.tbGenero);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.tbEditora);
+            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(172, 154);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(700, 184);
+            this.groupBox1.TabIndex = 124;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Dados Fixos";
+            // 
+            // tbNome
+            // 
+            this.tbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNome.Cursor = System.Windows.Forms.Cursors.No;
+            this.tbNome.Enabled = false;
+            this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbNome.Location = new System.Drawing.Point(157, 37);
+            this.tbNome.Name = "tbNome";
+            this.tbNome.ReadOnly = true;
+            this.tbNome.Size = new System.Drawing.Size(428, 27);
+            this.tbNome.TabIndex = 98;
             // 
             // label1
             // 
@@ -351,15 +323,107 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(253, 211);
+            this.label1.Location = new System.Drawing.Point(85, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 97;
             this.label1.Text = "Nome:";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(85, 86);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 99;
+            this.label2.Text = "Autor:";
+            // 
+            // tbAutor
+            // 
+            this.tbAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbAutor.Cursor = System.Windows.Forms.Cursors.No;
+            this.tbAutor.Enabled = false;
+            this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbAutor.Location = new System.Drawing.Point(157, 79);
+            this.tbAutor.Name = "tbAutor";
+            this.tbAutor.ReadOnly = true;
+            this.tbAutor.Size = new System.Drawing.Size(428, 27);
+            this.tbAutor.TabIndex = 100;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(74, 123);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(66, 20);
+            this.label6.TabIndex = 104;
+            this.label6.Text = "Editora:";
+            // 
+            // tbGenero
+            // 
+            this.tbGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbGenero.Cursor = System.Windows.Forms.Cursors.No;
+            this.tbGenero.Enabled = false;
+            this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbGenero.Location = new System.Drawing.Point(408, 120);
+            this.tbGenero.Name = "tbGenero";
+            this.tbGenero.ReadOnly = true;
+            this.tbGenero.Size = new System.Drawing.Size(177, 27);
+            this.tbGenero.TabIndex = 112;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(337, 123);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 20);
+            this.label9.TabIndex = 111;
+            this.label9.Text = "Gênero:";
+            // 
+            // tbEditora
+            // 
+            this.tbEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbEditora.Cursor = System.Windows.Forms.Cursors.No;
+            this.tbEditora.Enabled = false;
+            this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbEditora.Location = new System.Drawing.Point(156, 120);
+            this.tbEditora.Name = "tbEditora";
+            this.tbEditora.ReadOnly = true;
+            this.tbEditora.Size = new System.Drawing.Size(175, 27);
+            this.tbEditora.TabIndex = 113;
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalvar.BackColor = System.Drawing.Color.Olive;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Location = new System.Drawing.Point(434, 651);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(186, 45);
+            this.btnSalvar.TabIndex = 119;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -409,34 +473,6 @@
             this.menuControl1.Size = new System.Drawing.Size(174, 720);
             this.menuControl1.TabIndex = 21;
             // 
-            // CalendarExemplar
-            // 
-            this.CalendarExemplar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CalendarExemplar.CalendarForeColor = System.Drawing.Color.DarkMagenta;
-            this.CalendarExemplar.CalendarMonthBackground = System.Drawing.Color.Purple;
-            this.CalendarExemplar.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
-            this.CalendarExemplar.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CalendarExemplar.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
-            this.CalendarExemplar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarExemplar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.CalendarExemplar.Location = new System.Drawing.Point(505, 493);
-            this.CalendarExemplar.Name = "CalendarExemplar";
-            this.CalendarExemplar.Size = new System.Drawing.Size(130, 27);
-            this.CalendarExemplar.TabIndex = 123;
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(414, 498);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 20);
-            this.label11.TabIndex = 122;
-            this.label11.Text = "Aquisição:";
-            // 
             // ExemplarEditarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -452,6 +488,11 @@
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -484,9 +525,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cbEditarStatus;
         private System.Windows.Forms.DateTimePicker CalendarExemplar;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

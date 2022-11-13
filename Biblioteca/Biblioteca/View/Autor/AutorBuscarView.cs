@@ -31,6 +31,7 @@ namespace Biblioteca.View.Autor
             this.head1.setPaddind(this.Padding);
 
             cbStatus.Text = "Ambos";
+
         }
         private void popular(List<AutorModel> lista)
         {

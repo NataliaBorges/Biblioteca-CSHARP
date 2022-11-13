@@ -95,6 +95,7 @@
             // IcnBtnVoltar
             // 
             this.IcnBtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.IcnBtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IcnBtnVoltar.FlatAppearance.BorderSize = 0;
             this.IcnBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IcnBtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -216,12 +217,13 @@
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(204, 222);
+            this.btnCadastrar.Location = new System.Drawing.Point(193, 211);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(168, 32);
+            this.btnCadastrar.Size = new System.Drawing.Size(168, 41);
             this.btnCadastrar.TabIndex = 39;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -231,9 +233,9 @@
             // 
             this.tbEdicao.BackColor = System.Drawing.Color.White;
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEdicao.Location = new System.Drawing.Point(136, 130);
+            this.tbEdicao.Location = new System.Drawing.Point(73, 144);
             this.tbEdicao.Name = "tbEdicao";
-            this.tbEdicao.Size = new System.Drawing.Size(323, 27);
+            this.tbEdicao.Size = new System.Drawing.Size(412, 27);
             this.tbEdicao.TabIndex = 38;
             // 
             // label5
@@ -252,7 +254,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(73, 133);
+            this.label1.Location = new System.Drawing.Point(73, 121);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 28;

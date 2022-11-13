@@ -35,7 +35,6 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioCadastrarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioEditarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioEmprestimoView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioLeitorView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioReservaView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoBuscarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoExcluirView.resources
@@ -79,3 +78,8 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.UserControlDays.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaBuscarDiaView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaBuscarExemplarView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Relatorio.RelatorioEditoraView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaMesView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoVisualizarView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioTrocarSenhaView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioSelecionarColaboradorView.resources

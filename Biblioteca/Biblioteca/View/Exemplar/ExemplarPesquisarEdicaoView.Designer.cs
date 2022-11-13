@@ -104,6 +104,7 @@
             // btnVoltar
             // 
             this.btnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.FlatAppearance.BorderSize = 0;
             this.btnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -130,9 +131,9 @@
             this.panel1.Controls.Add(this.tbBuscar);
             this.panel1.Controls.Add(this.dtGridViewEdicao);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 261);
+            this.panel1.Location = new System.Drawing.Point(0, 179);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1037, 458);
+            this.panel1.Size = new System.Drawing.Size(1037, 540);
             this.panel1.TabIndex = 29;
             // 
             // lblNotFound
@@ -141,7 +142,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(479, 208);
+            this.lblNotFound.Location = new System.Drawing.Point(466, 274);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 75;
@@ -205,7 +206,7 @@
             this.dtGridViewEdicao.RowHeadersVisible = false;
             this.dtGridViewEdicao.RowTemplate.Height = 25;
             this.dtGridViewEdicao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewEdicao.Size = new System.Drawing.Size(730, 284);
+            this.dtGridViewEdicao.Size = new System.Drawing.Size(730, 366);
             this.dtGridViewEdicao.TabIndex = 73;
             this.dtGridViewEdicao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewEdicao_CellClick);
             // 

@@ -194,6 +194,7 @@ namespace Biblioteca.View {
             // 
             this.lbCancel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.lbCancel.AutoSize = true;
+            this.lbCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lbCancel.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbCancel.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lbCancel.LinkColor = System.Drawing.Color.SaddleBrown;
@@ -209,6 +210,7 @@ namespace Biblioteca.View {
             // 
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
             this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.ForeColor = System.Drawing.Color.SaddleBrown;
             this.linkLabel1.LinkColor = System.Drawing.Color.SaddleBrown;

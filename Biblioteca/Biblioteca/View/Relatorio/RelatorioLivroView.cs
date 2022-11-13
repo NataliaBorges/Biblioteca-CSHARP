@@ -21,27 +21,27 @@ namespace Biblioteca.View.Relatorio {
         }
 
         private void popular(List<LivroModel> lista) {
-            LvLivros.Items.Clear();
-            if (lista.Count > 0) {
-                foreach (LivroModel livro in lista) {
-                    ListViewItem item = new ListViewItem(livro.getId().ToString());
-                    //item.SubItems.Add(livro.Nome);
-                    //item.SubItems.Add(livro.Autor);
-                    //item.SubItems.Add(livro.Editora);
-                    //item.SubItems.Add(livro.Edicao);
-                    //item.SubItems.Add(livro.AnoPublicacao);
-                    //item.SubItems.Add(livro.Id_emprestimo.ToString());
+            //LvLivros.Items.Clear();
+            //if (lista.Count > 0) {
+            //    foreach (LivroModel livro in lista) {
+            //        ListViewItem item = new ListViewItem(livro.getId().ToString());
+            //        //item.SubItems.Add(livro.Nome);
+            //        //item.SubItems.Add(livro.Autor);
+            //        //item.SubItems.Add(livro.Editora);
+            //        //item.SubItems.Add(livro.Edicao);
+            //        //item.SubItems.Add(livro.AnoPublicacao);
+            //        //item.SubItems.Add(livro.Id_emprestimo.ToString());
 
-                    LvLivros.Items.Add(item);
-                }
-            }
+            //        LvLivros.Items.Add(item);
+            //    }
+            //}
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            DateTime inicio = DateTime.Parse(tbInicio.Text);
-            DateTime fim = DateTime.Parse(tbFim.Text);
-            List<LivroModel> lista = controller.Relatorio(inicio, fim);
-            popular(lista);
+            //DateTime inicio = DateTime.Parse(tbInicio.Text);
+            //DateTime fim = DateTime.Parse(tbFim.Text);
+            //List<LivroModel> lista = controller.Relatorio(inicio, fim);
+            //popular(lista);
         }
 
         private void button2_Click(object sender, EventArgs e) {

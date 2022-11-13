@@ -50,7 +50,7 @@ namespace Biblioteca.View.Leitor {
                 CalendarLeitor.Text = leitor.DataNascimento.ToString("dd/MM/yyyy");
                 data = leitor.DataNascimento;
                 tbEmail.Text = leitor.Email;
-                cbStatus.Text = leitor.getEstado();
+                cbEditarStatus.Text = this.leitor.getEstado();
             }
         }
 
@@ -97,7 +97,7 @@ namespace Biblioteca.View.Leitor {
             else {
                 int estado = 0;
 
-                if (cbStatus.Text == "Ativo")
+                if (cbEditarStatus.Text == "Ativo")
                 {
                     estado = 1;
                 }

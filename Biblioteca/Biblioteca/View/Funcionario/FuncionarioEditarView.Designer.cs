@@ -139,6 +139,7 @@ namespace Biblioteca.View.Funcionario {
             // btnAtualizar
             // 
             this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnAtualizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
@@ -156,15 +157,16 @@ namespace Biblioteca.View.Funcionario {
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(423, 101);
+            this.label10.Location = new System.Drawing.Point(398, 101);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(399, 39);
+            this.label10.Size = new System.Drawing.Size(421, 39);
             this.label10.TabIndex = 113;
-            this.label10.Text = "EDITAR FUNCIONÁRIO";
+            this.label10.Text = "EDITAR COLABORADOR";
             // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

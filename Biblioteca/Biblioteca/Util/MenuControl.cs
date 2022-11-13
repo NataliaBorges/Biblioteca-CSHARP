@@ -21,6 +21,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 using EdicaoCadastrarView = Biblioteca.View.Edicao.EdicaoCadastrarView;
+using Biblioteca.View.Relatorio;
 
 namespace Biblioteca.Util
 {
@@ -329,6 +330,36 @@ namespace Biblioteca.Util
         {
             ReservaMesView reservaVisualizarView = new ReservaMesView();
             NovaJanela.novaJanela(reservaVisualizarView, Bounds);
+        }
+
+        private void RelatorioEditora(object sender, EventArgs e)
+        {
+            RelatorioEditoraView relatorioEditoraView = new RelatorioEditoraView();
+            NovaJanela.novaJanela(relatorioEditoraView, Bounds);
+        }
+
+        private void RelatorioLivro_Click(object sender, EventArgs e)
+        {
+            RelatorioLivroView relatorioLivroView = new RelatorioLivroView();
+            NovaJanela.novaJanela(relatorioLivroView, Bounds);
+        }
+
+        private void RelatorioEmprestimo_Click(object sender, EventArgs e)
+        {
+            RelatorioEmprestimoView relatorioEmprestimoView = new RelatorioEmprestimoView();
+            NovaJanela.novaJanela(relatorioEmprestimoView, Bounds);
+        }
+
+        private void btnRelatorioReserva_Click(object sender, EventArgs e)
+        {
+            RelatorioReservaView relatorioReservaView = new RelatorioReservaView();
+            NovaJanela.novaJanela(relatorioReservaView, Bounds);
+        }
+
+        private void btnFuncionarioTrocarSenha_Click(object sender, EventArgs e)
+        {
+            FuncionarioTrocarSenhaView funcionarioTrocarSenhaView = new FuncionarioTrocarSenhaView();
+            NovaJanela.novaJanela(funcionarioTrocarSenhaView, Bounds);
         }
     }
 }

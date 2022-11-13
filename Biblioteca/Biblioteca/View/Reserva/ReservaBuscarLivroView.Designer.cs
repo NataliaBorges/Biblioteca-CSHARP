@@ -29,11 +29,6 @@ namespace Biblioteca.View.Reserva {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservaBuscarLivroView));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblCadastroLivro = new System.Windows.Forms.Label();
-            this.head1 = new Biblioteca.Util.Head();
-            this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
-            this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.IcnBtnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -41,10 +36,15 @@ namespace Biblioteca.View.Reserva {
             this.dtGridViewLivros = new System.Windows.Forms.DataGridView();
             this.tbPesquisar = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.IcnBtnVoltar = new FontAwesome.Sharp.IconButton();
+            this.lblCadastroLivro = new System.Windows.Forms.Label();
+            this.head1 = new Biblioteca.Util.Head();
+            this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
+            this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.panel1.SuspendLayout();
-            this.pnltotal.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivros)).BeginInit();
+            this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,71 +59,6 @@ namespace Biblioteca.View.Reserva {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 776);
             this.panel1.TabIndex = 20;
-            // 
-            // lblCadastroLivro
-            // 
-            this.lblCadastroLivro.AutoSize = true;
-            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(405, 109);
-            this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(349, 39);
-            this.lblCadastroLivro.TabIndex = 96;
-            this.lblCadastroLivro.Text = "SELECIONAR LIVRO";
-            // 
-            // head1
-            // 
-            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.head1.Location = new System.Drawing.Point(0, 0);
-            this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1051, 37);
-            this.head1.TabIndex = 22;
-            // 
-            // pnltotal
-            // 
-            this.pnltotal.ColumnCount = 2;
-            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.5644F));
-            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.4356F));
-            this.pnltotal.Controls.Add(this.panel1, 1, 0);
-            this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
-            this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnltotal.Location = new System.Drawing.Point(0, 0);
-            this.pnltotal.Name = "pnltotal";
-            this.pnltotal.RowCount = 1;
-            this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1281, 782);
-            this.pnltotal.TabIndex = 21;
-            // 
-            // menuControl1
-            // 
-            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
-            this.menuControl1.Location = new System.Drawing.Point(3, 3);
-            this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(218, 776);
-            this.menuControl1.TabIndex = 21;
-            // 
-            // IcnBtnVoltar
-            // 
-            this.IcnBtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.IcnBtnVoltar.FlatAppearance.BorderSize = 0;
-            this.IcnBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.IcnBtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.IcnBtnVoltar.ForeColor = System.Drawing.Color.White;
-            this.IcnBtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.IcnBtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.IcnBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.IcnBtnVoltar.IconSize = 30;
-            this.IcnBtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IcnBtnVoltar.Location = new System.Drawing.Point(249, 101);
-            this.IcnBtnVoltar.Name = "IcnBtnVoltar";
-            this.IcnBtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.IcnBtnVoltar.Size = new System.Drawing.Size(54, 46);
-            this.IcnBtnVoltar.TabIndex = 97;
-            this.IcnBtnVoltar.Tag = "";
-            this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.IcnBtnVoltar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -248,6 +183,72 @@ namespace Biblioteca.View.Reserva {
             this.btnBuscar.TabIndex = 16;
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
+            // IcnBtnVoltar
+            // 
+            this.IcnBtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.IcnBtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IcnBtnVoltar.FlatAppearance.BorderSize = 0;
+            this.IcnBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.IcnBtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.IcnBtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.IcnBtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.IcnBtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.IcnBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.IcnBtnVoltar.IconSize = 30;
+            this.IcnBtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IcnBtnVoltar.Location = new System.Drawing.Point(249, 101);
+            this.IcnBtnVoltar.Name = "IcnBtnVoltar";
+            this.IcnBtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.IcnBtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.IcnBtnVoltar.TabIndex = 97;
+            this.IcnBtnVoltar.Tag = "";
+            this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.IcnBtnVoltar.UseVisualStyleBackColor = true;
+            // 
+            // lblCadastroLivro
+            // 
+            this.lblCadastroLivro.AutoSize = true;
+            this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
+            this.lblCadastroLivro.Location = new System.Drawing.Point(405, 109);
+            this.lblCadastroLivro.Name = "lblCadastroLivro";
+            this.lblCadastroLivro.Size = new System.Drawing.Size(349, 39);
+            this.lblCadastroLivro.TabIndex = 96;
+            this.lblCadastroLivro.Text = "SELECIONAR LIVRO";
+            // 
+            // head1
+            // 
+            this.head1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.head1.Location = new System.Drawing.Point(0, 0);
+            this.head1.Name = "head1";
+            this.head1.Size = new System.Drawing.Size(1051, 37);
+            this.head1.TabIndex = 22;
+            // 
+            // pnltotal
+            // 
+            this.pnltotal.ColumnCount = 2;
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.5644F));
+            this.pnltotal.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.4356F));
+            this.pnltotal.Controls.Add(this.panel1, 1, 0);
+            this.pnltotal.Controls.Add(this.menuControl1, 0, 0);
+            this.pnltotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnltotal.Location = new System.Drawing.Point(0, 0);
+            this.pnltotal.Name = "pnltotal";
+            this.pnltotal.RowCount = 1;
+            this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.pnltotal.Size = new System.Drawing.Size(1281, 782);
+            this.pnltotal.TabIndex = 21;
+            // 
+            // menuControl1
+            // 
+            this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
+            this.menuControl1.Location = new System.Drawing.Point(3, 3);
+            this.menuControl1.Name = "menuControl1";
+            this.menuControl1.Size = new System.Drawing.Size(218, 776);
+            this.menuControl1.TabIndex = 21;
+            // 
             // ReservaBuscarLivroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,10 +266,10 @@ namespace Biblioteca.View.Reserva {
             this.Load += new System.EventHandler(this.ReservaBuscarLivroView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.pnltotal.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivros)).EndInit();
+            this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

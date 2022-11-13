@@ -95,6 +95,7 @@
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -104,7 +105,7 @@
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(208, 85);
+            this.icbtnVoltar.Location = new System.Drawing.Point(206, 113);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -120,7 +121,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(424, 88);
+            this.label3.Location = new System.Drawing.Point(386, 116);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(303, 32);
             this.label3.TabIndex = 66;
@@ -134,12 +135,12 @@
             this.tbLyPnlDataGrid.Controls.Add(this.panel2, 1, 0);
             this.tbLyPnlDataGrid.Controls.Add(this.panel3, 0, 0);
             this.tbLyPnlDataGrid.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbLyPnlDataGrid.Location = new System.Drawing.Point(0, 206);
+            this.tbLyPnlDataGrid.Location = new System.Drawing.Point(0, 308);
             this.tbLyPnlDataGrid.Name = "tbLyPnlDataGrid";
             this.tbLyPnlDataGrid.RowCount = 1;
             this.tbLyPnlDataGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbLyPnlDataGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 566F));
-            this.tbLyPnlDataGrid.Size = new System.Drawing.Size(1071, 566);
+            this.tbLyPnlDataGrid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 464F));
+            this.tbLyPnlDataGrid.Size = new System.Drawing.Size(1071, 464);
             this.tbLyPnlDataGrid.TabIndex = 65;
             // 
             // panel2
@@ -149,7 +150,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(538, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(530, 560);
+            this.panel2.Size = new System.Drawing.Size(530, 458);
             this.panel2.TabIndex = 31;
             // 
             // dtGridViewAutor
@@ -182,7 +183,7 @@
             this.dtGridViewAutor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewAutor.EnableHeadersVisualStyles = false;
             this.dtGridViewAutor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewAutor.Location = new System.Drawing.Point(63, 135);
+            this.dtGridViewAutor.Location = new System.Drawing.Point(54, 85);
             this.dtGridViewAutor.MultiSelect = false;
             this.dtGridViewAutor.Name = "dtGridViewAutor";
             this.dtGridViewAutor.ReadOnly = true;
@@ -199,7 +200,7 @@
             this.dtGridViewAutor.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dtGridViewAutor.RowTemplate.Height = 25;
             this.dtGridViewAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewAutor.Size = new System.Drawing.Size(410, 264);
+            this.dtGridViewAutor.Size = new System.Drawing.Size(410, 288);
             this.dtGridViewAutor.TabIndex = 30;
             // 
             // panel3
@@ -212,18 +213,19 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(529, 560);
+            this.panel3.Size = new System.Drawing.Size(529, 458);
             this.panel3.TabIndex = 32;
             // 
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.Olive;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(205, 236);
+            this.btnCadastrar.Location = new System.Drawing.Point(183, 236);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(168, 32);
+            this.btnCadastrar.Size = new System.Drawing.Size(168, 39);
             this.btnCadastrar.TabIndex = 39;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
@@ -233,9 +235,9 @@
             // 
             this.tbNome.BackColor = System.Drawing.Color.White;
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNome.Location = new System.Drawing.Point(143, 168);
+            this.tbNome.Location = new System.Drawing.Point(80, 167);
             this.tbNome.Name = "tbNome";
-            this.tbNome.Size = new System.Drawing.Size(323, 27);
+            this.tbNome.Size = new System.Drawing.Size(387, 27);
             this.tbNome.TabIndex = 38;
             // 
             // label5
@@ -254,7 +256,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(80, 171);
+            this.label1.Location = new System.Drawing.Point(80, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 28;

@@ -109,6 +109,7 @@ namespace Biblioteca.View.Funcionario {
             // btnCadastrarFuncionario
             // 
             this.btnCadastrarFuncionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastrarFuncionario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarFuncionario.FlatAppearance.BorderSize = 0;
             this.btnCadastrarFuncionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarFuncionario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -124,7 +125,7 @@ namespace Biblioteca.View.Funcionario {
             this.btnCadastrarFuncionario.Size = new System.Drawing.Size(216, 30);
             this.btnCadastrarFuncionario.TabIndex = 93;
             this.btnCadastrarFuncionario.Tag = "";
-            this.btnCadastrarFuncionario.Text = "Cadastrar funcionário";
+            this.btnCadastrarFuncionario.Text = "Cadastrar colaborador";
             this.btnCadastrarFuncionario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCadastrarFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCadastrarFuncionario.UseVisualStyleBackColor = true;
@@ -133,6 +134,7 @@ namespace Biblioteca.View.Funcionario {
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -175,6 +177,7 @@ namespace Biblioteca.View.Funcionario {
             // 
             this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
@@ -311,9 +314,9 @@ namespace Biblioteca.View.Funcionario {
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
             this.lblCadastroLivro.Location = new System.Drawing.Point(403, 104);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
-            this.lblCadastroLivro.Size = new System.Drawing.Size(408, 39);
+            this.lblCadastroLivro.Size = new System.Drawing.Size(430, 39);
             this.lblCadastroLivro.TabIndex = 60;
-            this.lblCadastroLivro.Text = "BUSCAR FUNCIONÁRIO";
+            this.lblCadastroLivro.Text = "BUSCAR COLABORADOR";
             // 
             // head1
             // 

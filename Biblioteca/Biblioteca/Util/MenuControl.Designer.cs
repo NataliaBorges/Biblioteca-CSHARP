@@ -33,7 +33,6 @@
             this.btnFuncionario = new FontAwesome.Sharp.IconButton();
             this.btnGrafico = new FontAwesome.Sharp.IconButton();
             this.btnRelatório = new FontAwesome.Sharp.IconButton();
-            this.btnPrateleira = new FontAwesome.Sharp.IconButton();
             this.btnSair = new FontAwesome.Sharp.IconButton();
             this.btnReserva = new FontAwesome.Sharp.IconButton();
             this.btnEmprestimo = new FontAwesome.Sharp.IconButton();
@@ -71,19 +70,15 @@
             this.ddmReserva = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarReserva = new System.Windows.Forms.ToolStripMenuItem();
+            this.VisualizarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmRelatorio = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.livrotoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.autortoolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.editoraToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.generoToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.leitorToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.funcionarioToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.emprestimoToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.reservaToolStripMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.RelatorioLivro = new System.Windows.Forms.ToolStripMenuItem();
+            this.RelatorioEmprestimo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRelatorioReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmFuncionario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.VisualizarReserva = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFuncionarioTrocarSenha = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
             this.ddmLivro.SuspendLayout();
@@ -100,7 +95,6 @@
             this.Menu.Controls.Add(this.btnFuncionario);
             this.Menu.Controls.Add(this.btnGrafico);
             this.Menu.Controls.Add(this.btnRelatório);
-            this.Menu.Controls.Add(this.btnPrateleira);
             this.Menu.Controls.Add(this.btnSair);
             this.Menu.Controls.Add(this.btnReserva);
             this.Menu.Controls.Add(this.btnEmprestimo);
@@ -126,7 +120,7 @@
             this.btnFuncionario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFuncionario.IconSize = 30;
             this.btnFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionario.Location = new System.Drawing.Point(0, 416);
+            this.btnFuncionario.Location = new System.Drawing.Point(0, 370);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnFuncionario.Size = new System.Drawing.Size(198, 46);
@@ -149,7 +143,7 @@
             this.btnGrafico.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGrafico.IconSize = 30;
             this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 370);
+            this.btnGrafico.Location = new System.Drawing.Point(0, 324);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGrafico.Size = new System.Drawing.Size(198, 46);
@@ -171,7 +165,7 @@
             this.btnRelatório.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRelatório.IconSize = 30;
             this.btnRelatório.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatório.Location = new System.Drawing.Point(0, 324);
+            this.btnRelatório.Location = new System.Drawing.Point(0, 278);
             this.btnRelatório.Name = "btnRelatório";
             this.btnRelatório.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRelatório.Size = new System.Drawing.Size(198, 46);
@@ -181,28 +175,6 @@
             this.btnRelatório.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRelatório.UseVisualStyleBackColor = true;
             this.btnRelatório.Click += new System.EventHandler(this.btnRelatório_Click);
-            // 
-            // btnPrateleira
-            // 
-            this.btnPrateleira.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnPrateleira.FlatAppearance.BorderSize = 0;
-            this.btnPrateleira.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrateleira.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPrateleira.ForeColor = System.Drawing.Color.White;
-            this.btnPrateleira.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
-            this.btnPrateleira.IconColor = System.Drawing.Color.Chocolate;
-            this.btnPrateleira.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrateleira.IconSize = 30;
-            this.btnPrateleira.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPrateleira.Location = new System.Drawing.Point(0, 278);
-            this.btnPrateleira.Name = "btnPrateleira";
-            this.btnPrateleira.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnPrateleira.Size = new System.Drawing.Size(198, 46);
-            this.btnPrateleira.TabIndex = 7;
-            this.btnPrateleira.Tag = "Prateleira";
-            this.btnPrateleira.Text = "  Prateleira";
-            this.btnPrateleira.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPrateleira.UseVisualStyleBackColor = true;
             // 
             // btnSair
             // 
@@ -608,88 +580,63 @@
             this.ddmReserva.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmReserva.Name = "rjDropdownMenu1";
             this.ddmReserva.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmReserva.Size = new System.Drawing.Size(181, 92);
+            this.ddmReserva.Size = new System.Drawing.Size(140, 70);
             // 
             // itemCadastrarReserva
             // 
             this.itemCadastrarReserva.Name = "itemCadastrarReserva";
-            this.itemCadastrarReserva.Size = new System.Drawing.Size(180, 22);
+            this.itemCadastrarReserva.Size = new System.Drawing.Size(139, 22);
             this.itemCadastrarReserva.Text = "Cadastrar";
             this.itemCadastrarReserva.Click += new System.EventHandler(this.itemCadastrarReserva_Click);
             // 
             // itemBuscarReserva
             // 
             this.itemBuscarReserva.Name = "itemBuscarReserva";
-            this.itemBuscarReserva.Size = new System.Drawing.Size(180, 22);
+            this.itemBuscarReserva.Size = new System.Drawing.Size(139, 22);
             this.itemBuscarReserva.Text = "Buscar";
             this.itemBuscarReserva.Click += new System.EventHandler(this.itemBuscarReserva_Click);
+            // 
+            // VisualizarReserva
+            // 
+            this.VisualizarReserva.Name = "VisualizarReserva";
+            this.VisualizarReserva.Size = new System.Drawing.Size(139, 22);
+            this.VisualizarReserva.Text = "Visualizar";
+            this.VisualizarReserva.Click += new System.EventHandler(this.VisualizarReserva_Click);
             // 
             // ddmRelatorio
             // 
             this.ddmRelatorio.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ddmRelatorio.IsMainMenu = false;
             this.ddmRelatorio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.livrotoolStripMenu,
-            this.autortoolStripMenu,
-            this.editoraToolStripMenu,
-            this.generoToolStripMenu,
-            this.leitorToolStripMenu,
-            this.funcionarioToolStripMenu,
-            this.emprestimoToolStripMenu,
-            this.reservaToolStripMenu});
+            this.RelatorioLivro,
+            this.RelatorioEmprestimo,
+            this.btnRelatorioReserva});
             this.ddmRelatorio.MenuItemHeight = 25;
             this.ddmRelatorio.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmRelatorio.Name = "rjDropdownMenu1";
             this.ddmRelatorio.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmRelatorio.Size = new System.Drawing.Size(154, 180);
+            this.ddmRelatorio.Size = new System.Drawing.Size(154, 70);
             // 
-            // livrotoolStripMenu
+            // RelatorioLivro
             // 
-            this.livrotoolStripMenu.Name = "livrotoolStripMenu";
-            this.livrotoolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.livrotoolStripMenu.Text = "Livro";
+            this.RelatorioLivro.Name = "RelatorioLivro";
+            this.RelatorioLivro.Size = new System.Drawing.Size(153, 22);
+            this.RelatorioLivro.Text = "Livro";
+            this.RelatorioLivro.Click += new System.EventHandler(this.RelatorioLivro_Click);
             // 
-            // autortoolStripMenu
+            // RelatorioEmprestimo
             // 
-            this.autortoolStripMenu.Name = "autortoolStripMenu";
-            this.autortoolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.autortoolStripMenu.Text = "Autor";
+            this.RelatorioEmprestimo.Name = "RelatorioEmprestimo";
+            this.RelatorioEmprestimo.Size = new System.Drawing.Size(153, 22);
+            this.RelatorioEmprestimo.Text = "Empréstimo";
+            this.RelatorioEmprestimo.Click += new System.EventHandler(this.RelatorioEmprestimo_Click);
             // 
-            // editoraToolStripMenu
+            // btnRelatorioReserva
             // 
-            this.editoraToolStripMenu.Name = "editoraToolStripMenu";
-            this.editoraToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.editoraToolStripMenu.Text = "Editora";
-            // 
-            // generoToolStripMenu
-            // 
-            this.generoToolStripMenu.Name = "generoToolStripMenu";
-            this.generoToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.generoToolStripMenu.Text = "Gênero";
-            // 
-            // leitorToolStripMenu
-            // 
-            this.leitorToolStripMenu.Name = "leitorToolStripMenu";
-            this.leitorToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.leitorToolStripMenu.Text = "Leitor";
-            // 
-            // funcionarioToolStripMenu
-            // 
-            this.funcionarioToolStripMenu.Name = "funcionarioToolStripMenu";
-            this.funcionarioToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.funcionarioToolStripMenu.Text = "Funcionário";
-            // 
-            // emprestimoToolStripMenu
-            // 
-            this.emprestimoToolStripMenu.Name = "emprestimoToolStripMenu";
-            this.emprestimoToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.emprestimoToolStripMenu.Text = "Empréstimo";
-            // 
-            // reservaToolStripMenu
-            // 
-            this.reservaToolStripMenu.Name = "reservaToolStripMenu";
-            this.reservaToolStripMenu.Size = new System.Drawing.Size(153, 22);
-            this.reservaToolStripMenu.Text = "Reserva";
+            this.btnRelatorioReserva.Name = "btnRelatorioReserva";
+            this.btnRelatorioReserva.Size = new System.Drawing.Size(153, 22);
+            this.btnRelatorioReserva.Text = "Reserva";
+            this.btnRelatorioReserva.Click += new System.EventHandler(this.btnRelatorioReserva_Click);
             // 
             // ddmFuncionario
             // 
@@ -697,34 +644,35 @@
             this.ddmFuncionario.IsMainMenu = false;
             this.ddmFuncionario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemCadastrarFuncionario,
-            this.itemBuscarFuncionario});
+            this.itemBuscarFuncionario,
+            this.btnFuncionarioTrocarSenha});
             this.ddmFuncionario.MenuItemHeight = 25;
             this.ddmFuncionario.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmFuncionario.Name = "rjDropdownMenu1";
             this.ddmFuncionario.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmFuncionario.Size = new System.Drawing.Size(140, 48);
+            this.ddmFuncionario.Size = new System.Drawing.Size(181, 92);
             // 
             // itemCadastrarFuncionario
             // 
             this.itemCadastrarFuncionario.ForeColor = System.Drawing.Color.Black;
             this.itemCadastrarFuncionario.Name = "itemCadastrarFuncionario";
-            this.itemCadastrarFuncionario.Size = new System.Drawing.Size(139, 22);
+            this.itemCadastrarFuncionario.Size = new System.Drawing.Size(180, 22);
             this.itemCadastrarFuncionario.Text = "Cadastrar";
             this.itemCadastrarFuncionario.Click += new System.EventHandler(this.itemCadastrarFuncionario_Click);
             // 
             // itemBuscarFuncionario
             // 
             this.itemBuscarFuncionario.Name = "itemBuscarFuncionario";
-            this.itemBuscarFuncionario.Size = new System.Drawing.Size(139, 22);
+            this.itemBuscarFuncionario.Size = new System.Drawing.Size(180, 22);
             this.itemBuscarFuncionario.Text = "Buscar";
             this.itemBuscarFuncionario.Click += new System.EventHandler(this.itemBuscarFuncionario_Click);
             // 
-            // VisualizarReserva
+            // btnFuncionarioTrocarSenha
             // 
-            this.VisualizarReserva.Name = "VisualizarReserva";
-            this.VisualizarReserva.Size = new System.Drawing.Size(180, 22);
-            this.VisualizarReserva.Text = "Visualizar";
-            this.VisualizarReserva.Click += new System.EventHandler(this.VisualizarReserva_Click);
+            this.btnFuncionarioTrocarSenha.Name = "btnFuncionarioTrocarSenha";
+            this.btnFuncionarioTrocarSenha.Size = new System.Drawing.Size(180, 22);
+            this.btnFuncionarioTrocarSenha.Text = "Trocar senha";
+            this.btnFuncionarioTrocarSenha.Click += new System.EventHandler(this.btnFuncionarioTrocarSenha_Click);
             // 
             // MenuControl
             // 
@@ -752,7 +700,6 @@
 
         private System.Windows.Forms.Panel Menu;
         private FontAwesome.Sharp.IconButton btnRelatório;
-        private FontAwesome.Sharp.IconButton btnPrateleira;
         private FontAwesome.Sharp.IconButton btnSair;
         private FontAwesome.Sharp.IconButton btnReserva;
         private FontAwesome.Sharp.IconButton btnEmprestimo;
@@ -775,14 +722,9 @@
         private FontAwesome.Sharp.IconButton icnButtonBar;
         private FontAwesome.Sharp.IconButton btnGrafico;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmRelatorio;
-        private System.Windows.Forms.ToolStripMenuItem livrotoolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem autortoolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem editoraToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem generoToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem leitorToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem emprestimoToolStripMenu;
-        private System.Windows.Forms.ToolStripMenuItem reservaToolStripMenu;
+        private System.Windows.Forms.ToolStripMenuItem RelatorioLivro;
+        private System.Windows.Forms.ToolStripMenuItem RelatorioEmprestimo;
+        private System.Windows.Forms.ToolStripMenuItem btnRelatorioReserva;
         private FontAwesome.Sharp.IconButton btnFuncionario;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmFuncionario;
         private System.Windows.Forms.ToolStripMenuItem itemCadastrarFuncionario;
@@ -805,5 +747,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarLivro;
         private System.Windows.Forms.ToolStripMenuItem buscarLivro;
         private System.Windows.Forms.ToolStripMenuItem VisualizarReserva;
+        private System.Windows.Forms.ToolStripMenuItem btnFuncionarioTrocarSenha;
     }
 }

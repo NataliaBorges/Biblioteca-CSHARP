@@ -36,18 +36,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCadastrarExemplar = new FontAwesome.Sharp.IconButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rbCodigo = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
-            this.CbEstado = new System.Windows.Forms.ComboBox();
             this.dtGridViewExemplar = new System.Windows.Forms.DataGridView();
-            this.rbGenero = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.rbEditora = new System.Windows.Forms.RadioButton();
-            this.lblSelecionar = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbCodigo = new System.Windows.Forms.RadioButton();
             this.rbNome = new System.Windows.Forms.RadioButton();
             this.rbAutor = new System.Windows.Forms.RadioButton();
+            this.rbGenero = new System.Windows.Forms.RadioButton();
+            this.rbEditora = new System.Windows.Forms.RadioButton();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblBuscaLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
@@ -56,6 +57,9 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplar)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -92,6 +96,7 @@
             // btnCadastrarExemplar
             // 
             this.btnCadastrarExemplar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastrarExemplar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarExemplar.FlatAppearance.BorderSize = 0;
             this.btnCadastrarExemplar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarExemplar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -101,7 +106,7 @@
             this.btnCadastrarExemplar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCadastrarExemplar.IconSize = 30;
             this.btnCadastrarExemplar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCadastrarExemplar.Location = new System.Drawing.Point(903, 214);
+            this.btnCadastrarExemplar.Location = new System.Drawing.Point(903, 151);
             this.btnCadastrarExemplar.Name = "btnCadastrarExemplar";
             this.btnCadastrarExemplar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnCadastrarExemplar.Size = new System.Drawing.Size(191, 30);
@@ -115,58 +120,26 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.rbCodigo);
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.lblNotFound);
-            this.panel2.Controls.Add(this.CbEstado);
             this.panel2.Controls.Add(this.dtGridViewExemplar);
-            this.panel2.Controls.Add(this.rbGenero);
             this.panel2.Controls.Add(this.tbBuscar);
-            this.panel2.Controls.Add(this.rbEditora);
-            this.panel2.Controls.Add(this.lblSelecionar);
-            this.panel2.Controls.Add(this.rbNome);
-            this.panel2.Controls.Add(this.rbAutor);
+            this.panel2.Controls.Add(this.panel3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 250);
+            this.panel2.Location = new System.Drawing.Point(0, 187);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1103, 507);
+            this.panel2.Size = new System.Drawing.Size(1103, 570);
             this.panel2.TabIndex = 91;
-            // 
-            // rbCodigo
-            // 
-            this.rbCodigo.AutoSize = true;
-            this.rbCodigo.BackColor = System.Drawing.Color.Transparent;
-            this.rbCodigo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbCodigo.ForeColor = System.Drawing.Color.White;
-            this.rbCodigo.Location = new System.Drawing.Point(343, 35);
-            this.rbCodigo.Name = "rbCodigo";
-            this.rbCodigo.Size = new System.Drawing.Size(80, 24);
-            this.rbCodigo.TabIndex = 116;
-            this.rbCodigo.TabStop = true;
-            this.rbCodigo.Text = "Código";
-            this.rbCodigo.UseVisualStyleBackColor = false;
-            this.rbCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbCodigo_MouseClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(841, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
-            this.label2.TabIndex = 115;
-            this.label2.Text = "Status:";
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(870, 439);
+            this.btnEditar.Location = new System.Drawing.Point(870, 508);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(173, 42);
             this.btnEditar.TabIndex = 105;
@@ -180,27 +153,12 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(486, 243);
+            this.lblNotFound.Location = new System.Drawing.Point(495, 308);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 104;
             this.lblNotFound.Text = "Não Encontrado";
             this.lblNotFound.Visible = false;
-            // 
-            // CbEstado
-            // 
-            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CbEstado.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CbEstado.FormattingEnabled = true;
-            this.CbEstado.Items.AddRange(new object[] {
-            "Ambos",
-            "Ativo",
-            "Inativo"});
-            this.CbEstado.Location = new System.Drawing.Point(903, 3);
-            this.CbEstado.Name = "CbEstado";
-            this.CbEstado.Size = new System.Drawing.Size(177, 28);
-            this.CbEstado.TabIndex = 114;
-            this.CbEstado.SelectedValueChanged += new System.EventHandler(this.CbEstado_SelectedValueChanged);
             // 
             // dtGridViewExemplar
             // 
@@ -214,7 +172,7 @@
             this.dtGridViewExemplar.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -224,7 +182,7 @@
             this.dtGridViewExemplar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -232,13 +190,13 @@
             this.dtGridViewExemplar.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewExemplar.EnableHeadersVisualStyles = false;
             this.dtGridViewExemplar.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewExemplar.Location = new System.Drawing.Point(60, 126);
+            this.dtGridViewExemplar.Location = new System.Drawing.Point(60, 152);
             this.dtGridViewExemplar.Name = "dtGridViewExemplar";
             this.dtGridViewExemplar.ReadOnly = true;
             this.dtGridViewExemplar.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -247,63 +205,92 @@
             this.dtGridViewExemplar.RowHeadersVisible = false;
             this.dtGridViewExemplar.RowTemplate.Height = 25;
             this.dtGridViewExemplar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewExemplar.Size = new System.Drawing.Size(983, 289);
+            this.dtGridViewExemplar.Size = new System.Drawing.Size(983, 352);
             this.dtGridViewExemplar.TabIndex = 103;
             this.dtGridViewExemplar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplar_CellClick);
-            // 
-            // rbGenero
-            // 
-            this.rbGenero.BackColor = System.Drawing.Color.Transparent;
-            this.rbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbGenero.ForeColor = System.Drawing.Color.White;
-            this.rbGenero.Location = new System.Drawing.Point(750, 37);
-            this.rbGenero.MaximumSize = new System.Drawing.Size(180, 192);
-            this.rbGenero.Name = "rbGenero";
-            this.rbGenero.Size = new System.Drawing.Size(105, 20);
-            this.rbGenero.TabIndex = 113;
-            this.rbGenero.TabStop = true;
-            this.rbGenero.Text = "Gênero";
-            this.rbGenero.UseVisualStyleBackColor = false;
-            this.rbGenero.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbGenero_MouseClick);
             // 
             // tbBuscar
             // 
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(321, 87);
+            this.tbBuscar.Location = new System.Drawing.Point(331, 87);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(460, 27);
             this.tbBuscar.TabIndex = 102;
             this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
-            // rbEditora
+            // panel3
             // 
-            this.rbEditora.BackColor = System.Drawing.Color.Transparent;
-            this.rbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbEditora.ForeColor = System.Drawing.Color.White;
-            this.rbEditora.Location = new System.Drawing.Point(639, 37);
-            this.rbEditora.MaximumSize = new System.Drawing.Size(180, 192);
-            this.rbEditora.Name = "rbEditora";
-            this.rbEditora.Size = new System.Drawing.Size(105, 20);
-            this.rbEditora.TabIndex = 111;
-            this.rbEditora.TabStop = true;
-            this.rbEditora.Text = "Editora";
-            this.rbEditora.UseVisualStyleBackColor = false;
-            this.rbEditora.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbEditora_MouseClick);
+            this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.groupBox3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1103, 129);
+            this.panel3.TabIndex = 117;
             // 
-            // lblSelecionar
+            // groupBox1
             // 
-            this.lblSelecionar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSelecionar.AutoSize = true;
-            this.lblSelecionar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSelecionar.ForeColor = System.Drawing.Color.White;
-            this.lblSelecionar.Location = new System.Drawing.Point(103, 35);
-            this.lblSelecionar.Name = "lblSelecionar";
-            this.lblSelecionar.Size = new System.Drawing.Size(193, 20);
-            this.lblSelecionar.TabIndex = 112;
-            this.lblSelecionar.Text = "Selecione o tipo da busca:";
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.CbEstado);
+            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(857, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(186, 107);
+            this.groupBox1.TabIndex = 115;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "STATUS";
+            // 
+            // CbEstado
+            // 
+            this.CbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbEstado.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Items.AddRange(new object[] {
+            "Ambos",
+            "Ativo",
+            "Inativo"});
+            this.CbEstado.Location = new System.Drawing.Point(8, 43);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(170, 28);
+            this.CbEstado.TabIndex = 114;
+            this.CbEstado.SelectedValueChanged += new System.EventHandler(this.CbEstado_SelectedValueChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.rbCodigo);
+            this.groupBox3.Controls.Add(this.rbNome);
+            this.groupBox3.Controls.Add(this.rbAutor);
+            this.groupBox3.Controls.Add(this.rbGenero);
+            this.groupBox3.Controls.Add(this.rbEditora);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(60, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(253, 117);
+            this.groupBox3.TabIndex = 105;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "TIPO DE BUSCA";
+            // 
+            // rbCodigo
+            // 
+            this.rbCodigo.AutoSize = true;
+            this.rbCodigo.BackColor = System.Drawing.Color.Transparent;
+            this.rbCodigo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCodigo.ForeColor = System.Drawing.Color.White;
+            this.rbCodigo.Location = new System.Drawing.Point(17, 26);
+            this.rbCodigo.Name = "rbCodigo";
+            this.rbCodigo.Size = new System.Drawing.Size(80, 24);
+            this.rbCodigo.TabIndex = 116;
+            this.rbCodigo.TabStop = true;
+            this.rbCodigo.Text = "Código";
+            this.rbCodigo.UseVisualStyleBackColor = false;
+            this.rbCodigo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbCodigo_MouseClick);
             // 
             // rbNome
             // 
@@ -311,7 +298,7 @@
             this.rbNome.BackColor = System.Drawing.Color.Transparent;
             this.rbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbNome.ForeColor = System.Drawing.Color.White;
-            this.rbNome.Location = new System.Drawing.Point(438, 37);
+            this.rbNome.Location = new System.Drawing.Point(17, 54);
             this.rbNome.Name = "rbNome";
             this.rbNome.Size = new System.Drawing.Size(71, 24);
             this.rbNome.TabIndex = 109;
@@ -326,7 +313,7 @@
             this.rbAutor.BackColor = System.Drawing.Color.Transparent;
             this.rbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbAutor.ForeColor = System.Drawing.Color.White;
-            this.rbAutor.Location = new System.Drawing.Point(544, 37);
+            this.rbAutor.Location = new System.Drawing.Point(17, 84);
             this.rbAutor.Name = "rbAutor";
             this.rbAutor.Size = new System.Drawing.Size(69, 24);
             this.rbAutor.TabIndex = 110;
@@ -335,9 +322,40 @@
             this.rbAutor.UseVisualStyleBackColor = false;
             this.rbAutor.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbAutor_MouseClick);
             // 
+            // rbGenero
+            // 
+            this.rbGenero.BackColor = System.Drawing.Color.Transparent;
+            this.rbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbGenero.ForeColor = System.Drawing.Color.White;
+            this.rbGenero.Location = new System.Drawing.Point(132, 66);
+            this.rbGenero.MaximumSize = new System.Drawing.Size(180, 192);
+            this.rbGenero.Name = "rbGenero";
+            this.rbGenero.Size = new System.Drawing.Size(105, 20);
+            this.rbGenero.TabIndex = 113;
+            this.rbGenero.TabStop = true;
+            this.rbGenero.Text = "Gênero";
+            this.rbGenero.UseVisualStyleBackColor = false;
+            this.rbGenero.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbGenero_MouseClick);
+            // 
+            // rbEditora
+            // 
+            this.rbEditora.BackColor = System.Drawing.Color.Transparent;
+            this.rbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbEditora.ForeColor = System.Drawing.Color.White;
+            this.rbEditora.Location = new System.Drawing.Point(132, 40);
+            this.rbEditora.MaximumSize = new System.Drawing.Size(180, 192);
+            this.rbEditora.Name = "rbEditora";
+            this.rbEditora.Size = new System.Drawing.Size(105, 20);
+            this.rbEditora.TabIndex = 111;
+            this.rbEditora.TabStop = true;
+            this.rbEditora.Text = "Editora";
+            this.rbEditora.UseVisualStyleBackColor = false;
+            this.rbEditora.MouseClick += new System.Windows.Forms.MouseEventHandler(this.rbEditora_MouseClick);
+            // 
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -406,6 +424,10 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplar)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -424,13 +446,14 @@
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.RadioButton rbCodigo;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CbEstado;
         private System.Windows.Forms.RadioButton rbGenero;
         private System.Windows.Forms.RadioButton rbEditora;
-        private System.Windows.Forms.Label lblSelecionar;
         private System.Windows.Forms.RadioButton rbNome;
         private System.Windows.Forms.RadioButton rbAutor;
         private FontAwesome.Sharp.IconButton btnCadastrarExemplar;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

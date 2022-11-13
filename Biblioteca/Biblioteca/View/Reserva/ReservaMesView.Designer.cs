@@ -308,15 +308,16 @@
             this.menuControl1.Size = new System.Drawing.Size(177, 757);
             this.menuControl1.TabIndex = 19;
             // 
-            // ReservaVisualizarView
+            // ReservaMesView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1224, 763);
             this.Controls.Add(this.pnltotal);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ReservaVisualizarView";
+            this.Name = "ReservaMesView";
             this.Text = "ReservaVisualizarView";
             this.Activated += new System.EventHandler(this.ReservaVisualizarView_Activated);
             this.Load += new System.EventHandler(this.ReservaVisualizarView_Load);

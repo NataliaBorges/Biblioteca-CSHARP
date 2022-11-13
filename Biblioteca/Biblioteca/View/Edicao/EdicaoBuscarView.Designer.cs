@@ -101,6 +101,7 @@
             // btnCadastrarEdicao
             // 
             this.btnCadastrarEdicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCadastrarEdicao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrarEdicao.FlatAppearance.BorderSize = 0;
             this.btnCadastrarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrarEdicao.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -125,6 +126,7 @@
             // icbtnVoltar
             // 
             this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.icbtnVoltar.FlatAppearance.BorderSize = 0;
             this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -216,6 +218,7 @@
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Olive;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
@@ -379,6 +382,7 @@
             // 
             this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
