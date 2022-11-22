@@ -36,6 +36,18 @@ namespace Biblioteca.Model {
             this.Nome_Genero = nomeGenero;
 
         }
+
+        public ExemplarModel(int Id, DateTime aquisicao, string AnoPublicacao, string ISBN, int Edicao, float valor, int estado)
+        {
+            this.ID = Id;
+            this.IdEdicao = Edicao;
+            this.AnoPublicacao = AnoPublicacao;
+            this.ISBN = ISBN;
+            this.Aquisicao = aquisicao;
+            this.Valor = valor;
+            this.Estado = estado;
+
+        }
         public ExemplarModel(int Id_Livro, int Edicao, string AnoPublicacao, string ISBN, DateTime aquisicao, float valor, int quantidade)
         {
             this.IdLivro= Id_Livro;

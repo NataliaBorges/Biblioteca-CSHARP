@@ -65,7 +65,7 @@ namespace Biblioteca.View.Funcionario
                 }
                 catch (Exception) { }
 
-                tbEmail.Text = funcionario.Email;
+                //tbEmail.Text = funcionario.Email;
                 maskedTextBoxCPF.Text = funcionario.CPF;
                 maskedTextBoxTelefone.Text = funcionario.Telefone;
                 CalendarFuncionario.Text = funcionario.Data_Nascimento.ToString("dd/MM/yyyy");
@@ -87,7 +87,7 @@ namespace Biblioteca.View.Funcionario
             string endereco = $"{tbRua.Text}, {tbNumero.Text}, {tbBairro.Text} - {tbCidade.Text}";
             string telefone = maskedTextBoxTelefone.Text;
             string cpf = maskedTextBoxCPF.Text;
-            string email = tbEmail.Text;
+            //string email = tbEmail.Text;
             DateTime data = this.CalendarFuncionario.Value.Date; //.ToString("yyyy-MM-dd");
             int funcao = 0;
 
@@ -135,11 +135,6 @@ namespace Biblioteca.View.Funcionario
                 MessageBox.Show("Você precisa digitar uma CPF.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxCPF.Focus();
             }
-            else if (Validar.ValidarEmail(email) == false)
-            {
-                MessageBox.Show("Você precisa digitar um email.", "Atenção", MessageBoxButtons.OK);
-                tbEmail.Focus();
-            }
             else
             {
                 int estado = 0;
@@ -148,7 +143,7 @@ namespace Biblioteca.View.Funcionario
                 {
                     estado = 1;
                 }
-                FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, data, cpf, endereco, telefone, email, funcao, estado);
+                FuncionarioModel funcionario = new FuncionarioModel(this.funcionario.getId(), nome, data, cpf, endereco, telefone, funcao, estado);
                 if (controller.Atualizar(funcionario))
                 {
                     MessageBox.Show("Atualizado com sucesso", "Parabéns", MessageBoxButtons.OK);

@@ -10,6 +10,9 @@
     <Compile Update="Util\MenuControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Util\UsuarioControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\Autor\AutorBuscarView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,9 +47,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Emprestimo\EmprestimoCadastroView.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="View\Emprestimo\EmprestimoExcluirView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Emprestimo\EmprestimoVisualizarView.cs">
@@ -113,6 +113,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Livros\LivrosEditarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Login\RecuperarSenhaView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Login\TelaLoginView.cs">

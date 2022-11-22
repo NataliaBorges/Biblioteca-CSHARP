@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoVisualizarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -50,8 +51,6 @@
             this.labelNome = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lbDataReserva = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.lbDataRetirada = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbCancelar = new System.Windows.Forms.RadioButton();
@@ -59,7 +58,10 @@
             this.rbInutilizar = new System.Windows.Forms.RadioButton();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
-            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -108,6 +110,28 @@
             this.panel1.Size = new System.Drawing.Size(1105, 680);
             this.panel1.TabIndex = 1;
             // 
+            // icbtnVoltar
+            // 
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(168, 62);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 96;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            // 
             // lblCadastroLivro
             // 
             this.lblCadastroLivro.AutoSize = true;
@@ -155,24 +179,24 @@
             this.dtGridViewLivrosEmprestimo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtGridViewLivrosEmprestimo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dtGridViewLivrosEmprestimo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosEmprestimo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosEmprestimo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtGridViewLivrosEmprestimo.ColumnHeadersHeight = 30;
             this.dtGridViewLivrosEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewLivrosEmprestimo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewLivrosEmprestimo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewLivrosEmprestimo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtGridViewLivrosEmprestimo.EnableHeadersVisualStyles = false;
             this.dtGridViewLivrosEmprestimo.GridColor = System.Drawing.Color.SaddleBrown;
@@ -180,14 +204,14 @@
             this.dtGridViewLivrosEmprestimo.Name = "dtGridViewLivrosEmprestimo";
             this.dtGridViewLivrosEmprestimo.ReadOnly = true;
             this.dtGridViewLivrosEmprestimo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosEmprestimo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosEmprestimo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtGridViewLivrosEmprestimo.RowHeadersVisible = false;
             this.dtGridViewLivrosEmprestimo.RowTemplate.Height = 25;
             this.dtGridViewLivrosEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -305,9 +329,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.lbDataReserva);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.lbDataRetirada);
             this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -329,28 +353,6 @@
             this.lbDataReserva.TabIndex = 15;
             this.lbDataReserva.Text = "Data Reserva:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(170, 42);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(56, 20);
-            this.label10.TabIndex = 13;
-            this.label10.Text = "label10";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(170, 77);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(56, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "label10";
-            // 
             // lbDataRetirada
             // 
             this.lbDataRetirada.AutoSize = true;
@@ -365,6 +367,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.rbCancelar);
             this.groupBox1.Controls.Add(this.rbDevolver);
             this.groupBox1.Controls.Add(this.rbInutilizar);
@@ -372,7 +376,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(165, 393);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(197, 139);
+            this.groupBox1.Size = new System.Drawing.Size(329, 135);
             this.groupBox1.TabIndex = 136;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "STATUS";
@@ -423,7 +427,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(784, 454);
+            this.btnSalvar.Location = new System.Drawing.Point(784, 461);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(169, 47);
             this.btnSalvar.TabIndex = 135;
@@ -438,27 +442,47 @@
             this.head1.Size = new System.Drawing.Size(1105, 37);
             this.head1.TabIndex = 0;
             // 
-            // icbtnVoltar
+            // radioButton1
             // 
-            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
-            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
-            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icbtnVoltar.IconSize = 30;
-            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(168, 62);
-            this.icbtnVoltar.Name = "icbtnVoltar";
-            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
-            this.icbtnVoltar.TabIndex = 96;
-            this.icbtnVoltar.Tag = "";
-            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(167, 50);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(101, 24);
+            this.radioButton1.TabIndex = 129;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Emprestar";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton2.ForeColor = System.Drawing.Color.White;
+            this.radioButton2.Location = new System.Drawing.Point(167, 80);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(87, 24);
+            this.radioButton2.TabIndex = 130;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Renovar";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(157, 37);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(134, 27);
+            this.dateTimePicker1.TabIndex = 16;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(157, 72);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(134, 27);
+            this.dateTimePicker2.TabIndex = 17;
             // 
             // EmprestimoVisualizarView
             // 
@@ -510,8 +534,6 @@
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lbDataReserva;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbDataRetirada;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbCancelar;
@@ -519,5 +541,9 @@
         private System.Windows.Forms.RadioButton rbInutilizar;
         private System.Windows.Forms.Button btnSalvar;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }

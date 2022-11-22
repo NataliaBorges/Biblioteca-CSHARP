@@ -33,8 +33,6 @@ namespace Biblioteca.View {
             this.lbCancelar = new System.Windows.Forms.Label();
             this.ibtSenha = new FontAwesome.Sharp.IconButton();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.lbCancel = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.ibtSenhaAberta = new FontAwesome.Sharp.IconButton();
             this.IbMinimizar = new FontAwesome.Sharp.IconButton();
             this.IbFechar = new FontAwesome.Sharp.IconButton();
@@ -43,6 +41,8 @@ namespace Biblioteca.View {
             this.PnlSenha = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbCancel = new System.Windows.Forms.LinkLabel();
+            this.lbRecupera = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
@@ -190,37 +190,6 @@ namespace Biblioteca.View {
             this.iconPictureBox1.TabIndex = 10;
             this.iconPictureBox1.TabStop = false;
             // 
-            // lbCancel
-            // 
-            this.lbCancel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.lbCancel.AutoSize = true;
-            this.lbCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lbCancel.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbCancel.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.lbCancel.LinkColor = System.Drawing.Color.SaddleBrown;
-            this.lbCancel.Location = new System.Drawing.Point(273, 460);
-            this.lbCancel.Name = "lbCancel";
-            this.lbCancel.Size = new System.Drawing.Size(50, 15);
-            this.lbCancel.TabIndex = 11;
-            this.lbCancel.TabStop = true;
-            this.lbCancel.Text = "Cancelar";
-            this.lbCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbCancel_LinkClicked);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.linkLabel1.LinkColor = System.Drawing.Color.SaddleBrown;
-            this.linkLabel1.Location = new System.Drawing.Point(349, 460);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(85, 15);
-            this.linkLabel1.TabIndex = 12;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Esqueci a senha";
-            // 
             // ibtSenhaAberta
             // 
             this.ibtSenhaAberta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -333,6 +302,7 @@ namespace Biblioteca.View {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.panel1.Controls.Add(this.lbRecupera);
             this.panel1.Controls.Add(this.rjCircularPictureBox1);
             this.panel1.Controls.Add(this.PnlSenha);
             this.panel1.Controls.Add(this.btLogar);
@@ -341,12 +311,43 @@ namespace Biblioteca.View {
             this.panel1.Controls.Add(this.IbMinimizar);
             this.panel1.Controls.Add(this.lbCancel);
             this.panel1.Controls.Add(this.IbFechar);
-            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(577, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(569, 558);
             this.panel1.TabIndex = 1;
+            // 
+            // lbCancel
+            // 
+            this.lbCancel.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.lbCancel.AutoSize = true;
+            this.lbCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbCancel.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbCancel.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbCancel.LinkColor = System.Drawing.Color.SaddleBrown;
+            this.lbCancel.Location = new System.Drawing.Point(378, 460);
+            this.lbCancel.Name = "lbCancel";
+            this.lbCancel.Size = new System.Drawing.Size(50, 15);
+            this.lbCancel.TabIndex = 11;
+            this.lbCancel.TabStop = true;
+            this.lbCancel.Text = "Cancelar";
+            this.lbCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbCancel_LinkClicked);
+            // 
+            // lbRecupera
+            // 
+            this.lbRecupera.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(24)))), ((int)(((byte)(1)))));
+            this.lbRecupera.AutoSize = true;
+            this.lbRecupera.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lbRecupera.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbRecupera.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.lbRecupera.LinkColor = System.Drawing.Color.SaddleBrown;
+            this.lbRecupera.Location = new System.Drawing.Point(263, 460);
+            this.lbRecupera.Name = "lbRecupera";
+            this.lbRecupera.Size = new System.Drawing.Size(89, 15);
+            this.lbRecupera.TabIndex = 20;
+            this.lbRecupera.TabStop = true;
+            this.lbRecupera.Text = "Recuperar Senha";
+            this.lbRecupera.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbRecupera_LinkClicked);
             // 
             // TelaLoginView
             // 
@@ -388,8 +389,6 @@ namespace Biblioteca.View {
         private System.Windows.Forms.Label lbCancelar;
         private FontAwesome.Sharp.IconButton ibtSenha;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
-        private System.Windows.Forms.LinkLabel lbCancel;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private FontAwesome.Sharp.IconButton ibtSenhaAberta;
         private FontAwesome.Sharp.IconButton IbMinimizar;
         private FontAwesome.Sharp.IconButton IbFechar;
@@ -398,5 +397,7 @@ namespace Biblioteca.View {
         private Guna.UI2.WinForms.Guna2CustomGradientPanel PnlSenha;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.LinkLabel lbCancel;
+        private System.Windows.Forms.LinkLabel lbRecupera;
     }
 }

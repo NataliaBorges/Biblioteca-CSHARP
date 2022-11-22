@@ -18,10 +18,16 @@ namespace Biblioteca.View.Exemplar
         Singleton singleton = Singleton.GetInstancia();
         public ExemplarEditarView(ExemplarModel exemplar)
         {
-
-            this.exemplar = exemplar;
-
+            this.exemplar = controller.BuscarExemplarId(exemplar.getId());
             InitializeComponent();
+        }
+        private void ExemplarEditarView_Activated(object sender, EventArgs e)
+        {
+            if (singleton.getBuscarEdicao() && singleton.getEdicaoBusca() != null)
+            {
+                singleton.setBuscarEdicao(false);
+                tbEdicao.Text = singleton.getEdicaoBusca().Nome_Edicao;
+            }
         }
 
         private void ExemplarEditarView_Load(object sender, EventArgs e)
@@ -43,6 +49,7 @@ namespace Biblioteca.View.Exemplar
                 tbAutor.Text = this.exemplar.Nome_Autor;
                 tbEditora.Text = this.exemplar.Nome_Editora;
                 tbGenero.Text = this.exemplar.Nome_Genero;
+                CalendarExemplar.Text = exemplar.Aquisicao.ToString("dd/MM/yyyy");
 
             }
 
@@ -59,7 +66,7 @@ namespace Biblioteca.View.Exemplar
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            string valor = tbValor.Text;
+            float valor = float.Parse(tbValor.Text);
             string ano = maskedTextBoxAno.Text;
             string isbn = tbISBN.Text;
             DateTime aquisicao = this.CalendarExemplar.Value.Date;
@@ -69,7 +76,7 @@ namespace Biblioteca.View.Exemplar
                 MessageBox.Show("Você precisa digitar um valor.", "Atenção", MessageBoxButtons.OK);
                 tbValor.Focus();
             }
-            else if (singleton.getEdicaoBusca() == null)
+            else if (tbEdicao.Text.Length <= 0)
             {
                 MessageBox.Show("Você precisa selecionar uma edição válida.", "Atenção", MessageBoxButtons.OK);
                 tbEdicao.Focus();
@@ -87,32 +94,40 @@ namespace Biblioteca.View.Exemplar
             else
             {
 
-                //int edicao = this.exemplar.IdEdicao;
-                //if (singleton.getEdicaoBusca() != null)
-                //{
-                //    edicao = singleton.getEdicaoBusca().Id;
-                //}
+                int edicao = this.exemplar.IdEdicao;
+                if (singleton.getEdicaoBusca() != null)
+                {
+                    edicao = singleton.getEdicaoBusca().Id;
+                }
 
-                //int estado = 0;
+                int estado = 0;
 
-                //if (cbEditarStatus.Text == "Ativo")
-                //{
-                //    estado = 1;
-                //}
+                if (cbEditarStatus.Text == "Ativo")
+                {
+                    estado = 1;
+                }
 
-                //ExemplarModel exemplar = new ExemplarModel();
-                //try
-                //{
-                //    controller.Insercao(exemplar);
-                //    MessageBox.Show("Atualizado com Sucesso!", "Parabéns", MessageBoxButtons.OK);
-                //}
-                //catch (Exception)
-                //{
-                //    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
-                //}
-
-                MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                ExemplarModel exemplar = new ExemplarModel(this.exemplar.getId(),  aquisicao,  ano,  isbn,  edicao,  valor, estado);
+                try
+                {
+                    controller.Atualizar(exemplar);
+                    MessageBox.Show("Atualizado com Sucesso!", "Parabéns", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Não foi possível cadastrar.", "Atenção", MessageBoxButtons.OK);
+                }
             }
         }
+
+        private void icBtnSelecionarEdicao_Click(object sender, EventArgs e)
+        {
+            singleton.setBuscarEdicao(true);
+            ExemplarPesquisarEdicaoView exemplarPesquisarEdicaoView = new ExemplarPesquisarEdicaoView();
+            NovaJanela.novaJanela(exemplarPesquisarEdicaoView, Bounds);
+        }
+
+        
     }
 }

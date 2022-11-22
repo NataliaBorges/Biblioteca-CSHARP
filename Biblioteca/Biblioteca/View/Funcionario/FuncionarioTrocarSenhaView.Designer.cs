@@ -31,15 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FuncionarioTrocarSenhaView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbCSenha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbNSenha = new System.Windows.Forms.TextBox();
             this.btnBuscarColaborador = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbFuncao = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -55,6 +59,7 @@
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +82,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.btnSalvar);
+            this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.btnBuscarColaborador);
             this.panel1.Controls.Add(this.label1);
@@ -90,22 +97,71 @@
             this.panel1.Size = new System.Drawing.Size(1050, 736);
             this.panel1.TabIndex = 59;
             // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalvar.BackColor = System.Drawing.Color.Olive;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSalvar.Location = new System.Drawing.Point(405, 652);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(225, 50);
+            this.btnSalvar.TabIndex = 121;
+            this.btnSalvar.Text = "SALVAR";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.tbEmail);
+            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(300, 324);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(403, 125);
+            this.groupBox2.TabIndex = 120;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "EMAIL";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(33, 40);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(103, 21);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Novo e-mail:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbEmail.Location = new System.Drawing.Point(33, 64);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(336, 27);
+            this.tbEmail.TabIndex = 12;
+            this.tbEmail.UseSystemPasswordChar = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbCSenha);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbNSenha);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(311, 408);
+            this.groupBox1.Location = new System.Drawing.Point(300, 449);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(403, 184);
             this.groupBox1.TabIndex = 119;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Senha";
+            this.groupBox1.Text = "SENHA";
             // 
             // label9
             // 
@@ -118,14 +174,14 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "Confirmar senha";
             // 
-            // textBox2
+            // tbCSenha
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(41, 133);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 27);
-            this.textBox2.TabIndex = 12;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.tbCSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbCSenha.Location = new System.Drawing.Point(41, 133);
+            this.tbCSenha.Name = "tbCSenha";
+            this.tbCSenha.Size = new System.Drawing.Size(300, 27);
+            this.tbCSenha.TabIndex = 12;
+            this.tbCSenha.UseSystemPasswordChar = true;
             // 
             // label4
             // 
@@ -138,14 +194,14 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Nova senha:";
             // 
-            // textBox1
+            // tbNSenha
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(41, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 27);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.UseSystemPasswordChar = true;
+            this.tbNSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbNSenha.Location = new System.Drawing.Point(41, 51);
+            this.tbNSenha.Name = "tbNSenha";
+            this.tbNSenha.Size = new System.Drawing.Size(300, 27);
+            this.tbNSenha.TabIndex = 0;
+            this.tbNSenha.UseSystemPasswordChar = true;
             // 
             // btnBuscarColaborador
             // 
@@ -161,7 +217,7 @@
             this.btnBuscarColaborador.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarColaborador.IconSize = 30;
             this.btnBuscarColaborador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarColaborador.Location = new System.Drawing.Point(532, 196);
+            this.btnBuscarColaborador.Location = new System.Drawing.Point(531, 152);
             this.btnBuscarColaborador.Name = "btnBuscarColaborador";
             this.btnBuscarColaborador.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscarColaborador.Size = new System.Drawing.Size(217, 36);
@@ -179,17 +235,17 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(255, 201);
+            this.label1.Location = new System.Drawing.Point(254, 157);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 23);
+            this.label1.Size = new System.Drawing.Size(171, 23);
             this.label1.TabIndex = 116;
-            this.label1.Text = "Colaborador";
+            this.label1.Text = "COLABORADOR";
             // 
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lbFuncao);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.lbTelefone);
             this.panel3.Controls.Add(this.lbEmail);
@@ -199,21 +255,21 @@
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(255, 236);
+            this.panel3.Location = new System.Drawing.Point(254, 194);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(494, 130);
             this.panel3.TabIndex = 117;
             // 
-            // label2
+            // lbFuncao
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(328, 82);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 20);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label10";
+            this.lbFuncao.AutoSize = true;
+            this.lbFuncao.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbFuncao.ForeColor = System.Drawing.Color.White;
+            this.lbFuncao.Location = new System.Drawing.Point(328, 82);
+            this.lbFuncao.Name = "lbFuncao";
+            this.lbFuncao.Size = new System.Drawing.Size(56, 20);
+            this.lbFuncao.TabIndex = 10;
+            this.lbFuncao.Text = "label10";
             // 
             // label3
             // 
@@ -335,6 +391,7 @@
             this.icbtnVoltar.Tag = "";
             this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -377,9 +434,12 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FuncionarioTrocarSenhaView";
             this.Text = "FuncionarioTrocarSenhaView";
+            this.Load += new System.EventHandler(this.FuncionarioTrocarSenhaView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -398,13 +458,13 @@
         private FontAwesome.Sharp.IconButton icbtnVoltar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbCSenha;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbNSenha;
         private FontAwesome.Sharp.IconButton btnBuscarColaborador;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbFuncao;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbEmail;
@@ -414,5 +474,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }

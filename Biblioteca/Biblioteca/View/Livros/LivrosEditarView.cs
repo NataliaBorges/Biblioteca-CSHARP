@@ -17,6 +17,7 @@ namespace Biblioteca.View.Livros {
         DateTime data;
         public LivrosEditarView() {
             LivroModel livroSingleton = singleton.getLivroExemplar();
+
             this.livro = controller.BuscarLivroId(livroSingleton.getId());
             singleton.setLivroExemplar(null);
             InitializeComponent();

@@ -229,10 +229,11 @@
             // menuControl1
             // 
             this.menuControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.menuControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(183, 665);
+            this.menuControl1.Size = new System.Drawing.Size(210, 724);
             this.menuControl1.TabIndex = 22;
             // 
             // LivroPesquisarGenero

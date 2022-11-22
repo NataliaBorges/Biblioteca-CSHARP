@@ -18,6 +18,8 @@ namespace Biblioteca.Model
         public string Funcao { get; set; }
         public int Estado { get; set; }
 
+
+
         public FuncionarioModel(string nome, DateTime nascimento, string cpf, string endereco, string telefone, string email, string senha, int Id_funcao)
         {
             this.Nome_funcionario = nome;
@@ -39,6 +41,19 @@ namespace Biblioteca.Model
             this.Telefone = telefone;
             this.Email = email;
             this.Funcao = funcao;
+            this.Estado = estado;
+        }
+
+        public FuncionarioModel(int ID, string nome, DateTime nascimento, string cpf, string endereco, string telefone,int Id_funcao, int estado)
+        {
+            
+            this.ID_funcionario = ID;
+            this.Nome_funcionario = nome;
+            this.Data_Nascimento = nascimento;
+            this.CPF = cpf;
+            this.Endereco = endereco;
+            this.Telefone = telefone;
+            this.Id_funcao = Id_funcao;
             this.Estado = estado;
         }
         public FuncionarioModel(int ID, string nome, DateTime nascimento, string cpf, string endereco, string telefone, string email, int funcao, int estado)

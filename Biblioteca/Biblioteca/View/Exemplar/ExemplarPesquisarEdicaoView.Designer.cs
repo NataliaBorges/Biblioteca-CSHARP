@@ -138,11 +138,12 @@
             // 
             // lblNotFound
             // 
+            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblNotFound.AutoSize = true;
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(466, 274);
+            this.lblNotFound.Location = new System.Drawing.Point(473, 247);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 75;
@@ -151,6 +152,7 @@
             // 
             // tbBuscar
             // 
+            this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbBuscar.Location = new System.Drawing.Point(346, 43);
             this.tbBuscar.Name = "tbBuscar";
@@ -163,9 +165,7 @@
             // 
             this.dtGridViewEdicao.AllowUserToAddRows = false;
             this.dtGridViewEdicao.AllowUserToDeleteRows = false;
-            this.dtGridViewEdicao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtGridViewEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtGridViewEdicao.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridViewEdicao.BackgroundColor = System.Drawing.Color.Black;
             this.dtGridViewEdicao.BorderStyle = System.Windows.Forms.BorderStyle.None;

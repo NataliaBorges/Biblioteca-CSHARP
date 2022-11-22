@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FuncionarioSelecionarColaboradorView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,7 +40,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.tbBuscar = new System.Windows.Forms.TextBox();
-            this.dtGridViewAutor = new System.Windows.Forms.DataGridView();
+            this.dtGridViewColaborador = new System.Windows.Forms.DataGridView();
             this.linkLblCadastrarEditora = new System.Windows.Forms.LinkLabel();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
@@ -48,7 +48,7 @@
             this.panel1.SuspendLayout();
             this.tbLyPnlDataGrid.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAutor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewColaborador)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -134,7 +134,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel4.Controls.Add(this.lblNotFound);
             this.panel4.Controls.Add(this.tbBuscar);
-            this.panel4.Controls.Add(this.dtGridViewAutor);
+            this.panel4.Controls.Add(this.dtGridViewColaborador);
             this.panel4.Controls.Add(this.linkLblCadastrarEditora);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
@@ -163,56 +163,58 @@
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(401, 27);
             this.tbBuscar.TabIndex = 61;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
-            // dtGridViewAutor
+            // dtGridViewColaborador
             // 
-            this.dtGridViewAutor.AllowUserToAddRows = false;
-            this.dtGridViewAutor.AllowUserToDeleteRows = false;
-            this.dtGridViewAutor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dtGridViewColaborador.AllowUserToAddRows = false;
+            this.dtGridViewColaborador.AllowUserToDeleteRows = false;
+            this.dtGridViewColaborador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtGridViewAutor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridViewAutor.BackgroundColor = System.Drawing.Color.Black;
-            this.dtGridViewAutor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewAutor.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGridViewAutor.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewAutor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewAutor.ColumnHeadersHeight = 30;
-            this.dtGridViewAutor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewAutor.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewAutor.EnableHeadersVisualStyles = false;
-            this.dtGridViewAutor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewAutor.Location = new System.Drawing.Point(89, 128);
-            this.dtGridViewAutor.Name = "dtGridViewAutor";
-            this.dtGridViewAutor.ReadOnly = true;
-            this.dtGridViewAutor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewAutor.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridViewAutor.RowHeadersVisible = false;
-            this.dtGridViewAutor.RowTemplate.Height = 25;
-            this.dtGridViewAutor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewAutor.Size = new System.Drawing.Size(873, 366);
-            this.dtGridViewAutor.TabIndex = 30;
+            this.dtGridViewColaborador.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewColaborador.BackgroundColor = System.Drawing.Color.Black;
+            this.dtGridViewColaborador.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewColaborador.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewColaborador.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewColaborador.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtGridViewColaborador.ColumnHeadersHeight = 30;
+            this.dtGridViewColaborador.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewColaborador.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtGridViewColaborador.EnableHeadersVisualStyles = false;
+            this.dtGridViewColaborador.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewColaborador.Location = new System.Drawing.Point(89, 128);
+            this.dtGridViewColaborador.Name = "dtGridViewColaborador";
+            this.dtGridViewColaborador.ReadOnly = true;
+            this.dtGridViewColaborador.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewColaborador.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtGridViewColaborador.RowHeadersVisible = false;
+            this.dtGridViewColaborador.RowTemplate.Height = 25;
+            this.dtGridViewColaborador.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewColaborador.Size = new System.Drawing.Size(873, 366);
+            this.dtGridViewColaborador.TabIndex = 30;
+            this.dtGridViewColaborador.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewAutor_CellClick);
             // 
             // linkLblCadastrarEditora
             // 
@@ -257,13 +259,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FuncionarioSelecionarColaboradorView";
             this.Text = "FuncionarioSelecionarColaboradorView";
+            this.Load += new System.EventHandler(this.FuncionarioSelecionarColaboradorView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tbLyPnlDataGrid.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewAutor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewColaborador)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -278,7 +281,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label lblNotFound;
         private System.Windows.Forms.TextBox tbBuscar;
-        private System.Windows.Forms.DataGridView dtGridViewAutor;
+        private System.Windows.Forms.DataGridView dtGridViewColaborador;
         private System.Windows.Forms.LinkLabel linkLblCadastrarEditora;
         private Util.Head head1;
         private Util.MenuControl menuControl1;

@@ -131,7 +131,7 @@
             this.groupBox2.Size = new System.Drawing.Size(700, 184);
             this.groupBox2.TabIndex = 106;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informações do Exemplar";
+            this.groupBox2.Text = "INFORMAÇÕES DO EXEMPLAR";
             // 
             // tbValor
             // 
@@ -309,7 +309,7 @@
             this.groupBox1.Size = new System.Drawing.Size(700, 184);
             this.groupBox1.TabIndex = 105;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados Fixos";
+            this.groupBox1.Text = "DADOS FIXOS";
             // 
             // tbNome
             // 

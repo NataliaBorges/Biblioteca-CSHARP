@@ -1,6 +1,7 @@
 ﻿using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.Util;
+using Biblioteca.View.Login;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,6 +65,13 @@ namespace Biblioteca.View {
 
         private void IbFechar_Click(object sender, EventArgs e) {
             Application.Exit();
+        }
+
+        private void lbRecupera_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RecuperarSenhaView recuperarSenhaView = new RecuperarSenhaView();
+            NovaJanela.novaJanela(recuperarSenhaView, Bounds);
+            
         }
     }
 }

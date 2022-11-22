@@ -43,7 +43,7 @@
             this.maskedTextBoxAno = new System.Windows.Forms.MaskedTextBox();
             this.tbEdicao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.icBtnSelecionarEdicao = new FontAwesome.Sharp.IconButton();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbNome = new System.Windows.Forms.TextBox();
@@ -139,7 +139,7 @@
             this.groupBox2.Controls.Add(this.maskedTextBoxAno);
             this.groupBox2.Controls.Add(this.tbEdicao);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.iconButton2);
+            this.groupBox2.Controls.Add(this.icBtnSelecionarEdicao);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
@@ -148,7 +148,7 @@
             this.groupBox2.Size = new System.Drawing.Size(700, 184);
             this.groupBox2.TabIndex = 125;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Informações do Exemplar";
+            this.groupBox2.Text = "INFORMAÇÕES DO EXEMPLAR";
             // 
             // tbValor
             // 
@@ -249,27 +249,28 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(443, 45);
+            this.label5.Location = new System.Drawing.Point(457, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 20);
             this.label5.TabIndex = 103;
             this.label5.Text = "Ano:";
             // 
-            // iconButton2
+            // icBtnSelecionarEdicao
             // 
-            this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton2.BackColor = System.Drawing.Color.CadetBlue;
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
-            this.iconButton2.IconColor = System.Drawing.Color.White;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 23;
-            this.iconButton2.Location = new System.Drawing.Point(385, 42);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(36, 27);
-            this.iconButton2.TabIndex = 114;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.icBtnSelecionarEdicao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icBtnSelecionarEdicao.BackColor = System.Drawing.Color.CadetBlue;
+            this.icBtnSelecionarEdicao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icBtnSelecionarEdicao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icBtnSelecionarEdicao.IconChar = FontAwesome.Sharp.IconChar.SearchPlus;
+            this.icBtnSelecionarEdicao.IconColor = System.Drawing.Color.White;
+            this.icBtnSelecionarEdicao.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icBtnSelecionarEdicao.IconSize = 23;
+            this.icBtnSelecionarEdicao.Location = new System.Drawing.Point(385, 42);
+            this.icBtnSelecionarEdicao.Name = "icBtnSelecionarEdicao";
+            this.icBtnSelecionarEdicao.Size = new System.Drawing.Size(36, 27);
+            this.icBtnSelecionarEdicao.TabIndex = 114;
+            this.icBtnSelecionarEdicao.UseVisualStyleBackColor = false;
+            this.icBtnSelecionarEdicao.Click += new System.EventHandler(this.icBtnSelecionarEdicao_Click);
             // 
             // label4
             // 
@@ -302,7 +303,7 @@
             this.groupBox1.Size = new System.Drawing.Size(700, 184);
             this.groupBox1.TabIndex = 124;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dados Fixos";
+            this.groupBox1.Text = "DADOS FIXOS";
             // 
             // tbNome
             // 
@@ -484,6 +485,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExemplarEditarView";
             this.Text = "ExemplarEditarView";
+            this.Activated += new System.EventHandler(this.ExemplarEditarView_Activated);
             this.Load += new System.EventHandler(this.ExemplarEditarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -507,7 +509,7 @@
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.TextBox tbValor;
         private System.Windows.Forms.Label label4;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton icBtnSelecionarEdicao;
         private System.Windows.Forms.TextBox tbEditora;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tbGenero;

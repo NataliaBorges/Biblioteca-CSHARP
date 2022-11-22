@@ -120,11 +120,11 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.lblNotFound);
-            this.panel2.Controls.Add(this.dtGridViewExemplar);
+            this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.tbBuscar);
             this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.dtGridViewExemplar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 187);
             this.panel2.Name = "panel2";

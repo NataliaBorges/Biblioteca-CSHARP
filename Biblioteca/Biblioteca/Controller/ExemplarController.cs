@@ -47,6 +47,33 @@ namespace Biblioteca.Controller
             }
 
         }
+
+        public bool Atualizar(ExemplarModel exemplar)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Exemplar SET Data_Aquisicao = @Aquisicao, Ano = @Ano, ISBN = @ISBN, Id_Edicao = @Id_Edicao, Estado = @Estado, Valor = @Valor
+                                WHERE Id = @ID";
+
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@ID", exemplar.getId());
+            Cmd.Parameters.AddWithValue("@Aquisicao", exemplar.Aquisicao);
+            Cmd.Parameters.AddWithValue("@Ano", exemplar.AnoPublicacao);
+            Cmd.Parameters.AddWithValue("@ISBN", exemplar.ISBN);
+            Cmd.Parameters.AddWithValue("@Id_Edicao", exemplar.IdEdicao);
+            Cmd.Parameters.AddWithValue("@Estado", exemplar.Estado);
+            Cmd.Parameters.AddWithValue("@Valor", exemplar.Valor);
+
+
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public List<ExemplarModel> Buscar(string busca, bool isCodigo = false, bool isNome = false, bool isAutor = false, bool isEditora = false, bool isGenero = false, string status = "Ambos")
         {
             Cmd.Connection = connection.RetornaConexao();
@@ -325,5 +352,58 @@ namespace Biblioteca.Controller
 
             return lista;
         }
+
+        public ExemplarModel BuscarExemplarId(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                Livro.Titulo,
+		                                Autor.Nome_Autor,
+		                                Edicao.Nome_Edicao,
+                                        Edicao.Id AS Edicao_Id,
+		                                Editora.Nome_Editora,
+		                                Genero.Nome_Genero,
+		                                Exemplar.Data_Aquisicao,
+		                                Exemplar.ISBN,
+		                                Exemplar.Ano,
+		                                Exemplar.Valor,
+		                                Exemplar.Estado
+                                From Exemplar
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                WHERE Exemplar.Id = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string valorString = Convert.ToString(reader["Valor"]);
+                valorString.Replace(",", ".");
+                float valor = float.Parse(valorString);
+                ExemplarModel exemplar = new ExemplarModel(
+                    (int)reader["Id"],
+                    (string)reader["Titulo"],
+                    (string)reader["Nome_Edicao"],
+                    (DateTime)reader["Data_Aquisicao"],
+                    (string)reader["Ano"],
+                    (string)reader["ISBN"],
+                    (string)reader["Nome_Editora"],
+                    (string)reader["Nome_Autor"],
+                    (string)reader["Nome_Genero"],
+                    valor,
+                    (int)reader["Estado"]);
+                    exemplar.IdEdicao = (int)reader["Edicao_Id"];
+                reader.Close();
+
+                return exemplar;
+            }
+            return null;
+        }
+
     }
 }

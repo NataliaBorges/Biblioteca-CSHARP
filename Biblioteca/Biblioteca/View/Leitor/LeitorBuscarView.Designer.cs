@@ -34,25 +34,25 @@ namespace Biblioteca.View.Leitor {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCadastrarLeitor = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtGridViewLeitor = new System.Windows.Forms.DataGridView();
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).BeginInit();
             this.pnltotal.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbCPF
@@ -139,15 +139,29 @@ namespace Biblioteca.View.Leitor {
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel3.Controls.Add(this.btnEditar);
             this.panel3.Controls.Add(this.lblNotFound);
-            this.panel3.Controls.Add(this.dtGridViewLeitor);
+            this.panel3.Controls.Add(this.btnEditar);
             this.panel3.Controls.Add(this.panel2);
+            this.panel3.Controls.Add(this.dtGridViewLeitor);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 213);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1050, 544);
             this.panel3.TabIndex = 33;
+            // 
+            // lblNotFound
+            // 
+            this.lblNotFound.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNotFound.AutoSize = true;
+            this.lblNotFound.BackColor = System.Drawing.Color.Black;
+            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFound.ForeColor = System.Drawing.Color.White;
+            this.lblNotFound.Location = new System.Drawing.Point(454, 283);
+            this.lblNotFound.Name = "lblNotFound";
+            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFound.TabIndex = 93;
+            this.lblNotFound.Text = "Não Encontrado";
+            this.lblNotFound.Visible = false;
             // 
             // btnEditar
             // 
@@ -165,18 +179,30 @@ namespace Biblioteca.View.Leitor {
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // lblNotFound
+            // panel2
             // 
-            this.lblNotFound.AutoSize = true;
-            this.lblNotFound.BackColor = System.Drawing.Color.Black;
-            this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(467, 280);
-            this.lblNotFound.Name = "lblNotFound";
-            this.lblNotFound.Size = new System.Drawing.Size(128, 21);
-            this.lblNotFound.TabIndex = 93;
-            this.lblNotFound.Text = "Não Encontrado";
-            this.lblNotFound.Visible = false;
+            this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Controls.Add(this.tbBuscar);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1050, 115);
+            this.panel2.TabIndex = 110;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.Controls.Add(this.cbStatus);
+            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(753, 13);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(190, 88);
+            this.groupBox1.TabIndex = 105;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "STATUS";
             // 
             // cbStatus
             // 
@@ -193,6 +219,20 @@ namespace Biblioteca.View.Leitor {
             this.cbStatus.Size = new System.Drawing.Size(170, 28);
             this.cbStatus.TabIndex = 91;
             this.cbStatus.SelectedValueChanged += new System.EventHandler(this.cbStatus_SelectedValueChanged);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.rbNome);
+            this.groupBox3.Controls.Add(this.rbCPF);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(77, 16);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(169, 88);
+            this.groupBox3.TabIndex = 104;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "TIPO DE BUSCA";
             // 
             // dtGridViewLeitor
             // 
@@ -311,45 +351,6 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.Size = new System.Drawing.Size(179, 757);
             this.menuControl1.TabIndex = 17;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.tbBuscar);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1050, 115);
-            this.panel2.TabIndex = 110;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.rbNome);
-            this.groupBox3.Controls.Add(this.rbCPF);
-            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(77, 16);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(169, 88);
-            this.groupBox3.TabIndex = 104;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "TIPO DE BUSCA";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.cbStatus);
-            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(753, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(190, 88);
-            this.groupBox1.TabIndex = 105;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "STATUS";
-            // 
             // LeitorBuscarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -369,13 +370,13 @@ namespace Biblioteca.View.Leitor {
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).EndInit();
-            this.pnltotal.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLeitor)).EndInit();
+            this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
