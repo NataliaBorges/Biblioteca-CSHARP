@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.View.Funcionario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,10 +16,15 @@ namespace Biblioteca.Util
     {
         Singleton singleton = Singleton.GetInstancia();
         private int borderSize = 2;
+        
 
         Form form;
         Padding  padding;
 
+        private void Head_Load(object sender, EventArgs e)
+        {
+            
+        }
         public void setForm(Form form)
         {
             this.form = form;
@@ -29,7 +35,7 @@ namespace Biblioteca.Util
         }
         public Head()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -83,6 +89,5 @@ namespace Biblioteca.Util
         {
             Application.Exit();
         }
-
     }
 }

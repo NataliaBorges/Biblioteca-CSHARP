@@ -40,6 +40,9 @@
             this.btnLivro = new FontAwesome.Sharp.IconButton();
             this.btnHome = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlUser = new System.Windows.Forms.Panel();
+            this.lblUser = new System.Windows.Forms.Label();
+            this.PictureUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             this.icnButtonBar = new FontAwesome.Sharp.IconButton();
             this.lbNome = new System.Windows.Forms.Label();
             this.ddmLivro = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
@@ -78,15 +81,21 @@
             this.ddmFuncionario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFuncionarioTrocarSenha = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddmUsuario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTrocarSenha = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.pnlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).BeginInit();
             this.ddmLivro.SuspendLayout();
             this.ddmLeitor.SuspendLayout();
             this.ddmEmprestimo.SuspendLayout();
             this.ddmReserva.SuspendLayout();
             this.ddmRelatorio.SuspendLayout();
             this.ddmFuncionario.SuspendLayout();
+            this.ddmUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
             // Menu
@@ -120,7 +129,7 @@
             this.btnFuncionario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFuncionario.IconSize = 30;
             this.btnFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionario.Location = new System.Drawing.Point(0, 370);
+            this.btnFuncionario.Location = new System.Drawing.Point(0, 429);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnFuncionario.Size = new System.Drawing.Size(198, 46);
@@ -143,7 +152,7 @@
             this.btnGrafico.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGrafico.IconSize = 30;
             this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 324);
+            this.btnGrafico.Location = new System.Drawing.Point(0, 383);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnGrafico.Size = new System.Drawing.Size(198, 46);
@@ -165,7 +174,7 @@
             this.btnRelatório.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnRelatório.IconSize = 30;
             this.btnRelatório.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRelatório.Location = new System.Drawing.Point(0, 278);
+            this.btnRelatório.Location = new System.Drawing.Point(0, 337);
             this.btnRelatório.Name = "btnRelatório";
             this.btnRelatório.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnRelatório.Size = new System.Drawing.Size(198, 46);
@@ -211,7 +220,7 @@
             this.btnReserva.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReserva.IconSize = 30;
             this.btnReserva.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReserva.Location = new System.Drawing.Point(0, 232);
+            this.btnReserva.Location = new System.Drawing.Point(0, 291);
             this.btnReserva.Name = "btnReserva";
             this.btnReserva.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnReserva.Size = new System.Drawing.Size(198, 46);
@@ -234,7 +243,7 @@
             this.btnEmprestimo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnEmprestimo.IconSize = 30;
             this.btnEmprestimo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmprestimo.Location = new System.Drawing.Point(0, 186);
+            this.btnEmprestimo.Location = new System.Drawing.Point(0, 245);
             this.btnEmprestimo.Name = "btnEmprestimo";
             this.btnEmprestimo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnEmprestimo.Size = new System.Drawing.Size(198, 46);
@@ -257,7 +266,7 @@
             this.btnLeitor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLeitor.IconSize = 30;
             this.btnLeitor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLeitor.Location = new System.Drawing.Point(0, 140);
+            this.btnLeitor.Location = new System.Drawing.Point(0, 199);
             this.btnLeitor.Name = "btnLeitor";
             this.btnLeitor.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLeitor.Size = new System.Drawing.Size(198, 46);
@@ -280,7 +289,7 @@
             this.btnLivro.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnLivro.IconSize = 30;
             this.btnLivro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLivro.Location = new System.Drawing.Point(0, 94);
+            this.btnLivro.Location = new System.Drawing.Point(0, 153);
             this.btnLivro.Name = "btnLivro";
             this.btnLivro.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnLivro.Size = new System.Drawing.Size(198, 46);
@@ -303,7 +312,7 @@
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 30;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 48);
+            this.btnHome.Location = new System.Drawing.Point(0, 107);
             this.btnHome.Name = "btnHome";
             this.btnHome.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnHome.Size = new System.Drawing.Size(198, 46);
@@ -317,16 +326,58 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
+            this.panel3.Controls.Add(this.pnlUser);
             this.panel3.Controls.Add(this.icnButtonBar);
             this.panel3.Controls.Add(this.lbNome);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(198, 48);
+            this.panel3.Size = new System.Drawing.Size(198, 107);
             this.panel3.TabIndex = 0;
+            // 
+            // pnlUser
+            // 
+            this.pnlUser.BackColor = System.Drawing.Color.Black;
+            this.pnlUser.Controls.Add(this.lblUser);
+            this.pnlUser.Controls.Add(this.PictureUser);
+            this.pnlUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlUser.Location = new System.Drawing.Point(0, 0);
+            this.pnlUser.Name = "pnlUser";
+            this.pnlUser.Size = new System.Drawing.Size(198, 54);
+            this.pnlUser.TabIndex = 11;
+            // 
+            // lblUser
+            // 
+            this.lblUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblUser.AutoSize = true;
+            this.lblUser.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUser.ForeColor = System.Drawing.Color.White;
+            this.lblUser.Location = new System.Drawing.Point(87, 15);
+            this.lblUser.Name = "lblUser";
+            this.lblUser.Size = new System.Drawing.Size(19, 20);
+            this.lblUser.TabIndex = 5;
+            this.lblUser.Text = "L";
+            this.lblUser.Click += new System.EventHandler(this.lblUser_Click);
+            // 
+            // PictureUser
+            // 
+            this.PictureUser.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PictureUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.PictureUser.BorderColor = System.Drawing.Color.Chocolate;
+            this.PictureUser.BorderColor2 = System.Drawing.Color.Sienna;
+            this.PictureUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.PictureUser.BorderSize = 2;
+            this.PictureUser.GradientAngle = 50F;
+            this.PictureUser.Location = new System.Drawing.Point(76, 5);
+            this.PictureUser.Name = "PictureUser";
+            this.PictureUser.Size = new System.Drawing.Size(41, 41);
+            this.PictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureUser.TabIndex = 4;
+            this.PictureUser.TabStop = false;
             // 
             // icnButtonBar
             // 
+            this.icnButtonBar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.icnButtonBar.FlatAppearance.BorderSize = 0;
             this.icnButtonBar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.icnButtonBar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -336,7 +387,7 @@
             this.icnButtonBar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icnButtonBar.IconSize = 30;
             this.icnButtonBar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icnButtonBar.Location = new System.Drawing.Point(135, 1);
+            this.icnButtonBar.Location = new System.Drawing.Point(138, 56);
             this.icnButtonBar.Name = "icnButtonBar";
             this.icnButtonBar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icnButtonBar.Size = new System.Drawing.Size(57, 46);
@@ -348,11 +399,12 @@
             // 
             // lbNome
             // 
+            this.lbNome.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbNome.AutoSize = true;
             this.lbNome.BackColor = System.Drawing.Color.Transparent;
             this.lbNome.Font = new System.Drawing.Font("Book Antiqua", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.lbNome.ForeColor = System.Drawing.Color.Chocolate;
-            this.lbNome.Location = new System.Drawing.Point(16, 10);
+            this.lbNome.Location = new System.Drawing.Point(13, 66);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(113, 25);
             this.lbNome.TabIndex = 2;
@@ -644,35 +696,73 @@
             this.ddmFuncionario.IsMainMenu = false;
             this.ddmFuncionario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemCadastrarFuncionario,
-            this.itemBuscarFuncionario,
-            this.btnFuncionarioTrocarSenha});
+            this.itemBuscarFuncionario});
             this.ddmFuncionario.MenuItemHeight = 25;
             this.ddmFuncionario.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmFuncionario.Name = "rjDropdownMenu1";
             this.ddmFuncionario.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmFuncionario.Size = new System.Drawing.Size(181, 92);
+            this.ddmFuncionario.Size = new System.Drawing.Size(140, 48);
             // 
             // itemCadastrarFuncionario
             // 
             this.itemCadastrarFuncionario.ForeColor = System.Drawing.Color.Black;
             this.itemCadastrarFuncionario.Name = "itemCadastrarFuncionario";
-            this.itemCadastrarFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.itemCadastrarFuncionario.Size = new System.Drawing.Size(139, 22);
             this.itemCadastrarFuncionario.Text = "Cadastrar";
             this.itemCadastrarFuncionario.Click += new System.EventHandler(this.itemCadastrarFuncionario_Click);
             // 
             // itemBuscarFuncionario
             // 
             this.itemBuscarFuncionario.Name = "itemBuscarFuncionario";
-            this.itemBuscarFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.itemBuscarFuncionario.Size = new System.Drawing.Size(139, 22);
             this.itemBuscarFuncionario.Text = "Buscar";
             this.itemBuscarFuncionario.Click += new System.EventHandler(this.itemBuscarFuncionario_Click);
             // 
-            // btnFuncionarioTrocarSenha
+            // ddmUsuario
             // 
-            this.btnFuncionarioTrocarSenha.Name = "btnFuncionarioTrocarSenha";
-            this.btnFuncionarioTrocarSenha.Size = new System.Drawing.Size(180, 22);
-            this.btnFuncionarioTrocarSenha.Text = "Trocar senha";
-            this.btnFuncionarioTrocarSenha.Click += new System.EventHandler(this.btnFuncionarioTrocarSenha_Click);
+            this.ddmUsuario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddmUsuario.IsMainMenu = false;
+            this.ddmUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.btnTrocarSenha});
+            this.ddmUsuario.MenuItemHeight = 25;
+            this.ddmUsuario.MenuItemTextColor = System.Drawing.Color.Empty;
+            this.ddmUsuario.Name = "rjDropdownMenu1";
+            this.ddmUsuario.PrimaryColor = System.Drawing.Color.Empty;
+            this.ddmUsuario.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ddmUsuario.ShowImageMargin = false;
+            this.ddmUsuario.Size = new System.Drawing.Size(135, 70);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripMenuItem1.Checked = true;
+            this.toolStripMenuItem1.CheckOnClick = true;
+            this.toolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripMenuItem1.Enabled = false;
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem1.Text = "Nome";
+            this.toolStripMenuItem1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Enabled = false;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItem2.Text = "Função";
+            // 
+            // btnTrocarSenha
+            // 
+            this.btnTrocarSenha.AutoToolTip = true;
+            this.btnTrocarSenha.Name = "btnTrocarSenha";
+            this.btnTrocarSenha.Size = new System.Drawing.Size(134, 22);
+            this.btnTrocarSenha.Text = "Trocar Senha";
+            this.btnTrocarSenha.Click += new System.EventHandler(this.btnTrocarSenha_Click);
             // 
             // MenuControl
             // 
@@ -686,12 +776,16 @@
             this.Menu.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.pnlUser.ResumeLayout(false);
+            this.pnlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureUser)).EndInit();
             this.ddmLivro.ResumeLayout(false);
             this.ddmLeitor.ResumeLayout(false);
             this.ddmEmprestimo.ResumeLayout(false);
             this.ddmReserva.ResumeLayout(false);
             this.ddmRelatorio.ResumeLayout(false);
             this.ddmFuncionario.ResumeLayout(false);
+            this.ddmUsuario.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -747,6 +841,12 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrarLivro;
         private System.Windows.Forms.ToolStripMenuItem buscarLivro;
         private System.Windows.Forms.ToolStripMenuItem VisualizarReserva;
-        private System.Windows.Forms.ToolStripMenuItem btnFuncionarioTrocarSenha;
+        private System.Windows.Forms.Panel pnlUser;
+        private System.Windows.Forms.Label lblUser;
+        private RJCodeAdvance.RJControls.RJCircularPictureBox PictureUser;
+        private RJCodeAdvance.RJControls.RJDropdownMenu ddmUsuario;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem btnTrocarSenha;
     }
 }

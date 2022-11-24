@@ -35,8 +35,10 @@ namespace Biblioteca.View.Emprestimo {
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
+            this.singleton.clearEmprestimo();
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
+            CalendarDevolucap.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(15);
         }
         private void EmprestimoCadastroView_Activated(object sender, EventArgs e)
         {
@@ -79,12 +81,15 @@ namespace Biblioteca.View.Emprestimo {
                     dtGridViewExemplares.Rows[index].Selected = false;
                 }
             }
+            else
+            {
+                dtGridViewExemplares.DataSource = null;
+            }
         }
 
-        private void popularLeitor(List<LeitorModel> lista) {
-            if(lista.Count > 0 && lista[0] != null)
+        private void popularLeitor(LeitorModel leitor) {
+            if(leitor != null)
             {
-                LeitorModel leitor = lista[0];
                 lbNome.Text = leitor.Nome;
                 lbTelefone.Text = leitor.Telefone;
                 lbCpf.Text = leitor.CPF;
@@ -100,46 +105,61 @@ namespace Biblioteca.View.Emprestimo {
 
         private void btnBuscarLivros_Click(object sender, EventArgs e)
         {
-            EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
-            NovaJanela.novaJanela(livros, this.Bounds);
+            if(controller.QuantidadeDeExemplar() < 5)
+            {
+                EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
+                NovaJanela.novaJanela(livros, this.Bounds);
+            }
+            else
+            {
+                MessageBox.Show("Você só pode emprestar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
+            }
+            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             DateTime emprestimo = CalendarEmprestimo.Value.Date;
             DateTime devolucao = CalendarDevolucap.Value.Date;
+            DateTime hojeMais15 = (DateTime.UtcNow.ToLocalTime()).AddDays(15);
             String obs = TextObservacao.Text;
 
-
-            //if (dtGridViewExemplares.DataSource. > 5)
-            //{
-            //    Messagebox.show("você só pode emprestar 5 obras", "atenção", messageboxbuttons.ok);
-            //    lvlivros.focus();
-            //}
-            //else
-            //{
-            // Cadastra emprestimo
-            if (controller.Insercao(emprestimo, devolucao, obs))
+            if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
+            {
+                MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if(devolucao.Date > hojeMais15.Date)
+            {
+                MessageBox.Show("Prazo máximo de devolução é de 15 dias.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (devolucao < emprestimo)
+            {
+                MessageBox.Show("Data de devolução não pode ser menor que a data de empréstimo.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (dtGridViewExemplares.Rows.Count <= 0)
+            {
+                MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (controller.PegarLeitorEmprestimo() == null)
+            {
+                MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+            }
+            else
+            {
+                foreach (ExemplarModel exemplar in this.singleton.getExemplar())
                 {
-                    // Pega o ID do emprestimo cadastrado
-                    int idEmprestimo = controller.BuscarUltimoEmprestimo();
-
-                    // Cadastra no Item_emprestimo cada livro relacionando com o emprestimo
-                    foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                    if(controller.Insercao(emprestimo, devolucao, obs))
                     {
+                        int idEmprestimo = controller.BuscarUltimoEmprestimo();
                         controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
                     }
-
-                    this.singleton.clearEmprestimo();
-
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    this.Close();
                 }
-                else
-                {
-                    MessageBox.Show("Não foi possível realizar o empréstimo.", "Ateção", MessageBoxButtons.OK);
-                }
-            //}
+
+                this.singleton.clearEmprestimo();
+
+                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                this.Close();
+            }
         }
 
         private void IcnBtnVoltar_Click(object sender, EventArgs e)
@@ -148,6 +168,29 @@ namespace Biblioteca.View.Emprestimo {
             if (dialogResult == DialogResult.Yes)
             {
                 this.Close();
+            }
+        }
+
+        private void dtGridViewExemplares_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewExemplares.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string titulo = row.Cells[1].Value.ToString();
+                string autor = row.Cells[2].Value.ToString();
+                string edicao = row.Cells[3].Value.ToString();
+                string ano = row.Cells[4].Value.ToString();
+                string isbn = row.Cells[5].Value.ToString();
+                string editora = row.Cells[6].Value.ToString();
+
+                ExemplarModel exemplar = new ExemplarModel(id, titulo, autor, edicao, ano, isbn, editora);
+
+                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    controller.RemoverExemplarEmprestimo(exemplar);
+                    popularExemplar(controller.PegarExemplarEmprestimo());
+                }
             }
         }
     }
@@ -165,11 +208,6 @@ namespace Biblioteca.View.Emprestimo {
     //        );
 
 
-    //        DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-    //        if (dialogResult == DialogResult.Yes) {
-    //            controller.RemoverExemplarEmprestimo(exempar);
-    //            popularExemplar(controller.PegarExemplarEmprestimo());
-    //        }
     //    }
 
 

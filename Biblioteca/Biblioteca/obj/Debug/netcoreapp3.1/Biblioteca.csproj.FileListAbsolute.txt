@@ -81,6 +81,6 @@ C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programaçã
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Reserva.ReservaMesView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Emprestimo.EmprestimoVisualizarView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioTrocarSenhaView.resources
-C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Funcionario.FuncionarioSelecionarColaboradorView.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.Util.UsuarioControl.resources
 C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Login.RecuperarSenhaView.resources
+C:\Users\User\Documents\Estudos\Faculdade\4º Semestre\Linguagem de Programação II\Projeto final\Biblioteca\Biblioteca\obj\Debug\netcoreapp3.1\Biblioteca.View.Gráficos.GráficoView.resources

@@ -264,6 +264,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtGridViewExemplares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewExemplares.Size = new System.Drawing.Size(484, 182);
             this.dtGridViewExemplares.TabIndex = 101;
+            this.dtGridViewExemplares.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplares_CellDoubleClick);
             // 
             // label2
             // 

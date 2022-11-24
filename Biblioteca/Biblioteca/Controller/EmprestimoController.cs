@@ -29,7 +29,7 @@ namespace Biblioteca.Controller
             {
                 Cmd.Connection = connection.RetornaConexao();
 
-                Cmd.CommandText = @"INSERT INTO Emprestimo Values (@Emprestimo, @Devolucao, @Obs, @Leitor, @Funcionario, @Status, @Estado)";
+                Cmd.CommandText = @"INSERT INTO Emprestimo Values (@Emprestimo, @Devolucao, @Obs, @Leitor, @Funcionario, @Status)";
 
                 Cmd.Parameters.Clear();
                 Cmd.Parameters.AddWithValue("@Emprestimo", dataEmprestimo.ToString("yyyy-MM-dd"));
@@ -37,8 +37,7 @@ namespace Biblioteca.Controller
                 Cmd.Parameters.AddWithValue("@Obs", obs);
                 Cmd.Parameters.AddWithValue("@Leitor", this.singleton.getLeitor().getId());
                 Cmd.Parameters.AddWithValue("@Funcionario", 1);//this.singleton.getFuncionario().getId());
-                Cmd.Parameters.AddWithValue("@Status", 6);
-                Cmd.Parameters.AddWithValue("@Estado", 1);
+                Cmd.Parameters.AddWithValue("@Status", 1);
 
                 if (Cmd.ExecuteNonQuery() == 1)
                 {
@@ -83,20 +82,19 @@ namespace Biblioteca.Controller
             if (Cmd.Connection.State != System.Data.ConnectionState.Open)
                 Cmd.Connection.Open();
 
-            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@Exemplar, @Emprestimo)";
+            Cmd.CommandText = @"INSERT INTO Item_emprestimo Values (@Exemplar, @Emprestimo, @Status)";
 
             Cmd.Parameters.Clear();
             Cmd.Parameters.AddWithValue("@Exemplar", exemplar.getId());
             Cmd.Parameters.AddWithValue("@Emprestimo", idEmprestimo);
+            Cmd.Parameters.AddWithValue("@Status", 7);
 
             if (Cmd.ExecuteNonQuery() == 1)
             {
-                Cmd.Connection.Close();
                 return true;
             }
             else
             {
-                Cmd.Connection.Close();
                 return false;
             }
 
@@ -292,7 +290,14 @@ namespace Biblioteca.Controller
 								INNER JOIN Autor AS A ON (A.Id = L.Id_autor) 
 								INNER JOIN Edicao AS E ON (E.Id = Exemplar.Id_Edicao) 
                                 INNER JOIN Editora AS F ON (F.Id = L.Id_editora)
-                                WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "'"; //Livro.Titulo LIKE '%" + busca + "%' AND
+                                WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "' AND " +
+                                "Exemplar.Id NOT IN (" +
+                                    "SELECT Item_Emprestimo.Id_exemplar " +
+                                    "FROM Emprestimo " +
+                                    "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
+                                    "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
+                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                ") ORDER BY Exemplar.Id ASC";
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -367,12 +372,23 @@ namespace Biblioteca.Controller
 		                                Livro.Titulo,
 		                                Editora.Nome_Editora,
 		                                Autor.Nome_Autor,
-		                                Genero.Nome_Genero
-                                    FROM Livro
-                                    INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
-                                    INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
-                                    INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
-                                    WHERE Livro.Titulo LIKE '%" + busca + "%' AND Livro.Estado = 1 AND EXISTS(SELECT* FROM Exemplar WHERE Livro.id = Exemplar.Id_livro)";
+		                                Genero.Nome_Genero,
+		                                COUNT(Exemplar.Id) AS Disponivel
+                                FROM Livro
+                                INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                INNER JOIN Genero ON (Genero.Id = Livro.Id_Genero)
+                                INNER JOIN Exemplar ON (Exemplar.Id_livro = Livro.Id)
+                                WHERE Livro.Titulo LIKE '%" + busca + "%' AND Livro.Estado = 1 AND " +
+                                "EXISTS(SELECT* FROM Exemplar WHERE Livro.id = Exemplar.Id_livro) AND " +
+                                "Exemplar.Id NOT IN (" +
+                                    "SELECT Item_Emprestimo.Id_exemplar " +
+                                    "FROM Emprestimo " +
+                                    "INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id) " +
+                                    "WHERE (Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND " +
+                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8))" +
+                                "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
+                                    
 
 
             Cmd.Parameters.Clear();
@@ -389,8 +405,8 @@ namespace Biblioteca.Controller
                     (String)reader["Nome_Editora"],
                     (String)reader["Nome_Autor"],
                     (String)reader["Nome_Genero"]
-
                 );
+                livro.Disponiveis = (int)reader["Disponivel"];
                 lista.Add(livro);
             }
             reader.Close();
@@ -398,10 +414,33 @@ namespace Biblioteca.Controller
             return lista;
         }
 
-        public void InserirExemplarEmprestimo(ExemplarModel exemplar)
+        public int QuantidadeDeExemplar()
         {
-            this.singleton.setExemplar(exemplar);
-            this.singleton.setAddExemplar(true);
+            return this.singleton.getExemplar().Count;
+        }
+
+        public bool InserirExemplarEmprestimo(ExemplarModel exemplar)
+        {
+            bool inseriu = false;
+            List<ExemplarModel> exemplares = this.singleton.getExemplar();
+            for(int i = 0; i < exemplares.Count; i++)
+            {
+                if (exemplares[i].getId() == exemplar.getId())
+                {
+                    inseriu = true;
+                    break;
+                }
+            }
+            if (inseriu)
+            {
+                return false;
+            } 
+            else
+            {
+                this.singleton.setExemplar(exemplar);
+                this.singleton.setAddExemplar(true);
+                return true;
+            }
         }
 
         public List<ExemplarModel> PegarExemplarEmprestimo()
@@ -424,11 +463,9 @@ namespace Biblioteca.Controller
             this.singleton.setLeitor(null);
         }
 
-        public List<LeitorModel> PegarLeitorEmprestimo()
+        public LeitorModel PegarLeitorEmprestimo()
         {
-            List<LeitorModel> lista = new List<LeitorModel>();
-            lista.Add(this.singleton.getLeitor());
-            return lista;
+            return this.singleton.getLeitor();
         }
 
         public List<LeitorModel> ListarTodosLeitores()
@@ -695,6 +732,179 @@ namespace Biblioteca.Controller
                     (String)reader["Status"]
                 );
                 lista.Add(leitor);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public int BuscarPrimeiroExemplar(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Exemplar WHERE Id_livro = '"+id+"' AND Estado = 1 ORDER BY Id ASC OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                int idExemplar = (int)reader["Id"];
+                reader.Close();
+                return idExemplar;
+            }
+
+            return 0;
+        }
+
+        public List<ExemplarModel> BuscarExemplar(int idLivro, string busca, bool isCodigo = false, bool isAno = false, bool isIsbn = false, bool isEdicao = false)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            if (isCodigo)
+            {
+                Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Livro.Id = '" + idLivro + "' AND Exemplar.Id LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN (" +
+                                            "SELECT Item_Emprestimo.Id_exemplar " +
+                                            "FROM Emprestimo " +
+                                            "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
+                                            "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                        ")";
+            }
+
+            if (isAno)
+            {
+                Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Livro.Id = '" + idLivro + "' AND Exemplar.Ano LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN (" +
+                                            "SELECT Item_Emprestimo.Id_exemplar " +
+                                            "FROM Emprestimo " +
+                                            "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
+                                            "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                        ")";
+            }
+
+            if (isIsbn)
+            {
+                Cmd.CommandText =
+                Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Livro.Id = '" + idLivro + "' AND Exemplar.ISBN LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN (" +
+                                            "SELECT Item_Emprestimo.Id_exemplar " +
+                                            "FROM Emprestimo " +
+                                            "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
+                                            "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                        ")";
+            }
+            if (isEdicao)
+            {
+                Cmd.CommandText =
+                Cmd.CommandText = @"SELECT	Exemplar.Id,
+		                                        Livro.Titulo,
+		                                        Autor.Nome_Autor,
+		                                        Edicao.Nome_Edicao,
+		                                        Editora.Nome_Editora,
+		                                        Genero.Nome_Genero,
+		                                        Exemplar.Data_Aquisicao,
+		                                        Exemplar.ISBN,
+		                                        Exemplar.Ano,
+		                                        Exemplar.Valor,
+		                                        Exemplar.Estado
+                                        From Exemplar
+                                        INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                        INNER JOIN Autor ON (Autor.Id = Livro.Id_autor)
+                                        INNER JOIN Edicao ON (Edicao.Id = Exemplar.Id_Edicao)
+                                        INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
+                                        INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
+                                        WHERE Livro.Id = '" + idLivro + "' AND Edicao.Nome_Edicao LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN (" +
+                                            "SELECT Item_Emprestimo.Id_exemplar " +
+                                            "FROM Emprestimo " +
+                                            "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
+                                            "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                        ")";
+
+
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ExemplarModel> lista = new List<ExemplarModel>();
+
+            while (reader.Read())
+            {
+                string valorString = Convert.ToString(reader["Valor"]);
+                valorString.Replace(",", ".");
+                float valor = float.Parse(valorString);
+                ExemplarModel exemplar = new ExemplarModel(
+                    (int)reader["Id"],
+                    (string)reader["Titulo"],
+                    (string)reader["Nome_Edicao"],
+                    (DateTime)reader["Data_Aquisicao"],
+                    (string)reader["Ano"],
+                    (string)reader["ISBN"],
+                    (string)reader["Nome_Editora"],
+                    (string)reader["Nome_Autor"],
+                    (string)reader["Nome_Genero"],
+                    valor,
+                    (int)reader["Estado"]
+
+                );
+                lista.Add(exemplar);
             }
             reader.Close();
 

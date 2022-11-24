@@ -40,6 +40,7 @@ namespace Biblioteca.View.Emprestimo {
         private void popular(List<LivroModel> lista) {
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Disponíveis", typeof(int));
             table.Columns.Add("Título", typeof(string));
             table.Columns.Add("Autor", typeof(string));
             table.Columns.Add("Editora", typeof(string));
@@ -51,10 +52,11 @@ namespace Biblioteca.View.Emprestimo {
                 {
 
                     table.Rows.Add(livros.getId(),
+                                   livros.Disponiveis,
                                    livros.Titulo,
                                    livros.NomeAutor,
                                    livros.NomeEditora,
-                                   livros.NomeGenero);
+                                   livros.NomeGenero);  
                 }
                 dtGridViewLivros.DataSource = table;
                 int index = dtGridViewLivros.SelectedRows[0].Index;

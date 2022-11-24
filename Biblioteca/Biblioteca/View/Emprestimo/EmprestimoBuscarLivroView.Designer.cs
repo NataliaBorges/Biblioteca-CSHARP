@@ -190,7 +190,6 @@ namespace Biblioteca.View.Emprestimo {
             this.dtGridViewLivros.GridColor = System.Drawing.Color.SaddleBrown;
             this.dtGridViewLivros.Location = new System.Drawing.Point(48, 136);
             this.dtGridViewLivros.Name = "dtGridViewLivros";
-            this.dtGridViewLivros.ReadOnly = true;
             this.dtGridViewLivros.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;

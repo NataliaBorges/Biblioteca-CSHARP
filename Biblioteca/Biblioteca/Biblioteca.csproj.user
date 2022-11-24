@@ -76,9 +76,6 @@
     <Compile Update="View\Funcionario\FuncionarioEditarView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="View\Funcionario\FuncionarioSelecionarColaboradorView.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="View\Funcionario\FuncionarioTrocarSenhaView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +83,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Genero\GeneroCadastrarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Gráficos\GráficoView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\Leitor\LeitorBuscarView.cs">

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.panelTituloBar = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rjCircularPictureBox1 = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             this.pnlMaxmin = new System.Windows.Forms.Panel();
             this.icButtonFechar = new FontAwesome.Sharp.IconButton();
             this.icButtonMin = new FontAwesome.Sharp.IconButton();
@@ -44,8 +41,6 @@
             this.iconButtonMinimizar = new FontAwesome.Sharp.IconButton();
             this.iconButtonMaximizar = new FontAwesome.Sharp.IconButton();
             this.panelTituloBar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).BeginInit();
             this.pnlMaxmin.SuspendLayout();
             this.pnlUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUser)).BeginInit();
@@ -55,7 +50,6 @@
             // panelTituloBar
             // 
             this.panelTituloBar.BackColor = System.Drawing.Color.Black;
-            this.panelTituloBar.Controls.Add(this.panel1);
             this.panelTituloBar.Controls.Add(this.pnlMaxmin);
             this.panelTituloBar.Controls.Add(this.pnlUser);
             this.panelTituloBar.Controls.Add(this.pnlWindows);
@@ -66,43 +60,6 @@
             this.panelTituloBar.Size = new System.Drawing.Size(1063, 37);
             this.panelTituloBar.TabIndex = 2;
             this.panelTituloBar.Resize += new System.EventHandler(this.panelTituloBar_Resize_1);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.rjCircularPictureBox1);
-            this.panel1.Location = new System.Drawing.Point(918, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(40, 39);
-            this.panel1.TabIndex = 9;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(19, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "L";
-            // 
-            // rjCircularPictureBox1
-            // 
-            this.rjCircularPictureBox1.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.rjCircularPictureBox1.BorderColor = System.Drawing.Color.Chocolate;
-            this.rjCircularPictureBox1.BorderColor2 = System.Drawing.Color.Sienna;
-            this.rjCircularPictureBox1.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.rjCircularPictureBox1.BorderSize = 2;
-            this.rjCircularPictureBox1.GradientAngle = 50F;
-            this.rjCircularPictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.rjCircularPictureBox1.Name = "rjCircularPictureBox1";
-            this.rjCircularPictureBox1.Size = new System.Drawing.Size(39, 39);
-            this.rjCircularPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.rjCircularPictureBox1.TabIndex = 4;
-            this.rjCircularPictureBox1.TabStop = false;
             // 
             // pnlMaxmin
             // 
@@ -271,10 +228,8 @@
             this.Controls.Add(this.panelTituloBar);
             this.Name = "Head";
             this.Size = new System.Drawing.Size(1063, 37);
+            this.Load += new System.EventHandler(this.Head_Load);
             this.panelTituloBar.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rjCircularPictureBox1)).EndInit();
             this.pnlMaxmin.ResumeLayout(false);
             this.pnlUser.ResumeLayout(false);
             this.pnlUser.PerformLayout();
@@ -294,9 +249,6 @@
         private FontAwesome.Sharp.IconButton iconButtonFechar;
         private FontAwesome.Sharp.IconButton iconButtonMinimizar;
         private FontAwesome.Sharp.IconButton iconButtonMaximizar;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private RJCodeAdvance.RJControls.RJCircularPictureBox rjCircularPictureBox1;
         private System.Windows.Forms.Panel pnlMaxmin;
         private FontAwesome.Sharp.IconButton icButtonFechar;
         private FontAwesome.Sharp.IconButton icButtonMin;

@@ -94,6 +94,10 @@ namespace Biblioteca.Util
             ddmFuncionario.IsMainMenu = true;
             ddmFuncionario.PrimaryColor = Color.Chocolate;
             ddmFuncionario.MenuItemTextColor = Color.Chocolate;
+
+            ddmUsuario.IsMainMenu = true;
+            ddmUsuario.PrimaryColor = Color.Chocolate;
+            ddmUsuario.MenuItemTextColor = Color.Chocolate;
         }
         private void FecharMenu()
         {
@@ -107,7 +111,8 @@ namespace Biblioteca.Util
                 }
                 this.Width = (int)100F;
                 lbNome.Visible = false;
-                icnButtonBar.Dock = DockStyle.Fill;
+                pnlUser.Dock = DockStyle.Top;
+                icnButtonBar.Dock = DockStyle.Bottom;
                 foreach (Button menuButton in this.Menu.Controls.OfType<Button>())
                 {
                     menuButton.Text = "";
@@ -134,33 +139,89 @@ namespace Biblioteca.Util
         }
         //Buttons da tela
 
+        private void lblUser_Click(object sender, EventArgs e)
+        {
+            if (this.Width > 100)
+            {
+                ddmUsuario.Show(lblUser, 115, 0);
+            }
+            else
+            {
+                ddmUsuario.Show(lblUser, 50, 0);
+            }
+        }
+
         private void BtnLivro_Click(object sender, EventArgs e)
         {
-            ddmLivro.Show(btnLivro, ddmLivro.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmLivro.Show(btnLivro,  167, 0);
+            }
+            else
+            {
+                ddmLivro.Show(btnLivro, 67, 0);
+            }
+                
         }
         private void BtnLeitor_Click(object sender, EventArgs e)
         {
-            ddmLeitor.Show(btnLeitor, ddmLeitor.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmLeitor.Show(btnLeitor, 167, 0);
+            }
+            else
+            {
+                ddmLeitor.Show(btnLeitor, 67, 0);
+            }
+            
         }
 
         private void BtnEmprestimo_Click(object sender, EventArgs e)
         {
-            ddmEmprestimo.Show(btnEmprestimo, ddmEmprestimo.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmEmprestimo.Show(btnEmprestimo, 167, 0);
+            }
+            else
+            {
+                ddmEmprestimo.Show(btnEmprestimo, 67, 0);
+            }
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
-            ddmReserva.Show(btnReserva, ddmReserva.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmReserva.Show(btnReserva, 167, 0);
+            }
+            else
+            {
+                ddmReserva.Show(btnReserva, 67, 0);
+            }
         }
 
         private void btnRelatório_Click(object sender, EventArgs e)
         {
-            ddmRelatorio.Show(btnRelatório, ddmRelatorio.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmRelatorio.Show(btnRelatório, 167, 0);
+            }
+            else
+            {
+                ddmRelatorio.Show(btnRelatório, 67, 0);
+            }
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
-            ddmFuncionario.Show(btnFuncionario, ddmFuncionario.Width, 0);
+            if (this.Width > 100)
+            {
+                ddmFuncionario.Show(btnFuncionario, 167, 0);
+            }
+            else
+            {
+                ddmFuncionario.Show(btnFuncionario, 67, 0);
+            }
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -356,7 +417,8 @@ namespace Biblioteca.Util
             NovaJanela.novaJanela(relatorioReservaView, Bounds);
         }
 
-        private void btnFuncionarioTrocarSenha_Click(object sender, EventArgs e)
+
+        private void btnTrocarSenha_Click(object sender, EventArgs e)
         {
             FuncionarioTrocarSenhaView funcionarioTrocarSenhaView = new FuncionarioTrocarSenhaView();
             NovaJanela.novaJanela(funcionarioTrocarSenhaView, Bounds);
