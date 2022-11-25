@@ -49,27 +49,14 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.labelNome = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lbDataReserva = new System.Windows.Forms.Label();
-            this.lbDataRetirada = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbCancelar = new System.Windows.Forms.RadioButton();
-            this.rbDevolver = new System.Windows.Forms.RadioButton();
-            this.rbInutilizar = new System.Windows.Forms.RadioButton();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -148,8 +135,6 @@
             this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 116);
@@ -165,7 +150,7 @@
             this.groupBox4.ForeColor = System.Drawing.Color.White;
             this.groupBox4.Location = new System.Drawing.Point(165, 155);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(791, 234);
+            this.groupBox4.Size = new System.Drawing.Size(791, 300);
             this.groupBox4.TabIndex = 139;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "LIVRO(S)";
@@ -215,7 +200,7 @@
             this.dtGridViewLivrosEmprestimo.RowHeadersVisible = false;
             this.dtGridViewLivrosEmprestimo.RowTemplate.Height = 25;
             this.dtGridViewLivrosEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(785, 208);
+            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(785, 274);
             this.dtGridViewLivrosEmprestimo.TabIndex = 30;
             // 
             // groupBox3
@@ -231,7 +216,7 @@
             this.groupBox3.Controls.Add(this.labelNome);
             this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(165, 16);
+            this.groupBox3.Location = new System.Drawing.Point(332, 10);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(488, 139);
             this.groupBox3.TabIndex = 138;
@@ -326,100 +311,6 @@
             this.labelNome.TabIndex = 17;
             this.labelNome.Text = "Nome:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.lbDataReserva);
-            this.groupBox2.Controls.Add(this.lbDataRetirada);
-            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(659, 16);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(297, 139);
-            this.groupBox2.TabIndex = 137;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "DATAS";
-            // 
-            // lbDataReserva
-            // 
-            this.lbDataReserva.AutoSize = true;
-            this.lbDataReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbDataReserva.ForeColor = System.Drawing.Color.White;
-            this.lbDataReserva.Location = new System.Drawing.Point(41, 42);
-            this.lbDataReserva.Name = "lbDataReserva";
-            this.lbDataReserva.Size = new System.Drawing.Size(110, 21);
-            this.lbDataReserva.TabIndex = 15;
-            this.lbDataReserva.Text = "Data Reserva:";
-            // 
-            // lbDataRetirada
-            // 
-            this.lbDataRetirada.AutoSize = true;
-            this.lbDataRetirada.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbDataRetirada.ForeColor = System.Drawing.Color.White;
-            this.lbDataRetirada.Location = new System.Drawing.Point(75, 77);
-            this.lbDataRetirada.Name = "lbDataRetirada";
-            this.lbDataRetirada.Size = new System.Drawing.Size(76, 21);
-            this.lbDataRetirada.TabIndex = 10;
-            this.lbDataRetirada.Text = "Retirada:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.rbCancelar);
-            this.groupBox1.Controls.Add(this.rbDevolver);
-            this.groupBox1.Controls.Add(this.rbInutilizar);
-            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(165, 393);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(329, 135);
-            this.groupBox1.TabIndex = 136;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "STATUS";
-            // 
-            // rbCancelar
-            // 
-            this.rbCancelar.AutoSize = true;
-            this.rbCancelar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbCancelar.ForeColor = System.Drawing.Color.White;
-            this.rbCancelar.Location = new System.Drawing.Point(36, 61);
-            this.rbCancelar.Name = "rbCancelar";
-            this.rbCancelar.Size = new System.Drawing.Size(89, 24);
-            this.rbCancelar.TabIndex = 127;
-            this.rbCancelar.TabStop = true;
-            this.rbCancelar.Text = "Cancelar";
-            this.rbCancelar.UseVisualStyleBackColor = true;
-            // 
-            // rbDevolver
-            // 
-            this.rbDevolver.AutoSize = true;
-            this.rbDevolver.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbDevolver.ForeColor = System.Drawing.Color.White;
-            this.rbDevolver.Location = new System.Drawing.Point(36, 31);
-            this.rbDevolver.Name = "rbDevolver";
-            this.rbDevolver.Size = new System.Drawing.Size(93, 24);
-            this.rbDevolver.TabIndex = 125;
-            this.rbDevolver.TabStop = true;
-            this.rbDevolver.Text = "Devolver";
-            this.rbDevolver.UseVisualStyleBackColor = true;
-            // 
-            // rbInutilizar
-            // 
-            this.rbInutilizar.AutoSize = true;
-            this.rbInutilizar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbInutilizar.ForeColor = System.Drawing.Color.White;
-            this.rbInutilizar.Location = new System.Drawing.Point(36, 91);
-            this.rbInutilizar.Name = "rbInutilizar";
-            this.rbInutilizar.Size = new System.Drawing.Size(93, 24);
-            this.rbInutilizar.TabIndex = 128;
-            this.rbInutilizar.TabStop = true;
-            this.rbInutilizar.Text = "Inutilizar";
-            this.rbInutilizar.UseVisualStyleBackColor = true;
-            // 
             // btnSalvar
             // 
             this.btnSalvar.BackColor = System.Drawing.Color.Olive;
@@ -442,48 +333,6 @@
             this.head1.Size = new System.Drawing.Size(1105, 37);
             this.head1.TabIndex = 0;
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(167, 50);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(101, 24);
-            this.radioButton1.TabIndex = 129;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Emprestar";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(167, 80);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(87, 24);
-            this.radioButton2.TabIndex = 130;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Renovar";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(157, 37);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 27);
-            this.dateTimePicker1.TabIndex = 16;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(157, 72);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(134, 27);
-            this.dateTimePicker2.TabIndex = 17;
-            // 
             // EmprestimoVisualizarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -505,10 +354,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -532,18 +377,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label labelNome;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbDataReserva;
-        private System.Windows.Forms.Label lbDataRetirada;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton rbCancelar;
-        private System.Windows.Forms.RadioButton rbDevolver;
-        private System.Windows.Forms.RadioButton rbInutilizar;
         private System.Windows.Forms.Button btnSalvar;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.RadioButton radioButton2;
     }
 }

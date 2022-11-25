@@ -173,7 +173,7 @@ namespace Biblioteca.Controller
         public List<EmprestimoPesquisaModel> ListarTodosBusca()
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT E.Id, L.Nome_Leitor, Li.Titulo, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, SE.Nome_Status
+            Cmd.CommandText = @"SELECT E.Id, L.Nome_Leitor, Li.Titulo, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, SE.Nome_Status
                                     FROM Emprestimo as E
                                     INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
                                     INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
@@ -181,12 +181,6 @@ namespace Biblioteca.Controller
 			                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
 			                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
 									INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)";
-            //SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.status
-            //FROM Emprestimo as E
-            //INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-            //INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-            //INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-            //INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
@@ -195,6 +189,11 @@ namespace Biblioteca.Controller
 
             while (reader.Read())
             {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(6))
+                {
+                    finalizado = (DateTime)reader["Data_Finalizado"];
+                }
                 EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
                     (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
@@ -202,6 +201,7 @@ namespace Biblioteca.Controller
                     (String)reader["Nome_funcionario"],
                     (DateTime)reader["Data_emprestimo"],
                     (DateTime)reader["Data_devolucao"],
+                    finalizado,
                     (String)reader["Nome_Status"]
                 );
                 lista.Add(pesquisa);
@@ -296,7 +296,7 @@ namespace Biblioteca.Controller
                                     "FROM Emprestimo " +
                                     "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
                                     "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
-                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)" +
                                 ") ORDER BY Exemplar.Id ASC";
             Cmd.Parameters.Clear();
 
@@ -386,7 +386,7 @@ namespace Biblioteca.Controller
                                     "FROM Emprestimo " +
                                     "INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id) " +
                                     "WHERE (Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND " +
-                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8))" +
+                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7))" +
                                 "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
                                     
 
@@ -564,38 +564,6 @@ namespace Biblioteca.Controller
 
             return lista;
         }
-        public List<EmprestimoPesquisaModel> BuscarCodigo(string busca, bool isCodigo = false)
-        {
-            Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
-                                    FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-                                    INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-                                    WHERE E.ID_emprestimo LIKE '" + busca + "%'";
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
-
-            while (reader.Read())
-            {
-                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-                    (int)reader["ID_emprestimo"],
-                    (String)reader["Nome_Leitor"],
-                    (String)reader["Nome_Livro"],
-                    (String)reader["Nome_funcionario"],
-                    (DateTime)reader["Data_devolucao"],
-                    (DateTime)reader["Data_emprestimo"],
-                    (String)reader["Status"]
-                );
-                lista.Add(pesquisa);
-            }
-            reader.Close();
-
-            return lista;
-        }
         public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false, bool isCodigo = false)
         {
             Cmd.Connection = connection.RetornaConexao();
@@ -647,6 +615,7 @@ namespace Biblioteca.Controller
                     (String)reader["Nome_funcionario"],
                     (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
+                    (DateTime)reader["Data_Finalizado"],
                     (String)reader["Status"]
                 );
                 lista.Add(pesquisa);
@@ -785,7 +754,7 @@ namespace Biblioteca.Controller
                                             "FROM Emprestimo " +
                                             "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
                                             "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
-                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)" +
                                         ")";
             }
 
@@ -814,7 +783,7 @@ namespace Biblioteca.Controller
                                             "FROM Emprestimo " +
                                             "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
                                             "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
-                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)" +
                                         ")";
             }
 
@@ -844,7 +813,7 @@ namespace Biblioteca.Controller
                                             "FROM Emprestimo " +
                                             "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
                                             "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
-                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)" +
                                         ")";
             }
             if (isEdicao)
@@ -873,7 +842,7 @@ namespace Biblioteca.Controller
                                             "FROM Emprestimo " +
                                             "INNER JOIN Item_Emprestimo ON(Item_Emprestimo.Id_emprestimo = Emprestimo.Id)" +
                                             "WHERE(Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND" +
-                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7 OR Item_Emprestimo.Id_Status = 8)" +
+                                            "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)" +
                                         ")";
 
 

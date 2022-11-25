@@ -109,11 +109,6 @@ namespace Biblioteca.View.Emprestimo {
         {
             foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
             {
-                //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-                //    if (int.Parse(item.SubItems[1].Text) == 0) {
-                //        MessageBox.Show("Este livro está indisponível no momento.", "", MessageBoxButtons.OK);
-                //    }
-
                 int id = int.Parse(row.Cells[0].Value.ToString());
 
                 EmprestimoBuscarExemplarView livros = new EmprestimoBuscarExemplarView(id);

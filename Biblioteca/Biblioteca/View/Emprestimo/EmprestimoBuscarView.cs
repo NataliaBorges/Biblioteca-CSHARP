@@ -14,6 +14,7 @@ namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoBuscarView : Form {
 
         EmprestimoController controller = new EmprestimoController();
+        EmprestimoPesquisaModel emprestimo;
 
         public EmprestimoBuscarView() {
             InitializeComponent();
@@ -26,6 +27,9 @@ namespace Biblioteca.View.Emprestimo {
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
+            cbStatusEmprestimo.Text = "Todos";
+            cbStatusExemplar.Text = "Todos";
+
             List<EmprestimoPesquisaModel> lista = controller.ListarTodosBusca();
             popular(lista);
         }
@@ -36,7 +40,8 @@ namespace Biblioteca.View.Emprestimo {
             table.Columns.Add("Leitor", typeof(string));
             table.Columns.Add("Livro", typeof(string));
             table.Columns.Add("Funcionário", typeof(string));
-            table.Columns.Add("Emprestimo", typeof(string));
+            table.Columns.Add("Empréstimo", typeof(string));
+            table.Columns.Add("Previsto", typeof(string));
             table.Columns.Add("Devolução", typeof(string));
             table.Columns.Add("Status", typeof(string));
 
@@ -44,13 +49,18 @@ namespace Biblioteca.View.Emprestimo {
             {
                 foreach (EmprestimoPesquisaModel emprestimo in lista)
                 {
-
+                    String finalizado = "          -";
+                    if (emprestimo.Data_finalizado.HasValue)
+                    {
+                        finalizado = emprestimo.Data_finalizado?.ToString("dd/MM/yyyy");
+                    }
                     table.Rows.Add(emprestimo.ID_emprestimo,
                                     emprestimo.Nome_Leitor,
                                     emprestimo.Nome_Livro,
                                     emprestimo.Nome_funcionario,
                                     emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"),
                                     emprestimo.Data_devolucao.ToString("dd/MM/yyyy"),
+                                    finalizado,
                                     emprestimo.Status);
                 }
                 dtGridViewEmprestimo.DataSource = table;
@@ -75,9 +85,14 @@ namespace Biblioteca.View.Emprestimo {
                 string funcionario = row.Cells[3].Value.ToString();
                 DateTime emprestimo = DateTime.Parse(row.Cells[4].Value.ToString());
                 DateTime devolucao = DateTime.Parse(row.Cells[5].Value.ToString());
-                string status = row.Cells[6].Value.ToString();
+                Nullable<DateTime> finalizado = null;
+                if (row.Cells[6].Value.ToString() != "          -")
+                {
+                    finalizado = DateTime.Parse(row.Cells[6].Value.ToString());
+                }
+                string status = row.Cells[7].Value.ToString();
 
-                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(id,leitor,livro,funcionario,emprestimo,devolucao,status);
+                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(id,leitor,livro,funcionario,emprestimo,devolucao,finalizado, status);
 
             }
         }
@@ -88,42 +103,52 @@ namespace Biblioteca.View.Emprestimo {
             NovaJanela.novaJanela(emprestimoVisualizarView, Bounds);
         }
 
-        //private void btnSalvar_Click(object sender, EventArgs e) {
-        //    String busca = tbBuscar.Text;
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
-        //    if (rbLivro.Checked) {
-        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLivro: true);
-        //        popular(lista);
-        //    }
+        private void buscar(List<EmprestimoPesquisaModel> lista)
+        {
 
-        //    if (rbLeitor.Checked) {
-        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLeitor: true);
-        //        popular(lista);
-        //    }
-        //    if (rbCodigo.Checked) {
-        //        List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isCodigo: true);
-        //        popular(lista);
-        //    }
-        //}
+            if (lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewEmprestimo.DataSource = null;
+            }
+        }
 
-        //private void lvEmprestimo_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = lvEmprestimo.Items[lvEmprestimo.FocusedItem.Index];
-        //    EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-        //            int.Parse(item.SubItems[0].Text),
-        //            item.SubItems[1].Text,
-        //            item.SubItems[2].Text,
-        //            item.SubItems[3].Text,
-        //            DateTime.Parse(item.SubItems[4].Text),
-        //            DateTime.Parse(item.SubItems[5].Text),
-        //            item.SubItems[6].Text
-        //        );
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            this.emprestimo = null;
+            String busca = tbBuscar.Text;
 
-        //    EmprestimoExcluirView editar = new EmprestimoExcluirView(pesquisa);
-        //    NovaJanela.novaJanela(editar, this.Bounds);
-        //}
+            if (busca.Length > 0)
+            {
+                lblNotFound.Visible = false;
 
-        //private void btnExcluir_Click(object sender, EventArgs e) {
-        //    this.Close();
-        //}
+                List<EmprestimoPesquisaModel> lista = controller.Buscar(busca, isLivro: true);
+                buscar(lista);
+            }
+            else if (tbBuscar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewEmprestimo.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewEmprestimo.DataSource = null;
+            }
+        }
     }
 }
