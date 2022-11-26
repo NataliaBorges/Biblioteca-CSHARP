@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoVisualizarView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
@@ -39,7 +39,6 @@
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dtGridViewLivrosEmprestimo = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lbTelefone = new System.Windows.Forms.Label();
             this.lbEmail = new System.Windows.Forms.Label();
@@ -51,12 +50,13 @@
             this.labelNome = new System.Windows.Forms.Label();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
+            this.dtGridViewLivrosEmprestimo = new System.Windows.Forms.DataGridView();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).BeginInit();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -118,6 +118,7 @@
             this.icbtnVoltar.Tag = "";
             this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -144,64 +145,17 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.groupBox4.Controls.Add(this.dtGridViewLivrosEmprestimo);
             this.groupBox4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(165, 155);
+            this.groupBox4.Location = new System.Drawing.Point(22, 155);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(791, 300);
+            this.groupBox4.Size = new System.Drawing.Size(1055, 300);
             this.groupBox4.TabIndex = 139;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "LIVRO(S)";
-            // 
-            // dtGridViewLivrosEmprestimo
-            // 
-            this.dtGridViewLivrosEmprestimo.AllowUserToAddRows = false;
-            this.dtGridViewLivrosEmprestimo.AllowUserToDeleteRows = false;
-            this.dtGridViewLivrosEmprestimo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridViewLivrosEmprestimo.BackgroundColor = System.Drawing.Color.Black;
-            this.dtGridViewLivrosEmprestimo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewLivrosEmprestimo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGridViewLivrosEmprestimo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosEmprestimo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewLivrosEmprestimo.ColumnHeadersHeight = 30;
-            this.dtGridViewLivrosEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewLivrosEmprestimo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewLivrosEmprestimo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtGridViewLivrosEmprestimo.EnableHeadersVisualStyles = false;
-            this.dtGridViewLivrosEmprestimo.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLivrosEmprestimo.Location = new System.Drawing.Point(3, 23);
-            this.dtGridViewLivrosEmprestimo.Name = "dtGridViewLivrosEmprestimo";
-            this.dtGridViewLivrosEmprestimo.ReadOnly = true;
-            this.dtGridViewLivrosEmprestimo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewLivrosEmprestimo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridViewLivrosEmprestimo.RowHeadersVisible = false;
-            this.dtGridViewLivrosEmprestimo.RowTemplate.Height = 25;
-            this.dtGridViewLivrosEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(785, 274);
-            this.dtGridViewLivrosEmprestimo.TabIndex = 30;
             // 
             // groupBox3
             // 
@@ -318,7 +272,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(784, 461);
+            this.btnSalvar.Location = new System.Drawing.Point(908, 458);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(169, 47);
             this.btnSalvar.TabIndex = 135;
@@ -332,6 +286,53 @@
             this.head1.Name = "head1";
             this.head1.Size = new System.Drawing.Size(1105, 37);
             this.head1.TabIndex = 0;
+            // 
+            // dtGridViewLivrosEmprestimo
+            // 
+            this.dtGridViewLivrosEmprestimo.AllowUserToAddRows = false;
+            this.dtGridViewLivrosEmprestimo.AllowUserToDeleteRows = false;
+            this.dtGridViewLivrosEmprestimo.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewLivrosEmprestimo.BackgroundColor = System.Drawing.Color.Black;
+            this.dtGridViewLivrosEmprestimo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewLivrosEmprestimo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewLivrosEmprestimo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosEmprestimo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtGridViewLivrosEmprestimo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewLivrosEmprestimo.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dtGridViewLivrosEmprestimo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtGridViewLivrosEmprestimo.EnableHeadersVisualStyles = false;
+            this.dtGridViewLivrosEmprestimo.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewLivrosEmprestimo.Location = new System.Drawing.Point(3, 23);
+            this.dtGridViewLivrosEmprestimo.Name = "dtGridViewLivrosEmprestimo";
+            this.dtGridViewLivrosEmprestimo.ReadOnly = true;
+            this.dtGridViewLivrosEmprestimo.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewLivrosEmprestimo.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dtGridViewLivrosEmprestimo.RowHeadersVisible = false;
+            this.dtGridViewLivrosEmprestimo.RowTemplate.Height = 25;
+            this.dtGridViewLivrosEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(1049, 274);
+            this.dtGridViewLivrosEmprestimo.TabIndex = 31;
             // 
             // EmprestimoVisualizarView
             // 
@@ -351,9 +352,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivrosEmprestimo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -367,7 +368,6 @@
         private Util.Head head1;
         private System.Windows.Forms.Label lblCadastroLivro;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridView dtGridViewLivrosEmprestimo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lbTelefone;
         private System.Windows.Forms.Label lbEmail;
@@ -379,5 +379,6 @@
         private System.Windows.Forms.Label labelNome;
         private System.Windows.Forms.Button btnSalvar;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
+        private System.Windows.Forms.DataGridView dtGridViewLivrosEmprestimo;
     }
 }

@@ -738,25 +738,27 @@ namespace Biblioteca.Controller
             {
                 if(statusEmprestimo == "Todos")
                 {
-                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
 	                                       Leitor.CPF,
 	                                       COUNT(Emprestimo.Id) AS Total
                                     FROM Leitor
                                     INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
                                     INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
                                     WHERE Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
-                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
                 }
                 else
                 {
-                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
 	                                       Leitor.CPF,
 	                                       COUNT(Emprestimo.Id) AS Total
                                     FROM Leitor
                                     INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
                                     INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
-                                    WHERE Status_Emprestimo.Nome_Status = '"+statusEmprestimo+"' AND Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
-                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                                    WHERE Status_Emprestimo.Nome_Status = '" + statusEmprestimo+"' AND Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
                 }
             }
 
@@ -764,25 +766,27 @@ namespace Biblioteca.Controller
             {
                 if (statusEmprestimo == "Todos")
                 {
-                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
 	                                       Leitor.CPF,
 	                                       COUNT(Emprestimo.Id) AS Total
                                     FROM Leitor
                                     INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
                                     INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
                                     WHERE Leitor.CPF LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
-                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
                 }
                 else
                 {
-                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
 	                                       Leitor.CPF,
 	                                       COUNT(Emprestimo.Id) AS Total
                                     FROM Leitor
                                     INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
                                     INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
                                     WHERE Status_Emprestimo.Nome_Status = '" + statusEmprestimo + "' AND Leitor.CPF LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
-                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
                 }
             }
 
@@ -795,6 +799,7 @@ namespace Biblioteca.Controller
             while (reader.Read())
             {
                 EmprestimoPesquisaLeitorModel pesquisa = new EmprestimoPesquisaLeitorModel(
+                    (int)reader["Id"],
                     (String)reader["Nome_Leitor"],
                     (String)reader["CPF"],
                     (int)reader["Total"]
@@ -1055,6 +1060,140 @@ namespace Biblioteca.Controller
 
                 );
                 lista.Add(exemplar);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public LeitorModel BuscaLeitorEmprestimoPorId(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Leitor Where Id = '"+id+"'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            LeitorModel leitor = null;
+
+            while (reader.Read())
+            {
+                leitor = new LeitorModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Leitor"],
+                    (DateTime)reader["Data_Nascimento"],
+                    (String)reader["Telefone"],
+                    (String)reader["CPF"],
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
+                );
+            }
+            reader.Close();
+
+            return leitor;
+        }
+
+        public EmprestimoModel BuscaEmprestimoPorId(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Emprestimo Where Id = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            EmprestimoModel emprestimo = null;
+
+            while (reader.Read())
+            {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(7))
+                {
+                    finalizado = (DateTime)reader["Data_Finalizado"];
+                }
+                emprestimo = new EmprestimoModel(
+                    (int)reader["Id"],
+                    (DateTime)reader["Data_Emprestimo"],
+                    (DateTime)reader["Data_Devolucao"],
+                    (String)reader["Obs_Emprestimo"],
+                    (int)reader["Id_leitor"],
+                    (int)reader["Id_funcionario"],
+                    (int)reader["id_emprestimoStatus"],
+                    finalizado
+                );
+            }
+            reader.Close();
+
+            return emprestimo;
+        }
+
+        public List<EmprestimoVisualizarModel> EmprestimoVisualizarPorId(int idEmprestimo = 0, int idLeitor = 0)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            if(idEmprestimo != 0)
+            {
+                Cmd.CommandText = @"SELECT Emprestimo.Id,
+	                                   Livro.Titulo,
+	                                   Exemplar.ISBN,
+	                                   Funcionario.Nome_Funcionario,
+	                                   Emprestimo.Data_Emprestimo,
+	                                   Emprestimo.Data_Devolucao,
+	                                   Emprestimo.Data_Finalizado,
+	                                   Status_Emprestimo.Nome_Status AS Status_Emprestimo,
+	                                   (SELECT Nome_Status FROM Status_Emprestimo INNER JOIN Item_Emprestimo AS IE ON (IE.Id_Status = Status_Emprestimo.Id) WHERE IE.Id = Item_Emprestimo.Id) AS Status_Exemplar
+                                FROM Emprestimo
+                                INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_Emprestimo.Id_exemplar)
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Funcionario ON (Funcionario.Id = Emprestimo.Id_funcionario)
+                                INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                WHERE Emprestimo.Id = '" + idEmprestimo + "'";
+            }
+            else
+            {
+                Cmd.CommandText = @"SELECT Emprestimo.Id,
+	                                   Livro.Titulo,
+	                                   Exemplar.ISBN,
+	                                   Funcionario.Nome_Funcionario,
+	                                   Emprestimo.Data_Emprestimo,
+	                                   Emprestimo.Data_Devolucao,
+	                                   Emprestimo.Data_Finalizado,
+	                                   Status_Emprestimo.Nome_Status AS Status_Emprestimo,
+	                                   (SELECT Nome_Status FROM Status_Emprestimo INNER JOIN Item_Emprestimo AS IE ON (IE.Id_Status = Status_Emprestimo.Id) WHERE IE.Id = Item_Emprestimo.Id) AS Status_Exemplar
+                                FROM Emprestimo
+                                INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_Emprestimo.Id_exemplar)
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Funcionario ON (Funcionario.Id = Emprestimo.Id_funcionario)
+                                INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                WHERE Emprestimo.Id_leitor = '" + idLeitor + "'";
+            }
+            
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EmprestimoVisualizarModel> lista = new List<EmprestimoVisualizarModel>();
+
+            while (reader.Read())
+            {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(6))
+                {
+                    finalizado = (DateTime)reader["Data_Finalizado"];
+                }
+                EmprestimoVisualizarModel emprestimo = new EmprestimoVisualizarModel(
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
+                    (String)reader["ISBN"],
+                    (String)reader["Nome_Funcionario"],
+                    (DateTime)reader["Data_Emprestimo"],
+                    (DateTime)reader["Data_Devolucao"],
+                    finalizado,
+                    (String)reader["Status_Emprestimo"],
+                    (String)reader["Status_Exemplar"]
+                );
+                lista.Add(emprestimo);
             }
             reader.Close();
 

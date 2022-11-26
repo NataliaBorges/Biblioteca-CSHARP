@@ -10,12 +10,11 @@ namespace Biblioteca.Model {
         public DateTime DataDevolucao { get; set; }
         public DateTime DataEmprestimo { get; set; }
         public string Obs { get; set; }
-
         public string Leitor { get; set; }
-
         public string Funcionario { get; set;  }
-
+        public int IdStatus { get; set; }
         public string Status { get; set; }
+        public Nullable<DateTime> DataFinalizado { get; set; }
 
         public EmprestimoModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataDevolucao, DateTime DataEmprestimo, string Obs) {
             this.ID = ID;
@@ -41,6 +40,17 @@ namespace Biblioteca.Model {
             this.Leitor = Leitor;
             this.Funcionario = Funcionario;
             this.Status = Status;
+        }
+        public EmprestimoModel(int ID, DateTime DataEmprestimo, DateTime DataDevolucao, string Obs, int IdLeitor, int IdFuncionario, int IdStatus, Nullable<DateTime> DataFinalizado)
+        {
+            this.ID = ID;
+            this.DataEmprestimo = DataEmprestimo;
+            this.DataDevolucao = DataDevolucao;
+            this.Obs = Obs;
+            this.IdLeitor = IdLeitor;
+            this.IdFuncionario = IdFuncionario;
+            this.IdStatus = IdStatus;
+            this.DataFinalizado = DataFinalizado;
         }
         public int getId() {
             return this.ID;

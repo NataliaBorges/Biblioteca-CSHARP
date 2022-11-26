@@ -17,7 +17,24 @@ namespace Biblioteca.View.Relatorio {
         }
 
         private void RelatórioLivroView_Load(object sender, EventArgs e) {
-
+            //try
+            //{
+            //    var doc = new Document(PageSize.A6);
+            //    PdfWriter.GetInstance(doc, new FileStream(@"C:\Users\User\Desktop\MeuArquivo\meuarquivo.pdf", FileMode.Create));
+            //    doc.Open();
+            //    doc.Add(new Paragraph("Hello word"));
+            //    doc.Close();
+            //    var p = new Process();
+            //    p.StartInfo = new ProcessStartInfo(@"C:\Users\User\Desktop\MeuArquivo\meuarquivo.pdf")
+            //    {
+            //        UseShellExecute = true
+            //    };
+            //    p.Start();
+            //}
+            //catch(Exception)
+            //{
+            //    MessageBox.Show("Não foi possível gerar o relatório. Feche-o se estiver aberto.");
+            //}
         }
 
         private void popular(List<LivroModel> lista) {

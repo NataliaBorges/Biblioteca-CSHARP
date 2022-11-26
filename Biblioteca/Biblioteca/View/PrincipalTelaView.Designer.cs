@@ -28,6 +28,7 @@ namespace Biblioteca.View {
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
@@ -38,25 +39,24 @@ namespace Biblioteca.View {
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.lbReserva = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.lbEmprestimo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.lbExemplar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.lbUsuarioQtd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
+            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             this.panelDesktop.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -68,6 +68,10 @@ namespace Biblioteca.View {
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnltotal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDesktop
@@ -102,20 +106,29 @@ namespace Biblioteca.View {
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(838, 37);
+            this.panel6.Location = new System.Drawing.Point(834, 37);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(279, 691);
+            this.panel6.Size = new System.Drawing.Size(283, 691);
             this.panel6.TabIndex = 2;
+            // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 188);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(283, 94);
+            this.panel9.TabIndex = 3;
             // 
             // panel8
             // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(44)))), ((int)(((byte)(39)))));
             this.panel8.Controls.Add(this.linkLabel2);
             this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 94);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(279, 94);
+            this.panel8.Size = new System.Drawing.Size(283, 94);
             this.panel8.TabIndex = 2;
             // 
             // linkLabel2
@@ -153,14 +166,14 @@ namespace Biblioteca.View {
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.DarkGreen;
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(30)))));
             this.panel7.Controls.Add(this.linkLabel1);
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(279, 94);
+            this.panel7.Size = new System.Drawing.Size(283, 94);
             this.panel7.TabIndex = 1;
             // 
             // linkLabel1
@@ -202,14 +215,15 @@ namespace Biblioteca.View {
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(39, 43);
+            this.panel1.Location = new System.Drawing.Point(68, 52);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(699, 94);
             this.panel1.TabIndex = 1;
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.iconButton4);
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.panel5.Controls.Add(this.iconPictureBox4);
             this.panel5.Controls.Add(this.lbReserva);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
@@ -217,19 +231,6 @@ namespace Biblioteca.View {
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(174, 94);
             this.panel5.TabIndex = 3;
-            // 
-            // iconButton4
-            // 
-            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.iconButton4.IconColor = System.Drawing.Color.Chocolate;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 40;
-            this.iconButton4.Location = new System.Drawing.Point(34, 49);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(58, 39);
-            this.iconButton4.TabIndex = 4;
-            this.iconButton4.UseVisualStyleBackColor = true;
             // 
             // lbReserva
             // 
@@ -255,7 +256,8 @@ namespace Biblioteca.View {
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.iconButton3);
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.panel4.Controls.Add(this.iconPictureBox3);
             this.panel4.Controls.Add(this.lbEmprestimo);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
@@ -263,19 +265,6 @@ namespace Biblioteca.View {
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 94);
             this.panel4.TabIndex = 2;
-            // 
-            // iconButton3
-            // 
-            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.iconButton3.IconColor = System.Drawing.Color.Chocolate;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 40;
-            this.iconButton3.Location = new System.Drawing.Point(23, 49);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(58, 39);
-            this.iconButton3.TabIndex = 4;
-            this.iconButton3.UseVisualStyleBackColor = true;
             // 
             // lbEmprestimo
             // 
@@ -301,7 +290,8 @@ namespace Biblioteca.View {
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.iconButton2);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.panel3.Controls.Add(this.iconPictureBox2);
             this.panel3.Controls.Add(this.lbExemplar);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
@@ -309,19 +299,6 @@ namespace Biblioteca.View {
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(174, 94);
             this.panel3.TabIndex = 1;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.iconButton2.IconColor = System.Drawing.Color.Chocolate;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 40;
-            this.iconButton2.Location = new System.Drawing.Point(34, 49);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(58, 39);
-            this.iconButton2.TabIndex = 4;
-            this.iconButton2.UseVisualStyleBackColor = true;
             // 
             // lbExemplar
             // 
@@ -347,7 +324,8 @@ namespace Biblioteca.View {
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.iconButton1);
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.panel2.Controls.Add(this.iconPictureBox1);
             this.panel2.Controls.Add(this.lbUsuarioQtd);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -355,19 +333,6 @@ namespace Biblioteca.View {
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(174, 94);
             this.panel2.TabIndex = 0;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.iconButton1.IconColor = System.Drawing.Color.Chocolate;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
-            this.iconButton1.Location = new System.Drawing.Point(21, 49);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(58, 39);
-            this.iconButton1.TabIndex = 3;
-            this.iconButton1.UseVisualStyleBackColor = true;
             // 
             // lbUsuarioQtd
             // 
@@ -425,13 +390,65 @@ namespace Biblioteca.View {
             this.pnltotal.Size = new System.Drawing.Size(1321, 734);
             this.pnltotal.TabIndex = 5;
             // 
-            // panel9
+            // iconPictureBox1
             // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 188);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(279, 94);
-            this.panel9.TabIndex = 3;
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconPictureBox1.IconSize = 43;
+            this.iconPictureBox1.Location = new System.Drawing.Point(31, 48);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox1.TabIndex = 3;
+            this.iconPictureBox1.TabStop = false;
+            // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconPictureBox2.IconSize = 43;
+            this.iconPictureBox2.Location = new System.Drawing.Point(35, 48);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox2.TabIndex = 4;
+            this.iconPictureBox2.TabStop = false;
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.iconPictureBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBox3.IconSize = 43;
+            this.iconPictureBox3.Location = new System.Drawing.Point(34, 48);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(43, 43);
+            this.iconPictureBox3.TabIndex = 4;
+            this.iconPictureBox3.TabStop = false;
+            // 
+            // iconPictureBox4
+            // 
+            this.iconPictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.iconPictureBox4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox4.IconSize = 43;
+            this.iconPictureBox4.Location = new System.Drawing.Point(34, 48);
+            this.iconPictureBox4.Name = "iconPictureBox4";
+            this.iconPictureBox4.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox4.TabIndex = 4;
+            this.iconPictureBox4.TabStop = false;
             // 
             // PrincipalTelaView
             // 
@@ -465,6 +482,10 @@ namespace Biblioteca.View {
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnltotal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,12 +507,8 @@ namespace Biblioteca.View {
         private System.Windows.Forms.Label lbExemplar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label lbUsuarioQtd;
         private System.Windows.Forms.Label label1;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel8;
@@ -503,5 +520,9 @@ namespace Biblioteca.View {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel9;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
     }
 }

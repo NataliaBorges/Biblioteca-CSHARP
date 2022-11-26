@@ -43,6 +43,7 @@ namespace Biblioteca.View.Emprestimo {
 
             if(rbCPF.Checked || rbLeitor.Checked)
             {
+                table.Columns.Add("Id", typeof(int));
                 table.Columns.Add("Leitor", typeof(string));
                 table.Columns.Add("CPF", typeof(string));
                 table.Columns.Add("Total", typeof(int));
@@ -51,7 +52,7 @@ namespace Biblioteca.View.Emprestimo {
                 {
                     foreach (EmprestimoPesquisaLeitorModel emprestimo in listaLeitor)
                     {
-                        table.Rows.Add(emprestimo.Nome_Leitor, emprestimo.CPF, emprestimo.Total);
+                        table.Rows.Add(emprestimo.Id_Leitor, emprestimo.Nome_Leitor, emprestimo.CPF, emprestimo.Total);
                     }
                     dtGridViewEmprestimo.DataSource = table;
                     int index = dtGridViewEmprestimo.SelectedRows[0].Index;
@@ -113,10 +114,12 @@ namespace Biblioteca.View.Emprestimo {
             {
                 if(rbLeitor.Checked || rbCPF.Checked)
                 {
-                    string nome = row.Cells[0].Value.ToString();
-                    string cpf = row.Cells[1].Value.ToString();
-                    int total = int.Parse(row.Cells[2].Value.ToString());
-                    leitorPesquisa = new EmprestimoPesquisaLeitorModel(nome, cpf, total);
+                    int id = int.Parse(row.Cells[0].Value.ToString());
+                    string nome = row.Cells[1].Value.ToString();
+                    string cpf = row.Cells[2].Value.ToString();
+                    int total = int.Parse(row.Cells[3].Value.ToString());
+                    leitorPesquisa = new EmprestimoPesquisaLeitorModel(id, nome, cpf, total);
+                    leitorPesquisa.Status_Emprestimo = cbStatusEmprestimo.Text;
                 }
                 else
                 {
@@ -142,27 +145,19 @@ namespace Biblioteca.View.Emprestimo {
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    var doc = new Document(PageSize.A6);
-            //    PdfWriter.GetInstance(doc, new FileStream(@"C:\Users\User\Desktop\MeuArquivo\meuarquivo.pdf", FileMode.Create));
-            //    doc.Open();
-            //    doc.Add(new Paragraph("Hello word"));
-            //    doc.Close();
-            //    var p = new Process();
-            //    p.StartInfo = new ProcessStartInfo(@"C:\Users\User\Desktop\MeuArquivo\meuarquivo.pdf")
-            //    {
-            //        UseShellExecute = true
-            //    };
-            //    p.Start();
-            //}
-            //catch(Exception)
-            //{
-            //    MessageBox.Show("Não foi possível gerar o relatório. Feche-o se estiver aberto.");
-            //}
-
-            EmprestimoVisualizarView emprestimoVisualizarView = new EmprestimoVisualizarView(exemplar: exemplarPesquisa, leitor: leitorPesquisa);
-            NovaJanela.novaJanela(emprestimoVisualizarView, Bounds);
+            if((rbCPF.Checked || rbLeitor.Checked) && cbStatusEmprestimo.Text == "Todos")
+            {
+                MessageBox.Show("Você precisa selecionar um status de empréstimo diferente de \"Todos\".", "Atenção", MessageBoxButtons.OK);
+            }
+            else if(exemplarPesquisa != null || leitorPesquisa != null)
+            {
+                EmprestimoVisualizarView emprestimoVisualizarView = new EmprestimoVisualizarView(exemplar: exemplarPesquisa, leitor: leitorPesquisa);
+                NovaJanela.novaJanela(emprestimoVisualizarView, Bounds);
+            }
+            else
+            {
+                MessageBox.Show("Você precisa selecionar um empréstimo para visualizar.", "Atenção", MessageBoxButtons.OK);
+            }
         }
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
