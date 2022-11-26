@@ -9,7 +9,6 @@ using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.View.Reserva;
 using Biblioteca.Util;
-using System.Windows.Forms.VisualStyles;
 
 namespace Biblioteca.View.Reserva {
     public partial class ReservaCadastroView : Form {
@@ -19,8 +18,7 @@ namespace Biblioteca.View.Reserva {
         Singleton singleton = Singleton.GetInstancia();
 
         public ReservaCadastroView() {
-            InitializeComponent();
-            Application.VisualStyleState = VisualStyleState.NoneEnabled;
+            InitializeComponent(); 
         }
 
 

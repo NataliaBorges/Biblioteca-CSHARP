@@ -41,6 +41,7 @@ namespace Biblioteca.View.Emprestimo {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbStatusExemplar = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbCPF = new System.Windows.Forms.RadioButton();
             this.rbISBN = new System.Windows.Forms.RadioButton();
             this.rbCodigo = new System.Windows.Forms.RadioButton();
             this.dtFinalizado = new System.Windows.Forms.DateTimePicker();
@@ -57,7 +58,6 @@ namespace Biblioteca.View.Emprestimo {
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.rbCPF = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +82,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbLeitor.TabStop = true;
             this.rbLeitor.Text = "Leitor";
             this.rbLeitor.UseVisualStyleBackColor = false;
+            this.rbLeitor.CheckedChanged += new System.EventHandler(this.rbLeitor_CheckedChanged);
             // 
             // rbLivro
             // 
@@ -97,6 +98,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbLivro.TabStop = true;
             this.rbLivro.Text = "Exemplar";
             this.rbLivro.UseVisualStyleBackColor = false;
+            this.rbLivro.CheckedChanged += new System.EventHandler(this.rbLivro_CheckedChanged);
             // 
             // tbBuscar
             // 
@@ -135,7 +137,7 @@ namespace Biblioteca.View.Emprestimo {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(218, 59);
+            this.icbtnVoltar.Location = new System.Drawing.Point(265, 78);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -168,11 +170,11 @@ namespace Biblioteca.View.Emprestimo {
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(1051, 533);
+            this.btnEditar.Location = new System.Drawing.Point(985, 533);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(120, 32);
+            this.btnEditar.Size = new System.Drawing.Size(186, 43);
             this.btnEditar.TabIndex = 101;
-            this.btnEditar.Text = "EDITAR";
+            this.btnEditar.Text = "VISUALIZAR";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -223,6 +225,7 @@ namespace Biblioteca.View.Emprestimo {
             this.cbStatusEmprestimo.Name = "cbStatusEmprestimo";
             this.cbStatusEmprestimo.Size = new System.Drawing.Size(197, 28);
             this.cbStatusEmprestimo.TabIndex = 96;
+            this.cbStatusEmprestimo.SelectedIndexChanged += new System.EventHandler(this.cbStatusEmprestimo_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -252,6 +255,7 @@ namespace Biblioteca.View.Emprestimo {
             this.cbStatusExemplar.Name = "cbStatusExemplar";
             this.cbStatusExemplar.Size = new System.Drawing.Size(197, 28);
             this.cbStatusExemplar.TabIndex = 96;
+            this.cbStatusExemplar.SelectedIndexChanged += new System.EventHandler(this.cbStatusExemplar_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -270,6 +274,21 @@ namespace Biblioteca.View.Emprestimo {
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TIPO DE BUSCA";
             // 
+            // rbCPF
+            // 
+            this.rbCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbCPF.AutoSize = true;
+            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCPF.ForeColor = System.Drawing.Color.White;
+            this.rbCPF.Location = new System.Drawing.Point(19, 50);
+            this.rbCPF.Name = "rbCPF";
+            this.rbCPF.Size = new System.Drawing.Size(57, 24);
+            this.rbCPF.TabIndex = 27;
+            this.rbCPF.TabStop = true;
+            this.rbCPF.Text = "CPF";
+            this.rbCPF.UseVisualStyleBackColor = true;
+            this.rbCPF.CheckedChanged += new System.EventHandler(this.rbCPF_CheckedChanged);
+            // 
             // rbISBN
             // 
             this.rbISBN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -283,6 +302,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbISBN.TabStop = true;
             this.rbISBN.Text = "ISBN";
             this.rbISBN.UseVisualStyleBackColor = true;
+            this.rbISBN.CheckedChanged += new System.EventHandler(this.rbISBN_CheckedChanged);
             // 
             // rbCodigo
             // 
@@ -297,6 +317,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbCodigo.TabStop = true;
             this.rbCodigo.Text = "Código";
             this.rbCodigo.UseVisualStyleBackColor = true;
+            this.rbCodigo.CheckedChanged += new System.EventHandler(this.rbCodigo_CheckedChanged);
             // 
             // dtFinalizado
             // 
@@ -308,6 +329,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtFinalizado.Name = "dtFinalizado";
             this.dtFinalizado.Size = new System.Drawing.Size(139, 27);
             this.dtFinalizado.TabIndex = 40;
+            this.dtFinalizado.ValueChanged += new System.EventHandler(this.dtFinalizado_ValueChanged);
             // 
             // dtFinal
             // 
@@ -325,12 +347,14 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.dtInicial.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtInicial.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtInicial.CalendarMonthBackground = System.Drawing.Color.Orange;
             this.dtInicial.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtInicial.Location = new System.Drawing.Point(464, 31);
             this.dtInicial.Name = "dtInicial";
             this.dtInicial.Size = new System.Drawing.Size(134, 27);
             this.dtInicial.TabIndex = 38;
+            this.dtInicial.ValueChanged += new System.EventHandler(this.dtInicial_ValueChanged);
             // 
             // label17
             // 
@@ -467,7 +491,7 @@ namespace Biblioteca.View.Emprestimo {
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(449, 67);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(496, 86);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(369, 38);
             this.lblCadastroLivro.TabIndex = 91;
@@ -497,20 +521,6 @@ namespace Biblioteca.View.Emprestimo {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(210, 772);
             this.menuControl1.TabIndex = 26;
-            // 
-            // rbCPF
-            // 
-            this.rbCPF.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbCPF.AutoSize = true;
-            this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(19, 50);
-            this.rbCPF.Name = "rbCPF";
-            this.rbCPF.Size = new System.Drawing.Size(57, 24);
-            this.rbCPF.TabIndex = 27;
-            this.rbCPF.TabStop = true;
-            this.rbCPF.Text = "CPF";
-            this.rbCPF.UseVisualStyleBackColor = true;
             // 
             // EmprestimoBuscarView
             // 

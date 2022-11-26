@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,8 +11,12 @@ namespace Biblioteca.View.Emprestimo
 {
     public partial class EmprestimoVisualizarView : Form
     {
-        public EmprestimoVisualizarView()
+        EmprestimoPesquisaExemplarModel exemplar;
+        EmprestimoPesquisaLeitorModel leitor;
+        public EmprestimoVisualizarView(EmprestimoPesquisaExemplarModel exemplar = null, EmprestimoPesquisaLeitorModel leitor = null)
         {
+            exemplar = exemplar;
+            leitor = leitor;
             InitializeComponent();
         }
 

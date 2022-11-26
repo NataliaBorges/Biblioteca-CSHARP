@@ -194,43 +194,4 @@ namespace Biblioteca.View.Emprestimo {
             }
         }
     }
-
-    //    private void lvLivros_MouseClick(object sender, MouseEventArgs e) {
-    //        ListViewItem item = lvLivros.Items[lvLivros.FocusedItem.Index];
-    //        ExemplarModel exempar = new ExemplarModel(
-    //            int.Parse(item.SubItems[0].Text),
-    //            item.SubItems[1].Text,
-    //            item.SubItems[2].Text,
-    //            item.SubItems[5].Text,
-    //            item.SubItems[6].Text,
-    //            item.SubItems[3].Text,
-    //            item.SubItems[4].Text
-    //        );
-
-
-    //    }
-
-
-    //    private void lvLeitor_MouseClick(object sender, MouseEventArgs e) {
-    //        ListViewItem item = lvLeitor.Items[lvLeitor.FocusedItem.Index];
-    //        LeitorModel leitor = new LeitorModel(
-    //            int.Parse(item.SubItems[0].Text),
-    //            item.SubItems[1].Text,
-    //            DateTime.Parse(item.SubItems[2].Text),
-    //            item.SubItems[3].Text,
-    //            item.SubItems[4].Text,
-    //            item.SubItems[5].Text
-    //        );
-
-    //        DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-    //        if (dialogResult == DialogResult.Yes) {
-    //            controller.RemoverLeitorEmprestimo();
-    //            popularLeitor(controller.PegarLeitorEmprestimo());
-    //        }
-    //    }
-
-    //    private void button4_Click(object sender, EventArgs e) {
-    //        this.Close();
-    //    }
-    //}
 }

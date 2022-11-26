@@ -170,47 +170,6 @@ namespace Biblioteca.Controller
             return lista;
         }
 
-        public List<EmprestimoPesquisaModel> ListarTodosBusca()
-        {
-            Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"SELECT E.Id, L.Nome_Leitor, Li.Titulo, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, SE.Nome_Status
-                                    FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
-			                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
-			                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
-									INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)";
-            Cmd.Parameters.Clear();
-
-            SqlDataReader reader = Cmd.ExecuteReader();
-
-            List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
-
-            while (reader.Read())
-            {
-                Nullable<DateTime> finalizado = null;
-                if (!reader.IsDBNull(6))
-                {
-                    finalizado = (DateTime)reader["Data_Finalizado"];
-                }
-                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-                    (int)reader["Id"],
-                    (String)reader["Nome_Leitor"],
-                    (String)reader["Titulo"],
-                    (String)reader["Nome_funcionario"],
-                    (DateTime)reader["Data_emprestimo"],
-                    (DateTime)reader["Data_devolucao"],
-                    finalizado,
-                    (String)reader["Nome_Status"]
-                );
-                lista.Add(pesquisa);
-            }
-            reader.Close();
-
-            return lista;
-        }
-
         private int quantidadeDisponiveis(int idLivro, int quantidade)
         {
             Cmd.Connection = connection.RetornaConexao();
@@ -564,59 +523,204 @@ namespace Biblioteca.Controller
 
             return lista;
         }
-        public List<EmprestimoPesquisaModel> Buscar(string busca, bool isLivro = false, bool isLeitor = false, bool isCodigo = false)
+        public List<EmprestimoPesquisaExemplarModel> BuscarExemplar(string busca, DateTime dataInicial, DateTime dataFinal, String statusEmprestimo, String statusExemplar, bool isCodigo = false, bool isExemplar = false, bool isISBN = false)
         {
             Cmd.Connection = connection.RetornaConexao();
 
-            if (isLivro)
+            int statusExemplarCod = 0;
+            switch (statusExemplar) 
             {
-                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
-                                    FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-                                    INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-                                    WHERE Li.Nome_Livro LIKE '" + busca + "%'";
+                case "Devolvido":
+                    statusExemplarCod = 5;
+                    break;
+                case "Extraviado":
+                    statusExemplarCod = 6;
+                    break;
+                case "Emprestado":
+                    statusExemplarCod = 7;
+                    break;
             }
 
-            if (isLeitor)
-            {
-                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
-                                    FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-                                    INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-                                    WHERE L.Nome_Leitor LIKE '" + busca + "%'";
-            }
             if (isCodigo)
             {
-                Cmd.CommandText = @"SELECT E.ID_emprestimo, L.Nome_Leitor, Li.Nome_Livro, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Status
+                if(statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
                                     FROM Emprestimo as E
-                                    INNER JOIN Funcionario AS F ON (F.ID_funcionario = E.ID_funcionario)
-                                    INNER JOIN Leitor as L ON (L.ID_leitor = E.ID_leitor)
-                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.ID_emprestimo)
-                                    INNER JOIN Livro as Li ON (Li.ID_livro = IE.ID_livro)
-                                    WHERE E.ID_emprestimo LIKE '" + busca + "%'";
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE E.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if(statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND E.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE IE.Id_status = '" + statusExemplarCod + "' AND E.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND E.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+            }
+
+            if (isExemplar)
+            {
+                if (statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE IE.Id_status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+            }
+
+            if (isISBN)
+            {
+                if (statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE EX.ISBN LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND EX.ISBN LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE IE.Id_status = '" + statusExemplarCod + "' AND EX.ISBN LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT E.Id, SE.Nome_Status AS Status_Emprestimo, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, E.Data_emprestimo, E.Data_devolucao, E.Data_Finalizado, (SELECT Nome_Status FROM Status_Emprestimo WHERE Id = IE.Id_Status) AS Status_Exemplar
+                                    FROM Emprestimo as E
+                                    INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                    INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND EX.ISBN LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
             }
 
             Cmd.Parameters.Clear();
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            List<EmprestimoPesquisaModel> lista = new List<EmprestimoPesquisaModel>();
+            List<EmprestimoPesquisaExemplarModel> lista = new List<EmprestimoPesquisaExemplarModel>();
 
             while (reader.Read())
             {
-                EmprestimoPesquisaModel pesquisa = new EmprestimoPesquisaModel(
-                    (int)reader["ID_emprestimo"],
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(8))
+                {
+                    finalizado = (DateTime)reader["Data_Finalizado"];
+                }
+                EmprestimoPesquisaExemplarModel pesquisa = new EmprestimoPesquisaExemplarModel(
+                    (int)reader["Id"],
+                    (String)reader["Status_Emprestimo"],
+                    (String)reader["Titulo"],
+                    (String)reader["ISBN"],
                     (String)reader["Nome_Leitor"],
-                    (String)reader["Nome_Livro"],
                     (String)reader["Nome_funcionario"],
-                    (DateTime)reader["Data_devolucao"],
                     (DateTime)reader["Data_emprestimo"],
-                    (DateTime)reader["Data_Finalizado"],
-                    (String)reader["Status"]
+                    (DateTime)reader["Data_devolucao"],
+                    finalizado,
+                    (String)reader["Status_Exemplar"]
                 );
                 lista.Add(pesquisa);
             }
@@ -625,7 +729,84 @@ namespace Biblioteca.Controller
             return lista;
         }
 
-        public bool Excluir(EmprestimoPesquisaModel emprestimo)
+        public List<EmprestimoPesquisaLeitorModel> BuscarLeitor(string busca, DateTime dataInicial, DateTime dataFinal, String statusEmprestimo, bool isLeitor = false, bool isCPF = false)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            if (isLeitor)
+            {
+                if(statusEmprestimo == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Emprestimo.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                    WHERE Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Emprestimo.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                    WHERE Status_Emprestimo.Nome_Status = '"+statusEmprestimo+"' AND Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                }
+            }
+
+            if (isCPF)
+            {
+                if (statusEmprestimo == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Emprestimo.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                    WHERE Leitor.CPF LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Emprestimo.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Emprestimo ON (Emprestimo.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Emprestimo.Id_emprestimoStatus)
+                                    WHERE Status_Emprestimo.Nome_Status = '" + statusEmprestimo + "' AND Leitor.CPF LIKE '%" + busca + "%' AND Emprestimo.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Nome_Leitor, Leitor.CPF";
+                }
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<EmprestimoPesquisaLeitorModel> lista = new List<EmprestimoPesquisaLeitorModel>();
+
+            while (reader.Read())
+            {
+                EmprestimoPesquisaLeitorModel pesquisa = new EmprestimoPesquisaLeitorModel(
+                    (String)reader["Nome_Leitor"],
+                    (String)reader["CPF"],
+                    (int)reader["Total"]
+                );
+                lista.Add(pesquisa);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public bool Excluir(EmprestimoPesquisaExemplarModel emprestimo)
         {
             // excluir itens em item_emprestimo
             Cmd.Connection = connection.RetornaConexao();
@@ -650,7 +831,7 @@ namespace Biblioteca.Controller
             }
         }
 
-        public bool Devolucao(EmprestimoPesquisaModel emprestimo)
+        public bool Devolucao(EmprestimoPesquisaExemplarModel emprestimo)
         {
             // mudar status emprestimo
             Cmd.Connection = connection.RetornaConexao();

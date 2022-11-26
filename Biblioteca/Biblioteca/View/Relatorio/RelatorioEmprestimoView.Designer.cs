@@ -138,7 +138,10 @@ namespace Biblioteca.View.Relatorio {
             this.label7 = new System.Windows.Forms.Label();
             this.Gênero = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.iconButton19 = new FontAwesome.Sharp.IconButton();
             this.listView5 = new System.Windows.Forms.ListView();
+            this.iconButton20 = new FontAwesome.Sharp.IconButton();
+            this.iconButton21 = new FontAwesome.Sharp.IconButton();
             this.iconButton10 = new FontAwesome.Sharp.IconButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.label29 = new System.Windows.Forms.Label();
@@ -204,9 +207,6 @@ namespace Biblioteca.View.Relatorio {
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.guna2DateTimePicker1 = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2TabControl2 = new Guna.UI2.WinForms.Guna2TabControl();
-            this.iconButton19 = new FontAwesome.Sharp.IconButton();
-            this.iconButton20 = new FontAwesome.Sharp.IconButton();
-            this.iconButton21 = new FontAwesome.Sharp.IconButton();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tcEmprestimo.SuspendLayout();
@@ -1835,6 +1835,30 @@ namespace Biblioteca.View.Relatorio {
             this.panel12.Size = new System.Drawing.Size(981, 508);
             this.panel12.TabIndex = 89;
             // 
+            // iconButton19
+            // 
+            this.iconButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(154)))), ((int)(((byte)(107)))));
+            this.iconButton19.FlatAppearance.BorderSize = 0;
+            this.iconButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton19.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButton19.ForeColor = System.Drawing.Color.Black;
+            this.iconButton19.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.iconButton19.IconColor = System.Drawing.Color.Black;
+            this.iconButton19.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton19.IconSize = 30;
+            this.iconButton19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton19.Location = new System.Drawing.Point(856, 436);
+            this.iconButton19.Name = "iconButton19";
+            this.iconButton19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton19.Size = new System.Drawing.Size(123, 36);
+            this.iconButton19.TabIndex = 112;
+            this.iconButton19.Tag = "";
+            this.iconButton19.Text = "  Imprimir";
+            this.iconButton19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton19.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton19.UseVisualStyleBackColor = false;
+            // 
             // listView5
             // 
             this.listView5.BackColor = System.Drawing.Color.Black;
@@ -1846,6 +1870,46 @@ namespace Biblioteca.View.Relatorio {
             this.listView5.Size = new System.Drawing.Size(981, 432);
             this.listView5.TabIndex = 106;
             this.listView5.UseCompatibleStateImageBehavior = false;
+            // 
+            // iconButton20
+            // 
+            this.iconButton20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            this.iconButton20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.iconButton20.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton20.ForeColor = System.Drawing.Color.White;
+            this.iconButton20.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            this.iconButton20.IconColor = System.Drawing.Color.White;
+            this.iconButton20.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton20.IconSize = 20;
+            this.iconButton20.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.iconButton20.Location = new System.Drawing.Point(507, 433);
+            this.iconButton20.Name = "iconButton20";
+            this.iconButton20.Size = new System.Drawing.Size(89, 31);
+            this.iconButton20.TabIndex = 111;
+            this.iconButton20.Text = "Próximo";
+            this.iconButton20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton20.UseVisualStyleBackColor = false;
+            // 
+            // iconButton21
+            // 
+            this.iconButton21.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
+            this.iconButton21.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.iconButton21.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.iconButton21.ForeColor = System.Drawing.Color.White;
+            this.iconButton21.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.iconButton21.IconColor = System.Drawing.Color.White;
+            this.iconButton21.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton21.IconSize = 20;
+            this.iconButton21.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.iconButton21.Location = new System.Drawing.Point(418, 433);
+            this.iconButton21.Name = "iconButton21";
+            this.iconButton21.Size = new System.Drawing.Size(89, 31);
+            this.iconButton21.TabIndex = 110;
+            this.iconButton21.Text = "Anterior";
+            this.iconButton21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton21.UseVisualStyleBackColor = false;
             // 
             // iconButton10
             // 
@@ -2705,70 +2769,6 @@ namespace Biblioteca.View.Relatorio {
             this.menuControl1.Name = "menuControl1";
             this.menuControl1.Size = new System.Drawing.Size(192, 781);
             this.menuControl1.TabIndex = 60;
-            // 
-            // iconButton19
-            // 
-            this.iconButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconButton19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(154)))), ((int)(((byte)(107)))));
-            this.iconButton19.FlatAppearance.BorderSize = 0;
-            this.iconButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton19.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton19.ForeColor = System.Drawing.Color.Black;
-            this.iconButton19.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.iconButton19.IconColor = System.Drawing.Color.Black;
-            this.iconButton19.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton19.IconSize = 30;
-            this.iconButton19.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton19.Location = new System.Drawing.Point(856, 436);
-            this.iconButton19.Name = "iconButton19";
-            this.iconButton19.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton19.Size = new System.Drawing.Size(123, 36);
-            this.iconButton19.TabIndex = 112;
-            this.iconButton19.Tag = "";
-            this.iconButton19.Text = "  Imprimir";
-            this.iconButton19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton19.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton19.UseVisualStyleBackColor = false;
-            // 
-            // iconButton20
-            // 
-            this.iconButton20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            this.iconButton20.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.iconButton20.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton20.ForeColor = System.Drawing.Color.White;
-            this.iconButton20.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            this.iconButton20.IconColor = System.Drawing.Color.White;
-            this.iconButton20.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton20.IconSize = 20;
-            this.iconButton20.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.iconButton20.Location = new System.Drawing.Point(507, 433);
-            this.iconButton20.Name = "iconButton20";
-            this.iconButton20.Size = new System.Drawing.Size(89, 31);
-            this.iconButton20.TabIndex = 111;
-            this.iconButton20.Text = "Próximo";
-            this.iconButton20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton20.UseVisualStyleBackColor = false;
-            // 
-            // iconButton21
-            // 
-            this.iconButton21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(32)))), ((int)(((byte)(42)))));
-            this.iconButton21.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.iconButton21.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.iconButton21.ForeColor = System.Drawing.Color.White;
-            this.iconButton21.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.iconButton21.IconColor = System.Drawing.Color.White;
-            this.iconButton21.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton21.IconSize = 20;
-            this.iconButton21.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.iconButton21.Location = new System.Drawing.Point(418, 433);
-            this.iconButton21.Name = "iconButton21";
-            this.iconButton21.Size = new System.Drawing.Size(89, 31);
-            this.iconButton21.TabIndex = 110;
-            this.iconButton21.Text = "Anterior";
-            this.iconButton21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton21.UseVisualStyleBackColor = false;
             // 
             // RelatorioEmprestimoView
             // 
