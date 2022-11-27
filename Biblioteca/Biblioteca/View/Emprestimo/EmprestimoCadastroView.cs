@@ -38,7 +38,7 @@ namespace Biblioteca.View.Emprestimo {
             this.singleton.clearEmprestimo();
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
-            CalendarDevolucap.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(15);
+            CalendarDevolucap.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
         }
         private void EmprestimoCadastroView_Activated(object sender, EventArgs e)
         {
@@ -121,16 +121,16 @@ namespace Biblioteca.View.Emprestimo {
         {
             DateTime emprestimo = CalendarEmprestimo.Value.Date;
             DateTime devolucao = CalendarDevolucap.Value.Date;
-            DateTime hojeMais15 = (DateTime.UtcNow.ToLocalTime()).AddDays(15);
+            DateTime hojeMais14 = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
             String obs = TextObservacao.Text;
 
             if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
             {
                 MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
             }
-            else if(devolucao.Date > hojeMais15.Date)
+            else if(devolucao.Date > hojeMais14.Date)
             {
-                MessageBox.Show("Prazo máximo de devolução é de 15 dias.", "Ateção", MessageBoxButtons.OK);
+                MessageBox.Show("Prazo máximo de devolução é de 14 dias.", "Ateção", MessageBoxButtons.OK);
             }
             else if (devolucao < emprestimo)
             {

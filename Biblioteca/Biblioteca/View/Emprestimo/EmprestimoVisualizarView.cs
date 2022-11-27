@@ -16,11 +16,72 @@ namespace Biblioteca.View.Emprestimo
         EmprestimoPesquisaExemplarModel exemplar;
         EmprestimoPesquisaLeitorModel leitor;
         EmprestimoController controller = new EmprestimoController();
+        List<int> listaItemId = new List<int>();
         public EmprestimoVisualizarView(EmprestimoPesquisaExemplarModel exemplar = null, EmprestimoPesquisaLeitorModel leitor = null)
         {
             this.exemplar = exemplar;
             this.leitor = leitor;
             InitializeComponent();
+        }
+
+        private void buscarDadosPopularTela(bool atualizado = false)
+        {
+            pnlPunicao.Visible = false;
+            dtGridViewLivrosEmprestimo.DataSource = null;
+            if (exemplar != null)
+            {
+                EmprestimoModel emprestimoModel = controller.BuscaEmprestimoPorId(exemplar.ID_emprestimo);
+                popularLeitor(controller.BuscaLeitorEmprestimoPorId(emprestimoModel.IdLeitor));
+                popular(controller.EmprestimoVisualizarPorId(idEmprestimo: exemplar.ID_emprestimo));
+                punicaoLeitor(emprestimoModel.IdLeitor);
+            }
+            else
+            {
+                popularLeitor(controller.BuscaLeitorEmprestimoPorId(leitor.Id_Leitor));
+                if (atualizado == false)
+                {
+                    popular(controller.EmprestimoVisualizarPorId(idLeitor: leitor.Id_Leitor, status: leitor.Status_Emprestimo));
+                }
+                else
+                {
+                    popular(controller.EmprestimoVisualizarPorId(idLeitor: leitor.Id_Leitor, listaItemId: listaItemId));
+                }
+                punicaoLeitor(leitor.Id_Leitor);
+            }
+            
+        }
+
+        private void punicaoLeitor(int id)
+        {
+            LeitorModel leitor = controller.BuscaLeitorEmprestimoPorId(id);
+            int quantidadeExtraviado = controller.leitorPossuiExtraviadoPendente(id);
+            int quantidadeAtrasados = controller.leitorPossuiEmprestimoAtrasado(id);
+            int totalDias = 2 * controller.leitorPossuiMulta(id);
+            Nullable<DateTime> finalizado = controller.BuscarUltimoEmprestimoComAtraso(id);
+
+            lbMensagem.MaximumSize = new Size(750, 0);
+            lbMensagem.AutoSize = true;
+
+
+            if (quantidadeExtraviado > 0)
+            {
+                pnlPunicao.Visible = true;
+                lbMensagem.Text = leitor.Nome + " está impossibilitado(a) de realizar empréstimos até que a situação do(s) exemplar(es) extraviado(s) seja(m) regularizada(s).";
+            }
+            else if (quantidadeAtrasados > 0)
+            {
+                pnlPunicao.Visible = true;
+                lbMensagem.Text = leitor.Nome + " não pode realizar empréstimo, pois possui " + quantidadeAtrasados + " emprestimo(s) não devolvido(s).";
+            }
+            else if (totalDias > 0 && finalizado.Value.AddDays(totalDias) > DateTime.Now)
+            {
+                pnlPunicao.Visible = true;
+                lbMensagem.Text = leitor.Nome + " está com punição de " + totalDias + " dia(s) por atraso de devolução/devoluções de empréstimo(s).";
+            }
+            else
+            {
+                pnlPunicao.Visible = false;
+            }
         }
 
         private void EmprestimoVisualizarView_Load(object sender, EventArgs e)
@@ -31,61 +92,33 @@ namespace Biblioteca.View.Emprestimo
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            if(exemplar != null)
-            {
-                EmprestimoModel emprestimoModel = controller.BuscaEmprestimoPorId(exemplar.ID_emprestimo);
-                popularLeitor(controller.BuscaLeitorEmprestimoPorId(emprestimoModel.IdLeitor));
-                popular(controller.EmprestimoVisualizarPorId(idEmprestimo: exemplar.ID_emprestimo));
-            }
-            else
-            {
-                popularLeitor(controller.BuscaLeitorEmprestimoPorId(leitor.Id_Leitor));
-                popular(controller.EmprestimoVisualizarPorId(idLeitor: leitor.Id_Leitor));
-            }
+            buscarDadosPopularTela();
         }
 
         private void popular(List<EmprestimoVisualizarModel> lista)
         {
-            DataTable table = new DataTable();
+            listaItemId.Clear();
 
-            table.Columns.Add("ID", typeof(int));
-            table.Columns.Add("Título", typeof(string));
-            table.Columns.Add("ISBN", typeof(string));
-            table.Columns.Add("Funcionário", typeof(string));
-            table.Columns.Add("Empréstimo", typeof(string));
-            table.Columns.Add("Previsto", typeof(string));
-            table.Columns.Add("Devolução", typeof(string));
-            table.Columns.Add("Status Empréstimo", typeof(string));
-            table.Columns.Add("Status Exemplar", typeof(string));
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "ID", HeaderText = "ID", DataPropertyName = "ID_emprestimo", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Título", HeaderText = "Título", DataPropertyName = "Nome_Livro", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "ISBN", HeaderText = "ISBN", DataPropertyName = "ISBN", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Funcionário", HeaderText = "Funcionário", DataPropertyName = "Nome_Funcionario", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Empréstimo", HeaderText = "Empréstimo", DataPropertyName = "Data_emprestimo", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Previsto", HeaderText = "Previsto", DataPropertyName = "Data_devolucao", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Devolução", HeaderText = "Devolução", DataPropertyName = "Data_finalizado", ReadOnly = true });
+            dtGridViewLivrosEmprestimo.Columns.Add(comboBoxColumnEmprestimo());
+            dtGridViewLivrosEmprestimo.Columns.Add(comboBoxColumnExemplar());
 
             if (lista.Count > 0)
             {
-                foreach (EmprestimoVisualizarModel emprestimo in lista)
-                {
-                    //var dtStatusEmprestimo = new DataTable();
-                    //dtStatusEmprestimo.Columns.Add();
-                    //dtStatusEmprestimo.Rows.Add(emprestimo.Status_Emprestimo);
-                    //dtStatusEmprestimo.Rows.Add("Em Aberto");
-                    //dtStatusEmprestimo.Rows.Add("Pendente");
-                    //dtStatusEmprestimo.Rows.Add("Finalizado");
-                    //dtStatusEmprestimo.Rows.Add("Cancelado");
 
-                    String finalizado = "          -";
-                    if (emprestimo.Data_finalizado.HasValue)
-                    {
-                        finalizado = emprestimo.Data_finalizado?.ToString("dd/MM/yyyy");
-                    }
-                    table.Rows.Add(emprestimo.ID_emprestimo,
-                                    emprestimo.Nome_Livro,
-                                    emprestimo.ISBN,
-                                    emprestimo.Nome_Funcionario,
-                                    emprestimo.Data_emprestimo.ToString("dd/MM/yyyy"),
-                                    emprestimo.Data_devolucao.ToString("dd/MM/yyyy"),
-                                    finalizado,
-                                    emprestimo.Status_Emprestimo,
-                                    emprestimo.Status_Exemplar);
+                foreach(EmprestimoVisualizarModel emprestimo in lista)
+                {
+                    listaItemId.Add(emprestimo.getItemEmprestimoId());
                 }
-                dtGridViewLivrosEmprestimo.DataSource = table;
+
+                dtGridViewLivrosEmprestimo.DataSource = lista;
+
                 int index = dtGridViewLivrosEmprestimo.SelectedRows[0].Index;
 
                 if (index >= 0)
@@ -98,6 +131,45 @@ namespace Biblioteca.View.Emprestimo
                 dtGridViewLivrosEmprestimo.Columns[7].Width = 200;
                 dtGridViewLivrosEmprestimo.Columns[8].Width = 150;
             }
+        }
+
+        private DataGridViewComboBoxColumn comboBoxColumnEmprestimo()
+        {
+            DataTable dtStatusEmprestimo = new DataTable();
+            dtStatusEmprestimo.Columns.Add("Status", typeof(string));
+            dtStatusEmprestimo.Rows.Add("Em Aberto");
+            dtStatusEmprestimo.Rows.Add("Pendente");
+            dtStatusEmprestimo.Rows.Add("Finalizado");
+            dtStatusEmprestimo.Rows.Add("Cancelado");
+
+            DataGridViewComboBoxColumn cbColumn = new DataGridViewComboBoxColumn();
+            cbColumn.Name = "cbEmprestimo";
+            cbColumn.HeaderText = "Status Empréstimo";
+            cbColumn.DataPropertyName = "Status_Emprestimo";
+            cbColumn.ValueMember = "Status";
+            cbColumn.DisplayMember = "Status";
+            cbColumn.FlatStyle = FlatStyle.Flat;
+            cbColumn.DataSource = dtStatusEmprestimo;
+            return cbColumn;
+        }
+
+        private DataGridViewComboBoxColumn comboBoxColumnExemplar()
+        {
+            DataTable dtStatusEmprestimo = new DataTable();
+            dtStatusEmprestimo.Columns.Add("Status", typeof(string));
+            dtStatusEmprestimo.Rows.Add("Devolvido");
+            dtStatusEmprestimo.Rows.Add("Extraviado");
+            dtStatusEmprestimo.Rows.Add("Emprestado");
+
+            DataGridViewComboBoxColumn cbColumn = new DataGridViewComboBoxColumn();
+            cbColumn.Name = "cbExemplar";
+            cbColumn.HeaderText = "Status Exemplar";
+            cbColumn.DataPropertyName = "Status_Exemplar";
+            cbColumn.ValueMember = "Status";
+            cbColumn.DisplayMember = "Status";
+            cbColumn.FlatStyle = FlatStyle.Flat;
+            cbColumn.DataSource = dtStatusEmprestimo;
+            return cbColumn;
         }
 
         private void popularLeitor(LeitorModel leitor)
@@ -115,6 +187,105 @@ namespace Biblioteca.View.Emprestimo
             {
                 this.Close();
             }
+        }
+
+        private void dtGridViewLivrosEmprestimo_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            String mensagemErro = "";
+            List<EmprestimoVisualizarModel> emprestimos = new List<EmprestimoVisualizarModel>();
+            foreach (DataGridViewRow row in dtGridViewLivrosEmprestimo.Rows)
+            {
+                Nullable<DateTime> finalizado = null;
+                if (row.Cells["Previsto"].Value.ToString() != "")
+                {
+                    finalizado = (DateTime)row.Cells["Previsto"].Value;
+                }
+                EmprestimoVisualizarModel emprestimo = new EmprestimoVisualizarModel(
+                    (int)row.Cells["ID"].Value,
+                    (String)row.Cells["Título"].Value,
+                    (String)row.Cells["ISBN"].Value,
+                    (String)row.Cells["Funcionário"].Value,
+                    (DateTime)row.Cells["Empréstimo"].Value,
+                    (DateTime)row.Cells["Previsto"].Value,
+                    finalizado,
+                    (String)row.Cells["cbEmprestimo"].Value,
+                    (String)row.Cells["cbExemplar"].Value
+                );
+                emprestimo.setItemEmprestimoId(listaItemId[row.Index]);
+                emprestimos.Add(emprestimo);
+
+                if (emprestimo.Status_Emprestimo == "Em Aberto" && emprestimo.Status_Exemplar != "Emprestado")
+                {
+                    mensagemErro += "Empréstimo ID: " + emprestimo.ID_emprestimo + ".\n";
+                }
+
+                else if (emprestimo.Status_Emprestimo == "Pendente" && emprestimo.Status_Exemplar != "Extraviado")
+                {
+                    mensagemErro += "Empréstimo ID: " + emprestimo.ID_emprestimo + ".\n";
+                }
+
+                else if (emprestimo.Status_Emprestimo == "Finalizado" && emprestimo.Status_Exemplar == "Emprestado")
+                {
+                    mensagemErro += "Empréstimo ID: " + emprestimo.ID_emprestimo + ".\n";
+                }
+
+                else if (emprestimo.Status_Emprestimo == "Cancelado" && emprestimo.Status_Exemplar != "Devolvido")
+                {
+                    mensagemErro += "Empréstimo ID: " + emprestimo.ID_emprestimo + ".\n";
+                }
+
+            }
+
+            if (!mensagemErro.Equals(""))
+            {
+                mensagemErro = "                                                 ERRO DE FLUXO\n\n" + mensagemErro;
+                mensagemErro += "\nIMPORTANTE: Fluxo do status empréstimo e status exemplar incorretos.\nPor favor, verifique as instruções.";
+                emprestimos.Clear();
+                MessageBox.Show(mensagemErro, "Atenção", MessageBoxButtons.OK);
+            }
+            else
+            {
+                bool error = false;
+                foreach (EmprestimoVisualizarModel emprestimo in emprestimos)
+                {
+                    if (controller.AtualizarStatusEmprestimo(emprestimo))
+                    {
+                        if (!controller.AtualizarStatusExemplar(emprestimo))
+                        {
+                            error = true;
+                        }
+                    }
+                    else
+                    {
+                        error = true;
+                    }
+                }
+
+                if(error)
+                {
+                    MessageBox.Show("Encontramos um problema ao atualizar um empréstimo.", "Atenção", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    buscarDadosPopularTela(atualizado: true);
+                    MessageBox.Show("Atualizado(s) com sucesso.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
+        }
+
+        private void icInfo_Click(object sender, EventArgs e)
+        {
+            pnlFluxo.Visible = true;
+        }
+
+        private void icnFluxoEmprestimo_Click(object sender, EventArgs e)
+        {
+            pnlFluxo.Visible = false;
         }
     }
 }

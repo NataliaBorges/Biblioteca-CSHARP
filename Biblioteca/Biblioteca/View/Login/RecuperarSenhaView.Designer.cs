@@ -33,6 +33,8 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnEnviado = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.lbCancel = new System.Windows.Forms.LinkLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -42,15 +44,13 @@
             this.tbEmail = new RJCodeAdvance.RJControls.RJTextBox();
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btLogar = new RJCodeAdvance.RJControls.RJButton();
-            this.pnEnviado = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnEnviado.SuspendLayout();
             this.panel3.SuspendLayout();
             this.PnlEmail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            this.pnEnviado.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -104,6 +104,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(519, 544);
             this.panel2.TabIndex = 2;
+            // 
+            // pnEnviado
+            // 
+            this.pnEnviado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnEnviado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(243)))), ((int)(((byte)(180)))));
+            this.pnEnviado.Controls.Add(this.label4);
+            this.pnEnviado.Location = new System.Drawing.Point(131, 344);
+            this.pnEnviado.Name = "pnEnviado";
+            this.pnEnviado.Size = new System.Drawing.Size(233, 39);
+            this.pnEnviado.TabIndex = 24;
+            this.pnEnviado.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(87)))), ((int)(((byte)(31)))));
+            this.label4.Location = new System.Drawing.Point(11, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(215, 20);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "E-mail enviado com sucesso!";
             // 
             // lbCancel
             // 
@@ -242,28 +264,6 @@
             this.btLogar.UseVisualStyleBackColor = false;
             this.btLogar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
-            // pnEnviado
-            // 
-            this.pnEnviado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnEnviado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(243)))), ((int)(((byte)(180)))));
-            this.pnEnviado.Controls.Add(this.label4);
-            this.pnEnviado.Location = new System.Drawing.Point(131, 344);
-            this.pnEnviado.Name = "pnEnviado";
-            this.pnEnviado.Size = new System.Drawing.Size(233, 39);
-            this.pnEnviado.TabIndex = 24;
-            this.pnEnviado.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(87)))), ((int)(((byte)(31)))));
-            this.label4.Location = new System.Drawing.Point(11, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 20);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "E-mail enviado com sucesso!";
-            // 
             // RecuperarSenhaView
             // 
             this.AcceptButton = this.btLogar;
@@ -282,14 +282,14 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnEnviado.ResumeLayout(false);
+            this.pnEnviado.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.PnlEmail.ResumeLayout(false);
             this.PnlEmail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            this.pnEnviado.ResumeLayout(false);
-            this.pnEnviado.PerformLayout();
             this.ResumeLayout(false);
 
         }

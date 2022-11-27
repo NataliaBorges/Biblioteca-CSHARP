@@ -15,6 +15,8 @@ namespace Biblioteca.Model
         public Nullable<DateTime> Data_finalizado { get; set; }
         public string Status_Emprestimo { get; set; }
         public string Status_Exemplar { get; set; }
+
+        private int ID_Item_Emprestimo;
         public EmprestimoVisualizarModel(int ID_emprestimo, string Nome_Livro, string ISBN, string Nome_Funcionario, DateTime Data_emprestimo, DateTime Data_devolucao, Nullable<DateTime> Data_finalizado, string Status_Emprestimo, string Status_Exemplar)
         {
             this.ID_emprestimo = ID_emprestimo;
@@ -26,6 +28,14 @@ namespace Biblioteca.Model
             this.Data_finalizado = Data_finalizado;
             this.Status_Emprestimo = Status_Emprestimo;
             this.Status_Exemplar = Status_Exemplar;
+        }
+        public void setItemEmprestimoId(int id)
+        {
+            this.ID_Item_Emprestimo = id;
+        }
+        public int getItemEmprestimoId()
+        {
+            return this.ID_Item_Emprestimo;
         }
     }
 }

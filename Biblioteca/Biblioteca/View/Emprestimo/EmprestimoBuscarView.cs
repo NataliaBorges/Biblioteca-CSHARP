@@ -311,5 +311,19 @@ namespace Biblioteca.View.Emprestimo {
             dtGridViewEmprestimo.DataSource = null;
             tbBuscar.Text = null;
         }
+
+        private void EmprestimoBuscarView_Activated(object sender, EventArgs e)
+        {
+            lblNotFound.Visible = false;
+            dtGridViewEmprestimo.DataSource = null;
+            tbBuscar.Text = null;
+            cbStatusEmprestimo.Text = "Todos";
+            cbStatusExemplar.Text = "Todos";
+            rbCodigo.Checked = false;
+            rbCPF.Checked = false;
+            rbLeitor.Checked = false;
+            rbLivro.Checked = false;
+            rbISBN.Checked = false;
+        }
     }
 }

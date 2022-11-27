@@ -75,7 +75,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbLeitor.BackColor = System.Drawing.Color.Transparent;
             this.rbLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbLeitor.ForeColor = System.Drawing.Color.White;
-            this.rbLeitor.Location = new System.Drawing.Point(19, 75);
+            this.rbLeitor.Location = new System.Drawing.Point(19, 73);
             this.rbLeitor.Name = "rbLeitor";
             this.rbLeitor.Size = new System.Drawing.Size(70, 24);
             this.rbLeitor.TabIndex = 21;
@@ -91,7 +91,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbLivro.BackColor = System.Drawing.Color.Transparent;
             this.rbLivro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbLivro.ForeColor = System.Drawing.Color.White;
-            this.rbLivro.Location = new System.Drawing.Point(172, 50);
+            this.rbLivro.Location = new System.Drawing.Point(172, 48);
             this.rbLivro.Name = "rbLivro";
             this.rbLivro.Size = new System.Drawing.Size(96, 24);
             this.rbLivro.TabIndex = 20;
@@ -104,7 +104,7 @@ namespace Biblioteca.View.Emprestimo {
             // 
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(434, 100);
+            this.tbBuscar.Location = new System.Drawing.Point(511, 102);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(421, 27);
@@ -181,8 +181,8 @@ namespace Biblioteca.View.Emprestimo {
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.dtFinalizado);
             this.panel2.Controls.Add(this.dtFinal);
@@ -202,7 +202,7 @@ namespace Biblioteca.View.Emprestimo {
             this.groupBox2.Controls.Add(this.cbStatusEmprestimo);
             this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(925, 8);
+            this.groupBox2.Location = new System.Drawing.Point(422, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(246, 63);
             this.groupBox2.TabIndex = 106;
@@ -233,7 +233,7 @@ namespace Biblioteca.View.Emprestimo {
             this.groupBox1.Controls.Add(this.cbStatusExemplar);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(925, 72);
+            this.groupBox1.Location = new System.Drawing.Point(686, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(246, 63);
             this.groupBox1.TabIndex = 105;
@@ -267,9 +267,9 @@ namespace Biblioteca.View.Emprestimo {
             this.groupBox3.Controls.Add(this.rbCodigo);
             this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(55, 8);
+            this.groupBox3.Location = new System.Drawing.Point(55, 15);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(284, 119);
+            this.groupBox3.Size = new System.Drawing.Size(284, 114);
             this.groupBox3.TabIndex = 104;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TIPO DE BUSCA";
@@ -280,7 +280,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbCPF.AutoSize = true;
             this.rbCPF.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCPF.ForeColor = System.Drawing.Color.White;
-            this.rbCPF.Location = new System.Drawing.Point(19, 50);
+            this.rbCPF.Location = new System.Drawing.Point(19, 48);
             this.rbCPF.Name = "rbCPF";
             this.rbCPF.Size = new System.Drawing.Size(57, 24);
             this.rbCPF.TabIndex = 27;
@@ -295,7 +295,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbISBN.AutoSize = true;
             this.rbISBN.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbISBN.ForeColor = System.Drawing.Color.White;
-            this.rbISBN.Location = new System.Drawing.Point(172, 79);
+            this.rbISBN.Location = new System.Drawing.Point(172, 77);
             this.rbISBN.Name = "rbISBN";
             this.rbISBN.Size = new System.Drawing.Size(63, 24);
             this.rbISBN.TabIndex = 26;
@@ -310,7 +310,7 @@ namespace Biblioteca.View.Emprestimo {
             this.rbCodigo.AutoSize = true;
             this.rbCodigo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rbCodigo.ForeColor = System.Drawing.Color.White;
-            this.rbCodigo.Location = new System.Drawing.Point(89, 23);
+            this.rbCodigo.Location = new System.Drawing.Point(89, 21);
             this.rbCodigo.Name = "rbCodigo";
             this.rbCodigo.Size = new System.Drawing.Size(80, 24);
             this.rbCodigo.TabIndex = 25;
@@ -325,7 +325,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtFinalizado.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtFinalizado.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtFinalizado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFinalizado.Location = new System.Drawing.Point(613, 31);
+            this.dtFinalizado.Location = new System.Drawing.Point(1036, 102);
             this.dtFinalizado.Name = "dtFinalizado";
             this.dtFinalizado.Size = new System.Drawing.Size(139, 27);
             this.dtFinalizado.TabIndex = 40;
@@ -337,7 +337,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtFinal.AutoSize = true;
             this.dtFinal.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtFinal.ForeColor = System.Drawing.Color.White;
-            this.dtFinal.Location = new System.Drawing.Point(613, 8);
+            this.dtFinal.Location = new System.Drawing.Point(1036, 79);
             this.dtFinal.Name = "dtFinal";
             this.dtFinal.Size = new System.Drawing.Size(86, 20);
             this.dtFinal.TabIndex = 39;
@@ -350,7 +350,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtInicial.CalendarMonthBackground = System.Drawing.Color.Orange;
             this.dtInicial.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtInicial.Location = new System.Drawing.Point(464, 31);
+            this.dtInicial.Location = new System.Drawing.Point(1036, 31);
             this.dtInicial.Name = "dtInicial";
             this.dtInicial.Size = new System.Drawing.Size(134, 27);
             this.dtInicial.TabIndex = 38;
@@ -362,7 +362,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(464, 8);
+            this.label17.Location = new System.Drawing.Point(1036, 8);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(98, 20);
             this.label17.TabIndex = 37;
@@ -374,7 +374,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(345, 103);
+            this.label5.Location = new System.Drawing.Point(422, 105);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 20);
             this.label5.TabIndex = 29;
@@ -534,6 +534,7 @@ namespace Biblioteca.View.Emprestimo {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EmprestimoBuscarView";
             this.Text = "Buscar Empréstimo";
+            this.Activated += new System.EventHandler(this.EmprestimoBuscarView_Activated);
             this.Load += new System.EventHandler(this.EmpretimoBuscarView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
