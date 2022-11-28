@@ -29,13 +29,13 @@ namespace Biblioteca.View.Reserva {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservaCadastroView));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CalendarDevolucap = new System.Windows.Forms.DateTimePicker();
+            this.CalendarRetirar = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.CalendarEmprestimo = new System.Windows.Forms.DateTimePicker();
+            this.CalendarReserva = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscarLivros = new FontAwesome.Sharp.IconButton();
             this.btnBuscarLeitor = new FontAwesome.Sharp.IconButton();
@@ -54,10 +54,8 @@ namespace Biblioteca.View.Reserva {
             this.label5 = new System.Windows.Forms.Label();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplares)).BeginInit();
             this.panel3.SuspendLayout();
             this.pnltotal.SuspendLayout();
@@ -75,6 +73,29 @@ namespace Biblioteca.View.Reserva {
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1083, 720);
             this.panel1.TabIndex = 18;
+            // 
+            // icbtnVoltar
+            // 
+            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
+            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
+            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
+            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icbtnVoltar.IconSize = 30;
+            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icbtnVoltar.Location = new System.Drawing.Point(185, 52);
+            this.icbtnVoltar.Name = "icbtnVoltar";
+            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
+            this.icbtnVoltar.TabIndex = 97;
+            this.icbtnVoltar.Tag = "";
+            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -98,7 +119,10 @@ namespace Biblioteca.View.Reserva {
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.CalendarRetirar);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.CalendarReserva);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.btnBuscarLivros);
             this.panel2.Controls.Add(this.btnBuscarLeitor);
             this.panel2.Controls.Add(this.dtGridViewExemplares);
@@ -112,34 +136,19 @@ namespace Biblioteca.View.Reserva {
             this.panel2.Size = new System.Drawing.Size(1083, 605);
             this.panel2.TabIndex = 96;
             // 
-            // groupBox1
+            // CalendarRetirar
             // 
-            this.groupBox1.Controls.Add(this.CalendarDevolucap);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.CalendarEmprestimo);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(611, 166);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(426, 171);
-            this.groupBox1.TabIndex = 121;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATAS";
-            // 
-            // CalendarDevolucap
-            // 
-            this.CalendarDevolucap.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CalendarDevolucap.CalendarForeColor = System.Drawing.Color.DarkMagenta;
-            this.CalendarDevolucap.CalendarMonthBackground = System.Drawing.Color.Purple;
-            this.CalendarDevolucap.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
-            this.CalendarDevolucap.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CalendarDevolucap.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
-            this.CalendarDevolucap.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarDevolucap.Location = new System.Drawing.Point(106, 111);
-            this.CalendarDevolucap.Name = "CalendarDevolucap";
-            this.CalendarDevolucap.Size = new System.Drawing.Size(299, 27);
-            this.CalendarDevolucap.TabIndex = 120;
+            this.CalendarRetirar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarRetirar.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarRetirar.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarRetirar.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarRetirar.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarRetirar.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarRetirar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarRetirar.Location = new System.Drawing.Point(721, 174);
+            this.CalendarRetirar.Name = "CalendarRetirar";
+            this.CalendarRetirar.Size = new System.Drawing.Size(299, 27);
+            this.CalendarRetirar.TabIndex = 124;
             // 
             // label3
             // 
@@ -148,25 +157,25 @@ namespace Biblioteca.View.Reserva {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 48);
+            this.label3.Location = new System.Drawing.Point(628, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 20);
-            this.label3.TabIndex = 109;
+            this.label3.TabIndex = 121;
             this.label3.Text = "RESERVA:";
             // 
-            // CalendarEmprestimo
+            // CalendarReserva
             // 
-            this.CalendarEmprestimo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CalendarEmprestimo.CalendarForeColor = System.Drawing.Color.DarkMagenta;
-            this.CalendarEmprestimo.CalendarMonthBackground = System.Drawing.Color.Purple;
-            this.CalendarEmprestimo.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
-            this.CalendarEmprestimo.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CalendarEmprestimo.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
-            this.CalendarEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarEmprestimo.Location = new System.Drawing.Point(106, 43);
-            this.CalendarEmprestimo.Name = "CalendarEmprestimo";
-            this.CalendarEmprestimo.Size = new System.Drawing.Size(299, 27);
-            this.CalendarEmprestimo.TabIndex = 119;
+            this.CalendarReserva.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CalendarReserva.CalendarForeColor = System.Drawing.Color.DarkMagenta;
+            this.CalendarReserva.CalendarMonthBackground = System.Drawing.Color.Purple;
+            this.CalendarReserva.CalendarTitleBackColor = System.Drawing.Color.AntiqueWhite;
+            this.CalendarReserva.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.CalendarReserva.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
+            this.CalendarReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CalendarReserva.Location = new System.Drawing.Point(721, 106);
+            this.CalendarReserva.Name = "CalendarReserva";
+            this.CalendarReserva.Size = new System.Drawing.Size(299, 27);
+            this.CalendarReserva.TabIndex = 123;
             // 
             // label4
             // 
@@ -175,10 +184,10 @@ namespace Biblioteca.View.Reserva {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(15, 116);
+            this.label4.Location = new System.Drawing.Point(630, 179);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 20);
-            this.label4.TabIndex = 110;
+            this.label4.TabIndex = 122;
             this.label4.Text = "RETIRAR:";
             // 
             // btnBuscarLivros
@@ -205,6 +214,7 @@ namespace Biblioteca.View.Reserva {
             this.btnBuscarLivros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarLivros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarLivros.UseVisualStyleBackColor = false;
+            this.btnBuscarLivros.Click += new System.EventHandler(this.btnBuscarLivros_Click);
             // 
             // btnBuscarLeitor
             // 
@@ -230,6 +240,7 @@ namespace Biblioteca.View.Reserva {
             this.btnBuscarLeitor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarLeitor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarLeitor.UseVisualStyleBackColor = false;
+            this.btnBuscarLeitor.Click += new System.EventHandler(this.btnBuscarLeitor_Click);
             // 
             // dtGridViewExemplares
             // 
@@ -276,8 +287,9 @@ namespace Biblioteca.View.Reserva {
             this.dtGridViewExemplares.RowHeadersVisible = false;
             this.dtGridViewExemplares.RowTemplate.Height = 25;
             this.dtGridViewExemplares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewExemplares.Size = new System.Drawing.Size(484, 182);
+            this.dtGridViewExemplares.Size = new System.Drawing.Size(949, 179);
             this.dtGridViewExemplares.TabIndex = 114;
+            this.dtGridViewExemplares.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplares_CellDoubleClick);
             // 
             // label2
             // 
@@ -311,12 +323,13 @@ namespace Biblioteca.View.Reserva {
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(499, 522);
+            this.btnCadastrar.Location = new System.Drawing.Point(807, 507);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(213, 45);
             this.btnCadastrar.TabIndex = 112;
             this.btnCadastrar.Text = "SALVAR";
             this.btnCadastrar.UseVisualStyleBackColor = false;
+            this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // panel3
             // 
@@ -448,28 +461,6 @@ namespace Biblioteca.View.Reserva {
             this.menuControl1.Size = new System.Drawing.Size(198, 720);
             this.menuControl1.TabIndex = 19;
             // 
-            // icbtnVoltar
-            // 
-            this.icbtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.icbtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.icbtnVoltar.FlatAppearance.BorderSize = 0;
-            this.icbtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icbtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.icbtnVoltar.ForeColor = System.Drawing.Color.White;
-            this.icbtnVoltar.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.icbtnVoltar.IconColor = System.Drawing.Color.Chocolate;
-            this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icbtnVoltar.IconSize = 30;
-            this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(185, 52);
-            this.icbtnVoltar.Name = "icbtnVoltar";
-            this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
-            this.icbtnVoltar.TabIndex = 97;
-            this.icbtnVoltar.Tag = "";
-            this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.icbtnVoltar.UseVisualStyleBackColor = true;
-            // 
             // ReservaCadastroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -485,13 +476,12 @@ namespace Biblioteca.View.Reserva {
             this.MinimizeBox = false;
             this.Name = "ReservaCadastroView";
             this.Text = "Cadastrar reserva";
+            this.Activated += new System.EventHandler(this.ReservaCadastroView_Activated);
             this.Load += new System.EventHandler(this.ReservaCadastroView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewExemplares)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -507,11 +497,6 @@ namespace Biblioteca.View.Reserva {
         private Util.MenuControl menuControl1;
         private System.Windows.Forms.Label lblCadastroLivro;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker CalendarDevolucap;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker CalendarEmprestimo;
-        private System.Windows.Forms.Label label4;
         private FontAwesome.Sharp.IconButton btnBuscarLivros;
         private FontAwesome.Sharp.IconButton btnBuscarLeitor;
         private System.Windows.Forms.DataGridView dtGridViewExemplares;
@@ -528,5 +513,9 @@ namespace Biblioteca.View.Reserva {
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton icbtnVoltar;
+        private System.Windows.Forms.DateTimePicker CalendarRetirar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker CalendarReserva;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -251,6 +251,11 @@ namespace Biblioteca.Controller
 								INNER JOIN Edicao AS E ON (E.Id = Exemplar.Id_Edicao) 
                                 INNER JOIN Editora AS F ON (F.Id = L.Id_editora)
                                 WHERE Exemplar.estado = 1 AND Exemplar.ID_livro = '" + idLivro + "' AND " +
+                                "Exemplar.Id NOT IN ( " +
+                                    "SELECT Item_reserva.Id_exemplar " +
+                                    "FROM Reserva " +
+                                    "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                    "WHERE Reserva.Id_reservaStatus = 1) AND " +
                                 "Exemplar.Id NOT IN (" +
                                     "SELECT Item_Emprestimo.Id_exemplar " +
                                     "FROM Emprestimo " +
@@ -346,7 +351,12 @@ namespace Biblioteca.Controller
                                     "FROM Emprestimo " +
                                     "INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id) " +
                                     "WHERE (Emprestimo.Id_emprestimoStatus = 1 OR Emprestimo.Id_emprestimoStatus = 2) AND " +
-                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7))" +
+                                    "(Item_Emprestimo.Id_Status = 6 OR Item_Emprestimo.Id_Status = 7)) AND " +
+                                "Exemplar.Id NOT IN ( " +
+                                    "SELECT Item_reserva.Id_exemplar " +
+                                    "FROM Reserva " +
+                                    "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                    "WHERE Reserva.Id_reservaStatus = 1)" +
                                 "GROUP BY Livro.Id, Livro.Titulo, Editora.Nome_Editora, Autor.Nome_Autor, Genero.Nome_Genero";
 
 
@@ -938,6 +948,11 @@ namespace Biblioteca.Controller
                                         INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
                                         INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
                                         WHERE Livro.Id = '" + idLivro + "' AND Exemplar.Id LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN ( " +
+                                        "SELECT Item_reserva.Id_exemplar " +
+                                        "FROM Reserva " +
+                                        "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                        "WHERE Reserva.Id_reservaStatus = 1) AND " +
                                         "Exemplar.Id NOT IN (" +
                                             "SELECT Item_Emprestimo.Id_exemplar " +
                                             "FROM Emprestimo " +
@@ -967,6 +982,11 @@ namespace Biblioteca.Controller
                                         INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
                                         INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
                                         WHERE Livro.Id = '" + idLivro + "' AND Exemplar.Ano LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN ( " +
+                                        "SELECT Item_reserva.Id_exemplar " +
+                                        "FROM Reserva " +
+                                        "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                        "WHERE Reserva.Id_reservaStatus = 1) AND " +
                                         "Exemplar.Id NOT IN (" +
                                             "SELECT Item_Emprestimo.Id_exemplar " +
                                             "FROM Emprestimo " +
@@ -997,6 +1017,11 @@ namespace Biblioteca.Controller
                                         INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
                                         INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
                                         WHERE Livro.Id = '" + idLivro + "' AND Exemplar.ISBN LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN ( " +
+                                        "SELECT Item_reserva.Id_exemplar " +
+                                        "FROM Reserva " +
+                                        "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                        "WHERE Reserva.Id_reservaStatus = 1) AND " +
                                         "Exemplar.Id NOT IN (" +
                                             "SELECT Item_Emprestimo.Id_exemplar " +
                                             "FROM Emprestimo " +
@@ -1026,6 +1051,11 @@ namespace Biblioteca.Controller
                                         INNER JOIN Editora ON (Editora.Id = Livro.Id_editora)
                                         INNER JOIN Genero ON (Genero.Id = Livro.Id_genero)
                                         WHERE Livro.Id = '" + idLivro + "' AND Edicao.Nome_Edicao LIKE '%" + busca + "%' AND " +
+                                        "Exemplar.Id NOT IN ( " +
+                                        "SELECT Item_reserva.Id_exemplar " +
+                                        "FROM Reserva " +
+                                        "INNER JOIN Item_reserva ON(Item_reserva.Id_reserva = Reserva.Id) " +
+                                        "WHERE Reserva.Id_reservaStatus = 1) AND " +
                                         "Exemplar.Id NOT IN (" +
                                             "SELECT Item_Emprestimo.Id_exemplar " +
                                             "FROM Emprestimo " +

@@ -45,10 +45,16 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rbCodigo = new System.Windows.Forms.RadioButton();
+            this.rbAno = new System.Windows.Forms.RadioButton();
+            this.rbEdicao = new System.Windows.Forms.RadioButton();
+            this.rbIsbn = new System.Windows.Forms.RadioButton();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivros)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -100,6 +106,7 @@
             this.icbtnVoltar.Tag = "";
             this.icbtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.icbtnVoltar.UseVisualStyleBackColor = true;
+            this.icbtnVoltar.Click += new System.EventHandler(this.icbtnVoltar_Click);
             // 
             // label1
             // 
@@ -116,6 +123,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel3.Controls.Add(this.groupBox3);
             this.panel3.Controls.Add(this.lblNotFound);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.cbStatus);
@@ -135,7 +143,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(488, 244);
+            this.lblNotFound.Location = new System.Drawing.Point(474, 292);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 95;
@@ -197,7 +205,7 @@
             this.dtGridViewLivros.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewLivros.EnableHeadersVisualStyles = false;
             this.dtGridViewLivros.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLivros.Location = new System.Drawing.Point(148, 106);
+            this.dtGridViewLivros.Location = new System.Drawing.Point(148, 152);
             this.dtGridViewLivros.Name = "dtGridViewLivros";
             this.dtGridViewLivros.ReadOnly = true;
             this.dtGridViewLivros.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -214,15 +222,17 @@
             this.dtGridViewLivros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewLivros.Size = new System.Drawing.Size(806, 346);
             this.dtGridViewLivros.TabIndex = 30;
+            this.dtGridViewLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLivros_CellClick);
             // 
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(330, 61);
+            this.tbBuscar.Location = new System.Drawing.Point(437, 62);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(477, 27);
             this.tbBuscar.TabIndex = 0;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -254,6 +264,78 @@
             this.menuControl1.Size = new System.Drawing.Size(180, 735);
             this.menuControl1.TabIndex = 21;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.rbCodigo);
+            this.groupBox3.Controls.Add(this.rbAno);
+            this.groupBox3.Controls.Add(this.rbEdicao);
+            this.groupBox3.Controls.Add(this.rbIsbn);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(148, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(253, 117);
+            this.groupBox3.TabIndex = 107;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "TIPO DE BUSCA";
+            // 
+            // rbCodigo
+            // 
+            this.rbCodigo.AutoSize = true;
+            this.rbCodigo.BackColor = System.Drawing.Color.Transparent;
+            this.rbCodigo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbCodigo.ForeColor = System.Drawing.Color.White;
+            this.rbCodigo.Location = new System.Drawing.Point(17, 38);
+            this.rbCodigo.Name = "rbCodigo";
+            this.rbCodigo.Size = new System.Drawing.Size(80, 24);
+            this.rbCodigo.TabIndex = 116;
+            this.rbCodigo.TabStop = true;
+            this.rbCodigo.Text = "Código";
+            this.rbCodigo.UseVisualStyleBackColor = false;
+            // 
+            // rbAno
+            // 
+            this.rbAno.AutoSize = true;
+            this.rbAno.BackColor = System.Drawing.Color.Transparent;
+            this.rbAno.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbAno.ForeColor = System.Drawing.Color.White;
+            this.rbAno.Location = new System.Drawing.Point(17, 66);
+            this.rbAno.Name = "rbAno";
+            this.rbAno.Size = new System.Drawing.Size(57, 24);
+            this.rbAno.TabIndex = 110;
+            this.rbAno.TabStop = true;
+            this.rbAno.Text = "Ano";
+            this.rbAno.UseVisualStyleBackColor = false;
+            // 
+            // rbEdicao
+            // 
+            this.rbEdicao.BackColor = System.Drawing.Color.Transparent;
+            this.rbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbEdicao.ForeColor = System.Drawing.Color.White;
+            this.rbEdicao.Location = new System.Drawing.Point(132, 66);
+            this.rbEdicao.MaximumSize = new System.Drawing.Size(180, 192);
+            this.rbEdicao.Name = "rbEdicao";
+            this.rbEdicao.Size = new System.Drawing.Size(105, 20);
+            this.rbEdicao.TabIndex = 113;
+            this.rbEdicao.TabStop = true;
+            this.rbEdicao.Text = "Edição";
+            this.rbEdicao.UseVisualStyleBackColor = false;
+            // 
+            // rbIsbn
+            // 
+            this.rbIsbn.BackColor = System.Drawing.Color.Transparent;
+            this.rbIsbn.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbIsbn.ForeColor = System.Drawing.Color.White;
+            this.rbIsbn.Location = new System.Drawing.Point(132, 40);
+            this.rbIsbn.MaximumSize = new System.Drawing.Size(180, 192);
+            this.rbIsbn.Name = "rbIsbn";
+            this.rbIsbn.Size = new System.Drawing.Size(105, 20);
+            this.rbIsbn.TabIndex = 111;
+            this.rbIsbn.TabStop = true;
+            this.rbIsbn.Text = "ISBN";
+            this.rbIsbn.UseVisualStyleBackColor = false;
+            // 
             // ReservaBuscarExemplarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,12 +347,15 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReservaBuscarExemplarView";
             this.Text = "ReservaBuscarExemplarView";
+            this.Load += new System.EventHandler(this.ReservaBuscarExemplarView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridViewLivros)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,5 +375,10 @@
         private System.Windows.Forms.Button btnBuscar;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rbCodigo;
+        private System.Windows.Forms.RadioButton rbAno;
+        private System.Windows.Forms.RadioButton rbEdicao;
+        private System.Windows.Forms.RadioButton rbIsbn;
     }
 }

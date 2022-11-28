@@ -17,8 +17,6 @@ using static iTextSharp.text.Font;
 namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoCadastroView : Form {
 
-        DateTime dataEmprestimo;
-        DateTime dataDevolucao;
         EmprestimoController controller = new EmprestimoController();
         Singleton singleton = Singleton.GetInstancia();
         bool gerouContrato = false;

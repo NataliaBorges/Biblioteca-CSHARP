@@ -161,6 +161,7 @@ namespace Biblioteca.View.Reserva {
             this.dtGridViewLivros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewLivros.Size = new System.Drawing.Size(889, 348);
             this.dtGridViewLivros.TabIndex = 30;
+            this.dtGridViewLivros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLivros_CellClick);
             // 
             // tbPesquisar
             // 
@@ -170,6 +171,7 @@ namespace Biblioteca.View.Reserva {
             this.tbPesquisar.PlaceholderText = "Digite aqui";
             this.tbPesquisar.Size = new System.Drawing.Size(477, 27);
             this.tbPesquisar.TabIndex = 0;
+            this.tbPesquisar.TextChanged += new System.EventHandler(this.tbPesquisar_TextChanged);
             // 
             // btnBuscar
             // 
@@ -204,6 +206,7 @@ namespace Biblioteca.View.Reserva {
             this.IcnBtnVoltar.Tag = "";
             this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.IcnBtnVoltar.UseVisualStyleBackColor = true;
+            this.IcnBtnVoltar.Click += new System.EventHandler(this.IcnBtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -263,6 +266,7 @@ namespace Biblioteca.View.Reserva {
             this.MinimizeBox = false;
             this.Name = "ReservaBuscarLivroView";
             this.Text = "Selecionar Livros";
+            this.Activated += new System.EventHandler(this.ReservaBuscarLivroView_Activated);
             this.Load += new System.EventHandler(this.ReservaBuscarLivroView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

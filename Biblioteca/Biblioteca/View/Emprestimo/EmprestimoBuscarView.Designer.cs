@@ -574,7 +574,7 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.DateTimePicker dtInicial;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnAtualizar;
+        //private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ComboBox cbStatusExemplar;
         private System.Windows.Forms.Button btnEditar;

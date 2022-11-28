@@ -132,7 +132,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtGridViewExemplares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -166,6 +166,7 @@ namespace Biblioteca.View.Emprestimo {
             this.dtGridViewExemplares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewExemplares.Size = new System.Drawing.Size(936, 177);
             this.dtGridViewExemplares.TabIndex = 109;
+            this.dtGridViewExemplares.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplares_CellDoubleClick);
             // 
             // btnGerarContrato
             // 

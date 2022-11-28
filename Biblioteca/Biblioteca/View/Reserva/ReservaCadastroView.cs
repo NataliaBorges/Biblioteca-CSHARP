@@ -13,12 +13,16 @@ using Biblioteca.Util;
 namespace Biblioteca.View.Reserva {
     public partial class ReservaCadastroView : Form {
 
-        DateTime dataReserva;
         ReservaController controller = new ReservaController();
         Singleton singleton = Singleton.GetInstancia();
 
         public ReservaCadastroView() {
-            InitializeComponent(); 
+            InitializeComponent();
+            lbNome.Text = "";
+            lbTelefone.Text = "";
+            lbCpf.Text = "";
+            lbEmail.Text = "";
+            dtGridViewExemplares.DataSource = null;
         }
 
 
@@ -26,129 +30,177 @@ namespace Biblioteca.View.Reserva {
             this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
 
-
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            //popularExemplar(controller.PegarExemplarReserva());
-            //popularLeitor(controller.PegarLeitorReserva());
+            this.singleton.clearReserva();
+            popularExemplar(controller.PegarExemplarReserva());
+            popularLeitor(controller.PegarLeitorReserva());
+            CalendarRetirar.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(30);
+            this.dtGridViewExemplares.DefaultCellStyle.Font = new System.Drawing.Font("Book Antiqua", 12);
+            this.dtGridViewExemplares.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Book Antiqua", 12);
         }
-        //private void cbLeitor_TextChanged(object sender, EventArgs e)
-        //{
-        //    if (cbLeitor.SelectedIndex < 0)
-        //    {
-        //        cbLeitor.Text = "Digite aqui";
-        //    }
-        //    else
-        //    {
-        //        cbLeitor.Text = cbLeitor.SelectedText;
-        //    }
-        //}
 
+        private void popularExemplar(List<ExemplarModel> lista)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Edição", typeof(string));
+            table.Columns.Add("Ano", typeof(string));
+            table.Columns.Add("ISBN", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
 
-        //protected override void OnActivated(EventArgs e) {
-        //    popularExemplar(controller.PegarExemplarReserva());
-        //    popularLeitor(controller.PegarLeitorReserva());
-        //}
+            if (lista.Count > 0)
+            {
+                foreach (ExemplarModel exemplar in lista)
+                {
 
-        //private void popularExemplar(List<ExemplarModel> lista) {
-        //    lvLivros.Items.Clear();
-        //    if (lista.Count > 0) {
-        //        foreach (ExemplarModel exemplar in lista) {
-        //            ListViewItem item = new ListViewItem(exemplar.getId().ToString());
-        //            item.SubItems.Add(exemplar.Titulo);
-        //            //item.SubItems.Add(exemplar.Edicao);
-        //            item.SubItems.Add(exemplar.AnoPublicacao);
-        //            item.SubItems.Add(exemplar.ISBN);
-        //            item.SubItems.Add(exemplar.Aquisicao.ToString("dd/MM/yyyy"));
-        //            item.SubItems.Add(exemplar.Nome_Autor);
-        //            item.SubItems.Add(exemplar.Nome_Editora);
-        //            item.SubItems.Add(exemplar.Nome_Genero);
+                    table.Rows.Add(exemplar.getId(),
+                                   exemplar.Titulo,
+                                   exemplar.Nome_Autor,
+                                   exemplar.Nome_Edicao,
+                                   exemplar.AnoPublicacao,
+                                   exemplar.ISBN,
+                                   exemplar.Nome_Editora);
+                }
+                dtGridViewExemplares.DataSource = table;
 
-        //            lvLivros.Items.Add(item);
-        //        }
-        //    }
-        //}
+                dtGridViewExemplares.Columns[0].Width = 50;
+                dtGridViewExemplares.Columns[1].Width = 200;
 
-        //private void popularLeitor(List<LeitorModel> lista) {
-        //    lvLeitor.Items.Clear();
-        //    if (lista.Count > 0) {
-        //        foreach (LeitorModel leitor in lista) {
-        //            if (leitor != null) {
-        //                ListViewItem item = new ListViewItem(leitor.getId().ToString());
-        //                item.SubItems.Add(leitor.Nome);
-        //                item.SubItems.Add(leitor.DataNascimento.ToString());
-        //                item.SubItems.Add(leitor.Telefone);
-        //                item.SubItems.Add(leitor.CPF);
-        //                item.SubItems.Add(leitor.Endereco);
+                int index = dtGridViewExemplares.SelectedRows[0].Index;
 
-        //                lvLeitor.Items.Add(item);
-        //            }
-        //        }
-        //    }
-        //}
+                if (index >= 0)
+                {
+                    dtGridViewExemplares.Rows[index].Selected = false;
+                }
+            }
+            else
+            {
+                dtGridViewExemplares.DataSource = null;
+            }
+        }
+        private void popularLeitor(LeitorModel leitor)
+        {
+            if (leitor != null)
+            {
+                lbNome.Text = leitor.Nome;
+                lbTelefone.Text = leitor.Telefone;
+                lbCpf.Text = leitor.CPF;
+                lbEmail.Text = leitor.Email;
+            }
+        }
+        private void btnBuscarLeitor_Click(object sender, EventArgs e)
+        {
+            ReservaBuscarLeitorView leitor = new ReservaBuscarLeitorView();
+            NovaJanela.novaJanela(leitor, this.Bounds);
+        }
 
-        //private void lvLivros_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = lvLivros.Items[lvLivros.FocusedItem.Index];
-        //    //LivroModel livro = new LivroModel(
-        //        //int.Parse(item.SubItems[0].Text),
-        //        //item.SubItems[1].Text,
-        //        //item.SubItems[2].Text,
-        //        //item.SubItems[4].Text,
-        //        //item.SubItems[5].Text,
-        //        //item.SubItems[3].Text
-        //    //);
+        private void btnBuscarLivros_Click(object sender, EventArgs e)
+        {
+            if (this.singleton.getLeitor() == null)
+            {
+                MessageBox.Show("Selecione um leitor antes.", "Atenção", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (controller.QuantidadeDeExemplar() < 5)
+                {
+                    ReservaBuscarLivroView livros = new ReservaBuscarLivroView();
+                    NovaJanela.novaJanela(livros, this.Bounds);
+                }
+                else
+                {
+                    MessageBox.Show("Você só pode reservar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
+        }
 
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+            DateTime reserva = CalendarReserva.Value.Date;
+            DateTime retirar = CalendarRetirar.Value.Date;
+            DateTime hojeMais30 = (DateTime.UtcNow.ToLocalTime()).AddDays(30);
 
-        //    DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-        //    if (dialogResult == DialogResult.Yes) {
-        //        //controller.RemoverExemplarReserva(exemplar);
-        //        popularExemplar(controller.PegarExemplarReserva());
-        //    }
-        //}
+            if ((DateTime.UtcNow.ToLocalTime()).Date != reserva.Date)
+            {
+                MessageBox.Show("A data da reserva não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (retirar.Date > hojeMais30.Date)
+            {
+                MessageBox.Show("Prazo máximo de retirada é de 30 dias.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (retirar < reserva)
+            {
+                MessageBox.Show("Data de retirada não pode ser menor que a data de reserva.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (dtGridViewExemplares.Rows.Count <= 0)
+            {
+                MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
+            }
+            else if (controller.PegarLeitorReserva() == null)
+            {
+                MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+            }
+            else
+            {
+                foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                {
+                    if (controller.Insercao(reserva, retirar))
+                    {
+                        int idReserva = controller.BuscarUltimoReserva();
+                        controller.RelacionarExemplarReserva(idReserva, exemplar);
+                    }
+                }
 
-        //private void button1_Click(object sender, EventArgs e) {
-        //    ReservaBuscarLeitorView leitor = new ReservaBuscarLeitorView();
-        //    novaJanela(leitor);
-        //}
+                this.singleton.clearReserva();
 
-        //private void lvLeitor_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = lvLeitor.Items[lvLeitor.FocusedItem.Index];
-        //    LeitorModel leitor = new LeitorModel(
-        //        int.Parse(item.SubItems[0].Text),
-        //        item.SubItems[1].Text,
-        //        DateTime.Parse(item.SubItems[2].Text),
-        //        item.SubItems[3].Text,
-        //        item.SubItems[4].Text,
-        //        item.SubItems[5].Text
-        //    );
+                MessageBox.Show("Reservado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                //this.Close();
+            }
+        }
+        private void icbtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
-        //    DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
-        //    if (dialogResult == DialogResult.Yes) {
-        //        controller.RemoverLeitorReserva();
-        //        popularLeitor(controller.PegarLeitorReserva());
-        //    }
-        //}
+        private void ReservaCadastroView_Activated(object sender, EventArgs e)
+        {
+            popularExemplar(controller.PegarExemplarReserva());
+            popularLeitor(controller.PegarLeitorReserva());
+            if (singleton.getAddExemplar() == true)
+            {
+                singleton.setAddExemplar(false);
+            }
+        }
 
-        //private void button3_Click(object sender, EventArgs e) {
-        //    String Reserva = tbReserva.Text;
-        //    String obs = tbObs.Text;
+        private void dtGridViewExemplares_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewExemplares.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+                string titulo = row.Cells[1].Value.ToString();
+                string autor = row.Cells[2].Value.ToString();
+                string edicao = row.Cells[3].Value.ToString();
+                string ano = row.Cells[4].Value.ToString();
+                string isbn = row.Cells[5].Value.ToString();
+                string editora = row.Cells[6].Value.ToString();
 
-        //    // Cadastra Reserva
-        //    controller.Insercao(Reserva, obs);
+                ExemplarModel exemplar = new ExemplarModel(id, titulo, autor, edicao, ano, isbn, editora);
 
-        //    // Pega o ID do Reserva cadastrado
-        //    int idReserva = controller.BuscarUltimoReserva();
-
-        //    // Cadastra no Item_Reserva cada livro relacionando com o Reserva
-        //    foreach (ExemplarModel exemplar in this.singleton.getExemplar()) {
-        //        controller.RelacionarExemplarReserva(idReserva, exemplar);
-        //    }
-
-        //    this.singleton.clearReserva();
-
-        //    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-        //    this.Close();
-        //}
+                DialogResult dialogResult = MessageBox.Show("Você realmente deseja excluir?", "Atenção", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    controller.RemoverExemplarReserva(exemplar);
+                    popularExemplar(controller.PegarExemplarReserva());
+                }
+            }
+        }
     }
 }

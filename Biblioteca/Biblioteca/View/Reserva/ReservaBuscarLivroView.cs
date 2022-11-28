@@ -7,70 +7,128 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 
-namespace Biblioteca.View.Reserva {
-    public partial class ReservaBuscarLivroView : Form {
+namespace Biblioteca.View.Reserva
+{
+    public partial class ReservaBuscarLivroView : Form
+    {
 
         ReservaController controller = new ReservaController();
+        LivroModel livro;
+        Singleton singleton = Singleton.GetInstancia();
 
-        public ReservaBuscarLivroView() {
+        public ReservaBuscarLivroView()
+        {
             InitializeComponent();
         }
 
-        private void ReservaBuscarLivroView_Load(object sender, EventArgs e) {
+        private void ReservaBuscarLivroView_Load(object sender, EventArgs e)
+        {
+            this.menuControl1.setForm(this);
             this.menuControl1.setPanel(pnltotal);
 
-            List<LivroModel> lista = controller.ListarTodosLivros();
-            popular(lista);
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
         }
 
-        protected override void OnActivated(EventArgs e) {
-            List<LivroModel> lista = controller.ListarTodosLivros();
-            popular(lista);
-        }
+        private void popular(List<LivroModel> lista)
+        {
+            DataTable table = new DataTable();
+            table.Columns.Add("ID", typeof(int));
+            table.Columns.Add("Disponíveis", typeof(int));
+            table.Columns.Add("Título", typeof(string));
+            table.Columns.Add("Autor", typeof(string));
+            table.Columns.Add("Editora", typeof(string));
+            table.Columns.Add("Gênero", typeof(string));
 
-        private void popular(List<LivroModel> lista) {
-            //LvLivros.Items.Clear();
-            //if (lista.Count > 0) {
-            //    foreach (LivroModel livro in lista) {
-            //        ListViewItem item = new ListViewItem(livro.getId().ToString());
-            //        //item.SubItems.Add(livro.Nome);
-            //        //item.SubItems.Add(livro.Autor);
-            //        //item.SubItems.Add(livro.Editora);
-            //        //item.SubItems.Add(livro.Edicao);
-            //        //item.SubItems.Add(livro.AnoPublicacao);
-            //        //item.SubItems.Add(livro.DataAquisicao.ToString());
+            if (lista.Count > 0)
+            {
+                foreach (LivroModel livros in lista)
+                {
 
-            //        LvLivros.Items.Add(item);
-            //    }
+                    table.Rows.Add(livros.getId(),
+                                   livros.Disponiveis,
+                                   livros.Titulo,
+                                   livros.NomeAutor,
+                                   livros.NomeEditora,
+                                   livros.NomeGenero);
+                }
+                dtGridViewLivros.DataSource = table;
+                int index = dtGridViewLivros.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewLivros.Rows[index].Selected = false;
+                }
             }
         }
 
-        //private void button1_Click(object sender, EventArgs e) {
-            //String busca = tbBuscar.Text;
-
-            //List<LivroModel> lista = controller.BuscarLivros(busca);
-            //popular(lista);
+        private void IcnBtnVoltar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
-        //private void LvLivros_MouseClick(object sender, MouseEventArgs e) {
-        //    ListViewItem item = LvLivros.Items[LvLivros.FocusedItem.Index];
-        //    ExemplarModel exemplar = new ExemplarModel(
-        //        int.Parse(item.SubItems[0].Text),
-        //        item.SubItems[1].Text,
-        //        item.SubItems[2].Text,
-        //        item.SubItems[4].Text,
-        //        item.SubItems[5].Text,
-        //        item.SubItems[3].Text, 
-        //        item.SubItems[6].Text
-        //    );
+        private void ReservaBuscarLivroView_Activated(object sender, EventArgs e)
+        {
+            if (singleton.getAddExemplar() == true)
+            {
+                this.Close();
+            }
+        }
 
-        //    controller.InserirExemplarReserva(exemplar);
-        //    this.Close();
-        //}
+        private void buscar(List<LivroModel> lista)
+        {
 
-    //    private void button2_Click(object sender, EventArgs e) {
-    //        this.Close();
-    //    }
-//    }
-//}
+            if (lista.Count > 0)
+            {
+                lblNotFound.Visible = false;
+                popular(lista);
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLivros.DataSource = null;
+            }
+        }
+
+        private void tbPesquisar_TextChanged(object sender, EventArgs e)
+        {
+            this.livro = null;
+            String busca = tbPesquisar.Text;
+
+            if (tbPesquisar.Text.Length > 0)
+            {
+                lblNotFound.Visible = false;
+
+                List<LivroModel> lista = controller.BuscarLivros(busca);
+                buscar(lista);
+            }
+            else if (tbPesquisar.Text.Length == 0)
+            {
+                lblNotFound.Visible = false;
+                dtGridViewLivros.DataSource = null;
+            }
+            else
+            {
+                lblNotFound.Visible = true;
+                dtGridViewLivros.DataSource = null;
+            }
+        }
+
+        private void dtGridViewLivros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtGridViewLivros.SelectedRows)
+            {
+                int id = int.Parse(row.Cells[0].Value.ToString());
+
+                ReservaBuscarExemplarView livros = new ReservaBuscarExemplarView(id);
+                NovaJanela.novaJanela(livros, this.Bounds);
+            }
+        }
+    }
+}
