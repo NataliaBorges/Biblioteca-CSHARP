@@ -49,13 +49,14 @@ namespace Biblioteca.View.Edicao
 
                 }
                 dtGridViewEdicao.DataSource = table;
-            }
-            int index = dtGridViewEdicao.SelectedRows[0].Index;
 
-            if (index >= 0)
-            {
-                dtGridViewEdicao.Rows[index].Selected = false;
-            }
+                int index = dtGridViewEdicao.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewEdicao.Rows[index].Selected = false;
+                }
+            } 
         }
 
         private void IcnBtnVoltar_Click(object sender, EventArgs e)

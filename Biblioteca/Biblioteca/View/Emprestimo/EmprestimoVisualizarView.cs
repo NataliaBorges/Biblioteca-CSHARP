@@ -27,6 +27,7 @@ namespace Biblioteca.View.Emprestimo
         private void buscarDadosPopularTela(bool atualizado = false)
         {
             pnlPunicao.Visible = false;
+            dtGridViewLivrosEmprestimo.Columns.Clear();
             dtGridViewLivrosEmprestimo.DataSource = null;
             if (exemplar != null)
             {
@@ -99,6 +100,7 @@ namespace Biblioteca.View.Emprestimo
         {
             listaItemId.Clear();
 
+            dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewCheckBoxColumn { Name = "Renovar", HeaderText = "Renovar" });
             dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "ID", HeaderText = "ID", DataPropertyName = "ID_emprestimo", ReadOnly = true });
             dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "Título", HeaderText = "Título", DataPropertyName = "Nome_Livro", ReadOnly = true });
             dtGridViewLivrosEmprestimo.Columns.Add(new DataGridViewTextBoxColumn { Name = "ISBN", HeaderText = "ISBN", DataPropertyName = "ISBN", ReadOnly = true });
@@ -126,10 +128,11 @@ namespace Biblioteca.View.Emprestimo
                     dtGridViewLivrosEmprestimo.Rows[index].Selected = false;
                 }
 
-                dtGridViewLivrosEmprestimo.Columns[0].Width = 50;
-                dtGridViewLivrosEmprestimo.Columns[1].Width = 180;
-                dtGridViewLivrosEmprestimo.Columns[7].Width = 200;
-                dtGridViewLivrosEmprestimo.Columns[8].Width = 150;
+                dtGridViewLivrosEmprestimo.Columns[0].Width = 80;
+                dtGridViewLivrosEmprestimo.Columns[1].Width = 50;
+                dtGridViewLivrosEmprestimo.Columns[2].Width = 180;
+                dtGridViewLivrosEmprestimo.Columns[8].Width = 200;
+                dtGridViewLivrosEmprestimo.Columns[9].Width = 150;
             }
         }
 
@@ -286,6 +289,86 @@ namespace Biblioteca.View.Emprestimo
         private void icnFluxoEmprestimo_Click(object sender, EventArgs e)
         {
             pnlFluxo.Visible = false;
+        }
+
+        private void btnRenovar_Click(object sender, EventArgs e)
+        {
+            String mensagemErro = "";
+            bool nenhumSelecionado = true;
+            List<EmprestimoVisualizarModel> emprestimos = new List<EmprestimoVisualizarModel>();
+            foreach (DataGridViewRow row in dtGridViewLivrosEmprestimo.Rows)
+            {
+                Nullable<DateTime> finalizado = null;
+                if (row.Cells["Previsto"].Value.ToString() != "")
+                {
+                    finalizado = (DateTime)row.Cells["Previsto"].Value;
+                }
+                EmprestimoVisualizarModel emprestimo = new EmprestimoVisualizarModel(
+                    (int)row.Cells["ID"].Value,
+                    (String)row.Cells["Título"].Value,
+                    (String)row.Cells["ISBN"].Value,
+                    (String)row.Cells["Funcionário"].Value,
+                    (DateTime)row.Cells["Empréstimo"].Value,
+                    (DateTime)row.Cells["Previsto"].Value,
+                    finalizado,
+                    (String)row.Cells["cbEmprestimo"].Value,
+                    (String)row.Cells["cbExemplar"].Value
+                );
+                emprestimo.setItemEmprestimoId(listaItemId[row.Index]);
+
+                DataGridViewCheckBoxCell renovar = row.Cells[0] as DataGridViewCheckBoxCell;
+                bool renovarValor = Convert.ToBoolean(renovar.Value);
+                if (renovarValor == true)
+                {
+                    nenhumSelecionado = false;
+                }
+                emprestimo.setRenovar(renovarValor);
+                emprestimos.Add(emprestimo);
+
+                if (renovarValor && (emprestimo.Status_Emprestimo != "Em Aberto" || emprestimo.Status_Exemplar != "Emprestado") || DateTime.Now > emprestimo.Data_devolucao)
+                {
+                    mensagemErro += "Empréstimo ID: " + emprestimo.ID_emprestimo + ".\n";
+                }
+            }
+
+            if(nenhumSelecionado)
+            {
+                MessageBox.Show("Nenhum empréstimo selecionado para renovação.", "Atenção", MessageBoxButtons.OK);
+            }
+            else
+            {
+                if (!mensagemErro.Equals(""))
+                {
+                    mensagemErro = "                                                 ERRO DE FLUXO\n\n" + mensagemErro;
+                    mensagemErro += "\nIMPORTANTE: Apenas os exemplares em aberto sem atraso podem ser renovados.";
+                    emprestimos.Clear();
+                    MessageBox.Show(mensagemErro, "Atenção", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    bool error = false;
+                    foreach (EmprestimoVisualizarModel emprestimo in emprestimos)
+                    {
+                        if (emprestimo.getRenovar())
+                        {
+                            if (!controller.RenovarEmprestimo(emprestimo))
+                            {
+                                error = true;
+                            }
+                        }
+                    }
+
+                    if (error)
+                    {
+                        MessageBox.Show("Encontramos um problema ao renovar um empréstimo.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        buscarDadosPopularTela(atualizado: true);
+                        MessageBox.Show("Renovado(s) com sucesso.", "Atenção", MessageBoxButtons.OK);
+                    }
+                }
+            }
         }
     }
 }

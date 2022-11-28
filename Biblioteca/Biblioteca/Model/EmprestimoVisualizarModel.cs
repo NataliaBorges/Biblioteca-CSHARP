@@ -17,6 +17,7 @@ namespace Biblioteca.Model
         public string Status_Exemplar { get; set; }
 
         private int ID_Item_Emprestimo;
+        private bool renovar;
         public EmprestimoVisualizarModel(int ID_emprestimo, string Nome_Livro, string ISBN, string Nome_Funcionario, DateTime Data_emprestimo, DateTime Data_devolucao, Nullable<DateTime> Data_finalizado, string Status_Emprestimo, string Status_Exemplar)
         {
             this.ID_emprestimo = ID_emprestimo;
@@ -36,6 +37,15 @@ namespace Biblioteca.Model
         public int getItemEmprestimoId()
         {
             return this.ID_Item_Emprestimo;
+        }
+
+        public void setRenovar(bool renovar)
+        {
+            this.renovar = renovar;
+        }
+        public bool getRenovar()
+        {
+            return this.renovar;
         }
     }
 }

@@ -29,17 +29,19 @@ namespace Biblioteca.View.Emprestimo {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmprestimoCadastroView));
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dtGridViewExemplares = new System.Windows.Forms.DataGridView();
+            this.btnGerarContrato = new FontAwesome.Sharp.IconButton();
             this.CalendarDevolucap = new System.Windows.Forms.DateTimePicker();
             this.CalendarEmprestimo = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.TextObservacao = new System.Windows.Forms.RichTextBox();
             this.btnBuscarLivros = new FontAwesome.Sharp.IconButton();
             this.btnBuscarLeitor = new FontAwesome.Sharp.IconButton();
-            this.dtGridViewExemplares = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCadastrar = new System.Windows.Forms.Button();
@@ -70,7 +72,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(614, 462);
+            this.label3.Location = new System.Drawing.Point(168, 611);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 20);
             this.label3.TabIndex = 12;
@@ -83,7 +85,7 @@ namespace Biblioteca.View.Emprestimo {
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(616, 530);
+            this.label4.Location = new System.Drawing.Point(168, 646);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(118, 20);
             this.label4.TabIndex = 13;
@@ -92,13 +94,14 @@ namespace Biblioteca.View.Emprestimo {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.dtGridViewExemplares);
+            this.panel1.Controls.Add(this.btnGerarContrato);
             this.panel1.Controls.Add(this.CalendarDevolucap);
             this.panel1.Controls.Add(this.CalendarEmprestimo);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.TextObservacao);
             this.panel1.Controls.Add(this.btnBuscarLivros);
             this.panel1.Controls.Add(this.btnBuscarLeitor);
-            this.panel1.Controls.Add(this.dtGridViewExemplares);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnCadastrar);
@@ -114,6 +117,81 @@ namespace Biblioteca.View.Emprestimo {
             this.panel1.Size = new System.Drawing.Size(1093, 714);
             this.panel1.TabIndex = 18;
             // 
+            // dtGridViewExemplares
+            // 
+            this.dtGridViewExemplares.AllowUserToAddRows = false;
+            this.dtGridViewExemplares.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtGridViewExemplares.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtGridViewExemplares.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtGridViewExemplares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtGridViewExemplares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.dtGridViewExemplares.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtGridViewExemplares.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtGridViewExemplares.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dtGridViewExemplares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewExemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtGridViewExemplares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtGridViewExemplares.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtGridViewExemplares.EnableHeadersVisualStyles = false;
+            this.dtGridViewExemplares.GridColor = System.Drawing.Color.SaddleBrown;
+            this.dtGridViewExemplares.Location = new System.Drawing.Point(99, 405);
+            this.dtGridViewExemplares.Name = "dtGridViewExemplares";
+            this.dtGridViewExemplares.ReadOnly = true;
+            this.dtGridViewExemplares.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtGridViewExemplares.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtGridViewExemplares.RowHeadersVisible = false;
+            this.dtGridViewExemplares.RowTemplate.Height = 25;
+            this.dtGridViewExemplares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtGridViewExemplares.Size = new System.Drawing.Size(936, 177);
+            this.dtGridViewExemplares.TabIndex = 109;
+            // 
+            // btnGerarContrato
+            // 
+            this.btnGerarContrato.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGerarContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnGerarContrato.FlatAppearance.BorderSize = 0;
+            this.btnGerarContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarContrato.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarContrato.ForeColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnGerarContrato.IconColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGerarContrato.IconSize = 30;
+            this.btnGerarContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarContrato.Location = new System.Drawing.Point(861, 588);
+            this.btnGerarContrato.Name = "btnGerarContrato";
+            this.btnGerarContrato.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGerarContrato.Size = new System.Drawing.Size(178, 36);
+            this.btnGerarContrato.TabIndex = 108;
+            this.btnGerarContrato.Tag = "";
+            this.btnGerarContrato.Text = "  Gerar Contrato";
+            this.btnGerarContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGerarContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGerarContrato.UseVisualStyleBackColor = false;
+            this.btnGerarContrato.Click += new System.EventHandler(this.btnGerarContrato_Click);
+            // 
             // CalendarDevolucap
             // 
             this.CalendarDevolucap.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -123,9 +201,9 @@ namespace Biblioteca.View.Emprestimo {
             this.CalendarDevolucap.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CalendarDevolucap.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
             this.CalendarDevolucap.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarDevolucap.Location = new System.Drawing.Point(740, 523);
+            this.CalendarDevolucap.Location = new System.Drawing.Point(294, 639);
             this.CalendarDevolucap.Name = "CalendarDevolucap";
-            this.CalendarDevolucap.Size = new System.Drawing.Size(299, 27);
+            this.CalendarDevolucap.Size = new System.Drawing.Size(301, 27);
             this.CalendarDevolucap.TabIndex = 107;
             // 
             // CalendarEmprestimo
@@ -137,9 +215,9 @@ namespace Biblioteca.View.Emprestimo {
             this.CalendarEmprestimo.CalendarTitleForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.CalendarEmprestimo.CalendarTrailingForeColor = System.Drawing.SystemColors.ControlText;
             this.CalendarEmprestimo.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CalendarEmprestimo.Location = new System.Drawing.Point(740, 457);
+            this.CalendarEmprestimo.Location = new System.Drawing.Point(294, 606);
             this.CalendarEmprestimo.Name = "CalendarEmprestimo";
-            this.CalendarEmprestimo.Size = new System.Drawing.Size(299, 27);
+            this.CalendarEmprestimo.Size = new System.Drawing.Size(301, 27);
             this.CalendarEmprestimo.TabIndex = 106;
             // 
             // label9
@@ -180,7 +258,7 @@ namespace Biblioteca.View.Emprestimo {
             this.btnBuscarLivros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarLivros.IconSize = 30;
             this.btnBuscarLivros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarLivros.Location = new System.Drawing.Point(409, 360);
+            this.btnBuscarLivros.Location = new System.Drawing.Point(861, 360);
             this.btnBuscarLivros.Name = "btnBuscarLivros";
             this.btnBuscarLivros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscarLivros.Size = new System.Drawing.Size(174, 37);
@@ -217,55 +295,6 @@ namespace Biblioteca.View.Emprestimo {
             this.btnBuscarLeitor.UseVisualStyleBackColor = false;
             this.btnBuscarLeitor.Click += new System.EventHandler(this.btnBuscarLeitor_Click);
             // 
-            // dtGridViewExemplares
-            // 
-            this.dtGridViewExemplares.AllowUserToAddRows = false;
-            this.dtGridViewExemplares.AllowUserToDeleteRows = false;
-            this.dtGridViewExemplares.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dtGridViewExemplares.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtGridViewExemplares.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.dtGridViewExemplares.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtGridViewExemplares.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtGridViewExemplares.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewExemplares.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtGridViewExemplares.ColumnHeadersHeight = 30;
-            this.dtGridViewExemplares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtGridViewExemplares.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtGridViewExemplares.EnableHeadersVisualStyles = false;
-            this.dtGridViewExemplares.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewExemplares.Location = new System.Drawing.Point(99, 403);
-            this.dtGridViewExemplares.Name = "dtGridViewExemplares";
-            this.dtGridViewExemplares.ReadOnly = true;
-            this.dtGridViewExemplares.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtGridViewExemplares.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtGridViewExemplares.RowHeadersVisible = false;
-            this.dtGridViewExemplares.RowTemplate.Height = 25;
-            this.dtGridViewExemplares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewExemplares.Size = new System.Drawing.Size(484, 182);
-            this.dtGridViewExemplares.TabIndex = 101;
-            this.dtGridViewExemplares.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewExemplares_CellDoubleClick);
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -297,7 +326,7 @@ namespace Biblioteca.View.Emprestimo {
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(804, 622);
+            this.btnCadastrar.Location = new System.Drawing.Point(826, 640);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(213, 45);
             this.btnCadastrar.TabIndex = 99;
@@ -532,7 +561,6 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dtGridViewExemplares;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RichTextBox TextObservacao;
         private FontAwesome.Sharp.IconButton btnBuscarLivros;
@@ -548,5 +576,7 @@ namespace Biblioteca.View.Emprestimo {
         private System.Windows.Forms.Label lbCpf;
         private System.Windows.Forms.Label lbNome;
         private FontAwesome.Sharp.IconButton IcnBtnVoltar;
+        private FontAwesome.Sharp.IconButton btnGerarContrato;
+        private System.Windows.Forms.DataGridView dtGridViewExemplares;
     }
 }

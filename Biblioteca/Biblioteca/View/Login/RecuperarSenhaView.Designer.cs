@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pnEnviado = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +46,8 @@
             this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.btLogar = new RJCodeAdvance.RJControls.RJButton();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
             this.pnEnviado.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -59,7 +62,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(36)))), ((int)(((byte)(12)))));
-            this.label1.Location = new System.Drawing.Point(99, 94);
+            this.label1.Location = new System.Drawing.Point(130, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(338, 28);
             this.label1.TabIndex = 0;
@@ -68,8 +71,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.96356F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.03644F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.68826F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.31174F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -82,16 +85,35 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::Biblioteca.Properties.Resources.ICON;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel1.Controls.Add(this.iconPictureBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(457, 544);
+            this.panel1.Size = new System.Drawing.Size(396, 544);
             this.panel1.TabIndex = 1;
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.iconPictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("iconPictureBox3.BackgroundImage")));
+            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.iconPictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconPictureBox3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconPictureBox3.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox3.IconSize = 396;
+            this.iconPictureBox3.Location = new System.Drawing.Point(0, 0);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(396, 544);
+            this.iconPictureBox3.TabIndex = 0;
+            this.iconPictureBox3.TabStop = false;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.BlanchedAlmond;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel2.Controls.Add(this.pnEnviado);
             this.panel2.Controls.Add(this.lbCancel);
             this.panel2.Controls.Add(this.panel3);
@@ -100,9 +122,9 @@
             this.panel2.Controls.Add(this.btLogar);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(466, 3);
+            this.panel2.Location = new System.Drawing.Point(405, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(519, 544);
+            this.panel2.Size = new System.Drawing.Size(580, 544);
             this.panel2.TabIndex = 2;
             // 
             // pnEnviado
@@ -110,7 +132,7 @@
             this.pnEnviado.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnEnviado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(243)))), ((int)(((byte)(180)))));
             this.pnEnviado.Controls.Add(this.label4);
-            this.pnEnviado.Location = new System.Drawing.Point(131, 344);
+            this.pnEnviado.Location = new System.Drawing.Point(162, 344);
             this.pnEnviado.Name = "pnEnviado";
             this.pnEnviado.Size = new System.Drawing.Size(233, 39);
             this.pnEnviado.TabIndex = 24;
@@ -136,7 +158,7 @@
             this.lbCancel.Font = new System.Drawing.Font("Book Antiqua", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbCancel.ForeColor = System.Drawing.Color.SaddleBrown;
             this.lbCancel.LinkColor = System.Drawing.Color.SaddleBrown;
-            this.lbCancel.Location = new System.Drawing.Point(221, 431);
+            this.lbCancel.Location = new System.Drawing.Point(252, 431);
             this.lbCancel.Name = "lbCancel";
             this.lbCancel.Size = new System.Drawing.Size(50, 15);
             this.lbCancel.TabIndex = 23;
@@ -149,7 +171,7 @@
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.BurlyWood;
             this.panel3.Controls.Add(this.label2);
-            this.panel3.Location = new System.Drawing.Point(47, 161);
+            this.panel3.Location = new System.Drawing.Point(78, 161);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(424, 78);
             this.panel3.TabIndex = 22;
@@ -169,7 +191,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(187, 262);
+            this.label3.Location = new System.Drawing.Point(218, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(131, 20);
             this.label3.TabIndex = 21;
@@ -183,7 +205,7 @@
             this.PnlEmail.Controls.Add(this.iconPictureBox2);
             this.PnlEmail.Controls.Add(this.tbEmail);
             this.PnlEmail.Controls.Add(this.iconPictureBox1);
-            this.PnlEmail.Location = new System.Drawing.Point(47, 298);
+            this.PnlEmail.Location = new System.Drawing.Point(78, 298);
             this.PnlEmail.Name = "PnlEmail";
             this.PnlEmail.Size = new System.Drawing.Size(424, 39);
             this.PnlEmail.TabIndex = 19;
@@ -255,7 +277,7 @@
             this.btLogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btLogar.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.btLogar.Location = new System.Drawing.Point(149, 389);
+            this.btLogar.Location = new System.Drawing.Point(180, 389);
             this.btLogar.Name = "btLogar";
             this.btLogar.Size = new System.Drawing.Size(196, 39);
             this.btLogar.TabIndex = 18;
@@ -280,6 +302,8 @@
             this.Text = "RecuperarSenhaView";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.pnEnviado.ResumeLayout(false);
@@ -311,5 +335,6 @@
         private System.Windows.Forms.LinkLabel lbCancel;
         private System.Windows.Forms.Panel pnEnviado;
         private System.Windows.Forms.Label label4;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
     }
 }

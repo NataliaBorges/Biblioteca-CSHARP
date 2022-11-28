@@ -57,12 +57,13 @@ namespace Biblioteca.View.Genero
 
                 }
                 dtGridViewGenero.DataSource = table;
-            }
-            int index = dtGridViewGenero.SelectedRows[0].Index;
 
-            if (index >= 0)
-            {
-                dtGridViewGenero.Rows[index].Selected = false;
+                int index = dtGridViewGenero.SelectedRows[0].Index;
+
+                if (index >= 0)
+                {
+                    dtGridViewGenero.Rows[index].Selected = false;
+                }
             }
         }
 

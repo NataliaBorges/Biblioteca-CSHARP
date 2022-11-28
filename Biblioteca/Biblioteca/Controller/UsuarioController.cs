@@ -29,13 +29,15 @@ namespace Biblioteca.Controller
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
+            String senha = "";
+
             while (reader.Read())
             {
-                return (String)reader["Senha"];
+                senha = (String)reader["Senha"];
             }
             reader.Close();
 
-            return null;
+            return senha;
         }
     }
 }

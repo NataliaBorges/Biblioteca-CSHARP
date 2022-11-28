@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
 using Biblioteca.View.Livros;
 
 namespace Biblioteca.View.Emprestimo {
@@ -15,6 +16,7 @@ namespace Biblioteca.View.Emprestimo {
         EmprestimoController controller = new EmprestimoController();
         int idLivro;
         ExemplarModel exemplar;
+        Singleton singleton = Singleton.GetInstancia();
         public EmprestimoBuscarExemplarView(int idLivro) {
             this.idLivro = idLivro;
             InitializeComponent();
@@ -90,7 +92,12 @@ namespace Biblioteca.View.Emprestimo {
                     string editora = row.Cells[6].Value.ToString();
 
                     ExemplarModel exemplar = new ExemplarModel(id, titulo, autor, edicao, ano, isbn, editora);
-                    if (controller.InserirExemplarEmprestimo(exemplar) == false)
+                    int quantidadeEmprestados = controller.quantidadeEmprestadosLeitor(this.singleton.getLeitor().getId());
+                    if ((controller.QuantidadeDeExemplar() + quantidadeEmprestados) == 5)
+                    {
+                        MessageBox.Show("O leitor só pode emprestar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else if (controller.InserirExemplarEmprestimo(exemplar) == false)
                     {
                         MessageBox.Show("Você já adicionou este exemplar.", "Atenção", MessageBoxButtons.OK);
                     }

@@ -22,45 +22,53 @@ namespace Biblioteca.Controller
             Cmd = new SqlCommand();
         }
 
-        //public bool Login(String email, String senha)
-        //{
-        //    Cmd.Connection = connection.RetornaConexao();
-        //    Cmd.CommandText = @"SELECT * FROM Funcionario WHERE Email= '" + email + "' AND Senha='" + senha + "'";
-        //    //Cmd.CommandText = @"SELECT * FROM Funcionario WHERE Email=@Email AND Senha=@Senha";
-        //    Cmd.Parameters.Clear();
-        //    //Cmd.Parameters.AddWithValue("@Email", email);
-        //    //Cmd.Parameters.AddWithValue("@Senha", senha);
+        public bool Login(String email, String senha)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT Funcionario.*,
+                                       Funcao.Nome_funcao AS Funcao
+                                FROM Funcionario
+                                INNER JOIN Funcao ON (Funcao.Id = Funcionario.Id_funcao)
+                                WHERE Email=@Email AND Senha=@Senha";
+            Cmd.Parameters.Clear();
+            email = "najimbtsarmy@gmail.com";
+            senha = "1234";
+            Cmd.Parameters.AddWithValue("@Email", email);
+            Cmd.Parameters.AddWithValue("@Senha", senha);
 
-        //    SqlDataReader reader = Cmd.ExecuteReader();
+            SqlDataReader reader = Cmd.ExecuteReader();
 
-        //    if (reader.HasRows)
-        //    {
+            if (reader.HasRows)
+            {
 
-        //        while (reader.Read())
-        //        {
-        //            FuncionarioModel funcionario = new FuncionarioModel(
-        //                (int)reader["Id"],
-        //                (String)reader["Nome_Funcionario"],
-        //                (String)reader["CPF"],
-        //                (DateTime)reader["Data_Nascimento"],
-        //                (String)reader["Email"],
-        //                (String)reader["Endereco"],
-        //                (String)reader["Telefone"]
-        //            );
-        //            //funcionario.Funcao = (String)reader["Funcao"];
-        //            singleton.setFuncionario(funcionario);
-        //        }
+                while (reader.Read())
+                {
+                    FuncionarioModel funcionario = new FuncionarioModel(
+                        (int)reader["Id"],
+                        (String)reader["Nome_Funcionario"],
+                        (DateTime)reader["Data_Nascimento"],
+                        (String)reader["CPF"],
+                        (String)reader["Email"],
+                        (String)reader["Endereco"],
+                        (String)reader["Telefone"],
+                        (String)reader["Email"],
+                        (int)reader["Id_funcao"],
+                        (int)reader["Estado"]
+                    );
+                    funcionario.Funcao = (String)reader["Funcao"];
+                    singleton.setFuncionario(funcionario);
+                }
 
-        //        reader.Close();
+                reader.Close();
 
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        reader.Close();
-        //        return false;
-        //    }
-        //}
+                return true;
+            }
+            else
+            {
+                reader.Close();
+                return false;
+            }
+        }
 
 
         public bool Insercao(FuncionarioModel funcionario)
@@ -203,7 +211,7 @@ namespace Biblioteca.Controller
             Cmd.Connection = connection.RetornaConexao();
             Cmd.CommandText = @"UPDATE Funcionario SET  Nome_funcionario = @Nome_funcionario, CPF = @CPF, Data_Nascimento = @Data_Nascimento, 
                                 Telefone = @Telefone, Endereco = @Endereco,
-                                Email = @Email, Id_funcao = @funcao, Estado = @Estado
+                                Id_funcao = @funcao, Estado = @Estado
                                 WHERE Id = @ID";
 
             Cmd.Parameters.Clear();
@@ -213,7 +221,6 @@ namespace Biblioteca.Controller
             Cmd.Parameters.AddWithValue("@Data_Nascimento", funcionario.Data_Nascimento.ToString("yyyy-MM-dd"));
             Cmd.Parameters.AddWithValue("@Telefone", funcionario.Telefone);
             Cmd.Parameters.AddWithValue("@Endereco", funcionario.Endereco);
-            Cmd.Parameters.AddWithValue("@Email", funcionario.Email);
             Cmd.Parameters.AddWithValue("@funcao", funcionario.Id_funcao);
             Cmd.Parameters.AddWithValue("@Estado", funcionario.Estado);
 

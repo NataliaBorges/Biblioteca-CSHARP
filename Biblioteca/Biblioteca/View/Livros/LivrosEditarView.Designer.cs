@@ -26,7 +26,8 @@ namespace Biblioteca.View.Livros {
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LivrosEditarView));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbEditarStatus = new System.Windows.Forms.ComboBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.BtnGenero = new FontAwesome.Sharp.IconButton();
@@ -48,14 +49,14 @@ namespace Biblioteca.View.Livros {
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.cbEditarStatus);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.btnSalvar);
             this.panel1.Controls.Add(this.BtnGenero);
             this.panel1.Controls.Add(this.BtnEditora);
@@ -79,18 +80,34 @@ namespace Biblioteca.View.Livros {
             this.panel1.Size = new System.Drawing.Size(1003, 700);
             this.panel1.TabIndex = 28;
             // 
-            // label4
+            // groupBox3
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(565, 310);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 20);
-            this.label4.TabIndex = 102;
-            this.label4.Text = "Status:";
+            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.cbEditarStatus);
+            this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(421, 467);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(239, 102);
+            this.groupBox3.TabIndex = 106;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "STATUS";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Book Antiqua", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(33, 36);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label5.Size = new System.Drawing.Size(164, 17);
+            this.label5.TabIndex = 106;
+            this.label5.Text = "(Selecione ativo ou inativo)";
             // 
             // cbEditarStatus
             // 
@@ -102,24 +119,24 @@ namespace Biblioteca.View.Livros {
             this.cbEditarStatus.Items.AddRange(new object[] {
             "Ativo",
             "Inativo"});
-            this.cbEditarStatus.Location = new System.Drawing.Point(623, 307);
+            this.cbEditarStatus.Location = new System.Drawing.Point(23, 56);
             this.cbEditarStatus.Name = "cbEditarStatus";
-            this.cbEditarStatus.Size = new System.Drawing.Size(147, 28);
+            this.cbEditarStatus.Size = new System.Drawing.Size(189, 28);
             this.cbEditarStatus.TabIndex = 101;
             // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSalvar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnSalvar.BackColor = System.Drawing.Color.Olive;
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(455, 413);
+            this.btnSalvar.Location = new System.Drawing.Point(454, 595);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(178, 45);
             this.btnSalvar.TabIndex = 98;
-            this.btnSalvar.Text = "ATUALIZAR";
+            this.btnSalvar.Text = "SALVAR";
             this.btnSalvar.UseVisualStyleBackColor = false;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
@@ -133,7 +150,7 @@ namespace Biblioteca.View.Livros {
             this.BtnGenero.IconColor = System.Drawing.Color.White;
             this.BtnGenero.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnGenero.IconSize = 23;
-            this.BtnGenero.Location = new System.Drawing.Point(573, 349);
+            this.BtnGenero.Location = new System.Drawing.Point(733, 414);
             this.BtnGenero.Name = "BtnGenero";
             this.BtnGenero.Size = new System.Drawing.Size(36, 27);
             this.BtnGenero.TabIndex = 97;
@@ -150,7 +167,7 @@ namespace Biblioteca.View.Livros {
             this.BtnEditora.IconColor = System.Drawing.Color.White;
             this.BtnEditora.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEditora.IconSize = 23;
-            this.BtnEditora.Location = new System.Drawing.Point(520, 306);
+            this.BtnEditora.Location = new System.Drawing.Point(733, 349);
             this.BtnEditora.Name = "BtnEditora";
             this.BtnEditora.Size = new System.Drawing.Size(36, 27);
             this.BtnEditora.TabIndex = 96;
@@ -167,7 +184,7 @@ namespace Biblioteca.View.Livros {
             this.BtnAutor.IconColor = System.Drawing.Color.White;
             this.BtnAutor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAutor.IconSize = 23;
-            this.BtnAutor.Location = new System.Drawing.Point(734, 264);
+            this.BtnAutor.Location = new System.Drawing.Point(733, 285);
             this.BtnAutor.Name = "BtnAutor";
             this.BtnAutor.Size = new System.Drawing.Size(36, 27);
             this.BtnAutor.TabIndex = 95;
@@ -187,7 +204,7 @@ namespace Biblioteca.View.Livros {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(254, 94);
+            this.icbtnVoltar.Location = new System.Drawing.Point(314, 91);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -213,7 +230,7 @@ namespace Biblioteca.View.Livros {
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(248, 232);
+            this.label1.Location = new System.Drawing.Point(317, 202);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 52;
@@ -225,7 +242,7 @@ namespace Biblioteca.View.Livros {
             this.lblEdicaoLivro.AutoSize = true;
             this.lblEdicaoLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblEdicaoLivro.ForeColor = System.Drawing.Color.White;
-            this.lblEdicaoLivro.Location = new System.Drawing.Point(421, 93);
+            this.lblEdicaoLivro.Location = new System.Drawing.Point(431, 91);
             this.lblEdicaoLivro.Name = "lblEdicaoLivro";
             this.lblEdicaoLivro.Size = new System.Drawing.Size(260, 39);
             this.lblEdicaoLivro.TabIndex = 51;
@@ -244,9 +261,9 @@ namespace Biblioteca.View.Livros {
             this.tbEditora.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbEditora.Enabled = false;
             this.tbEditora.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEditora.Location = new System.Drawing.Point(319, 305);
+            this.tbEditora.Location = new System.Drawing.Point(317, 349);
             this.tbEditora.Name = "tbEditora";
-            this.tbEditora.Size = new System.Drawing.Size(195, 27);
+            this.tbEditora.Size = new System.Drawing.Size(409, 27);
             this.tbEditora.TabIndex = 47;
             // 
             // label9
@@ -256,7 +273,7 @@ namespace Biblioteca.View.Livros {
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(248, 351);
+            this.label9.Location = new System.Drawing.Point(316, 391);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 20);
             this.label9.TabIndex = 44;
@@ -267,9 +284,9 @@ namespace Biblioteca.View.Livros {
             this.tbGenero.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbGenero.Enabled = false;
             this.tbGenero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbGenero.Location = new System.Drawing.Point(319, 348);
+            this.tbGenero.Location = new System.Drawing.Point(318, 413);
             this.tbGenero.Name = "tbGenero";
-            this.tbGenero.Size = new System.Drawing.Size(248, 27);
+            this.tbGenero.Size = new System.Drawing.Size(410, 27);
             this.tbGenero.TabIndex = 45;
             // 
             // tbAutor
@@ -277,7 +294,7 @@ namespace Biblioteca.View.Livros {
             this.tbAutor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbAutor.Enabled = false;
             this.tbAutor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbAutor.Location = new System.Drawing.Point(320, 264);
+            this.tbAutor.Location = new System.Drawing.Point(317, 285);
             this.tbAutor.Name = "tbAutor";
             this.tbAutor.Size = new System.Drawing.Size(408, 27);
             this.tbAutor.TabIndex = 34;
@@ -289,7 +306,7 @@ namespace Biblioteca.View.Livros {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(248, 271);
+            this.label2.Location = new System.Drawing.Point(316, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 20);
             this.label2.TabIndex = 33;
@@ -300,7 +317,7 @@ namespace Biblioteca.View.Livros {
             this.tbQuantidade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbQuantidade.Enabled = false;
             this.tbQuantidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbQuantidade.Location = new System.Drawing.Point(724, 348);
+            this.tbQuantidade.Location = new System.Drawing.Point(895, 95);
             this.tbQuantidade.Name = "tbQuantidade";
             this.tbQuantidade.ReadOnly = true;
             this.tbQuantidade.Size = new System.Drawing.Size(46, 27);
@@ -311,13 +328,13 @@ namespace Biblioteca.View.Livros {
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(622, 352);
+            this.label8.Location = new System.Drawing.Point(843, 98);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 20);
+            this.label8.Size = new System.Drawing.Size(46, 21);
             this.label8.TabIndex = 41;
-            this.label8.Text = "Quantidade:";
+            this.label8.Text = "Qtd.:";
             // 
             // label6
             // 
@@ -326,7 +343,7 @@ namespace Biblioteca.View.Livros {
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(248, 310);
+            this.label6.Location = new System.Drawing.Point(314, 326);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 20);
             this.label6.TabIndex = 38;
@@ -376,6 +393,8 @@ namespace Biblioteca.View.Livros {
             this.Load += new System.EventHandler(this.LivrosItemView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -402,7 +421,8 @@ namespace Biblioteca.View.Livros {
         private FontAwesome.Sharp.IconButton BtnEditora;
         private FontAwesome.Sharp.IconButton BtnAutor;
         private System.Windows.Forms.Button btnSalvar;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cbEditarStatus;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label5;
     }
 }

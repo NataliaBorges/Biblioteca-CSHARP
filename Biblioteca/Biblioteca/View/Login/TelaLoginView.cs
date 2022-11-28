@@ -24,21 +24,19 @@ namespace Biblioteca.View {
             String email = tbEmail.Texts;
             String senha = tbSenha.Texts;
 
-            //if (controller.Login(email, senha))
-            //{
-                FuncionarioModel funcionarioModel = singleton.getFuncionario();
-
+            if (controller.Login(email, senha))
+            {   
                 this.Hide();
 
                 PrincipalTelaView principalTelaView = new PrincipalTelaView();
                 NovaJanela.novaJanela(principalTelaView, Bounds);
 
-            //}
-            //else
-            ////{
-            //    singleton.setFuncionario(null);
-            //    MessageBox.Show("E-mail ou senha incorretos.", "", MessageBoxButtons.OK);
-            //}
+            }
+            else
+            {
+                singleton.setFuncionario(null);
+                MessageBox.Show("E-mail ou senha incorretos.", "", MessageBoxButtons.OK);
+            }
         }
         private void lbCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) {
             Application.Exit();

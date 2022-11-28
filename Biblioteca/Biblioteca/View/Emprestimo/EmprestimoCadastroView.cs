@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using Biblioteca.Controller;
 using Biblioteca.Model;
 using Biblioteca.View.Emprestimo;
 using Biblioteca.Util;
+using iTextSharp.text;
+using System.IO;
+using iTextSharp.text.pdf;
+using System.Diagnostics;
+using static iTextSharp.text.Font;
 
 namespace Biblioteca.View.Emprestimo {
     public partial class EmprestimoCadastroView : Form {
@@ -17,6 +21,7 @@ namespace Biblioteca.View.Emprestimo {
         DateTime dataDevolucao;
         EmprestimoController controller = new EmprestimoController();
         Singleton singleton = Singleton.GetInstancia();
+        bool gerouContrato = false;
 
         public EmprestimoCadastroView() {
             InitializeComponent();
@@ -39,6 +44,8 @@ namespace Biblioteca.View.Emprestimo {
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
             CalendarDevolucap.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
+            this.dtGridViewExemplares.DefaultCellStyle.Font = new System.Drawing.Font("Book Antiqua", 12);
+            this.dtGridViewExemplares.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Book Antiqua", 12);
         }
         private void EmprestimoCadastroView_Activated(object sender, EventArgs e)
         {
@@ -74,6 +81,9 @@ namespace Biblioteca.View.Emprestimo {
                 }
                 dtGridViewExemplares.DataSource = table;
 
+                dtGridViewExemplares.Columns[0].Width = 50;
+                dtGridViewExemplares.Columns[1].Width = 200;
+
                 int index = dtGridViewExemplares.SelectedRows[0].Index;
 
                 if (index >= 0)
@@ -105,60 +115,193 @@ namespace Biblioteca.View.Emprestimo {
 
         private void btnBuscarLivros_Click(object sender, EventArgs e)
         {
-            if(controller.QuantidadeDeExemplar() < 5)
+            if(this.singleton.getLeitor() == null)
             {
-                EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
-                NovaJanela.novaJanela(livros, this.Bounds);
+                MessageBox.Show("Selecione um leitor antes.", "Atenção", MessageBoxButtons.OK);
             }
             else
             {
-                MessageBox.Show("Você só pode emprestar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
+                if (controller.QuantidadeDeExemplar() < 5)
+                {
+                    EmprestimoBuscarLivroView livros = new EmprestimoBuscarLivroView();
+                    NovaJanela.novaJanela(livros, this.Bounds);
+                }
+                else
+                {
+                    MessageBox.Show("Você só pode emprestar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
+                }
             }
-            
         }
 
+        private void btnGerarContrato_Click(object sender, EventArgs e)
+        {
+            gerarContrato();
+        }
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            DateTime emprestimo = CalendarEmprestimo.Value.Date;
-            DateTime devolucao = CalendarDevolucap.Value.Date;
-            DateTime hojeMais14 = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
-            String obs = TextObservacao.Text;
+            if(gerouContrato)
+            {
+                DateTime emprestimo = CalendarEmprestimo.Value.Date;
+                DateTime devolucao = CalendarDevolucap.Value.Date;
+                DateTime hojeMais14 = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
+                String obs = TextObservacao.Text;
 
-            if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
-            {
-                MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if(devolucao.Date > hojeMais14.Date)
-            {
-                MessageBox.Show("Prazo máximo de devolução é de 14 dias.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (devolucao < emprestimo)
-            {
-                MessageBox.Show("Data de devolução não pode ser menor que a data de empréstimo.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (dtGridViewExemplares.Rows.Count <= 0)
-            {
-                MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (controller.PegarLeitorEmprestimo() == null)
-            {
-                MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+                if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
+                {
+                    MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (devolucao.Date > hojeMais14.Date)
+                {
+                    MessageBox.Show("Prazo máximo de devolução é de 14 dias.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (devolucao < emprestimo)
+                {
+                    MessageBox.Show("Data de devolução não pode ser menor que a data de empréstimo.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (dtGridViewExemplares.Rows.Count <= 0)
+                {
+                    MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (controller.PegarLeitorEmprestimo() == null)
+                {
+                    MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                    {
+                        if (controller.Insercao(emprestimo, devolucao, obs))
+                        {
+                            int idEmprestimo = controller.BuscarUltimoEmprestimo();
+                            controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
+                        }
+                    }
+
+                    this.singleton.clearEmprestimo();
+
+                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    //this.Close();
+                }
             }
             else
             {
-                foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                MessageBox.Show("Para salvar o empréstimo você precisa gerar o contrato.", "Atenção", MessageBoxButtons.OK);
+            }
+        }
+
+        private void gerarContrato()
+        {
+            try
+            {
+                LeitorModel leitor = controller.PegarLeitorEmprestimo();
+                List<ExemplarModel> lista = controller.PegarExemplarEmprestimo();
+                if (leitor != null && lista.Count > 0)
                 {
-                    if(controller.Insercao(emprestimo, devolucao, obs))
+                    string nome_arquivo = "contrato_" + leitor.Nome + "_" + DateTime.Now.ToString("ddMMyyyyHm");
+                    var doc = new Document(PageSize.A4);
+                    string data_atual = DateTime.Now.ToString("ddMMyyyy");
+
+                    if (!Directory.Exists(@"C:\Users\User\Desktop\MeuArquivo\contratos"))
                     {
-                        int idEmprestimo = controller.BuscarUltimoEmprestimo();
-                        controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
+                        Directory.CreateDirectory(@"C:\Users\User\Desktop\MeuArquivo\contratos");
                     }
+
+                    if (!Directory.Exists(@"C:\Users\User\Desktop\MeuArquivo\contratos\"+ data_atual))
+                    {
+                        Directory.CreateDirectory(@"C:\Users\User\Desktop\MeuArquivo\contratos\"+ data_atual);
+                    }
+
+                    string local = string.Concat(@"C:\Users\User\Desktop\MeuArquivo\contratos\", data_atual, @"\", nome_arquivo, ".pdf");
+                    PdfWriter.GetInstance(doc, new FileStream(local, FileMode.Create));
+                    doc.Open();
+
+                    Font timesBold = new Font(FontFamily.TIMES_ROMAN, 16f, BOLD);
+                    Font timesNormal = new Font(FontFamily.TIMES_ROMAN, 12f, NORMAL);
+
+                    Paragraph title = new Paragraph(new Chunk("CONTRATO DE EMPRÉSTIMO", timesBold));
+                    title.Alignment = Element.ALIGN_CENTER;
+                    doc.Add(title);
+
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+
+                    String exemplares = "";
+                    foreach(ExemplarModel exemplar in lista)
+                    {
+                        float valor = controller.PegarValorExemplarPorId(exemplar.getId());
+                        if (exemplar == lista[lista.Count-1])
+                        {
+                            exemplares += exemplar.Titulo + " com o valor de R$ " + valor + "";
+                        }
+                        else
+                        {
+                            exemplares += exemplar.Titulo + " com o valor de R$ " + valor + ", ";
+                        }
+                    }
+
+                    Paragraph conteudo = new Paragraph(new Chunk(leitor.Nome + " portador do CPF " + leitor.CPF + ", residente no endereço " + leitor.Endereco + " confirma o empréstimo do(s) livro(s) " + exemplares + " e afirma arcar com o custo de reposição do(s) mesmo(s) em caso de perda total, averiguando o custo atual de cada um. O valor será entregue ao administrador da biblioteca.", timesNormal));
+                    conteudo.Alignment = Element.ALIGN_JUSTIFIED;
+                    doc.Add(conteudo);
+
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+
+                    Paragraph data = new Paragraph(new Chunk("Data: " + DateTime.Now.ToString("dd/MM/yyyy"), timesNormal));
+                    data.Alignment = Element.ALIGN_RIGHT;
+                    doc.Add(data);
+
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+
+                    Paragraph leitorNome = new Paragraph(new Chunk(leitor.Nome, timesNormal));
+                    leitorNome.Alignment = Element.ALIGN_RIGHT;
+                    doc.Add(leitorNome);
+                    doc.Add(new Chunk("\n"));
+
+                    Paragraph line = new Paragraph(new Chunk("_____________________________", timesNormal));
+                    line.Alignment = Element.ALIGN_RIGHT;
+                    doc.Add(line);
+
+                    doc.Add(new Chunk("\n"));
+                    doc.Add(new Chunk("\n"));
+
+                    Paragraph bibliotecario = new Paragraph(new Chunk(singleton.getFuncionario().Nome_funcionario, timesNormal));
+                    bibliotecario.Alignment = Element.ALIGN_RIGHT;
+                    doc.Add(bibliotecario);
+
+                    doc.Add(new Chunk("\n"));
+
+                    doc.Add(line);
+
+
+                    doc.Close();
+                    var p = new Process();
+                    p.StartInfo = new ProcessStartInfo(local)
+                    {
+                        UseShellExecute = true
+                    };
+                    p.Start();
+
+                    gerouContrato = true;
                 }
-
-                this.singleton.clearEmprestimo();
-
-                MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                this.Close();
+                else
+                {
+                    MessageBox.Show("É necessário selecionar o leitor e o exemplar.", "Atenção", MessageBoxButtons.OK);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Não foi possível gerar o contrato. Feche-o se estiver aberto.", "Atenção", MessageBoxButtons.OK);
             }
         }
 
@@ -193,5 +336,6 @@ namespace Biblioteca.View.Emprestimo {
                 }
             }
         }
+        
     }
 }

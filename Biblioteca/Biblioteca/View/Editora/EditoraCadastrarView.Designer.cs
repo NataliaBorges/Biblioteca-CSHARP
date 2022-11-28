@@ -73,6 +73,7 @@ namespace Biblioteca.View.Editora {
             this.tbCidade.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbCidade.Location = new System.Drawing.Point(90, 120);
             this.tbCidade.Name = "tbCidade";
+            this.tbCidade.PlaceholderText = "Insira a cidade";
             this.tbCidade.Size = new System.Drawing.Size(438, 27);
             this.tbCidade.TabIndex = 52;
             // 
@@ -81,6 +82,7 @@ namespace Biblioteca.View.Editora {
             this.tbBairro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbBairro.Location = new System.Drawing.Point(90, 77);
             this.tbBairro.Name = "tbBairro";
+            this.tbBairro.PlaceholderText = "Insira o bairro";
             this.tbBairro.Size = new System.Drawing.Size(438, 27);
             this.tbBairro.TabIndex = 51;
             // 
@@ -102,7 +104,7 @@ namespace Biblioteca.View.Editora {
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(391, 39);
+            this.label7.Location = new System.Drawing.Point(415, 39);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 20);
             this.label7.TabIndex = 49;
@@ -111,9 +113,9 @@ namespace Biblioteca.View.Editora {
             // tbNumero
             // 
             this.tbNumero.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbNumero.Location = new System.Drawing.Point(428, 36);
+            this.tbNumero.Location = new System.Drawing.Point(452, 36);
             this.tbNumero.Name = "tbNumero";
-            this.tbNumero.Size = new System.Drawing.Size(100, 27);
+            this.tbNumero.Size = new System.Drawing.Size(76, 27);
             this.tbNumero.TabIndex = 48;
             // 
             // tbRua
@@ -121,6 +123,7 @@ namespace Biblioteca.View.Editora {
             this.tbRua.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbRua.Location = new System.Drawing.Point(90, 36);
             this.tbRua.Name = "tbRua";
+            this.tbRua.PlaceholderText = "Insira a rua";
             this.tbRua.Size = new System.Drawing.Size(295, 27);
             this.tbRua.TabIndex = 47;
             // 
@@ -181,6 +184,7 @@ namespace Biblioteca.View.Editora {
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNome.Location = new System.Drawing.Point(101, 36);
             this.tbNome.Name = "tbNome";
+            this.tbNome.PlaceholderText = "Insira o nome";
             this.tbNome.Size = new System.Drawing.Size(379, 27);
             this.tbNome.TabIndex = 37;
             // 
@@ -249,9 +253,9 @@ namespace Biblioteca.View.Editora {
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(36, 81);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.Size = new System.Drawing.Size(60, 20);
             this.label2.TabIndex = 58;
-            this.label2.Text = "Email:";
+            this.label2.Text = "E-mail:";
             // 
             // maskedTextBoxCNPJ
             // 
@@ -267,6 +271,7 @@ namespace Biblioteca.View.Editora {
             this.tbEmail.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEmail.Location = new System.Drawing.Point(101, 78);
             this.tbEmail.Name = "tbEmail";
+            this.tbEmail.PlaceholderText = "Insira o e-mail";
             this.tbEmail.Size = new System.Drawing.Size(379, 27);
             this.tbEmail.TabIndex = 57;
             // 

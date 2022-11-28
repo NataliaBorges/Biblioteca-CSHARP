@@ -380,12 +380,14 @@ namespace Biblioteca.Controller
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
+            ExemplarModel exemplar = null;
+
             while (reader.Read())
             {
                 string valorString = Convert.ToString(reader["Valor"]);
                 valorString.Replace(",", ".");
                 float valor = float.Parse(valorString);
-                ExemplarModel exemplar = new ExemplarModel(
+                exemplar = new ExemplarModel(
                     (int)reader["Id"],
                     (string)reader["Titulo"],
                     (string)reader["Nome_Edicao"],
@@ -398,11 +400,10 @@ namespace Biblioteca.Controller
                     valor,
                     (int)reader["Estado"]);
                     exemplar.IdEdicao = (int)reader["Edicao_Id"];
-                reader.Close();
-
-                return exemplar;
             }
-            return null;
+            reader.Close();
+
+            return exemplar;
         }
 
     }

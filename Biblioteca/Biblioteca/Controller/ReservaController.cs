@@ -46,14 +46,13 @@ namespace Biblioteca.Controller {
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
-            while (reader.Read()) {
-                int idEmprestimo = (int)reader["ID_reserva"];
-                reader.Close();
-                return idEmprestimo;
-            }
-            
+            int idEmprestimo = 0;
 
-            return 0; 
+            while (reader.Read()) {
+                idEmprestimo = (int)reader["ID_reserva"];
+            }
+            reader.Close();
+            return idEmprestimo;
         }
 
         // RELACIONAR LIVROS SELECIONADO NO EMPRESTIMO

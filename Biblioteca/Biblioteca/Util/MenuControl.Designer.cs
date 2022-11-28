@@ -134,8 +134,8 @@
             this.btnFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnFuncionario.Size = new System.Drawing.Size(198, 46);
             this.btnFuncionario.TabIndex = 4;
-            this.btnFuncionario.Tag = "Funcionário";
-            this.btnFuncionario.Text = "  Funcionário";
+            this.btnFuncionario.Tag = "Colaborador";
+            this.btnFuncionario.Text = "  Colaborador";
             this.btnFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFuncionario.UseVisualStyleBackColor = true;
             this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);

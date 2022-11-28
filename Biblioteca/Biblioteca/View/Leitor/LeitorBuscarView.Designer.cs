@@ -90,7 +90,7 @@ namespace Biblioteca.View.Leitor {
             // 
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(281, 74);
+            this.tbBuscar.Location = new System.Drawing.Point(294, 73);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(446, 27);
@@ -165,13 +165,13 @@ namespace Biblioteca.View.Leitor {
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(811, 475);
+            this.btnEditar.Location = new System.Drawing.Point(834, 476);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(132, 42);
             this.btnEditar.TabIndex = 109;
@@ -197,7 +197,7 @@ namespace Biblioteca.View.Leitor {
             this.groupBox1.Controls.Add(this.cbStatus);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(753, 13);
+            this.groupBox1.Location = new System.Drawing.Point(776, 16);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(190, 88);
             this.groupBox1.TabIndex = 105;
@@ -238,7 +238,7 @@ namespace Biblioteca.View.Leitor {
             // 
             this.dtGridViewLeitor.AllowUserToAddRows = false;
             this.dtGridViewLeitor.AllowUserToDeleteRows = false;
-            this.dtGridViewLeitor.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtGridViewLeitor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtGridViewLeitor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridViewLeitor.BackgroundColor = System.Drawing.Color.Black;
             this.dtGridViewLeitor.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -264,7 +264,7 @@ namespace Biblioteca.View.Leitor {
             this.dtGridViewLeitor.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewLeitor.EnableHeadersVisualStyles = false;
             this.dtGridViewLeitor.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLeitor.Location = new System.Drawing.Point(66, 143);
+            this.dtGridViewLeitor.Location = new System.Drawing.Point(77, 144);
             this.dtGridViewLeitor.Name = "dtGridViewLeitor";
             this.dtGridViewLeitor.ReadOnly = true;
             this.dtGridViewLeitor.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -279,7 +279,7 @@ namespace Biblioteca.View.Leitor {
             this.dtGridViewLeitor.RowHeadersVisible = false;
             this.dtGridViewLeitor.RowTemplate.Height = 25;
             this.dtGridViewLeitor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLeitor.Size = new System.Drawing.Size(877, 326);
+            this.dtGridViewLeitor.Size = new System.Drawing.Size(889, 326);
             this.dtGridViewLeitor.TabIndex = 30;
             this.dtGridViewLeitor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewLeitor_CellClick);
             // 
@@ -296,7 +296,7 @@ namespace Biblioteca.View.Leitor {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(270, 76);
+            this.icbtnVoltar.Location = new System.Drawing.Point(234, 99);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -312,7 +312,7 @@ namespace Biblioteca.View.Leitor {
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(423, 76);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(373, 99);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(317, 39);
             this.lblCadastroLivro.TabIndex = 62;

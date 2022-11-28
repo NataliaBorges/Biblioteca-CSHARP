@@ -183,7 +183,7 @@
             this.dtGridViewEdicao.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewEdicao.EnableHeadersVisualStyles = false;
             this.dtGridViewEdicao.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewEdicao.Location = new System.Drawing.Point(54, 86);
+            this.dtGridViewEdicao.Location = new System.Drawing.Point(54, 46);
             this.dtGridViewEdicao.Name = "dtGridViewEdicao";
             this.dtGridViewEdicao.ReadOnly = true;
             this.dtGridViewEdicao.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -198,7 +198,7 @@
             this.dtGridViewEdicao.RowHeadersVisible = false;
             this.dtGridViewEdicao.RowTemplate.Height = 25;
             this.dtGridViewEdicao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewEdicao.Size = new System.Drawing.Size(428, 259);
+            this.dtGridViewEdicao.Size = new System.Drawing.Size(428, 317);
             this.dtGridViewEdicao.TabIndex = 30;
             // 
             // panel3
@@ -235,6 +235,7 @@
             this.tbEdicao.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbEdicao.Location = new System.Drawing.Point(73, 144);
             this.tbEdicao.Name = "tbEdicao";
+            this.tbEdicao.PlaceholderText = "Insira a edição";
             this.tbEdicao.Size = new System.Drawing.Size(412, 27);
             this.tbEdicao.TabIndex = 38;
             // 

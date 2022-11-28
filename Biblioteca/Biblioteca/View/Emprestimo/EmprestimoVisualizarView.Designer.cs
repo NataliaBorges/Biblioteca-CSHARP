@@ -40,6 +40,7 @@
             this.icbtnVoltar = new FontAwesome.Sharp.IconButton();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnRenovar = new System.Windows.Forms.Button();
             this.pnlPunicao = new System.Windows.Forms.Panel();
             this.lbMensagem = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,7 +82,7 @@
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1307, 686);
+            this.pnltotal.Size = new System.Drawing.Size(1368, 742);
             this.pnltotal.TabIndex = 29;
             // 
             // panel1
@@ -93,9 +94,9 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(199, 3);
+            this.panel1.Location = new System.Drawing.Point(208, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1105, 680);
+            this.panel1.Size = new System.Drawing.Size(1157, 736);
             this.panel1.TabIndex = 1;
             // 
             // icInfo
@@ -106,7 +107,7 @@
             this.icInfo.IconColor = System.Drawing.Color.SkyBlue;
             this.icInfo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icInfo.IconSize = 40;
-            this.icInfo.Location = new System.Drawing.Point(1033, 43);
+            this.icInfo.Location = new System.Drawing.Point(1085, 43);
             this.icInfo.Name = "icInfo";
             this.icInfo.Size = new System.Drawing.Size(75, 45);
             this.icInfo.TabIndex = 141;
@@ -117,9 +118,9 @@
             // 
             this.pnlFluxo.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.pnlFluxo.Controls.Add(this.iconPictureBox1);
-            this.pnlFluxo.Location = new System.Drawing.Point(786, 87);
+            this.pnlFluxo.Location = new System.Drawing.Point(837, 104);
             this.pnlFluxo.Name = "pnlFluxo";
-            this.pnlFluxo.Size = new System.Drawing.Size(322, 601);
+            this.pnlFluxo.Size = new System.Drawing.Size(320, 612);
             this.pnlFluxo.TabIndex = 25;
             this.pnlFluxo.Visible = false;
             // 
@@ -132,10 +133,10 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlText;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 322;
+            this.iconPictureBox1.IconSize = 320;
             this.iconPictureBox1.Location = new System.Drawing.Point(0, 0);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(322, 601);
+            this.iconPictureBox1.Size = new System.Drawing.Size(320, 612);
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
             this.iconPictureBox1.Click += new System.EventHandler(this.icnFluxoEmprestimo_Click);
@@ -153,7 +154,7 @@
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(189, 55);
+            this.icbtnVoltar.Location = new System.Drawing.Point(231, 62);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -165,6 +166,7 @@
             // 
             // lblCadastroLivro
             // 
+            this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
@@ -177,24 +179,42 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Black;
+            this.panel2.Controls.Add(this.btnRenovar);
             this.panel2.Controls.Add(this.pnlPunicao);
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Controls.Add(this.btnSalvar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 116);
+            this.panel2.Location = new System.Drawing.Point(0, 125);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1105, 564);
+            this.panel2.Size = new System.Drawing.Size(1157, 611);
             this.panel2.TabIndex = 1;
+            // 
+            // btnRenovar
+            // 
+            this.btnRenovar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRenovar.BackColor = System.Drawing.Color.Indigo;
+            this.btnRenovar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRenovar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRenovar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRenovar.ForeColor = System.Drawing.Color.White;
+            this.btnRenovar.Location = new System.Drawing.Point(18, 454);
+            this.btnRenovar.Name = "btnRenovar";
+            this.btnRenovar.Size = new System.Drawing.Size(103, 29);
+            this.btnRenovar.TabIndex = 141;
+            this.btnRenovar.Text = "RENOVAR";
+            this.btnRenovar.UseVisualStyleBackColor = false;
+            this.btnRenovar.Click += new System.EventHandler(this.btnRenovar_Click);
             // 
             // pnlPunicao
             // 
+            this.pnlPunicao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlPunicao.BackColor = System.Drawing.Color.BurlyWood;
             this.pnlPunicao.Controls.Add(this.lbMensagem);
             this.pnlPunicao.Controls.Add(this.label1);
-            this.pnlPunicao.Location = new System.Drawing.Point(22, 471);
+            this.pnlPunicao.Location = new System.Drawing.Point(18, 498);
             this.pnlPunicao.Name = "pnlPunicao";
-            this.pnlPunicao.Size = new System.Drawing.Size(863, 68);
+            this.pnlPunicao.Size = new System.Drawing.Size(919, 68);
             this.pnlPunicao.TabIndex = 140;
             // 
             // lbMensagem
@@ -224,9 +244,9 @@
             this.groupBox4.Controls.Add(this.dtGridViewLivrosEmprestimo);
             this.groupBox4.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox4.ForeColor = System.Drawing.Color.White;
-            this.groupBox4.Location = new System.Drawing.Point(22, 155);
+            this.groupBox4.Location = new System.Drawing.Point(18, 148);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1055, 300);
+            this.groupBox4.Size = new System.Drawing.Size(1105, 300);
             this.groupBox4.TabIndex = 139;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "LIVRO(S)";
@@ -274,7 +294,7 @@
             this.dtGridViewLivrosEmprestimo.RowHeadersVisible = false;
             this.dtGridViewLivrosEmprestimo.RowTemplate.Height = 25;
             this.dtGridViewLivrosEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(1049, 274);
+            this.dtGridViewLivrosEmprestimo.Size = new System.Drawing.Size(1099, 274);
             this.dtGridViewLivrosEmprestimo.TabIndex = 31;
             this.dtGridViewLivrosEmprestimo.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dtGridViewLivrosEmprestimo_DataError);
             // 
@@ -291,7 +311,7 @@
             this.groupBox3.Controls.Add(this.labelNome);
             this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
-            this.groupBox3.Location = new System.Drawing.Point(332, 10);
+            this.groupBox3.Location = new System.Drawing.Point(349, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(488, 139);
             this.groupBox3.TabIndex = 138;
@@ -394,7 +414,7 @@
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSalvar.ForeColor = System.Drawing.Color.White;
-            this.btnSalvar.Location = new System.Drawing.Point(905, 492);
+            this.btnSalvar.Location = new System.Drawing.Point(954, 502);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(169, 47);
             this.btnSalvar.TabIndex = 135;
@@ -407,7 +427,7 @@
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1105, 37);
+            this.head1.Size = new System.Drawing.Size(1157, 37);
             this.head1.TabIndex = 0;
             // 
             // menuControl1
@@ -417,7 +437,7 @@
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(190, 680);
+            this.menuControl1.Size = new System.Drawing.Size(199, 736);
             this.menuControl1.TabIndex = 0;
             // 
             // EmprestimoVisualizarView
@@ -425,7 +445,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1307, 686);
+            this.ClientSize = new System.Drawing.Size(1368, 742);
             this.Controls.Add(this.pnltotal);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -476,5 +496,6 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconButton icInfo;
         private System.Windows.Forms.Label lbMensagem;
+        private System.Windows.Forms.Button btnRenovar;
     }
 }

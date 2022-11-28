@@ -200,6 +200,7 @@
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNome.Location = new System.Drawing.Point(80, 144);
             this.tbNome.Name = "tbNome";
+            this.tbNome.PlaceholderText = "Insira o gênero";
             this.tbNome.Size = new System.Drawing.Size(393, 27);
             this.tbNome.TabIndex = 38;
             // 

@@ -105,7 +105,7 @@
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(206, 113);
+            this.icbtnVoltar.Location = new System.Drawing.Point(257, 108);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -121,7 +121,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(386, 116);
+            this.label3.Location = new System.Drawing.Point(410, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(303, 32);
             this.label3.TabIndex = 66;
@@ -237,6 +237,7 @@
             this.tbNome.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbNome.Location = new System.Drawing.Point(80, 167);
             this.tbNome.Name = "tbNome";
+            this.tbNome.PlaceholderText = "Insira o autor";
             this.tbNome.Size = new System.Drawing.Size(387, 27);
             this.tbNome.TabIndex = 38;
             // 

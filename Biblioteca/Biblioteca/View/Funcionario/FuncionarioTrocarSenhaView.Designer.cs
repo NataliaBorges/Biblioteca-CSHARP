@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FuncionarioTrocarSenhaView));
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbSenhaAtual = new System.Windows.Forms.TextBox();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tbCSenha = new System.Windows.Forms.TextBox();
@@ -39,12 +41,10 @@
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnltotal
@@ -77,6 +77,30 @@
             this.panel1.Size = new System.Drawing.Size(1050, 736);
             this.panel1.TabIndex = 59;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.groupBox2.Controls.Add(this.tbSenhaAtual);
+            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(335, 199);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(403, 100);
+            this.groupBox2.TabIndex = 122;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "SENHA ATUAL";
+            // 
+            // tbSenhaAtual
+            // 
+            this.tbSenhaAtual.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSenhaAtual.Location = new System.Drawing.Point(35, 36);
+            this.tbSenhaAtual.Name = "tbSenhaAtual";
+            this.tbSenhaAtual.PlaceholderText = "Insira a senha atual";
+            this.tbSenhaAtual.Size = new System.Drawing.Size(300, 27);
+            this.tbSenhaAtual.TabIndex = 0;
+            this.tbSenhaAtual.UseSystemPasswordChar = true;
+            // 
             // btnSalvar
             // 
             this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -84,7 +108,7 @@
             this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalvar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSalvar.Location = new System.Drawing.Point(401, 498);
+            this.btnSalvar.Location = new System.Drawing.Point(434, 532);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(225, 50);
             this.btnSalvar.TabIndex = 121;
@@ -99,7 +123,7 @@
             this.groupBox1.Controls.Add(this.tbNSenha);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(302, 286);
+            this.groupBox1.Location = new System.Drawing.Point(335, 320);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(403, 184);
             this.groupBox1.TabIndex = 119;
@@ -121,7 +145,7 @@
             this.tbNSenha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbNSenha.Location = new System.Drawing.Point(41, 51);
             this.tbNSenha.Name = "tbNSenha";
-            this.tbNSenha.PlaceholderText = "Digite a nova senha";
+            this.tbNSenha.PlaceholderText = "Insira a nova senha";
             this.tbNSenha.Size = new System.Drawing.Size(300, 27);
             this.tbNSenha.TabIndex = 0;
             this.tbNSenha.UseSystemPasswordChar = true;
@@ -139,7 +163,7 @@
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(254, 73);
+            this.icbtnVoltar.Location = new System.Drawing.Point(287, 107);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -155,7 +179,7 @@
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(388, 73);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(421, 107);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(286, 39);
             this.lblCadastroLivro.TabIndex = 81;
@@ -179,30 +203,6 @@
             this.menuControl1.Size = new System.Drawing.Size(180, 736);
             this.menuControl1.TabIndex = 60;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(302, 165);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(403, 100);
-            this.groupBox2.TabIndex = 122;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "SENHA ATUAL";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(35, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PlaceholderText = "Digite a senha atual";
-            this.textBox2.Size = new System.Drawing.Size(300, 27);
-            this.textBox2.TabIndex = 0;
-            this.textBox2.UseSystemPasswordChar = true;
-            // 
             // FuncionarioTrocarSenhaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -218,10 +218,10 @@
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +240,6 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbSenhaAtual;
     }
 }

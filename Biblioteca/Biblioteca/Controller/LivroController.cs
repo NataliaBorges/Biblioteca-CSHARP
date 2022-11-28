@@ -28,14 +28,12 @@ namespace Biblioteca.Controller {
 
             SqlDataReader reader = Cmd.ExecuteReader();
 
+            int idLivro = 0;
             while (reader.Read()) {
-                int idLivro = (int)reader["Id"];
-                reader.Close();
-                return idLivro;
+                idLivro = (int)reader["Id"];
             }
-
-
-            return 0;
+            reader.Close();
+            return idLivro;
         }
         public bool Insercao(LivroModel livro) {
             Cmd.Connection = connection.RetornaConexao();

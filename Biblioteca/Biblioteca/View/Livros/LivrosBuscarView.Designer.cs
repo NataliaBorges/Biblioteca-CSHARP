@@ -306,7 +306,7 @@ namespace Biblioteca.View.Livros {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(238, 78);
+            this.icbtnVoltar.Location = new System.Drawing.Point(326, 86);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -322,7 +322,7 @@ namespace Biblioteca.View.Livros {
             this.lblBuscaLivro.AutoSize = true;
             this.lblBuscaLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblBuscaLivro.ForeColor = System.Drawing.Color.White;
-            this.lblBuscaLivro.Location = new System.Drawing.Point(493, 78);
+            this.lblBuscaLivro.Location = new System.Drawing.Point(476, 85);
             this.lblBuscaLivro.Name = "lblBuscaLivro";
             this.lblBuscaLivro.Size = new System.Drawing.Size(269, 39);
             this.lblBuscaLivro.TabIndex = 30;

@@ -67,7 +67,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.icbtnVoltar);
@@ -81,14 +81,15 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel2.Controls.Add(this.lblNotFound);
             this.panel2.Controls.Add(this.btnEditar);
             this.panel2.Controls.Add(this.tbBuscar);
             this.panel2.Controls.Add(this.dtGridViewLivros);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 156);
+            this.panel2.Location = new System.Drawing.Point(0, 202);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1072, 580);
+            this.panel2.Size = new System.Drawing.Size(1072, 534);
             this.panel2.TabIndex = 91;
             // 
             // lblNotFound
@@ -98,7 +99,7 @@
             this.lblNotFound.BackColor = System.Drawing.Color.Black;
             this.lblNotFound.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblNotFound.ForeColor = System.Drawing.Color.White;
-            this.lblNotFound.Location = new System.Drawing.Point(478, 288);
+            this.lblNotFound.Location = new System.Drawing.Point(478, 265);
             this.lblNotFound.Name = "lblNotFound";
             this.lblNotFound.Size = new System.Drawing.Size(128, 21);
             this.lblNotFound.TabIndex = 101;
@@ -107,13 +108,13 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.btnEditar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
-            this.btnEditar.Location = new System.Drawing.Point(832, 502);
+            this.btnEditar.Location = new System.Drawing.Point(832, 479);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(196, 42);
             this.btnEditar.TabIndex = 106;
@@ -126,7 +127,7 @@
             this.tbBuscar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbBuscar.BackColor = System.Drawing.Color.White;
             this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbBuscar.Location = new System.Drawing.Point(329, 72);
+            this.tbBuscar.Location = new System.Drawing.Point(329, 49);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.PlaceholderText = "Digite aqui";
             this.tbBuscar.Size = new System.Drawing.Size(460, 27);
@@ -137,7 +138,7 @@
             // 
             this.dtGridViewLivros.AllowUserToAddRows = false;
             this.dtGridViewLivros.AllowUserToDeleteRows = false;
-            this.dtGridViewLivros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtGridViewLivros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtGridViewLivros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtGridViewLivros.BackgroundColor = System.Drawing.Color.Black;
             this.dtGridViewLivros.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -163,7 +164,7 @@
             this.dtGridViewLivros.DefaultCellStyle = dataGridViewCellStyle2;
             this.dtGridViewLivros.EnableHeadersVisualStyles = false;
             this.dtGridViewLivros.GridColor = System.Drawing.Color.SaddleBrown;
-            this.dtGridViewLivros.Location = new System.Drawing.Point(45, 130);
+            this.dtGridViewLivros.Location = new System.Drawing.Point(45, 107);
             this.dtGridViewLivros.Name = "dtGridViewLivros";
             this.dtGridViewLivros.ReadOnly = true;
             this.dtGridViewLivros.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;

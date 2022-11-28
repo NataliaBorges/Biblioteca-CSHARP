@@ -114,7 +114,7 @@
             this.btnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnVoltar.IconSize = 30;
             this.btnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVoltar.Location = new System.Drawing.Point(229, 91);
+            this.btnVoltar.Location = new System.Drawing.Point(228, 98);
             this.btnVoltar.Name = "btnVoltar";
             this.btnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnVoltar.Size = new System.Drawing.Size(54, 46);

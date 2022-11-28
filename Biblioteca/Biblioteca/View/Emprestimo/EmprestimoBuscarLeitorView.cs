@@ -131,11 +131,12 @@ namespace Biblioteca.View.Emprestimo {
                 string endereco = row.Cells[5].Value.ToString();
                 string email = row.Cells[6].Value.ToString();
 
-                LeitorModel leitor = new LeitorModel(id,nome,nascimento, cpf, telefone,endereco, email);
+                LeitorModel leitor = new LeitorModel(id,nome,nascimento, telefone, cpf, endereco, email);
 
                 int quantidadeExtraviado = controller.leitorPossuiExtraviadoPendente(leitor.getId());
                 int quantidadeAtrasados = controller.leitorPossuiEmprestimoAtrasado(leitor.getId());
                 int totalDias = 2 * controller.leitorPossuiMulta(leitor.getId());
+                int quantidadeEmprestados = controller.quantidadeEmprestadosLeitor(leitor.getId());
                 Nullable<DateTime> finalizado = controller.BuscarUltimoEmprestimoComAtraso(leitor.getId());
                 if (quantidadeExtraviado > 0)
                 {
@@ -148,6 +149,10 @@ namespace Biblioteca.View.Emprestimo {
                 else if(totalDias > 0 && finalizado.Value.AddDays(totalDias) > DateTime.Now)
                 {
                     MessageBox.Show(leitor.Nome + ", está em punição.\n\nSó podera fazer empréstimo a partir de "+ finalizado.Value.AddDays(totalDias).ToString("dd/MM/yyyy") + ".", "Atenção", MessageBoxButtons.OK);
+                }
+                else if (quantidadeEmprestados == 5)
+                {
+                    MessageBox.Show("O leitor só pode emprestar 5 exemplares.", "Atenção", MessageBoxButtons.OK);
                 }
                 else
                 {
