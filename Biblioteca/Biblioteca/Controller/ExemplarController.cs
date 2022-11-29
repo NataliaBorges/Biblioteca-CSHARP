@@ -34,7 +34,7 @@ namespace Biblioteca.Controller
                     Cmd.Parameters.AddWithValue("@Ano", exemplar.AnoPublicacao);
                     Cmd.Parameters.AddWithValue("@ISBN", exemplar.ISBN);
                     Cmd.Parameters.AddWithValue("@Id_Edicao", exemplar.IdEdicao);
-                    Cmd.Parameters.AddWithValue("@Valor", Math.Round(exemplar.Valor, 2));
+                    Cmd.Parameters.AddWithValue("@Valor", exemplar.Valor);
                     Cmd.Parameters.AddWithValue("@Estado", 1);
                     Cmd.ExecuteNonQuery();
                 }

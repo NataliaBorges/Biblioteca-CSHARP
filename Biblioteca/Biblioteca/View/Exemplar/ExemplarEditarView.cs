@@ -86,6 +86,15 @@ namespace Biblioteca.View.Exemplar
                 MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxAno.Focus();
             }
+            else if ((new DateTime(int.Parse(ano), DateTime.Now.Month, DateTime.Now.Day)).Year > DateTime.Now.Year)
+            {
+                MessageBox.Show("O ano não pode ser maior que o ano atual.", "Atenção", MessageBoxButtons.OK);
+                maskedTextBoxAno.Focus();
+            }
+            else if (aquisicao > DateTime.Now)
+            {
+                MessageBox.Show("Data de aquisição não pode ser maior que hoje.", "Atenção", MessageBoxButtons.OK);
+            }
             else if (tbISBN.Text.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um ISBN.", "Atenção", MessageBoxButtons.OK);

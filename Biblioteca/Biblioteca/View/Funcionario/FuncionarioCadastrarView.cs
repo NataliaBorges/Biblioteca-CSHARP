@@ -49,6 +49,7 @@ namespace Biblioteca.View.Funcionario
             String senha = tbSenha.Text;
             String email = tbEmail.Text;
             DateTime data = this.CalendarFuncionario.Value.Date; //.ToString("yyyy-MM-dd");
+            int years = DateTime.Now.Year - data.Year;
             int funcao = 0;
 
 
@@ -60,7 +61,11 @@ namespace Biblioteca.View.Funcionario
                 }
             }
 
-            if (nome.Length <= 0)
+            if (years < 18)
+            {
+                MessageBox.Show("Funcionário não pode ter menos de 18 anos.", "Atenção", MessageBoxButtons.OK);
+            }
+            else if (nome.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um nome.", "Atenção", MessageBoxButtons.OK);
                 tbNome.Focus();
@@ -107,7 +112,7 @@ namespace Biblioteca.View.Funcionario
             }
             else if (cbFuncao == null)
             {
-                MessageBox.Show("Você selecionar uma editora.", "Atenção", MessageBoxButtons.OK);
+                MessageBox.Show("Você precisa selecionar uma função.", "Atenção", MessageBoxButtons.OK);
                 cbFuncao.Focus();
             }
             else
@@ -157,6 +162,8 @@ namespace Biblioteca.View.Funcionario
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                PrincipalTelaView telaPrincipal = new PrincipalTelaView();
+                NovaJanela.novaJanela(telaPrincipal, this.Bounds);
                 this.Close();
             }
         }

@@ -27,6 +27,7 @@ namespace Biblioteca.Util
 {
     public partial class MenuControl : UserControl
     {
+        Singleton singleton = Singleton.GetInstancia();
         TableLayoutPanel panel;
         Form form;
 
@@ -43,6 +44,9 @@ namespace Biblioteca.Util
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(0, 0, 0);
+            lbmenuNome.Text = singleton.getFuncionario().Nome_funcionario;
+            lbmenuFuncao.Text = singleton.getFuncionario().Funcao;
+            lblUser.Text = singleton.getFuncionario().Nome_funcionario.Substring(0, 1);
         }
         private void fecharTelas()
         {
@@ -153,27 +157,39 @@ namespace Biblioteca.Util
 
         private void BtnLivro_Click(object sender, EventArgs e)
         {
-            if (this.Width > 100)
+            if (singleton.getFuncionario().Funcao != "Auxiliar")
             {
-                ddmLivro.Show(btnLivro,  167, 0);
+                if (this.Width > 100)
+                {
+                    ddmLivro.Show(btnLivro, 167, 0);
+                }
+                else
+                {
+                    ddmLivro.Show(btnLivro, 67, 0);
+                }
             }
             else
             {
-                ddmLivro.Show(btnLivro, 67, 0);
+                MessageBox.Show("Você não possui permissão para acessar esta área.", "Atenção", MessageBoxButtons.OK);
             }
-                
         }
         private void BtnLeitor_Click(object sender, EventArgs e)
         {
-            if (this.Width > 100)
+            if (singleton.getFuncionario().Funcao != "Auxiliar")
             {
-                ddmLeitor.Show(btnLeitor, 167, 0);
+                if (this.Width > 100)
+                {
+                    ddmLeitor.Show(btnLeitor, 167, 0);
+                }
+                else
+                {
+                    ddmLeitor.Show(btnLeitor, 67, 0);
+                }
             }
             else
             {
-                ddmLeitor.Show(btnLeitor, 67, 0);
+                MessageBox.Show("Você não possui permissão para acessar esta área.", "Atenção", MessageBoxButtons.OK);
             }
-            
         }
 
         private void BtnEmprestimo_Click(object sender, EventArgs e)
@@ -202,25 +218,39 @@ namespace Biblioteca.Util
 
         private void btnRelatório_Click(object sender, EventArgs e)
         {
-            if (this.Width > 100)
+            if (singleton.getFuncionario().Funcao == "Administrador")
             {
-                ddmRelatorio.Show(btnRelatório, 167, 0);
+                if (this.Width > 100)
+                {
+                    ddmRelatorio.Show(btnRelatório, 167, 0);
+                }
+                else
+                {
+                    ddmRelatorio.Show(btnRelatório, 67, 0);
+                }
             }
             else
             {
-                ddmRelatorio.Show(btnRelatório, 67, 0);
+                MessageBox.Show("Você não possui permissão para acessar esta área.", "Atenção", MessageBoxButtons.OK);
             }
         }
 
         private void btnFuncionario_Click(object sender, EventArgs e)
         {
-            if (this.Width > 100)
+            if (singleton.getFuncionario().Funcao == "Administrador")
             {
-                ddmFuncionario.Show(btnFuncionario, 167, 0);
+                if (this.Width > 100)
+                {
+                    ddmFuncionario.Show(btnFuncionario, 167, 0);
+                }
+                else
+                {
+                    ddmFuncionario.Show(btnFuncionario, 67, 0);
+                }
             }
             else
             {
-                ddmFuncionario.Show(btnFuncionario, 67, 0);
+                MessageBox.Show("Você não possui permissão para acessar esta área.", "Atenção", MessageBoxButtons.OK);
             }
         }
         private void btnHome_Click(object sender, EventArgs e)

@@ -89,7 +89,13 @@ namespace Biblioteca.View.Editora {
 
         private void icbtnVoltar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                PrincipalTelaView telaPrincipal = new PrincipalTelaView();
+                NovaJanela.novaJanela(telaPrincipal, this.Bounds);
+                this.Close();
+            }
         }
 
         private void linkLbBuscarEditora_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

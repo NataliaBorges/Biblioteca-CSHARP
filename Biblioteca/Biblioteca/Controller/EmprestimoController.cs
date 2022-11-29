@@ -1528,5 +1528,213 @@ namespace Biblioteca.Controller
             return naoFoiDevolvido;
         }
 
+        public List<RelatorioEmprestimoModel> BuscarExemplarRelatorio(string busca, DateTime dataInicial, DateTime dataFinal, String statusEmprestimo, String statusExemplar, bool isCodigo = false, bool isLeitor = false, bool isExemplar = false)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            int statusExemplarCod = 0;
+            switch (statusExemplar)
+            {
+                case "Devolvido":
+                    statusExemplarCod = 5;
+                    break;
+                case "Extraviado":
+                    statusExemplarCod = 6;
+                    break;
+                case "Emprestado":
+                    statusExemplarCod = 7;
+                    break;
+            }
+
+            if (isCodigo)
+            {
+                if (statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                        WHERE EX.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND EX.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE IE.Id_status = '" + statusExemplarCod + "' AND EX.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND EX.Id LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+            }
+
+            if (isExemplar)
+            {
+                if (statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE IE.Id_status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+            }
+
+            if (isLeitor)
+            {
+                if (statusEmprestimo == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE L.Nome_leitor LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND L.Nome_leitor LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND L.Nome_leitor LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+                if (statusEmprestimo != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor, COUNT(E.Id) AS Total
+                                        FROM Emprestimo as E
+                                        INNER JOIN Funcionario AS F ON (F.Id = E.ID_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = E.ID_leitor)
+                                        INNER JOIN Item_emprestimo AS IE ON (IE.ID_emprestimo = E.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IE.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Emprestimo AS SE ON (SE.Id = E.Id_emprestimoStatus)
+                                    WHERE SE.Nome_Status = '" + statusEmprestimo + "' AND IE.Id_status = '" + statusExemplarCod + "' AND L.Nome_leitor LIKE '%" + busca + "%' AND E.Data_emprestimo BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'" +
+                                        "GROUP BY EX.Id, Li.Titulo, EX.ISBN, L.Nome_Leitor";
+                }
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<RelatorioEmprestimoModel> lista = new List<RelatorioEmprestimoModel>();
+
+            while (reader.Read())
+            {
+                RelatorioEmprestimoModel pesquisa = new RelatorioEmprestimoModel(
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
+                    (String)reader["ISBN"],
+                    (String)reader["Nome_Leitor"],
+                    (int)reader["Total"]
+                );
+                lista.Add(pesquisa);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
     }
 }

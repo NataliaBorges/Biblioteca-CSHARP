@@ -464,7 +464,6 @@ namespace Biblioteca.View {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalTelaView";
             this.Text = "Tela Home";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.PrincipalTelaView_Load);
             this.panelDesktop.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);

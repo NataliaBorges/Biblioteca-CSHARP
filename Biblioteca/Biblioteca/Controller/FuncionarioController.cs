@@ -235,13 +235,16 @@ namespace Biblioteca.Controller
             }
         }
 
-        public bool Excluir(FuncionarioModel funcionario)
+        public bool AtualizarSenha(string novaSenha, string antiga)
         {
             Cmd.Connection = connection.RetornaConexao();
-            Cmd.CommandText = @"DELETE FROM Funcionario WHERE Id = @ID";
+            Cmd.CommandText = @"UPDATE Funcionario SET  Senha = @Senha WHERE Id = @ID AND Senha = @Antiga";
 
             Cmd.Parameters.Clear();
-            Cmd.Parameters.AddWithValue("@ID", funcionario.getId());
+            Cmd.Parameters.AddWithValue("@ID", singleton.getFuncionario().getId());
+            Cmd.Parameters.AddWithValue("@Senha", novaSenha);
+            Cmd.Parameters.AddWithValue("@Antiga", antiga);
+
 
             if (Cmd.ExecuteNonQuery() == 1)
             {

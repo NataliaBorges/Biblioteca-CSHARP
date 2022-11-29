@@ -82,8 +82,8 @@
             this.itemCadastrarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmUsuario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbmenuNome = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbmenuFuncao = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTrocarSenha = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -723,8 +723,8 @@
             this.ddmUsuario.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ddmUsuario.IsMainMenu = false;
             this.ddmUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
+            this.lbmenuNome,
+            this.lbmenuFuncao,
             this.btnTrocarSenha});
             this.ddmUsuario.MenuItemHeight = 25;
             this.ddmUsuario.MenuItemTextColor = System.Drawing.Color.Empty;
@@ -734,27 +734,27 @@
             this.ddmUsuario.ShowImageMargin = false;
             this.ddmUsuario.Size = new System.Drawing.Size(135, 70);
             // 
-            // toolStripMenuItem1
+            // lbmenuNome
             // 
-            this.toolStripMenuItem1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripMenuItem1.Checked = true;
-            this.toolStripMenuItem1.CheckOnClick = true;
-            this.toolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.toolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripMenuItem1.Enabled = false;
-            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
-            this.toolStripMenuItem1.Text = "Nome";
-            this.toolStripMenuItem1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.lbmenuNome.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.lbmenuNome.Checked = true;
+            this.lbmenuNome.CheckOnClick = true;
+            this.lbmenuNome.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.lbmenuNome.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.lbmenuNome.Enabled = false;
+            this.lbmenuNome.ForeColor = System.Drawing.Color.Black;
+            this.lbmenuNome.Name = "lbmenuNome";
+            this.lbmenuNome.Size = new System.Drawing.Size(134, 22);
+            this.lbmenuNome.Text = "Nome";
+            this.lbmenuNome.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.lbmenuNome.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             // 
-            // toolStripMenuItem2
+            // lbmenuFuncao
             // 
-            this.toolStripMenuItem2.Enabled = false;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(134, 22);
-            this.toolStripMenuItem2.Text = "Função";
+            this.lbmenuFuncao.Enabled = false;
+            this.lbmenuFuncao.Name = "lbmenuFuncao";
+            this.lbmenuFuncao.Size = new System.Drawing.Size(134, 22);
+            this.lbmenuFuncao.Text = "Função";
             // 
             // btnTrocarSenha
             // 
@@ -845,8 +845,8 @@
         private System.Windows.Forms.Label lblUser;
         private RJCodeAdvance.RJControls.RJCircularPictureBox PictureUser;
         private RJCodeAdvance.RJControls.RJDropdownMenu ddmUsuario;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem lbmenuNome;
+        private System.Windows.Forms.ToolStripMenuItem lbmenuFuncao;
         private System.Windows.Forms.ToolStripMenuItem btnTrocarSenha;
     }
 }

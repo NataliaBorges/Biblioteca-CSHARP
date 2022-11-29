@@ -26,8 +26,10 @@ namespace Biblioteca.View {
             InitializeComponent();
         }
         private void PrincipalTelaView_Load(object sender, EventArgs e) {
-            this.menuControl1.setPanel(pnltotal);
             this.menuControl1.setForm(this);
+            this.menuControl1.setPanel(pnltotal);
+            this.head1.setForm(this);
+            this.head1.setPaddind(this.Padding);
         }
 
         private void panel8_Click(object sender, EventArgs e)

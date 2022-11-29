@@ -73,6 +73,7 @@ namespace Biblioteca.View.Exemplar
             DateTime aquisicao = this.CalendarExemplar.Value.Date;
             int edicao = 0;
 
+            
             if (tbValor.Text.Length <= 0)
             {
                 MessageBox.Show("Você precisa digitar um valor.", "Atenção", MessageBoxButtons.OK);
@@ -87,6 +88,23 @@ namespace Biblioteca.View.Exemplar
             {
                 MessageBox.Show("Você precisa digitar um ano.", "Atenção", MessageBoxButtons.OK);
                 maskedTextBoxAno.Focus();
+            }
+            else if ((new DateTime(int.Parse(ano), DateTime.Now.Month, DateTime.Now.Day)).Year > DateTime.Now.Year)
+            {
+                MessageBox.Show("O ano não pode ser maior que o ano atual.", "Atenção", MessageBoxButtons.OK);
+                maskedTextBoxAno.Focus();
+            }
+            else if (aquisicao > DateTime.Now)
+            {
+                MessageBox.Show("Data de aquisição não pode ser maior que hoje.", "Atenção", MessageBoxButtons.OK);
+            }
+            else if(quantidade == null || quantidade == "")
+            {
+                MessageBox.Show("Você precisa digitar uma quantidade.", "Atenção", MessageBoxButtons.OK);
+            }
+            else if (int.Parse(quantidade) <= 0)
+            {
+                MessageBox.Show("Quantidade precisa ser maior que 0.", "Atenção", MessageBoxButtons.OK);
             }
             else if (tbQuantidade.Text.Length <= 0)
             {
@@ -105,7 +123,7 @@ namespace Biblioteca.View.Exemplar
                 DialogResult dialogResult = MessageBox.Show("Você realmente deseja cadastrar "+quantidade+" exemplare(s)?", "Atenção", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ExemplarModel exemplar = new ExemplarModel(livro.getId(), edicao, ano, isbn, aquisicao, float.Parse(valor, CultureInfo.InvariantCulture.NumberFormat), int.Parse(quantidade));
+                    ExemplarModel exemplar = new ExemplarModel(livro.getId(), edicao, ano, isbn, aquisicao, float.Parse(valor), int.Parse(quantidade));
                     try
                     {
                         controller.Insercao(exemplar);

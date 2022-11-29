@@ -342,6 +342,8 @@ namespace Biblioteca.View.Emprestimo {
             DialogResult dialogResult = MessageBox.Show("Você realmente deseja sair?", "Atenção", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
+                PrincipalTelaView telaPrincipal = new PrincipalTelaView();
+                NovaJanela.novaJanela(telaPrincipal, this.Bounds);
                 this.Close();
             }
         }

@@ -1,4 +1,5 @@
-﻿using Biblioteca.View.Funcionario;
+﻿using Biblioteca.View;
+using Biblioteca.View.Funcionario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace Biblioteca.Util
     {
         Singleton singleton = Singleton.GetInstancia();
         private int borderSize = 2;
+        FormWindowState state;
         
 
         Form form;
@@ -25,7 +27,7 @@ namespace Biblioteca.Util
         {
             
         }
-        public void setForm(Form form)
+        internal void setForm(Form form)
         {
             this.form = form;
         }
@@ -72,16 +74,18 @@ namespace Biblioteca.Util
 
         private void icButtonMin_Click(object sender, EventArgs e)
         {
-            form.WindowState = FormWindowState.Minimized;
+            form.WindowState = (FormWindowState)WindowState.Minimized;
         }
 
         private void icButtonMax_Click(object sender, EventArgs e)
         {
-            if (form.WindowState == FormWindowState.Normal)
-                form.WindowState = FormWindowState.Maximized;
+            if (state == FormWindowState.Maximized)
+            {
+                form.WindowState = (FormWindowState)FormWindowState.Normal;
+            }
             else
             {
-                form.WindowState = FormWindowState.Normal;
+                form.WindowState = (FormWindowState)FormWindowState.Maximized;
             }
         }
 
