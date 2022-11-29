@@ -615,7 +615,7 @@ namespace Biblioteca.Controller {
             Cmd.CommandText = @"SELECT COUNT(Reserva.ID) AS Quantidade
                                 FROM Leitor
                                 INNER JOIN Reserva ON (Reserva.Id_leitor = Leitor.Id)
-                                INNER JOIN Status_Emprestimo ON (Status_Emprestimo.Id = Reserva.Id_reservaStatus)
+                                INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
                                 WHERE Leitor.Id = '" + id + "' AND Reserva.Id_reservaStatus = 1";
             Cmd.Parameters.Clear();
 
@@ -945,6 +945,529 @@ namespace Biblioteca.Controller {
             reader.Close();
 
             return lista;
+        }
+
+        public List<ReservaPesquisaExemplarModel> BuscarExemplarVisualizar(string busca, DateTime dataInicial, DateTime dataFinal, String statusReserva, String statusExemplar, bool isCodigo = false, bool isExemplar = false, bool isISBN = false)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            int statusExemplarCod = 0;
+            switch (statusExemplar)
+            {
+                case "Reservado":
+                    statusExemplarCod = 4;
+                    break;
+                case "Disponível":
+                    statusExemplarCod = 5;
+                    break;
+                case "Emprestado":
+                    statusExemplarCod = 6;
+                    break;
+            }
+
+            if (isCodigo)
+            {
+                if (statusReserva == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                    FROM Reserva as R
+                                    INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                    INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                    WHERE R.Id LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                    FROM Reserva as R
+                                    INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                    INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                    WHERE SR.Nome_Status = '" + statusReserva + "' AND R.Id LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Stat8s) AS Status_Exemplar
+                                    FROM Reserva as R
+                                    INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                    INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                    WHERE IR.Status = '" + statusExemplarCod + "' AND R.Id LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                    FROM Reserva as R
+                                    INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                    INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                    INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                    INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                    INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                    INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                    WHERE SR.Nome_Status = '" + statusReserva + "' AND IR.Status = '" + statusExemplarCod + "' AND R.Id LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+            }
+
+            if (isExemplar)
+            {
+                if (statusReserva == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE Li.Titulo LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE SR.Nome_Status = '" + statusReserva + "' AND Li.Titulo LIKE '%" + busca + "%' AND E.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE IR.Status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE SR.Nome_Status = '" + statusReserva + "' AND IR.Status = '" + statusExemplarCod + "' AND Li.Titulo LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+            }
+
+            if (isISBN)
+            {
+                if (statusReserva == "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE EX.ISBN LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE SR.Nome_Status = '" + statusReserva + "' AND EX.ISBN LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva == "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE IR.Status = '" + statusExemplarCod + "' AND EX.ISBN LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+                if (statusReserva != "Todos" && statusExemplar != "Todos")
+                {
+                    Cmd.CommandText = @"SELECT R.Id, SR.Nome_Status AS Status_Reserva, Li.Titulo, EX.ISBN, L.Nome_Leitor, F.Nome_funcionario, R.Data_Reserva, R.Data_PegarLivro, R.Data_Retirada, (SELECT Nome_Status FROM Status_Reserva WHERE Id = IR.Status) AS Status_Exemplar
+                                        FROM Reserva as R
+                                        INNER JOIN Funcionario AS F ON (F.Id = R.Id_funcionario)
+                                        INNER JOIN Leitor as L ON (L.Id = R.Id_leitor)
+                                        INNER JOIN Item_reserva AS IR ON (IR.Id_reserva = R.Id)
+                                        INNER JOIN Exemplar AS EX ON (EX.Id = IR.Id_exemplar)
+                                        INNER JOIN Livro AS Li ON (Li.Id = EX.Id_livro)
+                                        INNER JOIN Status_Reserva AS SR ON (SR.Id = R.Id_reservaStatus)
+                                        WHERE SR.Nome_Status = '" + statusReserva + "' AND IR.Status = '" + statusExemplarCod + "' AND EX.ISBN LIKE '%" + busca + "%' AND R.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "'";
+                }
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ReservaPesquisaExemplarModel> lista = new List<ReservaPesquisaExemplarModel>();
+
+            while (reader.Read())
+            {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(8))
+                {
+                    finalizado = (DateTime)reader["Data_Retirada"];
+                }
+                ReservaPesquisaExemplarModel pesquisa = new ReservaPesquisaExemplarModel(
+                    (int)reader["Id"],
+                    (String)reader["Status_Reserva"],
+                    (String)reader["Titulo"],
+                    (String)reader["ISBN"],
+                    (String)reader["Nome_Leitor"],
+                    (String)reader["Nome_funcionario"],
+                    (DateTime)reader["Data_Reserva"],
+                    (DateTime)reader["Data_PegarLivro"],
+                    finalizado,
+                    (String)reader["Status_Exemplar"]
+                );
+                lista.Add(pesquisa);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public List<ReservaPesquisaLeitorModel> BuscarLeitorVisualizar(string busca, DateTime dataInicial, DateTime dataFinal, String statusEmprestimo, bool isLeitor = false, bool isCPF = false)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+
+            if (isLeitor)
+            {
+                if (statusEmprestimo == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Reserva.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Reserva ON (Reserva.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                    WHERE Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Reserva.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Reserva.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Reserva ON (Reserva.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                    WHERE Status_Reserva.Nome_Status = '" + statusEmprestimo + "' AND Leitor.Nome_Leitor LIKE '%" + busca + "%' AND Reserva.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
+                }
+            }
+
+            if (isCPF)
+            {
+                if (statusEmprestimo == "Todos")
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Reserva.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Reserva ON (Reserva.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                    WHERE Leitor.CPF LIKE '%" + busca + "%' AND Reserva.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT Leitor.Id,
+                                           Leitor.Nome_Leitor,
+	                                       Leitor.CPF,
+	                                       COUNT(Reserva.Id) AS Total
+                                    FROM Leitor
+                                    INNER JOIN Reserva ON (Reserva.Id_leitor = Leitor.Id)
+                                    INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                    WHERE Status_Reserva.Nome_Status = '" + statusEmprestimo + "' AND Leitor.CPF LIKE '%" + busca + "%' AND Reserva.Data_Reserva BETWEEN '" + dataInicial + "' AND '" + dataFinal + "' " +
+                                    "GROUP BY Leitor.Id, Leitor.Nome_Leitor, Leitor.CPF";
+                }
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ReservaPesquisaLeitorModel> lista = new List<ReservaPesquisaLeitorModel>();
+
+            while (reader.Read())
+            {
+                ReservaPesquisaLeitorModel pesquisa = new ReservaPesquisaLeitorModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Leitor"],
+                    (String)reader["CPF"],
+                    (int)reader["Total"]
+                );
+                lista.Add(pesquisa);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public ReservaModel BuscaReservaPorId(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Reserva Where Id = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            ReservaModel reserva = null;
+
+            while (reader.Read())
+            {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(6))
+                {
+                    finalizado = (DateTime)reader["Data_Retirada"];
+                }
+                reserva = new ReservaModel(
+                    (int)reader["Id"],
+                    (DateTime)reader["Data_PegarLivro"],
+                    (DateTime)reader["Data_Reserva"],
+                    (int)reader["Id_leitor"],
+                    (int)reader["Id_funcionario"],
+                    (int)reader["Id_reservaStatus"],
+                    finalizado
+                );
+            }
+            reader.Close();
+
+            return reserva;
+        }
+
+        public LeitorModel BuscaLeitorReservaPorId(int id)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT * FROM Leitor Where Id = '" + id + "'";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            LeitorModel leitor = null;
+
+            while (reader.Read())
+            {
+                leitor = new LeitorModel(
+                    (int)reader["Id"],
+                    (String)reader["Nome_Leitor"],
+                    (DateTime)reader["Data_Nascimento"],
+                    (String)reader["Telefone"],
+                    (String)reader["CPF"],
+                    (String)reader["Endereco"],
+                    (String)reader["Email"]
+                );
+            }
+            reader.Close();
+
+            return leitor;
+        }
+
+        public List<ReservaVisualizarModel> ReservaVisualizarPorId(int idReserva = 0, int idLeitor = 0, string status = "", List<int> listaItemId = null)
+        {
+            Cmd.Connection = connection.RetornaConexao();
+
+            if (idReserva != 0)
+            {
+                Cmd.CommandText = @"SELECT Reserva.Id,
+	                                    Livro.Titulo,
+	                                    Exemplar.ISBN,
+	                                    Funcionario.Nome_Funcionario,
+	                                    Reserva.Data_Reserva,
+	                                    Reserva.Data_PegarLivro,
+	                                    Reserva.Data_Retirada,
+	                                    Status_Reserva.Nome_Status AS Status_Reserva,
+                                        Item_reserva.Id AS ItemReservaId,
+	                                    (SELECT Nome_Status FROM Status_Reserva INNER JOIN Item_reserva AS IR ON (IR.Status = Status_Reserva.Id) WHERE IR.Id = Item_reserva.Id) AS Status_Exemplar
+                                FROM Reserva
+                                INNER JOIN Item_reserva ON (Item_reserva.Id_reserva = Reserva.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_reserva.Id_exemplar)
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Funcionario ON (Funcionario.Id = Reserva.Id_funcionario)
+                                INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                WHERE Reserva.Id = '" + idReserva + "'";
+            }
+            else
+            {
+                if (listaItemId == null)
+                {
+                    Cmd.CommandText = @"SELECT Reserva.Id,
+	                                    Livro.Titulo,
+	                                    Exemplar.ISBN,
+	                                    Funcionario.Nome_Funcionario,
+	                                    Reserva.Data_Reserva,
+	                                    Reserva.Data_PegarLivro,
+	                                    Reserva.Data_Retirada,
+	                                    Status_Reserva.Nome_Status AS Status_Reserva,
+                                        Item_reserva.Id AS ItemReservaId,
+	                                    (SELECT Nome_Status FROM Status_Reserva INNER JOIN Item_reserva AS IR ON (IR.Status = Status_Reserva.Id) WHERE IR.Id = Item_reserva.Id) AS Status_Exemplar
+                                FROM Reserva
+                                INNER JOIN Item_reserva ON (Item_reserva.Id_reserva = Reserva.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_reserva.Id_exemplar)
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Funcionario ON (Funcionario.Id = Reserva.Id_funcionario)
+                                INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                WHERE Reserva.Id_leitor = '" + idLeitor + "' AND Status_Reserva.Nome_Status = '" + status + "'";
+                }
+                else
+                {
+                    Cmd.CommandText = @"SELECT Reserva.Id,
+	                                    Livro.Titulo,
+	                                    Exemplar.ISBN,
+	                                    Funcionario.Nome_Funcionario,
+	                                    Reserva.Data_Reserva,
+	                                    Reserva.Data_PegarLivro,
+	                                    Reserva.Data_Retirada,
+	                                    Status_Reserva.Nome_Status AS Status_Reserva,
+                                        Item_reserva.Id AS ItemReservaId,
+	                                    (SELECT Nome_Status FROM Status_Reserva INNER JOIN Item_reserva AS IR ON (IR.Status = Status_Reserva.Id) WHERE IR.Id = Item_reserva.Id) AS Status_Exemplar
+                                FROM Reserva
+                                INNER JOIN Item_reserva ON (Item_reserva.Id_reserva = Reserva.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_reserva.Id_exemplar)
+                                INNER JOIN Livro ON (Livro.Id = Exemplar.Id_livro)
+                                INNER JOIN Funcionario ON (Funcionario.Id = Reserva.Id_funcionario)
+                                INNER JOIN Status_Reserva ON (Status_Reserva.Id = Reserva.Id_reservaStatus)
+                                WHERE Item_reserva.Id IN (" + string.Join(",", listaItemId.ToArray()) + ") AND Reserva.Id_leitor = '" + idLeitor + "'";
+                }
+
+            }
+
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            List<ReservaVisualizarModel> lista = new List<ReservaVisualizarModel>();
+
+            while (reader.Read())
+            {
+                Nullable<DateTime> finalizado = null;
+                if (!reader.IsDBNull(6))
+                {
+                    finalizado = (DateTime)reader["Data_Retirada"];
+                }
+                ReservaVisualizarModel emprestimo = new ReservaVisualizarModel(
+                    (int)reader["Id"],
+                    (String)reader["Titulo"],
+                    (String)reader["ISBN"],
+                    (String)reader["Nome_Funcionario"],
+                    (DateTime)reader["Data_Reserva"],
+                    (DateTime)reader["Data_PegarLivro"],
+                    finalizado,
+                    (String)reader["Status_Reserva"],
+                    (String)reader["Status_Exemplar"]
+                );
+                emprestimo.setItemReservaId((int)reader["ItemReservaId"]);
+                lista.Add(emprestimo);
+            }
+            reader.Close();
+
+            return lista;
+        }
+
+        public bool AtualizarStatusReserva(ReservaVisualizarModel reserva)
+        {
+            int statusReserva = 0;
+
+            switch (reserva.Status_Reserva)
+            {
+                case "Em Aberto":
+                    statusReserva = 1;
+                    break;
+                case "Cancelada":
+                    statusReserva = 2;
+                    break;
+                case "Finalizada":
+                    statusReserva = 3;
+                    break;
+            }
+
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Reserva SET Data_Retirada = @Data, Id_reservaStatus = @Status WHERE Id = @ID";
+            Cmd.Parameters.Clear();
+
+            if (statusReserva == 2 || statusReserva == 3)
+            {
+                Cmd.Parameters.AddWithValue("@Data", DateTime.Today);
+            }
+            else
+            {
+                Cmd.Parameters.AddWithValue("@Data", DBNull.Value);
+            }
+            Cmd.Parameters.AddWithValue("@Status", statusReserva);
+            Cmd.Parameters.AddWithValue("@ID", reserva.ID_reserva);
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool AtualizarStatusExemplar(ReservaVisualizarModel reserva)
+        {
+            int statusExemplar = 0;
+
+            switch (reserva.Status_Exemplar)
+            {
+                case "Reservado":
+                    statusExemplar = 4;
+                    break;
+                case "Disponível":
+                    statusExemplar = 5;
+                    break;
+                case "Emprestado":
+                    statusExemplar = 6;
+                    break;
+            }
+
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"UPDATE Item_reserva SET Status = @Status WHERE Id = @ID";
+            Cmd.Parameters.Clear();
+            Cmd.Parameters.AddWithValue("@Status", statusExemplar);
+            Cmd.Parameters.AddWithValue("@ID", reserva.getItemReservaId());
+
+            if (Cmd.ExecuteNonQuery() == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

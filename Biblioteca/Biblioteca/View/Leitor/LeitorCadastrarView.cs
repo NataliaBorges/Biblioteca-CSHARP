@@ -97,5 +97,10 @@ namespace Biblioteca.View.Leitor {
                 this.Close();
             }
         }
+
+        private void btnGerarContrato_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

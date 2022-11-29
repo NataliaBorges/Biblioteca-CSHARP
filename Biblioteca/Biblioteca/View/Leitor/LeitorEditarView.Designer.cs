@@ -91,6 +91,7 @@ namespace Biblioteca.View.Leitor {
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.btnAtualizar);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(195, 3);
             this.panel1.Name = "panel1";

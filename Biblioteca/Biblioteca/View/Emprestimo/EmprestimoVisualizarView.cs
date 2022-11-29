@@ -204,7 +204,7 @@ namespace Biblioteca.View.Emprestimo
             foreach (DataGridViewRow row in dtGridViewLivrosEmprestimo.Rows)
             {
                 Nullable<DateTime> finalizado = null;
-                if (row.Cells["Previsto"].Value.ToString() != "")
+                if ($"{row.Cells["Previsto"].Value}" != "")
                 {
                     finalizado = (DateTime)row.Cells["Previsto"].Value;
                 }

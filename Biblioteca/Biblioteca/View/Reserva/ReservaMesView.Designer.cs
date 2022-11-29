@@ -197,6 +197,7 @@
             // 
             this.iconButton2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(37)))), ((int)(((byte)(0)))));
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.iconButton2.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.iconButton2.ForeColor = System.Drawing.Color.White;
@@ -218,6 +219,7 @@
             // 
             this.BtnAnterior.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.BtnAnterior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(37)))), ((int)(((byte)(0)))));
+            this.BtnAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnAnterior.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnAnterior.ForeColor = System.Drawing.Color.White;
@@ -238,6 +240,7 @@
             // dayContainer
             // 
             this.dayContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dayContainer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dayContainer.Location = new System.Drawing.Point(162, 235);
             this.dayContainer.Name = "dayContainer";
             this.dayContainer.Size = new System.Drawing.Size(735, 495);
@@ -267,6 +270,7 @@
             // 
             this.IcnBtnVoltar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.IcnBtnVoltar.BackColor = System.Drawing.Color.Black;
+            this.IcnBtnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.IcnBtnVoltar.FlatAppearance.BorderSize = 0;
             this.IcnBtnVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.IcnBtnVoltar.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -315,7 +319,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1224, 763);
             this.Controls.Add(this.pnltotal);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReservaMesView";
             this.Text = "ReservaVisualizarView";

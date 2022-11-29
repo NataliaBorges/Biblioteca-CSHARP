@@ -329,7 +329,7 @@ namespace Biblioteca.View.Editora {
             // btnAtualizar
             // 
             this.btnAtualizar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAtualizar.BackColor = System.Drawing.Color.Goldenrod;
+            this.btnAtualizar.BackColor = System.Drawing.Color.Olive;
             this.btnAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAtualizar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnAtualizar.ForeColor = System.Drawing.Color.White;
@@ -337,7 +337,7 @@ namespace Biblioteca.View.Editora {
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(186, 45);
             this.btnAtualizar.TabIndex = 90;
-            this.btnAtualizar.Text = "ATUALIZAR";
+            this.btnAtualizar.Text = "SALVAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 

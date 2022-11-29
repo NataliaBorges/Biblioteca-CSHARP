@@ -55,6 +55,7 @@ namespace Biblioteca.View.Leitor {
             this.head1 = new Biblioteca.Util.Head();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.btnGerarContrato = new FontAwesome.Sharp.IconButton();
             this.pnlPrincipal.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -69,7 +70,7 @@ namespace Biblioteca.View.Leitor {
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(472, 586);
+            this.btnCadastrar.Location = new System.Drawing.Point(473, 685);
             this.btnCadastrar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(228, 48);
@@ -273,6 +274,7 @@ namespace Biblioteca.View.Leitor {
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.pnlPrincipal.Controls.Add(this.btnGerarContrato);
             this.pnlPrincipal.Controls.Add(this.groupBox2);
             this.pnlPrincipal.Controls.Add(this.groupBox1);
             this.pnlPrincipal.Controls.Add(this.icbtnVoltar);
@@ -280,9 +282,9 @@ namespace Biblioteca.View.Leitor {
             this.pnlPrincipal.Controls.Add(this.head1);
             this.pnlPrincipal.Controls.Add(this.btnCadastrar);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(202, 3);
+            this.pnlPrincipal.Location = new System.Drawing.Point(203, 3);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(1122, 638);
+            this.pnlPrincipal.Size = new System.Drawing.Size(1129, 743);
             this.pnlPrincipal.TabIndex = 41;
             // 
             // groupBox2
@@ -303,7 +305,7 @@ namespace Biblioteca.View.Leitor {
             this.groupBox2.Controls.Add(this.tbEmail);
             this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(282, 135);
+            this.groupBox2.Location = new System.Drawing.Point(285, 187);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(583, 215);
             this.groupBox2.TabIndex = 102;
@@ -415,7 +417,7 @@ namespace Biblioteca.View.Leitor {
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(282, 356);
+            this.groupBox1.Location = new System.Drawing.Point(285, 408);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(583, 210);
             this.groupBox1.TabIndex = 101;
@@ -435,7 +437,7 @@ namespace Biblioteca.View.Leitor {
             this.icbtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icbtnVoltar.IconSize = 30;
             this.icbtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.icbtnVoltar.Location = new System.Drawing.Point(282, 63);
+            this.icbtnVoltar.Location = new System.Drawing.Point(285, 115);
             this.icbtnVoltar.Name = "icbtnVoltar";
             this.icbtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.icbtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -451,7 +453,7 @@ namespace Biblioteca.View.Leitor {
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;
-            this.lblCadastroLivro.Location = new System.Drawing.Point(406, 63);
+            this.lblCadastroLivro.Location = new System.Drawing.Point(409, 115);
             this.lblCadastroLivro.Name = "lblCadastroLivro";
             this.lblCadastroLivro.Size = new System.Drawing.Size(360, 39);
             this.lblCadastroLivro.TabIndex = 61;
@@ -462,7 +464,7 @@ namespace Biblioteca.View.Leitor {
             this.head1.Dock = System.Windows.Forms.DockStyle.Top;
             this.head1.Location = new System.Drawing.Point(0, 0);
             this.head1.Name = "head1";
-            this.head1.Size = new System.Drawing.Size(1122, 37);
+            this.head1.Size = new System.Drawing.Size(1129, 37);
             this.head1.TabIndex = 44;
             // 
             // pnltotal
@@ -477,7 +479,7 @@ namespace Biblioteca.View.Leitor {
             this.pnltotal.Name = "pnltotal";
             this.pnltotal.RowCount = 1;
             this.pnltotal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.pnltotal.Size = new System.Drawing.Size(1327, 644);
+            this.pnltotal.Size = new System.Drawing.Size(1335, 749);
             this.pnltotal.TabIndex = 42;
             // 
             // menuControl1
@@ -487,15 +489,40 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.ForeColor = System.Drawing.Color.Transparent;
             this.menuControl1.Location = new System.Drawing.Point(3, 3);
             this.menuControl1.Name = "menuControl1";
-            this.menuControl1.Size = new System.Drawing.Size(193, 638);
+            this.menuControl1.Size = new System.Drawing.Size(194, 743);
             this.menuControl1.TabIndex = 42;
+            // 
+            // btnGerarContrato
+            // 
+            this.btnGerarContrato.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGerarContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnGerarContrato.FlatAppearance.BorderSize = 0;
+            this.btnGerarContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarContrato.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarContrato.ForeColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnGerarContrato.IconColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGerarContrato.IconSize = 30;
+            this.btnGerarContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarContrato.Location = new System.Drawing.Point(498, 642);
+            this.btnGerarContrato.Name = "btnGerarContrato";
+            this.btnGerarContrato.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGerarContrato.Size = new System.Drawing.Size(178, 36);
+            this.btnGerarContrato.TabIndex = 109;
+            this.btnGerarContrato.Tag = "";
+            this.btnGerarContrato.Text = "  Gerar Contrato";
+            this.btnGerarContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGerarContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGerarContrato.UseVisualStyleBackColor = false;
+            this.btnGerarContrato.Click += new System.EventHandler(this.btnGerarContrato_Click);
             // 
             // LeitorCadastrarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1327, 644);
+            this.ClientSize = new System.Drawing.Size(1335, 749);
             this.Controls.Add(this.pnltotal);
             this.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -549,5 +576,6 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private FontAwesome.Sharp.IconButton btnGerarContrato;
     }
 }

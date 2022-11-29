@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using Biblioteca.Util;
 using System.Text;
 using System.Windows.Forms;
 
@@ -65,35 +66,37 @@ namespace Biblioteca.View.Reserva
 
         private void BtnProximo(object sender, EventArgs e)
         {
-            dayContainer.Controls.Clear();
+            ReservaBuscarDiaView reservaBuscarDiaView = new ReservaBuscarDiaView();
+            NovaJanela.novaJanela(reservaBuscarDiaView, Bounds);
+            //dayContainer.Controls.Clear();
 
-            month++;
+            //month++;
 
-            String nomeMes = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
-            String nomeUpper = nomeMes.ToUpper();
-            lbldata.Text = nomeUpper + " " + year;
+            //String nomeMes = DateTimeFormatInfo.CurrentInfo.GetMonthName(month);
+            //String nomeUpper = nomeMes.ToUpper();
+            //lbldata.Text = nomeUpper + " " + year;
 
-            //lbldata.Font = new Font("Book Antiqua", this.lbldata.Font.Size);
+            ////lbldata.Font = new Font("Book Antiqua", this.lbldata.Font.Size);
 
-            DateTime startofthemonth = new DateTime(year, month, 1);
+            //DateTime startofthemonth = new DateTime(year, month, 1);
 
-            int days = DateTime.DaysInMonth(year, month);
+            //int days = DateTime.DaysInMonth(year, month);
 
-            int diaSemana = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
+            //int diaSemana = Convert.ToInt32(startofthemonth.DayOfWeek.ToString("d")) + 1;
 
-            for (int i = 1; i < diaSemana; i++)
-            {
-                UserControlBlank ublank = new UserControlBlank();
-                dayContainer.Controls.Add(ublank);
-            }
+            //for (int i = 1; i < diaSemana; i++)
+            //{
+            //    UserControlBlank ublank = new UserControlBlank();
+            //    dayContainer.Controls.Add(ublank);
+            //}
 
-            for (int i = 1; i <= days; i++)
-            {
-                UserControlDays ucdays = new UserControlDays();
-                ucdays.Dia(i);
-                dayContainer.Controls.Add(ucdays);
+            //for (int i = 1; i <= days; i++)
+            //{
+            //    UserControlDays ucdays = new UserControlDays();
+            //    ucdays.Dia(i);
+            //    dayContainer.Controls.Add(ucdays);
 
-            }
+            //}
         }
 
         private void BtnAnterior_Click(object sender, EventArgs e)

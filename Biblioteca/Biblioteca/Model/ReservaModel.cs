@@ -7,12 +7,24 @@ namespace Biblioteca.Model {
         int ID { get; set; }
         public int IdFuncionario { get; set; }
         public int IdLeitor { get; set; }
+        public DateTime DataPrevista { get; set; }
         public DateTime DataReserva { get; set; }
         public string Obs { get; set; }
-
         public string Leitor { get; set; }
+        public string Funcionario { get; set; }
+        public Nullable<DateTime> DataRetirada { get; set; }
+        public int Status { get; set; }
 
-        public string Funcionario { get; set;  }
+        public ReservaModel(int ID, DateTime dataPrevista, DateTime dataReserva, int idLeitor, int idFuncionario, int idStatus, Nullable<DateTime> dataRetirada)
+        {
+            this.ID = ID;
+            this.DataPrevista = dataPrevista;
+            this.DataReserva = dataReserva;
+            this.IdLeitor = idLeitor;
+            this.IdFuncionario = idFuncionario;
+            this.Status = idStatus;
+            this.DataRetirada = dataRetirada;
+        }
 
         public ReservaModel(int ID, int IdFuncionario, int IdLeitor, DateTime DataReserva, string Obs) {
             this.ID = ID;
