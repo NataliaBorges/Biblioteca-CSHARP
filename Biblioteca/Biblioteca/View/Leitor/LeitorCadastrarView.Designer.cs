@@ -515,7 +515,6 @@ namespace Biblioteca.View.Leitor {
             this.btnGerarContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGerarContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGerarContrato.UseVisualStyleBackColor = false;
-            this.btnGerarContrato.Click += new System.EventHandler(this.btnGerarContrato_Click);
             // 
             // LeitorCadastrarView
             // 

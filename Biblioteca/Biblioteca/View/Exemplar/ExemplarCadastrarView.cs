@@ -105,7 +105,7 @@ namespace Biblioteca.View.Exemplar
                 DialogResult dialogResult = MessageBox.Show("Você realmente deseja cadastrar "+quantidade+" exemplare(s)?", "Atenção", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    ExemplarModel exemplar = new ExemplarModel(livro.getId(), edicao, ano, isbn, aquisicao, float.Parse(valor, CultureInfo.InvariantCulture.NumberFormat), int.Parse(quantidade));
+                    ExemplarModel exemplar = new ExemplarModel(livro.getId(), edicao, ano, isbn, aquisicao, float.Parse(valor), int.Parse(quantidade));
                     try
                     {
                         controller.Insercao(exemplar);

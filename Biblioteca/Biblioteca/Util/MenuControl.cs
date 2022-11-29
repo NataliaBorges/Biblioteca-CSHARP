@@ -29,6 +29,7 @@ namespace Biblioteca.Util
     {
         TableLayoutPanel panel;
         Form form;
+        Singleton singleton = Singleton.GetInstancia();
 
         public void setForm(Form form)
         {
@@ -43,6 +44,9 @@ namespace Biblioteca.Util
         {
             InitializeComponent();
             this.BackColor = Color.FromArgb(0, 0, 0);
+            menulbNome.Text = singleton.getFuncionario().Nome_funcionario;
+            menulbFuncao.Text = singleton.getFuncionario().Funcao;
+            lblUser.Text = singleton.getFuncionario().Nome_funcionario.Substring(0, 1);
         }
         private void fecharTelas()
         {
@@ -391,12 +395,6 @@ namespace Biblioteca.Util
         {
             ReservaMesView reservaVisualizarView = new ReservaMesView();
             NovaJanela.novaJanela(reservaVisualizarView, Bounds);
-        }
-
-        private void RelatorioEditora(object sender, EventArgs e)
-        {
-            RelatorioEditoraView relatorioEditoraView = new RelatorioEditoraView();
-            NovaJanela.novaJanela(relatorioEditoraView, Bounds);
         }
 
         private void RelatorioLivro_Click(object sender, EventArgs e)

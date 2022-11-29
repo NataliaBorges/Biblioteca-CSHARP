@@ -58,6 +58,7 @@ namespace Biblioteca.View.Leitor {
             this.head1 = new Biblioteca.Util.Head();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.btnGerarContrato = new FontAwesome.Sharp.IconButton();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -84,6 +85,7 @@ namespace Biblioteca.View.Leitor {
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
+            this.panel1.Controls.Add(this.btnGerarContrato);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
@@ -91,7 +93,6 @@ namespace Biblioteca.View.Leitor {
             this.panel1.Controls.Add(this.lblCadastroLivro);
             this.panel1.Controls.Add(this.head1);
             this.panel1.Controls.Add(this.btnAtualizar);
-            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(195, 3);
             this.panel1.Name = "panel1";
@@ -533,6 +534,30 @@ namespace Biblioteca.View.Leitor {
             this.menuControl1.Size = new System.Drawing.Size(186, 802);
             this.menuControl1.TabIndex = 63;
             // 
+            // btnGerarContrato
+            // 
+            this.btnGerarContrato.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnGerarContrato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btnGerarContrato.FlatAppearance.BorderSize = 0;
+            this.btnGerarContrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerarContrato.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarContrato.ForeColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnGerarContrato.IconColor = System.Drawing.Color.Black;
+            this.btnGerarContrato.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnGerarContrato.IconSize = 30;
+            this.btnGerarContrato.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerarContrato.Location = new System.Drawing.Point(694, 632);
+            this.btnGerarContrato.Name = "btnGerarContrato";
+            this.btnGerarContrato.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnGerarContrato.Size = new System.Drawing.Size(178, 36);
+            this.btnGerarContrato.TabIndex = 110;
+            this.btnGerarContrato.Tag = "";
+            this.btnGerarContrato.Text = "  Gerar Contrato";
+            this.btnGerarContrato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGerarContrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGerarContrato.UseVisualStyleBackColor = false;
+            // 
             // LeitorEditarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -596,5 +621,6 @@ namespace Biblioteca.View.Leitor {
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private FontAwesome.Sharp.IconButton btnGerarContrato;
     }
 }

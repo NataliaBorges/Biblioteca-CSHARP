@@ -49,7 +49,6 @@ namespace Biblioteca.View.Relatorio {
             this.label19 = new System.Windows.Forms.Label();
             this.Exemplar1 = new System.Windows.Forms.TabPage();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.iconButton20 = new FontAwesome.Sharp.IconButton();
             this.iconButton21 = new FontAwesome.Sharp.IconButton();
             this.iconButton22 = new FontAwesome.Sharp.IconButton();
             this.listView7 = new System.Windows.Forms.ListView();
@@ -78,6 +77,7 @@ namespace Biblioteca.View.Relatorio {
             this.label1 = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.pnltotal.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tcEmprestimo.SuspendLayout();
@@ -171,13 +171,13 @@ namespace Biblioteca.View.Relatorio {
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
             this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(856, 420);
+            this.iconButton1.Location = new System.Drawing.Point(835, 420);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton1.Size = new System.Drawing.Size(123, 36);
+            this.iconButton1.Size = new System.Drawing.Size(144, 36);
             this.iconButton1.TabIndex = 117;
             this.iconButton1.Tag = "";
-            this.iconButton1.Text = "  Imprimir";
+            this.iconButton1.Text = "  Gerar PDF";
             this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButton1.UseVisualStyleBackColor = false;
@@ -407,7 +407,7 @@ namespace Biblioteca.View.Relatorio {
             // 
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
-            this.panel10.Controls.Add(this.iconButton20);
+            this.panel10.Controls.Add(this.iconButton4);
             this.panel10.Controls.Add(this.iconButton21);
             this.panel10.Controls.Add(this.iconButton22);
             this.panel10.Controls.Add(this.listView7);
@@ -415,30 +415,6 @@ namespace Biblioteca.View.Relatorio {
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(981, 481);
             this.panel10.TabIndex = 86;
-            // 
-            // iconButton20
-            // 
-            this.iconButton20.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(63)))), ((int)(((byte)(42)))));
-            this.iconButton20.FlatAppearance.BorderSize = 0;
-            this.iconButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton20.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.iconButton20.ForeColor = System.Drawing.Color.White;
-            this.iconButton20.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.iconButton20.IconColor = System.Drawing.Color.White;
-            this.iconButton20.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton20.IconSize = 30;
-            this.iconButton20.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton20.Location = new System.Drawing.Point(858, 402);
-            this.iconButton20.Name = "iconButton20";
-            this.iconButton20.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.iconButton20.Size = new System.Drawing.Size(123, 36);
-            this.iconButton20.TabIndex = 113;
-            this.iconButton20.Tag = "";
-            this.iconButton20.Text = "  Imprimir";
-            this.iconButton20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton20.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton20.UseVisualStyleBackColor = false;
             // 
             // iconButton21
             // 
@@ -793,6 +769,30 @@ namespace Biblioteca.View.Relatorio {
             this.menuControl1.Size = new System.Drawing.Size(195, 809);
             this.menuControl1.TabIndex = 60;
             // 
+            // iconButton4
+            // 
+            this.iconButton4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(72)))), ((int)(((byte)(48)))));
+            this.iconButton4.FlatAppearance.BorderSize = 0;
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.iconButton4.ForeColor = System.Drawing.Color.White;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.iconButton4.IconColor = System.Drawing.Color.White;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton4.IconSize = 30;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton4.Location = new System.Drawing.Point(834, 411);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.iconButton4.Size = new System.Drawing.Size(144, 36);
+            this.iconButton4.TabIndex = 118;
+            this.iconButton4.Tag = "";
+            this.iconButton4.Text = "  Gerar PDF";
+            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton4.UseVisualStyleBackColor = false;
+            // 
             // RelatorioLivroView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -874,7 +874,6 @@ namespace Biblioteca.View.Relatorio {
         private System.Windows.Forms.ComboBox comboBox13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
-        private FontAwesome.Sharp.IconButton iconButton20;
         private FontAwesome.Sharp.IconButton iconButton21;
         private FontAwesome.Sharp.IconButton iconButton22;
         private System.Windows.Forms.ListView listView7;
@@ -884,5 +883,6 @@ namespace Biblioteca.View.Relatorio {
         private FontAwesome.Sharp.IconButton iconButton3;
         private System.Windows.Forms.ListView listView1;
         private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton4;
     }
 }
