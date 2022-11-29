@@ -288,6 +288,7 @@
             this.IcnBtnVoltar.Tag = "";
             this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.IcnBtnVoltar.UseVisualStyleBackColor = false;
+            this.IcnBtnVoltar.Click += new System.EventHandler(this.IcnBtnVoltar_Click);
             // 
             // lblCadastroLivro
             // 
@@ -319,7 +320,6 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1224, 763);
             this.Controls.Add(this.pnltotal);
-            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ReservaMesView";
             this.Text = "ReservaVisualizarView";

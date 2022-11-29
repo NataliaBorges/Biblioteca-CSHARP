@@ -20,8 +20,10 @@ namespace Biblioteca.View.Emprestimo {
         EmprestimoController controller = new EmprestimoController();
         Singleton singleton = Singleton.GetInstancia();
         bool gerouContrato = false;
+        bool emprestarDeReserva = false;
 
-        public EmprestimoCadastroView() {
+        public EmprestimoCadastroView(bool emprestarDeReserva = false) {
+            this.emprestarDeReserva = emprestarDeReserva;
             InitializeComponent();
             lbNome.Text = "";
             lbTelefone.Text = "";
@@ -38,7 +40,10 @@ namespace Biblioteca.View.Emprestimo {
             this.head1.setForm(this);
             this.head1.setPaddind(this.Padding);
 
-            this.singleton.clearEmprestimo();
+            if(!emprestarDeReserva)
+            {
+                this.singleton.clearEmprestimo();
+            }
             popularExemplar(controller.PegarExemplarEmprestimo());
             popularLeitor(controller.PegarLeitorEmprestimo());
             CalendarDevolucap.Value = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
@@ -103,6 +108,14 @@ namespace Biblioteca.View.Emprestimo {
                 lbCpf.Text = leitor.CPF;
                 lbEmail.Text = leitor.Email;
             }
+            else
+            {
+                lbNome.Text = null;
+                lbTelefone.Text = null;
+                lbCpf.Text = null;
+                lbEmail.Text = null;
+                TextObservacao.Text = "";
+            }
         }
 
         private void btnBuscarLeitor_Click(object sender, EventArgs e)
@@ -143,42 +156,63 @@ namespace Biblioteca.View.Emprestimo {
                 DateTime devolucao = CalendarDevolucap.Value.Date;
                 DateTime hojeMais14 = (DateTime.UtcNow.ToLocalTime()).AddDays(14);
                 String obs = TextObservacao.Text;
+                int quantidadeEmprestados = controller.quantidadeEmprestadosLeitor(this.singleton.getLeitor().getId());
+                string mensagemErro = "";
 
-                if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
+                foreach (ExemplarModel exemplar in this.singleton.getExemplar())
                 {
-                    MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
+                    if (controller.ExemplarNaoFoiDevolvido(exemplar.getId()))
+                    {
+                        mensagemErro += $"{exemplar.Titulo}\n";
+                    }
                 }
-                else if (devolucao.Date > hojeMais14.Date)
+
+                if (mensagemErro != "")
                 {
-                    MessageBox.Show("Prazo máximo de devolução é de 14 dias.", "Ateção", MessageBoxButtons.OK);
-                }
-                else if (devolucao < emprestimo)
-                {
-                    MessageBox.Show("Data de devolução não pode ser menor que a data de empréstimo.", "Ateção", MessageBoxButtons.OK);
-                }
-                else if (dtGridViewExemplares.Rows.Count <= 0)
-                {
-                    MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
-                }
-                else if (controller.PegarLeitorEmprestimo() == null)
-                {
-                    MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+                    MessageBox.Show("Os exemplares selecionados ainda não foram devolvidos:\n\n"+mensagemErro, "Atenção", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                    if ((DateTime.UtcNow.ToLocalTime()).Date != emprestimo.Date)
                     {
-                        if (controller.Insercao(emprestimo, devolucao, obs))
-                        {
-                            int idEmprestimo = controller.BuscarUltimoEmprestimo();
-                            controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
-                        }
+                        MessageBox.Show("A data do empréstimo não pode ser diferente de hoje.", "Atenção", MessageBoxButtons.OK);
                     }
+                    else if (devolucao.Date > hojeMais14.Date)
+                    {
+                        MessageBox.Show("Prazo máximo de devolução é de 14 dias.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else if (devolucao < emprestimo)
+                    {
+                        MessageBox.Show("Data de devolução não pode ser menor que a data de empréstimo.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else if (dtGridViewExemplares.Rows.Count <= 0)
+                    {
+                        MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else if (controller.PegarLeitorEmprestimo() == null)
+                    {
+                        MessageBox.Show("É necessário selecionar um leitor.", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else if ((controller.QuantidadeDeExemplar() + quantidadeEmprestados) > 5)
+                    {
+                        MessageBox.Show($"O leitor só pode emprestar 5 exemplares.\n\nEmpréstimos: {quantidadeEmprestados}\nTentando emprestar: {controller.QuantidadeDeExemplar()}", "Atenção", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                        {
+                            if (controller.Insercao(emprestimo, devolucao, obs))
+                            {
+                                int idEmprestimo = controller.BuscarUltimoEmprestimo();
+                                controller.RelacionarLivrosEmprestimo(idEmprestimo, exemplar);
+                            }
+                        }
 
-                    this.singleton.clearEmprestimo();
-
-                    MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                    //this.Close();
+                        this.singleton.clearEmprestimo();
+                        popularLeitor(null);
+                        MessageBox.Show("Cadastrado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                        //this.Close();
+                    }
                 }
             }
             else

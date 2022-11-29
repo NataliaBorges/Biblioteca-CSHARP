@@ -1,5 +1,7 @@
 ﻿using Biblioteca.Controller;
 using Biblioteca.Model;
+using Biblioteca.Util;
+using Biblioteca.View.Emprestimo;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace Biblioteca.View.Reserva
     {
         ReservaPesquisaExemplarModel exemplar;
         ReservaPesquisaLeitorModel leitor;
+        LeitorModel leitorTela;
         ReservaController controller = new ReservaController();
         List<int> listaItemId = new List<int>();
         public ReservaVisualizarView(ReservaPesquisaExemplarModel exemplar = null, ReservaPesquisaLeitorModel leitor = null)
@@ -169,6 +172,7 @@ namespace Biblioteca.View.Reserva
 
         private void popularLeitor(LeitorModel leitor)
         {
+            leitorTela = leitor;
             lbNome.Text = leitor.Nome;
             lbCPF.Text = leitor.CPF;
             lbTelefone.Text = leitor.Telefone;
@@ -252,6 +256,7 @@ namespace Biblioteca.View.Reserva
             else
             {
                 bool error = false;
+                List<ReservaVisualizarModel> reservasFinalizadas = new List<ReservaVisualizarModel>();
                 foreach (ReservaVisualizarModel reserva in reservas)
                 {
                     if (controller.AtualizarStatusReserva(reserva))
@@ -259,6 +264,10 @@ namespace Biblioteca.View.Reserva
                         if (!controller.AtualizarStatusExemplar(reserva))
                         {
                             error = true;
+                        }
+                        if(reserva.Status_Reserva == "Finalizada" && reserva.Status_Exemplar == "Emprestado")
+                        {
+                            reservasFinalizadas.Add(reserva);
                         }
                     }
                     else
@@ -273,8 +282,46 @@ namespace Biblioteca.View.Reserva
                 }
                 else
                 {
-                    buscarDadosPopularTela(atualizado: true);
-                    MessageBox.Show("Atualizada(s) com sucesso.", "Atenção", MessageBoxButtons.OK);
+                    string mensagemAtrasado = "";
+                    foreach (ReservaVisualizarModel reserva in reservas)
+                    {
+                        if((DateTime.Now > reserva.Data_PegarLivro.AddDays(7)) && reserva.Status_Reserva == "Em Aberto")
+                        {
+                            mensagemAtrasado += $"{reserva.Nome_Livro}\n";
+                        }
+                    }
+
+                    if(mensagemAtrasado != "")
+                    {
+                        MessageBox.Show("Não é possível atualizar o status, pois o(s) exemplar(es) está ou estão atrasado(s):\n\n"+mensagemAtrasado, "Atenção", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        if (reservasFinalizadas.Count > 0)
+                        {
+                            buscarDadosPopularTela(atualizado: true);
+                            controller.InserirLeitorReserva(leitorTela);
+
+                            string mensagem = "Você será redirecionado(a) para cadastro de empréstimo com os seguintes livros:\n\n";
+                            foreach (ReservaVisualizarModel reserva in reservasFinalizadas)
+                            {
+                                mensagem += $"{reserva.Nome_Livro}\n";
+                                controller.InserirExemplarReserva(controller.ListarExemplarPorIdItem(reserva.getItemReservaId()));
+                            }
+
+                            DialogResult dialogResult = MessageBox.Show(mensagem, "Atenção", MessageBoxButtons.OK);
+                            if (dialogResult == DialogResult.OK)
+                            {
+                                EmprestimoCadastroView emprestimo = new EmprestimoCadastroView(emprestarDeReserva: true);
+                                NovaJanela.novaJanela(emprestimo, this.Bounds);
+                            }
+                        }
+                        else
+                        {
+                            buscarDadosPopularTela(atualizado: true);
+                            MessageBox.Show("Atualizada(s) com sucesso.", "Atenção", MessageBoxButtons.OK);
+                        }
+                    }
                 }
             }
         }

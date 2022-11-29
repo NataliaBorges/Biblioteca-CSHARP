@@ -91,6 +91,13 @@ namespace Biblioteca.View.Reserva {
                 lbCpf.Text = leitor.CPF;
                 lbEmail.Text = leitor.Email;
             }
+            else
+            {
+                lbNome.Text = null;
+                lbTelefone.Text = null;
+                lbCpf.Text = null;
+                lbEmail.Text = null;
+            }
         }
         private void btnBuscarLeitor_Click(object sender, EventArgs e)
         {
@@ -123,42 +130,63 @@ namespace Biblioteca.View.Reserva {
             DateTime reserva = CalendarReserva.Value.Date;
             DateTime retirar = CalendarRetirar.Value.Date;
             DateTime hojeMais30 = (DateTime.UtcNow.ToLocalTime()).AddDays(30);
+            string mensagemError = "";
 
-            if ((DateTime.UtcNow.ToLocalTime()).Date != reserva.Date)
+            foreach (ExemplarModel exemplar in this.singleton.getExemplar())
             {
-                MessageBox.Show("A data da reserva não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
+                Nullable<DateTime> data = controller.BuscarDataPrevistaEmprestimoPorExemplar(exemplar.getId());
+                if (data.HasValue)
+                {
+                    if(data.Value > retirar)
+                    {
+                        mensagemError += $"{data.Value.ToString("dd/MM/yyyy")} | {exemplar.Titulo}\n";
+                    }
+                }
             }
-            else if (retirar.Date > hojeMais30.Date)
+
+            if(mensagemError != "")
             {
-                MessageBox.Show("Prazo máximo de retirada é de 30 dias.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (retirar < reserva)
-            {
-                MessageBox.Show("Data de retirada não pode ser menor que a data de reserva.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (dtGridViewExemplares.Rows.Count <= 0)
-            {
-                MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
-            }
-            else if (controller.PegarLeitorReserva() == null)
-            {
-                MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+                mensagemError = "Existe(m) exemplar(es) que está ou estão emprestado(s).\n\nO(s) exemplar(es) selecionado(s) só poderá ou poderão ser retirados a partir de:.\n\n" + mensagemError;
+                MessageBox.Show(mensagemError, "Ateção", MessageBoxButtons.OK);
             }
             else
             {
-                foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                if ((DateTime.UtcNow.ToLocalTime()).Date != reserva.Date)
                 {
-                    if (controller.Insercao(reserva, retirar))
-                    {
-                        int idReserva = controller.BuscarUltimoReserva();
-                        controller.RelacionarExemplarReserva(idReserva, exemplar);
-                    }
+                    MessageBox.Show("A data da reserva não pode ser diferente de hoje.", "Ateção", MessageBoxButtons.OK);
                 }
+                else if (retirar.Date > hojeMais30.Date)
+                {
+                    MessageBox.Show("Prazo máximo de retirada é de 30 dias.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (retirar < reserva)
+                {
+                    MessageBox.Show("Data de retirada não pode ser menor que a data de reserva.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (dtGridViewExemplares.Rows.Count <= 0)
+                {
+                    MessageBox.Show("É necessário selecionar ao menos um exemplar.", "Ateção", MessageBoxButtons.OK);
+                }
+                else if (controller.PegarLeitorReserva() == null)
+                {
+                    MessageBox.Show("É necessário selecionar um leitor.", "Ateção", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    foreach (ExemplarModel exemplar in this.singleton.getExemplar())
+                    {
+                        if (controller.Insercao(reserva, retirar))
+                        {
+                            int idReserva = controller.BuscarUltimoReserva();
+                            controller.RelacionarExemplarReserva(idReserva, exemplar);
+                        }
+                    }
 
-                this.singleton.clearReserva();
-
-                MessageBox.Show("Reservado com sucesso", "Parabéns", MessageBoxButtons.OK);
-                //this.Close();
+                    this.singleton.clearReserva();
+                    popularLeitor(null);
+                    MessageBox.Show("Reservado com sucesso", "Parabéns", MessageBoxButtons.OK);
+                    //this.Close();
+                }
             }
         }
         private void icbtnVoltar_Click(object sender, EventArgs e)

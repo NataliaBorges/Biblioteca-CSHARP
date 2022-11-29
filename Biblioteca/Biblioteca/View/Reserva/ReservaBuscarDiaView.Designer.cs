@@ -37,7 +37,7 @@
             this.IcnBtnVoltar = new FontAwesome.Sharp.IconButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAtualizar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblNotFoundDay = new System.Windows.Forms.Label();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.cbStatus = new System.Windows.Forms.ComboBox();
@@ -45,18 +45,18 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbExemplar = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbReserva = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dtFinal = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtInicial = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.rbLivro = new System.Windows.Forms.RadioButton();
+            this.rbLeitor = new System.Windows.Forms.RadioButton();
+            this.tbBuscar = new System.Windows.Forms.TextBox();
             this.lblCadastroLivro = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
@@ -119,12 +119,13 @@
             this.IcnBtnVoltar.Tag = "";
             this.IcnBtnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.IcnBtnVoltar.UseVisualStyleBackColor = true;
+            this.IcnBtnVoltar.Click += new System.EventHandler(this.IcnBtnVoltar_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(14)))), ((int)(((byte)(14)))), ((int)(((byte)(14)))));
             this.panel3.Controls.Add(this.btnAtualizar);
-            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.lblNotFoundDay);
             this.panel3.Controls.Add(this.lblNotFound);
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.cbStatus);
@@ -151,20 +152,21 @@
             this.btnAtualizar.TabIndex = 103;
             this.btnAtualizar.Text = "EDITAR";
             this.btnAtualizar.UseVisualStyleBackColor = false;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
-            // label1
+            // lblNotFoundDay
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(503, 333);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 21);
-            this.label1.TabIndex = 98;
-            this.label1.Text = "Não Encontrado";
-            this.label1.Visible = false;
+            this.lblNotFoundDay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblNotFoundDay.AutoSize = true;
+            this.lblNotFoundDay.BackColor = System.Drawing.Color.Black;
+            this.lblNotFoundDay.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblNotFoundDay.ForeColor = System.Drawing.Color.White;
+            this.lblNotFoundDay.Location = new System.Drawing.Point(503, 333);
+            this.lblNotFoundDay.Name = "lblNotFoundDay";
+            this.lblNotFoundDay.Size = new System.Drawing.Size(128, 21);
+            this.lblNotFoundDay.TabIndex = 98;
+            this.lblNotFoundDay.Text = "Não Encontrado";
+            this.lblNotFoundDay.Visible = false;
             // 
             // lblNotFound
             // 
@@ -252,6 +254,7 @@
             this.dtGridViewEmprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtGridViewEmprestimo.Size = new System.Drawing.Size(1016, 307);
             this.dtGridViewEmprestimo.TabIndex = 30;
+            this.dtGridViewEmprestimo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtGridViewEmprestimo_CellClick);
             // 
             // btnBuscar
             // 
@@ -271,12 +274,12 @@
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.dtFinal);
             this.panel2.Controls.Add(this.label18);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dtInicial);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tbBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
@@ -286,7 +289,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.comboBox3);
+            this.groupBox2.Controls.Add(this.cbExemplar);
             this.groupBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.White;
             this.groupBox2.Location = new System.Drawing.Point(584, 5);
@@ -296,20 +299,27 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "STATUS DO EXEMPLAR";
             // 
-            // comboBox3
+            // cbExemplar
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(25, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(197, 28);
-            this.comboBox3.TabIndex = 96;
+            this.cbExemplar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbExemplar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbExemplar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbExemplar.FormattingEnabled = true;
+            this.cbExemplar.Items.AddRange(new object[] {
+            "Todos",
+            "Reservado",
+            "Disponível",
+            "Emprestado"});
+            this.cbExemplar.Location = new System.Drawing.Point(25, 26);
+            this.cbExemplar.Name = "cbExemplar";
+            this.cbExemplar.Size = new System.Drawing.Size(197, 28);
+            this.cbExemplar.TabIndex = 96;
+            this.cbExemplar.SelectedIndexChanged += new System.EventHandler(this.cbExemplar_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.cbReserva);
             this.groupBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(309, 5);
@@ -319,15 +329,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "STATUS DA RESERVA";
             // 
-            // comboBox2
+            // cbReserva
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(23, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(197, 28);
-            this.comboBox2.TabIndex = 96;
+            this.cbReserva.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbReserva.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbReserva.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cbReserva.FormattingEnabled = true;
+            this.cbReserva.Items.AddRange(new object[] {
+            "Todos",
+            "Em Aberto",
+            "Cancelada",
+            "Finalizada"});
+            this.cbReserva.Location = new System.Drawing.Point(23, 27);
+            this.cbReserva.Name = "cbReserva";
+            this.cbReserva.Size = new System.Drawing.Size(197, 28);
+            this.cbReserva.TabIndex = 96;
+            this.cbReserva.SelectedIndexChanged += new System.EventHandler(this.cbReserva_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -341,16 +358,17 @@
             this.label5.TabIndex = 116;
             this.label5.Text = "Pesquisar:";
             // 
-            // dateTimePicker2
+            // dtFinal
             // 
-            this.dateTimePicker2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(929, 32);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(139, 27);
-            this.dateTimePicker2.TabIndex = 115;
+            this.dtFinal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtFinal.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtFinal.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFinal.Location = new System.Drawing.Point(929, 32);
+            this.dtFinal.Name = "dtFinal";
+            this.dtFinal.Size = new System.Drawing.Size(139, 27);
+            this.dtFinal.TabIndex = 115;
+            this.dtFinal.ValueChanged += new System.EventHandler(this.dtFinal_ValueChanged);
             // 
             // label18
             // 
@@ -364,16 +382,17 @@
             this.label18.TabIndex = 114;
             this.label18.Text = "Data Final:";
             // 
-            // dateTimePicker1
+            // dtInicial
             // 
-            this.dateTimePicker1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(934, 91);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 27);
-            this.dateTimePicker1.TabIndex = 113;
+            this.dtInicial.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtInicial.CalendarFont = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtInicial.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtInicial.Location = new System.Drawing.Point(934, 91);
+            this.dtInicial.Name = "dtInicial";
+            this.dtInicial.Size = new System.Drawing.Size(134, 27);
+            this.dtInicial.TabIndex = 113;
+            this.dtInicial.ValueChanged += new System.EventHandler(this.dtInicial_ValueChanged);
             // 
             // label17
             // 
@@ -390,8 +409,8 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.rbLivro);
+            this.groupBox3.Controls.Add(this.rbLeitor);
             this.groupBox3.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.ForeColor = System.Drawing.Color.White;
             this.groupBox3.Location = new System.Drawing.Point(55, 19);
@@ -401,42 +420,45 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TIPO DE BUSCA";
             // 
-            // radioButton1
+            // rbLivro
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(25, 26);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(96, 24);
-            this.radioButton1.TabIndex = 20;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Exemplar";
-            this.radioButton1.UseVisualStyleBackColor = false;
+            this.rbLivro.AutoSize = true;
+            this.rbLivro.BackColor = System.Drawing.Color.Transparent;
+            this.rbLivro.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbLivro.ForeColor = System.Drawing.Color.White;
+            this.rbLivro.Location = new System.Drawing.Point(25, 26);
+            this.rbLivro.Name = "rbLivro";
+            this.rbLivro.Size = new System.Drawing.Size(96, 24);
+            this.rbLivro.TabIndex = 20;
+            this.rbLivro.TabStop = true;
+            this.rbLivro.Text = "Exemplar";
+            this.rbLivro.UseVisualStyleBackColor = false;
+            this.rbLivro.CheckedChanged += new System.EventHandler(this.rbLivro_CheckedChanged);
             // 
-            // radioButton2
+            // rbLeitor
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
-            this.radioButton2.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(25, 56);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(70, 24);
-            this.radioButton2.TabIndex = 21;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Leitor";
-            this.radioButton2.UseVisualStyleBackColor = false;
+            this.rbLeitor.AutoSize = true;
+            this.rbLeitor.BackColor = System.Drawing.Color.Transparent;
+            this.rbLeitor.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.rbLeitor.ForeColor = System.Drawing.Color.White;
+            this.rbLeitor.Location = new System.Drawing.Point(25, 56);
+            this.rbLeitor.Name = "rbLeitor";
+            this.rbLeitor.Size = new System.Drawing.Size(70, 24);
+            this.rbLeitor.TabIndex = 21;
+            this.rbLeitor.TabStop = true;
+            this.rbLeitor.Text = "Leitor";
+            this.rbLeitor.UseVisualStyleBackColor = false;
+            this.rbLeitor.CheckedChanged += new System.EventHandler(this.rbLeitor_CheckedChanged);
             // 
-            // textBox1
+            // tbBuscar
             // 
-            this.textBox1.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(423, 89);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PlaceholderText = "Digite aqui";
-            this.textBox1.Size = new System.Drawing.Size(374, 27);
-            this.textBox1.TabIndex = 19;
+            this.tbBuscar.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbBuscar.Location = new System.Drawing.Point(423, 89);
+            this.tbBuscar.Name = "tbBuscar";
+            this.tbBuscar.PlaceholderText = "Digite aqui";
+            this.tbBuscar.Size = new System.Drawing.Size(374, 27);
+            this.tbBuscar.TabIndex = 19;
+            this.tbBuscar.TextChanged += new System.EventHandler(this.tbBuscar_TextChanged);
             // 
             // lblCadastroLivro
             // 
@@ -478,6 +500,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReservaBuscarDiaView";
             this.Text = "ReservaBuscarDiaView";
+            this.Activated += new System.EventHandler(this.ReservaBuscarDiaView_Activated);
+            this.Load += new System.EventHandler(this.ReservaBuscarDiaView_Load);
             this.pnltotal.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -500,29 +524,29 @@
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton IcnBtnVoltar;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbLivro;
+        private System.Windows.Forms.RadioButton rbLeitor;
         private System.Windows.Forms.Label lblNotFound;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cbStatus;
         private System.Windows.Forms.DataGridView dtGridViewEmprestimo;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.Label lblCadastroLivro;
         private Util.Head head1;
         private Util.MenuControl menuControl1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNotFoundDay;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dtFinal;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtInicial;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbExemplar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbReserva;
     }
 }

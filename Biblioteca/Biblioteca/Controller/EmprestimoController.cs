@@ -1501,5 +1501,32 @@ namespace Biblioteca.Controller
             }
         }
 
+        public bool ExemplarNaoFoiDevolvido(int id)
+        {
+            Cmd.ExecuteReader().Close();
+            Cmd.Connection = connection.RetornaConexao();
+            Cmd.CommandText = @"SELECT Emprestimo.Id
+                                FROM Emprestimo
+                                INNER JOIN Item_Emprestimo ON (Item_Emprestimo.Id_emprestimo = Emprestimo.Id)
+                                INNER JOIN Exemplar ON (Exemplar.Id = Item_Emprestimo.Id_exemplar)
+                                WHERE Exemplar.id = '"+id+"' AND Emprestimo.Id_emprestimoStatus = 1 AND Item_Emprestimo.Id_Status = 7 AND Emprestimo.Data_Finalizado IS NULL";
+            Cmd.Parameters.Clear();
+
+            SqlDataReader reader = Cmd.ExecuteReader();
+
+            bool naoFoiDevolvido = false;
+
+            while (reader.Read())
+            {
+                if (!reader.IsDBNull(0))
+                {
+                    naoFoiDevolvido = true;
+                }
+            }
+            reader.Close();
+
+            return naoFoiDevolvido;
+        }
+
     }
 }

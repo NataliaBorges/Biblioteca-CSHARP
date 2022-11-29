@@ -39,24 +39,24 @@ namespace Biblioteca.View {
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             this.lbReserva = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             this.lbEmprestimo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             this.lbExemplar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
             this.lbUsuarioQtd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.head1 = new Biblioteca.Util.Head();
             this.menuControl1 = new Biblioteca.Util.MenuControl();
             this.pnltotal = new System.Windows.Forms.TableLayoutPanel();
-            this.iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
-            this.iconPictureBox4 = new FontAwesome.Sharp.IconPictureBox();
             this.panelDesktop.SuspendLayout();
             this.pnlPrincipal.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -64,14 +64,14 @@ namespace Biblioteca.View {
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnltotal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).BeginInit();
+            this.pnltotal.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDesktop
@@ -130,6 +130,7 @@ namespace Biblioteca.View {
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(283, 94);
             this.panel8.TabIndex = 2;
+            this.panel8.Click += new System.EventHandler(this.panel8_Click);
             // 
             // linkLabel2
             // 
@@ -232,6 +233,21 @@ namespace Biblioteca.View {
             this.panel5.Size = new System.Drawing.Size(174, 94);
             this.panel5.TabIndex = 3;
             // 
+            // iconPictureBox4
+            // 
+            this.iconPictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.iconPictureBox4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox4.IconSize = 43;
+            this.iconPictureBox4.Location = new System.Drawing.Point(34, 48);
+            this.iconPictureBox4.Name = "iconPictureBox4";
+            this.iconPictureBox4.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox4.TabIndex = 4;
+            this.iconPictureBox4.TabStop = false;
+            // 
             // lbReserva
             // 
             this.lbReserva.AutoSize = true;
@@ -265,6 +281,21 @@ namespace Biblioteca.View {
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(174, 94);
             this.panel4.TabIndex = 2;
+            // 
+            // iconPictureBox3
+            // 
+            this.iconPictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
+            this.iconPictureBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            this.iconPictureBox3.IconSize = 43;
+            this.iconPictureBox3.Location = new System.Drawing.Point(34, 48);
+            this.iconPictureBox3.Name = "iconPictureBox3";
+            this.iconPictureBox3.Size = new System.Drawing.Size(43, 43);
+            this.iconPictureBox3.TabIndex = 4;
+            this.iconPictureBox3.TabStop = false;
             // 
             // lbEmprestimo
             // 
@@ -300,6 +331,21 @@ namespace Biblioteca.View {
             this.panel3.Size = new System.Drawing.Size(174, 94);
             this.panel3.TabIndex = 1;
             // 
+            // iconPictureBox2
+            // 
+            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconPictureBox2.IconSize = 43;
+            this.iconPictureBox2.Location = new System.Drawing.Point(35, 48);
+            this.iconPictureBox2.Name = "iconPictureBox2";
+            this.iconPictureBox2.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox2.TabIndex = 4;
+            this.iconPictureBox2.TabStop = false;
+            // 
             // lbExemplar
             // 
             this.lbExemplar.AutoSize = true;
@@ -333,6 +379,21 @@ namespace Biblioteca.View {
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(174, 94);
             this.panel2.TabIndex = 0;
+            // 
+            // iconPictureBox1
+            // 
+            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
+            this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.BookReader;
+            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
+            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconPictureBox1.IconSize = 43;
+            this.iconPictureBox1.Location = new System.Drawing.Point(31, 48);
+            this.iconPictureBox1.Name = "iconPictureBox1";
+            this.iconPictureBox1.Size = new System.Drawing.Size(45, 43);
+            this.iconPictureBox1.TabIndex = 3;
+            this.iconPictureBox1.TabStop = false;
             // 
             // lbUsuarioQtd
             // 
@@ -390,66 +451,6 @@ namespace Biblioteca.View {
             this.pnltotal.Size = new System.Drawing.Size(1321, 734);
             this.pnltotal.TabIndex = 5;
             // 
-            // iconPictureBox1
-            // 
-            this.iconPictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
-            this.iconPictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconPictureBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.BookReader;
-            this.iconPictureBox1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconPictureBox1.IconSize = 43;
-            this.iconPictureBox1.Location = new System.Drawing.Point(31, 48);
-            this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(45, 43);
-            this.iconPictureBox1.TabIndex = 3;
-            this.iconPictureBox1.TabStop = false;
-            // 
-            // iconPictureBox2
-            // 
-            this.iconPictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
-            this.iconPictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconPictureBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
-            this.iconPictureBox2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconPictureBox2.IconSize = 43;
-            this.iconPictureBox2.Location = new System.Drawing.Point(35, 48);
-            this.iconPictureBox2.Name = "iconPictureBox2";
-            this.iconPictureBox2.Size = new System.Drawing.Size(45, 43);
-            this.iconPictureBox2.TabIndex = 4;
-            this.iconPictureBox2.TabStop = false;
-            // 
-            // iconPictureBox3
-            // 
-            this.iconPictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
-            this.iconPictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconPictureBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.CalendarCheck;
-            this.iconPictureBox3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.iconPictureBox3.IconSize = 43;
-            this.iconPictureBox3.Location = new System.Drawing.Point(34, 48);
-            this.iconPictureBox3.Name = "iconPictureBox3";
-            this.iconPictureBox3.Size = new System.Drawing.Size(43, 43);
-            this.iconPictureBox3.TabIndex = 4;
-            this.iconPictureBox3.TabStop = false;
-            // 
-            // iconPictureBox4
-            // 
-            this.iconPictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(47)))), ((int)(((byte)(77)))));
-            this.iconPictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.iconPictureBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
-            this.iconPictureBox4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(217)))), ((int)(((byte)(223)))));
-            this.iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox4.IconSize = 43;
-            this.iconPictureBox4.Location = new System.Drawing.Point(34, 48);
-            this.iconPictureBox4.Name = "iconPictureBox4";
-            this.iconPictureBox4.Size = new System.Drawing.Size(45, 43);
-            this.iconPictureBox4.TabIndex = 4;
-            this.iconPictureBox4.TabStop = false;
-            // 
             // PrincipalTelaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -475,17 +476,17 @@ namespace Biblioteca.View {
             this.panel1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.pnltotal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox4)).EndInit();
+            this.pnltotal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
