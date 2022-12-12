@@ -28,14 +28,9 @@ namespace Biblioteca.View {
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -102,28 +97,17 @@ namespace Biblioteca.View {
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.panel9);
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.panel8);
             this.panel6.Controls.Add(this.panel7);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(834, 37);
+            this.panel6.Location = new System.Drawing.Point(837, 34);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(283, 691);
+            this.panel6.Size = new System.Drawing.Size(283, 189);
             this.panel6.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 188);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(283, 94);
-            this.panel9.TabIndex = 3;
             // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(44)))), ((int)(((byte)(39)))));
-            this.panel8.Controls.Add(this.linkLabel2);
-            this.panel8.Controls.Add(this.label6);
             this.panel8.Controls.Add(this.label8);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 94);
@@ -132,34 +116,12 @@ namespace Biblioteca.View {
             this.panel8.TabIndex = 2;
             this.panel8.Click += new System.EventHandler(this.panel8_Click);
             // 
-            // linkLabel2
-            // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(253, 68);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(26, 17);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "ver";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(131, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 26);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "1";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(67, 6);
+            this.label8.Location = new System.Drawing.Point(65, 34);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(168, 23);
             this.label8.TabIndex = 2;
@@ -168,47 +130,24 @@ namespace Biblioteca.View {
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(69)))), ((int)(((byte)(30)))));
-            this.panel7.Controls.Add(this.linkLabel1);
-            this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.label4);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(283, 94);
             this.panel7.TabIndex = 1;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(253, 74);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(26, 17);
-            this.linkLabel1.TabIndex = 3;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "ver";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Book Antiqua", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(131, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 26);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "1";
+            this.panel7.Click += new System.EventHandler(this.panel7_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(50, 15);
+            this.label4.Location = new System.Drawing.Point(69, 38);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(202, 23);
+            this.label4.Size = new System.Drawing.Size(152, 23);
             this.label4.TabIndex = 2;
-            this.label4.Text = "DEVOLUÇÕES HOJE:";
+            this.label4.Text = "EMPRÉSTIMOS:";
             // 
             // panel1
             // 
@@ -463,7 +402,8 @@ namespace Biblioteca.View {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PrincipalTelaView";
-            this.Text = "Tela Home";
+            this.Text = "TelaPrincipalController Home";
+            this.Activated += new System.EventHandler(this.PrincipalTelaView_Activated);
             this.Load += new System.EventHandler(this.PrincipalTelaView_Load);
             this.panelDesktop.ResumeLayout(false);
             this.pnlPrincipal.ResumeLayout(false);
@@ -512,14 +452,9 @@ namespace Biblioteca.View {
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel9;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox4;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;

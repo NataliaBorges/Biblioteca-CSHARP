@@ -198,7 +198,7 @@ namespace Biblioteca.View.Reserva {
             this.IcnBtnVoltar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IcnBtnVoltar.IconSize = 30;
             this.IcnBtnVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.IcnBtnVoltar.Location = new System.Drawing.Point(249, 101);
+            this.IcnBtnVoltar.Location = new System.Drawing.Point(254, 112);
             this.IcnBtnVoltar.Name = "IcnBtnVoltar";
             this.IcnBtnVoltar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.IcnBtnVoltar.Size = new System.Drawing.Size(54, 46);
@@ -210,6 +210,7 @@ namespace Biblioteca.View.Reserva {
             // 
             // lblCadastroLivro
             // 
+            this.lblCadastroLivro.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblCadastroLivro.AutoSize = true;
             this.lblCadastroLivro.Font = new System.Drawing.Font("Book Antiqua", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblCadastroLivro.ForeColor = System.Drawing.Color.White;

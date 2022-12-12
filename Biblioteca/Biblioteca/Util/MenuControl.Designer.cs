@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.Menu = new System.Windows.Forms.Panel();
             this.btnFuncionario = new FontAwesome.Sharp.IconButton();
-            this.btnGrafico = new FontAwesome.Sharp.IconButton();
             this.btnRelatório = new FontAwesome.Sharp.IconButton();
             this.btnSair = new FontAwesome.Sharp.IconButton();
             this.btnReserva = new FontAwesome.Sharp.IconButton();
@@ -75,9 +74,7 @@
             this.itemBuscarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.VisualizarReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmRelatorio = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
-            this.RelatorioLivro = new System.Windows.Forms.ToolStripMenuItem();
             this.RelatorioEmprestimo = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRelatorioReserva = new System.Windows.Forms.ToolStripMenuItem();
             this.ddmFuncionario = new RJCodeAdvance.RJControls.RJDropdownMenu(this.components);
             this.itemCadastrarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBuscarFuncionario = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,7 +99,6 @@
             // 
             this.Menu.BackColor = System.Drawing.Color.Black;
             this.Menu.Controls.Add(this.btnFuncionario);
-            this.Menu.Controls.Add(this.btnGrafico);
             this.Menu.Controls.Add(this.btnRelatório);
             this.Menu.Controls.Add(this.btnSair);
             this.Menu.Controls.Add(this.btnReserva);
@@ -129,7 +125,7 @@
             this.btnFuncionario.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFuncionario.IconSize = 30;
             this.btnFuncionario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFuncionario.Location = new System.Drawing.Point(0, 429);
+            this.btnFuncionario.Location = new System.Drawing.Point(0, 383);
             this.btnFuncionario.Name = "btnFuncionario";
             this.btnFuncionario.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnFuncionario.Size = new System.Drawing.Size(198, 46);
@@ -139,28 +135,6 @@
             this.btnFuncionario.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFuncionario.UseVisualStyleBackColor = true;
             this.btnFuncionario.Click += new System.EventHandler(this.btnFuncionario_Click);
-            // 
-            // btnGrafico
-            // 
-            this.btnGrafico.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnGrafico.FlatAppearance.BorderSize = 0;
-            this.btnGrafico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrafico.Font = new System.Drawing.Font("Book Antiqua", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGrafico.ForeColor = System.Drawing.Color.White;
-            this.btnGrafico.IconChar = FontAwesome.Sharp.IconChar.ChartLine;
-            this.btnGrafico.IconColor = System.Drawing.Color.Chocolate;
-            this.btnGrafico.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGrafico.IconSize = 30;
-            this.btnGrafico.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGrafico.Location = new System.Drawing.Point(0, 383);
-            this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnGrafico.Size = new System.Drawing.Size(198, 46);
-            this.btnGrafico.TabIndex = 9;
-            this.btnGrafico.Tag = "Gráfico";
-            this.btnGrafico.Text = "  Gráfico";
-            this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGrafico.UseVisualStyleBackColor = true;
             // 
             // btnRelatório
             // 
@@ -660,35 +634,19 @@
             this.ddmRelatorio.Font = new System.Drawing.Font("Book Antiqua", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ddmRelatorio.IsMainMenu = false;
             this.ddmRelatorio.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RelatorioLivro,
-            this.RelatorioEmprestimo,
-            this.btnRelatorioReserva});
+            this.RelatorioEmprestimo});
             this.ddmRelatorio.MenuItemHeight = 25;
             this.ddmRelatorio.MenuItemTextColor = System.Drawing.Color.Empty;
             this.ddmRelatorio.Name = "rjDropdownMenu1";
             this.ddmRelatorio.PrimaryColor = System.Drawing.Color.Empty;
-            this.ddmRelatorio.Size = new System.Drawing.Size(154, 70);
-            // 
-            // RelatorioLivro
-            // 
-            this.RelatorioLivro.Name = "RelatorioLivro";
-            this.RelatorioLivro.Size = new System.Drawing.Size(153, 22);
-            this.RelatorioLivro.Text = "Livro";
-            this.RelatorioLivro.Click += new System.EventHandler(this.RelatorioLivro_Click);
+            this.ddmRelatorio.Size = new System.Drawing.Size(181, 48);
             // 
             // RelatorioEmprestimo
             // 
             this.RelatorioEmprestimo.Name = "RelatorioEmprestimo";
-            this.RelatorioEmprestimo.Size = new System.Drawing.Size(153, 22);
+            this.RelatorioEmprestimo.Size = new System.Drawing.Size(180, 22);
             this.RelatorioEmprestimo.Text = "Empréstimo";
             this.RelatorioEmprestimo.Click += new System.EventHandler(this.RelatorioEmprestimo_Click);
-            // 
-            // btnRelatorioReserva
-            // 
-            this.btnRelatorioReserva.Name = "btnRelatorioReserva";
-            this.btnRelatorioReserva.Size = new System.Drawing.Size(153, 22);
-            this.btnRelatorioReserva.Text = "Reserva";
-            this.btnRelatorioReserva.Click += new System.EventHandler(this.btnRelatorioReserva_Click);
             // 
             // ddmFuncionario
             // 

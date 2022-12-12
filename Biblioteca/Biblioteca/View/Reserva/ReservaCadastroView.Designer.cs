@@ -204,7 +204,7 @@ namespace Biblioteca.View.Reserva {
             this.btnBuscarLivros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnBuscarLivros.IconSize = 30;
             this.btnBuscarLivros.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarLivros.Location = new System.Drawing.Point(381, 242);
+            this.btnBuscarLivros.Location = new System.Drawing.Point(846, 238);
             this.btnBuscarLivros.Name = "btnBuscarLivros";
             this.btnBuscarLivros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnBuscarLivros.Size = new System.Drawing.Size(174, 37);

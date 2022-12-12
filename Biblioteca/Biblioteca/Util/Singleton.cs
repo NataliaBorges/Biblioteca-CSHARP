@@ -15,7 +15,7 @@ namespace Biblioteca.Util {
         private bool addExemplar = false;
         private bool addAutor = false;
 
-        //Tela buscar Livro para Editar
+        //TelaPrincipalController buscar Livro para Editar
         private LivroModel livroExemplar;
         //
 
@@ -176,7 +176,7 @@ namespace Biblioteca.Util {
             this.leitor = null;
         }
 
-        //Tela buscar Livro para Editar
+        //TelaPrincipalController buscar Livro para Editar
         public LivroModel getLivroExemplar()
         {
             return this.livroExemplar;

@@ -31,8 +31,6 @@ namespace Biblioteca.Controller
                                 INNER JOIN Funcao ON (Funcao.Id = Funcionario.Id_funcao)
                                 WHERE Email=@Email AND Senha=@Senha";
             Cmd.Parameters.Clear();
-            email = "najimbtsarmy@gmail.com";
-            senha = "1234";
             Cmd.Parameters.AddWithValue("@Email", email);
             Cmd.Parameters.AddWithValue("@Senha", senha);
 

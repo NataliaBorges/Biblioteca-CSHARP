@@ -32,7 +32,6 @@
             this.pnlMaxmin = new System.Windows.Forms.Panel();
             this.icButtonFechar = new FontAwesome.Sharp.IconButton();
             this.icButtonMin = new FontAwesome.Sharp.IconButton();
-            this.icButtonMax = new FontAwesome.Sharp.IconButton();
             this.pnlUser = new System.Windows.Forms.Panel();
             this.lblUser = new System.Windows.Forms.Label();
             this.pboxUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
@@ -67,10 +66,9 @@
             this.pnlMaxmin.BackColor = System.Drawing.Color.DimGray;
             this.pnlMaxmin.Controls.Add(this.icButtonFechar);
             this.pnlMaxmin.Controls.Add(this.icButtonMin);
-            this.pnlMaxmin.Controls.Add(this.icButtonMax);
-            this.pnlMaxmin.Location = new System.Drawing.Point(956, 0);
+            this.pnlMaxmin.Location = new System.Drawing.Point(988, 3);
             this.pnlMaxmin.Name = "pnlMaxmin";
-            this.pnlMaxmin.Size = new System.Drawing.Size(107, 38);
+            this.pnlMaxmin.Size = new System.Drawing.Size(75, 38);
             this.pnlMaxmin.TabIndex = 8;
             // 
             // icButtonFechar
@@ -82,7 +80,7 @@
             this.icButtonFechar.IconColor = System.Drawing.Color.White;
             this.icButtonFechar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.icButtonFechar.IconSize = 20;
-            this.icButtonFechar.Location = new System.Drawing.Point(66, 0);
+            this.icButtonFechar.Location = new System.Drawing.Point(34, -2);
             this.icButtonFechar.Name = "icButtonFechar";
             this.icButtonFechar.Size = new System.Drawing.Size(41, 38);
             this.icButtonFechar.TabIndex = 2;
@@ -106,23 +104,6 @@
             this.icButtonMin.Tag = "";
             this.icButtonMin.UseVisualStyleBackColor = false;
             this.icButtonMin.Click += new System.EventHandler(this.icButtonMin_Click);
-            // 
-            // icButtonMax
-            // 
-            this.icButtonMax.BackColor = System.Drawing.Color.Black;
-            this.icButtonMax.FlatAppearance.BorderSize = 0;
-            this.icButtonMax.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.icButtonMax.IconChar = FontAwesome.Sharp.IconChar.WindowMaximize;
-            this.icButtonMax.IconColor = System.Drawing.Color.White;
-            this.icButtonMax.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icButtonMax.IconSize = 20;
-            this.icButtonMax.Location = new System.Drawing.Point(32, 0);
-            this.icButtonMax.Name = "icButtonMax";
-            this.icButtonMax.Size = new System.Drawing.Size(37, 38);
-            this.icButtonMax.TabIndex = 3;
-            this.icButtonMax.Tag = "";
-            this.icButtonMax.UseVisualStyleBackColor = false;
-            this.icButtonMax.Click += new System.EventHandler(this.icButtonMax_Click);
             // 
             // pnlUser
             // 
@@ -252,6 +233,5 @@
         private System.Windows.Forms.Panel pnlMaxmin;
         private FontAwesome.Sharp.IconButton icButtonFechar;
         private FontAwesome.Sharp.IconButton icButtonMin;
-        private FontAwesome.Sharp.IconButton icButtonMax;
     }
 }

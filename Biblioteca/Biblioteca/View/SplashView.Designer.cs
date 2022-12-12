@@ -102,7 +102,7 @@ namespace Biblioteca.View {
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SplashView";
-            this.Text = "Tela Inicial";
+            this.Text = "TelaPrincipalController Inicial";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
